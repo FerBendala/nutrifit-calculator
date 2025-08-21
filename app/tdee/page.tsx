@@ -68,11 +68,12 @@ export default function TDEEPage() {
             </p>
           </div>
 
-          <AdSlot 
+          {/* AdSlot comentado hasta tener slots reales */}
+          {/* <AdSlot 
             adSlot="5678901234"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
-          />
+          /> */
 
           <Card>
             <CardHeader>
@@ -201,11 +202,12 @@ export default function TDEEPage() {
             </Card>
           )}
 
-          <AdSlot 
+          {/* AdSlot comentado hasta tener slots reales */}
+          {/* <AdSlot 
             adSlot="6789012345"
             style={{ display: 'block', height: '250px' }}
             className="w-full"
-          />
+          /> */}
 
           <div className="prose prose-gray max-w-none">
             <h2 className="text-2xl font-semibold mb-4">

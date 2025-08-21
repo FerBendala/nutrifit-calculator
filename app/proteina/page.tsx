@@ -63,11 +63,12 @@ export default function ProteinaPage() {
             </p>
           </div>
 
-          <AdSlot 
+          {/* AdSlot comentado hasta tener slots reales */}
+          {/* <AdSlot 
             adSlot="7890123456"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
-          />
+          /> */
 
           <Card>
             <CardHeader>
@@ -167,11 +168,12 @@ export default function ProteinaPage() {
             </Card>
           )}
 
-          <AdSlot 
+          {/* AdSlot comentado hasta tener slots reales */}
+          {/* <AdSlot 
             adSlot="8901234567"
             style={{ display: 'block', height: '250px' }}
             className="w-full"
-          />
+          /> */}
 
           <div className="prose prose-gray max-w-none">
             <h2 className="text-2xl font-semibold mb-4">

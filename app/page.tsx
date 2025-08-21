@@ -28,12 +28,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Ad Banner */}
-          <AdSlot 
+          {/* Ad Banner - Comentado hasta tener slots reales de AdSense */}
+          {/* <AdSlot 
             adSlot="1234567890"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
-          />
+          /> */}
 
           {/* Calculator */}
           <CalculatorForm />
@@ -82,12 +82,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Ad Rectangle */}
-            <AdSlot 
+            {/* Ad Rectangle - Comentado hasta tener slots reales de AdSense */}
+            {/* <AdSlot 
               adSlot="2345678901"
               style={{ display: 'block', height: '250px' }}
               className="w-full"
-            />
+            /> */}
 
             <div className="bg-blue-50 p-6 rounded-lg">
               <h3 className="font-semibold text-blue-900 mb-2">

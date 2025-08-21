@@ -30,14 +30,20 @@ export function AdSlot({
     try {
       // Check if consent has been given (this would be managed by your consent banner)
       const hasConsent = localStorage.getItem('ads-consent') === 'true';
+      
+      // TEMPORAL: Para testing, cargar siempre (cambiar después)
+      const shouldLoadAd = hasConsent || process.env.NODE_ENV === 'development' || true;
 
-      if (hasConsent) {
+      if (shouldLoadAd) {
+        console.log('Loading AdSense ad for slot:', adSlot);
         (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } else {
+        console.log('AdSense blocked - no consent given');
       }
     } catch (error) {
       console.error('AdSense error:', error);
     }
-  }, [adSenseId]);
+  }, [adSenseId, adSlot]);
 
   // Don't render if no AdSense ID is configured
   if (!adSenseId) {

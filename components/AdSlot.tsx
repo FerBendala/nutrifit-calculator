@@ -15,9 +15,9 @@ interface AdSlotProps {
   className?: string;
 }
 
-export function AdSlot({ 
-  adSlot, 
-  adFormat = "auto", 
+export function AdSlot({
+  adSlot,
+  adFormat = "auto",
   style = { display: 'block' },
   className = ""
 }: AdSlotProps) {
@@ -30,7 +30,7 @@ export function AdSlot({
     try {
       // Check if consent has been given (this would be managed by your consent banner)
       const hasConsent = localStorage.getItem('ads-consent') === 'true';
-      
+
       if (hasConsent) {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       }

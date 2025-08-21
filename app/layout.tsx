@@ -61,10 +61,6 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* AdSense verification meta tag */}
-        {process.env.NEXT_PUBLIC_ADSENSE_ID && (
-          <meta name="google-adsense-account" content={process.env.NEXT_PUBLIC_ADSENSE_ID} />
-        )}
         {/* AdSense verification script - añade aquí el código que te dé AdSense */}
         {process.env.NEXT_PUBLIC_ADSENSE_ID && (
           <script

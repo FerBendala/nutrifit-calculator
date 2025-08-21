@@ -10,21 +10,21 @@ export default function CookiesPage() {
     <Container className="py-8">
       <div className="max-w-4xl mx-auto prose prose-gray">
         <h1>Política de Cookies</h1>
-        
+
         <p className="text-muted-foreground">
           Última actualización: {new Date().toLocaleDateString('es-ES')}
         </p>
 
         <h2>1. ¿Qué son las cookies?</h2>
-        
+
         <p>
-          Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo 
-          cuando visitas un sitio web. Nos permiten recordar tus preferencias y mejorar 
+          Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo
+          cuando visitas un sitio web. Nos permiten recordar tus preferencias y mejorar
           tu experiencia de navegación.
         </p>
 
         <h2>2. Tipos de cookies que utilizamos</h2>
-        
+
         <h3>2.1 Cookies necesarias</h3>
         <div className="bg-green-50 p-4 rounded-lg">
           <p className="text-green-800 mb-0">
@@ -62,7 +62,7 @@ export default function CookiesPage() {
         </ul>
 
         <h2>3. Finalidades específicas</h2>
-        
+
         <table className="w-full border-collapse border border-gray-300">
           <thead>
             <tr className="bg-gray-50">
@@ -91,7 +91,7 @@ export default function CookiesPage() {
         </table>
 
         <h2>4. Control de cookies</h2>
-        
+
         <h3>4.1 Banner de consentimiento</h3>
         <p>
           Cuando visitas nuestro sitio por primera vez, aparece un banner que te permite:
@@ -124,29 +124,29 @@ export default function CookiesPage() {
         </ul>
 
         <h2>5. Cookies de terceros</h2>
-        
+
         <h3>5.1 Google Analytics</h3>
         <p>
-          Utilizamos Google Analytics para analizar el uso de nuestro sitio. Google puede 
+          Utilizamos Google Analytics para analizar el uso de nuestro sitio. Google puede
           utilizar estos datos según su propia política de privacidad.
         </p>
         <ul>
-          <li><strong>Más información:</strong> <a href="https://policies.google.com/privacy" target=\"_blank" rel="noopener">Política de privacidad de Google</a></li>
-          <li><strong>Opt-out:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target=\"_blank" rel="noopener">Plugin de exclusión de Google Analytics</a></li>
+          <li><strong>Más información:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad de Google</a></li>
+          <li><strong>Opt-out:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Plugin de exclusión de Google Analytics</a></li>
         </ul>
 
         <h3>5.2 Google AdSense</h3>
         <p>
-          Mostramos anuncios a través de Google AdSense para financiar el mantenimiento 
+          Mostramos anuncios a través de Google AdSense para financiar el mantenimiento
           del sitio gratuito.
         </p>
         <ul>
-          <li><strong>Personalización:</strong> <a href="https://adssettings.google.com/" target=\"_blank" rel="noopener">Configuración de anuncios de Google</a></li>
-          <li><strong>Más información:</strong> <a href="https://policies.google.com/technologies/ads" target=\"_blank" rel="noopener">Cómo utiliza Google las cookies publicitarias</a></li>
+          <li><strong>Personalización:</strong> <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Configuración de anuncios de Google</a></li>
+          <li><strong>Más información:</strong> <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Cómo utiliza Google las cookies publicitarias</a></li>
         </ul>
 
         <h2>6. Impacto del rechazo de cookies</h2>
-        
+
         <p>
           Si rechazas las cookies opcionales:
         </p>
@@ -158,14 +158,14 @@ export default function CookiesPage() {
         </ul>
 
         <h2>7. Actualizaciones de la política</h2>
-        
+
         <p>
-          Podemos actualizar esta política de cookies ocasionalmente. Te informaremos 
+          Podemos actualizar esta política de cookies ocasionalmente. Te informaremos
           de cambios significativos a través de nuestro sitio web.
         </p>
 
         <h2>8. Contacto</h2>
-        
+
         <p>
           Si tienes preguntas sobre el uso de cookies, contacta con nosotros:
         </p>
@@ -179,8 +179,8 @@ export default function CookiesPage() {
             ✅ Compromiso de transparencia
           </h3>
           <p className="text-sm text-green-800">
-            Nos comprometemos a ser transparentes sobre el uso de cookies y a darte 
-            control total sobre tus preferencias. Solo utilizamos las cookies necesarias 
+            Nos comprometemos a ser transparentes sobre el uso de cookies y a darte
+            control total sobre tus preferencias. Solo utilizamos las cookies necesarias
             para proporcionar un servicio de calidad.
           </p>
         </div>

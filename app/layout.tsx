@@ -65,6 +65,14 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_ADSENSE_ID && (
           <meta name="google-adsense-account" content={process.env.NEXT_PUBLIC_ADSENSE_ID} />
         )}
+        {/* AdSense verification script - añade aquí el código que te dé AdSense */}
+        {process.env.NEXT_PUBLIC_ADSENSE_ID && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
+            crossOrigin="anonymous"
+          />
+        )}
         {/* GTM will be loaded by consent banner if accepted */}
         {/* AdSense will be loaded by consent banner if accepted */}
       </head>

@@ -61,6 +61,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* AdSense verification meta tag */}
+        {process.env.NEXT_PUBLIC_ADSENSE_ID && (
+          <meta name="google-adsense-account" content={process.env.NEXT_PUBLIC_ADSENSE_ID} />
+        )}
         {/* GTM will be loaded by consent banner if accepted */}
         {/* AdSense will be loaded by consent banner if accepted */}
       </head>

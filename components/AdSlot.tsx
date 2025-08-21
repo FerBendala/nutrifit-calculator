@@ -28,10 +28,10 @@ export function AdSlot({
     if (!adSenseId || !adRef.current) return;
 
     try {
-      // Check if consent has been given (this would be managed by your consent banner)
+      // Check if consent has been given
       const hasConsent = localStorage.getItem('ads-consent') === 'true';
 
-            if (hasConsent) {
+      if (hasConsent && window.adsbygoogle) {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       }
     } catch (error) {

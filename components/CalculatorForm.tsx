@@ -1,22 +1,22 @@
 "use client";
 
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { NumberInput } from './NumberInput';
-import { SelectInput } from './SelectInput';
-import { ResultCard } from './ResultCard';
-import { MacroBreakdown } from './MacroBreakdown';
-import { 
-  ACTIVITY_LEVELS, 
-  GOALS, 
+import {
+  ACTIVITY_LEVELS,
+  GOALS,
   MACRO_DISTRIBUTIONS,
+  UserData,
   calculateBMR,
-  calculateTDEE,
-  calculateTargetCalories,
   calculateMacros,
-  UserData
+  calculateTDEE,
+  calculateTargetCalories
 } from '@/lib/formulas';
+import { useEffect, useRef, useState } from 'react';
+import { MacroBreakdown } from './MacroBreakdown';
+import { NumberInput } from './NumberInput';
+import { ResultCard } from './ResultCard';
+import { SelectInput } from './SelectInput';
 
 interface FormData {
   sex: 'male' | 'female';
@@ -45,25 +45,43 @@ export function CalculatorForm() {
   } | null>(null);
 
   const [isCalculating, setIsCalculating] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  // Cargar datos del localStorage al montar el componente
+  useEffect(() => {
+    const savedData = localStorage.getItem('calculator-form-data');
+    if (savedData) {
+      try {
+        const parsedData = JSON.parse(savedData);
+        setFormData(parsedData);
+      } catch (error) {
+        console.error('Error loading saved data:', error);
+      }
+    }
+  }, []);
 
   const handleInputChange = (field: keyof FormData) => (value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    const newFormData = { ...formData, [field]: value };
+    setFormData(newFormData);
+
+    // Guardar en localStorage
+    localStorage.setItem('calculator-form-data', JSON.stringify(newFormData));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const { age, height, weight, activityLevel } = formData;
-    
+
     if (!age || !height || !weight || !activityLevel) {
       return;
     }
 
     setIsCalculating(true);
-    
+
     // Simulate calculation delay for better UX
     await new Promise(resolve => setTimeout(resolve, 500));
-    
+
     try {
       const userData: UserData = {
         sex: formData.sex,
@@ -71,25 +89,48 @@ export function CalculatorForm() {
         height: parseInt(height),
         weight: parseFloat(weight)
       };
-      
+
       const bmr = calculateBMR(userData);
       const tdee = calculateTDEE(bmr, parseFloat(activityLevel));
       const goalData = GOALS.find(g => g.value === formData.goal)!;
       const targetCalories = calculateTargetCalories(tdee, goalData.adjustment);
       const macroDistribution = MACRO_DISTRIBUTIONS[formData.goal];
       const macros = calculateMacros(targetCalories, userData.weight, macroDistribution);
-      
+
       setResults({
         tdee: Math.round(tdee),
         targetCalories: Math.round(targetCalories),
         macros,
         goal: goalData.label
       });
+
+      // Scroll suave a los resultados después de un pequeño delay
+      setTimeout(() => {
+        resultsRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
     } catch (error) {
       console.error('Calculation error:', error);
     } finally {
       setIsCalculating(false);
     }
+  };
+
+  const handleReset = () => {
+    const defaultData: FormData = {
+      sex: 'male',
+      age: '',
+      height: '',
+      weight: '',
+      activityLevel: '',
+      goal: 'maintain'
+    };
+
+    setFormData(defaultData);
+    setResults(null);
+    localStorage.removeItem('calculator-form-data');
   };
 
   const isFormValid = formData.age && formData.height && formData.weight && formData.activityLevel;
@@ -114,7 +155,7 @@ export function CalculatorForm() {
                 ]}
                 required
               />
-              
+
               <NumberInput
                 id="age"
                 label="Edad"
@@ -123,10 +164,10 @@ export function CalculatorForm() {
                 min={15}
                 max={100}
                 unit="años"
-                placeholder="25"
+                placeholder="30"
                 required
               />
-              
+
               <NumberInput
                 id="height"
                 label="Altura"
@@ -135,10 +176,10 @@ export function CalculatorForm() {
                 min={130}
                 max={250}
                 unit="cm"
-                placeholder="170"
+                placeholder="175"
                 required
               />
-              
+
               <NumberInput
                 id="weight"
                 label="Peso"
@@ -148,11 +189,11 @@ export function CalculatorForm() {
                 max={300}
                 step={0.1}
                 unit="kg"
-                placeholder="70.0"
+                placeholder="75.0"
                 required
               />
             </div>
-            
+
             <div className="space-y-4">
               <SelectInput
                 id="activityLevel"
@@ -166,7 +207,7 @@ export function CalculatorForm() {
                 placeholder="Selecciona tu nivel de actividad"
                 required
               />
-              
+
               <SelectInput
                 id="goal"
                 label="Objetivo"
@@ -179,27 +220,39 @@ export function CalculatorForm() {
                 required
               />
             </div>
-            
-            <Button 
-              type="submit" 
-              disabled={!isFormValid || isCalculating}
-              className="w-full md:w-auto"
-            >
-              {isCalculating ? 'Calculando...' : 'Calcular mis calorías'}
-            </Button>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button
+                type="submit"
+                disabled={!isFormValid || isCalculating}
+                className="flex-1 sm:flex-none"
+              >
+                {isCalculating ? 'Calculando...' : 'Calcular mis calorías'}
+              </Button>
+
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleReset}
+                disabled={isCalculating}
+                className="flex-1 sm:flex-none"
+              >
+                Reiniciar
+              </Button>
+            </div>
           </form>
         </CardContent>
       </Card>
-      
+
       {results && (
-        <div className="space-y-6">
+        <div ref={resultsRef} className="space-y-6">
           <ResultCard
             tdee={results.tdee}
             targetCalories={results.targetCalories}
             macros={results.macros}
             goal={results.goal}
           />
-          
+
           <MacroBreakdown
             macros={results.macros}
             targetCalories={results.targetCalories}

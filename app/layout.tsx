@@ -65,24 +65,7 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_ADSENSE_ID && (
           <meta name="google-adsense-account" content={process.env.NEXT_PUBLIC_ADSENSE_ID} />
         )}
-        {/* AdSense script - solo para verificación inicial, luego se carga por consentimiento */}
-        {process.env.NEXT_PUBLIC_ADSENSE_ID && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
-            crossOrigin="anonymous"
-          />
-        )}
-        {/* AdSense script will be loaded by consent banner if accepted */}
-        {/* GTM will be loaded by consent banner if accepted */}
-        {process.env.NEXT_PUBLIC_GTM_ID && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');`
-            }}
-          />
-        )}
-        {/* AdSense will be loaded by consent banner if accepted */}
+        {/* Scripts se cargan dinámicamente por ConsentBanner tras aceptar */}
       </head>
       <body className={inter.className}>
         <div className="relative flex min-h-screen flex-col">
@@ -94,9 +77,7 @@ export default function RootLayout({
         </div>
         <ConsentBanner />
         <Toaster />
-        {process.env.NEXT_PUBLIC_GTM_ID && (
-          <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`} height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
-        )}
+        {/* GTM noscript se carga solo si hay consentimiento */}
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { CalculatorIcon } from '@/components/CalculatorIcon';
+import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,10 +10,20 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
-import { Activity, Calculator, Droplet, Scale, Zap } from 'lucide-react';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
+import { Activity, Calculator, Droplet, Menu, Scale, Zap } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const calculators = [
     {
       title: 'Calorías y Macros',
@@ -46,20 +57,48 @@ export function Header() {
     }
   ];
 
+  const MobileMenuContent = () => (
+    <div className="flex flex-col space-y-2 pt-6">
+      {calculators.map((calculator) => {
+        const Icon = calculator.icon;
+        return (
+          <Link
+            key={calculator.href}
+            href={calculator.href}
+            onClick={() => setIsOpen(false)}
+            className="flex items-start space-x-3 rounded-lg p-4 transition-colors hover:bg-accent"
+          >
+            <Icon className="h-5 w-5 mt-0.5 text-primary" />
+            <div className="space-y-1">
+              <div className="font-medium leading-none">
+                {calculator.title}
+              </div>
+              <p className="text-sm text-muted-foreground">
+                {calculator.description}
+              </p>
+            </div>
+          </Link>
+        );
+      })}
+    </div>
+  );
+
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-14 flex items-center">
+      <div className="container mx-auto px-4 h-14 flex items-center justify-between">
+        {/* Logo */}
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <CalculatorIcon className="h-6 w-6" size={24} />
             <span className="hidden font-bold sm:inline-block">
-              Calculadora Fitness
+              NutriFit Calculator
             </span>
           </Link>
         </div>
 
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+        <div className="">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -92,6 +131,31 @@ export function Header() {
               </NavigationMenuList>
             </NavigationMenu>
           </nav>
+
+          {/* Mobile Navigation */}
+          <div className="md:hidden ml-auto">
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-9 w-9 p-0"
+                >
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Abrir menú</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-full sm:w-[400px]">
+                <SheetHeader>
+                  <div className="flex items-center space-x-2">
+                    <CalculatorIcon className="h-6 w-6" size={24} />
+                    <SheetTitle>NutriFit Calculator</SheetTitle>
+                  </div>
+                </SheetHeader>
+                <MobileMenuContent />
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>

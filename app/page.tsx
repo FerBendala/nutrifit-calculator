@@ -88,6 +88,29 @@ export default function HomePage() {
               className="w-full"
             /> */}
 
+            <div className="bg-green-50 p-6 rounded-lg">
+              <h3 className="font-semibold text-green-900 mb-4">
+                🎯 ¿Te estancaste? Cómo ajustar tus calorías
+              </h3>
+              <div className="text-sm text-green-800 space-y-3">
+                <p>
+                  <strong>Si no pierdes peso después de 2-3 semanas:</strong><br />
+                  Reduce 100-150 kcal/día de tu objetivo actual. Prioriza quitar carbohidratos o grasas,
+                  mantén las proteínas estables.
+                </p>
+                <p>
+                  <strong>Si no ganas peso/músculo:</strong><br />
+                  Aumenta 100-200 kcal/día. Añade carbohidratos alrededor del entrenamiento
+                  y asegúrate de consumir suficiente proteína (1.6-2.2g/kg).
+                </p>
+                <p>
+                  <strong>Señales de que necesitas ajustar:</strong><br />
+                  • Peso estable por más de 2 semanas • Pérdida de energía constante
+                  • Hambre extrema o saciedad excesiva • Cambios en el rendimiento deportivo
+                </p>
+              </div>
+            </div>
+
             <div className="bg-blue-50 p-6 rounded-lg">
               <h3 className="font-semibold text-blue-900 mb-2">
                 ⚠️ Importante: Limitaciones y recomendaciones

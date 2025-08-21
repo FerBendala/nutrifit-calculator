@@ -8,39 +8,39 @@ export interface PageMetadata {
 }
 
 export const SITE_CONFIG = {
-  name: 'Calculadora Fitness',
+  name: 'NutriFit Calculator',
   description: 'Calculadora gratuita de calorías, macros, IMC y más. Herramientas profesionales para tu nutrición y fitness.',
-  url: 'https://calculadora-fitness.vercel.app',
+  url: 'https://nutrifit-calculator.com',
   ogImage: '/api/og',
 };
 
 export const PAGE_METADATA: Record<string, PageMetadata> = {
   home: {
-    title: 'Calculadora de Calorías y Macros Gratis - Calculadora Fitness',
+    title: 'Calculadora de Calorías y Macros Gratis - NutriFit Calculator',
     description: 'Calcula tus calorías diarias y distribución de macronutrientes (proteínas, grasas, carbohidratos) según tu objetivo. Fórmula científica Mifflin-St Jeor.',
     keywords: ['calculadora calorías', 'macronutrientes', 'TDEE', 'pérdida peso', 'ganancia músculo', 'nutrición'],
     path: '/'
   },
   imc: {
-    title: 'Calculadora de IMC (Índice de Masa Corporal) - Calculadora Fitness',
+    title: 'Calculadora de IMC (Índice de Masa Corporal) - NutriFit Calculator',
     description: 'Calcula tu Índice de Masa Corporal (IMC) y conoce tu categoría según los estándares de la OMS. Herramienta gratuita y precisa.',
     keywords: ['IMC', 'índice masa corporal', 'peso ideal', 'obesidad', 'sobrepeso'],
     path: '/imc'
   },
   tdee: {
-    title: 'Calculadora TDEE - Gasto Calórico Diario - Calculadora Fitness',
+    title: 'Calculadora TDEE - Gasto Calórico Diario - NutriFit Calculator',
     description: 'Calcula tu TDEE (Total Daily Energy Expenditure) con la fórmula Mifflin-St Jeor. Conoce tu gasto calórico diario según tu actividad física.',
     keywords: ['TDEE', 'gasto calórico', 'metabolismo basal', 'BMR', 'calorías diarias'],
     path: '/tdee'
   },
   proteina: {
-    title: 'Calculadora de Proteína Diaria - Calculadora Fitness',
+    title: 'Calculadora de Proteína Diaria - NutriFit Calculator',
     description: 'Calcula tus necesidades diarias de proteína según tu peso, objetivo y nivel de actividad. Recomendaciones basadas en ciencia.',
     keywords: ['proteína diaria', 'proteínas', 'masa muscular', 'nutrición deportiva'],
     path: '/proteina'
   },
   agua: {
-    title: 'Calculadora de Agua Diaria - Hidratación - Calculadora Fitness',
+    title: 'Calculadora de Agua Diaria - Hidratación - NutriFit Calculator',
     description: 'Calcula cuánta agua debes beber al día según tu peso y nivel de actividad. Mantén una hidratación óptima para tu salud.',
     keywords: ['agua diaria', 'hidratación', 'líquidos', 'salud', 'bienestar'],
     path: '/agua'
@@ -49,14 +49,14 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
 
 export function generateMetadata(page: keyof typeof PAGE_METADATA): Metadata {
   const pageData = PAGE_METADATA[page];
-  
+
   return {
     title: pageData.title,
     description: pageData.description,
     keywords: pageData.keywords,
-    authors: [{ name: 'Calculadora Fitness' }],
-    creator: 'Calculadora Fitness',
-    publisher: 'Calculadora Fitness',
+    authors: [{ name: 'NutriFit Calculator' }],
+    creator: 'NutriFit Calculator',
+    publisher: 'NutriFit Calculator',
     robots: 'index, follow',
     openGraph: {
       title: pageData.title,
@@ -88,7 +88,7 @@ export function generateMetadata(page: keyof typeof PAGE_METADATA): Metadata {
 
 export function generateJsonLd(page: keyof typeof PAGE_METADATA) {
   const pageData = PAGE_METADATA[page];
-  
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -100,7 +100,7 @@ export function generateJsonLd(page: keyof typeof PAGE_METADATA) {
     isAccessibleForFree: true,
     author: {
       '@type': 'Organization',
-      name: 'Calculadora Fitness'
+      name: 'NutriFit Calculator'
     },
     offers: {
       '@type': 'Offer',

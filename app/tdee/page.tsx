@@ -72,7 +72,7 @@ export default function TDEEPage() {
             adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
-          /> */
+          />
 
           <Card>
             <CardHeader>

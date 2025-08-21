@@ -1,7 +1,7 @@
-import { generateMetadata as generateMeta, generateJsonLd } from '@/lib/seo';
+import { AdSlot } from '@/components/AdSlot';
 import { CalculatorForm } from '@/components/CalculatorForm';
 import { Container } from '@/components/Container';
-import { AdSlot } from '@/components/AdSlot';
+import { generateJsonLd, generateMetadata as generateMeta } from '@/lib/seo';
 
 export const metadata = generateMeta('home');
 
@@ -14,7 +14,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
+
       <Container className="py-8">
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Hero Section */}
@@ -23,17 +23,16 @@ export default function HomePage() {
               Calculadora de Calorías y Macronutrientes
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Calcula tus calorías diarias y distribución de macronutrientes personalizada 
+              Calcula tus calorías diarias y distribución de macronutrientes personalizada
               según tu objetivo: perder grasa, mantener peso o ganar músculo.
             </p>
           </div>
 
-          {/* Ad Banner - Comentado hasta tener slots reales de AdSense */}
-          {/* <AdSlot 
-            adSlot="1234567890"
+          <AdSlot
+            adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
-          /> */}
+          />
 
           {/* Calculator */}
           <CalculatorForm />
@@ -44,38 +43,38 @@ export default function HomePage() {
               <h2 className="text-2xl font-semibold mb-4">
                 ¿Cómo funciona nuestra calculadora?
               </h2>
-              
+
               <div className="grid gap-6 md:grid-cols-2">
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">🔬 Fórmula científica</h3>
                   <p className="text-muted-foreground">
-                    Utilizamos la ecuación de Mifflin-St Jeor, reconocida como una de las más 
-                    precisas para calcular el metabolismo basal (BMR). Esta fórmula tiene en cuenta 
+                    Utilizamos la ecuación de Mifflin-St Jeor, reconocida como una de las más
+                    precisas para calcular el metabolismo basal (BMR). Esta fórmula tiene en cuenta
                     tu sexo, edad, altura y peso para determinar las calorías que quemas en reposo.
                   </p>
                 </div>
-                
+
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">⚡ Factor de actividad</h3>
                   <p className="text-muted-foreground">
-                    Multiplicamos tu BMR por un factor que refleja tu nivel de actividad física 
-                    diaria para obtener tu TDEE (Total Daily Energy Expenditure), que representa 
+                    Multiplicamos tu BMR por un factor que refleja tu nivel de actividad física
+                    diaria para obtener tu TDEE (Total Daily Energy Expenditure), que representa
                     las calorías totales que quemas al día.
                   </p>
                 </div>
-                
+
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">🎯 Objetivos personalizados</h3>
                   <p className="text-muted-foreground">
-                    Ajustamos tus calorías según tu objetivo: déficit del 20% para perder grasa, 
+                    Ajustamos tus calorías según tu objetivo: déficit del 20% para perder grasa,
                     mantenimiento para peso estable, o surplus del 10% para ganar masa muscular.
                   </p>
                 </div>
-                
+
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">🥗 Distribución de macros</h3>
                   <p className="text-muted-foreground">
-                    Calculamos la distribución óptima de proteínas, grasas y carbohidratos 
+                    Calculamos la distribución óptima de proteínas, grasas y carbohidratos
                     basada en las últimas evidencias científicas y tu objetivo específico.
                   </p>
                 </div>

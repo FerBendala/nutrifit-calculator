@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from 'react';
-import { generateMetadata as generateMeta, generateJsonLd } from '@/lib/seo';
+import { AdSlot } from '@/components/AdSlot';
 import { Container } from '@/components/Container';
 import { NumberInput } from '@/components/NumberInput';
 import { SelectInput } from '@/components/SelectInput';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/AdSlot';
-import { calculateProteinNeeds } from '@/lib/formulas';
 import { formatGrams } from '@/lib/format';
+import { calculateProteinNeeds } from '@/lib/formulas';
+import { generateJsonLd } from '@/lib/seo';
+import { useState } from 'react';
 
 export default function ProteinaPage() {
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ export default function ProteinaPage() {
     goal: 'active',
     bodyFatPercentage: ''
   });
-  
+
   const [result, setResult] = useState<{ min: number; max: number; } | null>(null);
 
   const handleInputChange = (field: string) => (value: string) => {
@@ -26,18 +26,18 @@ export default function ProteinaPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const { weight, goal } = formData;
-    
+
     if (!weight) return;
-    
+
     const bodyFat = formData.bodyFatPercentage ? parseFloat(formData.bodyFatPercentage) : undefined;
     const proteinNeeds = calculateProteinNeeds(
-      parseFloat(weight), 
+      parseFloat(weight),
       goal as 'sedentary' | 'active' | 'athlete',
       bodyFat
     );
-    
+
     setResult(proteinNeeds);
   };
 
@@ -50,7 +50,7 @@ export default function ProteinaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
+
       <Container className="py-8">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-4">
@@ -58,14 +58,13 @@ export default function ProteinaPage() {
               Calculadora de Proteína Diaria
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Calcula tus necesidades diarias de proteína según tu peso, objetivo 
+              Calcula tus necesidades diarias de proteína según tu peso, objetivo
               y nivel de actividad física basado en evidencia científica.
             </p>
           </div>
 
-          {/* AdSlot comentado hasta tener slots reales */}
-          {/* <AdSlot 
-            adSlot="7890123456"
+          <AdSlot
+            adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
           /> */
@@ -89,7 +88,7 @@ export default function ProteinaPage() {
                     placeholder="70.0"
                     required
                   />
-                  
+
                   <SelectInput
                     id="goal"
                     label="Objetivo/Actividad"
@@ -103,7 +102,7 @@ export default function ProteinaPage() {
                     required
                   />
                 </div>
-                
+
                 <NumberInput
                   id="bodyFatPercentage"
                   label="Porcentaje de grasa corporal (opcional)"
@@ -115,9 +114,9 @@ export default function ProteinaPage() {
                   unit="%"
                   placeholder="15.0"
                 />
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   disabled={!isFormValid}
                   className="w-full md:w-auto"
                 >
@@ -143,7 +142,7 @@ export default function ProteinaPage() {
                         Mínimo diario
                       </div>
                     </div>
-                    
+
                     <div className="p-6 bg-primary text-primary-foreground rounded-lg">
                       <div className="text-2xl font-bold">
                         {formatGrams(result.max)}
@@ -153,7 +152,7 @@ export default function ProteinaPage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 p-4 bg-muted rounded-lg text-left">
                     <h4 className="font-semibold mb-2">💡 Recomendaciones</h4>
                     <ul className="text-sm text-muted-foreground space-y-1">
@@ -179,7 +178,7 @@ export default function ProteinaPage() {
             <h2 className="text-2xl font-semibold mb-4">
               ¿Por qué es importante la proteína?
             </h2>
-            
+
             <div className="grid gap-6 md:grid-cols-2">
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">🏗️ Funciones principales</h3>
@@ -191,7 +190,7 @@ export default function ProteinaPage() {
                   <li>• Control del apetito y saciedad</li>
                 </ul>
               </div>
-              
+
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">🥩 Fuentes de proteína</h3>
                 <ul className="text-sm text-muted-foreground space-y-1">
@@ -208,8 +207,8 @@ export default function ProteinaPage() {
                 🎯 Timing y distribución
               </h3>
               <p className="text-sm text-green-800">
-                Estudios sugieren que distribuir la proteína en 20-40g por comida optimiza 
-                la síntesis proteica muscular. El timing post-entreno es menos crítico 
+                Estudios sugieren que distribuir la proteína en 20-40g por comida optimiza
+                la síntesis proteica muscular. El timing post-entreno es menos crítico
                 si tu ingesta diaria total es adecuada.
               </p>
             </div>

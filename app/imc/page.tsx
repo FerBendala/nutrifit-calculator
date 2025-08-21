@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from 'react';
-import { generateMetadata as generateMeta, generateJsonLd } from '@/lib/seo';
+import { AdSlot } from '@/components/AdSlot';
 import { Container } from '@/components/Container';
 import { NumberInput } from '@/components/NumberInput';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/AdSlot';
 import { calculateBMI } from '@/lib/formulas';
+import { generateJsonLd } from '@/lib/seo';
+import { useState } from 'react';
 
 export default function IMCPage() {
   const [height, setHeight] = useState('');
@@ -16,9 +16,9 @@ export default function IMCPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!height || !weight) return;
-    
+
     const bmiResult = calculateBMI(parseFloat(weight), parseInt(height));
     setResult(bmiResult);
   };
@@ -42,7 +42,7 @@ export default function IMCPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
+
       <Container className="py-8">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-4">
@@ -50,14 +50,13 @@ export default function IMCPage() {
               Calculadora de IMC
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Calcula tu Índice de Masa Corporal (IMC) y conoce tu categoría de peso 
+              Calcula tu Índice de Masa Corporal (IMC) y conoce tu categoría de peso
               según los estándares de la Organización Mundial de la Salud.
             </p>
           </div>
 
-          {/* AdSlot comentado hasta tener slots reales */}
-          {/* <AdSlot 
-            adSlot="3456789012"
+          <AdSlot
+            adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
           /> */
@@ -80,7 +79,7 @@ export default function IMCPage() {
                     placeholder="170"
                     required
                   />
-                  
+
                   <NumberInput
                     id="weight"
                     label="Peso"
@@ -94,9 +93,9 @@ export default function IMCPage() {
                     required
                   />
                 </div>
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   disabled={!isFormValid}
                   className="w-full md:w-auto"
                 >
@@ -121,7 +120,7 @@ export default function IMCPage() {
                       {result.category}
                     </div>
                   </div>
-                  
+
                   <div className="grid gap-4 mt-6">
                     <div className="bg-muted p-4 rounded-lg">
                       <h4 className="font-semibold mb-2">Rangos de IMC (OMS):</h4>
@@ -161,10 +160,10 @@ export default function IMCPage() {
             <h2 className="text-2xl font-semibold mb-4">
               ¿Qué es el Índice de Masa Corporal (IMC)?
             </h2>
-            
+
             <p className="text-muted-foreground mb-4">
-              El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso con tu altura 
-              para determinar si tu peso está dentro de un rango saludable. Se calcula dividiendo 
+              El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso con tu altura
+              para determinar si tu peso está dentro de un rango saludable. Se calcula dividiendo
               tu peso en kilogramos entre tu altura en metros al cuadrado.
             </p>
 

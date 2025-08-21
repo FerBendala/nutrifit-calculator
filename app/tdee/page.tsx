@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from 'react';
-import { generateMetadata as generateMeta, generateJsonLd } from '@/lib/seo';
+import { AdSlot } from '@/components/AdSlot';
 import { Container } from '@/components/Container';
 import { NumberInput } from '@/components/NumberInput';
 import { SelectInput } from '@/components/SelectInput';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/AdSlot';
-import { ACTIVITY_LEVELS, calculateBMR, calculateTDEE, UserData } from '@/lib/formulas';
 import { formatCalories } from '@/lib/format';
+import { ACTIVITY_LEVELS, calculateBMR, calculateTDEE, UserData } from '@/lib/formulas';
+import { generateJsonLd } from '@/lib/seo';
+import { useState } from 'react';
 
 export default function TDEEPage() {
   const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ export default function TDEEPage() {
     weight: '',
     activityLevel: ''
   });
-  
+
   const [result, setResult] = useState<{ bmr: number; tdee: number; } | null>(null);
 
   const handleInputChange = (field: string) => (value: string) => {
@@ -28,21 +28,21 @@ export default function TDEEPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const { age, height, weight, activityLevel } = formData;
-    
+
     if (!age || !height || !weight || !activityLevel) return;
-    
+
     const userData: UserData = {
       sex: formData.sex as 'male' | 'female',
       age: parseInt(age),
       height: parseInt(height),
       weight: parseFloat(weight)
     };
-    
+
     const bmr = calculateBMR(userData);
     const tdee = calculateTDEE(bmr, parseFloat(activityLevel));
-    
+
     setResult({ bmr, tdee });
   };
 
@@ -55,7 +55,7 @@ export default function TDEEPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
+
       <Container className="py-8">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-4">
@@ -63,14 +63,13 @@ export default function TDEEPage() {
               Calculadora TDEE
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Calcula tu TDEE (Total Daily Energy Expenditure) - el total de calorías 
+              Calcula tu TDEE (Total Daily Energy Expenditure) - el total de calorías
               que quemas en un día incluyendo tu actividad física.
             </p>
           </div>
 
-          {/* AdSlot comentado hasta tener slots reales */}
-          {/* <AdSlot 
-            adSlot="5678901234"
+          <AdSlot
+            adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
           /> */
@@ -93,7 +92,7 @@ export default function TDEEPage() {
                     ]}
                     required
                   />
-                  
+
                   <NumberInput
                     id="age"
                     label="Edad"
@@ -105,7 +104,7 @@ export default function TDEEPage() {
                     placeholder="25"
                     required
                   />
-                  
+
                   <NumberInput
                     id="height"
                     label="Altura"
@@ -117,7 +116,7 @@ export default function TDEEPage() {
                     placeholder="170"
                     required
                   />
-                  
+
                   <NumberInput
                     id="weight"
                     label="Peso"
@@ -131,7 +130,7 @@ export default function TDEEPage() {
                     required
                   />
                 </div>
-                
+
                 <SelectInput
                   id="activityLevel"
                   label="Nivel de actividad física"
@@ -144,9 +143,9 @@ export default function TDEEPage() {
                   placeholder="Selecciona tu nivel de actividad"
                   required
                 />
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   disabled={!isFormValid}
                   className="w-full md:w-auto"
                 >
@@ -174,7 +173,7 @@ export default function TDEEPage() {
                       Calorías que quemas en reposo
                     </p>
                   </div>
-                  
+
                   <div className="text-center p-6 bg-primary text-primary-foreground rounded-lg">
                     <div className="text-2xl font-bold">
                       {formatCalories(Math.round(result.tdee))}
@@ -187,7 +186,7 @@ export default function TDEEPage() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="mt-6 p-4 bg-muted rounded-lg">
                   <h4 className="font-semibold mb-2">¿Qué significan estos números?</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
@@ -213,9 +212,9 @@ export default function TDEEPage() {
             <h2 className="text-2xl font-semibold mb-4">
               Entendiendo tu TDEE
             </h2>
-            
+
             <p className="text-muted-foreground mb-4">
-              El TDEE (Total Daily Energy Expenditure) representa la cantidad total de energía 
+              El TDEE (Total Daily Energy Expenditure) representa la cantidad total de energía
               que tu cuerpo gasta en un día completo. Se compone de varios factores:
             </p>
 
@@ -229,7 +228,7 @@ export default function TDEEPage() {
                   <li>• <strong>NEAT (15-30%):</strong> Actividades no ejercicio</li>
                 </ul>
               </div>
-              
+
               <div className="space-y-2">
                 <h3 className="text-lg font-medium">📊 Factores que influyen</h3>
                 <ul className="text-sm text-muted-foreground space-y-1">

@@ -2,7 +2,4 @@
 # Este archivo autoriza a Google AdSense a mostrar anuncios en este sitio
 
 # Google AdSense
-google.com, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-
-# Reemplaza "pub-XXXXXXXXXXXXXXX" con tu ID real de AdSense
-# El formato es: dominio, ID_publisher, tipo_relación, ID_autoridad_certificación
+google.com, pub-1064457889415145, DIRECT, f08c47fec0942fa0

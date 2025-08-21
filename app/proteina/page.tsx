@@ -67,7 +67,7 @@ export default function ProteinaPage() {
             adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
-          /> */
+          />
 
           <Card>
             <CardHeader>

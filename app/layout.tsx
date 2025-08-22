@@ -69,17 +69,75 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* INTERCEPTOR UNIVERSAL CSS - Funciona con cualquier nombre de archivo */}
+        {/* INTERCEPTOR ULTRA-TEMPRANO - Ejecuta ANTES que Lighthouse */}
         <script dangerouslySetInnerHTML={{
           __html: `
-            // SOLUCIÓN UNIVERSAL: Interceptar CUALQUIER CSS independientemente del nombre
+            // SOLUCIÓN CRÍTICA: Interceptar CSS ANTES de que Lighthouse lo detecte
             (function() {
-              console.log('[CSS Interceptor] Iniciando interceptación universal de CSS');
+              console.log('[CSS Interceptor ULTRA] Iniciando interceptación pre-Lighthouse');
               
               // Variables para tracking
               var interceptedFiles = [];
               var originalAppendChild = document.head.appendChild;
               var originalInsertBefore = document.head.insertBefore;
+              var originalCreateElement = document.createElement;
+              
+              // INTERCEPTAR createElement PARA LINKS
+              document.createElement = function(tagName) {
+                var element = originalCreateElement.call(this, tagName);
+                
+                if (tagName.toLowerCase() === 'link') {
+                  console.log('[CSS Interceptor ULTRA] Interceptando creación de link element');
+                  
+                  // Override del setter rel
+                  var originalRelSetter = Object.getOwnPropertyDescriptor(element, 'rel') || 
+                                         Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'rel');
+                  
+                  Object.defineProperty(element, 'rel', {
+                    get: function() {
+                      return originalRelSetter ? originalRelSetter.get.call(this) : this.getAttribute('rel');
+                    },
+                    set: function(value) {
+                      if (value === 'stylesheet' && this.href) {
+                        console.log('[CSS Interceptor ULTRA] Bloqueando rel=stylesheet, forzando preload:', this.href);
+                        // FORZAR preload en lugar de stylesheet
+                        if (originalRelSetter && originalRelSetter.set) {
+                          originalRelSetter.set.call(this, 'preload');
+                        } else {
+                          this.setAttribute('rel', 'preload');
+                        }
+                        this.setAttribute('as', 'style');
+                        this.setAttribute('data-ultra-intercepted', 'true');
+                        
+                        // Handler para conversión diferida
+                        this.onload = function() {
+                          console.log('[CSS Interceptor ULTRA] Convirtiendo preload a stylesheet:', this.href);
+                          this.onload = null;
+                          if (originalRelSetter && originalRelSetter.set) {
+                            originalRelSetter.set.call(this, 'stylesheet');
+                          } else {
+                            this.setAttribute('rel', 'stylesheet');
+                          }
+                        };
+                        
+                        interceptedFiles.push(this.href);
+                        return;
+                      }
+                      
+                      // Comportamiento normal para otros valores
+                      if (originalRelSetter && originalRelSetter.set) {
+                        originalRelSetter.set.call(this, value);
+                      } else {
+                        this.setAttribute('rel', value);
+                      }
+                    },
+                    configurable: true,
+                    enumerable: true
+                  });
+                }
+                
+                return element;
+              };
               
               // Función mejorada para interceptar CSS
               function interceptCSS(node, source) {
@@ -209,12 +267,44 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
 
-        {/* Deshabilitar CSS automático de Next.js para control manual */}
-        <style data-next-hide-fouc data-ampdevmode-only>
-          {`body { visibility: hidden; }`}
-        </style>
+        {/* INTERCEPTOR DE HTML - Más temprano que JavaScript */}
         <script dangerouslySetInnerHTML={{
           __html: `
+            // INTERCEPTOR PRE-PARSE: Interceptar CSS antes de que el navegador lo procese
+            (function() {
+              console.log('[HTML Interceptor] Iniciando interceptación pre-parse');
+              
+              // Interceptar document.write si Next.js lo usa
+              var originalWrite = document.write;
+              document.write = function(html) {
+                if (html && html.includes('rel="stylesheet"')) {
+                  console.log('[HTML Interceptor] Interceptando document.write con CSS');
+                  // Reemplazar stylesheet con preload en el HTML
+                  html = html.replace(/rel="stylesheet"/g, 'rel="preload" as="style" onload="this.onload=null;this.rel=\\'stylesheet\\'"');
+                }
+                return originalWrite.call(this, html);
+              };
+              
+              // Interceptar innerHTML si se usa para insertar CSS
+              var originalInnerHTMLSetter = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+              if (originalInnerHTMLSetter) {
+                Object.defineProperty(Element.prototype, 'innerHTML', {
+                  set: function(html) {
+                    if (html && html.includes('rel="stylesheet"') && this === document.head) {
+                      console.log('[HTML Interceptor] Interceptando innerHTML con CSS en head');
+                      html = html.replace(/rel="stylesheet"/g, 'rel="preload" as="style" onload="this.onload=null;this.rel=\\'stylesheet\\'"');
+                    }
+                    return originalInnerHTMLSetter.set.call(this, html);
+                  },
+                  get: originalInnerHTMLSetter.get,
+                  configurable: true,
+                  enumerable: true
+                });
+              }
+              
+              console.log('[HTML Interceptor] Pre-parse interceptor activado');
+            })();
+            
             // Mostrar body una vez que el CSS crítico esté listo
             document.addEventListener('DOMContentLoaded', function() {
               document.body.style.visibility = 'visible';

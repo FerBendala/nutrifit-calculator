@@ -133,6 +133,40 @@ const nextConfig = {
         console.warn('[Webpack] Error configurando CSS:', error.message);
       }
 
+      // ESTRATEGIA FINAL: Modificar el HTML de salida para interceptar CSS
+      const HtmlWebpackPlugin = config.plugins.find(plugin => plugin.constructor.name === 'HtmlWebpackPlugin');
+      if (HtmlWebpackPlugin) {
+        // Agregar hook para modificar HTML antes de que se genere
+        config.plugins.push({
+          apply: (compiler) => {
+            compiler.hooks.compilation.tap('CSSInterceptorPlugin', (compilation) => {
+              const HtmlWebpackPlugin = require('html-webpack-plugin');
+              HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
+                'CSSInterceptorPlugin',
+                (data, cb) => {
+                  console.log('[CSS Interceptor Plugin] Modificando HTML para CSS no bloqueante');
+
+                  // Reemplazar todos los stylesheets con preload en el HTML final
+                  data.html = data.html.replace(
+                    /<link\s+([^>]*?)rel="stylesheet"([^>]*?)>/gi,
+                    (match, before, after) => {
+                      const href = match.match(/href="([^"]+)"/i);
+                      if (href && href[1].includes('_next/static/css/')) {
+                        console.log('[CSS Interceptor Plugin] Convirtiendo CSS a preload:', href[1]);
+                        return '<link ' + before + 'rel="preload" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"' + after + '><noscript><link ' + before + 'rel="stylesheet"' + after + '></noscript>';
+                      }
+                      return match;
+                    }
+                  );
+
+                  cb(null, data);
+                }
+              );
+            });
+          }
+        });
+      }
+
       // Configuración adicional para evitar CSS bloqueante y polyfills innecesarios
       const originalEntry = config.entry;
       config.entry = () =>

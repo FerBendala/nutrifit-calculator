@@ -1,22 +1,22 @@
 "use client";
 
-import { useState } from 'react';
-import { generateMetadata as generateMeta, generateJsonLd } from '@/lib/seo';
+import { ConditionalAdSlot } from '@/components/ConditionalAdSlot';
 import { Container } from '@/components/Container';
 import { NumberInput } from '@/components/NumberInput';
 import { SelectInput } from '@/components/SelectInput';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/AdSlot';
-import { calculateWaterNeeds } from '@/lib/formulas';
 import { formatMilliliters } from '@/lib/format';
+import { calculateWaterNeeds } from '@/lib/formulas';
+import { generateJsonLd } from '@/lib/seo';
+import { useState } from 'react';
 
 export default function AguaPage() {
   const [formData, setFormData] = useState({
     weight: '',
     activityLevel: 'moderate'
   });
-  
+
   const [result, setResult] = useState<{ min: number; max: number; } | null>(null);
 
   const handleInputChange = (field: string) => (value: string) => {
@@ -25,16 +25,16 @@ export default function AguaPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const { weight, activityLevel } = formData;
-    
+
     if (!weight) return;
-    
+
     const waterNeeds = calculateWaterNeeds(
       parseFloat(weight),
       activityLevel as 'low' | 'moderate' | 'high'
     );
-    
+
     setResult(waterNeeds);
   };
 
@@ -49,7 +49,7 @@ export default function AguaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
+
       <Container className="py-8">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-4">
@@ -57,16 +57,10 @@ export default function AguaPage() {
               Calculadora de Agua Diaria
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Calcula cuánta agua debes beber al día según tu peso y nivel de actividad 
+              Calcula cuánta agua debes beber al día según tu peso y nivel de actividad
               para mantener una hidratación óptima.
             </p>
           </div>
-
-          <AdSlot 
-            adSlot="9012345678"
-            style={{ display: 'block', height: '90px' }}
-            className="w-full"
-          />
 
           <Card>
             <CardHeader>
@@ -87,7 +81,7 @@ export default function AguaPage() {
                     placeholder="70.0"
                     required
                   />
-                  
+
                   <SelectInput
                     id="activityLevel"
                     label="Nivel de actividad/clima"
@@ -101,9 +95,9 @@ export default function AguaPage() {
                     required
                   />
                 </div>
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   disabled={!isFormValid}
                   className="w-full md:w-auto"
                 >
@@ -132,7 +126,7 @@ export default function AguaPage() {
                         ≈ {getGlassesCount(result.min)} vasos
                       </div>
                     </div>
-                    
+
                     <div className="p-6 bg-primary text-primary-foreground rounded-lg">
                       <div className="text-2xl font-bold">
                         {formatMilliliters(result.max)}
@@ -145,7 +139,7 @@ export default function AguaPage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 p-4 bg-muted rounded-lg text-left">
                     <h4 className="font-semibold mb-2">💧 Consejos de hidratación</h4>
                     <ul className="text-sm text-muted-foreground space-y-1">
@@ -161,17 +155,20 @@ export default function AguaPage() {
             </Card>
           )}
 
-          <AdSlot 
-            adSlot="0123456789"
-            style={{ display: 'block', height: '250px' }}
+          {/* AdSlot después del contenido principal */}
+          <ConditionalAdSlot
+            adSlot="9572878239"
+            style={{ display: 'block', height: '90px' }}
             className="w-full"
+            requireInteraction={true}
+            requireElement="[class*='result']"
           />
 
           <div className="prose prose-gray max-w-none">
             <h2 className="text-2xl font-semibold mb-4">
               Importancia de la hidratación adecuada
             </h2>
-            
+
             <div className="grid gap-6 md:grid-cols-2">
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">💪 Funciones vitales</h3>
@@ -183,7 +180,7 @@ export default function AguaPage() {
                   <li>• Mantenimiento de la presión arterial</li>
                 </ul>
               </div>
-              
+
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">⚠️ Signos de deshidratación</h3>
                 <ul className="text-sm text-muted-foreground space-y-1">

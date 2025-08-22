@@ -1,5 +1,5 @@
-import { AdSlot } from '@/components/AdSlot';
 import { CalculatorForm } from '@/components/CalculatorForm';
+import { ConditionalAdSlot } from '@/components/ConditionalAdSlot';
 import { Container } from '@/components/Container';
 import { SocialShare } from '@/components/SocialShare';
 import { generateJsonLd, generateMetadata as generateMeta } from '@/lib/seo';
@@ -37,23 +37,18 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* AdSlot movido después del contenido crítico */}
-          <AdSlot
-            adSlot="9572878239"
-            style={{ display: 'block', height: '90px' }}
-            className="w-full"
-          />
-
-
           {/* Calculator - Contenido crítico primero */}
           <CalculatorForm />
 
-          {/* AdSlot movido después del contenido crítico */}
-          <AdSlot
+          {/* AdSlot movido después del contenido principal */}
+          <ConditionalAdSlot
             adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
+            requireInteraction={true}
           />
+
+
 
           {/* Educational Content */}
           <div className="space-y-6 pt-8">
@@ -98,12 +93,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
-            <AdSlot
-              adSlot="2345678901"
-              style={{ display: 'block', height: '250px' }}
-              className="w-full"
-            />
 
             <div className="grid gap-6 md:grid-cols-2 mt-8">
               <div className="space-y-4">

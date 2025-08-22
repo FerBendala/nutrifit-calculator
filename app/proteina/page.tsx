@@ -1,6 +1,6 @@
 "use client";
 
-import { AdSlot } from '@/components/AdSlot';
+import { ConditionalAdSlot } from '@/components/ConditionalAdSlot';
 import { Container } from '@/components/Container';
 import { NumberInput } from '@/components/NumberInput';
 import { SelectInput } from '@/components/SelectInput';
@@ -62,12 +62,6 @@ export default function ProteinaPage() {
               y nivel de actividad física basado en evidencia científica.
             </p>
           </div>
-
-          <AdSlot
-            adSlot="9572878239"
-            style={{ display: 'block', height: '90px' }}
-            className="w-full"
-          />
 
           <Card>
             <CardHeader>
@@ -167,12 +161,14 @@ export default function ProteinaPage() {
             </Card>
           )}
 
-          {/* AdSlot comentado hasta tener slots reales */}
-          {/* <AdSlot 
-            adSlot="8901234567"
-            style={{ display: 'block', height: '250px' }}
+          {/* AdSlot después del contenido principal */}
+          <ConditionalAdSlot
+            adSlot="9572878239"
+            style={{ display: 'block', height: '90px' }}
             className="w-full"
-          /> */}
+            requireInteraction={true}
+            requireElement="[class*='result']"
+          />
 
           <div className="prose prose-gray max-w-none">
             <h2 className="text-2xl font-semibold mb-4">

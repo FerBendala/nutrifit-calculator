@@ -1,6 +1,6 @@
 "use client";
 
-import { AdSlot } from '@/components/AdSlot';
+import { ConditionalAdSlot } from '@/components/ConditionalAdSlot';
 import { Container } from '@/components/Container';
 import { NumberInput } from '@/components/NumberInput';
 import { Button } from '@/components/ui/button';
@@ -54,12 +54,6 @@ export default function IMCPage() {
               según los estándares de la Organización Mundial de la Salud.
             </p>
           </div>
-
-          <AdSlot
-            adSlot="9572878239"
-            style={{ display: 'block', height: '90px' }}
-            className="w-full"
-          />
 
           <Card>
             <CardHeader>
@@ -149,12 +143,14 @@ export default function IMCPage() {
             </Card>
           )}
 
-          {/* AdSlot comentado hasta tener slots reales */}
-          {/* <AdSlot 
-            adSlot="4567890123"
-            style={{ display: 'block', height: '250px' }}
+          {/* AdSlot después del contenido principal */}
+          <ConditionalAdSlot
+            adSlot="9572878239"
+            style={{ display: 'block', height: '90px' }}
             className="w-full"
-          /> */}
+            requireInteraction={true}
+            requireElement="[class*='result']"
+          />
 
           <div className="prose prose-gray max-w-none">
             <h2 className="text-2xl font-semibold mb-4">

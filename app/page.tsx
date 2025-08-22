@@ -57,7 +57,7 @@ export default function HomePage() {
           <div className="space-golden-lg pt-[2.618rem]">
             <div className="prose prose-gray max-w-none">
               <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
-                ¿Cómo funciona nuestra calculadora?
+                ¿Cómo funciona nuestra calculadora de calorías y macros?
               </h2>
 
               <div className="grid gap-[1.618rem] md:grid-cols-2 mt-[2.618rem]">
@@ -74,10 +74,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="card-golden space-golden-sm">
-                  <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                    <span className="text-2xl mr-3">⚡</span>
-                    Factor de actividad
-                  </h3>
+                                  <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                  <span className="text-2xl mr-3">⚡</span>
+                  Factor de actividad y ejercicio
+                </h3>
                   <p className="text-muted-foreground leading-[1.618]">
                     Multiplicamos tu BMR por un factor que refleja tu nivel de actividad física
                     diaria para obtener tu <a href="/tdee" className="text-blue-600 hover:underline font-medium">TDEE (Total Daily Energy Expenditure)</a>, que representa
@@ -86,10 +86,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="card-golden space-golden-sm">
-                  <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                    <span className="text-2xl mr-3">🎯</span>
-                    Objetivos personalizados
-                  </h3>
+                                  <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                  <span className="text-2xl mr-3">🎯</span>
+                  Objetivos: perder grasa, mantener peso, ganar músculo
+                </h3>
                   <p className="text-muted-foreground leading-[1.618]">
                     Ajustamos tus calorías según tu objetivo: déficit del 20% para perder grasa,
                     mantenimiento para peso estable, o surplus del 10% para ganar masa muscular.
@@ -113,7 +113,7 @@ export default function HomePage() {
               <div className="card-golden-lg space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[1.618rem] flex items-center">
                   <span className="text-2xl mr-3">🏃‍♂️</span>
-                  Niveles de actividad física
+                  Niveles de ejercicio para calcular calorías
                 </h3>
                 <div className="text-sm text-muted-foreground space-golden-xs">
                   <div className="flex justify-between items-center py-[0.382rem] border-b border-border/30">
@@ -142,7 +142,7 @@ export default function HomePage() {
               <div className="card-golden-lg space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[1.618rem] flex items-center">
                   <span className="text-2xl mr-3">📈</span>
-                  Objetivos y ajustes calóricos
+                  Objetivos de peso: perder grasa, mantener, ganar músculo
                 </h3>
                 <div className="text-sm text-muted-foreground space-golden-xs">
                   <div className="flex justify-between items-center py-[0.382rem] border-b border-border/30">

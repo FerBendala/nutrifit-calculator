@@ -16,31 +16,31 @@ export const SITE_CONFIG = {
 
 export const PAGE_METADATA: Record<string, PageMetadata> = {
   home: {
-    title: 'Calculadora de Calorías y Macronutrientes Gratis - NutriFit Calculator',
+    title: 'Calculadora de Calorías y Macros - NutriFit Calculator',
     description: 'Calcula tus calorías diarias y distribución de macronutrientes (proteínas, grasas, carbohidratos) según tu objetivo. Fórmula científica Mifflin-St Jeor.',
     keywords: ['calculadora calorías', 'macronutrientes', 'TDEE', 'pérdida peso', 'ganancia músculo', 'nutrición'],
     path: '/'
   },
   imc: {
-    title: 'Calculadora de IMC (Índice de Masa Corporal) - NutriFit Calculator',
+    title: 'Calculadora de IMC - Índice de Masa Corporal - NutriFit',
     description: 'Calcula tu Índice de Masa Corporal (IMC) y conoce tu categoría según los estándares de la OMS. Herramienta gratuita y precisa.',
     keywords: ['IMC', 'índice masa corporal', 'peso ideal', 'obesidad', 'sobrepeso'],
     path: '/imc'
   },
   tdee: {
-    title: 'Calculadora TDEE - Gasto Calórico Diario - NutriFit Calculator',
+    title: 'Calculadora TDEE - Gasto Calórico Diario - NutriFit',
     description: 'Calcula tu TDEE (Total Daily Energy Expenditure) con la fórmula Mifflin-St Jeor. Conoce tu gasto calórico diario según tu actividad física.',
     keywords: ['TDEE', 'gasto calórico', 'metabolismo basal', 'BMR', 'calorías diarias'],
     path: '/tdee'
   },
   proteina: {
-    title: 'Calculadora de Proteína Diaria - NutriFit Calculator',
+    title: 'Calculadora de Proteína Diaria - NutriFit',
     description: 'Calcula tus necesidades diarias de proteína según tu peso, objetivo y nivel de actividad. Recomendaciones basadas en ciencia.',
     keywords: ['proteína diaria', 'proteínas', 'masa muscular', 'nutrición deportiva'],
     path: '/proteina'
   },
   agua: {
-    title: 'Calculadora de Agua Diaria - Hidratación - NutriFit Calculator',
+    title: 'Calculadora de Agua Diaria - Hidratación - NutriFit',
     description: 'Calcula cuánta agua debes beber al día según tu peso y nivel de actividad. Mantén una hidratación óptima para tu salud.',
     keywords: ['agua diaria', 'hidratación', 'líquidos', 'salud', 'bienestar'],
     path: '/agua'

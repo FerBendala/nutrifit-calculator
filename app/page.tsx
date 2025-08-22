@@ -29,10 +29,10 @@ export default function HomePage() {
 
           <div className="text-center space-y-4">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Calculadora de Calorías y Macronutrientes
+              Calculadora de Calorías y Macros
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Calcula tus calorías diarias y distribución de macronutrientes personalizada
+              Calcula tus calorías diarias y distribución de macros (macronutrientes) personalizada
               según tu objetivo: perder grasa, mantener peso o ganar músculo.
             </p>
           </div>
@@ -71,8 +71,8 @@ export default function HomePage() {
                   <h3 className="text-lg font-medium">⚡ Factor de actividad</h3>
                   <p className="text-muted-foreground">
                     Multiplicamos tu BMR por un factor que refleja tu nivel de actividad física
-                    diaria para obtener tu TDEE (Total Daily Energy Expenditure), que representa
-                    las calorías totales que quemas al día.
+                    diaria para obtener tu <a href="/tdee" className="text-blue-600 hover:underline">TDEE (Total Daily Energy Expenditure)</a>, que representa
+                    las calorías totales que quemas al día. Puedes calcularlo por separado en nuestra calculadora especializada.
                   </p>
                 </div>
 
@@ -87,7 +87,7 @@ export default function HomePage() {
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">🥗 Distribución de macros</h3>
                   <p className="text-muted-foreground">
-                    Calculamos la distribución óptima de proteínas, grasas y carbohidratos
+                    Calculamos la distribución óptima de macros (proteínas, grasas y carbohidratos)
                     basada en las <a href="https://www.who.int/publications/i/item/9789241549028" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">recomendaciones de la OMS</a> y evidencias científicas según tu objetivo específico.
                   </p>
                 </div>
@@ -124,7 +124,7 @@ export default function HomePage() {
               <div className="grid gap-4 md:grid-cols-3">
                 <div className="text-sm text-green-800">
                   <h4 className="font-semibold mb-2">🥩 Proteínas (25-30%)</h4>
-                  <p>1.6-2.2g por kg de peso corporal según <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">estudios científicos</a>. Prioriza carnes magras, pescado, huevos, lácteos y legumbres.</p>
+                  <p>1.6-2.2g por kg de peso corporal según <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">estudios científicos</a>. Calcula tus necesidades específicas con nuestra <a href="/proteina" className="text-blue-600 hover:underline">calculadora de proteína</a>. Prioriza carnes magras, pescado, huevos, lácteos y legumbres.</p>
                 </div>
                 <div className="text-sm text-green-800">
                   <h4 className="font-semibold mb-2">🥑 Grasas (20-35%)</h4>
@@ -165,10 +165,11 @@ export default function HomePage() {
                 ⚠️ Consideraciones importantes de la calculadora
               </h3>
               <ul className="text-sm text-blue-800 space-y-2">
-                <li>• Los resultados son estimaciones basadas en fórmulas poblacionales</li>
-                <li>• La precisión puede variar según la composición corporal individual</li>
+                <li>• Los resultados son estimaciones basadas en fórmulas poblacionales validadas por <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4535334/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">estudios científicos</a></li>
+                <li>• La precisión puede variar según la composición corporal individual - considera usar nuestra <a href="/imc" className="text-blue-600 hover:underline">calculadora de IMC</a> como referencia adicional</li>
                 <li>• Para objetivos específicos, consulta con un nutricionista profesional</li>
                 <li>• Ajusta gradualmente las calorías y monitorea tus resultados</li>
+                <li>• Mantén una <a href="/agua" className="text-blue-600 hover:underline">hidratación adecuada</a> durante tu proceso de cambio corporal</li>
                 <li>• Esta herramienta no sustituye el consejo médico personalizado</li>
               </ul>
             </div>
@@ -197,6 +198,29 @@ export default function HomePage() {
                     Consulta siempre con tu médico para necesidades nutricionales específicas.
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* Calculadoras relacionadas */}
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-lg font-medium mb-4">🧮 Calculadoras relacionadas</h3>
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <a href="/tdee" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
+                  <h4 className="font-semibold text-sm mb-1">Calculadora TDEE</h4>
+                  <p className="text-xs text-muted-foreground">Gasto calórico diario total</p>
+                </a>
+                <a href="/imc" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
+                  <h4 className="font-semibold text-sm mb-1">Calculadora IMC</h4>
+                  <p className="text-xs text-muted-foreground">Índice de masa corporal</p>
+                </a>
+                <a href="/proteina" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
+                  <h4 className="font-semibold text-sm mb-1">Proteína Diaria</h4>
+                  <p className="text-xs text-muted-foreground">Necesidades de proteína</p>
+                </a>
+                <a href="/agua" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
+                  <h4 className="font-semibold text-sm mb-1">Hidratación</h4>
+                  <p className="text-xs text-muted-foreground">Agua diaria necesaria</p>
+                </a>
               </div>
             </div>
 

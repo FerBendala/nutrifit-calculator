@@ -60,11 +60,11 @@ export default function TDEEPage() {
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-4">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Calculadora TDEE
+              Calculadora TDEE - Gasto Calórico Diario
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Calcula tu TDEE (Total Daily Energy Expenditure) - el total de calorías
-              que quemas en un día incluyendo tu actividad física.
+              Calcula tu TDEE (Total Daily Energy Expenditure) - el gasto calórico diario total
+              que quemas incluyendo tu actividad física.
             </p>
           </div>
 
@@ -218,7 +218,7 @@ export default function TDEEPage() {
               <div className="space-y-2">
                 <h3 className="text-lg font-medium">🔥 Componentes del TDEE</h3>
                 <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• <strong>BMR (60-70%):</strong> Metabolismo basal</li>
+                  <li>• <strong>BMR (60-70%):</strong> Metabolismo basal calculado con la <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">ecuación Mifflin-St Jeor</a></li>
                   <li>• <strong>TEF (8-15%):</strong> Termogénesis de alimentos</li>
                   <li>• <strong>EAT (15-30%):</strong> Actividad física planificada</li>
                   <li>• <strong>NEAT (15-30%):</strong> Actividades no ejercicio</li>
@@ -229,10 +229,33 @@ export default function TDEEPage() {
                 <h3 className="text-lg font-medium">📊 Factores que influyen</h3>
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>• Edad, sexo, altura y peso</li>
-                  <li>• Composición corporal (músculo vs grasa)</li>
+                  <li>• Composición corporal (músculo vs grasa) - revisa tu <a href="/imc" className="text-blue-600 hover:underline">IMC</a> como referencia</li>
                   <li>• Nivel de actividad física</li>
                   <li>• Genética y hormonas</li>
                 </ul>
+              </div>
+            </div>
+
+            {/* Calculadoras relacionadas */}
+            <div className="bg-gray-50 p-6 rounded-lg mt-6">
+              <h3 className="text-lg font-medium mb-4">🧮 Calculadoras relacionadas</h3>
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <a href="/" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
+                  <h4 className="font-semibold text-sm mb-1">Calorías y Macros</h4>
+                  <p className="text-xs text-muted-foreground">Calculadora completa</p>
+                </a>
+                <a href="/imc" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
+                  <h4 className="font-semibold text-sm mb-1">Calculadora IMC</h4>
+                  <p className="text-xs text-muted-foreground">Índice de masa corporal</p>
+                </a>
+                <a href="/proteina" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
+                  <h4 className="font-semibold text-sm mb-1">Proteína Diaria</h4>
+                  <p className="text-xs text-muted-foreground">Necesidades de proteína</p>
+                </a>
+                <a href="/agua" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
+                  <h4 className="font-semibold text-sm mb-1">Hidratación</h4>
+                  <p className="text-xs text-muted-foreground">Agua diaria necesaria</p>
+                </a>
               </div>
             </div>
           </div>

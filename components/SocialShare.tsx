@@ -52,7 +52,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
 
       <div className="flex flex-wrap gap-2">
         {/* Native Share (mobile) */}
-        {typeof navigator !== 'undefined' && navigator.share && (
+        {typeof window !== 'undefined' && 'share' in navigator && (
           <button
             onClick={handleNativeShare}
             className="px-3 py-2 text-xs bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"

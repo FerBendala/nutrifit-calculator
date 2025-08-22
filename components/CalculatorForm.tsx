@@ -106,11 +106,20 @@ export function CalculatorForm() {
 
       // Scroll suave a los resultados después de un pequeño delay
       setTimeout(() => {
-        resultsRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }, 100);
+        if (resultsRef.current) {
+          // En móviles, scroll más arriba para que los resultados estén visibles
+          const isMobile = window.innerWidth < 768;
+          const offset = isMobile ? -80 : -20; // Más espacio en móviles
+          
+          const elementTop = resultsRef.current.getBoundingClientRect().top + window.pageYOffset;
+          const offsetTop = elementTop + offset;
+          
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }, 200);
     } catch (error) {
       console.error('Calculation error:', error);
     } finally {
@@ -245,7 +254,7 @@ export function CalculatorForm() {
       </Card>
 
       {results && (
-        <div ref={resultsRef} className="space-y-6">
+        <div ref={resultsRef} className="space-y-6 pt-4 md:pt-0">
           <ResultCard
             tdee={results.tdee}
             targetCalories={results.targetCalories}

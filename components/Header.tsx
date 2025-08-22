@@ -84,17 +84,17 @@ export function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-14 flex items-center justify-between">
+    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-golden">
+      <div className="container-golden h-[4.236rem] flex items-center justify-between">
         {/* Logo */}
         <div className="mr-4 flex">
           <Link
             href="/"
-            className="mr-6 flex items-center space-x-2"
+            className="mr-[1.618rem] flex items-center space-x-[0.618rem] transition-golden hover:opacity-80"
             aria-label="NutriFit Calculator - Ir a página principal"
           >
-            <CalculatorIcon className="h-6 w-6" size={24} />
-            <span className="hidden font-bold sm:inline-block">
+            <CalculatorIcon className="h-8 w-8" size={32} />
+            <span className="hidden font-bold sm:inline-block text-lg">
               NutriFit Calculator
             </span>
           </Link>
@@ -102,7 +102,7 @@ export function Header() {
 
         <>
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-[1.618rem] text-base font-medium">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>

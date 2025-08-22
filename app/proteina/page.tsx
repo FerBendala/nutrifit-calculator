@@ -2,7 +2,9 @@
 
 import { ConditionalAdSlot } from '@/components/ConditionalAdSlot';
 import { Container } from '@/components/Container';
+import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { NumberInput } from '@/components/NumberInput';
+import { RelatedCalculators } from '@/components/RelatedCalculators';
 import { SelectInput } from '@/components/SelectInput';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -51,25 +53,28 @@ export default function ProteinaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <Container className="py-8">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="text-center space-y-4">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+      <Container size="xl" className="py-[4.236rem]">
+        <div className="max-w-5xl mx-auto space-golden-lg">
+          <div className="text-center space-golden-md">
+            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora de Proteína Diaria
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calcula tus necesidades diarias de proteína según tu peso, objetivo
               y nivel de actividad física basado en evidencia científica.
             </p>
           </div>
 
-          <Card>
+          <Card className="card-golden-lg shadow-golden-lg">
             <CardHeader>
-              <CardTitle>Calculadora de Proteína</CardTitle>
+              <CardTitle className="text-2xl font-semibold flex items-center">
+                <span className="text-3xl mr-3">🥩</span>
+                Calculadora de Proteína
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2">
+              <form onSubmit={handleSubmit} className="space-golden-md">
+                <div className="grid gap-[1.618rem] md:grid-cols-2">
                   <NumberInput
                     id="weight"
                     label="Peso"
@@ -112,48 +117,72 @@ export default function ProteinaPage() {
                 <Button
                   type="submit"
                   disabled={!isFormValid}
-                  className="w-full md:w-auto"
+                  className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
                 >
-                  Calcular necesidades de proteína
+                  🥩 Calcular necesidades de proteína
                 </Button>
               </form>
             </CardContent>
           </Card>
 
           {result && (
-            <Card>
+            <Card className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
               <CardHeader>
-                <CardTitle>Tus Necesidades de Proteína</CardTitle>
+                <CardTitle className="text-2xl font-semibold flex items-center justify-center">
+                  <span className="text-3xl mr-3">🎯</span>
+                  Tus Necesidades de Proteína
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-center space-y-4">
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="p-6 bg-secondary rounded-lg">
-                      <div className="text-2xl font-bold text-primary">
+                <div className="text-center space-golden-md">
+                  <div className="grid gap-[1.618rem] md:grid-cols-2">
+                    <div className="text-center card-golden bg-secondary/50">
+                      <div className="text-4xl font-bold text-blue-600 mb-[0.618rem]">
                         {formatGrams(result.min)}
                       </div>
-                      <div className="text-sm text-muted-foreground mt-1">
+                      <div className="text-lg font-semibold text-blue-700 mb-[0.382rem]">
                         Mínimo diario
                       </div>
+                      <p className="text-sm text-muted-foreground">
+                        Para mantener masa muscular
+                      </p>
                     </div>
 
-                    <div className="p-6 bg-primary text-primary-foreground rounded-lg">
-                      <div className="text-2xl font-bold">
+                    <div className="text-center card-golden bg-primary text-primary-foreground">
+                      <div className="text-5xl font-bold mb-[0.618rem]">
                         {formatGrams(result.max)}
                       </div>
-                      <div className="text-sm opacity-90 mt-1">
+                      <div className="text-xl font-bold opacity-95 mb-[0.382rem]">
                         Óptimo diario
                       </div>
+                      <p className="text-sm opacity-90">
+                        Para maximizar resultados
+                      </p>
                     </div>
                   </div>
 
-                  <div className="mt-6 p-4 bg-muted rounded-lg text-left">
-                    <h4 className="font-semibold mb-2">💡 Recomendaciones</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Consume entre {formatGrams(result.min)} y {formatGrams(result.max)} de proteína al día</li>
-                      <li>• Distribuye la ingesta a lo largo del día (20-30g por comida)</li>
-                      <li>• Combina fuentes de proteína completas (animales) e incompletas (vegetales)</li>
-                      <li>• Ajusta según tu respuesta individual y resultados</li>
+                  <div className="mt-[2.618rem] card-golden bg-gradient-to-r from-green-50 to-blue-50 border-l-4 border-green-400">
+                    <h4 className="font-bold mb-[1.618rem] text-lg flex items-center">
+                      <span className="text-2xl mr-3">💡</span>
+                      Recomendaciones
+                    </h4>
+                    <ul className="text-sm text-muted-foreground space-golden-xs text-left">
+                      <li className="flex items-start">
+                        <span className="text-green-600 mr-2">•</span>
+                        <span>Consume entre <strong>{formatGrams(result.min)}</strong> y <strong>{formatGrams(result.max)}</strong> de proteína al día</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2">•</span>
+                        <span>Distribuye la ingesta a lo largo del día (20-30g por comida)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-purple-600 mr-2">•</span>
+                        <span>Combina fuentes de proteína completas (animales) e incompletas (vegetales)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-orange-600 mr-2">•</span>
+                        <span>Ajusta según tu respuesta individual y resultados</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -170,33 +199,57 @@ export default function ProteinaPage() {
             requireElement="[class*='result']"
           />
 
-          <div className="prose prose-gray max-w-none">
-            <h2 className="text-2xl font-semibold mb-4">
+          <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
+            <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
               ¿Por qué es importante la proteína?
             </h2>
 
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
               La proteína es un macronutriente esencial que forma la base estructural de nuestro cuerpo.
               A diferencia de las grasas y carbohidratos, nuestro cuerpo no puede almacenar proteínas,
               por lo que necesitamos un suministro constante a través de la alimentación.
             </p>
 
-            <div className="grid gap-6 md:grid-cols-2 mb-6">
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">🏗️ Funciones principales</h3>
-                <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• <strong>Construcción y reparación muscular:</strong> Especialmente importante tras el ejercicio</li>
-                  <li>• <strong>Producción de enzimas y hormonas:</strong> Insulina, hormona del crecimiento, etc.</li>
-                  <li>• <strong>Mantenimiento del sistema inmune:</strong> Anticuerpos y células defensivas</li>
-                  <li>• <strong>Transporte de nutrientes:</strong> Hemoglobina transporta oxígeno</li>
-                  <li>• <strong>Control del apetito y saciedad:</strong> Mayor efecto térmico que otros macros</li>
-                  <li>• <strong>Mantenimiento del pH sanguíneo:</strong> Función buffer del organismo</li>
+            <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
+              <div className="card-golden space-golden-sm">
+                <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                  <span className="text-2xl mr-3">🏗️</span>
+                  Funciones principales
+                </h3>
+                <ul className="text-sm text-muted-foreground space-golden-xs">
+                  <li className="flex items-start py-[0.382rem] border-b border-border/30">
+                    <span className="text-blue-600 mr-2">•</span>
+                    <span><strong>Construcción y reparación muscular:</strong> Especialmente importante tras el ejercicio</span>
+                  </li>
+                  <li className="flex items-start py-[0.382rem] border-b border-border/30">
+                    <span className="text-green-600 mr-2">•</span>
+                    <span><strong>Producción de enzimas y hormonas:</strong> Insulina, hormona del crecimiento, etc.</span>
+                  </li>
+                  <li className="flex items-start py-[0.382rem] border-b border-border/30">
+                    <span className="text-purple-600 mr-2">•</span>
+                    <span><strong>Mantenimiento del sistema inmune:</strong> Anticuerpos y células defensivas</span>
+                  </li>
+                  <li className="flex items-start py-[0.382rem] border-b border-border/30">
+                    <span className="text-red-600 mr-2">•</span>
+                    <span><strong>Transporte de nutrientes:</strong> Hemoglobina transporta oxígeno</span>
+                  </li>
+                  <li className="flex items-start py-[0.382rem] border-b border-border/30">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span><strong>Control del apetito y saciedad:</strong> Mayor efecto térmico que otros macros</span>
+                  </li>
+                  <li className="flex items-start py-[0.382rem]">
+                    <span className="text-yellow-600 mr-2">•</span>
+                    <span><strong>Mantenimiento del pH sanguíneo:</strong> Función buffer del organismo</span>
+                  </li>
                 </ul>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">🥩 Fuentes de proteína completa</h3>
-                <div className="space-y-3">
+              <div className="card-golden space-golden-sm">
+                <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                  <span className="text-2xl mr-3">🥩</span>
+                  Fuentes de proteína completa
+                </h3>
+                <div className="space-golden-sm">
                   <div>
                     <h4 className="font-semibold text-sm">Proteínas animales (completas):</h4>
                     <ul className="text-sm text-muted-foreground mt-1 space-y-1">
@@ -219,109 +272,218 @@ export default function ProteinaPage() {
               </div>
             </div>
 
-            <div className="bg-blue-50 p-6 rounded-lg mb-6">
-              <h3 className="font-semibold text-blue-900 mb-4">
-                🔬 Recomendaciones según la ciencia
+            <div className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">🔬</span>
+                Recomendaciones según la ciencia
               </h3>
-              <div className="grid gap-4 md:grid-cols-3">
-                <div>
-                  <h4 className="font-semibold mb-2">Sedentarios:</h4>
-                  <p className="text-sm text-blue-800 mb-2"><strong>0.8-1.0g/kg peso</strong></p>
-                  <p className="text-xs text-blue-700">Mínimo para mantener masa muscular según la <a href="https://www.who.int/publications/i/item/9789241549028" target="_blank" rel="noopener noreferrer" className="underline">OMS</a></p>
+              <div className="grid gap-[1.618rem] md:grid-cols-3">
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                    <span className="text-lg mr-2">😴</span>
+                    Sedentarios:
+                  </h4>
+                  <p className="text-lg font-bold text-yellow-800 mb-[0.382rem]">0.8-1.0g/kg peso</p>
+                  <p className="text-xs text-blue-700">Mínimo para mantener masa muscular según la <a href="https://www.who.int/publications/i/item/9789241549028" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">OMS</a></p>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Activos:</h4>
-                  <p className="text-sm text-blue-800 mb-2"><strong>1.2-1.6g/kg peso</strong></p>
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
+                    <span className="text-lg mr-2">🏃</span>
+                    Activos:
+                  </h4>
+                  <p className="text-lg font-bold text-blue-800 mb-[0.382rem]">1.2-1.6g/kg peso</p>
                   <p className="text-xs text-blue-700">Para personas con actividad física regular</p>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Atletas/Fuerza:</h4>
-                  <p className="text-sm text-blue-800 mb-2"><strong>1.6-2.4g/kg peso</strong></p>
-                  <p className="text-xs text-blue-700">Según <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" target="_blank" rel="noopener noreferrer" className="underline">estudios de síntesis proteica</a></p>
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
+                    <span className="text-lg mr-2">💪</span>
+                    Atletas/Fuerza:
+                  </h4>
+                  <p className="text-lg font-bold text-blue-800 mb-[0.382rem]">1.6-2.4g/kg peso</p>
+                  <p className="text-xs text-blue-700">Según <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">estudios de síntesis proteica</a></p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-green-50 p-6 rounded-lg mb-6">
-              <h3 className="font-semibold text-green-900 mb-4">
-                🎯 Timing y distribución óptima
+            <div className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
+              <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">🎯</span>
+                Timing y distribución óptima
               </h3>
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <h4 className="font-semibold mb-2">Distribución diaria:</h4>
-                  <ul className="text-sm text-green-800 space-y-1">
-                    <li>• <strong>20-40g por comida:</strong> Optimiza síntesis proteica muscular</li>
-                    <li>• <strong>3-4 comidas al día:</strong> Mantiene balance nitrogenado positivo</li>
-                    <li>• <strong>Antes de dormir:</strong> Caseína o proteína de digestión lenta</li>
-                    <li>• <strong>Post-entreno:</strong> 20-25g dentro de 2 horas</li>
+              <div className="grid gap-[1.618rem] md:grid-cols-2">
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
+                    <span className="text-lg mr-2">⏰</span>
+                    Distribución diaria:
+                  </h4>
+                  <ul className="text-sm text-green-800 space-golden-xs">
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">•</span>
+                      <span><strong>20-40g por comida:</strong> Optimiza síntesis proteica muscular</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-blue-600 mr-2">•</span>
+                      <span><strong>3-4 comidas al día:</strong> Mantiene balance nitrogenado positivo</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-purple-600 mr-2">•</span>
+                      <span><strong>Antes de dormir:</strong> Caseína o proteína de digestión lenta</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-600 mr-2">•</span>
+                      <span><strong>Post-entreno:</strong> 20-25g dentro de 2 horas</span>
+                    </li>
                   </ul>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Factores que aumentan necesidades:</h4>
-                  <ul className="text-sm text-green-800 space-y-1">
-                    <li>• <strong>Edad avanzada:</strong> Resistencia anabólica</li>
-                    <li>• <strong>Déficit calórico:</strong> Para preservar masa muscular</li>
-                    <li>• <strong>Entrenamiento intenso:</strong> Mayor síntesis y degradación</li>
-                    <li>• <strong>Recuperación de lesiones:</strong> Reparación tisular</li>
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-orange-700 flex items-center">
+                    <span className="text-lg mr-2">📈</span>
+                    Factores que aumentan necesidades:
+                  </h4>
+                  <ul className="text-sm text-green-800 space-golden-xs">
+                    <li className="flex items-start">
+                      <span className="text-orange-600 mr-2">•</span>
+                      <span><strong>Edad avanzada:</strong> Resistencia anabólica</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-600 mr-2">•</span>
+                      <span><strong>Déficit calórico:</strong> Para preservar masa muscular</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-purple-600 mr-2">•</span>
+                      <span><strong>Entrenamiento intenso:</strong> Mayor síntesis y degradación</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-blue-600 mr-2">•</span>
+                      <span><strong>Recuperación de lesiones:</strong> Reparación tisular</span>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <div className="bg-yellow-50 p-6 rounded-lg mb-6">
-              <h3 className="font-semibold text-yellow-900 mb-4">
-                ⚠️ Señales de deficiencia proteica
+            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">⚠️</span>
+                Señales de deficiencia proteica
               </h3>
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <h4 className="font-semibold mb-2">Síntomas tempranos:</h4>
-                  <ul className="text-sm text-yellow-800 space-y-1">
-                    <li>• Pérdida de masa muscular</li>
-                    <li>• Mayor tiempo de recuperación</li>
-                    <li>• Fatiga constante</li>
-                    <li>• Antojos de alimentos</li>
-                    <li>• Cabello y uñas débiles</li>
+              <div className="grid gap-[1.618rem] md:grid-cols-2">
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
+                    <span className="text-lg mr-2">🚨</span>
+                    Síntomas tempranos:
+                  </h4>
+                  <ul className="text-sm text-yellow-800 space-golden-xs">
+                    <li className="flex items-start">
+                      <span className="text-red-600 mr-2">•</span>
+                      <span>Pérdida de masa muscular</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-orange-600 mr-2">•</span>
+                      <span>Mayor tiempo de recuperación</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-600 mr-2">•</span>
+                      <span>Fatiga constante</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-purple-600 mr-2">•</span>
+                      <span>Antojos de alimentos</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-blue-600 mr-2">•</span>
+                      <span>Cabello y uñas débiles</span>
+                    </li>
                   </ul>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Consecuencias a largo plazo:</h4>
-                  <ul className="text-sm text-yellow-800 space-y-1">
-                    <li>• Sarcopenia (pérdida muscular)</li>
-                    <li>• Sistema inmune debilitado</li>
-                    <li>• Problemas de cicatrización</li>
-                    <li>• Metabolismo más lento</li>
-                    <li>• Mayor riesgo de fracturas</li>
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
+                    <span className="text-lg mr-2">⚡</span>
+                    Consecuencias a largo plazo:
+                  </h4>
+                  <ul className="text-sm text-yellow-800 space-golden-xs">
+                    <li className="flex items-start">
+                      <span className="text-red-600 mr-2">•</span>
+                      <span>Sarcopenia (pérdida muscular)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-purple-600 mr-2">•</span>
+                      <span>Sistema inmune debilitado</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-orange-600 mr-2">•</span>
+                      <span>Problemas de cicatrización</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-blue-600 mr-2">•</span>
+                      <span>Metabolismo más lento</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-600 mr-2">•</span>
+                      <span>Mayor riesgo de fracturas</span>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <div className="bg-purple-50 p-6 rounded-lg mb-6">
-              <h3 className="font-semibold text-purple-900 mb-4">
-                💊 ¿Necesito suplementos de proteína?
+            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">💊</span>
+                ¿Necesito suplementos de proteína?
               </h3>
-              <div className="space-y-3">
-                <p className="text-sm text-purple-800">
+              <div className="space-golden-sm">
+                <p className="text-sm text-yellow-800 mb-[1.618rem] font-medium">
                   <strong>La mayoría de personas pueden cubrir sus necesidades con alimentos.</strong>
                   Los suplementos son útiles en situaciones específicas:
                 </p>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div>
-                    <h4 className="font-semibold mb-2">Cuándo considerar suplementos:</h4>
-                    <ul className="text-sm text-purple-800 space-y-1">
-                      <li>• Atletas con necesidades muy altas</li>
-                      <li>• Dietas veganas estrictas</li>
-                      <li>• Personas mayores con poco apetito</li>
-                      <li>• Conveniencia post-entreno</li>
+                <div className="grid gap-[1.618rem] md:grid-cols-2">
+                  <div className="card-golden bg-white/50">
+                    <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
+                      <span className="text-lg mr-2">✅</span>
+                      Cuándo considerar suplementos:
+                    </h4>
+                    <ul className="text-sm text-yellow-800 space-golden-xs">
+                      <li className="flex items-start">
+                        <span className="text-green-600 mr-2">•</span>
+                        <span>Atletas con necesidades muy altas</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2">•</span>
+                        <span>Dietas veganas estrictas</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-purple-600 mr-2">•</span>
+                        <span>Personas mayores con poco apetito</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-orange-600 mr-2">•</span>
+                        <span>Conveniencia post-entreno</span>
+                      </li>
                     </ul>
                   </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Tipos de proteína en polvo:</h4>
-                    <ul className="text-sm text-purple-800 space-y-1">
-                      <li>• <strong>Whey:</strong> Rápida absorción, post-entreno</li>
-                      <li>• <strong>Caseína:</strong> Lenta absorción, antes de dormir</li>
-                      <li>• <strong>Vegetal:</strong> Guisante, arroz, cáñamo</li>
-                      <li>• <strong>Mixtas:</strong> Combinan diferentes fuentes</li>
+                  <div className="card-golden bg-white/50">
+                    <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                      <span className="text-lg mr-2">🥤</span>
+                      Tipos de proteína en polvo:
+                    </h4>
+                    <ul className="text-sm text-yellow-800 space-golden-xs">
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2">•</span>
+                        <span><strong>Whey:</strong> Rápida absorción, post-entreno</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-purple-600 mr-2">•</span>
+                        <span><strong>Caseína:</strong> Lenta absorción, antes de dormir</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-green-600 mr-2">•</span>
+                        <span><strong>Vegetal:</strong> Guisante, arroz, cáñamo</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-orange-600 mr-2">•</span>
+                        <span><strong>Mixtas:</strong> Combinan diferentes fuentes</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -358,28 +520,33 @@ export default function ProteinaPage() {
               </div>
             </div>
 
-            {/* Calculadoras relacionadas */}
-            <div className="bg-gray-50 p-6 rounded-lg mt-6">
-              <h3 className="text-lg font-medium mb-4">🧮 Calculadoras relacionadas</h3>
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <a href="/" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
-                  <h4 className="font-semibold text-sm mb-1">Calorías y Macros</h4>
-                  <p className="text-xs text-muted-foreground">Calculadora completa</p>
-                </a>
-                <a href="/tdee" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
-                  <h4 className="font-semibold text-sm mb-1">Calculadora TDEE</h4>
-                  <p className="text-xs text-muted-foreground">Gasto calórico diario</p>
-                </a>
-                <a href="/imc" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
-                  <h4 className="font-semibold text-sm mb-1">Calculadora IMC</h4>
-                  <p className="text-xs text-muted-foreground">Índice de masa corporal</p>
-                </a>
-                <a href="/agua" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
-                  <h4 className="font-semibold text-sm mb-1">Hidratación</h4>
-                  <p className="text-xs text-muted-foreground">Agua diaria necesaria</p>
-                </a>
-              </div>
+            {/* Enlaces contextuales */}
+            <div className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+              <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">💡</span>
+                Complementa tu cálculo de proteína
+              </h3>
+              <ul className="text-sm text-orange-800 space-golden-xs">
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tus calorías totales:</a></strong> Integra tu proteína en un plan nutricional completo</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Conoce tu gasto calórico:</a></strong> Determina cuántas calorías necesitas según tu actividad</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/agua" className="text-blue-600 hover:underline font-medium transition-golden">Optimiza tu hidratación:</a></strong> La hidratación afecta la síntesis proteica</span>
+                </li>
+              </ul>
             </div>
+
+            {/* Calculadoras relacionadas */}
+            <RelatedCalculators currentPage="/proteina" />
+
+            {/* Navegación entre calculadoras */}
+            <CalculatorNavigation currentCalculator="proteina" />
           </div>
         </div>
       </Container>

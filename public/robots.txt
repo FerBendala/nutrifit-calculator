@@ -1,0 +1,35 @@
+# Robots.txt para NutriFit Calculator
+# https://nutrifit-calculator.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Páginas principales
+Allow: /
+Allow: /imc
+Allow: /tdee
+Allow: /proteina
+Allow: /agua
+
+# Páginas legales
+Allow: /privacidad
+Allow: /terminos
+Allow: /cookies
+
+# Archivos estáticos importantes
+Allow: /sitemap.xml
+Allow: /favicon.ico
+Allow: /icon.svg
+
+# Bloquear archivos de desarrollo y configuración
+Disallow: /_next/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /out/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://nutrifit-calculator.com/sitemap.xml
+
+# Crawl-delay para ser amigables con los bots
+Crawl-delay: 1

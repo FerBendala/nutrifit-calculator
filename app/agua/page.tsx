@@ -2,7 +2,9 @@
 
 import { ConditionalAdSlot } from '@/components/ConditionalAdSlot';
 import { Container } from '@/components/Container';
+import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { NumberInput } from '@/components/NumberInput';
+import { RelatedCalculators } from '@/components/RelatedCalculators';
 import { SelectInput } from '@/components/SelectInput';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -50,25 +52,28 @@ export default function AguaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <Container className="py-8">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="text-center space-y-4">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+      <Container size="xl" className="py-[4.236rem]">
+        <div className="max-w-5xl mx-auto space-golden-lg">
+          <div className="text-center space-golden-md">
+            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora de Agua Diaria - Hidratación
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calcula cuánta agua debes beber al día según tu peso y nivel de actividad
               para mantener una hidratación óptima.
             </p>
           </div>
 
-          <Card>
+          <Card className="card-golden-lg shadow-golden-lg">
             <CardHeader>
-              <CardTitle>Calculadora de Hidratación</CardTitle>
+              <CardTitle className="text-2xl font-semibold flex items-center">
+                <span className="text-3xl mr-3">💧</span>
+                Calculadora de Hidratación
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2">
+              <form onSubmit={handleSubmit} className="space-golden-md">
+                <div className="grid gap-[1.618rem] md:grid-cols-2">
                   <NumberInput
                     id="weight"
                     label="Peso"
@@ -99,55 +104,76 @@ export default function AguaPage() {
                 <Button
                   type="submit"
                   disabled={!isFormValid}
-                  className="w-full md:w-auto"
+                  className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
                 >
-                  Calcular necesidades de agua
+                  💧 Calcular necesidades de agua
                 </Button>
               </form>
             </CardContent>
           </Card>
 
           {result && (
-            <Card>
+            <Card className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
               <CardHeader>
-                <CardTitle>Tus Necesidades de Hidratación</CardTitle>
+                <CardTitle className="text-2xl font-semibold flex items-center justify-center">
+                  <span className="text-3xl mr-3">🎯</span>
+                  Tus Necesidades de Hidratación
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-center space-y-4">
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="p-6 bg-secondary rounded-lg">
-                      <div className="text-2xl font-bold text-primary">
+                <div className="text-center space-golden-md">
+                  <div className="grid gap-[1.618rem] md:grid-cols-2">
+                    <div className="text-center card-golden bg-secondary/50">
+                      <div className="text-4xl font-bold text-blue-600 mb-[0.618rem]">
                         {formatMilliliters(result.min)}
                       </div>
-                      <div className="text-sm text-muted-foreground mt-1">
+                      <div className="text-lg font-semibold text-blue-700 mb-[0.382rem]">
                         Mínimo diario
                       </div>
-                      <div className="text-xs text-muted-foreground mt-1">
-                        ≈ {getGlassesCount(result.min)} vasos
-                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        ≈ {getGlassesCount(result.min)} vasos de 250ml
+                      </p>
                     </div>
 
-                    <div className="p-6 bg-primary text-primary-foreground rounded-lg">
-                      <div className="text-2xl font-bold">
+                    <div className="text-center card-golden bg-primary text-primary-foreground">
+                      <div className="text-5xl font-bold mb-[0.618rem]">
                         {formatMilliliters(result.max)}
                       </div>
-                      <div className="text-sm opacity-90 mt-1">
+                      <div className="text-xl font-bold opacity-95 mb-[0.382rem]">
                         Óptimo diario
                       </div>
-                      <div className="text-xs opacity-80 mt-1">
-                        ≈ {getGlassesCount(result.max)} vasos
-                      </div>
+                      <p className="text-sm opacity-90">
+                        ≈ {getGlassesCount(result.max)} vasos de 250ml
+                      </p>
                     </div>
                   </div>
 
-                  <div className="mt-6 p-4 bg-muted rounded-lg text-left">
-                    <h4 className="font-semibold mb-2">💧 Consejos de hidratación</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Bebe agua de forma constante a lo largo del día</li>
-                      <li>• Aumenta la ingesta durante ejercicio intenso o clima caluroso</li>
-                      <li>• Incluye también líquidos de frutas, verduras y otras bebidas</li>
-                      <li>• El color de la orina es un buen indicador de hidratación</li>
-                      <li>• Ajusta según tu sed y condiciones individuales</li>
+                  <div className="mt-[2.618rem] card-golden bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-400">
+                    <h4 className="font-bold mb-[1.618rem] text-lg flex items-center">
+                      <span className="text-2xl mr-3">💧</span>
+                      Consejos de hidratación
+                    </h4>
+                    <ul className="text-sm text-muted-foreground space-golden-xs text-left">
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2">•</span>
+                        <span>Bebe agua de forma constante a lo largo del día</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-red-600 mr-2">•</span>
+                        <span>Aumenta la ingesta durante ejercicio intenso o clima caluroso</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-green-600 mr-2">•</span>
+                        <span>Incluye también líquidos de frutas, verduras y otras bebidas</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-yellow-600 mr-2">•</span>
+                        <span>El color de la orina es un buen indicador de hidratación</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-purple-600 mr-2">•</span>
+                        <span>Ajusta según tu sed y condiciones individuales</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -164,18 +190,18 @@ export default function AguaPage() {
             requireElement="[class*='result']"
           />
 
-          <div className="prose prose-gray max-w-none">
-            <h2 className="text-2xl font-semibold mb-4">
+          <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
+            <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
               Importancia de la hidratación adecuada
             </h2>
 
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
               El agua constituye aproximadamente el 60% del peso corporal en adultos y es esencial
               para prácticamente todas las funciones fisiológicas. Una hidratación adecuada es
               fundamental para el rendimiento físico, cognitivo y la salud general.
             </p>
 
-            <div className="grid gap-6 md:grid-cols-2 mb-6">
+            <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">💪 Funciones vitales del agua</h3>
                 <ul className="text-sm text-muted-foreground space-y-2">
@@ -219,58 +245,100 @@ export default function AguaPage() {
               </div>
             </div>
 
-            <div className="bg-green-50 p-6 rounded-lg mb-6">
-              <h3 className="font-semibold text-green-900 mb-4">
-                🎯 Recomendaciones de hidratación según actividad
+            <div className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">🎯</span>
+                Recomendaciones de hidratación según actividad
               </h3>
-              <div className="grid gap-4 md:grid-cols-3">
-                <div>
-                  <h4 className="font-semibold mb-2">Sedentario:</h4>
-                  <p className="text-sm text-green-800 mb-2"><strong>30-35ml/kg peso</strong></p>
-                  <p className="text-xs text-green-700">Según las <a href="https://www.efsa.europa.eu/en/efsajournal/pub/1459" target="_blank" rel="noopener noreferrer" className="underline">recomendaciones EFSA</a></p>
+              <div className="grid gap-[1.618rem] md:grid-cols-3">
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                    <span className="text-lg mr-2">😴</span>
+                    Sedentario:
+                  </h4>
+                  <p className="text-lg font-bold text-yellow-800 mb-[0.382rem]">30-35ml/kg peso</p>
+                  <p className="text-xs text-blue-700">Según las <a href="https://www.efsa.europa.eu/en/efsajournal/pub/1459" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">recomendaciones EFSA</a></p>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Ejercicio moderado:</h4>
-                  <p className="text-sm text-green-800 mb-2"><strong>+500-750ml/hora</strong></p>
-                  <p className="text-xs text-green-700">Durante y después del ejercicio</p>
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
+                    <span className="text-lg mr-2">🏃</span>
+                    Ejercicio moderado:
+                  </h4>
+                  <p className="text-lg font-bold text-blue-800 mb-[0.382rem]">+500-750ml/hora</p>
+                  <p className="text-xs text-blue-700">Durante y después del ejercicio</p>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Ejercicio intenso:</h4>
-                  <p className="text-sm text-green-800 mb-2"><strong>+750-1000ml/hora</strong></p>
-                  <p className="text-xs text-green-700">Especialmente en clima caluroso</p>
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
+                    <span className="text-lg mr-2">💪</span>
+                    Ejercicio intenso:
+                  </h4>
+                  <p className="text-lg font-bold text-blue-800 mb-[0.382rem]">+750-1000ml/hora</p>
+                  <p className="text-xs text-blue-700">Especialmente en clima caluroso</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-blue-50 p-6 rounded-lg mb-6">
-              <h3 className="font-semibold text-blue-900 mb-4">
-                🌡️ Factores que aumentan las necesidades de agua
+            <div className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">🌡️</span>
+                Factores que aumentan las necesidades de agua
               </h3>
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <h4 className="font-semibold mb-2">Ambientales:</h4>
-                  <ul className="text-sm text-blue-800 space-y-1">
-                    <li>• <strong>Calor extremo:</strong> Aumenta pérdida por sudor</li>
-                    <li>• <strong>Altitud elevada:</strong> &gt;2500m aumenta respiración</li>
-                    <li>• <strong>Aire seco:</strong> Calefacción/aire acondicionado</li>
-                    <li>• <strong>Exposición solar:</strong> Incrementa temperatura corporal</li>
+              <div className="grid gap-[1.618rem] md:grid-cols-2">
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-orange-700 flex items-center">
+                    <span className="text-lg mr-2">🌍</span>
+                    Ambientales:
+                  </h4>
+                  <ul className="text-sm text-yellow-800 space-golden-xs">
+                    <li className="flex items-start">
+                      <span className="text-red-600 mr-2">•</span>
+                      <span><strong>Calor extremo:</strong> Aumenta pérdida por sudor</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-blue-600 mr-2">•</span>
+                      <span><strong>Altitud elevada:</strong> &gt;2500m aumenta respiración</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-600 mr-2">•</span>
+                      <span><strong>Aire seco:</strong> Calefacción/aire acondicionado</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-orange-600 mr-2">•</span>
+                      <span><strong>Exposición solar:</strong> Incrementa temperatura corporal</span>
+                    </li>
                   </ul>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Fisiológicos:</h4>
-                  <ul className="text-sm text-blue-800 space-y-1">
-                    <li>• <strong>Fiebre:</strong> +200ml por cada grado &gt;37°C</li>
-                    <li>• <strong>Embarazo:</strong> +300ml/día en 2º y 3er trimestre</li>
-                    <li>• <strong>Lactancia:</strong> +600-700ml/día</li>
-                    <li>• <strong>Edad avanzada:</strong> Menor sensación de sed</li>
+                <div className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-purple-700 flex items-center">
+                    <span className="text-lg mr-2">🧬</span>
+                    Fisiológicos:
+                  </h4>
+                  <ul className="text-sm text-yellow-800 space-golden-xs">
+                    <li className="flex items-start">
+                      <span className="text-red-600 mr-2">•</span>
+                      <span><strong>Fiebre:</strong> +200ml por cada grado &gt;37°C</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-pink-600 mr-2">•</span>
+                      <span><strong>Embarazo:</strong> +300ml/día en 2º y 3er trimestre</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-purple-600 mr-2">•</span>
+                      <span><strong>Lactancia:</strong> +600-700ml/día</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-blue-600 mr-2">•</span>
+                      <span><strong>Edad avanzada:</strong> Menor sensación de sed</span>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <div className="bg-purple-50 p-6 rounded-lg mb-6">
-              <h3 className="font-semibold text-purple-900 mb-4">
-                🥤 Fuentes de hidratación
+            <div className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
+              <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">🥤</span>
+                Fuentes de hidratación
               </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
@@ -295,9 +363,10 @@ export default function AguaPage() {
               </div>
             </div>
 
-            <div className="bg-yellow-50 p-6 rounded-lg mb-6">
-              <h3 className="font-semibold text-yellow-900 mb-4">
-                🏃‍♂️ Hidratación y rendimiento deportivo
+            <div className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
+              <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">🏃‍♂️</span>
+                Hidratación y rendimiento deportivo
               </h3>
               <div className="space-y-3">
                 <p className="text-sm text-yellow-800">
@@ -332,9 +401,10 @@ export default function AguaPage() {
               </div>
             </div>
 
-            <div className="bg-red-50 p-6 rounded-lg mb-6">
-              <h3 className="font-semibold text-red-900 mb-4">
-                ⚠️ Cuándo consultar con un profesional
+            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">⚠️</span>
+                Cuándo consultar con un profesional
               </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
@@ -390,28 +460,33 @@ export default function AguaPage() {
               </div>
             </div>
 
-            {/* Calculadoras relacionadas */}
-            <div className="bg-gray-50 p-6 rounded-lg mt-6">
-              <h3 className="text-lg font-medium mb-4">🧮 Calculadoras relacionadas</h3>
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <a href="/" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
-                  <h4 className="font-semibold text-sm mb-1">Calorías y Macros</h4>
-                  <p className="text-xs text-muted-foreground">Calculadora completa</p>
-                </a>
-                <a href="/tdee" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
-                  <h4 className="font-semibold text-sm mb-1">Calculadora TDEE</h4>
-                  <p className="text-xs text-muted-foreground">Gasto calórico diario</p>
-                </a>
-                <a href="/imc" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
-                  <h4 className="font-semibold text-sm mb-1">Calculadora IMC</h4>
-                  <p className="text-xs text-muted-foreground">Índice de masa corporal</p>
-                </a>
-                <a href="/proteina" className="p-4 bg-white rounded-lg border hover:border-primary transition-colors">
-                  <h4 className="font-semibold text-sm mb-1">Proteína Diaria</h4>
-                  <p className="text-xs text-muted-foreground">Necesidades de proteína</p>
-                </a>
-              </div>
+            {/* Enlaces contextuales */}
+            <div className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+              <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">💡</span>
+                Complementa tu hidratación con otras herramientas
+              </h3>
+              <ul className="text-sm text-orange-800 space-golden-xs">
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tus calorías diarias:</a></strong> La hidratación afecta el metabolismo y la saciedad</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> La síntesis proteica requiere hidratación adecuada</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Conoce tu TDEE:</a></strong> Mayor gasto calórico requiere más hidratación</span>
+                </li>
+              </ul>
             </div>
+
+            {/* Calculadoras relacionadas */}
+            <RelatedCalculators currentPage="/agua" />
+
+            {/* Navegación entre calculadoras */}
+            <CalculatorNavigation currentCalculator="agua" />
           </div>
         </div>
       </Container>

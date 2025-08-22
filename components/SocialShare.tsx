@@ -73,7 +73,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
         <a
           href={shareUrls.twitter}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="px-3 py-2 text-xs bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
           aria-label="Compartir en Twitter"
         >
@@ -84,7 +84,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
         <a
           href={shareUrls.facebook}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="px-3 py-2 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
           aria-label="Compartir en Facebook"
         >
@@ -95,7 +95,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
         <a
           href={shareUrls.whatsapp}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="px-3 py-2 text-xs bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
           aria-label="Compartir en WhatsApp"
         >

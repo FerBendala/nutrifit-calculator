@@ -43,7 +43,25 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    /* Proporción áurea para espaciados */
+    --golden-ratio: 1.618;
+    --space-xs: 0.382rem;
+    /* ~6px */
+    --space-sm: 0.618rem;
+    /* ~10px */
+    --space-base: 1rem;
+    /* 16px */
+    --space-md: 1.618rem;
+    /* ~26px */
+    --space-lg: 2.618rem;
+    /* ~42px */
+    --space-xl: 4.236rem;
+    /* ~68px */
+    --space-2xl: 6.854rem;
+    /* ~110px */
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -76,7 +94,76 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+
+  /* Espaciados con proporción áurea */
+  .space-golden-xs {
+    @apply space-y-[0.382rem];
+  }
+
+  .space-golden-sm {
+    @apply space-y-[0.618rem];
+  }
+
+  .space-golden-base {
+    @apply space-y-4;
+  }
+
+  .space-golden-md {
+    @apply space-y-[1.618rem];
+  }
+
+  .space-golden-lg {
+    @apply space-y-[2.618rem];
+  }
+
+  .space-golden-xl {
+    @apply space-y-[4.236rem];
+  }
+
+  /* Contenedores con proporciones áureas */
+  .container-golden {
+    max-width: min(100%, 68rem);
+    margin: 0 auto;
+    padding: 0 var(--space-base);
+  }
+
+  /* Cards con proporciones mejoradas */
+  .card-golden {
+    @apply bg-card text-card-foreground rounded-lg border shadow-sm;
+    padding: var(--space-md);
+  }
+
+  .card-golden-lg {
+    @apply bg-card text-card-foreground rounded-xl border shadow-md;
+    padding: var(--space-lg);
+  }
+
+  /* Transiciones suaves */
+  .transition-golden {
+    transition: all 0.382s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Sombras con proporción áurea */
+  .shadow-golden {
+    box-shadow:
+      0 0.382px 0.618px rgba(0, 0, 0, 0.1),
+      0 1px 2.618px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-golden-lg {
+    box-shadow:
+      0 0.618px 1.618px rgba(0, 0, 0, 0.1),
+      0 2.618px 6.854px rgba(0, 0, 0, 0.15);
   }
 }

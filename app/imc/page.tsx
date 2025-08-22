@@ -169,7 +169,7 @@ export default function IMCPage() {
 
             <div className="bg-yellow-50 p-6 rounded-lg">
               <h3 className="font-semibold text-yellow-900 mb-2">
-                ⚠️ Limitaciones importantes del IMC
+                📊 Limitaciones del cálculo de IMC
               </h3>
               <ul className="text-sm text-yellow-800 space-y-1">
                 <li>• No distingue entre masa muscular y grasa</li>

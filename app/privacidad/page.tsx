@@ -135,7 +135,7 @@ export default function PrivacidadPage() {
 
         <div className="bg-yellow-50 p-6 rounded-lg mt-8">
           <h3 className="font-semibold text-yellow-900 mb-2">
-            ⚠️ Aviso importante sobre datos de salud
+            🩺 Tratamiento de datos de salud
           </h3>
           <p className="text-sm text-yellow-800">
             Los datos que introduces en nuestras calculadoras (peso, altura, etc.)

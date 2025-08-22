@@ -16,7 +16,7 @@ export const SITE_CONFIG = {
 
 export const PAGE_METADATA: Record<string, PageMetadata> = {
   home: {
-    title: 'Calculadora de Calorías y Macros Gratis - NutriFit Calculator',
+    title: 'Calculadora de Calorías y Macronutrientes Gratis - NutriFit Calculator',
     description: 'Calcula tus calorías diarias y distribución de macronutrientes (proteínas, grasas, carbohidratos) según tu objetivo. Fórmula científica Mifflin-St Jeor.',
     keywords: ['calculadora calorías', 'macronutrientes', 'TDEE', 'pérdida peso', 'ganancia músculo', 'nutrición'],
     path: '/'

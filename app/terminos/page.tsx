@@ -40,7 +40,7 @@ export default function TerminosPage() {
 
         <div className="bg-red-50 p-6 rounded-lg">
           <h3 className="font-semibold text-red-900 mb-2">
-            ⚠️ AVISO MÉDICO IMPORTANTE
+            🚨 AVISO MÉDICO CRÍTICO
           </h3>
           <p className="text-sm text-red-800">
             Los cálculos y recomendaciones proporcionados por nuestras herramientas son

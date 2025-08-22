@@ -25,25 +25,26 @@ export default function HomePage() {
         </a>
 
         <div className="max-w-4xl mx-auto space-y-8">
-          {/* Hero Section */}
-          <div className="text-center space-y-4">
+          {/* Hero Section - Optimizado para LCP */}
+          <div className="hero-section">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
               Calculadora de Calorías y Macronutrientes
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="hero-description">
               Calcula tus calorías diarias y distribución de macronutrientes personalizada
               según tu objetivo: perder grasa, mantener peso o ganar músculo.
             </p>
           </div>
 
+          {/* Calculator - Contenido crítico primero */}
+          <CalculatorForm />
+
+          {/* AdSlot movido después del contenido crítico */}
           <AdSlot
             adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
           />
-
-          {/* Calculator */}
-          <CalculatorForm />
 
           {/* Educational Content */}
           <div className="space-y-6 pt-8">

@@ -111,6 +111,13 @@ export default function RootLayout({
             h1{font-size:2.25rem;font-weight:700;line-height:1.2;margin:0;letter-spacing:-0.025em;color:#111827}
             @media(min-width:640px){h1{font-size:3rem;letter-spacing:-0.05em}}
             
+            /* Párrafo hero crítico - optimizado para LCP */
+            .hero-description{font-size:1.25rem;line-height:1.75;color:#6b7280;max-width:42rem;margin:0 auto;font-weight:400}
+            
+            /* Sección hero optimizada */
+            .hero-section{text-align:center;margin-bottom:2rem}
+            .hero-section > * + *{margin-top:1rem}
+            
             /* Header optimizado para performance */
             header{position:sticky;top:0;z-index:40;width:100%;border-bottom:1px solid #e5e7eb;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);will-change:transform;contain:layout style paint}
             
@@ -127,6 +134,18 @@ export default function RootLayout({
             img{max-width:100%;height:auto}
             button{cursor:pointer}
             a{color:inherit;text-decoration:none}
+            
+            /* Optimizaciones críticas para reducir render delay */
+            .space-y-8{display:flex;flex-direction:column;gap:2rem}
+            .max-w-4xl{max-width:56rem}
+            .mx-auto{margin-left:auto;margin-right:auto}
+            
+            /* Prevenir layout shift */
+            .text-4xl{font-size:2.25rem}
+            @media(min-width:640px){.text-5xl{font-size:3rem}}
+            .font-bold{font-weight:700}
+            .tracking-tight{letter-spacing:-0.025em}
+            @media(min-width:640px){.tracking-tight{letter-spacing:-0.05em}}
           `
         }} />
 

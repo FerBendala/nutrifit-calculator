@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 declare global {
   interface Window {
@@ -22,22 +22,47 @@ export function AdSlot({
   className = ""
 }: AdSlotProps) {
   const adRef = useRef<HTMLModElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const adSenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
 
+  // Lazy loading con Intersection Observer
   useEffect(() => {
-    if (!adSenseId || !adRef.current) return;
+    if (!adRef.current) return;
 
-    try {
-      // Check if consent has been given
-      const hasConsent = localStorage.getItem('ads-consent') === 'true';
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
 
-      if (hasConsent && window.adsbygoogle) {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+    observer.observe(adRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Cargar AdSense solo cuando sea visible
+  useEffect(() => {
+    if (!adSenseId || !adRef.current || !isVisible) return;
+
+    // Usar setTimeout para no bloquear el render crítico
+    const timer = setTimeout(() => {
+      try {
+        // Check if consent has been given
+        const hasConsent = localStorage.getItem('ads-consent') === 'true';
+
+        if (hasConsent && window.adsbygoogle) {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        }
+      } catch (error) {
+        console.error('AdSense error:', error);
       }
-    } catch (error) {
-      console.error('AdSense error:', error);
-    }
-  }, [adSenseId, adSlot]);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [adSenseId, adSlot, isVisible]);
 
   // Don't render if no AdSense ID is configured
   if (!adSenseId) {
@@ -54,14 +79,16 @@ export function AdSlot({
   }
 
   return (
-    <ins
-      ref={adRef}
-      className={`adsbygoogle ${className}`}
-      style={style}
-      data-ad-client={adSenseId}
-      data-ad-slot={adSlot}
-      data-ad-format={adFormat}
-      data-full-width-responsive="true"
-    />
+    <div style={{ minHeight: style?.height || '90px' }}>
+      <ins
+        ref={adRef}
+        className={`adsbygoogle ${className}`}
+        style={style}
+        data-ad-client={adSenseId}
+        data-ad-slot={adSlot}
+        data-ad-format={adFormat}
+        data-full-width-responsive="true"
+      />
+    </div>
   );
 }

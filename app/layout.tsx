@@ -69,135 +69,100 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* CSS asíncrono para eliminar bloqueo de renderizado */}
+        {/* Script crítico para interceptar CSS ANTES de que bloquee */}
         <script dangerouslySetInnerHTML={{
           __html: `
-            // Función loadCSS optimizada para cargar CSS de forma asíncrona
-            function loadCSS(href, before, media, attributes) {
-              var doc = window.document;
-              var ss = doc.createElement("link");
-              var ref;
-              if (before) {
-                ref = before;
-              } else {
-                var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-                ref = refs[refs.length - 1];
-              }
-              var sheets = doc.styleSheets;
-              if (attributes) {
-                for (var attributeName in attributes) {
-                  if (attributes.hasOwnProperty(attributeName)) {
-                    ss.setAttribute(attributeName, attributes[attributeName]);
-                  }
-                }
-              }
-              ss.rel = "stylesheet";
-              ss.href = href;
-              ss.media = "only x";
-              function ready(cb) {
-                if (doc.body) {
-                  return cb();
-                }
-                setTimeout(function() {
-                  ready(cb);
-                });
-              }
-              ready(function() {
-                ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
-              });
-              var onloadcssdefined = function(cb) {
-                var resolvedHref = ss.href;
-                var i = sheets.length;
-                while (i--) {
-                  if (sheets[i].href === resolvedHref) {
-                    return cb();
-                  }
-                }
-                setTimeout(function() {
-                  onloadcssdefined(cb);
-                });
-              };
-              function loadCB() {
-                if (ss.addEventListener) {
-                  ss.removeEventListener("load", loadCB);
-                }
-                ss.media = media || "all";
-              }
-              if (ss.addEventListener) {
-                ss.addEventListener("load", loadCB);
-              }
-              ss.onloadcssdefined = onloadcssdefined;
-              onloadcssdefined(loadCB);
-              return ss;
-            }
-            
-            // Interceptar y cargar CSS de Next.js de forma asíncrona - MEJORADO
+            // SOLUCIÓN CRÍTICA: Interceptar CSS antes de que bloquee el renderizado
             (function() {
-              // Función para convertir CSS bloqueante a asíncrono
-              function makeAsyncCSS(link) {
-                if (!link || !link.href) return;
-                
-                // Crear preload link
-                var preloadLink = document.createElement('link');
-                preloadLink.rel = 'preload';
-                preloadLink.as = 'style';
-                preloadLink.href = link.href;
-                preloadLink.onload = function() {
+              // Override del appendChild para interceptar CSS
+              var originalAppendChild = document.head.appendChild;
+              var originalInsertBefore = document.head.insertBefore;
+              
+              function interceptCSS(node) {
+                if (node && node.tagName === 'LINK' && 
+                    node.rel === 'stylesheet' && 
+                    node.href && (
+                      node.href.includes('_next/static/css/') ||
+                      node.href.includes('.css')
+                    )) {
+                  
+                  // Convertir a preload inmediatamente
+                  var preloadLink = document.createElement('link');
+                  preloadLink.rel = 'preload';
+                  preloadLink.as = 'style';
+                  preloadLink.href = node.href;
+                  preloadLink.onload = function() {
+                    this.onload = null;
+                    this.rel = 'stylesheet';
+                  };
+                  
+                  // Crear noscript fallback
+                  var noscript = document.createElement('noscript');
+                  var fallback = document.createElement('link');
+                  fallback.rel = 'stylesheet';
+                  fallback.href = node.href;
+                  noscript.appendChild(fallback);
+                  
+                  // Insertar preload y fallback en lugar del CSS bloqueante
+                  originalAppendChild.call(document.head, preloadLink);
+                  originalAppendChild.call(document.head, noscript);
+                  
+                  return preloadLink; // Retornar el preload en lugar del CSS bloqueante
+                }
+                return node;
+              }
+              
+              // Override appendChild
+              document.head.appendChild = function(node) {
+                var processedNode = interceptCSS(node);
+                if (processedNode !== node) {
+                  return processedNode;
+                }
+                return originalAppendChild.call(this, node);
+              };
+              
+              // Override insertBefore
+              document.head.insertBefore = function(newNode, referenceNode) {
+                var processedNode = interceptCSS(newNode);
+                if (processedNode !== newNode) {
+                  return originalInsertBefore.call(this, processedNode, referenceNode);
+                }
+                return originalInsertBefore.call(this, newNode, referenceNode);
+              };
+              
+              // También interceptar CSS ya presente
+              var existingCSS = document.querySelectorAll('link[rel="stylesheet"]');
+              existingCSS.forEach(function(link) {
+                if (link.href && (
+                    link.href.includes('_next/static/css/') ||
+                    link.href.includes('.css')
+                )) {
+                  interceptCSS(link);
+                  link.remove();
+                }
+              });
+              
+              // Función loadCSS de respaldo para casos específicos
+              window.loadCSS = function(href) {
+                var link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'style';
+                link.href = href;
+                link.onload = function() {
                   this.onload = null;
                   this.rel = 'stylesheet';
                 };
+                document.head.appendChild(link);
                 
-                // Fallback para navegadores sin soporte de preload
-                var noscriptFallback = document.createElement('noscript');
-                var fallbackLink = document.createElement('link');
-                fallbackLink.rel = 'stylesheet';
-                fallbackLink.href = link.href;
-                noscriptFallback.appendChild(fallbackLink);
+                var noscript = document.createElement('noscript');
+                var fallback = document.createElement('link');
+                fallback.rel = 'stylesheet';
+                fallback.href = href;
+                noscript.appendChild(fallback);
+                document.head.appendChild(noscript);
                 
-                // Insertar antes del link original
-                link.parentNode.insertBefore(preloadLink, link);
-                link.parentNode.insertBefore(noscriptFallback, link);
-                
-                // Remover link original
-                link.remove();
-              }
-              
-              // Buscar y convertir CSS bloqueante a asíncrono - más específico
-              var stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
-              stylesheets.forEach(function(link) {
-                if (link.href && (
-                    link.href.includes('_next/static/css/') ||
-                    link.href.includes('.css') && link.href.includes(window.location.origin)
-                )) {
-                  makeAsyncCSS(link);
-                }
-              });
-              
-              // Observer mejorado para CSS que se agregue dinámicamente
-              var observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                  mutation.addedNodes.forEach(function(node) {
-                    if (node.tagName === 'LINK' && 
-                        node.rel === 'stylesheet' && 
-                        node.href && (
-                          node.href.includes('_next/static/css/') ||
-                          (node.href.includes('.css') && node.href.includes(window.location.origin))
-                        )) {
-                      makeAsyncCSS(node);
-                    }
-                  });
-                });
-              });
-              observer.observe(document.head, { childList: true });
-              
-              // También observar cambios en el body por si Next.js inyecta CSS ahí
-              if (document.body) {
-                observer.observe(document.body, { childList: true });
-              } else {
-                document.addEventListener('DOMContentLoaded', function() {
-                  observer.observe(document.body, { childList: true });
-                });
-              }
+                return link;
+              };
             })();
           `
         }} />
@@ -205,6 +170,19 @@ export default function RootLayout({
         {/* Resource prioritization */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
+
+        {/* Deshabilitar CSS automático de Next.js para control manual */}
+        <style data-next-hide-fouc data-ampdevmode-only>
+          {`body { visibility: hidden; }`}
+        </style>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Mostrar body una vez que el CSS crítico esté listo
+            document.addEventListener('DOMContentLoaded', function() {
+              document.body.style.visibility = 'visible';
+            });
+          `
+        }} />
 
         {/* Preload de fuentes críticas para evitar FOIT/FOUT */}
         <link
@@ -408,75 +386,62 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
 
-        {/* CSS no crítico - carga diferida para romper cadena */}
+        {/* Carga manual de CSS específico para evitar bloqueo */}
         <script dangerouslySetInnerHTML={{
           __html: `
-            // Cargar CSS no crítico de forma asíncrona
-            function loadCSS(href, before, media, attributes) {
-              var doc = window.document;
-              var ss = doc.createElement("link");
-              var ref;
-              if (before) {
-                ref = before;
-              } else {
-                var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
-                ref = refs[refs.length - 1];
-              }
-              var sheets = doc.styleSheets;
-              if (attributes) {
-                for (var attributeName in attributes) {
-                  if (attributes.hasOwnProperty(attributeName)) {
-                    ss.setAttribute(attributeName, attributes[attributeName]);
-                  }
-                }
-              }
-              ss.rel = "stylesheet";
-              ss.href = href;
-              ss.media = "only x";
-              function ready(cb) {
-                if (doc.body) {
-                  return cb();
-                }
-                setTimeout(function() {
-                  ready(cb);
-                });
-              }
-              ready(function() {
-                ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
-              });
-              var onloadcssdefined = function(cb) {
-                var resolvedHref = ss.href;
-                var i = sheets.length;
-                while (i--) {
-                  if (sheets[i].href === resolvedHref) {
-                    return cb();
-                  }
-                }
-                setTimeout(function() {
-                  onloadcssdefined(cb);
-                });
-              };
-              function loadCB() {
-                if (ss.addEventListener) {
-                  ss.removeEventListener("load", loadCB);
-                }
-                ss.media = media || "all";
-              }
-              if (ss.addEventListener) {
-                ss.addEventListener("load", loadCB);
-              }
-              ss.onloadcssdefined = onloadcssdefined;
-              onloadcssdefined(loadCB);
-              return ss;
-            }
-            
-            // Cargar estilos no críticos después del contenido principal
+            // Cargar CSS específico de forma asíncrona después del render inicial
             window.addEventListener('DOMContentLoaded', function() {
-              setTimeout(function() {
-                // Aquí se cargarían estilos adicionales si los hubiera
-                // loadCSS('/path/to/non-critical.css');
-              }, 100);
+              // Buscar cualquier CSS que haya pasado nuestros filtros
+              var remainingCSS = document.querySelectorAll('link[rel="stylesheet"]');
+              remainingCSS.forEach(function(link) {
+                if (link.href && link.href.includes('.css')) {
+                  // Convertir a preload si no se procesó antes
+                  var preload = document.createElement('link');
+                  preload.rel = 'preload';
+                  preload.as = 'style';
+                  preload.href = link.href;
+                  preload.onload = function() {
+                    this.rel = 'stylesheet';
+                  };
+                  
+                  // Reemplazar el CSS bloqueante
+                  link.parentNode.insertBefore(preload, link);
+                  link.remove();
+                }
+              });
+              
+              // Cargar CSS específicos conocidos de forma asíncrona
+              var cssFiles = [
+                // Estos se detectarán automáticamente, pero los incluimos por seguridad
+              ];
+              
+              cssFiles.forEach(function(href) {
+                var link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'style';
+                link.href = href;
+                link.onload = function() {
+                  this.rel = 'stylesheet';
+                };
+                document.head.appendChild(link);
+              });
+              
+              // Mostrar contenido una vez procesado
+              document.body.style.visibility = 'visible';
             });
+            
+            // Función de utilidad global
+            window.loadCSSAsync = function(href) {
+              var link = document.createElement('link');
+              link.rel = 'preload';
+              link.as = 'style';
+              link.href = href;
+              link.onload = function() {
+                this.rel = 'stylesheet';
+              };
+              document.head.appendChild(link);
+              return link;
+            };
           `
         }} />
 

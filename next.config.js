@@ -70,25 +70,45 @@ const nextConfig = {
       // Configuración adicional para CSS no bloqueante
       config.plugins = config.plugins || [];
 
-      // Encontrar y modificar el plugin de CSS
-      const MiniCssExtractPlugin = require('next/dist/build/webpack/plugins/mini-css-extract-plugin').default;
-      const miniCssPlugin = config.plugins.find(plugin => plugin instanceof MiniCssExtractPlugin);
+      // Configuración más agresiva para eliminar CSS bloqueante completamente
+      try {
+        const MiniCssExtractPlugin = require('next/dist/build/webpack/plugins/mini-css-extract-plugin').default;
 
-      if (miniCssPlugin) {
-        // Configurar para que el CSS no bloquee
-        miniCssPlugin.options = {
-          ...miniCssPlugin.options,
-          insert: function (linkTag) {
-            // Insertar como preload primero, luego convertir a stylesheet
-            linkTag.rel = 'preload';
-            linkTag.as = 'style';
-            linkTag.onload = function () {
-              this.onload = null;
-              this.rel = 'stylesheet';
-            };
-            document.head.appendChild(linkTag);
+        // Reemplazar todos los plugins de CSS
+        config.plugins = config.plugins.map(plugin => {
+          if (plugin instanceof MiniCssExtractPlugin) {
+            return new MiniCssExtractPlugin({
+              ...plugin.options,
+              // Configurar inserción no bloqueante desde webpack
+              insert: function (element) {
+                // Crear como preload primero
+                element.rel = 'preload';
+                element.as = 'style';
+                element.onload = function () {
+                  this.onload = null;
+                  this.rel = 'stylesheet';
+                };
+
+                // Crear fallback noscript
+                const noscript = document.createElement('noscript');
+                const fallback = element.cloneNode();
+                fallback.rel = 'stylesheet';
+                noscript.appendChild(fallback);
+
+                // Insertar ambos
+                document.head.appendChild(element);
+                document.head.appendChild(noscript);
+              },
+              // Atributos adicionales para identificación
+              attributes: {
+                'data-async-css': 'true'
+              }
+            });
           }
-        };
+          return plugin;
+        });
+      } catch (error) {
+        console.warn('No se pudo configurar MiniCssExtractPlugin:', error.message);
       }
 
       // Configuración adicional para evitar CSS bloqueante y polyfills innecesarios

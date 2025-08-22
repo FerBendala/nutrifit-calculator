@@ -9,8 +9,9 @@ import './globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
-  display: 'swap', // Mejora el LCP permitiendo fallback fonts
-  preload: true
+  display: 'swap',
+  preload: true,
+  variable: '--font-inter'
 });
 
 export const metadata: Metadata = {
@@ -66,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* Resource hints optimizados para mejorar LCP */}
+        {/* Resource hints optimizados para Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
@@ -261,21 +262,7 @@ export default function RootLayout({
           
         }} */ }
 
-        {/* Preload de fuentes críticas para evitar FOIT/FOUT */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiA.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        {/* Next.js maneja automáticamente el preload de Google Fonts */}
 
         {/* Estilos críticos inline optimizados para LCP */}
 

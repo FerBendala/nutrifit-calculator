@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface SocialShareProps {
   title: string;
@@ -10,6 +10,11 @@ interface SocialShareProps {
 
 export function SocialShare({ title, url, description }: SocialShareProps) {
   const [copied, setCopied] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const shareData = {
     title,
@@ -18,7 +23,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
   };
 
   const handleNativeShare = async () => {
-    if (navigator.share) {
+    if (isClient && navigator.share) {
       try {
         await navigator.share(shareData);
       } catch (err) {
@@ -28,6 +33,8 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
   };
 
   const handleCopyLink = async () => {
+    if (!isClient) return;
+    
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
@@ -52,7 +59,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
 
       <div className="flex flex-wrap gap-2">
         {/* Native Share (mobile) */}
-        {typeof window !== 'undefined' && 'share' in navigator && (
+        {isClient && 'share' in navigator && (
           <button
             onClick={handleNativeShare}
             className="px-3 py-2 text-xs bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"

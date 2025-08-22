@@ -70,8 +70,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* CSS Interceptor - Optimizado para producción */}
-        <script dangerouslySetInnerHTML={{
+        {/* CSS Interceptor - Temporalmente deshabilitado para evitar errores de hidratación */}
+        {/* <script dangerouslySetInnerHTML={{
           __html: `
             // Interceptor CSS optimizado para navegadores que no soporten preload
             (function() {
@@ -219,14 +219,14 @@ export default function RootLayout({
               
               observer.observe(document.head, { childList: true, subtree: true });
             })();
-          `
-        }} />
+          
+        }} */ }
 
         {/* Resource prioritization */}
         <meta name="theme-color" content="#ffffff" />
 
-        {/* Fallback para navegadores sin soporte de preload */}
-        <script dangerouslySetInnerHTML={{
+        {/* Fallback para navegadores sin soporte de preload - Temporalmente deshabilitado */}
+        {/* <script dangerouslySetInnerHTML={{
           __html: `
             // Interceptor de document.write para casos edge
             (function() {
@@ -258,8 +258,8 @@ export default function RootLayout({
             document.addEventListener('DOMContentLoaded', function() {
               document.body.style.visibility = 'visible';
             });
-          `
-        }} />
+          
+        }} */ }
 
         {/* Preload de fuentes críticas para evitar FOIT/FOUT */}
         <link
@@ -285,8 +285,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
 
-        {/* Procesamiento final de CSS residual */}
-        <script dangerouslySetInnerHTML={{
+        {/* Procesamiento final de CSS residual - Temporalmente deshabilitado */}
+        {/* <script dangerouslySetInnerHTML={{
           __html: `
             // Procesar CSS residual que pueda escapar otros filtros
             window.addEventListener('DOMContentLoaded', function() {
@@ -321,8 +321,8 @@ export default function RootLayout({
               document.head.appendChild(link);
               return link;
             };
-          `
-        }} />
+          
+        }} */ }
 
         {/* AdSense verification meta tag */}
         {process.env.NEXT_PUBLIC_ADSENSE_ID && (

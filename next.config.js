@@ -15,20 +15,20 @@ const nextConfig = {
   //   optimizeCss: true, // Causa problemas con critters en Next 13.5.1
   // },
 
-  // Configuración para mejorar el rendimiento
+  // Configuración del compilador optimizada para CSS no bloqueante
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
     styledComponents: false,
+    emotion: false,
   },
 
-  // Optimizaciones para mejorar LCP y reducir polyfills
+  // Optimizaciones experimentales para eliminar CSS bloqueante
   experimental: {
     swcPlugins: [],
-    // Optimización de CSS para romper cadenas críticas
-    optimizeCss: false, // Deshabilitamos para control manual
-    // Configuraciones adicionales para CSS
+    optimizeCss: false, // Control manual de CSS
     esmExternals: true,
     serverComponentsExternalPackages: [],
+    // cssChunking removido - no es una opción válida en Next.js 13.5.1
   },
 
   // Configuración moderna de transpilación para eliminar polyfills innecesarios
@@ -70,45 +70,67 @@ const nextConfig = {
       // Configuración adicional para CSS no bloqueante
       config.plugins = config.plugins || [];
 
-      // Configuración más agresiva para eliminar CSS bloqueante completamente
+      // ESTRATEGIA FINAL: CSS completamente no bloqueante desde webpack
       try {
         const MiniCssExtractPlugin = require('next/dist/build/webpack/plugins/mini-css-extract-plugin').default;
 
-        // Reemplazar todos los plugins de CSS
+        // Interceptar y reemplazar TODOS los plugins CSS
         config.plugins = config.plugins.map(plugin => {
           if (plugin instanceof MiniCssExtractPlugin) {
+            console.log('[Webpack] Configurando CSS no bloqueante universal');
+
             return new MiniCssExtractPlugin({
               ...plugin.options,
-              // Configurar inserción no bloqueante desde webpack
-              insert: function (element) {
-                // Crear como preload primero
-                element.rel = 'preload';
-                element.as = 'style';
-                element.onload = function () {
+              // FORZAR inserción como preload SIEMPRE
+              insert: function (linkTag) {
+                // Marcar como interceptado desde webpack
+                linkTag.setAttribute('data-webpack-css', 'true');
+                linkTag.setAttribute('data-original-rel', 'stylesheet');
+
+                // SIEMPRE insertar como preload
+                linkTag.rel = 'preload';
+                linkTag.as = 'style';
+
+                // Handler para conversión diferida
+                linkTag.onload = function () {
+                  console.log('[Webpack CSS] Convirtiendo a stylesheet:', this.href);
                   this.onload = null;
                   this.rel = 'stylesheet';
                 };
 
-                // Crear fallback noscript
+                // Error handler
+                linkTag.onerror = function () {
+                  console.warn('[Webpack CSS] Error, forzando stylesheet:', this.href);
+                  this.rel = 'stylesheet';
+                };
+
+                // Noscript fallback
                 const noscript = document.createElement('noscript');
-                const fallback = element.cloneNode();
+                const fallback = document.createElement('link');
                 fallback.rel = 'stylesheet';
+                fallback.href = linkTag.href;
                 noscript.appendChild(fallback);
 
-                // Insertar ambos
-                document.head.appendChild(element);
+                // Insertar en DOM
+                document.head.appendChild(linkTag);
                 document.head.appendChild(noscript);
+
+                console.log('[Webpack CSS] CSS configurado como preload:', linkTag.href);
               },
-              // Atributos adicionales para identificación
+              // Configuración adicional
+              chunkFilename: '[name].[contenthash].css',
+              ignoreOrder: true,
               attributes: {
-                'data-async-css': 'true'
+                'data-css-source': 'webpack'
               }
             });
           }
           return plugin;
         });
+
+        console.log('[Webpack] Configuración CSS no bloqueante aplicada');
       } catch (error) {
-        console.warn('No se pudo configurar MiniCssExtractPlugin:', error.message);
+        console.warn('[Webpack] Error configurando CSS:', error.message);
       }
 
       // Configuración adicional para evitar CSS bloqueante y polyfills innecesarios

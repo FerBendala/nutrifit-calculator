@@ -69,31 +69,48 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Script crítico para interceptar CSS ANTES de que bloquee */}
+        {/* INTERCEPTOR UNIVERSAL CSS - Funciona con cualquier nombre de archivo */}
         <script dangerouslySetInnerHTML={{
           __html: `
-            // SOLUCIÓN CRÍTICA: Interceptar CSS antes de que bloquee el renderizado
+            // SOLUCIÓN UNIVERSAL: Interceptar CUALQUIER CSS independientemente del nombre
             (function() {
-              // Override del appendChild para interceptar CSS
+              console.log('[CSS Interceptor] Iniciando interceptación universal de CSS');
+              
+              // Variables para tracking
+              var interceptedFiles = [];
               var originalAppendChild = document.head.appendChild;
               var originalInsertBefore = document.head.insertBefore;
               
-              function interceptCSS(node) {
-                if (node && node.tagName === 'LINK' && 
-                    node.rel === 'stylesheet' && 
-                    node.href && (
-                      node.href.includes('_next/static/css/') ||
-                      node.href.includes('.css')
-                    )) {
+              // Función mejorada para interceptar CSS
+              function interceptCSS(node, source) {
+                if (!node || node.tagName !== 'LINK') return node;
+                
+                // Interceptar CUALQUIER stylesheet, sin importar la URL
+                if (node.rel === 'stylesheet' && node.href) {
+                  console.log('[CSS Interceptor] Interceptando CSS desde', source, ':', node.href);
                   
-                  // Convertir a preload inmediatamente
+                  // Crear preload inmediatamente
                   var preloadLink = document.createElement('link');
                   preloadLink.rel = 'preload';
                   preloadLink.as = 'style';
                   preloadLink.href = node.href;
+                  preloadLink.setAttribute('data-intercepted', 'true');
+                  
+                  // Handler para convertir a stylesheet
                   preloadLink.onload = function() {
+                    console.log('[CSS Interceptor] CSS cargado, convirtiendo a stylesheet:', this.href);
                     this.onload = null;
                     this.rel = 'stylesheet';
+                  };
+                  
+                  // Error handler
+                  preloadLink.onerror = function() {
+                    console.warn('[CSS Interceptor] Error cargando CSS:', this.href);
+                    // Fallback: crear stylesheet normal
+                    var fallback = document.createElement('link');
+                    fallback.rel = 'stylesheet';
+                    fallback.href = this.href;
+                    document.head.appendChild(fallback);
                   };
                   
                   // Crear noscript fallback
@@ -103,66 +120,87 @@ export default function RootLayout({
                   fallback.href = node.href;
                   noscript.appendChild(fallback);
                   
-                  // Insertar preload y fallback en lugar del CSS bloqueante
+                  // Insertar usando métodos originales para evitar loops
                   originalAppendChild.call(document.head, preloadLink);
                   originalAppendChild.call(document.head, noscript);
                   
-                  return preloadLink; // Retornar el preload en lugar del CSS bloqueante
+                  // Trackear archivo interceptado
+                  interceptedFiles.push(node.href);
+                  
+                  // Retornar el preload en lugar del CSS original
+                  return preloadLink;
                 }
                 return node;
               }
               
-              // Override appendChild
+              // Override appendChild - MÁS AGRESIVO
               document.head.appendChild = function(node) {
-                var processedNode = interceptCSS(node);
-                if (processedNode !== node) {
-                  return processedNode;
+                var processed = interceptCSS(node, 'appendChild');
+                if (processed !== node) {
+                  console.log('[CSS Interceptor] Bloqueado appendChild de CSS:', node.href);
+                  return processed;
                 }
                 return originalAppendChild.call(this, node);
               };
               
-              // Override insertBefore
+              // Override insertBefore - MÁS AGRESIVO
               document.head.insertBefore = function(newNode, referenceNode) {
-                var processedNode = interceptCSS(newNode);
-                if (processedNode !== newNode) {
-                  return originalInsertBefore.call(this, processedNode, referenceNode);
+                var processed = interceptCSS(newNode, 'insertBefore');
+                if (processed !== newNode) {
+                  console.log('[CSS Interceptor] Bloqueado insertBefore de CSS:', newNode.href);
+                  return originalInsertBefore.call(this, processed, referenceNode);
                 }
                 return originalInsertBefore.call(this, newNode, referenceNode);
               };
               
-              // También interceptar CSS ya presente
-              var existingCSS = document.querySelectorAll('link[rel="stylesheet"]');
-              existingCSS.forEach(function(link) {
-                if (link.href && (
-                    link.href.includes('_next/static/css/') ||
-                    link.href.includes('.css')
-                )) {
-                  interceptCSS(link);
-                  link.remove();
-                }
+              // Interceptar CSS ya presente en el DOM
+              function interceptExistingCSS() {
+                var existingCSS = document.querySelectorAll('link[rel="stylesheet"]');
+                console.log('[CSS Interceptor] Procesando', existingCSS.length, 'CSS existentes');
+                
+                existingCSS.forEach(function(link, index) {
+                  if (link.href && !link.hasAttribute('data-intercepted')) {
+                    console.log('[CSS Interceptor] Procesando CSS existente', index + 1, ':', link.href);
+                    var processed = interceptCSS(link, 'existing');
+                    if (processed !== link) {
+                      link.remove();
+                    }
+                  }
+                });
+              }
+              
+              // Ejecutar inmediatamente
+              interceptExistingCSS();
+              
+              // También ejecutar cuando el DOM esté listo
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', interceptExistingCSS);
+              }
+              
+              // Observer para CSS que se agregue dinámicamente
+              var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                  mutation.addedNodes.forEach(function(node) {
+                    if (node.tagName === 'LINK' && node.rel === 'stylesheet' && !node.hasAttribute('data-intercepted')) {
+                      console.log('[CSS Interceptor] Observer detectó nuevo CSS:', node.href);
+                      var processed = interceptCSS(node, 'observer');
+                      if (processed !== node) {
+                        node.remove();
+                      }
+                    }
+                  });
+                });
               });
               
-              // Función loadCSS de respaldo para casos específicos
-              window.loadCSS = function(href) {
-                var link = document.createElement('link');
-                link.rel = 'preload';
-                link.as = 'style';
-                link.href = href;
-                link.onload = function() {
-                  this.onload = null;
-                  this.rel = 'stylesheet';
-                };
-                document.head.appendChild(link);
-                
-                var noscript = document.createElement('noscript');
-                var fallback = document.createElement('link');
-                fallback.rel = 'stylesheet';
-                fallback.href = href;
-                noscript.appendChild(fallback);
-                document.head.appendChild(noscript);
-                
-                return link;
+              observer.observe(document.head, { childList: true, subtree: true });
+              
+              // Función global para debugging
+              window.cssInterceptorStatus = function() {
+                console.log('[CSS Interceptor] Archivos interceptados:', interceptedFiles);
+                console.log('[CSS Interceptor] CSS actuales en DOM:', document.querySelectorAll('link[rel="stylesheet"], link[rel="preload"][as="style"]').length);
               };
+              
+              console.log('[CSS Interceptor] Interceptor universal activado');
             })();
           `
         }} />

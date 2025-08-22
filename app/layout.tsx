@@ -7,7 +7,11 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap', // Mejora el LCP permitiendo fallback fonts
+  preload: true
+});
 
 export const metadata: Metadata = {
   title: SITE_CONFIG.name,
@@ -61,6 +65,40 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Resource hints para optimizar carga */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Estilos críticos inline para above-the-fold */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Estilos críticos para LCP */
+            body { margin: 0; font-family: Inter, system-ui, sans-serif; }
+            .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+            h1 { font-size: 2.25rem; font-weight: 700; line-height: 1.2; margin: 0; }
+            @media (min-width: 640px) { h1 { font-size: 3rem; } }
+            /* Header crítico */
+            header { position: sticky; top: 0; z-index: 40; width: 100%; border-bottom: 1px solid #e5e7eb; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); }
+            /* Layout básico */
+            .min-h-screen { min-height: 100vh; }
+            .flex { display: flex; }
+            .flex-col { flex-direction: column; }
+            .flex-1 { flex: 1 1 0%; }
+            .items-center { align-items: center; }
+            .justify-center { justify-content: center; }
+            .text-center { text-align: center; }
+            .space-y-4 > * + * { margin-top: 1rem; }
+            .space-y-8 > * + * { margin-top: 2rem; }
+            /* Botones críticos */
+            .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-weight: 500; transition: all 0.2s; }
+          `
+        }} />
+
+        {/* DNS prefetch para recursos externos */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
         {/* AdSense verification meta tag */}
         {process.env.NEXT_PUBLIC_ADSENSE_ID && (
           <meta name="google-adsense-account" content={process.env.NEXT_PUBLIC_ADSENSE_ID} />

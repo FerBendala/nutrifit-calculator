@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface SocialShareProps {
   title: string;
@@ -34,7 +34,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
 
   const handleCopyLink = async () => {
     if (!isClient) return;
-    
+
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);

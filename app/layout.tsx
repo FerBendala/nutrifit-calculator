@@ -69,9 +69,100 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* CSS loading optimization hint */}
-        <link rel="preload" as="style" href="/globals.css" />
-
+                {/* CSS asíncrono para eliminar bloqueo de renderizado */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Función loadCSS optimizada para cargar CSS de forma asíncrona
+            function loadCSS(href, before, media, attributes) {
+              var doc = window.document;
+              var ss = doc.createElement("link");
+              var ref;
+              if (before) {
+                ref = before;
+              } else {
+                var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+                ref = refs[refs.length - 1];
+              }
+              var sheets = doc.styleSheets;
+              if (attributes) {
+                for (var attributeName in attributes) {
+                  if (attributes.hasOwnProperty(attributeName)) {
+                    ss.setAttribute(attributeName, attributes[attributeName]);
+                  }
+                }
+              }
+              ss.rel = "stylesheet";
+              ss.href = href;
+              ss.media = "only x";
+              function ready(cb) {
+                if (doc.body) {
+                  return cb();
+                }
+                setTimeout(function() {
+                  ready(cb);
+                });
+              }
+              ready(function() {
+                ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+              });
+              var onloadcssdefined = function(cb) {
+                var resolvedHref = ss.href;
+                var i = sheets.length;
+                while (i--) {
+                  if (sheets[i].href === resolvedHref) {
+                    return cb();
+                  }
+                }
+                setTimeout(function() {
+                  onloadcssdefined(cb);
+                });
+              };
+              function loadCB() {
+                if (ss.addEventListener) {
+                  ss.removeEventListener("load", loadCB);
+                }
+                ss.media = media || "all";
+              }
+              if (ss.addEventListener) {
+                ss.addEventListener("load", loadCB);
+              }
+              ss.onloadcssdefined = onloadcssdefined;
+              onloadcssdefined(loadCB);
+              return ss;
+            }
+            
+            // Interceptar y cargar CSS de Next.js de forma asíncrona
+            (function() {
+              // Buscar y convertir CSS bloqueante a asíncrono
+              var stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+              stylesheets.forEach(function(link) {
+                if (link.href && link.href.includes('_next/static/css/')) {
+                  var href = link.href;
+                  link.remove();
+                  loadCSS(href);
+                }
+              });
+              
+              // Observer para CSS que se agregue dinámicamente
+              var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                  mutation.addedNodes.forEach(function(node) {
+                    if (node.tagName === 'LINK' && 
+                        node.rel === 'stylesheet' && 
+                        node.href && 
+                        node.href.includes('_next/static/css/')) {
+                      var href = node.href;
+                      node.remove();
+                      loadCSS(href);
+                    }
+                  });
+                });
+              });
+              observer.observe(document.head, { childList: true });
+            })();
+          `
+        }} />
+        
         {/* Resource prioritization */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
@@ -196,6 +287,38 @@ export default function RootLayout({
             .btn-primary:hover{background-color:#1f2937;border-color:#1f2937}
             .btn-secondary{background-color:#f9fafb;color:#111827;border:1px solid #e5e7eb}
             .btn-secondary:hover{background-color:#f3f4f6;border-color:#d1d5db}
+            
+            /* Formularios críticos */
+            input,select,textarea{display:block;width:100%;padding:0.5rem 0.75rem;border:1px solid #d1d5db;border-radius:0.375rem;font-size:0.875rem;line-height:1.25rem}
+            input:focus,select:focus,textarea:focus{outline:2px solid #2563eb;outline-offset:2px;border-color:#2563eb}
+            label{display:block;font-size:0.875rem;font-weight:500;color:#374151;margin-bottom:0.5rem}
+            
+            /* Layout de formulario */
+            .form-group{margin-bottom:1rem}
+            .form-row{display:flex;gap:1rem}
+            @media(max-width:768px){.form-row{flex-direction:column;gap:0.5rem}}
+            
+            /* Cards y contenedores críticos */
+            .card{background-color:#ffffff;border:1px solid #e5e7eb;border-radius:0.5rem;padding:1.5rem;box-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1)}
+            .card-header{margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid #e5e7eb}
+            .card-content{color:#374151}
+            
+            /* Navegación crítica */
+            nav{background-color:#ffffff;border-bottom:1px solid #e5e7eb}
+            nav a{color:#374151;text-decoration:none;padding:0.5rem 1rem;display:inline-block}
+            nav a:hover{color:#111827;background-color:#f9fafb}
+            
+            /* Estados de carga */
+            .loading{opacity:0.6;pointer-events:none}
+            .hidden{display:none!important}
+            .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+            
+            /* Responsive utilities críticos */
+            @media(max-width:640px){
+              .text-4xl{font-size:1.875rem;line-height:2.25rem}
+              .hero-description{font-size:1.125rem;line-height:1.75rem}
+              .container{padding:0 0.75rem}
+            }
           `
         }} />
 

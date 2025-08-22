@@ -44,6 +44,17 @@ const nextConfig = {
           },
         },
       };
+
+      // Configuración adicional para evitar CSS bloqueante
+      const originalEntry = config.entry;
+      config.entry = () =>
+        originalEntry().then((entry) => {
+          // Modificar entry points para manejar CSS de forma asíncrona
+          if (entry['main.js'] && !entry['main.js'].includes('./styles/critical.css')) {
+            // No modificamos el entry, dejamos que nuestro script maneje el CSS
+          }
+          return entry;
+        });
     }
     return config;
   },

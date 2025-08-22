@@ -65,32 +65,68 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* Resource hints para optimizar carga */}
+        {/* Resource hints optimizados para mejorar LCP */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Estilos críticos inline para above-the-fold */}
+        {/* Preload de fuentes críticas para evitar FOIT/FOUT */}
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiA.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+
+        {/* Estilos críticos inline optimizados para LCP */}
         <style dangerouslySetInnerHTML={{
           __html: `
-            /* Estilos críticos para LCP */
-            body { margin: 0; font-family: Inter, system-ui, sans-serif; }
-            .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-            h1 { font-size: 2.25rem; font-weight: 700; line-height: 1.2; margin: 0; }
-            @media (min-width: 640px) { h1 { font-size: 3rem; } }
-            /* Header crítico */
-            header { position: sticky; top: 0; z-index: 40; width: 100%; border-bottom: 1px solid #e5e7eb; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); }
-            /* Layout básico */
-            .min-h-screen { min-height: 100vh; }
-            .flex { display: flex; }
-            .flex-col { flex-direction: column; }
-            .flex-1 { flex: 1 1 0%; }
-            .items-center { align-items: center; }
-            .justify-center { justify-content: center; }
-            .text-center { text-align: center; }
-            .space-y-4 > * + * { margin-top: 1rem; }
-            .space-y-8 > * + * { margin-top: 2rem; }
-            /* Botones críticos */
-            .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 0.375rem; font-weight: 500; transition: all 0.2s; }
+            /* Reset crítico y tipografía base */
+            *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+            html{line-height:1.15;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+            body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;font-display:swap;background:#fff;color:#000}
+            
+            /* Layout crítico optimizado */
+            .min-h-screen{min-height:100vh}
+            .flex{display:flex}
+            .flex-col{flex-direction:column}
+            .flex-1{flex:1 1 0%}
+            .items-center{align-items:center}
+            .justify-center{justify-content:center}
+            .text-center{text-align:center}
+            
+            /* Container responsive eficiente */
+            .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+            @media(min-width:640px){.container{padding:0 1.5rem}}
+            @media(min-width:1024px){.container{padding:0 2rem}}
+            
+            /* Tipografía crítica optimizada */
+            h1{font-size:2.25rem;font-weight:700;line-height:1.2;margin:0;letter-spacing:-0.025em;color:#111827}
+            @media(min-width:640px){h1{font-size:3rem;letter-spacing:-0.05em}}
+            
+            /* Header optimizado para performance */
+            header{position:sticky;top:0;z-index:40;width:100%;border-bottom:1px solid #e5e7eb;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);will-change:transform;contain:layout style paint}
+            
+            /* Espaciado eficiente */
+            .space-y-4>:not(:first-child){margin-top:1rem}
+            .space-y-8>:not(:first-child){margin-top:2rem}
+            
+            /* Botones optimizados */
+            .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:0.375rem;font-weight:500;transition:opacity 0.15s ease,transform 0.15s ease;will-change:opacity,transform;cursor:pointer}
+            .btn:hover{opacity:0.9;transform:translateY(-1px)}
+            .btn:active{transform:translateY(0)}
+            
+            /* Optimizaciones de rendering */
+            img{max-width:100%;height:auto}
+            button{cursor:pointer}
+            a{color:inherit;text-decoration:none}
           `
         }} />
 

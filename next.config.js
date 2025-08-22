@@ -14,6 +14,12 @@ const nextConfig = {
   // Configuración para mejorar el rendimiento
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+    styledComponents: false,
+  },
+
+  // Optimizaciones para mejorar LCP y reducir polyfills
+  experimental: {
+    swcPlugins: [],
   },
 
   // TrailingSlash para sitios estáticos

@@ -69,7 +69,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-                {/* CSS asíncrono para eliminar bloqueo de renderizado */}
+        {/* CSS asíncrono para eliminar bloqueo de renderizado */}
         <script dangerouslySetInnerHTML={{
           __html: `
             // Función loadCSS optimizada para cargar CSS de forma asíncrona
@@ -162,7 +162,7 @@ export default function RootLayout({
             })();
           `
         }} />
-        
+
         {/* Resource prioritization */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />

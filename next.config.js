@@ -1,3 +1,7 @@
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
@@ -24,6 +28,12 @@ const nextConfig = {
     optimizeCss: false, // Deshabilitamos para control manual
   },
 
+  // Configuración moderna de transpilación para eliminar polyfills innecesarios
+  // Basado en funciones Baseline ampliamente disponibles
+  env: {
+    NEXT_PUBLIC_BROWSERSLIST: 'chrome >= 91, firefox >= 90, safari >= 14, edge >= 91'
+  },
+
   // Configuración de webpack para optimizar CSS
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
@@ -45,7 +55,7 @@ const nextConfig = {
         },
       };
 
-      // Configuración adicional para evitar CSS bloqueante
+      // Configuración adicional para evitar CSS bloqueante y polyfills innecesarios
       const originalEntry = config.entry;
       config.entry = () =>
         originalEntry().then((entry) => {
@@ -55,6 +65,49 @@ const nextConfig = {
           }
           return entry;
         });
+
+      // Eliminar polyfills innecesarios para funciones Baseline ampliamente disponibles
+      config.resolve = config.resolve || {};
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        // Eliminar polyfills específicos que ya no son necesarios
+        'core-js/modules/es.array.at': false,
+        'core-js/modules/es.array.flat': false,
+        'core-js/modules/es.array.flat-map': false,
+        'core-js/modules/es.object.from-entries': false,
+        'core-js/modules/es.string.trim-start': false,
+        'core-js/modules/es.string.trim-end': false,
+      };
+
+      // Configurar babel/swc para no transpile características modernas
+      config.module = config.module || {};
+      config.module.rules = config.module.rules || [];
+      
+      // Encontrar la regla de JavaScript/TypeScript y modificarla
+      const jsRule = config.module.rules.find(
+        rule => rule.test && rule.test.toString().includes('tsx?')
+      );
+      
+      if (jsRule && jsRule.use) {
+        const swcLoader = Array.isArray(jsRule.use) 
+          ? jsRule.use.find(use => use.loader && use.loader.includes('swc-loader'))
+          : jsRule.use.loader && jsRule.use.loader.includes('swc-loader') ? jsRule.use : null;
+          
+        if (swcLoader && swcLoader.options) {
+          swcLoader.options.jsc = swcLoader.options.jsc || {};
+          swcLoader.options.jsc.target = 'es2022';
+          swcLoader.options.env = {
+            targets: {
+              chrome: '91',
+              firefox: '90',
+              safari: '14',
+              edge: '91'
+            },
+            mode: 'entry',
+            coreJs: false
+          };
+        }
+      }
     }
     return config;
   },
@@ -66,4 +119,4 @@ const nextConfig = {
   swcMinify: true,
 };
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);

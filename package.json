@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -70,7 +71,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.5.0",
     "@playwright/test": "^1.55.0",
-    "vitest": "^1.6.1"
+    "vitest": "^1.6.1",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }

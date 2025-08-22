@@ -69,6 +69,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
+        {/* CSS loading optimization hint */}
+        <link rel="preload" as="style" href="/globals.css" />
+
+        {/* Resource prioritization */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#ffffff" />
+
         {/* Preload de fuentes críticas para evitar FOIT/FOUT */}
         <link
           rel="preload"
@@ -135,17 +142,60 @@ export default function RootLayout({
             button{cursor:pointer}
             a{color:inherit;text-decoration:none}
             
-            /* Optimizaciones críticas para reducir render delay */
+            /* CSS crítico expandido para reducir dependencias externas */
             .space-y-8{display:flex;flex-direction:column;gap:2rem}
             .max-w-4xl{max-width:56rem}
             .mx-auto{margin-left:auto;margin-right:auto}
+            .py-8{padding-top:2rem;padding-bottom:2rem}
+            .w-full{width:100%}
             
-            /* Prevenir layout shift */
-            .text-4xl{font-size:2.25rem}
-            @media(min-width:640px){.text-5xl{font-size:3rem}}
+            /* Tipografía crítica completa */
+            .text-4xl{font-size:2.25rem;line-height:2.5rem}
+            .text-5xl{font-size:3rem;line-height:1}
+            .text-xl{font-size:1.25rem;line-height:1.75rem}
+            .text-2xl{font-size:1.5rem;line-height:2rem}
+            .text-lg{font-size:1.125rem;line-height:1.75rem}
             .font-bold{font-weight:700}
+            .font-semibold{font-weight:600}
+            .font-medium{font-weight:500}
             .tracking-tight{letter-spacing:-0.025em}
-            @media(min-width:640px){.tracking-tight{letter-spacing:-0.05em}}
+            @media(min-width:640px){
+              .sm\\:text-5xl{font-size:3rem;line-height:1}
+              .tracking-tight{letter-spacing:-0.05em}
+            }
+            
+            /* Layout crítico de cards */
+            .rounded-lg{border-radius:0.5rem}
+            .border{border-width:1px;border-color:#e5e7eb}
+            .bg-card{background-color:#ffffff}
+            .shadow-sm{box-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05)}
+            .p-6{padding:1.5rem}
+            .p-4{padding:1rem}
+            .mb-4{margin-bottom:1rem}
+            .mb-6{margin-bottom:1.5rem}
+            .mt-4{margin-top:1rem}
+            .mt-6{margin-top:1.5rem}
+            
+            /* Grid crítico */
+            .grid{display:grid}
+            .gap-6{gap:1.5rem}
+            .gap-4{gap:1rem}
+            @media(min-width:768px){
+              .md\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+              .md\\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+            }
+            
+            /* Colores críticos */
+            .text-muted-foreground{color:#6b7280}
+            .text-foreground{color:#111827}
+            .bg-primary{background-color:#111827}
+            .text-primary-foreground{color:#ffffff}
+            
+            /* Estados de botones críticos */
+            .btn-primary{background-color:#111827;color:#ffffff;border:1px solid #111827}
+            .btn-primary:hover{background-color:#1f2937;border-color:#1f2937}
+            .btn-secondary{background-color:#f9fafb;color:#111827;border:1px solid #e5e7eb}
+            .btn-secondary:hover{background-color:#f3f4f6;border-color:#d1d5db}
           `
         }} />
 
@@ -153,6 +203,78 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+        {/* CSS no crítico - carga diferida para romper cadena */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Cargar CSS no crítico de forma asíncrona
+            function loadCSS(href, before, media, attributes) {
+              var doc = window.document;
+              var ss = doc.createElement("link");
+              var ref;
+              if (before) {
+                ref = before;
+              } else {
+                var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+                ref = refs[refs.length - 1];
+              }
+              var sheets = doc.styleSheets;
+              if (attributes) {
+                for (var attributeName in attributes) {
+                  if (attributes.hasOwnProperty(attributeName)) {
+                    ss.setAttribute(attributeName, attributes[attributeName]);
+                  }
+                }
+              }
+              ss.rel = "stylesheet";
+              ss.href = href;
+              ss.media = "only x";
+              function ready(cb) {
+                if (doc.body) {
+                  return cb();
+                }
+                setTimeout(function() {
+                  ready(cb);
+                });
+              }
+              ready(function() {
+                ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+              });
+              var onloadcssdefined = function(cb) {
+                var resolvedHref = ss.href;
+                var i = sheets.length;
+                while (i--) {
+                  if (sheets[i].href === resolvedHref) {
+                    return cb();
+                  }
+                }
+                setTimeout(function() {
+                  onloadcssdefined(cb);
+                });
+              };
+              function loadCB() {
+                if (ss.addEventListener) {
+                  ss.removeEventListener("load", loadCB);
+                }
+                ss.media = media || "all";
+              }
+              if (ss.addEventListener) {
+                ss.addEventListener("load", loadCB);
+              }
+              ss.onloadcssdefined = onloadcssdefined;
+              onloadcssdefined(loadCB);
+              return ss;
+            }
+            
+            // Cargar estilos no críticos después del contenido principal
+            window.addEventListener('DOMContentLoaded', function() {
+              setTimeout(function() {
+                // Aquí se cargarían estilos adicionales si los hubiera
+                // loadCSS('/path/to/non-critical.css');
+              }, 100);
+            });
+          `
+        }} />
 
         {/* AdSense verification meta tag */}
         {process.env.NEXT_PUBLIC_ADSENSE_ID && (

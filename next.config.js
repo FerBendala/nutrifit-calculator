@@ -20,6 +20,32 @@ const nextConfig = {
   // Optimizaciones para mejorar LCP y reducir polyfills
   experimental: {
     swcPlugins: [],
+    // Optimización de CSS para romper cadenas críticas
+    optimizeCss: false, // Deshabilitamos para control manual
+  },
+
+  // Configuración de webpack para optimizar CSS
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // Optimizaciones de CSS para producción
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          ...config.optimization.splitChunks,
+          cacheGroups: {
+            ...config.optimization.splitChunks.cacheGroups,
+            styles: {
+              name: 'styles',
+              test: /\.(css|scss|sass)$/,
+              chunks: 'all',
+              enforce: true,
+              priority: 10,
+            },
+          },
+        },
+      };
+    }
+    return config;
   },
 
   // TrailingSlash para sitios estáticos

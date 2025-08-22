@@ -131,34 +131,73 @@ export default function RootLayout({
               return ss;
             }
             
-            // Interceptar y cargar CSS de Next.js de forma asíncrona
+            // Interceptar y cargar CSS de Next.js de forma asíncrona - MEJORADO
             (function() {
-              // Buscar y convertir CSS bloqueante a asíncrono
+              // Función para convertir CSS bloqueante a asíncrono
+              function makeAsyncCSS(link) {
+                if (!link || !link.href) return;
+                
+                // Crear preload link
+                var preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.as = 'style';
+                preloadLink.href = link.href;
+                preloadLink.onload = function() {
+                  this.onload = null;
+                  this.rel = 'stylesheet';
+                };
+                
+                // Fallback para navegadores sin soporte de preload
+                var noscriptFallback = document.createElement('noscript');
+                var fallbackLink = document.createElement('link');
+                fallbackLink.rel = 'stylesheet';
+                fallbackLink.href = link.href;
+                noscriptFallback.appendChild(fallbackLink);
+                
+                // Insertar antes del link original
+                link.parentNode.insertBefore(preloadLink, link);
+                link.parentNode.insertBefore(noscriptFallback, link);
+                
+                // Remover link original
+                link.remove();
+              }
+              
+              // Buscar y convertir CSS bloqueante a asíncrono - más específico
               var stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
               stylesheets.forEach(function(link) {
-                if (link.href && link.href.includes('_next/static/css/')) {
-                  var href = link.href;
-                  link.remove();
-                  loadCSS(href);
+                if (link.href && (
+                    link.href.includes('_next/static/css/') ||
+                    link.href.includes('.css') && link.href.includes(window.location.origin)
+                )) {
+                  makeAsyncCSS(link);
                 }
               });
               
-              // Observer para CSS que se agregue dinámicamente
+              // Observer mejorado para CSS que se agregue dinámicamente
               var observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
                   mutation.addedNodes.forEach(function(node) {
                     if (node.tagName === 'LINK' && 
                         node.rel === 'stylesheet' && 
-                        node.href && 
-                        node.href.includes('_next/static/css/')) {
-                      var href = node.href;
-                      node.remove();
-                      loadCSS(href);
+                        node.href && (
+                          node.href.includes('_next/static/css/') ||
+                          (node.href.includes('.css') && node.href.includes(window.location.origin))
+                        )) {
+                      makeAsyncCSS(node);
                     }
                   });
                 });
               });
               observer.observe(document.head, { childList: true });
+              
+              // También observar cambios en el body por si Next.js inyecta CSS ahí
+              if (document.body) {
+                observer.observe(document.body, { childList: true });
+              } else {
+                document.addEventListener('DOMContentLoaded', function() {
+                  observer.observe(document.body, { childList: true });
+                });
+              }
             })();
           `
         }} />
@@ -319,6 +358,48 @@ export default function RootLayout({
               .hero-description{font-size:1.125rem;line-height:1.75rem}
               .container{padding:0 0.75rem}
             }
+            
+            /* Componentes adicionales críticos para eliminar dependencia CSS externa */
+            .prose{max-width:65ch;color:#374151}
+            .prose h2{font-size:1.5rem;font-weight:600;margin-top:2rem;margin-bottom:1rem;color:#111827}
+            .prose h3{font-size:1.25rem;font-weight:600;margin-top:1.5rem;margin-bottom:0.5rem;color:#111827}
+            .prose p{margin-bottom:1rem;line-height:1.75}
+            
+            /* Utilidades de posicionamiento */
+            .relative{position:relative}
+            .absolute{position:absolute}
+            .sticky{position:sticky}
+            .top-0{top:0}
+            .z-40{z-index:40}
+            .z-50{z-index:50}
+            
+            /* Utilidades de display críticas */
+            .block{display:block}
+            .inline{display:inline}
+            .inline-block{display:inline-block}
+            .table{display:table}
+            
+            /* Utilidades de overflow */
+            .overflow-hidden{overflow:hidden}
+            .overflow-auto{overflow:auto}
+            
+            /* Utilidades de cursor */
+            .cursor-pointer{cursor:pointer}
+            .cursor-not-allowed{cursor:not-allowed}
+            
+            /* Utilidades de selección */
+            .select-none{user-select:none}
+            
+            /* Transiciones críticas */
+            .transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(0.4,0,0.2,1);transition-duration:150ms}
+            .transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(0.4,0,0.2,1);transition-duration:150ms}
+            
+            /* Focus states críticos */
+            .focus\\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}
+            .focus\\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}
+            
+            /* Variables CSS críticas */
+            :root{--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000}
           `
         }} />
 

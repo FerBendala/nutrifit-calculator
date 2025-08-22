@@ -16,6 +16,14 @@ export default function HomePage() {
       />
 
       <Container className="py-8">
+        {/* Skip link para accesibilidad */}
+        <a
+          href="#calculator"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground px-4 py-2 rounded-md z-50"
+        >
+          Saltar a calculadora
+        </a>
+
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Hero Section */}
           <div className="text-center space-y-4">

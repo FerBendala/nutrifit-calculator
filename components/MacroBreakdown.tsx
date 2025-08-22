@@ -37,33 +37,33 @@ export function MacroBreakdown({ macros, targetCalories }: MacroBreakdownProps) 
                 <span>{formatGrams(macros.protein)} ({formatPercentage(proteinPercentage)})</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
+                <div
                   className="bg-blue-500 h-2 rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${proteinPercentage}%` }}
                 ></div>
               </div>
             </div>
-            
+
             <div className="space-y-1">
               <div className="flex justify-between text-sm">
                 <span>Grasas</span>
                 <span>{formatGrams(macros.fat)} ({formatPercentage(fatPercentage)})</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
+                <div
                   className="bg-yellow-500 h-2 rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${fatPercentage}%` }}
                 ></div>
               </div>
             </div>
-            
+
             <div className="space-y-1">
               <div className="flex justify-between text-sm">
                 <span>Carbohidratos</span>
                 <span>{formatGrams(macros.carbs)} ({formatPercentage(carbPercentage)})</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
+                <div
                   className="bg-green-500 h-2 rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${carbPercentage}%` }}
                 ></div>

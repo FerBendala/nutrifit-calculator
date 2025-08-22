@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import {
   ACTIVITY_LEVELS,
   GOALS,
@@ -110,10 +110,10 @@ export function CalculatorForm() {
           // En móviles, scroll más arriba para que los resultados estén visibles
           const isMobile = window.innerWidth < 768;
           const offset = isMobile ? -80 : -20; // Más espacio en móviles
-          
+
           const elementTop = resultsRef.current.getBoundingClientRect().top + window.pageYOffset;
           const offsetTop = elementTop + offset;
-          
+
           window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
@@ -146,9 +146,11 @@ export function CalculatorForm() {
 
   return (
     <div className="space-y-8">
-      <Card>
+      <Card id="calculator">
         <CardHeader>
-          <CardTitle>Calculadora de Calorías y Macronutrientes</CardTitle>
+          <h2 className="text-2xl font-semibold leading-none tracking-tight">
+            Calculadora de Calorías y Macronutrientes
+          </h2>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">

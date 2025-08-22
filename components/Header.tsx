@@ -88,7 +88,11 @@ export function Header() {
       <div className="container mx-auto px-4 h-14 flex items-center justify-between">
         {/* Logo */}
         <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link
+            href="/"
+            className="mr-6 flex items-center space-x-2"
+            aria-label="NutriFit Calculator - Ir a página principal"
+          >
             <CalculatorIcon className="h-6 w-6" size={24} />
             <span className="hidden font-bold sm:inline-block">
               NutriFit Calculator

@@ -47,7 +47,7 @@ export function ResultCard({ tdee, targetCalories, macros, goal }: ResultCardPro
               <span className="font-bold text-primary">{formatCalories(targetCalories)}</span>
             </div>
           </div>
-          
+
           <div className="space-y-2">
             <h4 className="font-medium text-sm text-muted-foreground uppercase tracking-wide">
               Macronutrientes diarios
@@ -68,10 +68,10 @@ export function ResultCard({ tdee, targetCalories, macros, goal }: ResultCardPro
             </div>
           </div>
         </div>
-        
+
         <div className="pt-4 border-t">
           <p className="text-xs text-muted-foreground">
-            💡 <strong>Nota importante:</strong> Estos cálculos son orientativos y no sustituyen 
+            💡 <strong>Nota importante:</strong> Estos cálculos son orientativos y no sustituyen
             el consejo de un profesional de la nutrición o médico.
           </p>
         </div>

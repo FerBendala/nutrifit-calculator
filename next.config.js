@@ -7,9 +7,9 @@ const nextConfig = {
   images: { unoptimized: true },
 
   // Optimizaciones para reducir cadena crítica
-  experimental: {
-    optimizeCss: true, // Optimiza el CSS crítico
-  },
+  // experimental: {
+  //   optimizeCss: true, // Causa problemas con critters en Next 13.5.1
+  // },
 
   // Configuración para mejorar el rendimiento
   compiler: {

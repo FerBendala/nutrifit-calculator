@@ -77,7 +77,7 @@ const nextConfig = {
         // Interceptar y reemplazar TODOS los plugins CSS
         config.plugins = config.plugins.map(plugin => {
           if (plugin instanceof MiniCssExtractPlugin) {
-            console.log('[Webpack] Configurando CSS no bloqueante universal');
+
 
             return new MiniCssExtractPlugin({
               ...plugin.options,
@@ -93,14 +93,12 @@ const nextConfig = {
 
                 // Handler para conversión diferida
                 linkTag.onload = function () {
-                  console.log('[Webpack CSS] Convirtiendo a stylesheet:', this.href);
                   this.onload = null;
                   this.rel = 'stylesheet';
                 };
 
                 // Error handler
                 linkTag.onerror = function () {
-                  console.warn('[Webpack CSS] Error, forzando stylesheet:', this.href);
                   this.rel = 'stylesheet';
                 };
 
@@ -115,7 +113,7 @@ const nextConfig = {
                 document.head.appendChild(linkTag);
                 document.head.appendChild(noscript);
 
-                console.log('[Webpack CSS] CSS configurado como preload:', linkTag.href);
+
               },
               // Configuración adicional
               chunkFilename: '[name].[contenthash].css',
@@ -128,9 +126,8 @@ const nextConfig = {
           return plugin;
         });
 
-        console.log('[Webpack] Configuración CSS no bloqueante aplicada');
       } catch (error) {
-        console.warn('[Webpack] Error configurando CSS:', error.message);
+        // Silently handle configuration errors
       }
 
       // ESTRATEGIA FINAL: Modificar el HTML de salida para interceptar CSS
@@ -144,15 +141,12 @@ const nextConfig = {
               HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
                 'CSSInterceptorPlugin',
                 (data, cb) => {
-                  console.log('[CSS Interceptor Plugin] Modificando HTML para CSS no bloqueante');
-
-                  // Reemplazar todos los stylesheets con preload en el HTML final
+                  // Reemplazar stylesheets con preload en HTML final
                   data.html = data.html.replace(
                     /<link\s+([^>]*?)rel="stylesheet"([^>]*?)>/gi,
                     (match, before, after) => {
                       const href = match.match(/href="([^"]+)"/i);
                       if (href && href[1].includes('_next/static/css/')) {
-                        console.log('[CSS Interceptor Plugin] Convirtiendo CSS a preload:', href[1]);
                         return '<link ' + before + 'rel="preload" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"' + after + '><noscript><link ' + before + 'rel="stylesheet"' + after + '></noscript>';
                       }
                       return match;

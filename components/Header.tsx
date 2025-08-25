@@ -17,7 +17,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { Activity, Calculator, Droplet, Menu, Scale, Zap } from 'lucide-react';
+import { Activity, Calculator, Droplet, Menu, Scale, Target, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -54,6 +54,12 @@ export function Header() {
       href: '/agua',
       description: 'Hidratación diaria recomendada',
       icon: Droplet
+    },
+    {
+      title: 'Composición Corporal',
+      href: '/composicion',
+      description: 'Grasa corporal y masa magra',
+      icon: Target
     }
   ];
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { Activity, Calculator, Droplet, Scale, Zap } from 'lucide-react';
+import { Activity, Calculator, Droplet, Scale, Target, Zap } from 'lucide-react';
 import Link from 'next/link';
 
 interface RelatedCalculator {
@@ -51,6 +51,13 @@ const calculators: RelatedCalculator[] = [
     description: 'Cantidad de agua recomendada según tu peso y actividad',
     icon: Droplet,
     priority: 'medium'
+  },
+  {
+    title: 'Composición Corporal',
+    href: '/composicion',
+    description: 'Porcentaje de grasa corporal y masa magra según medidas',
+    icon: Target,
+    priority: 'high'
   }
 ];
 

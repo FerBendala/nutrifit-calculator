@@ -44,6 +44,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora de agua diaria según peso corporal y ejercicio. Calcula cuánta agua beber para mantener hidratación óptima durante el ejercicio.',
     keywords: ['calculadora agua', 'agua diaria', 'peso corporal', 'ejercicio', 'hidratación', 'agua ejercicio'],
     path: '/agua'
+  },
+  composicion: {
+    title: 'Calculadora de Grasa Corporal y Composición - NutriFit',
+    description: 'Calculadora de grasa corporal gratuita con método Navy. Calcula tu porcentaje de grasa, masa magra y ratio cintura-cadera según medidas corporales.',
+    keywords: ['calculadora grasa corporal', 'composición corporal', 'masa magra', 'método navy', 'porcentaje grasa', 'medidas corporales'],
+    path: '/composicion'
   }
 };
 

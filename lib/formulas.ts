@@ -46,7 +46,7 @@ export const MACRO_DISTRIBUTIONS: Record<string, MacroDistribution> = {
  */
 export function calculateBMR(userData: UserData): number {
   const { sex, age, height, weight } = userData;
-  
+
   if (sex === 'male') {
     return 10 * weight + 6.25 * height - 5 * age + 5;
   } else {
@@ -74,13 +74,13 @@ export function calculateTargetCalories(tdee: number, goalAdjustment: number): n
 export function calculateMacros(targetCalories: number, weight: number, distribution: MacroDistribution) {
   const proteinGrams = distribution.protein * weight;
   const proteinCalories = proteinGrams * 4;
-  
+
   const fatCalories = targetCalories * distribution.fat;
   const fatGrams = fatCalories / 9;
-  
+
   const carbCalories = targetCalories - proteinCalories - fatCalories;
   const carbGrams = carbCalories / 4;
-  
+
   return {
     protein: Math.round(proteinGrams),
     fat: Math.round(fatGrams),
@@ -99,7 +99,7 @@ export function calculateMacros(targetCalories: number, weight: number, distribu
 export function calculateBMI(weight: number, height: number): { bmi: number; category: string; } {
   const heightInMeters = height / 100;
   const bmi = weight / (heightInMeters * heightInMeters);
-  
+
   let category: string;
   if (bmi < 18.5) {
     category = 'Bajo peso';
@@ -110,7 +110,7 @@ export function calculateBMI(weight: number, height: number): { bmi: number; cat
   } else {
     category = 'Obesidad';
   }
-  
+
   return { bmi: Math.round(bmi * 10) / 10, category };
 }
 
@@ -119,7 +119,7 @@ export function calculateBMI(weight: number, height: number): { bmi: number; cat
  */
 export function calculateProteinNeeds(weight: number, goal: 'sedentary' | 'active' | 'athlete', bodyFatPercentage?: number): { min: number; max: number; } {
   let baseProtein: number;
-  
+
   switch (goal) {
     case 'sedentary':
       baseProtein = 1.6;
@@ -131,14 +131,14 @@ export function calculateProteinNeeds(weight: number, goal: 'sedentary' | 'activ
       baseProtein = 2.4;
       break;
   }
-  
+
   let adjustedWeight = weight;
   if (bodyFatPercentage && bodyFatPercentage > 0) {
     // Calculate lean body mass
     const leanMass = weight * (1 - bodyFatPercentage / 100);
     adjustedWeight = leanMass;
   }
-  
+
   return {
     min: Math.round(adjustedWeight * (baseProtein - 0.2)),
     max: Math.round(adjustedWeight * (baseProtein + 0.2))
@@ -151,7 +151,7 @@ export function calculateProteinNeeds(weight: number, goal: 'sedentary' | 'activ
 export function calculateWaterNeeds(weight: number, activityLevel: 'low' | 'moderate' | 'high' = 'moderate'): { min: number; max: number; } {
   const baseMin = weight * 30;
   const baseMax = weight * 35;
-  
+
   let activityMultiplier = 1;
   switch (activityLevel) {
     case 'low':
@@ -164,9 +164,117 @@ export function calculateWaterNeeds(weight: number, activityLevel: 'low' | 'mode
       activityMultiplier = 1.3;
       break;
   }
-  
+
   return {
     min: Math.round(baseMin * activityMultiplier),
     max: Math.round(baseMax * activityMultiplier)
+  };
+}
+
+/**
+ * Calculate body fat percentage using Navy Method
+ */
+export function calculateBodyFatNavy(
+  sex: 'male' | 'female',
+  height: number, // cm
+  waist: number, // cm
+  neck: number, // cm
+  hip?: number // cm (required for females)
+): { bodyFat: number; category: string; leanMass: number; fatMass: number; } {
+  // Convert to inches for formula
+  const heightInches = height / 2.54;
+  const waistInches = waist / 2.54;
+  const neckInches = neck / 2.54;
+  const hipInches = hip ? hip / 2.54 : 0;
+
+  let bodyFat: number;
+
+  if (sex === 'male') {
+    bodyFat = 495 / (1.0324 - 0.19077 * Math.log10(waistInches - neckInches) + 0.15456 * Math.log10(heightInches)) - 450;
+  } else {
+    if (!hip) throw new Error('Hip measurement required for females');
+    bodyFat = 495 / (1.29579 - 0.35004 * Math.log10(waistInches + hipInches - neckInches) + 0.22100 * Math.log10(heightInches)) - 450;
+  }
+
+  let category: string;
+  if (sex === 'male') {
+    if (bodyFat < 6) category = 'Esencial';
+    else if (bodyFat < 14) category = 'Atlético';
+    else if (bodyFat < 18) category = 'Fitness';
+    else if (bodyFat < 25) category = 'Aceptable';
+    else category = 'Obesidad';
+  } else {
+    if (bodyFat < 14) category = 'Esencial';
+    else if (bodyFat < 21) category = 'Atlético';
+    else if (bodyFat < 25) category = 'Fitness';
+    else if (bodyFat < 32) category = 'Aceptable';
+    else category = 'Obesidad';
+  }
+
+  return {
+    bodyFat: Math.round(bodyFat * 10) / 10,
+    category,
+    leanMass: 0, // Will be calculated with weight
+    fatMass: 0   // Will be calculated with weight
+  };
+}
+
+/**
+ * Calculate body composition with weight
+ */
+export function calculateBodyComposition(
+  weight: number,
+  bodyFatPercentage: number
+): { leanMass: number; fatMass: number; } {
+  const fatMass = weight * (bodyFatPercentage / 100);
+  const leanMass = weight - fatMass;
+
+  return {
+    leanMass: Math.round(leanMass * 10) / 10,
+    fatMass: Math.round(fatMass * 10) / 10
+  };
+}
+
+/**
+ * Calculate waist-to-hip ratio
+ */
+export function calculateWaistHipRatio(
+  waist: number,
+  hip: number,
+  sex: 'male' | 'female'
+): { ratio: number; category: string; riskLevel: string; } {
+  const ratio = waist / hip;
+
+  let category: string;
+  let riskLevel: string;
+
+  if (sex === 'male') {
+    if (ratio < 0.90) {
+      category = 'Bajo';
+      riskLevel = 'Bajo riesgo';
+    } else if (ratio < 0.95) {
+      category = 'Moderado';
+      riskLevel = 'Riesgo moderado';
+    } else {
+      category = 'Alto';
+      riskLevel = 'Alto riesgo';
+    }
+  } else {
+    if (ratio < 0.80) {
+      category = 'Bajo';
+      riskLevel = 'Bajo riesgo';
+    } else if (ratio < 0.85) {
+      category = 'Moderado';
+      riskLevel = 'Riesgo moderado';
+    } else {
+      category = 'Alto';
+      riskLevel = 'Alto riesgo';
+    }
+  }
+
+  return {
+    ratio: Math.round(ratio * 100) / 100,
+    category,
+    riskLevel
   };
 }

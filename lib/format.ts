@@ -18,8 +18,8 @@ export function formatCalories(calories: number): string {
 /**
  * Format grams with unit
  */
-export function formatGrams(grams: number): string {
-  return `${formatNumber(grams)} g`;
+export function formatGrams(grams: number, decimals: number = 0): string {
+  return `${formatNumber(grams, decimals)} g`;
 }
 
 /**
@@ -41,19 +41,19 @@ export function formatPercentage(percentage: number, decimals: number = 1): stri
  */
 export function validateNumber(value: string, min: number, max: number): { isValid: boolean; message?: string; } {
   const num = parseFloat(value);
-  
+
   if (isNaN(num)) {
     return { isValid: false, message: 'Introduce un número válido' };
   }
-  
+
   if (num < min) {
     return { isValid: false, message: `El valor debe ser mayor a ${min}` };
   }
-  
+
   if (num > max) {
     return { isValid: false, message: `El valor debe ser menor a ${max}` };
   }
-  
+
   return { isValid: true };
 }
 
@@ -83,7 +83,7 @@ export function formatResultsForCopy(results: {
   };
 }): string {
   const { tdee, targetCalories, macros } = results;
-  
+
   return `🔥 Mis resultados de calorías y macros:
 
 📊 TDEE (mantenimiento): ${formatCalories(tdee)}

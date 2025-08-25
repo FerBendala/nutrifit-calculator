@@ -7,149 +7,341 @@ export const metadata = {
 
 export default function TerminosPage() {
   return (
-    <Container className="py-8">
-      <div className="max-w-4xl mx-auto prose prose-gray">
-        <h1>Términos de Uso</h1>
-
-        <p className="text-muted-foreground">
-          Última actualización: {new Date().toLocaleDateString('es-ES')}
-        </p>
-
-        <h2>1. Aceptación de los términos</h2>
-
-        <p>
-          Al acceder y utilizar NutriFit Calculator, aceptas estar sujeto a estos términos
-          de uso y a nuestra política de privacidad. Si no estás de acuerdo con alguna
-          parte de estos términos, no debes utilizar nuestros servicios.
-        </p>
-
-        <h2>2. Descripción del servicio</h2>
-
-        <p>
-          NutriFit Calculator proporciona herramientas gratuitas de cálculo para:
-        </p>
-        <ul>
-          <li>Calorías y macronutrientes</li>
-          <li>Índice de Masa Corporal (IMC)</li>
-          <li>Gasto Energético Diario Total (TDEE)</li>
-          <li>Necesidades de proteína</li>
-          <li>Requerimientos de hidratación</li>
-        </ul>
-
-        <h2>3. Limitaciones y descargo de responsabilidad</h2>
-
-        <div className="bg-red-50 p-6 rounded-lg">
-          <h3 className="font-semibold text-red-900 mb-2">
-            🚨 AVISO MÉDICO CRÍTICO
-          </h3>
-          <p className="text-sm text-red-800">
-            Los cálculos y recomendaciones proporcionados por nuestras herramientas son
-            únicamente informativos y NO constituyen consejo médico, diagnóstico o tratamiento.
+    <Container size="xl" className="py-[4.236rem]">
+      <div className="max-w-5xl mx-auto space-golden-lg">
+        {/* Header Section */}
+        <div className="text-center space-golden-md">
+          <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
+            Términos de Uso
+          </h1>
+          <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
+            Términos y condiciones para el uso de nuestras calculadoras de fitness y nutrición
           </p>
+          <div className="card-golden bg-muted/30 inline-block px-6 py-3 rounded-lg">
+            <p className="text-sm text-muted-foreground mb-0">
+              📅 Última actualización: {new Date().toLocaleDateString('es-ES')}
+            </p>
+          </div>
         </div>
 
-        <h3>3.1 Naturaleza informativa</h3>
-        <ul>
-          <li>Todas las calculadoras proporcionan estimaciones basadas en fórmulas generales</li>
-          <li>Los resultados pueden no ser precisos para todos los individuos</li>
-          <li>No reemplazan la consulta con profesionales de la salud</li>
-          <li>No son apropiados para diagnóstico médico</li>
-        </ul>
+        {/* Main Content */}
+        <div className="prose prose-gray max-w-none space-golden-lg">
 
-        <h3>3.2 Limitación de responsabilidad</h3>
-        <p>
-          NutriFit Calculator no se hace responsable de:
-        </p>
-        <ul>
-          <li>Decisiones tomadas basadas en nuestros cálculos</li>
-          <li>Problemas de salud derivados del uso de la información</li>
-          <li>Pérdidas o daños por el uso de nuestros servicios</li>
-          <li>Inexactitudes en los cálculos por datos incorrectos</li>
-        </ul>
+          {/* Sección 1: Aceptación de términos */}
+          <h2 className="text-3xl font-semibold mb-[1.618rem] flex items-center">
+            <span className="text-2xl mr-3">✅</span>
+            1. Aceptación de los términos
+          </h2>
 
-        <h2>4. Uso apropiado del servicio</h2>
+          <div className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-[2.618rem]">
+            <p className="text-sm text-blue-800 leading-[1.618] mb-0">
+              Al acceder y utilizar NutriFit Calculator, aceptas estar sujeto a estos términos
+              de uso y a nuestra <a href="/privacidad" className="text-blue-600 hover:underline font-medium">política de privacidad</a>.
+              Si no estás de acuerdo con alguna parte de estos términos, no debes utilizar nuestros servicios.
+            </p>
+          </div>
 
-        <h3>4.1 Usos permitidos</h3>
-        <p>Puedes utilizar nuestros servicios para:</p>
-        <ul>
-          <li>Obtener estimaciones informativas sobre nutrición y fitness</li>
-          <li>Uso personal y no comercial</li>
-          <li>Fines educativos</li>
-        </ul>
+          {/* Sección 2: Descripción del servicio */}
+          <h2 className="text-3xl font-semibold mb-[1.618rem] flex items-center">
+            <span className="text-2xl mr-3">🧮</span>
+            2. Descripción del servicio
+          </h2>
 
-        <h3>4.2 Usos prohibidos</h3>
-        <p>No puedes:</p>
-        <ul>
-          <li>Utilizar la información para diagnóstico médico</li>
-          <li>Redistribuir o revender nuestros servicios</li>
-          <li>Intentar hackear o comprometer la seguridad del sitio</li>
-          <li>Utilizar automatización para acceder masivamente al servicio</li>
-        </ul>
+          <div className="card-golden bg-gradient-to-r from-green-50 to-blue-50 mb-[2.618rem]">
+            <h3 className="font-bold mb-[1.618rem] text-lg flex items-center">
+              <span className="text-2xl mr-3">🎯</span>
+              NutriFit Calculator proporciona herramientas gratuitas para:
+            </h3>
+            <div className="grid gap-[1rem] md:grid-cols-2">
+              <div className="card-golden bg-white/50">
+                <ul className="text-sm space-golden-xs">
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">•</span>
+                    <span>Calorías y macronutrientes</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">•</span>
+                    <span>Índice de Masa Corporal (IMC)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-600 mr-2">•</span>
+                    <span>Gasto Energético Diario Total (TDEE)</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="card-golden bg-white/50">
+                <ul className="text-sm space-golden-xs">
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span>Necesidades de proteína</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-600 mr-2">•</span>
+                    <span>Requerimientos de hidratación</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-red-600 mr-2">•</span>
+                    <span>Composición corporal y grasa corporal</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-        <h2>5. Recomendaciones de uso responsable</h2>
+          {/* Sección 3: AVISO MÉDICO CRÍTICO */}
+          <h2 className="text-3xl font-semibold mb-[1.618rem] flex items-center">
+            <span className="text-2xl mr-3">⚠️</span>
+            3. Limitaciones y descargo de responsabilidad
+          </h2>
 
-        <ul>
-          <li>Consulta con profesionales antes de cambios significativos en dieta o ejercicio</li>
-          <li>Utiliza los resultados como punto de partida, no como verdad absoluta</li>
-          <li>Ajusta las recomendaciones según tu respuesta individual</li>
-          <li>Busca consejo médico si tienes condiciones de salud preexistentes</li>
-        </ul>
+          <div className="bg-red-50 card-golden-lg border-l-4 border-red-500 mb-[2.618rem]">
+            <h3 className="font-semibold text-red-900 mb-[1rem] text-xl flex items-center">
+              <span className="text-2xl mr-3">🚨</span>
+              AVISO MÉDICO CRÍTICO
+            </h3>
+            <p className="text-sm text-red-800 leading-[1.618] font-medium">
+              Los cálculos y recomendaciones proporcionados por nuestras herramientas son
+              únicamente informativos y <strong>NO constituyen consejo médico, diagnóstico o tratamiento</strong>.
+              Siempre consulta con profesionales de la salud antes de realizar cambios significativos
+              en tu dieta o rutina de ejercicio.
+            </p>
+          </div>
 
-        <h2>6. Propiedad intelectual</h2>
+          <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
+            <div className="card-golden space-golden-sm">
+              <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                <span className="text-2xl mr-3">📊</span>
+                3.1 Naturaleza informativa
+              </h3>
+              <ul className="text-sm space-golden-xs">
+                <li className="flex items-start">
+                  <span className="text-yellow-600 mr-2">•</span>
+                  <span>Estimaciones basadas en fórmulas generales</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span>Los resultados pueden no ser precisos para todos</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-600 mr-2">•</span>
+                  <span>No reemplazan consulta con profesionales</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-purple-600 mr-2">•</span>
+                  <span>No son apropiados para diagnóstico médico</span>
+                </li>
+              </ul>
+            </div>
 
-        <p>
-          El contenido, diseño y funcionalidad de NutriFit Calculator están protegidos
-          por derechos de autor y otras leyes de propiedad intelectual.
-        </p>
+            <div className="card-golden space-golden-sm">
+              <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                <span className="text-2xl mr-3">🛡️</span>
+                3.2 Limitación de responsabilidad
+              </h3>
+              <p className="text-sm text-muted-foreground leading-[1.618] mb-[1rem]">
+                NutriFit Calculator no se hace responsable de:
+              </p>
+              <ul className="text-sm space-golden-xs">
+                <li className="flex items-start">
+                  <span className="text-red-600 mr-2">•</span>
+                  <span>Decisiones basadas en nuestros cálculos</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span>Problemas de salud derivados del uso</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-600 mr-2">•</span>
+                  <span>Pérdidas o daños por uso de servicios</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-        <h2>7. Privacidad y datos</h2>
+          {/* Sección 4: Uso apropiado */}
+          <h2 className="text-3xl font-semibold mb-[1.618rem] flex items-center">
+            <span className="text-2xl mr-3">📖</span>
+            4. Uso apropiado del servicio
+          </h2>
 
-        <p>
-          Tu privacidad es importante para nosotros. Consulta nuestra
-          <a href="/privacidad" className="text-primary hover:underline">
-            Política de Privacidad
-          </a> para entender cómo manejamos tu información.
-        </p>
+          <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
+            <div className="card-golden space-golden-sm bg-green-50">
+              <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center text-green-700">
+                <span className="text-2xl mr-3">✅</span>
+                4.1 Usos permitidos
+              </h3>
+              <ul className="text-sm text-green-800 space-golden-xs">
+                <li className="flex items-start">
+                  <span className="text-green-600 mr-2">•</span>
+                  <span>Estimaciones informativas sobre nutrición y fitness</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 mr-2">•</span>
+                  <span>Uso personal y no comercial</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-purple-600 mr-2">•</span>
+                  <span>Fines educativos</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span>Punto de partida para consulta profesional</span>
+                </li>
+              </ul>
+            </div>
 
-        <h2>8. Modificaciones del servicio</h2>
+            <div className="card-golden space-golden-sm bg-red-50">
+              <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center text-red-700">
+                <span className="text-2xl mr-3">❌</span>
+                4.2 Usos prohibidos
+              </h3>
+              <ul className="text-sm text-red-800 space-golden-xs">
+                <li className="flex items-start">
+                  <span className="text-red-600 mr-2">•</span>
+                  <span>Utilizar para diagnóstico médico</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span>Redistribuir o revender servicios</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-600 mr-2">•</span>
+                  <span>Hackear o comprometer la seguridad</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-purple-600 mr-2">•</span>
+                  <span>Automatización para acceso masivo</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-        <p>
-          Nos reservamos el derecho de modificar, suspender o discontinuar cualquier
-          parte de nuestros servicios en cualquier momento sin previo aviso.
-        </p>
+          {/* Sección 5: Recomendaciones de uso responsable */}
+          <h2 className="text-3xl font-semibold mb-[1.618rem] flex items-center">
+            <span className="text-2xl mr-3">💡</span>
+            5. Recomendaciones de uso responsable
+          </h2>
 
-        <h2>9. Cambios en los términos</h2>
+          <div className="card-golden-lg bg-yellow-50 border-l-4 border-yellow-400 mb-[2.618rem]">
+            <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+              <span className="text-2xl mr-3">📋</span>
+              Mejores prácticas
+            </h3>
+            <div className="grid gap-[1.618rem] md:grid-cols-2">
+              <div className="card-golden bg-white/50">
+                <ul className="text-sm text-yellow-800 space-golden-xs">
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2">•</span>
+                    <span>Consulta profesionales antes de cambios significativos</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-600 mr-2">•</span>
+                    <span>Usa los resultados como punto de partida</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="card-golden bg-white/50">
+                <ul className="text-sm text-yellow-800 space-golden-xs">
+                  <li className="flex items-start">
+                    <span className="text-purple-600 mr-2">•</span>
+                    <span>Ajusta según tu respuesta individual</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-red-600 mr-2">•</span>
+                    <span>Busca consejo médico si tienes condiciones preexistentes</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-        <p>
-          Podemos actualizar estos términos ocasionalmente. Los cambios significativos
-          se comunicarán a través de nuestro sitio web.
-        </p>
+          {/* Secciones legales adicionales */}
+          <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
+            <div className="card-golden space-golden-sm">
+              <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                <span className="text-2xl mr-3">©️</span>
+                6. Propiedad intelectual
+              </h3>
+              <p className="text-sm text-muted-foreground leading-[1.618]">
+                El contenido, diseño y funcionalidad de NutriFit Calculator están protegidos
+                por derechos de autor y otras leyes de propiedad intelectual.
+              </p>
+            </div>
 
-        <h2>10. Ley aplicable</h2>
+            <div className="card-golden space-golden-sm">
+              <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                <span className="text-2xl mr-3">🔒</span>
+                7. Privacidad y datos
+              </h3>
+              <p className="text-sm text-muted-foreground leading-[1.618]">
+                Tu privacidad es importante. Consulta nuestra
+                <a href="/privacidad" className="text-primary hover:underline mx-1">
+                  Política de Privacidad
+                </a>
+                para entender cómo manejamos tu información.
+              </p>
+            </div>
 
-        <p>
-          Estos términos se rigen por las leyes españolas y de la Unión Europea.
-        </p>
+            <div className="card-golden space-golden-sm">
+              <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                <span className="text-2xl mr-3">🔄</span>
+                8. Modificaciones del servicio
+              </h3>
+              <p className="text-sm text-muted-foreground leading-[1.618]">
+                Nos reservamos el derecho de modificar, suspender o discontinuar cualquier
+                parte de nuestros servicios en cualquier momento sin previo aviso.
+              </p>
+            </div>
 
-        <h2>11. Contacto</h2>
+            <div className="card-golden space-golden-sm">
+              <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                <span className="text-2xl mr-3">⚖️</span>
+                9. Ley aplicable
+              </h3>
+              <p className="text-sm text-muted-foreground leading-[1.618]">
+                Estos términos se rigen por las leyes españolas y de la Unión Europea.
+                Cualquier disputa se resolverá en los tribunales competentes de España.
+              </p>
+            </div>
+          </div>
 
-        <p>
-          Si tienes preguntas sobre estos términos, contacta con nosotros:
-        </p>
-        <ul>
-          <li>Email: legal@nutrifit-calculator.com</li>
-          <li>Formulario de contacto en nuestro sitio web</li>
-        </ul>
+          {/* Sección para profesionales de la salud */}
+          <div className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+            <h3 className="font-semibold text-blue-900 mb-[1rem] text-lg flex items-center">
+              <span className="text-2xl mr-3">👩‍⚕️</span>
+              Resumen para profesionales de la salud
+            </h3>
+            <p className="text-sm text-blue-800 leading-[1.618]">
+              Si eres profesional de la salud, puedes utilizar nuestras herramientas
+              como apoyo en consulta, pero siempre bajo tu criterio profesional y
+              responsabilidad clínica. Las calculadoras pueden servir como punto de partida
+              para discusiones con pacientes, pero nunca como sustituto del juicio médico.
+            </p>
+          </div>
 
-        <div className="bg-blue-50 p-6 rounded-lg mt-8">
-          <h3 className="font-semibold text-blue-900 mb-2">
-            📋 Resumen para profesionales de la salud
-          </h3>
-          <p className="text-sm text-blue-800">
-            Si eres profesional de la salud, puedes utilizar nuestras herramientas
-            como apoyo en consulta, pero siempre bajo tu criterio profesional y
-            responsabilidad clínica.
-          </p>
+          {/* Sección de contacto */}
+          <div className="bg-orange-50 card-golden-lg border-l-4 border-orange-400">
+            <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+              <span className="text-2xl mr-3">📞</span>
+              10. Contacto y cambios en los términos
+            </h3>
+            <div className="grid gap-[1.618rem] md:grid-cols-2">
+              <div className="card-golden bg-white/50">
+                <h4 className="font-bold mb-[0.618rem] text-orange-700">📧 Contacto</h4>
+                <ul className="text-sm text-orange-800 space-golden-xs">
+                  <li>• Email: legal@nutrifit-calculator.com</li>
+                  <li>• Formulario de contacto en nuestro sitio web</li>
+                </ul>
+              </div>
+              <div className="card-golden bg-white/50">
+                <h4 className="font-bold mb-[0.618rem] text-orange-700">🔄 Cambios</h4>
+                <p className="text-sm text-orange-800 leading-[1.618]">
+                  Podemos actualizar estos términos ocasionalmente. Los cambios significativos
+                  se comunicarán a través de nuestro sitio web.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Container>

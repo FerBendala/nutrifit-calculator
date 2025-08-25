@@ -40,6 +40,11 @@ export function Footer() {
                   Agua diaria
                 </Link>
               </li>
+              <li>
+                <Link href="/composicion" className="text-muted-foreground hover:text-foreground transition-golden">
+                  Composición Corporal
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -75,10 +80,10 @@ export function Footer() {
 
         <div className="mt-[2.618rem] pt-[1.618rem] border-t text-center text-sm text-muted-foreground">
           <p>
-            © {new Date().getFullYear()} Calculadora Fitness. Herramientas gratuitas para tu bienestar.
+            © 2025 Nutrifit Calculator. Herramientas gratuitas para tu bienestar.
           </p>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 }

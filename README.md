@@ -5,7 +5,7 @@ Una aplicación web ultra rápida y minimalista en español para calcular calor�
 ## ✨ Características
 
 - **Calculadora principal**: Calorías y distribución de macronutrientes basada en Mifflin-St Jeor
-- **Calculadoras adicionales**: IMC, TDEE, Proteína diaria, Agua diaria  
+- **Calculadoras adicionales**: IMC, TDEE, Proteína diaria, Agua diaria
 - **100% client-side**: Sin backend, cálculos deterministas en el navegador
 - **SEO optimizado**: Metadata, JSON-LD, sitemap, robots.txt
 - **Monetización**: Google AdSense con banner de consentimiento GDPR
@@ -21,13 +21,13 @@ Una aplicación web ultra rápida y minimalista en español para calcular calor�
 - **SEO**: Metadata automática + OG images dinámicas
 - **Analítica**: Google Tag Manager
 - **Monetización**: Google AdSense
-- **Deploy**: Vercel
+- **Deploy**: Netlify
 
 ## 📦 Instalación y uso
 
 ### Prerrequisitos
 
-- Node.js 18+ 
+- Node.js 18+
 - pnpm (recomendado) o npm
 
 ### Instalación
@@ -60,7 +60,7 @@ NEXT_PUBLIC_SITE_URL=https://tu-dominio.com
 # Desarrollo
 pnpm dev          # Servidor de desarrollo en http://localhost:3000
 
-# Testing  
+# Testing
 pnpm test         # Tests unitarios con Vitest
 pnpm test:watch   # Tests en modo watch
 pnpm e2e          # Tests E2E con Playwright
@@ -80,20 +80,23 @@ pnpm type-check   # Verificación de TypeScript
 ### Calculadora de calorías y macros (Página principal)
 
 **Inputs:**
+
 - Sexo biológico (hombre/mujer)
 - Edad, altura (cm), peso (kg)
 - Nivel de actividad física (5 niveles)
 - Objetivo: Perder grasa (-20%), Mantener (0%), Ganar músculo (+10%)
 
 **Outputs:**
+
 - TDEE (calorías de mantenimiento)
 - Calorías objetivo ajustadas
 - Distribución de macronutrientes (g proteína, g grasa, g carbohidratos)
 - Botón para copiar resultados al portapapeles
 
 **Fórmulas:**
+
 - **BMR**: Mifflin-St Jeor equation
-  - Hombres: `10*kg + 6.25*cm - 5*edad + 5`  
+  - Hombres: `10*kg + 6.25*cm - 5*edad + 5`
   - Mujeres: `10*kg + 6.25*cm - 5*edad - 161`
 - **TDEE**: `BMR * factor_actividad`
 - **Macros**: Distribución optimizada por objetivo científicamente respaldada
@@ -163,12 +166,13 @@ pnpm type-check   # Verificación de TypeScript
 # Ejecutar todos los tests
 pnpm test
 
-# Tests específicos  
+# Tests específicos
 pnpm test formulas.test.ts
 pnpm test calculatorForm.test.tsx
 ```
 
 **Cobertura:**
+
 - ✅ Fórmulas matemáticas con casos conocidos
 - ✅ Validaciones de formularios
 - ✅ Componentes React con interacciones
@@ -185,6 +189,7 @@ pnpm e2e:ui
 ```
 
 **Escenarios cubiertos:**
+
 - ✅ Flujo completo de calculadora principal
 - ✅ Navegación entre páginas
 - ✅ Validación de formularios
@@ -201,27 +206,27 @@ pnpm e2e:ui
 - **Mensajes de error** con rol="alert"
 - **Orden de tabulación** lógico
 
-## 🚀 Deploy en Vercel
+## 🚀 Deploy en Netlify
 
 ### Deploy automático
 
-1. **Conecta** tu repositorio a Vercel
-2. **Configura** las variables de entorno en Vercel Dashboard
+1. **Conecta** tu repositorio a Netlify
+2. **Configura** las variables de entorno en Netlify Dashboard
 3. **Deploy** automático en cada push a main
 
-### Variables de entorno en Vercel
+### Variables de entorno en Netlify
 
 ```bash
 NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
-NEXT_PUBLIC_ADSENSE_ID=ca-pub-XXXXXXXXXXXXXXXX  
-NEXT_PUBLIC_SITE_URL=https://tu-app.vercel.app
+NEXT_PUBLIC_ADSENSE_ID=ca-pub-XXXXXXXXXXXXXXXX
+NEXT_PUBLIC_SITE_URL=https://tu-app.Netlify.app
 ```
 
 ### Verificación post-deploy
 
 - [ ] ✅ Sitio carga correctamente
 - [ ] ✅ Calculadoras funcionan
-- [ ] ✅ Ads cargan tras consentimiento  
+- [ ] ✅ Ads cargan tras consentimiento
 - [ ] ✅ Analytics trackea eventos
 - [ ] ✅ Sitemap.xml accesible
 - [ ] ✅ OG images se generan
@@ -251,7 +256,7 @@ NEXT_PUBLIC_SITE_URL=https://tu-app.vercel.app
 ### Reportar bugs
 
 1. Verificar issues existentes
-2. Reproducir en build de producción  
+2. Reproducir en build de producción
 3. Incluir datos de entrada que causan el problema
 4. Especificar navegador/dispositivo
 

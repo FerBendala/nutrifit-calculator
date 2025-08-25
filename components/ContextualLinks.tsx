@@ -79,6 +79,10 @@ export function CalculatorNavigation({ currentCalculator }: { currentCalculator:
     },
     'agua': {
       prev: { title: 'Proteína Diaria', href: '/proteina' },
+      next: { title: 'Composición Corporal', href: '/composicion' }
+    },
+    'composicion': {
+      prev: { title: 'Hidratación Diaria', href: '/agua' },
       next: { title: 'Calorías y Macros', href: '/' }
     }
   };

@@ -21,7 +21,7 @@ export function SimpleAdSlot({
   style = { display: 'block' },
   className = ""
 }: SimpleAdSlotProps) {
-  const adRef = useRef<HTMLElement>(null);
+  const adRef = useRef<HTMLModElement>(null);
   const adSenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
 
   useEffect(() => {

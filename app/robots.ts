@@ -1,13 +1,18 @@
-import { MetadataRoute } from 'next';
-import { SITE_CONFIG } from '@/lib/seo';
+import { SITE_CONFIG } from '@/lib/seo'
+import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
+  const BASE_URL = SITE_CONFIG.url.replace(/\/$/, '')
+
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/'],
+      disallow: [
+        '/node_modules/',
+        '/out/',
+      ],
     },
-    sitemap: `${SITE_CONFIG.url}/sitemap.xml`,
-  };
+    sitemap: `${BASE_URL}/sitemap.xml`,
+  }
 }

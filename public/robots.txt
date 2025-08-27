@@ -4,32 +4,26 @@
 User-agent: *
 Allow: /
 
-# Páginas principales
-Allow: /
-Allow: /imc
-Allow: /tdee
-Allow: /proteina
-Allow: /agua
+# Permitir recursos de Next.js (CSS/JS/imágenes)
+Allow: /_next/
+# Si quieres ser más específico:
+# Allow: /_next/static/
+# Allow: /_next/image/
 
-# Páginas legales
-Allow: /privacidad
-Allow: /terminos
-Allow: /cookies
-
-# Archivos estáticos importantes
-Allow: /sitemap.xml
-Allow: /favicon.ico
-Allow: /icon.svg
-
-# Bloquear archivos de desarrollo y configuración
-Disallow: /_next/
-Disallow: /api/
-Disallow: /.well-known/
-Disallow: /out/
+# Bloquear solo lo que realmente no debe rastrearse
 Disallow: /node_modules/
+Disallow: /out/
+
+# (Opcional) Si tu /api/ devuelve contenido público que ayuda al render SSR/CSR, permítelo.
+# Si es solo backend privado, puedes dejarlo bloqueado.
+# Allow: /api/
+# Disallow: /api/
+
+# No uses Crawl-delay: Google lo ignora (Bing lo respeta, pero mejor gestiona crawling desde Search Console)
+# Crawl-delay: 1  <-- eliminar
+
+# No bloquees /.well-known/ salvo que tengas motivo específico
+# Disallow: /.well-known/  <-- eliminar
 
 # Sitemap
 Sitemap: https://nutrifit-calculator.com/sitemap.xml
-
-# Crawl-delay para ser amigables con los bots
-Crawl-delay: 1

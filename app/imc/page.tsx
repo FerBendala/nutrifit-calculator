@@ -1,10 +1,10 @@
 "use client";
 
-import { ConditionalAdSlot } from '@/components/ConditionalAdSlot';
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { SimpleAdSlot } from '@/components/SimpleAdSlot';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { calculateBMI } from '@/lib/formulas';
@@ -152,12 +152,10 @@ export default function IMCPage() {
           )}
 
           {/* AdSlot después del contenido principal */}
-          <ConditionalAdSlot
+          <SimpleAdSlot
             adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
-            requireInteraction={true}
-            requireElement="[class*='result']"
           />
 
           <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">

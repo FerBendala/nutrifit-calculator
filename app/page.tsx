@@ -1,9 +1,9 @@
 import { CalculatorForm } from '@/components/CalculatorForm';
-import { ConditionalAdSlot } from '@/components/ConditionalAdSlot';
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { SimpleAdSlot } from '@/components/SimpleAdSlot';
 import { SocialShare } from '@/components/SocialShare';
 import { generateJsonLd, generateMetadata as generateMeta } from '@/lib/seo';
 
@@ -43,12 +43,11 @@ export default function HomePage() {
           {/* Calculator - Contenido crítico primero */}
           <CalculatorForm />
 
-          {/* AdSlot movido después del contenido principal */}
-          <ConditionalAdSlot
+          {/* AdSlot después del contenido principal */}
+          <SimpleAdSlot
             adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
-            requireInteraction={true}
           />
 
 
@@ -74,10 +73,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="card-golden space-golden-sm">
-                                  <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <span className="text-2xl mr-3">⚡</span>
-                  Factor de actividad y ejercicio
-                </h3>
+                  <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                    <span className="text-2xl mr-3">⚡</span>
+                    Factor de actividad y ejercicio
+                  </h3>
                   <p className="text-muted-foreground leading-[1.618]">
                     Multiplicamos tu BMR por un factor que refleja tu nivel de actividad física
                     diaria para obtener tu <a href="/tdee" className="text-blue-600 hover:underline font-medium">TDEE (Total Daily Energy Expenditure)</a>, que representa
@@ -86,10 +85,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="card-golden space-golden-sm">
-                                  <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <span className="text-2xl mr-3">🎯</span>
-                  Objetivos: perder grasa, mantener peso, ganar músculo
-                </h3>
+                  <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                    <span className="text-2xl mr-3">🎯</span>
+                    Objetivos: perder grasa, mantener peso, ganar músculo
+                  </h3>
                   <p className="text-muted-foreground leading-[1.618]">
                     Ajustamos tus calorías según tu objetivo: déficit del 20% para perder grasa,
                     mantenimiento para peso estable, o surplus del 10% para ganar masa muscular.

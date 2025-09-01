@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       // prioridad por tipo de página
       const priority =
         key === 'home' ? 1
-          : key === 'imc' || key === 'tdee' ? 0.9
+          : key === 'imc' || key === 'tdee' || key === 'composicion' || key === 'ritmo-cardiaco' ? 0.9
             : 0.8;
 
       const changeFrequency:

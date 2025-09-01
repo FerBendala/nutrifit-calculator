@@ -2,10 +2,12 @@
 
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
+import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
 import { SelectInput } from '@/components/SelectInput';
 import { SimpleAdSlot } from '@/components/SimpleAdSlot';
+import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { formatGrams } from '@/lib/format';
@@ -510,7 +512,7 @@ export default function ProteinaPage() {
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-semibold mb-2">¿Debo tomar proteína inmediatamente después del entreno?</h4>
                   <p className="text-sm text-muted-foreground">
-                    La "ventana anabólica" es más amplia de lo que se pensaba. Lo importante es
+                    La &quot;ventana anabólica&quot; es más amplia de lo que se pensaba. Lo importante es
                     el total diario de proteína. Si entrenas en ayunas o hace muchas horas que no comes,
                     sí es beneficioso tomar proteína pronto después del ejercicio.
                   </p>
@@ -542,6 +544,18 @@ export default function ProteinaPage() {
 
             {/* Calculadoras relacionadas */}
             <RelatedCalculators currentPage="/proteina" />
+
+            {/* Widget para embeber - genera backlinks naturales */}
+            <div className="flex justify-center">
+              <EmbedWidget />
+            </div>
+
+            {/* Social Share */}
+            <SocialShare
+              title="Calculadora de Calorías y Macronutrientes Gratis"
+              url="https://nutrifit-calculator.com/proteina"
+              description="Calcula tus calorías diarias y macros con la fórmula científica Mifflin-St Jeor. ¡Totalmente gratis!"
+            />
 
             {/* Navegación entre calculadoras */}
             <CalculatorNavigation currentCalculator="proteina" />

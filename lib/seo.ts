@@ -50,6 +50,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora de grasa corporal gratuita con método Navy. Calcula tu porcentaje de grasa, masa magra y ratio cintura-cadera según medidas corporales.',
     keywords: ['calculadora grasa corporal', 'composición corporal', 'masa magra', 'método navy', 'porcentaje grasa', 'medidas corporales'],
     path: '/composicion'
+  },
+  'ritmo-cardiaco': {
+    title: 'Calculadora de Ritmo Cardíaco y Zonas de Entrenamiento - NutriFit',
+    description: 'Calculadora de frecuencia cardíaca máxima y zonas de entrenamiento. Optimiza tu cardio para quemar grasa y mejorar rendimiento según tu edad.',
+    keywords: ['calculadora ritmo cardíaco', 'frecuencia cardíaca máxima', 'zonas entrenamiento', 'quemar grasa', 'cardio', 'pulsaciones'],
+    path: '/ritmo-cardiaco'
   }
 };
 

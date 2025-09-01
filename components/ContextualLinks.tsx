@@ -62,7 +62,7 @@ export function ContextualLinks({ title, links, className = '' }: ContextualLink
 export function CalculatorNavigation({ currentCalculator }: { currentCalculator: string }) {
   const navigationLinks = {
     'home': {
-      prev: { title: 'Hidratación', href: '/agua' },
+      prev: { title: 'Ritmo Cardíaco', href: '/ritmo-cardiaco' },
       next: { title: 'Calculadora IMC', href: '/imc' }
     },
     'imc': {
@@ -83,7 +83,11 @@ export function CalculatorNavigation({ currentCalculator }: { currentCalculator:
     },
     'composicion': {
       prev: { title: 'Hidratación Diaria', href: '/agua' },
-      next: { title: 'Calorías y Macros', href: '/' }
+      next: { title: 'Ritmo Cardíaco', href: '/ritmo-cardiaco' }
+    },
+    'ritmo-cardiaco': {
+      prev: { title: 'Composición Corporal', href: '/composicion' },
+      next: { title: 'Hidratación Diaria', href: '/agua' }
     }
   };
 

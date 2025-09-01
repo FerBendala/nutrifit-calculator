@@ -45,6 +45,11 @@ export function Footer() {
                   Composición Corporal
                 </Link>
               </li>
+              <li>
+                <Link href="/ritmo-cardiaco" className="text-muted-foreground hover:text-foreground transition-golden">
+                  Ritmo Cardíaco
+                </Link>
+              </li>
             </ul>
           </div>
 

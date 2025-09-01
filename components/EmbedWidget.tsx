@@ -4,24 +4,70 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Copy, ExternalLink } from 'lucide-react';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useMemo, useState } from 'react';
 
-export function EmbedWidget() {
+interface EmbedWidgetProps {
+  title?: string;
+  calculatorName?: string;
+}
+
+export function EmbedWidget({ title, calculatorName }: EmbedWidgetProps = {}) {
   const [copied, setCopied] = useState(false);
+  const pathname = usePathname();
 
-  const embedCode = `<iframe 
-  src="https://nutrifit-calculator.com/embed" 
-  width="100%" 
-  height="600" 
-  frameborder="0" 
-  title="Calculadora de Calorías y Macros - NutriFit Calculator"
-  style="border: 1px solid #e2e8f0; border-radius: 8px;"
->
-  <p>Tu navegador no soporta iframes. <a href="https://nutrifit-calculator.com" target="_blank" rel="noopener">Visita NutriFit Calculator</a></p>
-</iframe>
-<p style="font-size: 12px; color: #666; margin-top: 8px; text-align: center;">
-  Calculadora gratuita por <a href="https://nutrifit-calculator.com" target="_blank" rel="noopener" style="color: #2563eb;">NutriFit Calculator</a>
-</p>`;
+  const { embedCode, calculatorTitle } = useMemo(() => {
+    const baseUrl = 'https://nutrifit-calculator.com';
+    const currentUrl = `${baseUrl}${pathname}`;
+
+    // Determinar el título de la calculadora según la ruta
+    let pageTitle = title || calculatorName || 'Calculadora de Calorías y Macros';
+
+    if (!title && !calculatorName) {
+      switch (pathname) {
+        case '/':
+          pageTitle = 'Calculadora de Calorías y Macros';
+          break;
+        case '/imc':
+          pageTitle = 'Calculadora de IMC';
+          break;
+        case '/tdee':
+          pageTitle = 'Calculadora TDEE';
+          break;
+        case '/proteina':
+          pageTitle = 'Calculadora de Proteína Diaria';
+          break;
+        case '/agua':
+          pageTitle = 'Calculadora de Hidratación';
+          break;
+        case '/composicion':
+          pageTitle = 'Calculadora de Composición Corporal';
+          break;
+        case '/ritmo-cardiaco':
+          pageTitle = 'Calculadora de Ritmo Cardíaco';
+          break;
+        default:
+          pageTitle = 'Calculadora Fitness - NutriFit';
+      }
+    }
+
+    const embedCode = `<iframe 
+    src="${currentUrl}" 
+    width="100%" 
+    height="700" 
+    frameborder="0" 
+    title="${pageTitle} - NutriFit Calculator"
+    style="border: 1px solid #e2e8f0; border-radius: 8px; background: white;"
+    loading="lazy"
+  >
+    <p>Tu navegador no soporta iframes. <a href="${currentUrl}" target="_blank" rel="noopener">Visita ${pageTitle}</a></p>
+  </iframe>
+  <p style="font-size: 12px; color: #666; margin-top: 8px; text-align: center;">
+    Calculadora gratuita por <a href="${baseUrl}" target="_blank" rel="noopener" style="color: #2563eb;">NutriFit Calculator</a>
+  </p>`;
+
+    return { embedCode, calculatorTitle: pageTitle };
+  }, [pathname, title, calculatorName]);
 
   const handleCopy = async () => {
     try {
@@ -38,10 +84,10 @@ export function EmbedWidget() {
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
           <ExternalLink className="h-5 w-5" />
-          <span>Embebe esta calculadora en tu sitio web</span>
+          <span>Embebe &quot;{calculatorTitle}&quot; en tu sitio web</span>
         </CardTitle>
         <p className="text-sm text-muted-foreground">
-          Copia y pega este código en tu sitio web para ofrecer la calculadora a tus visitantes.
+          Copia y pega este código en tu sitio web para ofrecer esta calculadora a tus visitantes.
           Es completamente gratuito y ayuda a tus usuarios con herramientas útiles.
         </p>
       </CardHeader>

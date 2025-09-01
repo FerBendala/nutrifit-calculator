@@ -50,8 +50,6 @@ export default function HomePage() {
             className="w-full"
           />
 
-
-
           {/* Educational Content */}
           <div className="space-golden-lg pt-[2.618rem]">
             <div className="prose prose-gray max-w-none">

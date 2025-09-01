@@ -2,9 +2,11 @@
 
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
+import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
 import { SimpleAdSlot } from '@/components/SimpleAdSlot';
+import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { calculateBMI } from '@/lib/formulas';
@@ -401,6 +403,18 @@ export default function IMCPage() {
 
             {/* Calculadoras relacionadas */}
             <RelatedCalculators currentPage="/imc" />
+
+            {/* Widget para embeber - genera backlinks naturales */}
+            <div className="flex justify-center">
+              <EmbedWidget />
+            </div>
+
+            {/* Social Share */}
+            <SocialShare
+              title="Calculadora de Calorías y Macronutrientes Gratis"
+              url="https://nutrifit-calculator.com/imc"
+              description="Calcula tus calorías diarias y macros con la fórmula científica Mifflin-St Jeor. ¡Totalmente gratis!"
+            />
 
             {/* Navegación entre calculadoras */}
             <CalculatorNavigation currentCalculator="imc" />

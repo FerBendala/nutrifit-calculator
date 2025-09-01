@@ -278,3 +278,118 @@ export function calculateWaistHipRatio(
     riskLevel
   };
 }
+
+/**
+ * Calculate maximum heart rate using different formulas
+ */
+export function calculateMaxHeartRate(
+  age: number,
+  formula: 'tanaka' | 'haskell' | 'gulati' = 'tanaka',
+  sex?: 'male' | 'female'
+): { maxHR: number; formula: string; accuracy: string; } {
+  let maxHR: number;
+  let formulaName: string;
+  let accuracy: string;
+
+  switch (formula) {
+    case 'tanaka':
+      maxHR = 208 - (0.7 * age);
+      formulaName = 'Fórmula de Tanaka';
+      accuracy = 'Más precisa para población general (±10-12 ppm)';
+      break;
+    case 'gulati':
+      if (sex === 'female') {
+        maxHR = 206 - (0.88 * age);
+        formulaName = 'Fórmula de Gulati (Mujeres)';
+        accuracy = 'Específica para mujeres (±10 ppm)';
+      } else {
+        // Fallback to Tanaka for males
+        maxHR = 208 - (0.7 * age);
+        formulaName = 'Fórmula de Tanaka';
+        accuracy = 'Más precisa para población general (±10-12 ppm)';
+      }
+      break;
+    case 'haskell':
+    default:
+      maxHR = 220 - age;
+      formulaName = 'Fórmula clásica de Haskell-Fox';
+      accuracy = 'Menos precisa pero ampliamente conocida (±15 ppm)';
+      break;
+  }
+
+  return {
+    maxHR: Math.round(maxHR),
+    formula: formulaName,
+    accuracy
+  };
+}
+
+/**
+ * Calculate heart rate training zones
+ */
+export function calculateHeartRateZones(maxHR: number): {
+  zone1: { min: number; max: number; name: string; description: string; color: string; };
+  zone2: { min: number; max: number; name: string; description: string; color: string; };
+  zone3: { min: number; max: number; name: string; description: string; color: string; };
+  zone4: { min: number; max: number; name: string; description: string; color: string; };
+  zone5: { min: number; max: number; name: string; description: string; color: string; };
+} {
+  return {
+    zone1: {
+      min: Math.round(maxHR * 0.50),
+      max: Math.round(maxHR * 0.60),
+      name: 'Zona 1 - Recuperación',
+      description: 'Recuperación activa y calentamiento',
+      color: 'text-gray-600'
+    },
+    zone2: {
+      min: Math.round(maxHR * 0.60),
+      max: Math.round(maxHR * 0.70),
+      name: 'Zona 2 - Base Aeróbica',
+      description: 'Quema de grasa y resistencia básica',
+      color: 'text-blue-600'
+    },
+    zone3: {
+      min: Math.round(maxHR * 0.70),
+      max: Math.round(maxHR * 0.80),
+      name: 'Zona 3 - Aeróbica',
+      description: 'Mejora cardiovascular y resistencia',
+      color: 'text-green-600'
+    },
+    zone4: {
+      min: Math.round(maxHR * 0.80),
+      max: Math.round(maxHR * 0.90),
+      name: 'Zona 4 - Umbral Anaeróbico',
+      description: 'Mejora del rendimiento y velocidad',
+      color: 'text-yellow-600'
+    },
+    zone5: {
+      min: Math.round(maxHR * 0.90),
+      max: Math.round(maxHR * 1.00),
+      name: 'Zona 5 - Potencia',
+      description: 'Máxima intensidad y potencia',
+      color: 'text-red-600'
+    }
+  };
+}
+
+/**
+ * Calculate target heart rate for fat burning
+ */
+export function calculateFatBurningZone(maxHR: number): {
+  min: number;
+  max: number;
+  optimal: number;
+  percentage: string;
+} {
+  const min = Math.round(maxHR * 0.60);
+  const max = Math.round(maxHR * 0.70);
+  const optimal = Math.round(maxHR * 0.65);
+
+  return {
+    min,
+    max,
+    optimal,
+    percentage: '60-70%'
+  };
+}

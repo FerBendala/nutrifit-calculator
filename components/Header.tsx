@@ -17,7 +17,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { Activity, Calculator, Droplet, Menu, Scale, Target, Zap } from 'lucide-react';
+import { Activity, Calculator, Droplet, Heart, Menu, Scale, Target, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -60,6 +60,12 @@ export function Header() {
       href: '/composicion',
       description: 'Grasa corporal y masa magra',
       icon: Target
+    },
+    {
+      title: 'Ritmo Cardíaco',
+      href: '/ritmo-cardiaco',
+      description: 'Zonas de entrenamiento y quema de grasa',
+      icon: Heart
     }
   ];
 

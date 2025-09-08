@@ -393,3 +393,184 @@ export function calculateFatBurningZone(maxHR: number): {
     percentage: '60-70%'
   };
 }
+
+/**
+ * Calculate body fat percentage using skinfold measurements (Jackson-Pollock 3-site)
+ */
+export function calculateBodyFatSkinfolds(
+  sex: 'male' | 'female',
+  age: number,
+  triceps: number, // mm
+  suprailiac: number, // mm
+  thigh: number, // mm (for females) or chest (for males)
+  subscapular?: number // mm (optional 4th measurement)
+): { bodyFat: number; category: string; leanMass: number; fatMass: number; method: string; } {
+  // Calculate sum of skinfolds
+  let sumSf: number;
+  let method: string;
+
+  if (sex === 'male') {
+    sumSf = triceps + suprailiac + thigh; // chest instead of thigh for males
+    method = 'Jackson-Pollock 3 sitios (hombres)';
+  } else {
+    sumSf = triceps + suprailiac + thigh;
+    method = 'Jackson-Pollock 3 sitios (mujeres)';
+  }
+
+  // Calculate body density using Jackson-Pollock equations
+  let bodyDensity: number;
+
+  if (sex === 'male') {
+    bodyDensity = 1.10938 - (0.0008267 * sumSf) + (0.0000016 * sumSf * sumSf) - (0.0002574 * age);
+  } else {
+    bodyDensity = 1.0994921 - (0.0009929 * sumSf) + (0.0000023 * sumSf * sumSf) - (0.0001392 * age);
+  }
+
+  // Convert body density to body fat percentage using Siri equation
+  const bodyFat = ((495 / bodyDensity) - 450);
+
+  // Determine category
+  let category: string;
+  if (sex === 'male') {
+    if (bodyFat < 6) category = 'Esencial';
+    else if (bodyFat < 14) category = 'Atlético';
+    else if (bodyFat < 18) category = 'Fitness';
+    else if (bodyFat < 25) category = 'Aceptable';
+    else category = 'Obesidad';
+  } else {
+    if (bodyFat < 14) category = 'Esencial';
+    else if (bodyFat < 21) category = 'Atlético';
+    else if (bodyFat < 25) category = 'Fitness';
+    else if (bodyFat < 32) category = 'Aceptable';
+    else category = 'Obesidad';
+  }
+
+  return {
+    bodyFat: Math.round(bodyFat * 10) / 10,
+    category,
+    leanMass: 0, // Will be calculated with weight
+    fatMass: 0,  // Will be calculated with weight
+    method
+  };
+}
+
+/**
+ * Calculate body fat using 4-site skinfold method (Durnin-Womersley)
+ */
+export function calculateBodyFat4Site(
+  sex: 'male' | 'female',
+  age: number,
+  triceps: number,
+  biceps: number,
+  subscapular: number,
+  suprailiac: number
+): { bodyFat: number; category: string; leanMass: number; fatMass: number; method: string; } {
+  const sumSf = triceps + biceps + subscapular + suprailiac;
+
+  let bodyDensity: number;
+
+  if (sex === 'male') {
+    if (age >= 17 && age <= 19) {
+      bodyDensity = 1.1620 - (0.0630 * Math.log10(sumSf));
+    } else if (age >= 20 && age <= 29) {
+      bodyDensity = 1.1631 - (0.0632 * Math.log10(sumSf));
+    } else if (age >= 30 && age <= 39) {
+      bodyDensity = 1.1422 - (0.0544 * Math.log10(sumSf));
+    } else if (age >= 40 && age <= 49) {
+      bodyDensity = 1.1620 - (0.0700 * Math.log10(sumSf));
+    } else {
+      bodyDensity = 1.1715 - (0.0779 * Math.log10(sumSf));
+    }
+  } else {
+    if (age >= 16 && age <= 19) {
+      bodyDensity = 1.1549 - (0.0678 * Math.log10(sumSf));
+    } else if (age >= 20 && age <= 29) {
+      bodyDensity = 1.1599 - (0.0717 * Math.log10(sumSf));
+    } else if (age >= 30 && age <= 39) {
+      bodyDensity = 1.1423 - (0.0632 * Math.log10(sumSf));
+    } else if (age >= 40 && age <= 49) {
+      bodyDensity = 1.1333 - (0.0612 * Math.log10(sumSf));
+    } else {
+      bodyDensity = 1.1339 - (0.0645 * Math.log10(sumSf));
+    }
+  }
+
+  // Convert to body fat percentage using Siri equation
+  const bodyFat = ((495 / bodyDensity) - 450);
+
+  // Determine category
+  let category: string;
+  if (sex === 'male') {
+    if (bodyFat < 6) category = 'Esencial';
+    else if (bodyFat < 14) category = 'Atlético';
+    else if (bodyFat < 18) category = 'Fitness';
+    else if (bodyFat < 25) category = 'Aceptable';
+    else category = 'Obesidad';
+  } else {
+    if (bodyFat < 14) category = 'Esencial';
+    else if (bodyFat < 21) category = 'Atlético';
+    else if (bodyFat < 25) category = 'Fitness';
+    else if (bodyFat < 32) category = 'Aceptable';
+    else category = 'Obesidad';
+  }
+
+  return {
+    bodyFat: Math.round(bodyFat * 10) / 10,
+    category,
+    leanMass: 0,
+    fatMass: 0,
+    method: 'Durnin-Womersley 4 sitios'
+  };
+}
+
+/**
+ * Calculate body fat using 7-site skinfold method (Jackson-Pollock)
+ */
+export function calculateBodyFat7Site(
+  sex: 'male' | 'female',
+  age: number,
+  chest: number,
+  midaxillary: number,
+  triceps: number,
+  subscapular: number,
+  abdomen: number,
+  suprailiac: number,
+  thigh: number
+): { bodyFat: number; category: string; leanMass: number; fatMass: number; method: string; } {
+  const sumSf = chest + midaxillary + triceps + subscapular + abdomen + suprailiac + thigh;
+
+  let bodyDensity: number;
+
+  if (sex === 'male') {
+    bodyDensity = 1.112 - (0.00043499 * sumSf) + (0.00000055 * sumSf * sumSf) - (0.00028826 * age);
+  } else {
+    bodyDensity = 1.097 - (0.00046971 * sumSf) + (0.00000056 * sumSf * sumSf) - (0.00012828 * age);
+  }
+
+  // Convert to body fat percentage using Siri equation
+  const bodyFat = ((495 / bodyDensity) - 450);
+
+  // Determine category
+  let category: string;
+  if (sex === 'male') {
+    if (bodyFat < 6) category = 'Esencial';
+    else if (bodyFat < 14) category = 'Atlético';
+    else if (bodyFat < 18) category = 'Fitness';
+    else if (bodyFat < 25) category = 'Aceptable';
+    else category = 'Obesidad';
+  } else {
+    if (bodyFat < 14) category = 'Esencial';
+    else if (bodyFat < 21) category = 'Atlético';
+    else if (bodyFat < 25) category = 'Fitness';
+    else if (bodyFat < 32) category = 'Aceptable';
+    else category = 'Obesidad';
+  }
+
+  return {
+    bodyFat: Math.round(bodyFat * 10) / 10,
+    category,
+    leanMass: 0,
+    fatMass: 0,
+    method: 'Jackson-Pollock 7 sitios'
+  };
+}

@@ -168,7 +168,8 @@ export default function IMCPage() {
             <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
               El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso con tu altura
               para determinar si tu peso está dentro de un rango saludable. Se calcula dividiendo
-              tu peso en kilogramos entre tu altura en metros al cuadrado (kg/m²).
+              tu peso en kilogramos entre tu altura en metros al cuadrado (kg/m²). Los rangos estándar
+              están establecidos por la <a href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Organización Mundial de la Salud (OMS)</a>.
             </p>
 
             <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
@@ -260,27 +261,27 @@ export default function IMCPage() {
                   <ul className="text-sm text-yellow-800 space-golden-xs">
                     <li className="flex items-start">
                       <span className="text-red-600 mr-2">•</span>
-                      <span>Diabetes tipo 2</span>
+                      <span><a href="https://www.cdc.gov/diabetes/basics/type2.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Diabetes tipo 2</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-2">•</span>
-                      <span>Enfermedades cardiovasculares</span>
+                      <span><a href="https://www.heart.org/en/health-topics/consumer-healthcare/what-is-cardiovascular-disease" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Enfermedades cardiovasculares</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-2">•</span>
-                      <span>Hipertensión arterial</span>
+                      <span><a href="https://www.mayoclinic.org/diseases-conditions/high-blood-pressure/symptoms-causes/syc-20373410" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Hipertensión arterial</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-2">•</span>
-                      <span>Apnea del sueño</span>
+                      <span><a href="https://www.mayoclinic.org/diseases-conditions/sleep-apnea/symptoms-causes/syc-20377631" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Apnea del sueño</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-2">•</span>
-                      <span>Problemas articulares</span>
+                      <span><a href="https://www.arthritis.org/health-wellness/about-arthritis/understanding-arthritis/obesity-and-arthritis" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Problemas articulares</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-red-600 mr-2">•</span>
-                      <span>Ciertos tipos de cáncer</span>
+                      <span><a href="https://www.cancer.gov/about-cancer/causes-prevention/risk/obesity/obesity-fact-sheet" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Ciertos tipos de cáncer</a></span>
                     </li>
                   </ul>
                 </div>
@@ -292,27 +293,27 @@ export default function IMCPage() {
                   <ul className="text-sm text-yellow-800 space-golden-xs">
                     <li className="flex items-start">
                       <span className="text-blue-600 mr-2">•</span>
-                      <span>Desnutrición</span>
+                      <span><a href="https://www.who.int/news-room/fact-sheets/detail/malnutrition" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Desnutrición</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-blue-600 mr-2">•</span>
-                      <span>Sistema inmune debilitado</span>
+                      <span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2913766/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Sistema inmune debilitado</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-blue-600 mr-2">•</span>
-                      <span>Osteoporosis</span>
+                      <span><a href="https://www.bones.nih.gov/health-info/bone/osteoporosis/conditions-behaviors/bone-health-and-osteoporosis" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Osteoporosis</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-blue-600 mr-2">•</span>
-                      <span>Anemia</span>
+                      <span><a href="https://www.mayoclinic.org/diseases-conditions/anemia/symptoms-causes/syc-20351360" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Anemia</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-blue-600 mr-2">•</span>
-                      <span>Problemas de fertilidad</span>
+                      <span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3253632/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Problemas de fertilidad</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-blue-600 mr-2">•</span>
-                      <span>Retraso en cicatrización</span>
+                      <span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2903966/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Retraso en cicatrización</a></span>
                     </li>
                   </ul>
                 </div>
@@ -343,7 +344,7 @@ export default function IMCPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-yellow-600 mr-2">•</span>
-                  <span><strong>Es una herramienta de screening:</strong> No reemplaza una evaluación médica completa</span>
+                  <span><strong>Es una herramienta de screening:</strong> No reemplaza una evaluación médica completa. Para más información, consulta el <a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">NHLBI BMI Calculator</a></span>
                 </li>
               </ul>
             </div>
@@ -371,8 +372,7 @@ export default function IMCPage() {
                   <h4 className="font-semibold mb-2">¿Qué hago si mi IMC está fuera del rango normal?</h4>
                   <p className="text-sm text-muted-foreground">
                     Primero, consulta con un profesional de la salud para una evaluación completa.
-                    Si necesitas cambios, hazlos gradualmente: usa nuestra <a href="/tdee" className="text-blue-600 hover:underline">calculadora TDEE</a>
-                    para conocer tus necesidades calóricas y planifica cambios sostenibles.
+                    Si necesitas cambios, hazlos gradualmente: usa nuestra <a href="/tdee" className="text-blue-600 hover:underline">calculadora TDEE</a> para conocer tus necesidades calóricas y planifica cambios sostenibles.
                   </p>
                 </div>
               </div>

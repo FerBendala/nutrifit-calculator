@@ -219,15 +219,15 @@ export default function ProteinaPage() {
                 <ul className="text-sm text-muted-foreground space-golden-xs">
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-blue-600 mr-2">•</span>
-                    <span><strong>Construcción y reparación muscular:</strong> Especialmente importante tras el ejercicio</span>
+                    <span><strong>Construcción y reparación muscular:</strong> Especialmente importante tras el ejercicio - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3871410/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">estudios sobre síntesis proteica</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-green-600 mr-2">•</span>
-                    <span><strong>Producción de enzimas y hormonas:</strong> Insulina, hormona del crecimiento, etc.</span>
+                    <span><strong>Producción de enzimas y hormonas:</strong> Insulina, hormona del crecimiento, etc. - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2903966/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">función hormonal</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-purple-600 mr-2">•</span>
-                    <span><strong>Mantenimiento del sistema inmune:</strong> Anticuerpos y células defensivas</span>
+                    <span><strong>Mantenimiento del sistema inmune:</strong> Anticuerpos y células defensivas - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2913766/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">inmunidad y proteína</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-red-600 mr-2">•</span>

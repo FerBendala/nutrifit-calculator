@@ -205,9 +205,9 @@ export default function AguaPage() {
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">💪 Funciones vitales del agua</h3>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• <strong>Regulación térmica:</strong> Sudoración y vasodilatación para controlar temperatura</li>
-                  <li>• <strong>Transporte de nutrientes:</strong> El plasma sanguíneo es 90% agua</li>
-                  <li>• <strong>Eliminación de toxinas:</strong> Riñones filtran 180L de sangre al día</li>
+                  <li>• <strong>Regulación térmica:</strong> Sudoración y vasodilatación para controlar temperatura - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2903966/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">estudios sobre termorregulación</a></li>
+                  <li>• <strong>Transporte de nutrientes:</strong> El plasma sanguíneo es 90% agua - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC524030/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">función del plasma</a></li>
+                  <li>• <strong>Eliminación de toxinas:</strong> Riñones filtran 180L de sangre al día - <a href="https://www.kidney.org/atoz/content/kidneys-work" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">función renal</a></li>
                   <li>• <strong>Lubricación articular:</strong> El líquido sinovial protege las articulaciones</li>
                   <li>• <strong>Digestión:</strong> Saliva, jugos gástricos y bilis contienen agua</li>
                   <li>• <strong>Estructura celular:</strong> Mantiene la forma y función de las células</li>
@@ -370,7 +370,7 @@ export default function AguaPage() {
               </h3>
               <div className="space-y-3">
                 <p className="text-sm text-yellow-800">
-                  <strong>Una deshidratación del 2% ya reduce el rendimiento físico y cognitivo.</strong>
+                  <strong>Una deshidratación del 2% ya reduce el rendimiento físico y cognitivo.</strong> Según <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3871410/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">estudios sobre deshidratación y rendimiento</a>.
                 </p>
                 <div className="grid gap-4 md:grid-cols-3">
                   <div>

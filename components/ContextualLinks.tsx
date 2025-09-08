@@ -62,7 +62,7 @@ export function ContextualLinks({ title, links, className = '' }: ContextualLink
 export function CalculatorNavigation({ currentCalculator }: { currentCalculator: string }) {
   const navigationLinks = {
     'home': {
-      prev: { title: 'Ritmo Cardíaco', href: '/ritmo-cardiaco' },
+      prev: { title: 'Grasa Corporal', href: '/grasa-corporal' },
       next: { title: 'Calculadora IMC', href: '/imc' }
     },
     'imc': {
@@ -87,7 +87,11 @@ export function CalculatorNavigation({ currentCalculator }: { currentCalculator:
     },
     'ritmo-cardiaco': {
       prev: { title: 'Composición Corporal', href: '/composicion' },
-      next: { title: 'Hidratación Diaria', href: '/agua' }
+      next: { title: 'Grasa Corporal', href: '/grasa-corporal' }
+    },
+    'grasa-corporal': {
+      prev: { title: 'Ritmo Cardíaco', href: '/ritmo-cardiaco' },
+      next: { title: 'Calorías y Macros', href: '/' }
     }
   };
 

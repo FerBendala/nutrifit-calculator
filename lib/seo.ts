@@ -56,6 +56,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora de frecuencia cardíaca máxima y zonas de entrenamiento. Optimiza tu cardio para quemar grasa y mejorar rendimiento según tu edad.',
     keywords: ['calculadora ritmo cardíaco', 'frecuencia cardíaca máxima', 'zonas entrenamiento', 'quemar grasa', 'cardio', 'pulsaciones'],
     path: '/ritmo-cardiaco'
+  },
+  'grasa-corporal': {
+    title: 'Calculadora de Grasa Corporal por Pliegues Cutáneos - NutriFit',
+    description: 'Calculadora de grasa corporal gratuita con métodos Jackson-Pollock y Durnin-Womersley. Mide tu porcentaje de grasa con pliegues cutáneos para máxima precisión.',
+    keywords: ['calculadora grasa corporal', 'pliegues cutáneos', 'Jackson-Pollock', 'Durnin-Womersley', 'composición corporal', 'porcentaje grasa', 'calibrador'],
+    path: '/grasa-corporal'
   }
 };
 

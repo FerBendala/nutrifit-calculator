@@ -248,20 +248,20 @@ export default function TDEEPage() {
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs">
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="font-bold text-red-600 mr-2 min-w-[60px]">BMR (60-70%):</span>
+                    <span className="font-bold text-red-600 mr-2 min-w-[96px]">BMR (60-70%):</span>
                     <span>Metabolismo basal calculado con la <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">ecuación Mifflin-St Jeor</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="font-bold text-orange-600 mr-2 min-w-[60px]">TEF (8-15%):</span>
-                    <span>Termogénesis de alimentos (energía para digerir)</span>
+                    <span className="font-bold text-orange-600 mr-2 min-w-[96px]">TEF (8-15%):</span>
+                    <span>Termogénesis de alimentos (energía para digerir) - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC524030/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">estudios sobre TEF</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="font-bold text-green-600 mr-2 min-w-[60px]">EAT (15-30%):</span>
-                    <span>Actividad física planificada (ejercicio)</span>
+                    <span className="font-bold text-green-600 mr-2 min-w-[96px]">EAT (15-30%):</span>
+                    <span>Actividad física planificada (ejercicio) - <a href="https://www.acsm.org/read-research/trending-topics-resource-pages/physical-activity-guidelines" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">guías ACSM</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem]">
-                    <span className="font-bold text-blue-600 mr-2 min-w-[60px]">NEAT (15-30%):</span>
-                    <span>Actividades no ejercicio (caminar, fidgeting)</span>
+                    <span className="font-bold text-blue-600 mr-2 min-w-[96px]">NEAT (15-30%):</span>
+                    <span>Actividades no ejercicio (caminar, fidgeting) - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3871410/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">estudios NEAT</a></span>
                   </li>
                 </ul>
               </div>
@@ -306,7 +306,7 @@ export default function TDEEPage() {
                   <ul className="text-sm text-blue-800 space-golden-xs">
                     <li>• TDEE - 300-500 kcal/día</li>
                     <li>• Pérdida de 0.5-1kg/semana</li>
-                    <li>• Usa nuestra <a href="/" className="text-blue-600 hover:underline font-medium transition-golden">calculadora principal</a> para macros</li>
+                    <li>• Usa nuestra <a href="/" className="text-blue-600 hover:underline font-medium transition-golden"> calculadora principal</a> para macros</li>
                   </ul>
                 </div>
                 <div className="card-golden bg-white/50">
@@ -380,8 +380,7 @@ export default function TDEEPage() {
                   <h4 className="font-semibold mb-[0.618rem]">¿Qué hago si no estoy viendo resultados con mi TDEE?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Después de 2-3 semanas sin cambios, ajusta ±100-200 kcal según tu objetivo.
-                    También verifica tu <a href="/agua" className="text-blue-600 hover:underline font-medium">hidratación</a>
-                    y considera factores como el estrés y el sueño.
+                    También verifica tu <a href="/agua" className="text-blue-600 hover:underline font-medium">hidratación</a> y considera factores como el estrés y el sueño.
                   </p>
                 </div>
               </div>

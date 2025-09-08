@@ -17,7 +17,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { Activity, Calculator, Droplet, Heart, Menu, Scale, Target, Zap } from 'lucide-react';
+import { Activity, Calculator, Droplet, Heart, Menu, Ruler, Scale, Target, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -66,6 +66,12 @@ export function Header() {
       href: '/ritmo-cardiaco',
       description: 'Zonas de entrenamiento y quema de grasa',
       icon: Heart
+    },
+    {
+      title: 'Grasa Corporal',
+      href: '/grasa-corporal',
+      description: 'Porcentaje de grasa por pliegues cutáneos',
+      icon: Ruler
     }
   ];
 

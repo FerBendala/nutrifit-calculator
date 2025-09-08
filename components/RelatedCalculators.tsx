@@ -1,6 +1,6 @@
 'use client';
 
-import { Activity, Calculator, Droplet, Heart, Scale, Target, Zap } from 'lucide-react';
+import { Activity, Calculator, Droplet, Heart, Ruler, Scale, Target, Zap } from 'lucide-react';
 import Link from 'next/link';
 
 interface RelatedCalculator {
@@ -64,6 +64,13 @@ const calculators: RelatedCalculator[] = [
     href: '/ritmo-cardiaco',
     description: 'Zonas de entrenamiento cardiovascular y quema de grasa',
     icon: Heart,
+    priority: 'high'
+  },
+  {
+    title: 'Grasa Corporal',
+    href: '/grasa-corporal',
+    description: 'Porcentaje de grasa corporal por pliegues cutáneos',
+    icon: Ruler,
     priority: 'high'
   }
 ];

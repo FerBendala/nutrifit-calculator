@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { X, Settings } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Switch } from '@/components/ui/switch';
+import { Settings } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export function ConsentBanner() {
   const [showBanner, setShowBanner] = useState(false);
@@ -19,6 +19,15 @@ export function ConsentBanner() {
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
       setShowBanner(true);
+    } else {
+      // Si ya hay consentimiento, cargar los scripts automáticamente
+      const consentData = JSON.parse(consent);
+      if (consentData.analytics && process.env.NEXT_PUBLIC_GTM_ID) {
+        loadGTM();
+      }
+      if (consentData.advertising && process.env.NEXT_PUBLIC_ADSENSE_ID) {
+        loadAdSense();
+      }
     }
   }, []);
 
@@ -32,14 +41,14 @@ export function ConsentBanner() {
     localStorage.setItem('cookie-consent', JSON.stringify(consentData));
     localStorage.setItem('ads-consent', consentData.advertising.toString());
     localStorage.setItem('analytics-consent', consentData.analytics.toString());
-    
+
     setShowBanner(false);
 
     // Load scripts based on consent
     if (consentData.analytics && process.env.NEXT_PUBLIC_GTM_ID) {
       loadGTM();
     }
-    
+
     if (consentData.advertising && process.env.NEXT_PUBLIC_ADSENSE_ID) {
       loadAdSense();
     }
@@ -59,10 +68,17 @@ export function ConsentBanner() {
   };
 
   const loadAdSense = () => {
+    console.warn('ConsentBanner: Cargando script de AdSense');
     const script = document.createElement('script');
     script.async = true;
     script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`;
     script.crossOrigin = 'anonymous';
+    script.onload = () => {
+      console.warn('ConsentBanner: Script de AdSense cargado correctamente');
+    };
+    script.onerror = () => {
+      console.error('ConsentBanner: Error cargando script de AdSense');
+    };
     document.head.appendChild(script);
   };
 
@@ -76,11 +92,11 @@ export function ConsentBanner() {
             <div className="flex-1">
               <h3 className="font-semibold mb-2">🍪 Gestión de Cookies</h3>
               <p className="text-sm text-muted-foreground">
-                Utilizamos cookies necesarias para el funcionamiento del sitio y opcionales para 
+                Utilizamos cookies necesarias para el funcionamiento del sitio y opcionales para
                 análisis y publicidad. Puedes gestionar tus preferencias en cualquier momento.
               </p>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-2">
               <Dialog>
                 <DialogTrigger asChild>
@@ -103,7 +119,7 @@ export function ConsentBanner() {
                       </div>
                       <Switch checked={true} disabled />
                     </div>
-                    
+
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="font-medium">Análisis</div>
@@ -111,14 +127,14 @@ export function ConsentBanner() {
                           Google Analytics para mejorar la experiencia
                         </div>
                       </div>
-                      <Switch 
+                      <Switch
                         checked={preferences.analytics}
-                        onCheckedChange={(checked) => 
+                        onCheckedChange={(checked) =>
                           setPreferences(prev => ({ ...prev, analytics: checked }))
                         }
                       />
                     </div>
-                    
+
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="font-medium">Publicidad</div>
@@ -126,14 +142,14 @@ export function ConsentBanner() {
                           Google AdSense para mostrar anuncios relevantes
                         </div>
                       </div>
-                      <Switch 
+                      <Switch
                         checked={preferences.advertising}
-                        onCheckedChange={(checked) => 
+                        onCheckedChange={(checked) =>
                           setPreferences(prev => ({ ...prev, advertising: checked }))
                         }
                       />
                     </div>
-                    
+
                     <div className="flex gap-2 pt-4">
                       <Button onClick={() => saveConsent(false)} className="flex-1">
                         Guardar preferencias
@@ -142,14 +158,14 @@ export function ConsentBanner() {
                   </div>
                 </DialogContent>
               </Dialog>
-              
+
               <Button onClick={() => saveConsent(true)} size="sm">
                 Aceptar todas
               </Button>
-              
-              <Button 
-                onClick={() => saveConsent(false)} 
-                variant="outline" 
+
+              <Button
+                onClick={() => saveConsent(false)}
+                variant="outline"
                 size="sm"
               >
                 Solo necesarias

@@ -72,6 +72,13 @@ const calculators: RelatedCalculator[] = [
     description: 'Porcentaje de grasa corporal por pliegues cutáneos',
     icon: Ruler,
     priority: 'high'
+  },
+  {
+    title: 'Peso Ideal',
+    href: '/peso-ideal',
+    description: 'Peso ideal con 5 fórmulas científicas reconocidas',
+    icon: Scale,
+    priority: 'high'
   }
 ];
 

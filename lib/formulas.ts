@@ -574,3 +574,157 @@ export function calculateBodyFat7Site(
     method: 'Jackson-Pollock 7 sitios'
   };
 }
+
+// ===== PESO IDEAL =====
+
+export interface IdealWeightResult {
+  robinson: number;
+  miller: number;
+  devine: number;
+  hamwi: number;
+  peterson: number;
+  average: number;
+  range: {
+    min: number;
+    max: number;
+  };
+  bmiRange: {
+    min: number;
+    max: number;
+  };
+  currentBmi: number;
+  status: 'underweight' | 'normal' | 'overweight' | 'obese';
+  recommendation: string;
+}
+
+/**
+ * Calculate ideal weight using Robinson formula (1983)
+ */
+export function calculateIdealWeightRobinson(height: number, sex: 'male' | 'female'): number {
+  const heightInches = height / 2.54;
+  
+  if (sex === 'male') {
+    return 52 + (1.9 * (heightInches - 60));
+  } else {
+    return 49 + (1.7 * (heightInches - 60));
+  }
+}
+
+/**
+ * Calculate ideal weight using Miller formula (1983)
+ */
+export function calculateIdealWeightMiller(height: number, sex: 'male' | 'female'): number {
+  const heightInches = height / 2.54;
+  
+  if (sex === 'male') {
+    return 56.2 + (1.41 * (heightInches - 60));
+  } else {
+    return 53.1 + (1.36 * (heightInches - 60));
+  }
+}
+
+/**
+ * Calculate ideal weight using Devine formula (1974)
+ */
+export function calculateIdealWeightDevine(height: number, sex: 'male' | 'female'): number {
+  const heightInches = height / 2.54;
+  
+  if (sex === 'male') {
+    return 50 + (2.3 * (heightInches - 60));
+  } else {
+    return 45.5 + (2.3 * (heightInches - 60));
+  }
+}
+
+/**
+ * Calculate ideal weight using Hamwi formula (1964)
+ */
+export function calculateIdealWeightHamwi(height: number, sex: 'male' | 'female'): number {
+  const heightInches = height / 2.54;
+  
+  if (sex === 'male') {
+    return 106 + (6 * (heightInches - 60));
+  } else {
+    return 100 + (5 * (heightInches - 60));
+  }
+}
+
+/**
+ * Calculate ideal weight using Peterson formula (2016)
+ */
+export function calculateIdealWeightPeterson(height: number, sex: 'male' | 'female'): number {
+  const heightMeters = height / 100;
+  
+  if (sex === 'male') {
+    return 2.447 * heightMeters - 0.09145 * Math.pow(heightMeters, 2);
+  } else {
+    return 2.447 * heightMeters - 0.09145 * Math.pow(heightMeters, 2) - 2.2;
+  }
+}
+
+/**
+ * Calculate comprehensive ideal weight analysis
+ */
+export function calculateIdealWeight(height: number, weight: number, sex: 'male' | 'female'): IdealWeightResult {
+  const robinson = calculateIdealWeightRobinson(height, sex);
+  const miller = calculateIdealWeightMiller(height, sex);
+  const devine = calculateIdealWeightDevine(height, sex);
+  const hamwi = calculateIdealWeightHamwi(height, sex);
+  const peterson = calculateIdealWeightPeterson(height, sex);
+  
+  const average = (robinson + miller + devine + hamwi + peterson) / 5;
+  
+  // BMI range for normal weight (18.5-24.9)
+  const heightMeters = height / 100;
+  const bmiRange = {
+    min: 18.5 * Math.pow(heightMeters, 2),
+    max: 24.9 * Math.pow(heightMeters, 2)
+  };
+  
+  // Ideal weight range (±10% from average)
+  const range = {
+    min: average * 0.9,
+    max: average * 1.1
+  };
+  
+  // Current BMI
+  const currentBmi = weight / Math.pow(heightMeters, 2);
+  
+  // Status based on BMI
+  let status: 'underweight' | 'normal' | 'overweight' | 'obese';
+  let recommendation: string;
+  
+  if (currentBmi < 18.5) {
+    status = 'underweight';
+    recommendation = 'Tu peso está por debajo del rango saludable. Consulta con un profesional de la salud para evaluar tu situación nutricional.';
+  } else if (currentBmi >= 18.5 && currentBmi < 25) {
+    status = 'normal';
+    recommendation = 'Tu peso está dentro del rango saludable. Mantén una dieta equilibrada y ejercicio regular.';
+  } else if (currentBmi >= 25 && currentBmi < 30) {
+    status = 'overweight';
+    recommendation = 'Tu peso está ligeramente por encima del rango ideal. Considera ajustar tu dieta y aumentar la actividad física.';
+  } else {
+    status = 'obese';
+    recommendation = 'Tu peso está significativamente por encima del rango saludable. Te recomendamos consultar con un profesional de la salud para un plan personalizado.';
+  }
+  
+  return {
+    robinson: Math.round(robinson * 10) / 10,
+    miller: Math.round(miller * 10) / 10,
+    devine: Math.round(devine * 10) / 10,
+    hamwi: Math.round(hamwi * 10) / 10,
+    peterson: Math.round(peterson * 10) / 10,
+    average: Math.round(average * 10) / 10,
+    range: {
+      min: Math.round(range.min * 10) / 10,
+      max: Math.round(range.max * 10) / 10
+    },
+    bmiRange: {
+      min: Math.round(bmiRange.min * 10) / 10,
+      max: Math.round(bmiRange.max * 10) / 10
+    },
+    currentBmi: Math.round(currentBmi * 10) / 10,
+    status,
+    recommendation
+  };
+}

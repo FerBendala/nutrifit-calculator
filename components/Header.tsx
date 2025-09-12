@@ -72,6 +72,12 @@ export function Header() {
       href: '/grasa-corporal',
       description: 'Porcentaje de grasa por pliegues cutáneos',
       icon: Ruler
+    },
+    {
+      title: 'Peso Ideal',
+      href: '/peso-ideal',
+      description: 'Peso ideal con 5 fórmulas científicas',
+      icon: Scale
     }
   ];
 
@@ -167,14 +173,16 @@ export function Header() {
                   <span className="sr-only">Abrir menú</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-[400px]">
-                <SheetHeader>
+              <SheetContent side="right" className="w-full sm:w-[400px] flex flex-col">
+                <SheetHeader className="flex-shrink-0">
                   <div className="flex items-center space-x-2">
                     <CalculatorIcon className="h-6 w-6" size={24} />
                     <SheetTitle>NutriFit Calculator</SheetTitle>
                   </div>
                 </SheetHeader>
-                <MobileMenuContent />
+                <div className="flex-1 overflow-y-auto">
+                  <MobileMenuContent />
+                </div>
               </SheetContent>
             </Sheet>
           </div>

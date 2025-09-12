@@ -62,6 +62,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora de grasa corporal gratuita con métodos Jackson-Pollock y Durnin-Womersley. Mide tu porcentaje de grasa con pliegues cutáneos para máxima precisión.',
     keywords: ['calculadora grasa corporal', 'pliegues cutáneos', 'Jackson-Pollock', 'Durnin-Womersley', 'composición corporal', 'porcentaje grasa', 'calibrador'],
     path: '/grasa-corporal'
+  },
+  'peso-ideal': {
+    title: 'Calculadora de Peso Ideal - 5 Fórmulas Científicas - NutriFit',
+    description: 'Calculadora de peso ideal gratuita con 5 fórmulas científicas (Robinson, Miller, Devine, Hamwi, Peterson). Descubre tu peso ideal según altura, peso y sexo.',
+    keywords: ['calculadora peso ideal', 'peso ideal', 'fórmulas científicas', 'Robinson', 'Miller', 'Devine', 'Hamwi', 'Peterson', 'peso saludable', 'altura peso'],
+    path: '/peso-ideal'
   }
 };
 

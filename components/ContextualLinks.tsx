@@ -62,7 +62,7 @@ export function ContextualLinks({ title, links, className = '' }: ContextualLink
 export function CalculatorNavigation({ currentCalculator }: { currentCalculator: string }) {
   const navigationLinks = {
     'home': {
-      prev: { title: 'Grasa Corporal', href: '/grasa-corporal' },
+      prev: { title: 'Peso Ideal', href: '/peso-ideal' },
       next: { title: 'Calculadora IMC', href: '/imc' }
     },
     'imc': {
@@ -91,6 +91,10 @@ export function CalculatorNavigation({ currentCalculator }: { currentCalculator:
     },
     'grasa-corporal': {
       prev: { title: 'Ritmo Cardíaco', href: '/ritmo-cardiaco' },
+      next: { title: 'Peso Ideal', href: '/peso-ideal' }
+    },
+    'peso-ideal': {
+      prev: { title: 'Grasa Corporal', href: '/grasa-corporal' },
       next: { title: 'Calorías y Macros', href: '/' }
     }
   };

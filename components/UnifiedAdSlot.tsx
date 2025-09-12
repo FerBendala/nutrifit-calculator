@@ -36,8 +36,8 @@ export function AdSlot({
   requireElement,
   lazyLoad = true
 }: UnifiedAdSlotProps) {
-  console.log('AdSlot: Componente renderizado con slot:', adSlot);
-  
+  console.warn('AdSlot: Componente renderizado con slot:', adSlot);
+
   const adRef = useRef<HTMLModElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasMinContent, setHasMinContent] = useState(false);
@@ -142,7 +142,7 @@ export function AdSlot({
   }, [hasMinContent, shouldShow, lazyLoad]);
 
   // Log de depuración siempre visible
-  console.log('AdSlot: Estado actual:', {
+  console.warn('AdSlot: Estado actual:', {
     adSenseId: !!adSenseId,
     adRef: !!adRef.current,
     isVisible,
@@ -152,55 +152,39 @@ export function AdSlot({
     lazyLoad
   });
 
-  // Cargar AdSense
+  // Cargar AdSense - versión simplificada
   useEffect(() => {
-    if (!adSenseId || !adRef.current || !isVisible || !hasMinContent || !shouldShow) {
-      console.log('AdSlot: No se puede cargar - condiciones no cumplidas');
+    if (!adSenseId || !adRef.current) {
+      console.warn('AdSlot: No se puede cargar - falta adSenseId o adRef');
       return;
     }
 
     const loadAd = () => {
       try {
         const hasConsent = localStorage.getItem('ads-consent') === 'true';
-        console.log('AdSlot: Verificando consentimiento:', hasConsent);
-        console.log('AdSlot: adsbygoogle disponible:', !!window.adsbygoogle);
+        console.warn('AdSlot: Verificando consentimiento:', hasConsent);
+        console.warn('AdSlot: adsbygoogle disponible:', !!window.adsbygoogle);
 
-        if (hasConsent) {
-          // Esperar a que el script de AdSense esté cargado
-          if (window.adsbygoogle) {
-            console.log('AdSlot: Inicializando anuncio para slot:', adSlot);
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
-          } else {
-            console.log('AdSlot: Script no cargado, reintentando...');
-            // Si no está cargado, esperar un poco más
-            setTimeout(loadAd, 500);
-          }
+        if (hasConsent && window.adsbygoogle) {
+          console.warn('AdSlot: Inicializando anuncio para slot:', adSlot);
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } else if (!hasConsent) {
+          console.warn('AdSlot: Sin consentimiento para publicidad');
         } else {
-          console.log('AdSlot: Sin consentimiento para publicidad');
+          console.warn('AdSlot: Script no cargado, reintentando...');
+          setTimeout(loadAd, 1000);
         }
       } catch (error) {
         console.error('AdSense error:', error);
       }
     };
 
-    // Dar tiempo para que el script se cargue
-    const timer = setTimeout(loadAd, 200);
+    // Cargar inmediatamente y también después de un delay
+    loadAd();
+    const timer = setTimeout(loadAd, 2000);
 
-    // También escuchar cuando se carga el script de AdSense
-    const handleAdSenseLoad = () => {
-      if (window.adsbygoogle) {
-        loadAd();
-      }
-    };
-
-    // Escuchar el evento de carga del script
-    window.addEventListener('load', handleAdSenseLoad);
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('load', handleAdSenseLoad);
-    };
-  }, [adSenseId, adSlot, isVisible, hasMinContent, shouldShow]);
+    return () => clearTimeout(timer);
+  }, [adSenseId, adSlot]);
 
   // No renderizar si no hay ID de AdSense configurado
   if (!adSenseId) {
@@ -216,8 +200,9 @@ export function AdSlot({
     );
   }
 
-  // No mostrar si no cumple con las condiciones
-  if ((requireMinContent && !hasMinContent) || !shouldShow) {
+  // No mostrar si no cumple con las condiciones (solo en desarrollo)
+  if (process.env.NODE_ENV === 'development' && (requireMinContent && !hasMinContent) || !shouldShow) {
+    console.warn('AdSlot: Ocultando en desarrollo - condiciones no cumplidas');
     return null;
   }
 

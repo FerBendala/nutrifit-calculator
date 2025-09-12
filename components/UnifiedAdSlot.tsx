@@ -82,6 +82,7 @@ export function AdSlot({
         data-ad-format={adFormat}
         data-full-width-responsive="true"
         data-adsbygoogle-status="unfilled"
+        data-adtest="on"
       />
     </div>
   );

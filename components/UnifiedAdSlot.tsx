@@ -24,34 +24,28 @@ export function AdSlot({
   const adRef = useRef<HTMLModElement>(null);
   const adSenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
 
-  // Cargar AdSense de forma simple
+  // Cargar AdSense exactamente como el código oficial
   useEffect(() => {
     if (!adSenseId || !adRef.current) return;
 
     const loadAd = () => {
       try {
-        const hasConsent = localStorage.getItem('ads-consent') === 'true';
-        
-        if (hasConsent && window.adsbygoogle) {
+        // Verificar si el script de AdSense está cargado
+        if (window.adsbygoogle) {
+          console.warn('AdSlot: Ejecutando adsbygoogle.push({}) para slot:', adSlot);
           (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } else if (!hasConsent) {
-          // Si no hay consentimiento, intentar cargar de todas formas
-          setTimeout(() => {
-            if (window.adsbygoogle) {
-              (window.adsbygoogle = window.adsbygoogle || []).push({});
-            }
-          }, 1000);
         } else {
-          // Si no está cargado, reintentar
-          setTimeout(loadAd, 1000);
+          console.warn('AdSlot: Script de AdSense no cargado, reintentando...');
+          // Reintentar cada 500ms hasta que esté cargado
+          setTimeout(loadAd, 500);
         }
       } catch (error) {
         console.error('AdSense error:', error);
       }
     };
 
-    // Cargar después de un pequeño delay para asegurar que el DOM esté listo
-    const timer = setTimeout(loadAd, 100);
+    // Esperar un poco para que el script se cargue
+    const timer = setTimeout(loadAd, 1000);
 
     return () => clearTimeout(timer);
   }, [adSenseId, adSlot]);

@@ -141,21 +141,58 @@ export function AdSlot({
 
   // Cargar AdSense
   useEffect(() => {
+    console.log('AdSlot: Condiciones:', {
+      adSenseId: !!adSenseId,
+      adRef: !!adRef.current,
+      isVisible,
+      hasMinContent,
+      shouldShow,
+      adSlot
+    });
+
     if (!adSenseId || !adRef.current || !isVisible || !hasMinContent || !shouldShow) return;
 
-    const timer = setTimeout(() => {
+    const loadAd = () => {
       try {
         const hasConsent = localStorage.getItem('ads-consent') === 'true';
+        console.log('AdSlot: Verificando consentimiento:', hasConsent);
+        console.log('AdSlot: adsbygoogle disponible:', !!window.adsbygoogle);
 
-        if (hasConsent && window.adsbygoogle) {
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        if (hasConsent) {
+          // Esperar a que el script de AdSense esté cargado
+          if (window.adsbygoogle) {
+            console.log('AdSlot: Inicializando anuncio para slot:', adSlot);
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          } else {
+            console.log('AdSlot: Script no cargado, reintentando...');
+            // Si no está cargado, esperar un poco más
+            setTimeout(loadAd, 500);
+          }
+        } else {
+          console.log('AdSlot: Sin consentimiento para publicidad');
         }
       } catch (error) {
         console.error('AdSense error:', error);
       }
-    }, 100);
+    };
 
-    return () => clearTimeout(timer);
+    // Dar tiempo para que el script se cargue
+    const timer = setTimeout(loadAd, 200);
+
+    // También escuchar cuando se carga el script de AdSense
+    const handleAdSenseLoad = () => {
+      if (window.adsbygoogle) {
+        loadAd();
+      }
+    };
+
+    // Escuchar el evento de carga del script
+    window.addEventListener('load', handleAdSenseLoad);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('load', handleAdSenseLoad);
+    };
   }, [adSenseId, adSlot, isVisible, hasMinContent, shouldShow]);
 
   // No renderizar si no hay ID de AdSense configurado

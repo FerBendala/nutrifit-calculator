@@ -1,6 +1,5 @@
 "use client";
 
-import { ConditionalAdSlot } from '@/components/ConditionalAdSlot';
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
@@ -10,6 +9,7 @@ import { SelectInput } from '@/components/SelectInput';
 import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { AdSlot } from '@/components/UnifiedAdSlot';
 import { calculateFatBurningZone, calculateHeartRateZones, calculateMaxHeartRate } from '@/lib/formulas';
 import { generateJsonLd } from '@/lib/seo';
 import { useState } from 'react';
@@ -266,17 +266,20 @@ export default function RitmoCardiacoPage() {
           )}
 
           {/* AdSlot después del contenido principal */}
-          <ConditionalAdSlot
+          <AdSlot
             adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
+            requireMinContent={true}
+            minWords={100}
+            lazyLoad={true}
             requireInteraction={true}
             requireElement="[class*='result']"
           />
 
           <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
             <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
-              Entendiendo tu ritmo cardíaco y zonas de entrenamiento
+              Entendiende tu ritmo cardíaco y zonas de entrenamiento
             </h2>
 
             <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">

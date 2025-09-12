@@ -5,10 +5,10 @@ import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
-import { SimpleAdSlot } from '@/components/SimpleAdSlot';
 import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { AdSlot } from '@/components/UnifiedAdSlot';
 import { calculateBMI } from '@/lib/formulas';
 import { generateJsonLd } from '@/lib/seo';
 import { useState } from 'react';
@@ -154,10 +154,13 @@ export default function IMCPage() {
           )}
 
           {/* AdSlot después del contenido principal */}
-          <SimpleAdSlot
+          <AdSlot
             adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
+            requireMinContent={true}
+            minWords={100}
+            lazyLoad={true}
           />
 
           <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">

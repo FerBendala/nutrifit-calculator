@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-interface AdSlotProps {
+interface UnifiedAdSlotProps {
   adSlot: string;
   adFormat?: string;
   style?: React.CSSProperties;
@@ -17,6 +17,12 @@ interface AdSlotProps {
   requireMinContent?: boolean;
   /** Palabras mínimas requeridas en la página (por defecto 100) */
   minWords?: number;
+  /** Solo mostrar después de que el usuario haya interactuado */
+  requireInteraction?: boolean;
+  /** Elemento que debe existir para mostrar el anuncio */
+  requireElement?: string;
+  /** Lazy loading - cargar solo cuando sea visible */
+  lazyLoad?: boolean;
 }
 
 export function AdSlot({
@@ -25,12 +31,59 @@ export function AdSlot({
   style = { display: 'block' },
   className = "",
   requireMinContent = true,
-  minWords = 100
-}: AdSlotProps) {
+  minWords = 100,
+  requireInteraction = false,
+  requireElement,
+  lazyLoad = true
+}: UnifiedAdSlotProps) {
   const adRef = useRef<HTMLModElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasMinContent, setHasMinContent] = useState(false);
+  const [shouldShow, setShouldShow] = useState(false);
   const adSenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
+
+  // Verificar condiciones de visualización
+  useEffect(() => {
+    if (!requireInteraction && !requireElement) {
+      setShouldShow(true);
+      return;
+    }
+
+    const checkConditions = () => {
+      let canShow = true;
+
+      // Verificar si se requiere interacción del usuario
+      if (requireInteraction) {
+        const hasResults = document.querySelector('[class*="result"], [class*="calculation"], .text-primary') !== null;
+        const hasFilledForms = Array.from(document.querySelectorAll('input, select, textarea')).some(
+          (element: any) => element.value && element.value.trim() !== ''
+        );
+        canShow = canShow && (hasResults || hasFilledForms);
+      }
+
+      // Verificar si se requiere un elemento específico
+      if (requireElement) {
+        const elementExists = document.querySelector(requireElement) !== null;
+        canShow = canShow && elementExists;
+      }
+
+      setShouldShow(canShow);
+    };
+
+    checkConditions();
+    const interval = setInterval(checkConditions, 1000);
+
+    const handleFormSubmit = () => {
+      setTimeout(checkConditions, 500);
+    };
+
+    document.addEventListener('submit', handleFormSubmit);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('submit', handleFormSubmit);
+    };
+  }, [requireInteraction, requireElement]);
 
   // Validar contenido mínimo en la página
   useEffect(() => {
@@ -42,19 +95,14 @@ export function AdSlot({
     const checkContent = () => {
       const textContent = document.body.innerText || '';
       const wordCount = textContent.trim().split(/\s+/).filter(word => word.length > 0).length;
-
-      // También verificar que hay elementos interactivos (formularios, botones, etc.)
       const hasInteractiveContent =
         document.querySelectorAll('form, button, input, select, textarea').length > 0;
-
-      // También verificar que no estamos en una página de error o carga
       const hasErrorIndicators =
         document.querySelector('[class*="error"], [class*="404"], [class*="loading"]') !== null;
 
       setHasMinContent(wordCount >= minWords && hasInteractiveContent && !hasErrorIndicators);
     };
 
-    // Verificar inmediatamente y después de un retraso para contenido dinámico
     checkContent();
     const timer = setTimeout(checkContent, 2000);
 
@@ -63,7 +111,12 @@ export function AdSlot({
 
   // Lazy loading con Intersection Observer
   useEffect(() => {
-    if (!adRef.current || !hasMinContent) return;
+    if (!adRef.current || !hasMinContent || !shouldShow || !lazyLoad) {
+      if (!lazyLoad && hasMinContent && shouldShow) {
+        setIsVisible(true);
+      }
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -77,16 +130,14 @@ export function AdSlot({
 
     observer.observe(adRef.current);
     return () => observer.disconnect();
-  }, [hasMinContent]);
+  }, [hasMinContent, shouldShow, lazyLoad]);
 
-  // Cargar AdSense solo cuando sea visible y tenga contenido mínimo
+  // Cargar AdSense
   useEffect(() => {
-    if (!adSenseId || !adRef.current || !isVisible || !hasMinContent) return;
+    if (!adSenseId || !adRef.current || !isVisible || !hasMinContent || !shouldShow) return;
 
-    // Usar setTimeout para no bloquear el render crítico
     const timer = setTimeout(() => {
       try {
-        // Check if consent has been given
         const hasConsent = localStorage.getItem('ads-consent') === 'true';
 
         if (hasConsent && window.adsbygoogle) {
@@ -98,9 +149,9 @@ export function AdSlot({
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [adSenseId, adSlot, isVisible, hasMinContent]);
+  }, [adSenseId, adSlot, isVisible, hasMinContent, shouldShow]);
 
-  // Don't render if no AdSense ID is configured
+  // No renderizar si no hay ID de AdSense configurado
   if (!adSenseId) {
     return (
       <div className={`bg-gray-100 border-2 border-dashed border-gray-300 p-8 text-center rounded-lg ${className}`}>
@@ -114,8 +165,8 @@ export function AdSlot({
     );
   }
 
-  // No mostrar si no cumple con el contenido mínimo
-  if (requireMinContent && !hasMinContent) {
+  // No mostrar si no cumple con las condiciones
+  if ((requireMinContent && !hasMinContent) || !shouldShow) {
     return null;
   }
 

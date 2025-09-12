@@ -279,7 +279,7 @@ export default function RitmoCardiacoPage() {
 
           <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
             <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
-              Entendiende tu ritmo cardíaco y zonas de entrenamiento
+              Entendiendo tu ritmo cardíaco y zonas de entrenamiento
             </h2>
 
             <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">

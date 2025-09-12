@@ -48,9 +48,6 @@ export default function HomePage() {
             adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
-            requireMinContent={true}
-            minWords={100}
-            lazyLoad={true}
           />
 
           {/* Educational Content */}

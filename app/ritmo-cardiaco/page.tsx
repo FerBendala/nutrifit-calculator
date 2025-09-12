@@ -270,11 +270,6 @@ export default function RitmoCardiacoPage() {
             adSlot="9572878239"
             style={{ display: 'block', height: '90px' }}
             className="w-full"
-            requireMinContent={true}
-            minWords={100}
-            lazyLoad={true}
-            requireInteraction={true}
-            requireElement="[class*='result']"
           />
 
           <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">

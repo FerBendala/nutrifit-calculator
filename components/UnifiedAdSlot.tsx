@@ -32,8 +32,24 @@ export function AdSlot({
       try {
         // Verificar si el script de AdSense está cargado
         if (window.adsbygoogle) {
-          console.warn('AdSlot: Ejecutando adsbygoogle.push({}) para slot:', adSlot);
+          console.warn('AdSlot: Script cargado, ejecutando push para slot:', adSlot);
+          console.warn('AdSlot: adSenseId:', adSenseId);
+          console.warn('AdSlot: adSlot:', adSlot);
+
+          // Ejecutar exactamente como el código oficial
           (window.adsbygoogle = window.adsbygoogle || []).push({});
+
+          // Verificar el estado después de un momento
+          setTimeout(() => {
+            const insElement = adRef.current;
+            if (insElement) {
+              const status = insElement.getAttribute('data-ad-status');
+              console.warn('AdSlot: Estado del anuncio:', status);
+              if (status === 'unfilled') {
+                console.warn('AdSlot: Anuncio no llenado - posible problema de configuración');
+              }
+            }
+          }, 2000);
         } else {
           console.warn('AdSlot: Script de AdSense no cargado, reintentando...');
           // Reintentar cada 500ms hasta que esté cargado
@@ -65,6 +81,7 @@ export function AdSlot({
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive="true"
+        data-adsbygoogle-status="unfilled"
       />
     </div>
   );

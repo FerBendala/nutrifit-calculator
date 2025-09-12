@@ -67,11 +67,17 @@ export function AdSlot({
         canShow = canShow && elementExists;
       }
 
-      setShouldShow(canShow);
+      setShouldShow(prev => prev !== canShow ? canShow : prev);
     };
 
+    // Verificar inmediatamente
     checkConditions();
-    const interval = setInterval(checkConditions, 1000);
+
+    // Solo verificar periódicamente si realmente necesitamos interacción
+    let interval: NodeJS.Timeout | null = null;
+    if (requireInteraction) {
+      interval = setInterval(checkConditions, 3000); // Reducido a 3 segundos
+    }
 
     const handleFormSubmit = () => {
       setTimeout(checkConditions, 500);
@@ -80,7 +86,7 @@ export function AdSlot({
     document.addEventListener('submit', handleFormSubmit);
 
     return () => {
-      clearInterval(interval);
+      if (interval) clearInterval(interval);
       document.removeEventListener('submit', handleFormSubmit);
     };
   }, [requireInteraction, requireElement]);
@@ -100,7 +106,8 @@ export function AdSlot({
       const hasErrorIndicators =
         document.querySelector('[class*="error"], [class*="404"], [class*="loading"]') !== null;
 
-      setHasMinContent(wordCount >= minWords && hasInteractiveContent && !hasErrorIndicators);
+      const newHasMinContent = wordCount >= minWords && hasInteractiveContent && !hasErrorIndicators;
+      setHasMinContent(prev => prev !== newHasMinContent ? newHasMinContent : prev);
     };
 
     checkContent();

@@ -36,6 +36,8 @@ export function AdSlot({
   requireElement,
   lazyLoad = true
 }: UnifiedAdSlotProps) {
+  console.log('AdSlot: Componente renderizado con slot:', adSlot);
+  
   const adRef = useRef<HTMLModElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasMinContent, setHasMinContent] = useState(false);
@@ -139,18 +141,23 @@ export function AdSlot({
     return () => observer.disconnect();
   }, [hasMinContent, shouldShow, lazyLoad]);
 
+  // Log de depuración siempre visible
+  console.log('AdSlot: Estado actual:', {
+    adSenseId: !!adSenseId,
+    adRef: !!adRef.current,
+    isVisible,
+    hasMinContent,
+    shouldShow,
+    adSlot,
+    lazyLoad
+  });
+
   // Cargar AdSense
   useEffect(() => {
-    console.log('AdSlot: Condiciones:', {
-      adSenseId: !!adSenseId,
-      adRef: !!adRef.current,
-      isVisible,
-      hasMinContent,
-      shouldShow,
-      adSlot
-    });
-
-    if (!adSenseId || !adRef.current || !isVisible || !hasMinContent || !shouldShow) return;
+    if (!adSenseId || !adRef.current || !isVisible || !hasMinContent || !shouldShow) {
+      console.log('AdSlot: No se puede cargar - condiciones no cumplidas');
+      return;
+    }
 
     const loadAd = () => {
       try {

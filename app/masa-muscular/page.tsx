@@ -138,17 +138,26 @@ export default function MasaMuscularPage() {
                 required
               />
               
-              <NumberInput
-                id="bodyFatPercentage"
-                label="Porcentaje de Grasa Corporal"
-                value={formData.bodyFatPercentage}
-                onChange={handleInputChange('bodyFatPercentage')}
-                min={3}
-                max={50}
-                unit="%"
-                placeholder="15"
-                required
-              />
+              <div className="md:col-span-2">
+                <NumberInput
+                  id="bodyFatPercentage"
+                  label="Porcentaje de Grasa Corporal"
+                  value={formData.bodyFatPercentage}
+                  onChange={handleInputChange('bodyFatPercentage')}
+                  min={3}
+                  max={50}
+                  unit="%"
+                  placeholder="15"
+                  required
+                />
+                <p className="text-sm text-gray-600 mt-2">
+                  💡 <strong>¿No conoces tu porcentaje de grasa?</strong> Usa nuestra 
+                  <a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden ml-1">
+                    calculadora de grasa corporal
+                  </a> 
+                  con métodos científicos de pliegues cutáneos para obtenerlo de forma precisa.
+                </p>
+              </div>
             </div>
             
             <Button
@@ -159,6 +168,54 @@ export default function MasaMuscularPage() {
               💪 Calcular masa muscular
             </Button>
           </form>
+        </CardContent>
+      </Card>
+
+      {/* Information about body fat percentage */}
+      <Card className="card-golden-lg bg-orange-50 border-l-4 border-orange-400">
+        <CardHeader>
+          <CardTitle className="text-xl font-semibold text-orange-800 flex items-center">
+            <Info className="w-5 h-5 mr-2" />
+            ¿Cómo obtener tu porcentaje de grasa corporal?
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-golden-sm">
+          <p className="text-orange-800 mb-4">
+            Para calcular tu masa muscular de forma precisa, necesitas conocer tu porcentaje de grasa corporal. 
+            Te ofrecemos varias opciones:
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="card-golden bg-white/50">
+              <h4 className="font-semibold text-orange-700 mb-2 flex items-center">
+                <span className="text-lg mr-2">📏</span>
+                Método más preciso
+              </h4>
+              <p className="text-sm text-orange-800 mb-3">
+                Usa nuestra <a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">calculadora de grasa corporal</a> 
+                con métodos científicos de pliegues cutáneos (Jackson-Pollock, Durnin-Womersley).
+              </p>
+              <ul className="text-xs text-orange-700 space-y-1">
+                <li>• Precisión de ±3-5%</li>
+                <li>• Métodos validados científicamente</li>
+                <li>• Solo necesitas un calibrador de pliegues</li>
+              </ul>
+            </div>
+            <div className="card-golden bg-white/50">
+              <h4 className="font-semibold text-orange-700 mb-2 flex items-center">
+                <span className="text-lg mr-2">📐</span>
+                Método alternativo
+              </h4>
+              <p className="text-sm text-orange-800 mb-3">
+                Usa nuestra <a href="/composicion" className="text-blue-600 hover:underline font-medium transition-golden">calculadora de composición corporal</a> 
+                con el método Navy (circunferencias corporales).
+              </p>
+              <ul className="text-xs text-orange-700 space-y-1">
+                <li>• Precisión de ±3-4%</li>
+                <li>• Solo necesitas una cinta métrica</li>
+                <li>• Método rápido y fácil</li>
+              </ul>
+            </div>
+          </div>
         </CardContent>
       </Card>
 
@@ -273,6 +330,7 @@ export default function MasaMuscularPage() {
               incluyendo músculos esqueléticos, cardíacos y lisos. Es un componente
               crucial de la <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">composición corporal</a>
               y está directamente relacionada con la fuerza, el metabolismo y la salud general.
+              Para calcularla con precisión, necesitas conocer tu <a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">porcentaje de grasa corporal</a>.
             </p>
             <p className="text-gray-700 leading-relaxed">
               Nuestra calculadora utiliza la <a href="https://pubmed.ncbi.nlm.nih.gov/10919906/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">ecuación de Lee (2000)</a>
@@ -409,6 +467,36 @@ export default function MasaMuscularPage() {
                 </ul>
               </div>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Enlaces contextuales */}
+        <Card className="card-golden-lg bg-orange-50 border-l-4 border-orange-400 mt-8">
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold text-orange-800 flex items-center">
+              <Info className="w-5 h-5 mr-2" />
+              Complementa tu análisis de composición corporal
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-golden-sm">
+            <ul className="text-sm text-orange-800 space-golden-xs">
+              <li className="flex items-start">
+                <span className="text-orange-600 mr-2">•</span>
+                <span><strong><a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu grasa corporal:</a></strong> Métodos científicos de pliegues cutáneos para máxima precisión</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 mr-2">•</span>
+                <span><strong><a href="/composicion" className="text-blue-600 hover:underline font-medium transition-golden">Método Navy:</a></strong> Alternativa rápida con circunferencias corporales</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 mr-2">•</span>
+                <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tus calorías:</a></strong> Ajusta tu alimentación según tu composición corporal</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 mr-2">•</span>
+                <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades basadas en masa magra</span>
+              </li>
+            </ul>
           </CardContent>
         </Card>
       </div>

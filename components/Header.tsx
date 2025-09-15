@@ -17,7 +17,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { Activity, Calculator, Droplet, Heart, Menu, Ruler, Scale, Target, Zap } from 'lucide-react';
+import { Activity, Calculator, Droplet, Heart, Menu, Ruler, Scale, Target, Zap, Dumbbell } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -78,6 +78,12 @@ export function Header() {
       href: '/peso-ideal',
       description: 'Peso ideal con 5 fórmulas científicas',
       icon: Scale
+    },
+    {
+      title: 'Masa Muscular',
+      href: '/masa-muscular',
+      description: 'Masa muscular e índice de masa muscular',
+      icon: Dumbbell
     }
   ];
 

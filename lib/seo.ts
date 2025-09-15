@@ -68,6 +68,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora de peso ideal gratuita con 5 fórmulas científicas (Robinson, Miller, Devine, Hamwi, Peterson). Descubre tu peso ideal según altura, peso y sexo.',
     keywords: ['calculadora peso ideal', 'peso ideal', 'fórmulas científicas', 'Robinson', 'Miller', 'Devine', 'Hamwi', 'Peterson', 'peso saludable', 'altura peso'],
     path: '/peso-ideal'
+  },
+  'masa-muscular': {
+    title: 'Calculadora de Masa Muscular - Índice y Composición - NutriFit',
+    description: 'Calculadora de masa muscular gratuita con fórmula de Lee (2000). Calcula tu masa muscular, índice de masa muscular y obtén recomendaciones para optimizar tu desarrollo muscular.',
+    keywords: ['calculadora masa muscular', 'masa muscular', 'índice masa muscular', 'composición corporal', 'desarrollo muscular', 'fórmula Lee', 'entrenamiento fuerza', 'músculo'],
+    path: '/masa-muscular'
   }
 };
 

@@ -252,7 +252,7 @@ export default function PesoIdealPage() {
             <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
               El peso ideal es un concepto que se refiere al peso corporal que se considera óptimo
               para una persona según su altura, edad, sexo y estructura corporal. Aunque no existe
-              un peso "perfecto" único, las <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">fórmulas científicas</a> nos ayudan a establecer rangos
+              un peso &quot;perfecto&quot; único, las <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">fórmulas científicas</a> nos ayudan a establecer rangos
               saludables de referencia basados en estudios epidemiológicos.
             </p>
 
@@ -441,7 +441,7 @@ export default function PesoIdealPage() {
                     ¿Cuál es la mejor fórmula para mí?
                   </h4>
                   <p className="text-sm text-green-800 leading-relaxed">
-                    No existe una fórmula "mejor" universalmente. El promedio de todas las fórmulas
+                    No existe una fórmula &quot;mejor&quot; universalmente. El promedio de todas las fórmulas
                     suele proporcionar una estimación más equilibrada. Sin embargo, es importante
                     consultar con un profesional de la salud para una evaluación personalizada.
                   </p>

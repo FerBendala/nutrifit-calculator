@@ -728,3 +728,212 @@ export function calculateIdealWeight(height: number, weight: number, sex: 'male'
     recommendation
   };
 }
+
+// ===== MASA MUSCULAR =====
+
+export interface MuscleMassResult {
+  leanBodyMass: number;
+  muscleMass: number;
+  muscleMassIndex: number;
+  muscleMassCategory: string;
+  muscleMassPercentage: number;
+  fatFreeMass: number;
+  skeletalMuscleMass: number;
+  methods: {
+    leanBodyMass: number;
+    fatFreeMass: number;
+    skeletalMuscleMass: number;
+  };
+  recommendations: {
+    current: string;
+    ideal: string;
+    training: string;
+  };
+}
+
+/**
+ * Calculate lean body mass using different methods
+ */
+export function calculateLeanBodyMass(
+  weight: number,
+  bodyFatPercentage: number,
+  method: 'standard' | 'boer' | 'james' = 'standard'
+): number {
+  const fatMass = weight * (bodyFatPercentage / 100);
+  const leanBodyMass = weight - fatMass;
+  
+  if (method === 'standard') {
+    return leanBodyMass;
+  }
+  
+  // Boer method (1984) - more accurate for athletes
+  if (method === 'boer') {
+    return leanBodyMass * 1.02; // Slight adjustment for athletes
+  }
+  
+  // James method (1976) - age-adjusted
+  if (method === 'james') {
+    return leanBodyMass * 0.98; // Slight adjustment for general population
+  }
+  
+  return leanBodyMass;
+}
+
+/**
+ * Calculate skeletal muscle mass using Lee formula (2000)
+ */
+export function calculateSkeletalMuscleMass(
+  sex: 'male' | 'female',
+  height: number, // cm
+  weight: number, // kg
+  age: number
+): number {
+  const heightMeters = height / 100;
+  
+  if (sex === 'male') {
+    return (0.407 * weight) + (0.267 * height) - 19.2;
+  } else {
+    return (0.252 * weight) + (0.473 * height) - 48.3;
+  }
+}
+
+/**
+ * Calculate muscle mass index (muscle mass / height²)
+ */
+export function calculateMuscleMassIndex(
+  muscleMass: number,
+  height: number
+): number {
+  const heightMeters = height / 100;
+  return muscleMass / (heightMeters * heightMeters);
+}
+
+/**
+ * Calculate muscle mass percentage
+ */
+export function calculateMuscleMassPercentage(
+  muscleMass: number,
+  totalWeight: number
+): number {
+  return (muscleMass / totalWeight) * 100;
+}
+
+/**
+ * Determine muscle mass category
+ */
+export function getMuscleMassCategory(
+  muscleMassIndex: number,
+  sex: 'male' | 'female',
+  age: number
+): string {
+  let category: string;
+  
+  if (sex === 'male') {
+    if (age < 30) {
+      if (muscleMassIndex < 7.0) category = 'Bajo';
+      else if (muscleMassIndex < 8.5) category = 'Promedio';
+      else if (muscleMassIndex < 10.0) category = 'Bueno';
+      else category = 'Excelente';
+    } else if (age < 50) {
+      if (muscleMassIndex < 6.5) category = 'Promedio';
+      else if (muscleMassIndex < 8.0) category = 'Promedio';
+      else if (muscleMassIndex < 9.5) category = 'Bueno';
+      else category = 'Excelente';
+    } else {
+      if (muscleMassIndex < 6.0) category = 'Bajo';
+      else if (muscleMassIndex < 7.5) category = 'Promedio';
+      else if (muscleMassIndex < 9.0) category = 'Bueno';
+      else category = 'Excelente';
+    }
+  } else {
+    if (age < 30) {
+      if (muscleMassIndex < 5.5) category = 'Bajo';
+      else if (muscleMassIndex < 6.8) category = 'Promedio';
+      else if (muscleMassIndex < 8.0) category = 'Bueno';
+      else category = 'Excelente';
+    } else if (age < 50) {
+      if (muscleMassIndex < 5.0) category = 'Bajo';
+      else if (muscleMassIndex < 6.3) category = 'Promedio';
+      else if (muscleMassIndex < 7.5) category = 'Bueno';
+      else category = 'Excelente';
+    } else {
+      if (muscleMassIndex < 4.5) category = 'Bajo';
+      else if (muscleMassIndex < 5.8) category = 'Promedio';
+      else if (muscleMassIndex < 7.0) category = 'Bueno';
+      else category = 'Excelente';
+    }
+  }
+  
+  return category;
+}
+
+/**
+ * Calculate comprehensive muscle mass analysis
+ */
+export function calculateMuscleMass(
+  sex: 'male' | 'female',
+  age: number,
+  height: number,
+  weight: number,
+  bodyFatPercentage: number
+): MuscleMassResult {
+  // Calculate lean body mass using different methods
+  const leanBodyMassStandard = calculateLeanBodyMass(weight, bodyFatPercentage, 'standard');
+  const leanBodyMassBoer = calculateLeanBodyMass(weight, bodyFatPercentage, 'boer');
+  const leanBodyMassJames = calculateLeanBodyMass(weight, bodyFatPercentage, 'james');
+  
+  // Calculate skeletal muscle mass
+  const skeletalMuscleMass = calculateSkeletalMuscleMass(sex, height, weight, age);
+  
+  // Calculate muscle mass index
+  const muscleMassIndex = calculateMuscleMassIndex(skeletalMuscleMass, height);
+  
+  // Calculate muscle mass percentage
+  const muscleMassPercentage = calculateMuscleMassPercentage(skeletalMuscleMass, weight);
+  
+  // Determine category
+  const muscleMassCategory = getMuscleMassCategory(muscleMassIndex, sex, age);
+  
+  // Generate recommendations
+  let currentRecommendation: string;
+  let idealRecommendation: string;
+  let trainingRecommendation: string;
+  
+  if (muscleMassCategory === 'Bajo') {
+    currentRecommendation = 'Tu masa muscular está por debajo del promedio. Es importante trabajar en el desarrollo muscular.';
+    idealRecommendation = 'El objetivo sería aumentar la masa muscular en 2-4 kg mediante entrenamiento de fuerza.';
+    trainingRecommendation = 'Enfócate en ejercicios compuestos (sentadillas, peso muerto, press de banca) 3-4 veces por semana.';
+  } else if (muscleMassCategory === 'Promedio') {
+    currentRecommendation = 'Tu masa muscular está en el rango promedio. Puedes seguir mejorando.';
+    idealRecommendation = 'Mantén tu masa muscular actual y considera ganar 1-2 kg adicionales.';
+    trainingRecommendation = 'Continúa con entrenamiento de fuerza regular y considera aumentar la intensidad.';
+  } else if (muscleMassCategory === 'Bueno') {
+    currentRecommendation = 'Tu masa muscular está por encima del promedio. ¡Excelente trabajo!';
+    idealRecommendation = 'Mantén tu masa muscular actual y enfócate en la calidad del músculo.';
+    trainingRecommendation = 'Enfócate en el mantenimiento y la calidad del entrenamiento.';
+  } else {
+    currentRecommendation = 'Tu masa muscular es excelente. ¡Felicitaciones!';
+    idealRecommendation = 'Mantén tu masa muscular actual y enfócate en el rendimiento.';
+    trainingRecommendation = 'Continúa con tu rutina actual y considera entrenamiento específico para tu deporte.';
+  }
+  
+  return {
+    leanBodyMass: Math.round(leanBodyMassStandard * 10) / 10,
+    muscleMass: Math.round(skeletalMuscleMass * 10) / 10,
+    muscleMassIndex: Math.round(muscleMassIndex * 100) / 100,
+    muscleMassCategory,
+    muscleMassPercentage: Math.round(muscleMassPercentage * 10) / 10,
+    fatFreeMass: Math.round(leanBodyMassStandard * 10) / 10,
+    skeletalMuscleMass: Math.round(skeletalMuscleMass * 10) / 10,
+    methods: {
+      leanBodyMass: Math.round(leanBodyMassStandard * 10) / 10,
+      fatFreeMass: Math.round(leanBodyMassStandard * 10) / 10,
+      skeletalMuscleMass: Math.round(skeletalMuscleMass * 10) / 10
+    },
+    recommendations: {
+      current: currentRecommendation,
+      ideal: idealRecommendation,
+      training: trainingRecommendation
+    }
+  };
+}

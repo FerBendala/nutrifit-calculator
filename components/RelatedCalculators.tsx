@@ -1,6 +1,6 @@
 'use client';
 
-import { Activity, Calculator, Droplet, Heart, Ruler, Scale, Target, Zap } from 'lucide-react';
+import { Activity, Calculator, Droplet, Heart, Ruler, Scale, Target, Zap, Dumbbell } from 'lucide-react';
 import Link from 'next/link';
 
 interface RelatedCalculator {
@@ -78,6 +78,13 @@ const calculators: RelatedCalculator[] = [
     href: '/peso-ideal',
     description: 'Peso ideal con 5 fórmulas científicas reconocidas',
     icon: Scale,
+    priority: 'high'
+  },
+  {
+    title: 'Masa Muscular',
+    href: '/masa-muscular',
+    description: 'Masa muscular e índice de masa muscular',
+    icon: Dumbbell,
     priority: 'high'
   }
 ];

@@ -1,0 +1,201 @@
+import { Activity, Calculator, Droplet, Dumbbell, Heart, Ruler, Scale, Target, Zap } from 'lucide-react';
+
+export interface CalculatorConfig {
+  key: string;
+  title: string;
+  href: string;
+  description: string;
+  icon: any;
+  priority: 'high' | 'medium' | 'low';
+  category: 'nutrition' | 'body-composition' | 'fitness' | 'health';
+  relatedCalculators: string[];
+}
+
+// Configuración centralizada de todas las calculadoras
+export const CALCULATORS: CalculatorConfig[] = [
+  {
+    key: 'home',
+    title: 'Calorías y Macros',
+    href: '/',
+    description: 'Calculadora principal con distribución de macronutrientes personalizada',
+    icon: Calculator,
+    priority: 'high',
+    category: 'nutrition',
+    relatedCalculators: ['tdee', 'imc', 'proteina', 'agua']
+  },
+  {
+    key: 'imc',
+    title: 'Calculadora IMC',
+    href: '/imc',
+    description: 'Índice de masa corporal y categorías de peso saludable',
+    icon: Scale,
+    priority: 'high',
+    category: 'body-composition',
+    relatedCalculators: ['home', 'peso-ideal', 'grasa-corporal', 'composicion']
+  },
+  {
+    key: 'tdee',
+    title: 'Calculadora TDEE',
+    href: '/tdee',
+    description: 'Gasto energético total diario según tu actividad física',
+    icon: Activity,
+    priority: 'high',
+    category: 'nutrition',
+    relatedCalculators: ['home', 'proteina', 'ritmo-cardiaco', 'agua']
+  },
+  {
+    key: 'proteina',
+    title: 'Proteína Diaria',
+    href: '/proteina',
+    description: 'Necesidades específicas de proteína según tu objetivo',
+    icon: Zap,
+    priority: 'medium',
+    category: 'nutrition',
+    relatedCalculators: ['home', 'tdee', 'masa-muscular', 'agua']
+  },
+  {
+    key: 'agua',
+    title: 'Hidratación Diaria',
+    href: '/agua',
+    description: 'Cantidad de agua recomendada según tu peso y actividad',
+    icon: Droplet,
+    priority: 'medium',
+    category: 'health',
+    relatedCalculators: ['home', 'proteina', 'tdee', 'composicion']
+  },
+  {
+    key: 'composicion',
+    title: 'Composición Corporal',
+    href: '/composicion',
+    description: 'Porcentaje de grasa corporal y masa magra según medidas',
+    icon: Target,
+    priority: 'high',
+    category: 'body-composition',
+    relatedCalculators: ['imc', 'grasa-corporal', 'masa-muscular', 'peso-ideal']
+  },
+  {
+    key: 'ritmo-cardiaco',
+    title: 'Ritmo Cardíaco',
+    href: '/ritmo-cardiaco',
+    description: 'Zonas de entrenamiento cardiovascular y quema de grasa',
+    icon: Heart,
+    priority: 'high',
+    category: 'fitness',
+    relatedCalculators: ['tdee', 'grasa-corporal', 'masa-muscular', 'imc']
+  },
+  {
+    key: 'grasa-corporal',
+    title: 'Grasa Corporal',
+    href: '/grasa-corporal',
+    description: 'Porcentaje de grasa corporal por pliegues cutáneos',
+    icon: Ruler,
+    priority: 'high',
+    category: 'body-composition',
+    relatedCalculators: ['composicion', 'imc', 'peso-ideal', 'ritmo-cardiaco']
+  },
+  {
+    key: 'peso-ideal',
+    title: 'Peso Ideal',
+    href: '/peso-ideal',
+    description: 'Peso ideal con 5 fórmulas científicas reconocidas',
+    icon: Scale,
+    priority: 'high',
+    category: 'body-composition',
+    relatedCalculators: ['imc', 'grasa-corporal', 'masa-muscular', 'composicion']
+  },
+  {
+    key: 'masa-muscular',
+    title: 'Masa Muscular',
+    href: '/masa-muscular',
+    description: 'Masa muscular e índice de masa muscular',
+    icon: Dumbbell,
+    priority: 'high',
+    category: 'fitness',
+    relatedCalculators: ['proteina', 'composicion', 'peso-ideal', 'ritmo-cardiaco']
+  }
+];
+
+// Función para obtener calculadoras relacionadas automáticamente
+export function getRelatedCalculators(currentPage: string, maxResults: number = 4): CalculatorConfig[] {
+  const currentCalculator = CALCULATORS.find(calc => calc.href === currentPage);
+
+  if (!currentCalculator) {
+    // Si no se encuentra la calculadora actual, devolver las de mayor prioridad
+    return CALCULATORS
+      .filter(calc => calc.href !== currentPage)
+      .sort((a, b) => {
+        const priorityOrder = { high: 3, medium: 2, low: 1 };
+        return (priorityOrder[b.priority] - priorityOrder[a.priority]);
+      })
+      .slice(0, maxResults);
+  }
+
+  // Obtener calculadoras relacionadas por configuración explícita
+  const relatedByConfig = CALCULATORS.filter(calc =>
+    currentCalculator.relatedCalculators.includes(calc.key) &&
+    calc.href !== currentPage
+  );
+
+  // Si no hay suficientes calculadoras relacionadas, completar con calculadoras de la misma categoría
+  if (relatedByConfig.length < maxResults) {
+    const sameCategory = CALCULATORS.filter(calc =>
+      calc.category === currentCalculator.category &&
+      calc.href !== currentPage &&
+      !relatedByConfig.some(related => related.key === calc.key)
+    );
+
+    relatedByConfig.push(...sameCategory);
+  }
+
+  // Si aún no hay suficientes, completar con calculadoras de alta prioridad
+  if (relatedByConfig.length < maxResults) {
+    const highPriority = CALCULATORS.filter(calc =>
+      calc.priority === 'high' &&
+      calc.href !== currentPage &&
+      !relatedByConfig.some(related => related.key === calc.key)
+    );
+
+    relatedByConfig.push(...highPriority);
+  }
+
+  // Ordenar por prioridad y devolver solo el máximo solicitado
+  return relatedByConfig
+    .sort((a, b) => {
+      const priorityOrder = { high: 3, medium: 2, low: 1 };
+      return (priorityOrder[b.priority] - priorityOrder[a.priority]);
+    })
+    .slice(0, maxResults);
+}
+
+// Función para obtener calculadoras por categoría
+export function getCalculatorsByCategory(category: CalculatorConfig['category']): CalculatorConfig[] {
+  return CALCULATORS.filter(calc => calc.category === category);
+}
+
+// Función para obtener calculadoras por prioridad
+export function getCalculatorsByPriority(priority: CalculatorConfig['priority']): CalculatorConfig[] {
+  return CALCULATORS.filter(calc => calc.priority === priority);
+}
+
+// Función para obtener todas las calculadoras ordenadas por prioridad
+export function getAllCalculatorsSorted(): CalculatorConfig[] {
+  return [...CALCULATORS].sort((a, b) => {
+    const priorityOrder = { high: 3, medium: 2, low: 1 };
+    return (priorityOrder[b.priority] - priorityOrder[a.priority]);
+  });
+}
+
+// Función para generar navegación automáticamente (para ContextualLinks)
+export function generateNavigation(currentCalculator: string) {
+  const currentIndex = CALCULATORS.findIndex(calc => calc.key === currentCalculator);
+
+  if (currentIndex === -1) return null;
+
+  const prevIndex = currentIndex === 0 ? CALCULATORS.length - 1 : currentIndex - 1;
+  const nextIndex = currentIndex === CALCULATORS.length - 1 ? 0 : currentIndex + 1;
+
+  return {
+    prev: CALCULATORS[prevIndex],
+    next: CALCULATORS[nextIndex]
+  };
+}

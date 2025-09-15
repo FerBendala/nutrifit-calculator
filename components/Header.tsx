@@ -17,79 +17,17 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { Activity, Calculator, Droplet, Dumbbell, Heart, Menu, Ruler, Scale, Target, Zap } from 'lucide-react';
+import { CALCULATORS } from '@/lib/calculators';
+import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const calculators = [
-    {
-      title: 'Calorías y Macros',
-      href: '/',
-      description: 'Calculadora principal con distribución de macronutrientes',
-      icon: Calculator
-    },
-    {
-      title: 'IMC',
-      href: '/imc',
-      description: 'Índice de masa corporal y categorías OMS',
-      icon: Scale
-    },
-    {
-      title: 'TDEE',
-      href: '/tdee',
-      description: 'Gasto calórico diario total',
-      icon: Activity
-    },
-    {
-      title: 'Proteína',
-      href: '/proteina',
-      description: 'Necesidades diarias de proteína',
-      icon: Zap
-    },
-    {
-      title: 'Agua',
-      href: '/agua',
-      description: 'Hidratación diaria recomendada',
-      icon: Droplet
-    },
-    {
-      title: 'Composición Corporal',
-      href: '/composicion',
-      description: 'Grasa corporal y masa magra',
-      icon: Target
-    },
-    {
-      title: 'Ritmo Cardíaco',
-      href: '/ritmo-cardiaco',
-      description: 'Zonas de entrenamiento y quema de grasa',
-      icon: Heart
-    },
-    {
-      title: 'Grasa Corporal',
-      href: '/grasa-corporal',
-      description: 'Porcentaje de grasa por pliegues cutáneos',
-      icon: Ruler
-    },
-    {
-      title: 'Peso Ideal',
-      href: '/peso-ideal',
-      description: 'Peso ideal con 5 fórmulas científicas',
-      icon: Scale
-    },
-    {
-      title: 'Masa Muscular',
-      href: '/masa-muscular',
-      description: 'Masa muscular e índice de masa muscular',
-      icon: Dumbbell
-    }
-  ];
-
   const MobileMenuContent = () => (
     <div className="flex flex-col space-y-2 pt-6">
-      {calculators.map((calculator) => {
+      {CALCULATORS.map((calculator) => {
         const Icon = calculator.icon;
         return (
           <Link
@@ -138,8 +76,8 @@ export function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>Calculadoras</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                      {calculators.map((calculator) => (
+                    <ul className="grid w-[500px] gap-3 p-4 md:w-[600px] md:grid-cols-2 lg:w-[800px] lg:grid-cols-3">
+                      {CALCULATORS.map((calculator) => (
                         <li key={calculator.href}>
                           <NavigationMenuLink asChild>
                             <Link

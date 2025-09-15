@@ -1,102 +1,21 @@
 'use client';
 
-import { Activity, Calculator, Droplet, Dumbbell, Heart, Ruler, Scale, Target, Zap } from 'lucide-react';
+import { getRelatedCalculators } from '@/lib/calculators';
 import Link from 'next/link';
-
-interface RelatedCalculator {
-  title: string;
-  href: string;
-  description: string;
-  icon: any;
-  priority?: 'high' | 'medium' | 'low';
-}
 
 interface RelatedCalculatorsProps {
   currentPage?: string;
   className?: string;
+  maxResults?: number;
 }
 
-const calculators: RelatedCalculator[] = [
-  {
-    title: 'Calorías y Macros',
-    href: '/',
-    description: 'Calculadora principal con distribución de macronutrientes personalizada',
-    icon: Calculator,
-    priority: 'high'
-  },
-  {
-    title: 'Calculadora TDEE',
-    href: '/tdee',
-    description: 'Gasto energético total diario según tu actividad física',
-    icon: Activity,
-    priority: 'high'
-  },
-  {
-    title: 'Calculadora IMC',
-    href: '/imc',
-    description: 'Índice de masa corporal y categorías de peso saludable',
-    icon: Scale,
-    priority: 'high'
-  },
-  {
-    title: 'Proteína Diaria',
-    href: '/proteina',
-    description: 'Necesidades específicas de proteína según tu objetivo',
-    icon: Zap,
-    priority: 'medium'
-  },
-  {
-    title: 'Hidratación Diaria',
-    href: '/agua',
-    description: 'Cantidad de agua recomendada según tu peso y actividad',
-    icon: Droplet,
-    priority: 'medium'
-  },
-  {
-    title: 'Composición Corporal',
-    href: '/composicion',
-    description: 'Porcentaje de grasa corporal y masa magra según medidas',
-    icon: Target,
-    priority: 'high'
-  },
-  {
-    title: 'Ritmo Cardíaco',
-    href: '/ritmo-cardiaco',
-    description: 'Zonas de entrenamiento cardiovascular y quema de grasa',
-    icon: Heart,
-    priority: 'high'
-  },
-  {
-    title: 'Grasa Corporal',
-    href: '/grasa-corporal',
-    description: 'Porcentaje de grasa corporal por pliegues cutáneos',
-    icon: Ruler,
-    priority: 'high'
-  },
-  {
-    title: 'Peso Ideal',
-    href: '/peso-ideal',
-    description: 'Peso ideal con 5 fórmulas científicas reconocidas',
-    icon: Scale,
-    priority: 'high'
-  },
-  {
-    title: 'Masa Muscular',
-    href: '/masa-muscular',
-    description: 'Masa muscular e índice de masa muscular',
-    icon: Dumbbell,
-    priority: 'high'
-  }
-];
-
-export function RelatedCalculators({ currentPage, className = '' }: RelatedCalculatorsProps) {
-  // Filtrar calculadora actual y ordenar por prioridad
-  const filteredCalculators = calculators
-    .filter(calc => calc.href !== currentPage)
-    .sort((a, b) => {
-      const priorityOrder = { high: 3, medium: 2, low: 1 };
-      return (priorityOrder[b.priority || 'low'] - priorityOrder[a.priority || 'low']);
-    });
+export function RelatedCalculators({
+  currentPage,
+  className = '',
+  maxResults = 4
+}: RelatedCalculatorsProps) {
+  // Obtener calculadoras relacionadas automáticamente (máximo 4)
+  const relatedCalculators = getRelatedCalculators(currentPage || '', maxResults);
 
   return (
     <div className={`bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-lg ${className}`}>
@@ -104,7 +23,7 @@ export function RelatedCalculators({ currentPage, className = '' }: RelatedCalcu
         🧮 Calculadoras relacionadas
       </h3>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {filteredCalculators.map((calculator) => {
+        {relatedCalculators.map((calculator) => {
           const Icon = calculator.icon;
           return (
             <Link

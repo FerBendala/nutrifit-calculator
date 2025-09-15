@@ -1,5 +1,6 @@
 'use client';
 
+import { generateNavigation } from '@/lib/calculators';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
@@ -60,73 +61,30 @@ export function ContextualLinks({ title, links, className = '' }: ContextualLink
 
 // Componente para enlaces de navegación entre calculadoras
 export function CalculatorNavigation({ currentCalculator }: { currentCalculator: string }) {
-  const navigationLinks = {
-    'home': {
-      prev: { title: 'Masa Muscular', href: '/masa-muscular' },
-      next: { title: 'Calculadora IMC', href: '/imc' }
-    },
-    'imc': {
-      prev: { title: 'Calorías y Macros', href: '/' },
-      next: { title: 'Calculadora TDEE', href: '/tdee' }
-    },
-    'tdee': {
-      prev: { title: 'Calculadora IMC', href: '/imc' },
-      next: { title: 'Proteína Diaria', href: '/proteina' }
-    },
-    'proteina': {
-      prev: { title: 'Calculadora TDEE', href: '/tdee' },
-      next: { title: 'Hidratación Diaria', href: '/agua' }
-    },
-    'agua': {
-      prev: { title: 'Proteína Diaria', href: '/proteina' },
-      next: { title: 'Composición Corporal', href: '/composicion' }
-    },
-    'composicion': {
-      prev: { title: 'Hidratación Diaria', href: '/agua' },
-      next: { title: 'Ritmo Cardíaco', href: '/ritmo-cardiaco' }
-    },
-    'ritmo-cardiaco': {
-      prev: { title: 'Composición Corporal', href: '/composicion' },
-      next: { title: 'Grasa Corporal', href: '/grasa-corporal' }
-    },
-    'grasa-corporal': {
-      prev: { title: 'Ritmo Cardíaco', href: '/ritmo-cardiaco' },
-      next: { title: 'Peso Ideal', href: '/peso-ideal' }
-    },
-    'peso-ideal': {
-      prev: { title: 'Grasa Corporal', href: '/grasa-corporal' },
-      next: { title: 'Masa Muscular', href: '/masa-muscular' }
-    },
-    'masa-muscular': {
-      prev: { title: 'Peso Ideal', href: '/peso-ideal' },
-      next: { title: 'Calorías y Macros', href: '/' }
-    }
-  };
+  const navigation = generateNavigation(currentCalculator);
 
-  const nav = navigationLinks[currentCalculator as keyof typeof navigationLinks];
-
-  if (!nav) return null;
+  if (!navigation) return null;
 
   return (
     <div className="flex justify-between items-center pt-8 mt-8 border-t border-gray-200">
       <Link
-        href={nav.prev.href}
+        href={navigation.prev.href}
         className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors group"
       >
         <ArrowRight className="h-4 w-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
         <div className="text-left">
           <p className="text-xs text-gray-500">Anterior</p>
-          <p className="text-sm font-medium">{nav.prev.title}</p>
+          <p className="text-sm font-medium">{navigation.prev.title}</p>
         </div>
       </Link>
 
       <Link
-        href={nav.next.href}
+        href={navigation.next.href}
         className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors group text-right"
       >
         <div>
           <p className="text-xs text-gray-500">Siguiente</p>
-          <p className="text-sm font-medium">{nav.next.title}</p>
+          <p className="text-sm font-medium">{navigation.next.title}</p>
         </div>
         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
       </Link>

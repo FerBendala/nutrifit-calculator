@@ -602,7 +602,7 @@ export interface IdealWeightResult {
  */
 export function calculateIdealWeightRobinson(height: number, sex: 'male' | 'female'): number {
   const heightInches = height / 2.54;
-  
+
   if (sex === 'male') {
     return 52 + (1.9 * (heightInches - 60));
   } else {
@@ -615,7 +615,7 @@ export function calculateIdealWeightRobinson(height: number, sex: 'male' | 'fema
  */
 export function calculateIdealWeightMiller(height: number, sex: 'male' | 'female'): number {
   const heightInches = height / 2.54;
-  
+
   if (sex === 'male') {
     return 56.2 + (1.41 * (heightInches - 60));
   } else {
@@ -628,7 +628,7 @@ export function calculateIdealWeightMiller(height: number, sex: 'male' | 'female
  */
 export function calculateIdealWeightDevine(height: number, sex: 'male' | 'female'): number {
   const heightInches = height / 2.54;
-  
+
   if (sex === 'male') {
     return 50 + (2.3 * (heightInches - 60));
   } else {
@@ -641,7 +641,7 @@ export function calculateIdealWeightDevine(height: number, sex: 'male' | 'female
  */
 export function calculateIdealWeightHamwi(height: number, sex: 'male' | 'female'): number {
   const heightInches = height / 2.54;
-  
+
   if (sex === 'male') {
     return 106 + (6 * (heightInches - 60));
   } else {
@@ -654,7 +654,7 @@ export function calculateIdealWeightHamwi(height: number, sex: 'male' | 'female'
  */
 export function calculateIdealWeightPeterson(height: number, sex: 'male' | 'female'): number {
   const heightMeters = height / 100;
-  
+
   if (sex === 'male') {
     return 2.447 * heightMeters - 0.09145 * Math.pow(heightMeters, 2);
   } else {
@@ -671,29 +671,29 @@ export function calculateIdealWeight(height: number, weight: number, sex: 'male'
   const devine = calculateIdealWeightDevine(height, sex);
   const hamwi = calculateIdealWeightHamwi(height, sex);
   const peterson = calculateIdealWeightPeterson(height, sex);
-  
+
   const average = (robinson + miller + devine + hamwi + peterson) / 5;
-  
+
   // BMI range for normal weight (18.5-24.9)
   const heightMeters = height / 100;
   const bmiRange = {
     min: 18.5 * Math.pow(heightMeters, 2),
     max: 24.9 * Math.pow(heightMeters, 2)
   };
-  
+
   // Ideal weight range (±10% from average)
   const range = {
     min: average * 0.9,
     max: average * 1.1
   };
-  
+
   // Current BMI
   const currentBmi = weight / Math.pow(heightMeters, 2);
-  
+
   // Status based on BMI
   let status: 'underweight' | 'normal' | 'overweight' | 'obese';
   let recommendation: string;
-  
+
   if (currentBmi < 18.5) {
     status = 'underweight';
     recommendation = 'Tu peso está por debajo del rango saludable. Consulta con un profesional de la salud para evaluar tu situación nutricional.';
@@ -707,7 +707,7 @@ export function calculateIdealWeight(height: number, weight: number, sex: 'male'
     status = 'obese';
     recommendation = 'Tu peso está significativamente por encima del rango saludable. Te recomendamos consultar con un profesional de la salud para un plan personalizado.';
   }
-  
+
   return {
     robinson: Math.round(robinson * 10) / 10,
     miller: Math.round(miller * 10) / 10,
@@ -761,21 +761,21 @@ export function calculateLeanBodyMass(
 ): number {
   const fatMass = weight * (bodyFatPercentage / 100);
   const leanBodyMass = weight - fatMass;
-  
+
   if (method === 'standard') {
     return leanBodyMass;
   }
-  
+
   // Boer method (1984) - more accurate for athletes
   if (method === 'boer') {
     return leanBodyMass * 1.02; // Slight adjustment for athletes
   }
-  
+
   // James method (1976) - age-adjusted
   if (method === 'james') {
     return leanBodyMass * 0.98; // Slight adjustment for general population
   }
-  
+
   return leanBodyMass;
 }
 
@@ -789,7 +789,7 @@ export function calculateSkeletalMuscleMass(
   age: number
 ): number {
   const heightMeters = height / 100;
-  
+
   if (sex === 'male') {
     return (0.407 * weight) + (0.267 * height) - 19.2;
   } else {
@@ -827,7 +827,7 @@ export function getMuscleMassCategory(
   age: number
 ): string {
   let category: string;
-  
+
   if (sex === 'male') {
     if (age < 30) {
       if (muscleMassIndex < 7.0) category = 'Bajo';
@@ -863,7 +863,7 @@ export function getMuscleMassCategory(
       else category = 'Excelente';
     }
   }
-  
+
   return category;
 }
 
@@ -881,24 +881,24 @@ export function calculateMuscleMass(
   const leanBodyMassStandard = calculateLeanBodyMass(weight, bodyFatPercentage, 'standard');
   const leanBodyMassBoer = calculateLeanBodyMass(weight, bodyFatPercentage, 'boer');
   const leanBodyMassJames = calculateLeanBodyMass(weight, bodyFatPercentage, 'james');
-  
+
   // Calculate skeletal muscle mass
   const skeletalMuscleMass = calculateSkeletalMuscleMass(sex, height, weight, age);
-  
+
   // Calculate muscle mass index
   const muscleMassIndex = calculateMuscleMassIndex(skeletalMuscleMass, height);
-  
+
   // Calculate muscle mass percentage
   const muscleMassPercentage = calculateMuscleMassPercentage(skeletalMuscleMass, weight);
-  
+
   // Determine category
   const muscleMassCategory = getMuscleMassCategory(muscleMassIndex, sex, age);
-  
+
   // Generate recommendations
   let currentRecommendation: string;
   let idealRecommendation: string;
   let trainingRecommendation: string;
-  
+
   if (muscleMassCategory === 'Bajo') {
     currentRecommendation = 'Tu masa muscular está por debajo del promedio. Es importante trabajar en el desarrollo muscular.';
     idealRecommendation = 'El objetivo sería aumentar la masa muscular en 2-4 kg mediante entrenamiento de fuerza.';
@@ -916,7 +916,7 @@ export function calculateMuscleMass(
     idealRecommendation = 'Mantén tu masa muscular actual y enfócate en el rendimiento.';
     trainingRecommendation = 'Continúa con tu rutina actual y considera entrenamiento específico para tu deporte.';
   }
-  
+
   return {
     leanBodyMass: Math.round(leanBodyMassStandard * 10) / 10,
     muscleMass: Math.round(skeletalMuscleMass * 10) / 10,

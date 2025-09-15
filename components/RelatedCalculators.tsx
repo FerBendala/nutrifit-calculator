@@ -1,6 +1,6 @@
 'use client';
 
-import { Activity, Calculator, Droplet, Heart, Ruler, Scale, Target, Zap, Dumbbell } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Heart, Ruler, Scale, Target, Zap } from 'lucide-react';
 import Link from 'next/link';
 
 interface RelatedCalculator {

@@ -12,36 +12,47 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AdSlot } from '@/components/UnifiedAdSlot';
 import { calculateMuscleMass, type MuscleMassResult } from '@/lib/formulas';
 import { generateJsonLd } from '@/lib/seo';
-import { AlertCircle, CheckCircle, Info, TrendingUp, Target, Activity } from 'lucide-react';
+import { AlertCircle, CheckCircle, Info, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 
 export default function MasaMuscularPage() {
   const [formData, setFormData] = useState({
     sex: 'male' as 'male' | 'female',
-    age: '25',
-    height: '170',
-    weight: '70',
-    bodyFatPercentage: '15'
+    age: '',
+    height: '',
+    weight: '',
+    bodyFatPercentage: ''
   });
 
   const [result, setResult] = useState<MuscleMassResult | null>(null);
 
-  const handleInputChange = (field: string, value: string | number) => {
+  const handleInputChange = (field: string) => (value: string) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
   };
 
-  const handleCalculate = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const { sex, age, height, weight, bodyFatPercentage } = formData;
+    
+    if (!age || !height || !weight || !bodyFatPercentage) return;
+
     const muscleMassResult = calculateMuscleMass(
-      formData.sex,
-      parseInt(formData.age),
-      parseInt(formData.height),
-      parseInt(formData.weight),
-      parseFloat(formData.bodyFatPercentage)
+      sex,
+      parseInt(age),
+      parseInt(height),
+      parseInt(weight),
+      parseFloat(bodyFatPercentage)
     );
     setResult(muscleMassResult);
+  };
+
+  const isFormValid = () => {
+    const { age, height, weight, bodyFatPercentage } = formData;
+    return age && height && weight && bodyFatPercentage;
   };
 
   const getCategoryColor = (category: string) => {
@@ -62,9 +73,9 @@ export default function MasaMuscularPage() {
           Calculadora de Masa Muscular
         </h1>
         <p className="text-gray-700 leading-relaxed max-w-4xl mx-auto text-lg">
-          Calcula tu masa muscular, índice de masa muscular y obtén recomendaciones 
-          personalizadas para optimizar tu desarrollo muscular. Utiliza fórmulas 
-          científicas reconocidas como la <a href="https://pubmed.ncbi.nlm.nih.gov/10919906/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">ecuación de Lee (2000)</a> 
+          Calcula tu masa muscular, índice de masa muscular y obtén recomendaciones
+          personalizadas para optimizar tu desarrollo muscular. Utiliza fórmulas
+          científicas reconocidas como la <a href="https://pubmed.ncbi.nlm.nih.gov/10919906/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">ecuación de Lee (2000)</a>
           y métodos de composición corporal.
         </p>
       </div>
@@ -76,68 +87,78 @@ export default function MasaMuscularPage() {
             Calculadora de Masa Muscular
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-golden-lg">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <SelectInput
-              id="sex"
-              label="Sexo"
-              value={formData.sex}
-              onChange={(value) => handleInputChange('sex', value)}
-              options={[
-                { value: 'male', label: 'Hombre' },
-                { value: 'female', label: 'Mujer' }
-              ]}
-            />
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-golden-md">
+            <div className="grid gap-[1.618rem] md:grid-cols-2">
+              <SelectInput
+                id="sex"
+                label="Sexo"
+                value={formData.sex}
+                onChange={handleInputChange('sex')}
+                options={[
+                  { value: 'male', label: 'Hombre' },
+                  { value: 'female', label: 'Mujer' }
+                ]}
+                required
+              />
+              
+              <NumberInput
+                id="age"
+                label="Edad"
+                value={formData.age}
+                onChange={handleInputChange('age')}
+                min={16}
+                max={100}
+                unit="años"
+                placeholder="25"
+                required
+              />
+              
+              <NumberInput
+                id="height"
+                label="Altura"
+                value={formData.height}
+                onChange={handleInputChange('height')}
+                min={120}
+                max={220}
+                unit="cm"
+                placeholder="170"
+                required
+              />
+              
+              <NumberInput
+                id="weight"
+                label="Peso"
+                value={formData.weight}
+                onChange={handleInputChange('weight')}
+                min={30}
+                max={200}
+                unit="kg"
+                placeholder="70"
+                required
+              />
+              
+              <NumberInput
+                id="bodyFatPercentage"
+                label="Porcentaje de Grasa Corporal"
+                value={formData.bodyFatPercentage}
+                onChange={handleInputChange('bodyFatPercentage')}
+                min={3}
+                max={50}
+                unit="%"
+                placeholder="15"
+                required
+              />
+            </div>
             
-            <NumberInput
-              id="age"
-              label="Edad"
-              value={formData.age}
-              onChange={(value) => handleInputChange('age', value)}
-              min={16}
-              max={100}
-              unit="años"
-            />
-            
-            <NumberInput
-              id="height"
-              label="Altura"
-              value={formData.height}
-              onChange={(value) => handleInputChange('height', value)}
-              min={120}
-              max={220}
-              unit="cm"
-            />
-            
-            <NumberInput
-              id="weight"
-              label="Peso"
-              value={formData.weight}
-              onChange={(value) => handleInputChange('weight', value)}
-              min={30}
-              max={200}
-              unit="kg"
-            />
-            
-            <NumberInput
-              id="bodyFatPercentage"
-              label="Porcentaje de Grasa Corporal"
-              value={formData.bodyFatPercentage}
-              onChange={(value) => handleInputChange('bodyFatPercentage', value)}
-              min={3}
-              max={50}
-              unit="%"
-            />
-          </div>
-          
-          <div className="flex justify-center pt-6">
-            <Button 
-              onClick={handleCalculate}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors"
+            <Button
+              type="submit"
+              disabled={!isFormValid()}
+              className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
             >
-              Calcular Masa Muscular
+              💪 Calcular masa muscular
             </Button>
-          </div>
+          </form>
         </CardContent>
       </Card>
 
@@ -158,21 +179,21 @@ export default function MasaMuscularPage() {
                 </div>
                 <div className="text-sm font-medium text-blue-800">Masa Muscular</div>
               </div>
-              
+
               <div className="text-center p-6 bg-green-50 rounded-lg border-l-4 border-green-400">
                 <div className="text-3xl font-bold text-green-600 mb-2">
                   {result.muscleMassIndex}
                 </div>
                 <div className="text-sm font-medium text-green-800">Índice de Masa Muscular</div>
               </div>
-              
+
               <div className="text-center p-6 bg-purple-50 rounded-lg border-l-4 border-purple-400">
                 <div className="text-3xl font-bold text-purple-600 mb-2">
                   {result.muscleMassPercentage}%
                 </div>
                 <div className="text-sm font-medium text-purple-800">% Masa Muscular</div>
               </div>
-              
+
               <div className={`text-center p-6 rounded-lg border-l-4 ${getCategoryColor(result.muscleMassCategory)}`}>
                 <div className="text-3xl font-bold mb-2">
                   {result.muscleMassCategory}
@@ -244,18 +265,18 @@ export default function MasaMuscularPage() {
         <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
           ¿Qué es la Masa Muscular?
         </h2>
-        
+
         <Card className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-8">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed mb-4">
-              La masa muscular es la cantidad total de tejido muscular en tu cuerpo, 
-              incluyendo músculos esqueléticos, cardíacos y lisos. Es un componente 
-              crucial de la <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">composición corporal</a> 
+              La masa muscular es la cantidad total de tejido muscular en tu cuerpo,
+              incluyendo músculos esqueléticos, cardíacos y lisos. Es un componente
+              crucial de la <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">composición corporal</a>
               y está directamente relacionada con la fuerza, el metabolismo y la salud general.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Nuestra calculadora utiliza la <a href="https://pubmed.ncbi.nlm.nih.gov/10919906/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">ecuación de Lee (2000)</a> 
-              para estimar la masa muscular esquelética, que es la más relevante para 
+              Nuestra calculadora utiliza la <a href="https://pubmed.ncbi.nlm.nih.gov/10919906/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">ecuación de Lee (2000)</a>
+              para estimar la masa muscular esquelética, que es la más relevante para
               el rendimiento físico y la salud metabólica.
             </p>
           </CardContent>
@@ -341,16 +362,16 @@ export default function MasaMuscularPage() {
               <div>
                 <h4 className="font-semibold text-purple-800 mb-3">Índice de Masa Muscular (IMM)</h4>
                 <p className="text-sm text-purple-700 leading-relaxed">
-                  El IMM se calcula dividiendo la masa muscular entre la altura al cuadrado (kg/m²). 
+                  El IMM se calcula dividiendo la masa muscular entre la altura al cuadrado (kg/m²).
                   Es una medida estandarizada que permite comparar entre diferentes personas.
                 </p>
               </div>
               <div>
                 <h4 className="font-semibold text-purple-800 mb-3">Categorías de Referencia</h4>
                 <p className="text-sm text-purple-700 leading-relaxed">
-                  <strong>Excelente:</strong> Por encima del 90% de la población<br/>
-                  <strong>Bueno:</strong> Entre el 75-90% de la población<br/>
-                  <strong>Promedio:</strong> Entre el 25-75% de la población<br/>
+                  <strong>Excelente:</strong> Por encima del 90% de la población<br />
+                  <strong>Bueno:</strong> Entre el 75-90% de la población<br />
+                  <strong>Promedio:</strong> Entre el 25-75% de la población<br />
                   <strong>Bajo:</strong> Por debajo del 25% de la población
                 </p>
               </div>
@@ -399,13 +420,13 @@ export default function MasaMuscularPage() {
       <CalculatorNavigation currentCalculator="masa-muscular" />
 
       {/* Social Share */}
-      <SocialShare 
+      <SocialShare
         title="Calculadora de Masa Muscular - NutriFit"
         url="https://nutrifit-calculator.com/masa-muscular"
       />
 
       {/* Embed Widget */}
-      <EmbedWidget 
+      <EmbedWidget
         title="Calculadora de Masa Muscular"
         calculatorName="Masa Muscular"
       />

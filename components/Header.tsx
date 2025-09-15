@@ -17,7 +17,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { Activity, Calculator, Droplet, Heart, Menu, Ruler, Scale, Target, Zap, Dumbbell } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Heart, Menu, Ruler, Scale, Target, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 

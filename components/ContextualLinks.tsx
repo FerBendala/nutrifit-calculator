@@ -62,7 +62,7 @@ export function ContextualLinks({ title, links, className = '' }: ContextualLink
 export function CalculatorNavigation({ currentCalculator }: { currentCalculator: string }) {
   const navigationLinks = {
     'home': {
-      prev: { title: 'Peso Ideal', href: '/peso-ideal' },
+      prev: { title: 'Masa Muscular', href: '/masa-muscular' },
       next: { title: 'Calculadora IMC', href: '/imc' }
     },
     'imc': {
@@ -95,6 +95,10 @@ export function CalculatorNavigation({ currentCalculator }: { currentCalculator:
     },
     'peso-ideal': {
       prev: { title: 'Grasa Corporal', href: '/grasa-corporal' },
+      next: { title: 'Masa Muscular', href: '/masa-muscular' }
+    },
+    'masa-muscular': {
+      prev: { title: 'Peso Ideal', href: '/peso-ideal' },
       next: { title: 'Calorías y Macros', href: '/' }
     }
   };

@@ -9,9 +9,7 @@ import { SelectInput } from '@/components/SelectInput';
 import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/UnifiedAdSlot';
 import { calculateMuscleMass, type MuscleMassResult } from '@/lib/formulas';
-import { generateJsonLd } from '@/lib/seo';
 import { AlertCircle, CheckCircle, Info, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 
@@ -35,9 +33,9 @@ export default function MasaMuscularPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const { sex, age, height, weight, bodyFatPercentage } = formData;
-    
+
     if (!age || !height || !weight || !bodyFatPercentage) return;
 
     const muscleMassResult = calculateMuscleMass(
@@ -75,8 +73,7 @@ export default function MasaMuscularPage() {
         <p className="text-gray-700 leading-relaxed max-w-4xl mx-auto text-lg">
           Calcula tu masa muscular, índice de masa muscular y obtén recomendaciones
           personalizadas para optimizar tu desarrollo muscular. Utiliza fórmulas
-          científicas reconocidas como la <a href="https://pubmed.ncbi.nlm.nih.gov/10919906/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">ecuación de Lee (2000)</a>
-          y métodos de composición corporal.
+          científicas reconocidas como la <a href="https://pubmed.ncbi.nlm.nih.gov/10919906/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">ecuación de Lee (2000)</a> y métodos de composición corporal.
         </p>
       </div>
 
@@ -101,7 +98,7 @@ export default function MasaMuscularPage() {
                 ]}
                 required
               />
-              
+
               <NumberInput
                 id="age"
                 label="Edad"
@@ -113,7 +110,7 @@ export default function MasaMuscularPage() {
                 placeholder="25"
                 required
               />
-              
+
               <NumberInput
                 id="height"
                 label="Altura"
@@ -125,7 +122,7 @@ export default function MasaMuscularPage() {
                 placeholder="170"
                 required
               />
-              
+
               <NumberInput
                 id="weight"
                 label="Peso"
@@ -137,7 +134,7 @@ export default function MasaMuscularPage() {
                 placeholder="70"
                 required
               />
-              
+
               <div className="md:col-span-2">
                 <NumberInput
                   id="bodyFatPercentage"
@@ -151,15 +148,14 @@ export default function MasaMuscularPage() {
                   required
                 />
                 <p className="text-sm text-gray-600 mt-2">
-                  💡 <strong>¿No conoces tu porcentaje de grasa?</strong> Usa nuestra 
+                  💡 <strong>¿No conoces tu porcentaje de grasa?</strong> Usa nuestra
                   <a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden ml-1">
                     calculadora de grasa corporal
-                  </a> 
-                  con métodos científicos de pliegues cutáneos para obtenerlo de forma precisa.
+                  </a> con métodos científicos de pliegues cutáneos para obtenerlo de forma precisa.
                 </p>
               </div>
             </div>
-            
+
             <Button
               type="submit"
               disabled={!isFormValid()}
@@ -181,7 +177,7 @@ export default function MasaMuscularPage() {
         </CardHeader>
         <CardContent className="space-golden-sm">
           <p className="text-orange-800 mb-4">
-            Para calcular tu masa muscular de forma precisa, necesitas conocer tu porcentaje de grasa corporal. 
+            Para calcular tu masa muscular de forma precisa, necesitas conocer tu porcentaje de grasa corporal.
             Te ofrecemos varias opciones:
           </p>
           <div className="grid gap-4 md:grid-cols-2">
@@ -191,8 +187,7 @@ export default function MasaMuscularPage() {
                 Método más preciso
               </h4>
               <p className="text-sm text-orange-800 mb-3">
-                Usa nuestra <a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">calculadora de grasa corporal</a> 
-                con métodos científicos de pliegues cutáneos (Jackson-Pollock, Durnin-Womersley).
+                Usa nuestra <a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">calculadora de grasa corporal</a> con métodos científicos de pliegues cutáneos (Jackson-Pollock, Durnin-Womersley).
               </p>
               <ul className="text-xs text-orange-700 space-y-1">
                 <li>• Precisión de ±3-5%</li>
@@ -206,8 +201,7 @@ export default function MasaMuscularPage() {
                 Método alternativo
               </h4>
               <p className="text-sm text-orange-800 mb-3">
-                Usa nuestra <a href="/composicion" className="text-blue-600 hover:underline font-medium transition-golden">calculadora de composición corporal</a> 
-                con el método Navy (circunferencias corporales).
+                Usa nuestra <a href="/composicion" className="text-blue-600 hover:underline font-medium transition-golden">calculadora de composición corporal</a> con el método Navy (circunferencias corporales).
               </p>
               <ul className="text-xs text-orange-700 space-y-1">
                 <li>• Precisión de ±3-4%</li>
@@ -328,13 +322,11 @@ export default function MasaMuscularPage() {
             <p className="text-gray-700 leading-relaxed mb-4">
               La masa muscular es la cantidad total de tejido muscular en tu cuerpo,
               incluyendo músculos esqueléticos, cardíacos y lisos. Es un componente
-              crucial de la <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">composición corporal</a>
-              y está directamente relacionada con la fuerza, el metabolismo y la salud general.
+              crucial de la <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">composición corporal</a> y está directamente relacionada con la fuerza, el metabolismo y la salud general.
               Para calcularla con precisión, necesitas conocer tu <a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">porcentaje de grasa corporal</a>.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Nuestra calculadora utiliza la <a href="https://pubmed.ncbi.nlm.nih.gov/10919906/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">ecuación de Lee (2000)</a>
-              para estimar la masa muscular esquelética, que es la más relevante para
+              Nuestra calculadora utiliza la <a href="https://pubmed.ncbi.nlm.nih.gov/10919906/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">ecuación de Lee (2000)</a> para estimar la masa muscular esquelética, que es la más relevante para
               el rendimiento físico y la salud metabólica.
             </p>
           </CardContent>
@@ -501,37 +493,23 @@ export default function MasaMuscularPage() {
         </Card>
       </div>
 
-      {/* Related Calculators */}
+      {/* Calculadoras relacionadas */}
       <RelatedCalculators currentPage="masa-muscular" />
 
-      {/* Calculator Navigation */}
-      <CalculatorNavigation currentCalculator="masa-muscular" />
+      {/* Widget para embeber - genera backlinks naturales */}
+      <div className="flex justify-center">
+        <EmbedWidget />
+      </div>
 
       {/* Social Share */}
       <SocialShare
-        title="Calculadora de Masa Muscular - NutriFit"
+        title="Calculadora de Masa Muscular - Índice y Composición"
         url="https://nutrifit-calculator.com/masa-muscular"
+        description="Calcula tu masa muscular, índice de masa muscular y obtén recomendaciones para optimizar tu desarrollo muscular. ¡Totalmente gratis!"
       />
 
-      {/* Embed Widget */}
-      <EmbedWidget
-        title="Calculadora de Masa Muscular"
-        calculatorName="Masa Muscular"
-      />
-
-      {/* Ad Slot */}
-      <AdSlot
-        adSlot="9572878239"
-        style={{ display: 'block', height: '90px' }}
-      />
-
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: generateJsonLd('masa-muscular')
-        }}
-      />
+      {/* Navegación entre calculadoras */}
+      <CalculatorNavigation currentCalculator="masa-muscular" />
     </Container>
   );
 }

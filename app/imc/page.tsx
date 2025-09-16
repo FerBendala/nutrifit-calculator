@@ -45,8 +45,8 @@ export default function IMCPage() {
       <SchemaMarkup calculatorKey="imc" />
 
       <Container size="xl" className="py-[4.236rem]">
-        <div className="max-w-5xl mx-auto space-golden-lg">
-          <div className="text-center space-golden-md">
+        <main className="max-w-5xl mx-auto space-golden-lg">
+          <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora IMC Profesional
             </h1>
@@ -54,64 +54,66 @@ export default function IMCPage() {
               Calculadora médica de IMC con estándares oficiales de la OMS. Resultados precisos
               y categorización profesional de peso corporal utilizada por nutricionistas y médicos.
             </p>
-          </div>
+          </header>
 
-          <Card className="card-golden-lg shadow-golden-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl font-semibold flex items-center">
-                <span className="text-3xl mr-3">📊</span>
-                Calculadora de IMC
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-golden-md">
-                <div className="grid gap-[1.618rem] md:grid-cols-2">
-                  <NumberInput
-                    id="height"
-                    label="Altura"
-                    value={height}
-                    onChange={setHeight}
-                    min={130}
-                    max={250}
-                    unit="cm"
-                    placeholder="170"
-                    required
-                  />
-
-                  <NumberInput
-                    id="weight"
-                    label="Peso"
-                    value={weight}
-                    onChange={setWeight}
-                    min={30}
-                    max={300}
-                    step={0.1}
-                    unit="kg"
-                    placeholder="70.0"
-                    required
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={!isFormValid}
-                  className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
-                >
-                  📊 Calcular IMC
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {result && (
-            <Card className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
+          <section id="calculator" aria-label="Calculadora de IMC">
+            <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <span className="text-3xl mr-3">🎯</span>
-                  Tu Resultado
+                <CardTitle className="text-2xl font-semibold flex items-center">
+                  <span className="text-3xl mr-3">📊</span>
+                  Calculadora de IMC
                 </CardTitle>
               </CardHeader>
               <CardContent>
+                <form onSubmit={handleSubmit} className="space-golden-md">
+                  <div className="grid gap-[1.618rem] md:grid-cols-2">
+                    <NumberInput
+                      id="height"
+                      label="Altura"
+                      value={height}
+                      onChange={setHeight}
+                      min={130}
+                      max={250}
+                      unit="cm"
+                      placeholder="170"
+                      required
+                    />
+
+                    <NumberInput
+                      id="weight"
+                      label="Peso"
+                      value={weight}
+                      onChange={setWeight}
+                      min={30}
+                      max={300}
+                      step={0.1}
+                      unit="kg"
+                      placeholder="70.0"
+                      required
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={!isFormValid}
+                    className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
+                  >
+                    📊 Calcular IMC
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </section>
+
+          {result && (
+            <section className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
+              <header className="p-6 pb-0">
+                <h2 className="text-2xl font-semibold flex items-center justify-center">
+                  <span className="text-3xl mr-3">🎯</span>
+                  Tu Resultado
+                </h2>
+              </header>
+              <div className="p-6">
                 <div className="text-center space-golden-md">
                   <div className="space-golden-sm">
                     <div className="text-6xl font-bold text-primary mb-[0.618rem]">
@@ -123,7 +125,7 @@ export default function IMCPage() {
                   </div>
 
                   <div className="grid gap-[1.618rem] mt-[2.618rem]">
-                    <div className="card-golden">
+                    <article className="card-golden">
                       <h4 className="font-bold mb-[1.618rem] text-lg">📏 Rangos de IMC (OMS):</h4>
                       <div className="space-golden-xs text-base">
                         <div className="flex justify-between py-[0.382rem] border-b border-border/30">
@@ -143,27 +145,29 @@ export default function IMCPage() {
                           <span className="text-red-600 font-bold">≥ 30.0</span>
                         </div>
                       </div>
-                    </div>
+                    </article>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </section>
           )}
 
-          <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
-            <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
-              ¿Qué es el IMC? Calculadora de peso corporal
-            </h2>
+          <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
+            <header>
+              <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
+                ¿Qué es el IMC? Calculadora de peso corporal
+              </h2>
 
-            <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
-              El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso con tu altura
-              para determinar si tu peso está dentro de un rango saludable. Se calcula dividiendo
-              tu peso en kilogramos entre tu altura en metros al cuadrado (kg/m²). Los rangos estándar
-              están establecidos por la <a href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Organización Mundial de la Salud (OMS)</a>.
-            </p>
+              <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
+                El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso con tu altura
+                para determinar si tu peso está dentro de un rango saludable. Se calcula dividiendo
+                tu peso en kilogramos entre tu altura en metros al cuadrado (kg/m²). Los rangos estándar
+                están establecidos por la <a href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Organización Mundial de la Salud (OMS)</a>.
+              </p>
+            </header>
 
-            <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
-              <div className="card-golden space-golden-sm">
+            <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
+              <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                   <span className="text-2xl mr-3">📏</span>
                   Fórmula del IMC
@@ -174,9 +178,9 @@ export default function IMCPage() {
                     Ejemplo: 70kg ÷ (1.75m)² = 22.9
                   </p>
                 </div>
-              </div>
+              </article>
 
-              <div className="card-golden space-golden-sm">
+              <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                   <span className="text-2xl mr-3">🎯</span>
                   Interpretación de resultados
@@ -199,16 +203,16 @@ export default function IMCPage() {
                     <span className="text-red-600 font-medium">≥ 30.0</span>
                   </li>
                 </ul>
-              </div>
-            </div>
+              </article>
+            </section>
 
-            <div className="card-golden-lg bg-green-50 border-l-4 border-green-400 mb-[2.618rem]">
+            <section className="card-golden-lg bg-green-50 border-l-4 border-green-400 mb-[2.618rem]">
               <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💪</span>
                 ¿Cómo mejorar tu IMC de forma saludable?
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
                     <span className="text-lg mr-2">📉</span>
                     Para reducir el IMC:
@@ -220,8 +224,8 @@ export default function IMCPage() {
                     <li>• Mantén una <a href="/agua" className="text-blue-600 hover:underline font-medium transition-golden">hidratación adecuada</a></li>
                     <li>• Consume suficiente <a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">proteína</a> para preservar músculo</li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">📈</span>
                     Para aumentar el IMC:
@@ -233,17 +237,17 @@ export default function IMCPage() {
                     <li>• Prioriza alimentos densos en calorías</li>
                     <li>• Consulta con un profesional de la salud</li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🏥</span>
                 Riesgos asociados según el IMC
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
                     <span className="text-lg mr-2">⚠️</span>
                     IMC elevado (≥25):
@@ -274,8 +278,8 @@ export default function IMCPage() {
                       <span><a href="https://www.cancer.gov/about-cancer/causes-prevention/risk/obesity/obesity-fact-sheet" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Ciertos tipos de cáncer</a></span>
                     </li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
                     <span className="text-lg mr-2">⚠️</span>
                     IMC bajo (&lt;18.5):
@@ -306,11 +310,11 @@ export default function IMCPage() {
                       <span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2903966/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Retraso en cicatrización</a></span>
                     </li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📊</span>
                 Limitaciones del cálculo de IMC
@@ -337,40 +341,40 @@ export default function IMCPage() {
                   <span><strong>Es una herramienta de screening:</strong> No reemplaza una evaluación médica completa. Para más información, consulta el <a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">NHLBI BMI Calculator</a></span>
                 </li>
               </ul>
-            </div>
+            </section>
 
-            <div className="space-y-4">
+            <section className="space-y-4">
               <h3 className="text-lg font-medium">❓ Preguntas frecuentes sobre el IMC</h3>
               <div className="space-y-3">
-                <div className="p-4 bg-gray-50 rounded-lg">
+                <article className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-semibold mb-2">¿Es el IMC preciso para todas las personas?</h4>
                   <p className="text-sm text-muted-foreground">
                     No, el IMC es una estimación general. No es preciso para atletas, personas muy musculosas,
                     embarazadas, adultos mayores o niños. Para una evaluación completa, considera también
                     el porcentaje de grasa corporal y consulta con un profesional.
                   </p>
-                </div>
-                <div className="p-4 bg-gray-50 rounded-lg">
+                </article>
+                <article className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-semibold mb-2">¿Con qué frecuencia debo calcular mi IMC?</h4>
                   <p className="text-sm text-muted-foreground">
                     Es suficiente calcularlo cada 1-3 meses si estás trabajando en cambios de peso.
                     Para monitoreo general de salud, una vez al año es adecuado. Úsalo junto con nuestra
                     <a href="/" className="text-blue-600 hover:underline"> calculadora de calorías</a> para un enfoque integral.
                   </p>
-                </div>
-                <div className="p-4 bg-gray-50 rounded-lg">
+                </article>
+                <article className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-semibold mb-2">¿Qué hago si mi IMC está fuera del rango normal?</h4>
                   <p className="text-sm text-muted-foreground">
                     Primero, consulta con un profesional de la salud para una evaluación completa.
                     Si necesitas cambios, hazlos gradualmente: usa nuestra <a href="/tdee" className="text-blue-600 hover:underline">calculadora TDEE</a> para conocer tus necesidades calóricas y planifica cambios sostenibles.
                   </p>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
 
             {/* Enlaces contextuales */}
-            <div className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+            <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
               <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Complementa tu evaluación de peso
@@ -389,15 +393,15 @@ export default function IMCPage() {
                   <span><strong><a href="/agua" className="text-blue-600 hover:underline font-medium transition-golden">Optimiza tu hidratación:</a></strong> Calcula tu necesidad de agua según tu peso actual</span>
                 </li>
               </ul>
-            </div>
+            </section>
 
             {/* Calculadoras relacionadas */}
             <RelatedCalculators currentPage="/imc" />
 
             {/* Widget para embeber - genera backlinks naturales */}
-            <div className="flex justify-center">
+            <section className="flex justify-center">
               <EmbedWidget />
-            </div>
+            </section>
 
             {/* Social Share */}
             <SocialShare
@@ -408,8 +412,8 @@ export default function IMCPage() {
 
             {/* Navegación entre calculadoras */}
             <CalculatorNavigation currentCalculator="imc" />
-          </div>
-        </div>
+          </article>
+        </main>
       </Container>
     </>
   );

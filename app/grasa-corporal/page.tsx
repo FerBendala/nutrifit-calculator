@@ -141,8 +141,8 @@ export default function GrasaCorporalPage() {
       <SchemaMarkup calculatorKey="grasa-corporal" />
 
       <Container size="xl" className="py-[4.236rem]">
-        <div className="max-w-5xl mx-auto space-golden-lg">
-          <div className="text-center space-golden-md">
+        <main className="max-w-5xl mx-auto space-golden-lg">
+          <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora de Grasa Corporal Médica
             </h1>
@@ -150,284 +150,286 @@ export default function GrasaCorporalPage() {
               Calculadora profesional de grasa corporal con métodos Jackson-Pollock y Durnin-Womersley
               validados científicamente. Precisión de ±3-5% utilizada por nutricionistas y médicos.
             </p>
-          </div>
+          </header>
 
-          <Card className="card-golden-lg shadow-golden-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl font-semibold flex items-center">
-                <span className="text-3xl mr-3">📏</span>
-                Calculadora de Grasa Corporal
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-golden-md">
-                <div className="grid gap-[1.618rem] md:grid-cols-2">
-                  <SelectInput
-                    id="sex"
-                    label="Sexo biológico"
-                    value={formData.sex}
-                    onChange={handleInputChange('sex')}
-                    options={[
-                      { value: 'male', label: 'Hombre' },
-                      { value: 'female', label: 'Mujer' }
-                    ]}
-                    required
-                  />
-
-                  <NumberInput
-                    id="age"
-                    label="Edad"
-                    value={formData.age}
-                    onChange={handleInputChange('age')}
-                    min={16}
-                    max={80}
-                    unit="años"
-                    placeholder="25"
-                    required
-                  />
-
-                  <NumberInput
-                    id="weight"
-                    label="Peso"
-                    value={formData.weight}
-                    onChange={handleInputChange('weight')}
-                    min={40}
-                    max={200}
-                    step={0.1}
-                    unit="kg"
-                    placeholder="70.0"
-                    required
-                  />
-
-                  <SelectInput
-                    id="method"
-                    label="Método de medición"
-                    value={formData.method}
-                    onChange={handleInputChange('method')}
-                    options={[
-                      { value: '3site', label: '3 sitios (Jackson-Pollock)' },
-                      { value: '4site', label: '4 sitios (Durnin-Womersley)' },
-                      { value: '7site', label: '7 sitios (Jackson-Pollock)' }
-                    ]}
-                    required
-                  />
-                </div>
-
-                {/* 3-site measurements */}
-                {formData.method === '3site' && (
-                  <div className="space-golden-md">
-                    <h3 className="text-lg font-semibold mb-[1.618rem]">Mediciones de pliegues cutáneos (3 sitios)</h3>
-                    <div className="grid gap-[1.618rem] md:grid-cols-3">
-                      <NumberInput
-                        id="triceps"
-                        label="Tríceps"
-                        value={formData.triceps}
-                        onChange={handleInputChange('triceps')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="12.5"
-                        required
-                      />
-                      <NumberInput
-                        id="suprailiac"
-                        label="Suprailiaco"
-                        value={formData.suprailiac}
-                        onChange={handleInputChange('suprailiac')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="15.0"
-                        required
-                      />
-                      <NumberInput
-                        id="thigh"
-                        label={formData.sex === 'male' ? 'Pectoral' : 'Muslo'}
-                        value={formData.thigh}
-                        onChange={handleInputChange('thigh')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="18.0"
-                        required
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {/* 4-site measurements */}
-                {formData.method === '4site' && (
-                  <div className="space-golden-md">
-                    <h3 className="text-lg font-semibold mb-[1.618rem]">Mediciones de pliegues cutáneos (4 sitios)</h3>
-                    <div className="grid gap-[1.618rem] md:grid-cols-2">
-                      <NumberInput
-                        id="triceps"
-                        label="Tríceps"
-                        value={formData.triceps}
-                        onChange={handleInputChange('triceps')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="12.5"
-                        required
-                      />
-                      <NumberInput
-                        id="biceps"
-                        label="Bíceps"
-                        value={formData.biceps}
-                        onChange={handleInputChange('biceps')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="8.0"
-                        required
-                      />
-                      <NumberInput
-                        id="subscapular"
-                        label="Subescapular"
-                        value={formData.subscapular}
-                        onChange={handleInputChange('subscapular')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="15.0"
-                        required
-                      />
-                      <NumberInput
-                        id="suprailiac"
-                        label="Suprailiaco"
-                        value={formData.suprailiac}
-                        onChange={handleInputChange('suprailiac')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="15.0"
-                        required
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {/* 7-site measurements */}
-                {formData.method === '7site' && (
-                  <div className="space-golden-md">
-                    <h3 className="text-lg font-semibold mb-[1.618rem]">Mediciones de pliegues cutáneos (7 sitios)</h3>
-                    <div className="grid gap-[1.618rem] md:grid-cols-2">
-                      <NumberInput
-                        id="chest"
-                        label="Pectoral"
-                        value={formData.chest}
-                        onChange={handleInputChange('chest')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="12.0"
-                        required
-                      />
-                      <NumberInput
-                        id="midaxillary"
-                        label="Axilar medio"
-                        value={formData.midaxillary}
-                        onChange={handleInputChange('midaxillary')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="10.0"
-                        required
-                      />
-                      <NumberInput
-                        id="triceps"
-                        label="Tríceps"
-                        value={formData.triceps}
-                        onChange={handleInputChange('triceps')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="12.5"
-                        required
-                      />
-                      <NumberInput
-                        id="subscapular"
-                        label="Subescapular"
-                        value={formData.subscapular}
-                        onChange={handleInputChange('subscapular')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="15.0"
-                        required
-                      />
-                      <NumberInput
-                        id="abdomen"
-                        label="Abdominal"
-                        value={formData.abdomen}
-                        onChange={handleInputChange('abdomen')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="20.0"
-                        required
-                      />
-                      <NumberInput
-                        id="suprailiac"
-                        label="Suprailiaco"
-                        value={formData.suprailiac}
-                        onChange={handleInputChange('suprailiac')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="15.0"
-                        required
-                      />
-                      <NumberInput
-                        id="thigh"
-                        label="Muslo"
-                        value={formData.thigh}
-                        onChange={handleInputChange('thigh')}
-                        min={1}
-                        max={50}
-                        step={0.1}
-                        unit="mm"
-                        placeholder="18.0"
-                        required
-                      />
-                    </div>
-                  </div>
-                )}
-
-                <Button
-                  type="submit"
-                  disabled={!isFormValid()}
-                  className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
-                >
-                  📏 Calcular grasa corporal
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {result && (
-            <Card className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
+          <section id="calculator" aria-label="Calculadora de grasa corporal">
+            <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <span className="text-3xl mr-3">🎯</span>
-                  Tu Composición Corporal
+                <CardTitle className="text-2xl font-semibold flex items-center">
+                  <span className="text-3xl mr-3">📏</span>
+                  Calculadora de Grasa Corporal
                 </CardTitle>
               </CardHeader>
               <CardContent>
+                <form onSubmit={handleSubmit} className="space-golden-md">
+                  <div className="grid gap-[1.618rem] md:grid-cols-2">
+                    <SelectInput
+                      id="sex"
+                      label="Sexo biológico"
+                      value={formData.sex}
+                      onChange={handleInputChange('sex')}
+                      options={[
+                        { value: 'male', label: 'Hombre' },
+                        { value: 'female', label: 'Mujer' }
+                      ]}
+                      required
+                    />
+
+                    <NumberInput
+                      id="age"
+                      label="Edad"
+                      value={formData.age}
+                      onChange={handleInputChange('age')}
+                      min={16}
+                      max={80}
+                      unit="años"
+                      placeholder="25"
+                      required
+                    />
+
+                    <NumberInput
+                      id="weight"
+                      label="Peso"
+                      value={formData.weight}
+                      onChange={handleInputChange('weight')}
+                      min={40}
+                      max={200}
+                      step={0.1}
+                      unit="kg"
+                      placeholder="70.0"
+                      required
+                    />
+
+                    <SelectInput
+                      id="method"
+                      label="Método de medición"
+                      value={formData.method}
+                      onChange={handleInputChange('method')}
+                      options={[
+                        { value: '3site', label: '3 sitios (Jackson-Pollock)' },
+                        { value: '4site', label: '4 sitios (Durnin-Womersley)' },
+                        { value: '7site', label: '7 sitios (Jackson-Pollock)' }
+                      ]}
+                      required
+                    />
+                  </div>
+
+                  {/* 3-site measurements */}
+                  {formData.method === '3site' && (
+                    <div className="space-golden-md">
+                      <h3 className="text-lg font-semibold mb-[1.618rem]">Mediciones de pliegues cutáneos (3 sitios)</h3>
+                      <div className="grid gap-[1.618rem] md:grid-cols-3">
+                        <NumberInput
+                          id="triceps"
+                          label="Tríceps"
+                          value={formData.triceps}
+                          onChange={handleInputChange('triceps')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="12.5"
+                          required
+                        />
+                        <NumberInput
+                          id="suprailiac"
+                          label="Suprailiaco"
+                          value={formData.suprailiac}
+                          onChange={handleInputChange('suprailiac')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="15.0"
+                          required
+                        />
+                        <NumberInput
+                          id="thigh"
+                          label={formData.sex === 'male' ? 'Pectoral' : 'Muslo'}
+                          value={formData.thigh}
+                          onChange={handleInputChange('thigh')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="18.0"
+                          required
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 4-site measurements */}
+                  {formData.method === '4site' && (
+                    <div className="space-golden-md">
+                      <h3 className="text-lg font-semibold mb-[1.618rem]">Mediciones de pliegues cutáneos (4 sitios)</h3>
+                      <div className="grid gap-[1.618rem] md:grid-cols-2">
+                        <NumberInput
+                          id="triceps"
+                          label="Tríceps"
+                          value={formData.triceps}
+                          onChange={handleInputChange('triceps')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="12.5"
+                          required
+                        />
+                        <NumberInput
+                          id="biceps"
+                          label="Bíceps"
+                          value={formData.biceps}
+                          onChange={handleInputChange('biceps')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="8.0"
+                          required
+                        />
+                        <NumberInput
+                          id="subscapular"
+                          label="Subescapular"
+                          value={formData.subscapular}
+                          onChange={handleInputChange('subscapular')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="15.0"
+                          required
+                        />
+                        <NumberInput
+                          id="suprailiac"
+                          label="Suprailiaco"
+                          value={formData.suprailiac}
+                          onChange={handleInputChange('suprailiac')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="15.0"
+                          required
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 7-site measurements */}
+                  {formData.method === '7site' && (
+                    <div className="space-golden-md">
+                      <h3 className="text-lg font-semibold mb-[1.618rem]">Mediciones de pliegues cutáneos (7 sitios)</h3>
+                      <div className="grid gap-[1.618rem] md:grid-cols-2">
+                        <NumberInput
+                          id="chest"
+                          label="Pectoral"
+                          value={formData.chest}
+                          onChange={handleInputChange('chest')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="12.0"
+                          required
+                        />
+                        <NumberInput
+                          id="midaxillary"
+                          label="Axilar medio"
+                          value={formData.midaxillary}
+                          onChange={handleInputChange('midaxillary')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="10.0"
+                          required
+                        />
+                        <NumberInput
+                          id="triceps"
+                          label="Tríceps"
+                          value={formData.triceps}
+                          onChange={handleInputChange('triceps')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="12.5"
+                          required
+                        />
+                        <NumberInput
+                          id="subscapular"
+                          label="Subescapular"
+                          value={formData.subscapular}
+                          onChange={handleInputChange('subscapular')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="15.0"
+                          required
+                        />
+                        <NumberInput
+                          id="abdomen"
+                          label="Abdominal"
+                          value={formData.abdomen}
+                          onChange={handleInputChange('abdomen')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="20.0"
+                          required
+                        />
+                        <NumberInput
+                          id="suprailiac"
+                          label="Suprailiaco"
+                          value={formData.suprailiac}
+                          onChange={handleInputChange('suprailiac')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="15.0"
+                          required
+                        />
+                        <NumberInput
+                          id="thigh"
+                          label="Muslo"
+                          value={formData.thigh}
+                          onChange={handleInputChange('thigh')}
+                          min={1}
+                          max={50}
+                          step={0.1}
+                          unit="mm"
+                          placeholder="18.0"
+                          required
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  <Button
+                    type="submit"
+                    disabled={!isFormValid()}
+                    className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
+                  >
+                    📏 Calcular grasa corporal
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </section>
+
+          {result && (
+            <section className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
+              <header className="p-6 pb-0">
+                <h2 className="text-2xl font-semibold flex items-center justify-center">
+                  <span className="text-3xl mr-3">🎯</span>
+                  Tu Composición Corporal
+                </h2>
+              </header>
+              <div className="p-6">
                 <div className="text-center space-golden-md">
                   <div className="space-golden-sm">
                     <div className="text-6xl font-bold text-primary mb-[0.618rem]">
@@ -442,7 +444,7 @@ export default function GrasaCorporalPage() {
                   </div>
 
                   <div className="grid gap-[1.618rem] md:grid-cols-2 mt-[2.618rem]">
-                    <div className="text-center card-golden bg-secondary/50">
+                    <article className="text-center card-golden bg-secondary/50">
                       <div className="text-4xl font-bold text-blue-600 mb-[0.618rem]">
                         {formatGrams(result.leanMass, 1)}
                       </div>
@@ -452,9 +454,9 @@ export default function GrasaCorporalPage() {
                       <p className="text-sm text-muted-foreground">
                         Músculo, huesos, órganos
                       </p>
-                    </div>
+                    </article>
 
-                    <div className="text-center card-golden bg-primary text-primary-foreground">
+                    <article className="text-center card-golden bg-primary text-primary-foreground">
                       <div className="text-4xl font-bold mb-[0.618rem]">
                         {formatGrams(result.fatMass, 1)}
                       </div>
@@ -464,16 +466,16 @@ export default function GrasaCorporalPage() {
                       <p className="text-sm opacity-90">
                         Grasa corporal total
                       </p>
-                    </div>
+                    </article>
                   </div>
 
-                  <div className="mt-[2.618rem] card-golden bg-gradient-to-r from-green-50 to-blue-50 border-l-4 border-green-400">
+                  <section className="mt-[2.618rem] card-golden bg-gradient-to-r from-green-50 to-blue-50 border-l-4 border-green-400">
                     <h4 className="font-bold mb-[1.618rem] text-lg flex items-center">
                       <span className="text-2xl mr-3">📊</span>
                       Rangos de grasa corporal
                     </h4>
                     <div className="grid gap-[1.618rem] md:grid-cols-2">
-                      <div>
+                      <article>
                         <h5 className="font-semibold mb-[0.618rem] text-blue-700">Hombres:</h5>
                         <div className="space-golden-xs text-sm">
                           <div className="flex justify-between py-[0.382rem] border-b border-border/30">
@@ -497,8 +499,8 @@ export default function GrasaCorporalPage() {
                             <span className="text-red-600 font-bold">&gt; 25%</span>
                           </div>
                         </div>
-                      </div>
-                      <div>
+                      </article>
+                      <article>
                         <h5 className="font-semibold mb-[0.618rem] text-pink-700">Mujeres:</h5>
                         <div className="space-golden-xs text-sm">
                           <div className="flex justify-between py-[0.382rem] border-b border-border/30">
@@ -522,28 +524,30 @@ export default function GrasaCorporalPage() {
                             <span className="text-red-600 font-bold">&gt; 32%</span>
                           </div>
                         </div>
-                      </div>
+                      </article>
                     </div>
-                  </div>
+                  </section>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </section>
           )}
 
-          <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
-            <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
-              ¿Qué es la grasa corporal? Métodos de medición por pliegues cutáneos
-            </h2>
+          <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
+            <header>
+              <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
+                ¿Qué es la grasa corporal? Métodos de medición por pliegues cutáneos
+              </h2>
 
-            <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
-              La grasa corporal es el porcentaje de tu peso total que corresponde a tejido adiposo.
-              A diferencia del <a href="/imc" className="text-blue-600 hover:underline font-medium transition-golden">IMC</a>,
-              la medición de grasa corporal distingue entre masa muscular y grasa, proporcionando
-              una evaluación más precisa de tu composición corporal.
-            </p>
+              <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
+                La grasa corporal es el porcentaje de tu peso total que corresponde a tejido adiposo.
+                A diferencia del <a href="/imc" className="text-blue-600 hover:underline font-medium transition-golden">IMC</a>,
+                la medición de grasa corporal distingue entre masa muscular y grasa, proporcionando
+                una evaluación más precisa de tu composición corporal.
+              </p>
+            </header>
 
-            <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
-              <div className="card-golden space-golden-sm">
+            <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
+              <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                   <span className="text-2xl mr-3">🔬</span>
                   Métodos de medición
@@ -566,9 +570,9 @@ export default function GrasaCorporalPage() {
                     <span>±3-5% con medición correcta de pliegues</span>
                   </li>
                 </ul>
-              </div>
+              </article>
 
-              <div className="card-golden space-golden-sm">
+              <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                   <span className="text-2xl mr-3">⚖️</span>
                   Tipos de grasa corporal
@@ -591,16 +595,16 @@ export default function GrasaCorporalPage() {
                     <span><strong>Grasa intramuscular:</strong> Dentro del tejido muscular</span>
                   </li>
                 </ul>
-              </div>
-            </div>
+              </article>
+            </section>
 
-            <div className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+            <section className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
               <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📏</span>
                 Cómo medir pliegues cutáneos correctamente
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
                     <span className="text-lg mr-2">🛠️</span>
                     Herramientas necesarias:
@@ -623,8 +627,8 @@ export default function GrasaCorporalPage() {
                       <span><strong>Ayuda de otra persona:</strong> Para mediciones precisas</span>
                     </li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">📍</span>
                     Ubicaciones de medición:
@@ -647,17 +651,17 @@ export default function GrasaCorporalPage() {
                       <span><strong>Subescapular:</strong> Debajo del omóplato</span>
                     </li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
+            <section className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
               <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💪</span>
                 Importancia de la grasa corporal para la salud
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">✅</span>
                     Beneficios de niveles óptimos:
@@ -684,8 +688,8 @@ export default function GrasaCorporalPage() {
                       <span>Mejor rendimiento deportivo</span>
                     </li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
                     <span className="text-lg mr-2">⚠️</span>
                     Riesgos de niveles inadecuados:
@@ -712,17 +716,17 @@ export default function GrasaCorporalPage() {
                       <span>Problemas articulares y de movilidad</span>
                     </li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🎯</span>
                 Cómo mejorar tu composición corporal
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
                     <span className="text-lg mr-2">📉</span>
                     Para reducir grasa corporal:
@@ -749,8 +753,8 @@ export default function GrasaCorporalPage() {
                       <span>Sueño de calidad (7-9 horas)</span>
                     </li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">📈</span>
                     Para aumentar masa muscular:
@@ -777,11 +781,11 @@ export default function GrasaCorporalPage() {
                       <span>Monitoreo regular de composición corporal</span>
                     </li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">⚠️</span>
                 Limitaciones y consideraciones importantes
@@ -812,40 +816,40 @@ export default function GrasaCorporalPage() {
                   <span><strong>Consistencia:</strong> Usar siempre el mismo método y medidor</span>
                 </li>
               </ul>
-            </div>
+            </section>
 
-            <div className="space-golden-md">
+            <section className="space-golden-md">
               <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre grasa corporal</h3>
               <div className="space-golden-sm">
-                <div className="card-golden bg-gray-50">
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Cuál es la diferencia entre IMC y grasa corporal?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     El <a href="/imc" className="text-blue-600 hover:underline font-medium">IMC</a> solo considera peso y altura,
                     mientras que la grasa corporal distingue entre músculo y grasa. Un atleta puede tener IMC alto pero
                     grasa corporal baja, mientras que alguien con poco músculo puede tener IMC normal pero grasa corporal alta.
                   </p>
-                </div>
-                <div className="card-golden bg-gray-50">
+                </article>
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Con qué frecuencia debo medir mi grasa corporal?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Para seguimiento de cambios, mide cada 2-4 semanas. La grasa corporal cambia más lentamente que el peso.
                     Es más importante la tendencia a largo plazo que las mediciones individuales. Siempre mide en las mismas
                     condiciones (hora, hidratación, etc.).
                   </p>
-                </div>
-                <div className="card-golden bg-gray-50">
+                </article>
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Puedo medir mi grasa corporal en casa?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Sí, con un calibrador de pliegues de calidad y práctica. Sin embargo, es más preciso que otra persona
                     tome las mediciones. Para máxima precisión, considera una evaluación profesional con DEXA o BodPod,
                     especialmente si necesitas datos muy exactos.
                   </p>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
             {/* Enlaces contextuales */}
-            <div className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+            <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
               <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Complementa tu análisis de composición corporal
@@ -868,15 +872,15 @@ export default function GrasaCorporalPage() {
                   <span><strong><a href="/composicion" className="text-blue-600 hover:underline font-medium transition-golden">Método Navy:</a></strong> Compara con mediciones de circunferencias</span>
                 </li>
               </ul>
-            </div>
+            </section>
 
             {/* Calculadoras relacionadas */}
             <RelatedCalculators currentPage="/grasa-corporal" />
 
             {/* Widget para embeber - genera backlinks naturales */}
-            <div className="flex justify-center">
+            <section className="flex justify-center">
               <EmbedWidget />
-            </div>
+            </section>
 
             {/* Social Share */}
             <SocialShare
@@ -887,8 +891,8 @@ export default function GrasaCorporalPage() {
 
             {/* Navegación entre calculadoras */}
             <CalculatorNavigation currentCalculator="grasa-corporal" />
-          </div>
-        </div>
+          </article>
+        </main>
       </Container>
     </>
   );

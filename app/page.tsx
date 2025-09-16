@@ -23,9 +23,9 @@ export default function HomePage() {
           Saltar a calculadora
         </a>
 
-        <div className="max-w-5xl mx-auto space-golden-lg">
-
-          <div className="text-center space-golden-md">
+        <main className="max-w-5xl mx-auto space-golden-lg">
+          {/* Hero Section */}
+          <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora Profesional de Calorías y Macros
             </h1>
@@ -33,20 +33,22 @@ export default function HomePage() {
               Calculadora médica profesional con fórmula Mifflin-St Jeor validada científicamente.
               Resultados precisos para nutricionistas, médicos y profesionales de la salud.
             </p>
-          </div>
+          </header>
 
           {/* Calculator - Contenido crítico primero */}
-          <CalculatorForm />
+          <section id="calculator" aria-label="Calculadora de calorías y macros">
+            <CalculatorForm />
+          </section>
 
           {/* Educational Content */}
-          <div className="space-golden-lg pt-[2.618rem]">
-            <div className="prose prose-gray max-w-none">
+          <article className="space-golden-lg pt-[2.618rem]">
+            <header className="prose prose-gray max-w-none">
               <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
                 ¿Por qué elegir nuestra calculadora médica profesional?
               </h2>
 
-              <div className="grid gap-[1.618rem] md:grid-cols-2 mt-[2.618rem]">
-                <div className="card-golden space-golden-sm">
+              <section className="grid gap-[1.618rem] md:grid-cols-2 mt-[2.618rem]">
+                <article className="card-golden space-golden-sm">
                   <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                     <span className="text-2xl mr-3">🏥</span>
                     Validación médica
@@ -56,9 +58,9 @@ export default function HomePage() {
                     precisa para calcular el metabolismo basal (BMR). Esta fórmula está validada científicamente
                     y es utilizada por nutricionistas y médicos en consultas profesionales.
                   </p>
-                </div>
+                </article>
 
-                <div className="card-golden space-golden-sm">
+                <article className="card-golden space-golden-sm">
                   <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                     <span className="text-2xl mr-3">⚡</span>
                     Factor de actividad y ejercicio
@@ -68,9 +70,9 @@ export default function HomePage() {
                     diaria para obtener tu <a href="/tdee" className="text-blue-600 hover:underline font-medium">TDEE (Total Daily Energy Expenditure)</a>, que representa
                     las calorías totales que quemas al día. Puedes calcularlo por separado en nuestra calculadora especializada.
                   </p>
-                </div>
+                </article>
 
-                <div className="card-golden space-golden-sm">
+                <article className="card-golden space-golden-sm">
                   <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                     <span className="text-2xl mr-3">🎯</span>
                     Objetivos: perder grasa, mantener peso, ganar músculo
@@ -79,9 +81,9 @@ export default function HomePage() {
                     Ajustamos tus calorías según tu objetivo: déficit del 20% para perder grasa,
                     mantenimiento para peso estable, o surplus del 10% para ganar masa muscular.
                   </p>
-                </div>
+                </article>
 
-                <div className="card-golden space-golden-sm">
+                <article className="card-golden space-golden-sm">
                   <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                     <span className="text-2xl mr-3">🥗</span>
                     Distribución de macros
@@ -90,12 +92,12 @@ export default function HomePage() {
                     Calculamos la distribución óptima de macros (proteínas, grasas y carbohidratos)
                     basada en las <a href="https://www.who.int/publications/i/item/9789241549028" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">recomendaciones de la OMS</a> y evidencias científicas según tu objetivo específico.
                   </p>
-                </div>
-              </div>
-            </div>
+                </article>
+              </section>
+            </header>
 
-            <div className="grid gap-[1.618rem] md:grid-cols-2 mt-[2.618rem]">
-              <div className="card-golden-lg space-golden-sm">
+            <section className="grid gap-[1.618rem] md:grid-cols-2 mt-[2.618rem]">
+              <article className="card-golden-lg space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[1.618rem] flex items-center">
                   <span className="text-2xl mr-3">🏃‍♂️</span>
                   Niveles de ejercicio para calcular calorías
@@ -122,9 +124,9 @@ export default function HomePage() {
                     <span className="text-xs">Ejercicio muy intenso, trabajo físico</span>
                   </div>
                 </div>
-              </div>
+              </article>
 
-              <div className="card-golden-lg space-golden-sm">
+              <article className="card-golden-lg space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[1.618rem] flex items-center">
                   <span className="text-2xl mr-3">📈</span>
                   Objetivos de peso: perder grasa, mantener, ganar músculo
@@ -147,46 +149,46 @@ export default function HomePage() {
                     <span className="text-xs">Ligero déficit + entrenamiento</span>
                   </div>
                 </div>
-              </div>
-            </div>
+              </article>
+            </section>
 
-            <div className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
+            <section className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
               <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🎯</span>
                 Guía práctica para usar tus macros
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-3">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">🥩</span>
                     Proteínas (25-30%)
                   </h4>
                   <p className="text-sm text-green-800 leading-[1.618]">1.6-2.2g por kg de peso corporal según <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">estudios científicos</a>. Calcula tus necesidades específicas con nuestra <a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">calculadora de proteína</a>. Prioriza carnes magras, pescado, huevos, lácteos y legumbres.</p>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">🥑</span>
                     Grasas (20-35%)
                   </h4>
                   <p className="text-sm text-green-800 leading-[1.618]">0.8-1.2g por kg de peso. Incluye aceite de oliva, frutos secos, aguacate y pescado graso.</p>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">🍚</span>
                     Carbohidratos (45-65%)
                   </h4>
                   <p className="text-sm text-green-800 leading-[1.618]">Completa el resto de calorías. Prioriza cereales integrales, frutas y verduras.</p>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🔧</span>
                 ¿Te estancaste? Cómo ajustar tus calorías
               </h3>
               <div className="text-sm text-green-800 space-golden-sm">
-                <div className="card-golden bg-white/50 mb-[1.618rem]">
+                <article className="card-golden bg-white/50 mb-[1.618rem]">
                   <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
                     <span className="text-lg mr-2">📉</span>
                     Si no pierdes peso después de 2-3 semanas:
@@ -195,8 +197,8 @@ export default function HomePage() {
                     Reduce 100-150 kcal/día de tu objetivo actual. Prioriza quitar carbohidratos o grasas,
                     mantén las proteínas estables.
                   </p>
-                </div>
-                <div className="card-golden bg-white/50 mb-[1.618rem]">
+                </article>
+                <article className="card-golden bg-white/50 mb-[1.618rem]">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">📈</span>
                     Si no ganas peso/músculo:
@@ -205,8 +207,8 @@ export default function HomePage() {
                     Aumenta 100-200 kcal/día. Añade carbohidratos alrededor del entrenamiento
                     y asegúrate de consumir suficiente proteína (1.6-2.2g/kg).
                   </p>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-orange-700 flex items-center">
                     <span className="text-lg mr-2">🚨</span>
                     Señales de que necesitas ajustar:
@@ -229,11 +231,11 @@ export default function HomePage() {
                       <span>Cambios en el rendimiento deportivo</span>
                     </li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">⚠️</span>
                 Consideraciones importantes de la calculadora
@@ -264,50 +266,50 @@ export default function HomePage() {
                   <span>Esta herramienta no sustituye el consejo médico personalizado</span>
                 </li>
               </ul>
-            </div>
+            </section>
 
-            <div className="space-golden-md mt-[2.618rem]">
+            <section className="space-golden-md mt-[2.618rem]">
               <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes para profesionales de la salud</h3>
               <div className="space-golden-sm">
-                <div className="card-golden bg-gray-50">
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Cuántas calorías debo consumir para ganar masa muscular?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Para ganar masa muscular, necesitas un surplus calórico del 10-15% sobre tu TDEE.
                     Nuestra calculadora fit te ayuda a determinar exactamente cuántas calorías consumir según tu peso y ejercicio.
                   </p>
-                </div>
-                <div className="card-golden bg-gray-50">
+                </article>
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Cómo calcular calorías por macro correctamente?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Las calorías por macro son: Proteínas (4 kcal/g), Carbohidratos (4 kcal/g), Grasas (9 kcal/g).
                     Nuestra calculadora fit distribuye automáticamente tus macros según tu objetivo específico.
                   </p>
-                </div>
-                <div className="card-golden bg-gray-50">
+                </article>
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Con qué frecuencia debo recalcular mis macros?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Recalcula cada 4-6 semanas o cuando hayas perdido/ganado 2-3kg de peso.
                     Tu metabolismo se adapta, por lo que es importante ajustar regularmente.
                   </p>
-                </div>
-                <div className="card-golden bg-gray-50">
+                </article>
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Es mejor usar calculadora fit o consultar nutricionista?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Nuestra calculadora fit es perfecta para objetivos generales de fitness. Para condiciones médicas específicas,
                     embarazo, o problemas de salud, consulta siempre con un profesional de la nutrición.
                   </p>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
             {/* Sección específica para búsquedas populares */}
-            <div className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+            <section className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
               <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🏥</span>
                 Herramientas Médicas Más Utilizadas
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
                     <span className="text-lg mr-2">🏥</span>
                     Calculadora Médica de Calorías para Ganancia Muscular
@@ -316,8 +318,8 @@ export default function HomePage() {
                     Calculadora profesional para nutricionistas y médicos deportivos. Surplus calórico controlado basado en evidencia científica para ganancia muscular saludable.
                   </p>
                   <a href="/" className="text-blue-600 hover:underline font-medium text-sm">Calculadora médica de calorías →</a>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
                     <span className="text-lg mr-2">🏥</span>
                     Calculadora Médica de Macronutrientes
@@ -326,8 +328,8 @@ export default function HomePage() {
                     Distribución profesional de macronutrientes basada en estándares médicos. Utilizada por nutricionistas para planes alimentarios precisos.
                   </p>
                   <a href="/" className="text-blue-600 hover:underline font-medium text-sm">Calculadora médica de macros →</a>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
                     <span className="text-lg mr-2">🏥</span>
                     Calculadora Médica de Masa Muscular
@@ -336,8 +338,8 @@ export default function HomePage() {
                     Calculadora profesional con fórmula Lee validada científicamente. Utilizada por médicos deportivos para evaluación de composición corporal.
                   </p>
                   <a href="/masa-muscular" className="text-blue-600 hover:underline font-medium text-sm">Calculadora médica de masa muscular →</a>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
                     <span className="text-lg mr-2">🏥</span>
                     Calculadora Médica de Grasa Corporal
@@ -346,12 +348,12 @@ export default function HomePage() {
                     Métodos Jackson-Pollock y Durnin-Womersley validados científicamente. Precisión de ±3-5% utilizada por profesionales de la salud.
                   </p>
                   <a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium text-sm">Calculadora médica de grasa corporal →</a>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
             {/* Enlaces contextuales para mejor SEO */}
-            <div className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+            <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
               <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🏥</span>
                 Herramientas médicas complementarias para profesionales
@@ -370,15 +372,15 @@ export default function HomePage() {
                   <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de proteína:</a></strong> Necesidades basadas en evidencia científica para profesionales</span>
                 </li>
               </ul>
-            </div>
+            </section>
 
             {/* Calculadoras relacionadas mejoradas */}
             <RelatedCalculators currentPage="/" />
 
             {/* Widget para embeber - genera backlinks naturales */}
-            <div className="flex justify-center">
+            <section className="flex justify-center">
               <EmbedWidget />
-            </div>
+            </section>
 
             {/* Social Share */}
             <SocialShare
@@ -389,8 +391,8 @@ export default function HomePage() {
 
             {/* Navegación entre calculadoras */}
             <CalculatorNavigation currentCalculator="home" />
-          </div>
-        </div>
+          </article>
+        </main>
       </Container>
     </>
   );

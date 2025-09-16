@@ -78,8 +78,8 @@ export default function RitmoCardiacoPage() {
       <SchemaMarkup calculatorKey="ritmo-cardiaco" />
 
       <Container size="xl" className="py-[4.236rem]">
-        <div className="max-w-5xl mx-auto space-golden-lg">
-          <div className="text-center space-golden-md">
+        <main className="max-w-5xl mx-auto space-golden-lg">
+          <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora de Ritmo Cardíaco Médica
             </h1>
@@ -87,78 +87,80 @@ export default function RitmoCardiacoPage() {
               Calculadora profesional de frecuencia cardíaca con fórmulas médicas validadas.
               Zonas de entrenamiento precisas para deportistas y profesionales de la salud.
             </p>
-          </div>
+          </header>
 
-          <Card className="card-golden-lg shadow-golden-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl font-semibold flex items-center">
-                <span className="text-3xl mr-3">❤️</span>
-                Calculadora de Ritmo Cardíaco
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-golden-md">
-                <div className="grid gap-[1.618rem] md:grid-cols-2">
-                  <NumberInput
-                    id="age"
-                    label="Edad"
-                    value={formData.age}
-                    onChange={handleInputChange('age')}
-                    min={15}
-                    max={100}
-                    unit="años"
-                    placeholder="25"
-                    required
-                  />
+          <section id="calculator" aria-label="Calculadora de ritmo cardíaco">
+            <Card className="card-golden-lg shadow-golden-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl font-semibold flex items-center">
+                  <span className="text-3xl mr-3">❤️</span>
+                  Calculadora de Ritmo Cardíaco
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-golden-md">
+                  <div className="grid gap-[1.618rem] md:grid-cols-2">
+                    <NumberInput
+                      id="age"
+                      label="Edad"
+                      value={formData.age}
+                      onChange={handleInputChange('age')}
+                      min={15}
+                      max={100}
+                      unit="años"
+                      placeholder="25"
+                      required
+                    />
+
+                    <SelectInput
+                      id="sex"
+                      label="Sexo biológico"
+                      value={formData.sex}
+                      onChange={handleInputChange('sex')}
+                      options={[
+                        { value: 'male', label: 'Hombre' },
+                        { value: 'female', label: 'Mujer' }
+                      ]}
+                      required
+                    />
+                  </div>
 
                   <SelectInput
-                    id="sex"
-                    label="Sexo biológico"
-                    value={formData.sex}
-                    onChange={handleInputChange('sex')}
+                    id="formula"
+                    label="Fórmula de cálculo"
+                    value={formData.formula}
+                    onChange={handleInputChange('formula')}
                     options={[
-                      { value: 'male', label: 'Hombre' },
-                      { value: 'female', label: 'Mujer' }
+                      { value: 'tanaka', label: 'Fórmula de Tanaka (Recomendada)' },
+                      { value: 'gulati', label: 'Fórmula de Gulati (Específica para mujeres)' },
+                      { value: 'haskell', label: 'Fórmula clásica (220 - edad)' }
                     ]}
                     required
                   />
-                </div>
 
-                <SelectInput
-                  id="formula"
-                  label="Fórmula de cálculo"
-                  value={formData.formula}
-                  onChange={handleInputChange('formula')}
-                  options={[
-                    { value: 'tanaka', label: 'Fórmula de Tanaka (Recomendada)' },
-                    { value: 'gulati', label: 'Fórmula de Gulati (Específica para mujeres)' },
-                    { value: 'haskell', label: 'Fórmula clásica (220 - edad)' }
-                  ]}
-                  required
-                />
-
-                <Button
-                  type="submit"
-                  disabled={!isFormValid}
-                  className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
-                >
-                  ❤️ Calcular Zonas de Entrenamiento
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                  <Button
+                    type="submit"
+                    disabled={!isFormValid}
+                    className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
+                  >
+                    ❤️ Calcular Zonas de Entrenamiento
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </section>
 
           {result && (
-            <div className="space-golden-md">
+            <section className="space-golden-md">
               {/* Frecuencia Cardíaca Máxima */}
-              <Card className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-semibold flex items-center justify-center">
+              <article className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
+                <header className="p-6 pb-0">
+                  <h2 className="text-2xl font-semibold flex items-center justify-center">
                     <span className="text-3xl mr-3">💓</span>
                     Tu Frecuencia Cardíaca Máxima
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+                  </h2>
+                </header>
+                <div className="p-6">
                   <div className="text-center space-golden-sm">
                     <div className="text-6xl font-bold text-red-600 mb-[0.618rem]">
                       {result.maxHR}
@@ -173,18 +175,18 @@ export default function RitmoCardiacoPage() {
                       {result.accuracy}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </article>
 
               {/* Zona de Quema de Grasa */}
-              <Card className="card-golden-lg shadow-golden-lg border-2 border-orange-400/20">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-semibold flex items-center justify-center">
+              <article className="card-golden-lg shadow-golden-lg border-2 border-orange-400/20">
+                <header className="p-6 pb-0">
+                  <h2 className="text-2xl font-semibold flex items-center justify-center">
                     <span className="text-3xl mr-3">🔥</span>
                     Zona Óptima de Quema de Grasa
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+                  </h2>
+                </header>
+                <div className="p-6">
                   <div className="card-golden bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-400">
                     <div className="text-center space-golden-sm">
                       <div className="text-4xl font-bold text-orange-600 mb-[0.618rem]">
@@ -205,29 +207,29 @@ export default function RitmoCardiacoPage() {
                       </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </article>
 
               {/* Zonas de Entrenamiento */}
-              <Card className="card-golden-lg shadow-golden-lg">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-semibold flex items-center justify-center">
+              <article className="card-golden-lg shadow-golden-lg">
+                <header className="p-6 pb-0">
+                  <h2 className="text-2xl font-semibold flex items-center justify-center">
                     <span className="text-3xl mr-3">🎯</span>
                     Zonas de Entrenamiento Cardiovascular
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+                  </h2>
+                </header>
+                <div className="p-6">
                   <div className="space-golden-md">
                     {Object.entries(result.zones).map(([key, zone]) => {
                       const percentage = Math.round((zone.min / result.maxHR) * 100);
                       const percentageMax = Math.round((zone.max / result.maxHR) * 100);
 
                       return (
-                        <div key={key} className="card-golden">
+                        <section key={key} className="card-golden">
                           <div className="flex justify-between items-center mb-[0.618rem]">
-                            <h4 className={`font-bold text-lg ${zone.color}`}>
+                            <h3 className={`font-bold text-lg ${zone.color}`}>
                               {zone.name}
-                            </h4>
+                            </h3>
                             <div className="text-right">
                               <div className={`font-bold text-xl ${zone.color}`}>
                                 {zone.min} - {zone.max} ppm
@@ -253,27 +255,29 @@ export default function RitmoCardiacoPage() {
                           <p className="text-sm text-muted-foreground leading-[1.618]">
                             {zone.description}
                           </p>
-                        </div>
+                        </section>
                       );
                     })}
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                </div>
+              </article>
+            </section>
           )}
 
-          <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
-            <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
-              Entendiendo tu ritmo cardíaco y zonas de entrenamiento
-            </h2>
+          <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
+            <header>
+              <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
+                Entendiendo tu ritmo cardíaco y zonas de entrenamiento
+              </h2>
 
-            <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
-              El entrenamiento por zonas de frecuencia cardíaca te permite optimizar cada sesión
-              según tu objetivo específico: quemar grasa, mejorar resistencia o aumentar potencia.
-            </p>
+              <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
+                El entrenamiento por zonas de frecuencia cardíaca te permite optimizar cada sesión
+                según tu objetivo específico: quemar grasa, mejorar resistencia o aumentar potencia.
+              </p>
+            </header>
 
-            <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
-              <div className="card-golden space-golden-sm">
+            <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
+              <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                   <span className="text-2xl mr-3">🔬</span>
                   Fórmulas científicas
@@ -295,9 +299,9 @@ export default function RitmoCardiacoPage() {
                     <span><strong>Clásica:</strong> 220 - edad - Ampliamente conocida</span>
                   </li>
                 </ul>
-              </div>
+              </article>
 
-              <div className="card-golden space-golden-sm">
+              <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                   <span className="text-2xl mr-3">🎯</span>
                   Beneficios del entrenamiento por zonas
@@ -320,16 +324,16 @@ export default function RitmoCardiacoPage() {
                     <span>Prevención del sobreentrenamiento</span>
                   </li>
                 </ul>
-              </div>
-            </div>
+              </article>
+            </section>
 
-            <div className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-[2.618rem]">
+            <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-[2.618rem]">
               <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🔥</span>
                 Guía detallada de zonas de entrenamiento
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-gray-700 flex items-center">
                     <span className="text-lg mr-2">⚪</span>
                     Zona 1 - Recuperación (50-60%)
@@ -340,8 +344,8 @@ export default function RitmoCardiacoPage() {
                     <li>• Sensación: Muy fácil, puedes conversar</li>
                     <li>• Beneficio: Recuperación activa</li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
                     <span className="text-lg mr-2">🔵</span>
                     Zona 2 - Base Aeróbica (60-70%)
@@ -352,8 +356,8 @@ export default function RitmoCardiacoPage() {
                     <li>• Sensación: Cómodo, respiración controlada</li>
                     <li>• Beneficio: Mejora la eficiencia metabólica</li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">🟢</span>
                     Zona 3 - Aeróbica (70-80%)
@@ -364,8 +368,8 @@ export default function RitmoCardiacoPage() {
                     <li>• Sensación: Moderado, respiración profunda</li>
                     <li>• Beneficio: Mejora la capacidad aeróbica</li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-yellow-700 flex items-center">
                     <span className="text-lg mr-2">🟡</span>
                     Zona 4 - Umbral (80-90%)
@@ -376,17 +380,17 @@ export default function RitmoCardiacoPage() {
                     <li>• Sensación: Difícil, respiración agitada</li>
                     <li>• Beneficio: Aumenta el umbral anaeróbico</li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+            <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
               <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🔥</span>
                 Maximizando la quema de grasa
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-orange-700">🎯 Zona óptima</h4>
                   <ul className="text-sm text-orange-800 space-golden-xs">
                     <li>• <strong>60-70% FC máxima</strong> - Zona 2</li>
@@ -394,8 +398,8 @@ export default function RitmoCardiacoPage() {
                     <li>• Puedes mantener esta intensidad por tiempo prolongado</li>
                     <li>• Ideal para personas que buscan perder peso</li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-orange-700">⏱️ Duración recomendada</h4>
                   <ul className="text-sm text-orange-800 space-golden-xs">
                     <li>• <strong>Mínimo:</strong> 30 minutos para activar lipolisis</li>
@@ -403,17 +407,17 @@ export default function RitmoCardiacoPage() {
                     <li>• <strong>Frecuencia:</strong> 3-5 veces por semana</li>
                     <li>• Combina con <a href="/proteina" className="text-blue-600 hover:underline">dieta alta en proteína</a></li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
+            <section className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
               <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📱</span>
                 Cómo monitorear tu ritmo cardíaco
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700">📊 Métodos de medición</h4>
                   <ul className="text-sm text-green-800 space-golden-xs">
                     <li>• <strong>Pulsómetro de pecho:</strong> Más preciso</li>
@@ -421,8 +425,8 @@ export default function RitmoCardiacoPage() {
                     <li>• <strong>Medición manual:</strong> Pulso en muñeca o cuello</li>
                     <li>• <strong>Máquinas de gimnasio:</strong> Sensores integrados</li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700">💡 Consejos prácticos</h4>
                   <ul className="text-sm text-green-800 space-golden-xs">
                     <li>• Mide en reposo para establecer línea base</li>
@@ -430,11 +434,11 @@ export default function RitmoCardiacoPage() {
                     <li>• Considera factores externos (calor, estrés)</li>
                     <li>• Mantente <a href="/agua" className="text-blue-600 hover:underline">bien hidratado</a></li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">⚠️</span>
                 Consideraciones importantes
@@ -457,37 +461,37 @@ export default function RitmoCardiacoPage() {
                   <span><strong>Escucha tu cuerpo:</strong> Las sensaciones son tan importantes como los números</span>
                 </li>
               </ul>
-            </div>
+            </section>
 
-            <div className="space-golden-md">
+            <section className="space-golden-md">
               <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes</h3>
               <div className="space-golden-sm">
-                <div className="card-golden bg-gray-50">
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Qué fórmula debo usar para calcular mi FC máxima?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     La fórmula de Tanaka es generalmente la más precisa para la población general.
                     Las mujeres pueden usar la fórmula de Gulati para mayor precisión específica por género.
                   </p>
-                </div>
-                <div className="card-golden bg-gray-50">
+                </article>
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Puedo quemar grasa entrenando en zonas más altas?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Sí, pero en zonas altas quemas más carbohidratos que grasa. La Zona 2 (60-70%)
                     es óptima para maximizar el uso de grasa como combustible.
                   </p>
-                </div>
-                <div className="card-golden bg-gray-50">
+                </article>
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Cómo se relaciona con mi <a href="/" className="text-blue-600 hover:underline">plan nutricional</a>?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     El entrenamiento cardiovascular debe complementar tu plan nutricional. Si buscas
                     perder grasa, combina Zona 2 con un déficit calórico moderado calculado con nuestras herramientas.
                   </p>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
             {/* Enlaces contextuales */}
-            <div className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+            <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
               <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Optimiza tu plan de entrenamiento completo
@@ -506,15 +510,15 @@ export default function RitmoCardiacoPage() {
                   <span><strong><a href="/agua" className="text-blue-600 hover:underline font-medium transition-golden">Mantén hidratación óptima:</a></strong> Fundamental para el rendimiento cardiovascular</span>
                 </li>
               </ul>
-            </div>
+            </section>
 
             {/* Calculadoras relacionadas */}
             <RelatedCalculators currentPage="/ritmo-cardiaco" />
 
             {/* Widget para embeber - genera backlinks naturales */}
-            <div className="flex justify-center">
+            <section className="flex justify-center">
               <EmbedWidget />
-            </div>
+            </section>
 
             {/* Social Share */}
             <SocialShare
@@ -525,8 +529,8 @@ export default function RitmoCardiacoPage() {
 
             {/* Navegación entre calculadoras */}
             <CalculatorNavigation currentCalculator="ritmo-cardiaco" />
-          </div>
-        </div>
+          </article>
+        </main>
       </Container>
     </>
   );

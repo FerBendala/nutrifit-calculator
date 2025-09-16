@@ -119,8 +119,8 @@ export default function ComposicionPage() {
       <SchemaMarkup calculatorKey="composicion" />
 
       <Container size="xl" className="py-[4.236rem]">
-        <div className="max-w-5xl mx-auto space-golden-lg">
-          <div className="text-center space-golden-md">
+        <main className="max-w-5xl mx-auto space-golden-lg">
+          <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora de Composición Corporal Médica
             </h1>
@@ -128,110 +128,112 @@ export default function ComposicionPage() {
               Calculadora profesional de composición corporal con método Navy validado científicamente.
               Porcentaje de grasa, masa magra y ratio cintura-cadera precisos para nutricionistas.
             </p>
-          </div>
+          </header>
 
-          <Card className="card-golden-lg shadow-golden-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl font-semibold flex items-center">
-                <span className="text-3xl mr-3">🎯</span>
-                Calculadora de Composición Corporal
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-golden-md">
-                <div className="grid gap-[1.618rem] md:grid-cols-2">
-                  <SelectInput
-                    id="sex"
-                    label="Sexo biológico"
-                    value={formData.sex}
-                    onChange={handleInputChange('sex')}
-                    options={[
-                      { value: 'male', label: 'Hombre' },
-                      { value: 'female', label: 'Mujer' }
-                    ]}
-                    required
-                  />
+          <section id="calculator" aria-label="Calculadora de composición corporal">
+            <Card className="card-golden-lg shadow-golden-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl font-semibold flex items-center">
+                  <span className="text-3xl mr-3">🎯</span>
+                  Calculadora de Composición Corporal
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-golden-md">
+                  <div className="grid gap-[1.618rem] md:grid-cols-2">
+                    <SelectInput
+                      id="sex"
+                      label="Sexo biológico"
+                      value={formData.sex}
+                      onChange={handleInputChange('sex')}
+                      options={[
+                        { value: 'male', label: 'Hombre' },
+                        { value: 'female', label: 'Mujer' }
+                      ]}
+                      required
+                    />
 
-                  <NumberInput
-                    id="height"
-                    label="Altura"
-                    value={formData.height}
-                    onChange={handleInputChange('height')}
-                    min={130}
-                    max={250}
-                    unit="cm"
-                    placeholder="170"
-                    required
-                  />
-
-                  <NumberInput
-                    id="weight"
-                    label="Peso"
-                    value={formData.weight}
-                    onChange={handleInputChange('weight')}
-                    min={30}
-                    max={300}
-                    step={0.1}
-                    unit="kg"
-                    placeholder="70.0"
-                    required
-                  />
-
-                  <NumberInput
-                    id="waist"
-                    label="Circunferencia de cintura"
-                    value={formData.waist}
-                    onChange={handleInputChange('waist')}
-                    min={50}
-                    max={200}
-                    step={0.1}
-                    unit="cm"
-                    placeholder="80.0"
-                    required
-                  />
-
-                  <NumberInput
-                    id="neck"
-                    label="Circunferencia del cuello"
-                    value={formData.neck}
-                    onChange={handleInputChange('neck')}
-                    min={25}
-                    max={60}
-                    step={0.1}
-                    unit="cm"
-                    placeholder="35.0"
-                    required
-                  />
-
-                  {formData.sex === 'female' && (
                     <NumberInput
-                      id="hip"
-                      label="Circunferencia de cadera"
-                      value={formData.hip}
-                      onChange={handleInputChange('hip')}
-                      min={60}
+                      id="height"
+                      label="Altura"
+                      value={formData.height}
+                      onChange={handleInputChange('height')}
+                      min={130}
+                      max={250}
+                      unit="cm"
+                      placeholder="170"
+                      required
+                    />
+
+                    <NumberInput
+                      id="weight"
+                      label="Peso"
+                      value={formData.weight}
+                      onChange={handleInputChange('weight')}
+                      min={30}
+                      max={300}
+                      step={0.1}
+                      unit="kg"
+                      placeholder="70.0"
+                      required
+                    />
+
+                    <NumberInput
+                      id="waist"
+                      label="Circunferencia de cintura"
+                      value={formData.waist}
+                      onChange={handleInputChange('waist')}
+                      min={50}
                       max={200}
                       step={0.1}
                       unit="cm"
-                      placeholder="95.0"
+                      placeholder="80.0"
                       required
                     />
-                  )}
-                </div>
 
-                <Button
-                  type="submit"
-                  disabled={!isFormValid}
-                  className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
-                >
-                  🎯 Calcular Composición
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                    <NumberInput
+                      id="neck"
+                      label="Circunferencia del cuello"
+                      value={formData.neck}
+                      onChange={handleInputChange('neck')}
+                      min={25}
+                      max={60}
+                      step={0.1}
+                      unit="cm"
+                      placeholder="35.0"
+                      required
+                    />
+
+                    {formData.sex === 'female' && (
+                      <NumberInput
+                        id="hip"
+                        label="Circunferencia de cadera"
+                        value={formData.hip}
+                        onChange={handleInputChange('hip')}
+                        min={60}
+                        max={200}
+                        step={0.1}
+                        unit="cm"
+                        placeholder="95.0"
+                        required
+                      />
+                    )}
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={!isFormValid}
+                    className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
+                  >
+                    🎯 Calcular Composición
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </section>
 
           {result && (
-            <div className="space-golden-md">
+            <section className="space-golden-md">
               {/* Main Results */}
               <Card className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
                 <CardHeader>
@@ -243,7 +245,7 @@ export default function ComposicionPage() {
                 <CardContent>
                   <div className="grid gap-[1.618rem] md:grid-cols-2">
                     {/* Body Fat Percentage */}
-                    <div className="text-center card-golden bg-primary text-primary-foreground">
+                    <article className="text-center card-golden bg-primary text-primary-foreground">
                       <div className="text-5xl font-bold mb-[0.618rem]">
                         {formatPercentage(result.bodyFat)}
                       </div>
@@ -253,32 +255,32 @@ export default function ComposicionPage() {
                       <div className={`text-lg font-semibold ${getCategoryColor(result.category)} bg-white px-2 py-1 rounded`}>
                         {result.category}
                       </div>
-                    </div>
+                    </article>
 
                     {/* Body Composition Breakdown */}
                     <div className="space-golden-sm">
-                      <div className="text-center card-golden bg-secondary/50 mb-[1rem]">
+                      <article className="text-center card-golden bg-secondary/50 mb-[1rem]">
                         <div className="text-3xl font-bold text-green-600 mb-[0.382rem]">
                           {formatGrams(result.leanMass, 1)}
                         </div>
                         <div className="text-sm font-semibold text-green-700">
                           Masa Magra (músculo, huesos, órganos)
                         </div>
-                      </div>
+                      </article>
 
-                      <div className="text-center card-golden bg-secondary/50">
+                      <article className="text-center card-golden bg-secondary/50">
                         <div className="text-3xl font-bold text-red-600 mb-[0.382rem]">
                           {formatGrams(result.fatMass, 1)}
                         </div>
                         <div className="text-sm font-semibold text-red-700">
                           Masa Grasa
                         </div>
-                      </div>
+                      </article>
                     </div>
                   </div>
 
                   {/* Visual Bar Chart */}
-                  <div className="mt-[2.618rem] space-golden-sm">
+                  <section className="mt-[2.618rem] space-golden-sm">
                     <h4 className="font-bold mb-[1rem] text-lg text-center">
                       Distribución de Masa Corporal
                     </h4>
@@ -309,52 +311,54 @@ export default function ComposicionPage() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </section>
 
                   {/* Waist-Hip Ratio (if available) */}
                   {result.waistHipRatio > 0 && (
-                    <div className="mt-[2.618rem] card-golden bg-gradient-to-r from-purple-50 to-blue-50 border-l-4 border-purple-400">
+                    <section className="mt-[2.618rem] card-golden bg-gradient-to-r from-purple-50 to-blue-50 border-l-4 border-purple-400">
                       <h4 className="font-bold mb-[1.618rem] text-lg flex items-center">
                         <span className="text-2xl mr-3">📏</span>
                         Ratio Cintura-Cadera
                       </h4>
                       <div className="grid gap-[1rem] md:grid-cols-2">
-                        <div className="text-center">
+                        <article className="text-center">
                           <div className="text-3xl font-bold text-purple-600 mb-[0.382rem]">
                             {result.waistHipRatio.toFixed(2)}
                           </div>
                           <div className="text-sm font-semibold text-purple-700">
                             Ratio C/C
                           </div>
-                        </div>
-                        <div className="text-center">
+                        </article>
+                        <article className="text-center">
                           <div className={`text-lg font-bold ${getRiskColor(result.waistHipRiskLevel)}`}>
                             {result.waistHipRiskLevel}
                           </div>
                           <div className="text-sm text-muted-foreground">
                             Riesgo cardiovascular
                           </div>
-                        </div>
+                        </article>
                       </div>
-                    </div>
+                    </section>
                   )}
                 </CardContent>
               </Card>
-            </div>
+            </section>
           )}
 
-          <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
-            <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
-              Entendiendo tu composición corporal y grasa corporal
-            </h2>
+          <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
+            <header>
+              <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
+                Entendiendo tu composición corporal y grasa corporal
+              </h2>
 
-            <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
-              La composición corporal es más importante que el peso total. Conocer tu porcentaje de grasa
-              y masa magra te permite optimizar tu entrenamiento y nutrición de forma más efectiva.
-            </p>
+              <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
+                La composición corporal es más importante que el peso total. Conocer tu porcentaje de grasa
+                y masa magra te permite optimizar tu entrenamiento y nutrición de forma más efectiva.
+              </p>
+            </header>
 
-            <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
-              <div className="card-golden space-golden-sm">
+            <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
+              <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                   <span className="text-2xl mr-3">🔬</span>
                   Método Navy
@@ -364,9 +368,9 @@ export default function ComposicionPage() {
                   por organizaciones militares. Solo requiere medidas simples con cinta métrica
                   y tiene una precisión del ±3-4% comparado con métodos más costosos.
                 </p>
-              </div>
+              </article>
 
-              <div className="card-golden space-golden-sm">
+              <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                   <span className="text-2xl mr-3">📊</span>
                   Importancia de la composición
@@ -376,16 +380,16 @@ export default function ComposicionPage() {
                   Mayor masa magra significa mayor metabolismo, mejor rendimiento físico y
                   mejor salud metabólica general.
                 </p>
-              </div>
-            </div>
+              </article>
+            </section>
 
-            <div className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-[2.618rem]">
+            <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-[2.618rem]">
               <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📋</span>
                 Rangos de grasa corporal saludable
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
                     <span className="text-lg mr-2">👨</span>
                     Hombres
@@ -412,8 +416,8 @@ export default function ComposicionPage() {
                       <span className="font-medium">25%+</span>
                     </li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-pink-700 flex items-center">
                     <span className="text-lg mr-2">👩</span>
                     Mujeres
@@ -440,17 +444,17 @@ export default function ComposicionPage() {
                       <span className="font-medium">32%+</span>
                     </li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
+            <section className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
               <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🎯</span>
                 Cómo mejorar tu composición corporal
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
                     <span className="text-lg mr-2">📉</span>
                     Para reducir grasa corporal:
@@ -462,8 +466,8 @@ export default function ComposicionPage() {
                     <li>• <a href="/proteina" className="text-blue-600 hover:underline font-medium">Proteína alta</a> (2.0-2.4g/kg)</li>
                     <li>• Sueño de calidad (7-9 horas)</li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">💪</span>
                     Para ganar masa magra:
@@ -475,11 +479,11 @@ export default function ComposicionPage() {
                     <li>• Carbohidratos post-entrenamiento</li>
                     <li>• Descanso adecuado entre sesiones</li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="card-golden-lg bg-purple-50 border-l-4 border-purple-400 mb-[2.618rem]">
+            <section className="card-golden-lg bg-purple-50 border-l-4 border-purple-400 mb-[2.618rem]">
               <h3 className="font-bold text-purple-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📏</span>
                 Ratio Cintura-Cadera: Indicador de salud
@@ -489,7 +493,7 @@ export default function ComposicionPage() {
                 La grasa abdominal (visceral) es más peligrosa que la grasa en caderas y muslos.
               </p>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700">Hombres</h4>
                   <ul className="text-sm space-golden-xs">
                     <li className="flex justify-between">
@@ -505,8 +509,8 @@ export default function ComposicionPage() {
                       <span className="text-red-600 font-medium">&gt; 0.95</span>
                     </li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-pink-700">Mujeres</h4>
                   <ul className="text-sm space-golden-xs">
                     <li className="flex justify-between">
@@ -522,17 +526,17 @@ export default function ComposicionPage() {
                       <span className="text-red-600 font-medium">&gt; 0.85</span>
                     </li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📐</span>
                 Cómo tomar las medidas correctamente
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-yellow-700">Tips para medición precisa:</h4>
                   <ul className="text-sm text-yellow-800 space-golden-xs">
                     <li className="flex items-start">
@@ -556,8 +560,8 @@ export default function ComposicionPage() {
                       <span>Toma 2-3 medidas y promedia</span>
                     </li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-yellow-700">Puntos de medición específicos:</h4>
                   <ul className="text-sm text-yellow-800 space-golden-xs">
                     <li className="flex items-start">
@@ -577,40 +581,40 @@ export default function ComposicionPage() {
                       <span>Mantén la postura erguida y natural</span>
                     </li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="space-golden-md">
+            <section className="space-golden-md">
               <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes</h3>
               <div className="space-golden-sm">
-                <div className="card-golden bg-gray-50">
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Es preciso el método Navy comparado con otros métodos?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     El método Navy tiene una precisión del ±3-4% comparado con métodos gold standard como DEXA.
                     Es más preciso que bioimpedancia y mucho más accesible que hidrodensitometría.
                   </p>
-                </div>
-                <div className="card-golden bg-gray-50">
+                </article>
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Con qué frecuencia debo medir mi composición corporal?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Cada 2-4 semanas es suficiente para ver cambios significativos. Los cambios en composición
                     corporal son graduales, especialmente la ganancia de masa magra.
                   </p>
-                </div>
-                <div className="card-golden bg-gray-50">
+                </article>
+                <article className="card-golden bg-gray-50">
                   <h4 className="font-semibold mb-[0.618rem]">¿Por qué mi porcentaje de grasa es diferente a mi <a href="/imc" className="text-blue-600 hover:underline">IMC</a>?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     El IMC solo considera peso y altura, no distingue entre músculo y grasa. Una persona
                     musculosa puede tener IMC alto pero bajo porcentaje de grasa. La composición corporal
                     es un indicador más preciso de salud y fitness.
                   </p>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
             {/* Enlaces contextuales */}
-            <div className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+            <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
               <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Optimiza tu plan nutricional según tu composición
@@ -629,15 +633,15 @@ export default function ComposicionPage() {
                   <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula según tu masa magra para preservar músculo durante pérdida de grasa</span>
                 </li>
               </ul>
-            </div>
+            </section>
 
             {/* Calculadoras relacionadas */}
             <RelatedCalculators currentPage="/composicion" />
 
             {/* Widget para embeber - genera backlinks naturales */}
-            <div className="flex justify-center">
+            <section className="flex justify-center">
               <EmbedWidget />
-            </div>
+            </section>
 
             {/* Social Share */}
             <SocialShare
@@ -648,8 +652,8 @@ export default function ComposicionPage() {
 
             {/* Navegación entre calculadoras */}
             <CalculatorNavigation currentCalculator="composicion" />
-          </div>
-        </div>
+          </article>
+        </main>
       </Container>
     </>
   );

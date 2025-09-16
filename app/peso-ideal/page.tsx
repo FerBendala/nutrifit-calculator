@@ -87,8 +87,8 @@ export default function PesoIdealPage() {
       <SchemaMarkup calculatorKey="peso-ideal" />
 
       <Container size="xl" className="py-[4.236rem]">
-        <div className="max-w-5xl mx-auto space-golden-lg">
-          <div className="text-center space-golden-md">
+        <main className="max-w-5xl mx-auto space-golden-lg">
+          <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora de Peso Ideal Médica
             </h1>
@@ -96,75 +96,77 @@ export default function PesoIdealPage() {
               Calculadora profesional de peso ideal con 5 fórmulas médicas validadas científicamente.
               Resultados precisos utilizados por nutricionistas y médicos con análisis comparativo.
             </p>
-          </div>
+          </header>
 
-          <Card className="card-golden-lg shadow-golden-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl font-semibold flex items-center">
-                <span className="text-3xl mr-3">⚖️</span>
-                Calculadora de Peso Ideal
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-golden-md">
-                <div className="grid gap-[1.618rem] md:grid-cols-2">
-                  <SelectInput
-                    id="sex"
-                    label="Sexo"
-                    value={formData.sex}
-                    onChange={handleInputChange('sex')}
-                    options={[
-                      { value: 'male', label: 'Hombre' },
-                      { value: 'female', label: 'Mujer' }
-                    ]}
-                  />
-                  <NumberInput
-                    id="height"
-                    label="Altura"
-                    value={formData.height}
-                    onChange={handleInputChange('height')}
-                    placeholder="170"
-                    min={100}
-                    max={250}
-                    unit="cm"
-                    required
-                  />
-                </div>
-
-                <NumberInput
-                  id="weight"
-                  label="Peso actual"
-                  value={formData.weight}
-                  onChange={handleInputChange('weight')}
-                  placeholder="70.0"
-                  min={30}
-                  max={300}
-                  step={0.1}
-                  unit="kg"
-                  required
-                />
-
-                <Button
-                  type="submit"
-                  disabled={!isFormValid}
-                  className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
-                >
-                  <TrendingUp className="w-5 h-5 mr-2" />
-                  Calcular Peso Ideal
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {result && (
-            <Card className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
+          <section id="calculator" aria-label="Calculadora de peso ideal">
+            <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <span className="text-3xl mr-3">🎯</span>
-                  Tu Análisis de Peso Ideal
+                <CardTitle className="text-2xl font-semibold flex items-center">
+                  <span className="text-3xl mr-3">⚖️</span>
+                  Calculadora de Peso Ideal
                 </CardTitle>
               </CardHeader>
               <CardContent>
+                <form onSubmit={handleSubmit} className="space-golden-md">
+                  <div className="grid gap-[1.618rem] md:grid-cols-2">
+                    <SelectInput
+                      id="sex"
+                      label="Sexo"
+                      value={formData.sex}
+                      onChange={handleInputChange('sex')}
+                      options={[
+                        { value: 'male', label: 'Hombre' },
+                        { value: 'female', label: 'Mujer' }
+                      ]}
+                    />
+                    <NumberInput
+                      id="height"
+                      label="Altura"
+                      value={formData.height}
+                      onChange={handleInputChange('height')}
+                      placeholder="170"
+                      min={100}
+                      max={250}
+                      unit="cm"
+                      required
+                    />
+                  </div>
+
+                  <NumberInput
+                    id="weight"
+                    label="Peso actual"
+                    value={formData.weight}
+                    onChange={handleInputChange('weight')}
+                    placeholder="70.0"
+                    min={30}
+                    max={300}
+                    step={0.1}
+                    unit="kg"
+                    required
+                  />
+
+                  <Button
+                    type="submit"
+                    disabled={!isFormValid}
+                    className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
+                  >
+                    <TrendingUp className="w-5 h-5 mr-2" />
+                    Calcular Peso Ideal
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </section>
+
+          {result && (
+            <section className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
+              <header className="p-6 pb-0">
+                <h2 className="text-2xl font-semibold flex items-center justify-center">
+                  <span className="text-3xl mr-3">🎯</span>
+                  Tu Análisis de Peso Ideal
+                </h2>
+              </header>
+              <div className="p-6">
                 <div className="text-center space-golden-md">
                   <div className="space-golden-sm">
                     <div className={`flex items-center justify-center gap-3 mb-3 ${getStatusColor(result.status)}`}>
@@ -180,8 +182,8 @@ export default function PesoIdealPage() {
                   </div>
 
                   <div className="grid gap-[1.618rem] mt-[2.618rem]">
-                    <div className="card-golden">
-                      <h4 className="font-bold mb-[1.618rem] text-lg">📊 Fórmulas Científicas:</h4>
+                    <article className="card-golden">
+                      <h3 className="font-bold mb-[1.618rem] text-lg">📊 Fórmulas Científicas:</h3>
                       <div className="space-golden-xs text-base">
                         <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                           <span className="font-medium">Robinson (1983):</span>
@@ -204,10 +206,10 @@ export default function PesoIdealPage() {
                           <span className="text-red-600 font-bold">{result.peterson} kg</span>
                         </div>
                       </div>
-                    </div>
+                    </article>
 
-                    <div className="card-golden">
-                      <h4 className="font-bold mb-[1.618rem] text-lg">📏 Rangos de Referencia:</h4>
+                    <article className="card-golden">
+                      <h3 className="font-bold mb-[1.618rem] text-lg">📏 Rangos de Referencia:</h3>
                       <div className="space-golden-xs text-base">
                         <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                           <span className="font-medium">Rango ideal (±10%):</span>
@@ -222,31 +224,33 @@ export default function PesoIdealPage() {
                           <span className="text-gray-600 font-bold">{formData.weight} kg</span>
                         </div>
                       </div>
-                    </div>
+                    </article>
                   </div>
 
                   <div className="mt-[2.618rem] p-4 bg-muted/50 rounded-lg">
                     <p className="text-sm text-muted-foreground leading-relaxed">{result.recommendation}</p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </section>
           )}
 
-          <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
-            <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
-              ¿Qué es el Peso Ideal? Fórmulas científicas reconocidas
-            </h2>
+          <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
+            <header>
+              <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
+                ¿Qué es el Peso Ideal? Fórmulas científicas reconocidas
+              </h2>
 
-            <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
-              El peso ideal es un concepto que se refiere al peso corporal que se considera óptimo
-              para una persona según su altura, edad, sexo y estructura corporal. Aunque no existe
-              un peso &quot;perfecto&quot; único, las <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">fórmulas científicas</a> nos ayudan a establecer rangos
-              saludables de referencia basados en estudios epidemiológicos.
-            </p>
+              <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
+                El peso ideal es un concepto que se refiere al peso corporal que se considera óptimo
+                para una persona según su altura, edad, sexo y estructura corporal. Aunque no existe
+                un peso &quot;perfecto&quot; único, las <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">fórmulas científicas</a> nos ayudan a establecer rangos
+                saludables de referencia basados en estudios epidemiológicos.
+              </p>
+            </header>
 
-            <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
-              <div className="card-golden space-golden-sm">
+            <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
+              <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                   <span className="text-2xl mr-3">🧮</span>
                   Fórmulas Utilizadas
@@ -273,9 +277,9 @@ export default function PesoIdealPage() {
                     <span><strong>Peterson (2016):</strong> La más moderna y considerada más precisa</span>
                   </li>
                 </ul>
-              </div>
+              </article>
 
-              <div className="card-golden space-golden-sm">
+              <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
                   <span className="text-2xl mr-3">📊</span>
                   Factores que Influyen
@@ -298,16 +302,16 @@ export default function PesoIdealPage() {
                     <span>Genética y hormonas individuales</span>
                   </li>
                 </ul>
-              </div>
-            </div>
+              </article>
+            </section>
 
-            <div className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-[2.618rem]">
+            <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-[2.618rem]">
               <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🔬</span>
                 Fórmulas Científicas Detalladas
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
                     <span className="text-lg mr-2">📚</span>
                     Fórmulas Clásicas:
@@ -326,8 +330,8 @@ export default function PesoIdealPage() {
                       <span><strong>Devine (1974):</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/4843764/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Referencia médica</a> - Cálculo de dosis de medicamentos</span>
                     </li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
                     <span className="text-lg mr-2">⚡</span>
                     Fórmulas Modernas:
@@ -346,17 +350,17 @@ export default function PesoIdealPage() {
                       <span><strong>Promedio:</strong> Estimación más equilibrada y confiable</span>
                     </li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">⚠️</span>
                 Limitaciones y Consideraciones Importantes
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <div className="card-golden bg-white/50">
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-yellow-700 flex items-center">
                     <span className="text-lg mr-2">🚫</span>
                     Limitaciones:
@@ -379,8 +383,8 @@ export default function PesoIdealPage() {
                       <span>Las fórmulas más antiguas pueden estar desactualizadas</span>
                     </li>
                   </ul>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-yellow-700 flex items-center">
                     <span className="text-lg mr-2">💡</span>
                     Recomendaciones:
@@ -403,17 +407,17 @@ export default function PesoIdealPage() {
                       <span>Establece objetivos realistas y saludables</span>
                     </li>
                   </ul>
-                </div>
+                </article>
               </div>
-            </div>
+            </section>
 
-            <div className="card-golden-lg bg-green-50 border-l-4 border-green-400 mb-[2.618rem]">
+            <section className="card-golden-lg bg-green-50 border-l-4 border-green-400 mb-[2.618rem]">
               <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">❓</span>
                 Preguntas Frecuentes sobre el Peso Ideal
               </h3>
               <div className="space-golden-sm">
-                <div className="card-golden bg-white/50 mb-[1.618rem]">
+                <article className="card-golden bg-white/50 mb-[1.618rem]">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">🤔</span>
                     ¿Por qué hay diferentes fórmulas de peso ideal?
@@ -423,8 +427,8 @@ export default function PesoIdealPage() {
                     de estudio distintas. Algunas se enfocan en aplicaciones médicas, otras en
                     fitness, y cada una tiene sus propias ventajas y limitaciones.
                   </p>
-                </div>
-                <div className="card-golden bg-white/50 mb-[1.618rem]">
+                </article>
+                <article className="card-golden bg-white/50 mb-[1.618rem]">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">🎯</span>
                     ¿Cuál es la mejor fórmula para mí?
@@ -434,8 +438,8 @@ export default function PesoIdealPage() {
                     suele proporcionar una estimación más equilibrada. Sin embargo, es importante
                     consultar con un profesional de la salud para una evaluación personalizada.
                   </p>
-                </div>
-                <div className="card-golden bg-white/50 mb-[1.618rem]">
+                </article>
+                <article className="card-golden bg-white/50 mb-[1.618rem]">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">🏥</span>
                     ¿Qué hago si mi peso actual está muy lejos del ideal?
@@ -445,8 +449,8 @@ export default function PesoIdealPage() {
                     nutricionista o entrenador personal certificado. Ellos pueden ayudarte a
                     desarrollar un plan seguro y efectivo para alcanzar tus objetivos.
                   </p>
-                </div>
-                <div className="card-golden bg-white/50">
+                </article>
+                <article className="card-golden bg-white/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
                     <span className="text-lg mr-2">⚖️</span>
                     ¿El peso ideal es lo mismo que el peso saludable?
@@ -456,18 +460,18 @@ export default function PesoIdealPage() {
                     mientras que el peso saludable considera factores individuales como composición
                     corporal, salud general, y objetivos personales.
                   </p>
-                </div>
+                </article>
               </div>
-            </div>
-          </div>
+            </section>
+          </article>
 
           {/* Calculadoras relacionadas */}
           <RelatedCalculators currentPage="peso-ideal" />
 
           {/* Widget para embeber - genera backlinks naturales */}
-          <div className="flex justify-center">
+          <section className="flex justify-center">
             <EmbedWidget />
-          </div>
+          </section>
 
           {/* Social Share */}
           <SocialShare
@@ -478,7 +482,7 @@ export default function PesoIdealPage() {
 
           {/* Navegación entre calculadoras */}
           <CalculatorNavigation currentCalculator="peso-ideal" />
-        </div>
+        </main>
       </Container>
     </>
   );

@@ -7,6 +7,69 @@ import { Switch } from '@/components/ui/switch';
 import { Settings } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    adsbygoogle: any[];
+  }
+}
+
+// Funciones auxiliares fuera del componente para evitar dependencias
+const loadGTM = () => {
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GTM_ID}`;
+  document.head.appendChild(script);
+
+  (window as any).dataLayer = (window as any).dataLayer || [];
+  (window as any).dataLayer.push({
+    'gtm.start': new Date().getTime(),
+    event: 'gtm.js'
+  });
+};
+
+const loadAdSense = (isMobile: boolean) => {
+  console.warn('ConsentBanner: Cargando script de AdSense');
+
+  // Verificar si ya está cargado
+  if (window.adsbygoogle) {
+    console.warn('ConsentBanner: Script de AdSense ya cargado, ejecutando anuncios');
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`;
+  script.crossOrigin = 'anonymous';
+  script.onload = () => {
+    console.warn('ConsentBanner: Script de AdSense cargado correctamente');
+
+    // Delay adicional para mobile - asegurar que el consent mode se procese
+    const internalDelay = isMobile ? 1500 : 1000;
+    setTimeout(() => {
+      if (window.adsbygoogle) {
+        console.warn('ConsentBanner: Ejecutando anuncios automáticos');
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+
+        // Verificar estado después de un momento
+        setTimeout(() => {
+          const ads = document.querySelectorAll('.adsbygoogle');
+          console.warn('ConsentBanner: Anuncios encontrados:', ads.length);
+          ads.forEach((ad, index) => {
+            const status = ad.getAttribute('data-ad-status');
+            console.warn(`ConsentBanner: Anuncio ${index + 1} estado:`, status);
+          });
+        }, 2000);
+      }
+    }, internalDelay);
+  };
+  script.onerror = () => {
+    console.error('ConsentBanner: Error cargando script de AdSense');
+  };
+  document.head.appendChild(script);
+};
+
 export function ConsentBanner() {
   const [showBanner, setShowBanner] = useState(false);
   const [preferences, setPreferences] = useState({
@@ -16,6 +79,9 @@ export function ConsentBanner() {
   });
 
   useEffect(() => {
+    // Detectar si es mobile para ajustar timing
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
       setShowBanner(true);
@@ -26,12 +92,15 @@ export function ConsentBanner() {
         loadGTM();
       }
       if (consentData.advertising && process.env.NEXT_PUBLIC_ADSENSE_ID) {
-        loadAdSense();
+        loadAdSense(isMobile);
       }
     }
   }, []);
 
   const saveConsent = (acceptAll: boolean = false) => {
+    // Detectar si es mobile para ajustar timing
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
     const consentData = acceptAll ? {
       necessary: true,
       analytics: true,
@@ -44,43 +113,30 @@ export function ConsentBanner() {
 
     setShowBanner(false);
 
-    // Load scripts based on consent
+    // Actualizar consent mode con delay para mobile
+    if (window.gtag) {
+      window.gtag('consent', 'update', {
+        ad_storage: consentData.advertising ? 'granted' : 'denied',
+        analytics_storage: consentData.analytics ? 'granted' : 'denied',
+        ad_user_data: consentData.advertising ? 'granted' : 'denied',
+        ad_personalization: consentData.advertising ? 'granted' : 'denied'
+      });
+    }
+
+    // Load scripts based on consent con timing optimizado para mobile
     if (consentData.analytics && process.env.NEXT_PUBLIC_GTM_ID) {
       loadGTM();
     }
 
     if (consentData.advertising && process.env.NEXT_PUBLIC_ADSENSE_ID) {
-      loadAdSense();
+      // Delay ajustado para mobile - dar tiempo al consent mode
+      const delay = isMobile ? 1000 : 500;
+      setTimeout(() => {
+        loadAdSense(isMobile);
+      }, delay);
     }
   };
 
-  const loadGTM = () => {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GTM_ID}`;
-    document.head.appendChild(script);
-
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer.push({
-      'gtm.start': new Date().getTime(),
-      event: 'gtm.js'
-    });
-  };
-
-  const loadAdSense = () => {
-    console.warn('ConsentBanner: Cargando script de AdSense');
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`;
-    script.crossOrigin = 'anonymous';
-    script.onload = () => {
-      console.warn('ConsentBanner: Script de AdSense cargado correctamente');
-    };
-    script.onerror = () => {
-      console.error('ConsentBanner: Error cargando script de AdSense');
-    };
-    document.head.appendChild(script);
-  };
 
   if (!showBanner) return null;
 

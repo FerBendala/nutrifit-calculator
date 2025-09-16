@@ -14,6 +14,8 @@
 
 # production
 /build
+/stats
+/plan
 
 # misc
 .DS_Store

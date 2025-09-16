@@ -5,11 +5,11 @@ import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
 import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/UnifiedAdSlot';
 import { formatMilliliters } from '@/lib/format';
 import { calculateWaterNeeds } from '@/lib/formulas';
 import { generateJsonLd } from '@/lib/seo';
@@ -49,20 +49,17 @@ export default function AguaPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <SchemaMarkup calculatorKey="agua" />
 
       <Container size="xl" className="py-[4.236rem]">
         <div className="max-w-5xl mx-auto space-golden-lg">
           <div className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Agua Diaria - Hidratación
+              Calculadora de Hidratación Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calcula cuánta agua debes beber al día según tu peso y nivel de actividad
-              para mantener una hidratación óptima.
+              Calculadora profesional de hidratación basada en estudios médicos. Necesidades exactas
+              de agua según peso, actividad y condiciones ambientales para profesionales de la salud.
             </p>
           </div>
 
@@ -182,13 +179,6 @@ export default function AguaPage() {
               </CardContent>
             </Card>
           )}
-
-          {/* AdSlot después del contenido principal */}
-          <AdSlot
-            adSlot="9572878239"
-            style={{ display: 'block', height: '90px' }}
-            className="w-full"
-          />
 
           <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
             <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">

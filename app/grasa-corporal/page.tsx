@@ -5,11 +5,11 @@ import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
 import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/UnifiedAdSlot';
 import { formatGrams } from '@/lib/format';
 import { calculateBodyComposition, calculateBodyFat4Site, calculateBodyFatSkinfolds } from '@/lib/formulas';
 import { generateJsonLd } from '@/lib/seo';
@@ -138,20 +138,17 @@ export default function GrasaCorporalPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <SchemaMarkup calculatorKey="grasa-corporal" />
 
       <Container size="xl" className="py-[4.236rem]">
         <div className="max-w-5xl mx-auto space-golden-lg">
           <div className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Grasa Corporal
+              Calculadora de Grasa Corporal Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calcula tu porcentaje de grasa corporal usando métodos científicos de pliegues cutáneos.
-              Métodos Jackson-Pollock y Durnin-Womersley para máxima precisión.
+              Calculadora profesional de grasa corporal con métodos Jackson-Pollock y Durnin-Womersley
+              validados científicamente. Precisión de ±3-5% utilizada por nutricionistas y médicos.
             </p>
           </div>
 
@@ -532,13 +529,6 @@ export default function GrasaCorporalPage() {
               </CardContent>
             </Card>
           )}
-
-          {/* AdSlot después del contenido principal */}
-          <AdSlot
-            adSlot="9572878239"
-            style={{ display: 'block', height: '90px' }}
-            className="w-full"
-          />
 
           <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
             <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">

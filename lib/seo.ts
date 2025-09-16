@@ -8,71 +8,71 @@ export interface PageMetadata {
 }
 
 export const SITE_CONFIG = {
-  name: 'NutriFit Calculator',
-  description: 'Calculadora gratuita de calorías, macros, IMC y más. Herramientas profesionales para tu nutrición y fitness.',
+  name: 'NutriFit Calculator - Herramientas Médicas Profesionales',
+  description: 'Calculadoras médicas profesionales de nutrición y fitness. Fórmulas científicas validadas utilizadas por nutricionistas y médicos. Precisión profesional garantizada.',
   url: 'https://nutrifit-calculator.com',
   ogImage: '/api/og',
 };
 
 export const PAGE_METADATA: Record<string, PageMetadata> = {
   home: {
-    title: 'Calculadora de Calorías y Macros - NutriFit Calculator',
-    description: 'Calculadora gratuita de calorías y macros para perder grasa, mantener peso o ganar músculo. Calcula tu objetivo según peso y ejercicio con fórmula científica.',
-    keywords: ['calculadora calorías', 'macronutrientes', 'perder grasa', 'mantener peso', 'ganar músculo', 'peso corporal', 'ejercicio'],
+    title: 'Calculadora Profesional de Calorías y Macros | Científicamente Validada',
+    description: 'Calculadora médica profesional de calorías y macronutrientes. Fórmula Mifflin-St Jeor validada científicamente. Resultados precisos para perder grasa, mantener peso o ganar músculo. 100% Gratuita.',
+    keywords: ['calculadora fit', 'calculadora calorías', 'calculadora de macros', 'macronutrientes', 'perder grasa', 'mantener peso', 'ganar músculo', 'peso corporal', 'ejercicio', 'calculadora fitness'],
     path: '/'
   },
   imc: {
-    title: 'Calculadora de IMC - Índice de Masa Corporal - NutriFit',
-    description: 'Calculadora de IMC gratuita para conocer tu peso ideal. Calcula tu índice de masa corporal según peso y altura con estándares OMS.',
-    keywords: ['calculadora IMC', 'índice masa corporal', 'peso ideal', 'peso corporal', 'calculadora peso', 'obesidad'],
+    title: 'Calculadora IMC Profesional | Estándares Médicos OMS | Precisión Científica',
+    description: 'Calculadora médica de IMC con estándares oficiales de la OMS. Resultados precisos y categorización profesional de peso corporal. Utilizada por nutricionistas y médicos. Gratuita y confiable.',
+    keywords: ['calculadora IMC', 'calculadora fit', 'índice masa corporal', 'peso ideal', 'peso corporal', 'calculadora peso', 'obesidad', 'calculadora fitness'],
     path: '/imc'
   },
   tdee: {
-    title: 'Calculadora TDEE - Gasto Calórico Diario - NutriFit',
-    description: 'Calculadora TDEE gratuita según peso y ejercicio. Calcula tu gasto calórico diario total para perder grasa, mantener peso o ganar músculo.',
-    keywords: ['calculadora TDEE', 'gasto calórico', 'peso corporal', 'ejercicio físico', 'perder grasa', 'mantener peso'],
+    title: 'Calculadora TDEE Médica | Gasto Calórico Preciso | Fórmula Científica',
+    description: 'Calculadora profesional de TDEE con fórmula Mifflin-St Jeor validada. Gasto calórico diario exacto para nutricionistas y deportistas. Resultados precisos para objetivos específicos.',
+    keywords: ['calculadora TDEE', 'calculadora fit', 'gasto calórico', 'peso corporal', 'ejercicio físico', 'perder grasa', 'mantener peso', 'calculadora fitness'],
     path: '/tdee'
   },
   proteina: {
-    title: 'Calculadora de Proteína Diaria - NutriFit',
-    description: 'Calculadora de proteína según peso corporal y ejercicio. Calcula tus necesidades diarias para ganar músculo o mantener peso con recomendaciones científicas.',
-    keywords: ['calculadora proteína', 'proteína diaria', 'peso corporal', 'ganar músculo', 'ejercicio', 'masa muscular'],
+    title: 'Calculadora de Proteína Médica | Necesidades Científicas | Precisión Profesional',
+    description: 'Calculadora profesional de proteína basada en estudios científicos. Necesidades exactas para deportistas, nutricionistas y objetivos específicos. Fórmulas validadas por la comunidad médica.',
+    keywords: ['calculadora proteína', 'calculadora fit', 'proteína diaria', 'peso corporal', 'ganar músculo', 'ejercicio', 'masa muscular', 'calculadora fitness'],
     path: '/proteina'
   },
   agua: {
-    title: 'Calculadora de Agua Diaria - Hidratación - NutriFit',
-    description: 'Calculadora de agua diaria según peso corporal y ejercicio. Calcula cuánta agua beber para mantener hidratación óptima durante el ejercicio.',
+    title: 'Calculadora de Hidratación Médica | Necesidades Científicas | Precisión Profesional',
+    description: 'Calculadora profesional de hidratación basada en estudios médicos. Necesidades exactas de agua según peso, actividad y condiciones ambientales. Utilizada por deportistas y profesionales de la salud.',
     keywords: ['calculadora agua', 'agua diaria', 'peso corporal', 'ejercicio', 'hidratación', 'agua ejercicio'],
     path: '/agua'
   },
   composicion: {
-    title: 'Calculadora de Grasa Corporal y Composición - NutriFit',
-    description: 'Calculadora de grasa corporal gratuita con método Navy. Calcula tu porcentaje de grasa, masa magra y ratio cintura-cadera según medidas corporales.',
-    keywords: ['calculadora grasa corporal', 'composición corporal', 'masa magra', 'método navy', 'porcentaje grasa', 'medidas corporales'],
+    title: 'Calculadora de Composición Corporal Médica | Método Navy Validado | Precisión Científica',
+    description: 'Calculadora profesional de composición corporal con método Navy validado científicamente. Porcentaje de grasa, masa magra y ratio cintura-cadera precisos. Utilizada por nutricionistas y médicos.',
+    keywords: ['calculadora grasa corporal', 'calculadora fit', 'composición corporal', 'masa magra', 'método navy', 'porcentaje grasa', 'medidas corporales', 'calculadora fitness'],
     path: '/composicion'
   },
   'ritmo-cardiaco': {
-    title: 'Calculadora de Ritmo Cardíaco y Zonas de Entrenamiento - NutriFit',
-    description: 'Calculadora de frecuencia cardíaca máxima y zonas de entrenamiento. Optimiza tu cardio para quemar grasa y mejorar rendimiento según tu edad.',
+    title: 'Calculadora de Ritmo Cardíaco Médica | Zonas de Entrenamiento Científicas',
+    description: 'Calculadora profesional de frecuencia cardíaca con fórmulas médicas validadas. Zonas de entrenamiento precisas para deportistas y profesionales. Optimización cardiovascular basada en evidencia científica.',
     keywords: ['calculadora ritmo cardíaco', 'frecuencia cardíaca máxima', 'zonas entrenamiento', 'quemar grasa', 'cardio', 'pulsaciones'],
     path: '/ritmo-cardiaco'
   },
   'grasa-corporal': {
-    title: 'Calculadora de Grasa Corporal por Pliegues Cutáneos - NutriFit',
-    description: 'Calculadora de grasa corporal gratuita con métodos Jackson-Pollock y Durnin-Womersley. Mide tu porcentaje de grasa con pliegues cutáneos para máxima precisión.',
-    keywords: ['calculadora grasa corporal', 'pliegues cutáneos', 'Jackson-Pollock', 'Durnin-Womersley', 'composición corporal', 'porcentaje grasa', 'calibrador'],
+    title: 'Calculadora de Grasa Corporal Médica | Métodos Científicos Validados | Precisión Profesional',
+    description: 'Calculadora profesional de grasa corporal con métodos Jackson-Pollock y Durnin-Womersley validados científicamente. Precisión de ±3-5% utilizada por nutricionistas y médicos deportivos.',
+    keywords: ['calculadora grasa corporal', 'calculadora fit', 'pliegues cutáneos', 'Jackson-Pollock', 'Durnin-Womersley', 'composición corporal', 'porcentaje grasa', 'calibrador', 'calculadora fitness'],
     path: '/grasa-corporal'
   },
   'peso-ideal': {
-    title: 'Calculadora de Peso Ideal - 5 Fórmulas Científicas - NutriFit',
-    description: 'Calculadora de peso ideal gratuita con 5 fórmulas científicas (Robinson, Miller, Devine, Hamwi, Peterson). Descubre tu peso ideal según altura, peso y sexo.',
-    keywords: ['calculadora peso ideal', 'peso ideal', 'fórmulas científicas', 'Robinson', 'Miller', 'Devine', 'Hamwi', 'Peterson', 'peso saludable', 'altura peso'],
+    title: 'Calculadora de Peso Ideal Médica | 5 Fórmulas Científicas | Precisión Profesional',
+    description: 'Calculadora profesional de peso ideal con 5 fórmulas médicas validadas (Robinson, Miller, Devine, Hamwi, Peterson). Resultados precisos utilizados por nutricionistas y médicos. Análisis comparativo profesional.',
+    keywords: ['calculadora peso ideal', 'calculadora fit', 'peso ideal', 'fórmulas científicas', 'Robinson', 'Miller', 'Devine', 'Hamwi', 'Peterson', 'peso saludable', 'altura peso', 'calculadora fitness'],
     path: '/peso-ideal'
   },
   'masa-muscular': {
-    title: 'Calculadora de Masa Muscular - Índice y Composición - NutriFit',
-    description: 'Calculadora de masa muscular gratuita con fórmula de Lee (2000). Calcula tu masa muscular, índice de masa muscular y obtén recomendaciones para optimizar tu desarrollo muscular.',
-    keywords: ['calculadora masa muscular', 'masa muscular', 'índice masa muscular', 'composición corporal', 'desarrollo muscular', 'fórmula Lee', 'entrenamiento fuerza', 'músculo'],
+    title: 'Calculadora de Masa Muscular Médica | Fórmula Lee Validada | Precisión Científica',
+    description: 'Calculadora profesional de masa muscular con fórmula de Lee (2000) validada científicamente. Índice de masa muscular preciso para deportistas y profesionales de la salud. Utilizada por nutricionistas deportivos.',
+    keywords: ['calculadora masa muscular', 'calculadora fit', 'masa muscular', 'índice masa muscular', 'composición corporal', 'desarrollo muscular', 'fórmula Lee', 'entrenamiento fuerza', 'músculo', 'calculadora fitness'],
     path: '/masa-muscular'
   }
 };
@@ -126,16 +126,44 @@ export function generateJsonLd(page: keyof typeof PAGE_METADATA) {
     applicationCategory: 'HealthApplication',
     description: pageData.description,
     url: `${SITE_CONFIG.url}${pageData.path}`,
-    operatingSystem: 'Web',
+    operatingSystem: 'Web Browser',
     isAccessibleForFree: true,
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
     author: {
       '@type': 'Organization',
-      name: 'NutriFit Calculator'
+      name: 'NutriFit Calculator',
+      url: SITE_CONFIG.url
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'NutriFit Calculator',
+      url: SITE_CONFIG.url
     },
     offers: {
       '@type': 'Offer',
       price: '0',
-      priceCurrency: 'EUR'
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock'
+    },
+    featureList: [
+      'Calculadora de calorías y macros',
+      'Calculadora de IMC',
+      'Calculadora de TDEE',
+      'Calculadora de proteína diaria',
+      'Calculadora de grasa corporal',
+      'Calculadora de peso ideal',
+      'Calculadora de masa muscular',
+      'Calculadora de ritmo cardíaco',
+      'Calculadora de hidratación'
+    ],
+    screenshot: `${SITE_CONFIG.url}/api/og?title=${encodeURIComponent(pageData.title)}`,
+    softwareVersion: '1.0',
+    datePublished: '2024-08-01',
+    dateModified: new Date().toISOString().split('T')[0],
+    inLanguage: 'es-ES',
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'Fitness enthusiasts, nutritionists, athletes, health-conscious individuals'
     }
   };
 }

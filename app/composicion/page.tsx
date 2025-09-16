@@ -5,11 +5,11 @@ import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
 import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/UnifiedAdSlot';
 import { formatGrams, formatPercentage } from '@/lib/format';
 import { calculateBodyComposition, calculateBodyFatNavy, calculateWaistHipRatio } from '@/lib/formulas';
 import { generateJsonLd } from '@/lib/seo';
@@ -116,20 +116,17 @@ export default function ComposicionPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <SchemaMarkup calculatorKey="composicion" />
 
       <Container size="xl" className="py-[4.236rem]">
         <div className="max-w-5xl mx-auto space-golden-lg">
           <div className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Composición Corporal
+              Calculadora de Composición Corporal Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calcula tu porcentaje de grasa corporal, masa magra y ratio cintura-cadera
-              con el método Navy científicamente validado.
+              Calculadora profesional de composición corporal con método Navy validado científicamente.
+              Porcentaje de grasa, masa magra y ratio cintura-cadera precisos para nutricionistas.
             </p>
           </div>
 
@@ -345,13 +342,6 @@ export default function ComposicionPage() {
               </Card>
             </div>
           )}
-
-          {/* AdSlot después del contenido principal */}
-          <AdSlot
-            adSlot="9572878239"
-            style={{ display: 'block', height: '90px' }}
-            className="w-full"
-          />
 
           <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
             <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">

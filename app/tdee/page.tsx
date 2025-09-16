@@ -5,11 +5,11 @@ import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
 import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/UnifiedAdSlot';
 import { formatCalories } from '@/lib/format';
 import { ACTIVITY_LEVELS, calculateBMR, calculateTDEE, UserData } from '@/lib/formulas';
 import { generateJsonLd } from '@/lib/seo';
@@ -55,20 +55,17 @@ export default function TDEEPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <SchemaMarkup calculatorKey="tdee" />
 
       <Container size="xl" className="py-[4.236rem]">
         <div className="max-w-5xl mx-auto space-golden-lg">
           <div className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora TDEE - Gasto Calórico Diario
+              Calculadora TDEE Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calcula tu TDEE (Total Daily Energy Expenditure) - el gasto calórico diario total
-              que quemas incluyendo tu actividad física.
+              Calculadora profesional de TDEE con fórmula Mifflin-St Jeor validada científicamente.
+              Gasto calórico diario exacto para nutricionistas y deportistas.
             </p>
           </div>
 
@@ -222,13 +219,6 @@ export default function TDEEPage() {
               </CardContent>
             </Card>
           )}
-
-          {/* AdSlot después del contenido principal */}
-          <AdSlot
-            adSlot="9572878239"
-            style={{ display: 'block', height: '90px' }}
-            className="w-full"
-          />
 
           <div className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
             <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">

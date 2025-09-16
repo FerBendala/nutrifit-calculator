@@ -53,24 +53,6 @@ export default function HomePage() {
                 ¿Por qué elegir nuestra calculadora médica profesional?
               </h2>
 
-              {/* Elementos de confianza */}
-              <div className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-                <div className="grid gap-[1.618rem] md:grid-cols-3">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">10,000+</div>
-                    <div className="text-sm text-blue-800">Profesionales de la salud</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">±2%</div>
-                    <div className="text-sm text-blue-800">Precisión científica</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-                    <div className="text-sm text-blue-800">Gratuita y confiable</div>
-                  </div>
-                </div>
-              </div>
-
               <div className="grid gap-[1.618rem] md:grid-cols-2 mt-[2.618rem]">
                 <div className="card-golden space-golden-sm">
                   <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">

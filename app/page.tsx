@@ -5,7 +5,6 @@ import { EmbedWidget } from '@/components/EmbedWidget';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
 import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SocialShare } from '@/components/SocialShare';
-import { AdSlot } from '@/components/UnifiedAdSlot';
 import { generateMetadata as generateMeta } from '@/lib/seo';
 
 export const metadata = generateMeta('home');
@@ -38,13 +37,6 @@ export default function HomePage() {
 
           {/* Calculator - Contenido crítico primero */}
           <CalculatorForm />
-
-          {/* AdSlot después del contenido principal */}
-          <AdSlot
-            adSlot="9572878239"
-            style={{ display: 'block', height: '90px' }}
-            className="w-full"
-          />
 
           {/* Educational Content */}
           <div className="space-golden-lg pt-[2.618rem]">

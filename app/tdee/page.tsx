@@ -374,7 +374,7 @@ export default function TDEEPage() {
                   <h4 className="font-semibold mb-[0.618rem]">¿Qué hago si no estoy viendo resultados con mi TDEE?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Después de 2-3 semanas sin cambios, ajusta ±100-200 kcal según tu objetivo.
-                    También verifica tu <a href="/agua" className="text-blue-600 hover:underline font-medium">hidratación</a> y considera factores como el estrés y el sueño.
+                    También verifica tu <a href="/agua" className="text-blue-600 hover:underline font-medium">hidratación</a> y evalúa si tu <a href="/bmr" className="text-blue-600 hover:underline font-medium">metabolismo basal</a> ha cambiado.
                   </p>
                 </article>
               </div>
@@ -389,7 +389,15 @@ export default function TDEEPage() {
               <ul className="text-sm text-orange-800 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/bmr" className="text-blue-600 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> El BMR es la base del TDEE, entiende tu gasto en reposo</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tus macronutrientes:</a></strong> Usa tu TDEE para determinar la distribución de macros perfecta</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/1rm" className="text-blue-600 hover:underline font-medium transition-golden">Planifica entrenamientos intensos:</a></strong> El entrenamiento de fuerza aumenta significativamente tu TDEE</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>

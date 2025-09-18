@@ -479,19 +479,23 @@ export default function MasaMuscularPage() {
                 <ul className="text-sm text-orange-800 space-golden-xs">
                   <li className="flex items-start">
                     <span className="text-orange-600 mr-2">•</span>
-                    <span><strong><a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu grasa corporal:</a></strong> Métodos científicos de pliegues cutáneos para máxima precisión</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
-                    <span><strong><a href="/composicion" className="text-blue-600 hover:underline font-medium transition-golden">Método Navy:</a></strong> Alternativa rápida con circunferencias corporales</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
-                    <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tus calorías:</a></strong> Ajusta tu alimentación según tu composición corporal</span>
+                    <span><strong><a href="/1rm" className="text-blue-600 hover:underline font-medium transition-golden">Planifica entrenamientos de fuerza:</a></strong> Optimiza cargas para máximo desarrollo muscular</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 mr-2">•</span>
                     <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades basadas en masa magra</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/bmr" className="text-blue-600 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> La masa muscular aumenta el gasto calórico en reposo</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tus calorías:</a></strong> Ajusta tu alimentación para ganancia muscular</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu grasa corporal:</a></strong> Métodos científicos para evaluar composición</span>
                   </li>
                 </ul>
               </div>

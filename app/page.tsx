@@ -66,9 +66,9 @@ export default function HomePage() {
                     Factor de actividad y ejercicio
                   </h3>
                   <p className="text-muted-foreground leading-[1.618]">
-                    Multiplicamos tu BMR por un factor que refleja tu nivel de actividad física
+                    Multiplicamos tu <a href="/bmr" className="text-blue-600 hover:underline font-medium">BMR (metabolismo basal)</a> por un factor que refleja tu nivel de actividad física
                     diaria para obtener tu <a href="/tdee" className="text-blue-600 hover:underline font-medium">TDEE (Total Daily Energy Expenditure)</a>, que representa
-                    las calorías totales que quemas al día. Puedes calcularlo por separado en nuestra calculadora especializada.
+                    las calorías totales que quemas al día. Puedes calcularlo por separado en nuestras calculadoras especializadas.
                   </p>
                 </article>
 
@@ -204,8 +204,8 @@ export default function HomePage() {
                     Si no ganas peso/músculo:
                   </h4>
                   <p className="leading-[1.618]">
-                    Aumenta 100-200 kcal/día. Añade carbohidratos alrededor del entrenamiento
-                    y asegúrate de consumir suficiente proteína (1.6-2.2g/kg).
+                    Aumenta 100-200 kcal/día. Añade carbohidratos alrededor del <a href="/1rm" className="text-blue-600 hover:underline">entrenamiento de fuerza</a>
+                    y asegúrate de consumir suficiente <a href="/proteina" className="text-blue-600 hover:underline">proteína</a> (1.6-2.2g/kg).
                   </p>
                 </article>
                 <article className="card-golden bg-white/50">
@@ -361,7 +361,7 @@ export default function HomePage() {
               <ul className="text-sm text-orange-800 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/imc" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de IMC:</a></strong> Estándares oficiales de la OMS para evaluación de peso corporal</span>
+                  <span><strong><a href="/bmr" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de BMR:</a></strong> Metabolismo basal con 3 fórmulas científicas validadas</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
@@ -369,7 +369,15 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/imc" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de IMC:</a></strong> Estándares oficiales de la OMS para evaluación de peso corporal</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de proteína:</a></strong> Necesidades basadas en evidencia científica para profesionales</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/1rm" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de 1RM:</a></strong> Fuerza máxima con 5 fórmulas científicas para atletas</span>
                 </li>
               </ul>
             </section>

@@ -527,7 +527,15 @@ export default function ProteinaPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Conoce tu gasto calórico:</a></strong> Determina cuántas calorías necesitas según tu actividad</span>
+                  <span><strong><a href="/bmr" className="text-blue-600 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> Base para calcular necesidades energéticas precisas</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu gasto calórico:</a></strong> Determina cuántas calorías necesitas según tu actividad</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/1rm" className="text-blue-600 hover:underline font-medium transition-golden">Planifica entrenamientos de fuerza:</a></strong> Optimiza el entrenamiento para maximizar síntesis proteica</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>

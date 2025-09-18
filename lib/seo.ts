@@ -74,6 +74,18 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de masa muscular con fórmula de Lee (2000) validada científicamente. Índice de masa muscular preciso para deportistas y profesionales de la salud. Utilizada por nutricionistas deportivos.',
     keywords: ['calculadora masa muscular', 'calculadora fit', 'masa muscular', 'índice masa muscular', 'composición corporal', 'desarrollo muscular', 'fórmula Lee', 'entrenamiento fuerza', 'músculo', 'calculadora fitness'],
     path: '/masa-muscular'
+  },
+  bmr: {
+    title: 'Calculadora BMR Médica | Metabolismo Basal Científico | 3 Fórmulas Validadas',
+    description: 'Calculadora profesional de BMR (metabolismo basal) con fórmulas Mifflin-St Jeor, Harris-Benedict y Katch-McArdle validadas científicamente. Precisión médica para nutricionistas y profesionales de la salud.',
+    keywords: ['calculadora BMR', 'calculadora fit', 'metabolismo basal', 'BMR', 'calorías basal', 'Mifflin-St Jeor', 'Harris-Benedict', 'Katch-McArdle', 'metabolismo', 'calorías reposo', 'calculadora fitness'],
+    path: '/bmr'
+  },
+  '1rm': {
+    title: 'Calculadora 1RM Científica | Una Repetición Máxima | 5 Fórmulas Validadas',
+    description: 'Calculadora profesional de 1RM con fórmulas Brzycki, Epley, Lander, O\'Conner y Lombardi validadas científicamente. Planifica entrenamientos de fuerza con precisión médica. Utilizada por atletas y entrenadores.',
+    keywords: ['calculadora 1RM', 'calculadora fit', 'una repetición máxima', '1RM', 'fuerza máxima', 'Brzycki', 'Epley', 'Lander', 'powerlifting', 'entrenamiento fuerza', 'repetición máxima', 'calculadora fitness'],
+    path: '/1rm'
   }
 };
 

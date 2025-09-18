@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Heart, Ruler, Scale, Target, Zap } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -21,7 +21,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     icon: Calculator,
     priority: 'high',
     category: 'nutrition',
-    relatedCalculators: ['tdee', 'imc', 'proteina', 'agua']
+    relatedCalculators: ['bmr', 'tdee', 'imc', 'proteina']
   },
   {
     key: 'imc',
@@ -41,7 +41,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     icon: Activity,
     priority: 'high',
     category: 'nutrition',
-    relatedCalculators: ['home', 'proteina', 'ritmo-cardiaco', 'agua']
+    relatedCalculators: ['bmr', 'home', 'proteina', 'ritmo-cardiaco']
   },
   {
     key: 'proteina',
@@ -81,7 +81,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     icon: Heart,
     priority: 'high',
     category: 'fitness',
-    relatedCalculators: ['tdee', 'grasa-corporal', 'masa-muscular', 'imc']
+    relatedCalculators: ['1rm', 'masa-muscular', 'tdee', 'grasa-corporal']
   },
   {
     key: 'grasa-corporal',
@@ -111,7 +111,27 @@ export const CALCULATORS: CalculatorConfig[] = [
     icon: Dumbbell,
     priority: 'high',
     category: 'fitness',
-    relatedCalculators: ['proteina', 'composicion', 'peso-ideal', 'ritmo-cardiaco']
+    relatedCalculators: ['1rm', 'proteina', 'composicion', 'peso-ideal']
+  },
+  {
+    key: 'bmr',
+    title: 'BMR (Metabolismo Basal)',
+    href: '/bmr',
+    description: 'Metabolismo basal con 3 fórmulas científicas validadas',
+    icon: Flame,
+    priority: 'high',
+    category: 'nutrition',
+    relatedCalculators: ['tdee', 'home', 'composicion', 'masa-muscular']
+  },
+  {
+    key: '1rm',
+    title: '1RM (Una Repetición Máxima)',
+    href: '/1rm',
+    description: 'Calculadora de fuerza máxima con 5 fórmulas científicas',
+    icon: Trophy,
+    priority: 'high',
+    category: 'fitness',
+    relatedCalculators: ['masa-muscular', 'proteina', 'composicion', 'ritmo-cardiaco']
   }
 ];
 

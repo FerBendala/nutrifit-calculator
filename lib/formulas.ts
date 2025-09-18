@@ -280,6 +280,93 @@ export function calculateWaistHipRatio(
 }
 
 /**
+ * Calculate BMR using Harris-Benedict equation (revised 1984)
+ */
+export function calculateBMRHarrisBenedict(userData: UserData): number {
+  const { sex, age, height, weight } = userData;
+
+  if (sex === 'male') {
+    return 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+  } else {
+    return 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+  }
+}
+
+/**
+ * Calculate BMR using Katch-McArdle equation (based on lean body mass)
+ */
+export function calculateBMRKatchMcArdle(weight: number, bodyFatPercentage: number): number {
+  const leanBodyMass = weight * (1 - bodyFatPercentage / 100);
+  return 370 + (21.6 * leanBodyMass);
+}
+
+/**
+ * Calculate 1RM using Brzycki formula
+ */
+export function calculate1RMBrzycki(weight: number, reps: number): number {
+  return weight * (36 / (37 - reps));
+}
+
+/**
+ * Calculate 1RM using Epley formula
+ */
+export function calculate1RMEpley(weight: number, reps: number): number {
+  return weight * (1 + reps / 30);
+}
+
+/**
+ * Calculate 1RM using Lander formula
+ */
+export function calculate1RMLander(weight: number, reps: number): number {
+  return (100 * weight) / (101.3 - 2.67123 * reps);
+}
+
+/**
+ * Calculate 1RM using O'Conner formula
+ */
+export function calculate1RMOConner(weight: number, reps: number): number {
+  return weight * (1 + 0.025 * reps);
+}
+
+/**
+ * Calculate 1RM using Lombardi formula
+ */
+export function calculate1RMLombardi(weight: number, reps: number): number {
+  return weight * Math.pow(reps, 0.10);
+}
+
+/**
+ * Calculate comprehensive 1RM analysis with all formulas
+ */
+export function calculate1RMAnalysis(weight: number, reps: number): {
+  brzycki: number;
+  epley: number;
+  lander: number;
+  oconner: number;
+  lombardi: number;
+  average: number;
+  recommended: string;
+} {
+  const brzycki = calculate1RMBrzycki(weight, reps);
+  const epley = calculate1RMEpley(weight, reps);
+  const lander = calculate1RMLander(weight, reps);
+  const oconner = calculate1RMOConner(weight, reps);
+  const lombardi = calculate1RMLombardi(weight, reps);
+
+  const average = (brzycki + epley + lander + oconner + lombardi) / 5;
+
+  return {
+    brzycki: Math.round(brzycki * 10) / 10,
+    epley: Math.round(epley * 10) / 10,
+    lander: Math.round(lander * 10) / 10,
+    oconner: Math.round(oconner * 10) / 10,
+    lombardi: Math.round(lombardi * 10) / 10,
+    average: Math.round(average * 10) / 10,
+    recommended: 'Brzycki'
+  };
+}
+
+/**
  * Calculate maximum heart rate using different formulas
  */
 export function calculateMaxHeartRate(

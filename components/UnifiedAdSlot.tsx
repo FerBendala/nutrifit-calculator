@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
 import { processAdSlot } from '@/lib/adsense';
+import { useEffect, useRef } from 'react';
 
 interface UnifiedAdSlotProps {
   adSlot: string;

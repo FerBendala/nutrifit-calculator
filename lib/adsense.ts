@@ -38,18 +38,18 @@ export const loadAdSenseScript = async (): Promise<boolean> => {
     script.async = true;
     script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`;
     script.crossOrigin = 'anonymous';
-    
+
     script.onload = () => {
       adsenseScriptLoaded = true;
       console.log('AdSense: Script cargado correctamente');
       resolve(true);
     };
-    
+
     script.onerror = () => {
       console.error('AdSense: Error cargando script');
       reject(false);
     };
-    
+
     document.head.appendChild(script);
     adsenseScriptLoaded = true;
   });
@@ -66,7 +66,7 @@ export const initializeAutoAds = async () => {
 
   try {
     await loadAdSenseScript();
-    
+
     if (window.adsbygoogle) {
       console.log('AdSense: Inicializando anuncios automáticos');
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -83,7 +83,7 @@ export const initializeAutoAds = async () => {
  */
 export const processAdSlot = async (elementId: string, retryCount = 0): Promise<void> => {
   const maxRetries = 10;
-  
+
   if (retryCount > maxRetries) {
     console.warn(`AdSense: Máximo de reintentos alcanzado para slot ${elementId}`);
     return;
@@ -97,7 +97,7 @@ export const processAdSlot = async (elementId: string, retryCount = 0): Promise<
 
   try {
     await loadAdSenseScript();
-    
+
     const element = document.getElementById(elementId);
     if (!element) {
       console.warn(`AdSense: Elemento ${elementId} no encontrado, reintentando...`);

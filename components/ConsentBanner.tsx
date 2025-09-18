@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Switch } from '@/components/ui/switch';
+import { initializeAutoAds } from '@/lib/adsense';
 import { Settings } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { initializeAutoAds } from '@/lib/adsense';
 
 declare global {
   interface Window {
@@ -31,14 +31,14 @@ const loadGTM = () => {
 
 const loadAdSense = (isMobile: boolean) => {
   console.warn('ConsentBanner: Iniciando AdSense con gestión centralizada');
-  
+
   // Delay adicional para mobile - asegurar que el consent mode se procese
   const delay = isMobile ? 1500 : 1000;
-  
+
   setTimeout(() => {
     initializeAutoAds().then(() => {
       console.warn('ConsentBanner: Anuncios automáticos inicializados');
-      
+
       // Verificar estado después de un momento
       setTimeout(() => {
         const ads = document.querySelectorAll('.adsbygoogle');

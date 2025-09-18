@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Switch } from '@/components/ui/switch';
 import { Settings } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { initializeAutoAds } from '@/lib/adsense';
 
 declare global {
   interface Window {
@@ -29,45 +30,28 @@ const loadGTM = () => {
 };
 
 const loadAdSense = (isMobile: boolean) => {
-  console.warn('ConsentBanner: Cargando script de AdSense');
-
-  // Verificar si ya está cargado
-  if (window.adsbygoogle) {
-    console.warn('ConsentBanner: Script de AdSense ya cargado, ejecutando anuncios');
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-    return;
-  }
-
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`;
-  script.crossOrigin = 'anonymous';
-  script.onload = () => {
-    console.warn('ConsentBanner: Script de AdSense cargado correctamente');
-
-    // Delay adicional para mobile - asegurar que el consent mode se procese
-    const internalDelay = isMobile ? 1500 : 1000;
-    setTimeout(() => {
-      if (window.adsbygoogle) {
-        console.warn('ConsentBanner: Ejecutando anuncios automáticos');
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-
-        // Verificar estado después de un momento
-        setTimeout(() => {
-          const ads = document.querySelectorAll('.adsbygoogle');
-          console.warn('ConsentBanner: Anuncios encontrados:', ads.length);
-          ads.forEach((ad, index) => {
-            const status = ad.getAttribute('data-ad-status');
-            console.warn(`ConsentBanner: Anuncio ${index + 1} estado:`, status);
-          });
-        }, 2000);
-      }
-    }, internalDelay);
-  };
-  script.onerror = () => {
-    console.error('ConsentBanner: Error cargando script de AdSense');
-  };
-  document.head.appendChild(script);
+  console.warn('ConsentBanner: Iniciando AdSense con gestión centralizada');
+  
+  // Delay adicional para mobile - asegurar que el consent mode se procese
+  const delay = isMobile ? 1500 : 1000;
+  
+  setTimeout(() => {
+    initializeAutoAds().then(() => {
+      console.warn('ConsentBanner: Anuncios automáticos inicializados');
+      
+      // Verificar estado después de un momento
+      setTimeout(() => {
+        const ads = document.querySelectorAll('.adsbygoogle');
+        console.warn('ConsentBanner: Anuncios encontrados:', ads.length);
+        ads.forEach((ad, index) => {
+          const status = ad.getAttribute('data-adsbygoogle-status');
+          console.warn(`ConsentBanner: Anuncio ${index + 1} estado:`, status);
+        });
+      }, 2000);
+    }).catch((error) => {
+      console.error('ConsentBanner: Error inicializando AdSense:', error);
+    });
+  }, delay);
 };
 
 export function ConsentBanner() {

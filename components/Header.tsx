@@ -18,7 +18,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { CALCULATORS } from '@/lib/calculators';
-import { Menu } from 'lucide-react';
+import { BookOpen, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -27,6 +27,24 @@ export function Header() {
 
   const MobileMenuContent = () => (
     <div className="flex flex-col space-y-2 pt-6">
+      {/* Enlace al Blog */}
+      <Link
+        href="/blog"
+        onClick={() => setIsOpen(false)}
+        className="flex items-start space-x-3 rounded-lg p-4 transition-colors hover:bg-accent border-b"
+      >
+        <BookOpen className="h-5 w-5 mt-0.5 text-primary" />
+        <div className="space-y-1">
+          <div className="font-medium leading-none">
+            Blog de Nutrición
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Artículos profesionales sobre fitness y salud
+          </p>
+        </div>
+      </Link>
+
+      {/* Calculadoras */}
       {CALCULATORS.map((calculator) => {
         const Icon = calculator.icon;
         return (
@@ -99,6 +117,16 @@ export function Header() {
                       ))}
                     </ul>
                   </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <Link
+                    href="/blog"
+                    className="flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary px-3 py-2 rounded-md hover:bg-accent"
+                  >
+                    <BookOpen className="h-4 w-4" />
+                    <span>Blog</span>
+                  </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>

@@ -15,6 +15,8 @@ featured: true
 
 Actualizar tus macronutrientes con criterio científico es clave para cualquier estrategia de cambio de composición corporal. En esta guía 2025 reunimos los consensos y estudios publicados entre 2021 y 2024 para ayudarte a definir metas sostenibles, sean de pérdida de grasa, ganancia muscular o rendimiento deportivo.[^3][^2]
 
+> **Resumen rápido (TL;DR)**: Calcula tu TDEE con datos reales, distribuye proteína en 1.6-2.2 g/kg, grasas en 0.8-1.2 g/kg y llena el resto con carbohidratos periodizados según entrenamiento. Revisa progresos cada 4-6 semanas y ajusta 5-10% de calorías cuando sea necesario.
+
 ## 1. Revisa tus Bases: ¿Qué Son los Macronutrientes?
 
 Los macronutrientes aportan energía y funciones esenciales:
@@ -119,6 +121,28 @@ Integra carbohidratos de absorción rápida (arroz blanco, pan blanco, bebidas d
 Mantén esta guía a mano y actualiza tus macros cuando cambie tu nivel de actividad, objetivo o composición corporal. La ciencia avanza, pero el principio clave sigue siendo individualizar y revisar con datos reales.
 
 ---
+
+## Preguntas Frecuentes
+
+**¿Cada cuánto debo recalcular mis macros si entreno 5 días por semana?**
+
+Haz una revisión completa cada 4-6 semanas o tras cambios de ≥2 kg. Ajusta calorías en ±100-150 kcal y reevalúa TDEE cuando cambie tu volumen de entrenamiento.
+
+**¿Puedo usar el mismo reparto de macronutrientes en fases de mantenimiento y déficit?**
+
+Sí, pero incrementa la proteína hacia el rango alto (2.0-2.2 g/kg) en déficit y reduce ligeramente las grasas para mantener carbohidratos alrededor de los entrenos.
+
+**¿Las dietas muy bajas en carbohidratos afectan el rendimiento de fuerza?**
+
+La evidencia 2024 muestra que las reducciones severas pueden limitar la potencia y la síntesis de glucógeno. Mantén al menos 3-4 g/kg en fases de hipertrofia o fuerza alta.
+
+## Próximo Paso
+
+Descarga nuestra plantilla de seguimiento semanal y conecta este plan con la [calculadora principal](/) para automatizar ajustes. Únete a la newsletter de Nutrifit y recibe actualizaciones trimestrales sobre nuevas guías y estudios.
+
+## Sobre el Autor y la Revisión
+
+Artículo elaborado por **Dr. Nutrifit**, especialista en nutrición clínica y entrenamiento de fuerza. Revisión editorial 2025-01-28. Para consultas personalizadas o colaboraciones, escríbenos a contacto@nutrifit.com.
 
 [^1]: Rafii, M., Chapman, K., Elango, R., et al. (2022). Dietary Protein Requirement of Adult Men is Higher Than the Current RDA: Evidence from Indicator Amino Acid Oxidation. *Journal of Nutrition*, 152(8), 1881–1889.
 [^2]: Mountjoy, M., Burke, L. M., Ackerman, K. E., et al. (2023). International Olympic Committee (IOC) Consensus Statement on Relative Energy Deficiency in Sport (REDs) Update 2023. *British Journal of Sports Medicine*, 57, 175–189.

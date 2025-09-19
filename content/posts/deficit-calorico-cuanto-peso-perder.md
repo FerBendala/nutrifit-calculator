@@ -23,6 +23,8 @@ featured: true
 
 La evidencia más reciente sigue confirmando que la pérdida de peso sostenible depende de un déficit calórico bien gestionado. Sin embargo, los estudios publicados entre 2022 y 2025 muestran que la magnitud y la duración del déficit importan tanto como la cifra total de calorías: un enfoque excesivamente agresivo aumenta la adaptación metabólica y dificulta mantener los resultados.[^1] Esta guía reúne las recomendaciones clínicas y los ensayos recientes para que ajustes tus calorías con seguridad y precisión.[^2]
 
+> **Resumen rápido (TL;DR)**: trabaja con un déficit del 10-20% del TDEE, prioriza 1.8-2.4 g/kg de proteína, revisa avances cada 4-6 semanas y programa diet breaks de 7-14 días tras 8-12 semanas para proteger tu metabolismo.
+
 ## 1. Entiende la Ecuación Energética
 
 El déficit calórico es la diferencia entre la energía que gastas y la que ingieres:
@@ -103,6 +105,28 @@ Estas señales suelen acompañarse de adaptaciones metabólicas que hacen más d
 - Evalúa tus métricas más allá del peso: fuerza, perímetros, bienestar
 
 La clave no es bajar calorías sin control, sino crear un déficit que puedas sostener mientras proteges tu salud metabólica y tu rendimiento. Ajusta tus números con los datos reales que recojas semana a semana y apóyate en las herramientas de seguimiento para mantener la consistencia.
+
+## Preguntas Frecuentes
+
+**¿Cómo sé si debo subir calorías temporalmente?**
+
+Si llevas dos semanas con HRV baja, fuerza estancada y hambre extrema, sube 10-15% las calorías durante 5-7 días y evalúa tus métricas antes de volver al déficit.
+
+**¿Qué pasa si no puedo entrenar fuerza?**
+
+Sigue el déficit, pero prioriza caminatas y proteína alta (2.0-2.2 g/kg). Sin entrenamiento de fuerza perderás masa magra más rápido, por lo que un déficit más moderado será clave.
+
+**¿El ayuno intermitente acelera los resultados?**
+
+Solo si te ayuda a adherirte. La evidencia reciente muestra que iguala resultados con restricción continua cuando las calorías semanales son las mismas.[^3][^4][^5]
+
+## Próximo Paso
+
+Descarga la hoja de seguimiento del déficit, conecta con la [calculadora principal](/) y regístrate en la newsletter para recibir alertas cuando se publiquen nuevas recomendaciones clínicas.
+
+## Sobre el Autor y la Revisión
+
+Redactado por **Dr. Nutrifit**, nutricionista clínico y asesor de atletas recreativos. Última revisión editorial: 2025-01-28. Escríbenos a contacto@nutrifit.com para colaboraciones o revisiones de plan.
 
 ---
 

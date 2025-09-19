@@ -15,6 +15,8 @@ featured: true
 
 En 2025, la evidencia es contundente: los planes que combinan fuerza, cardio estructurado y actividad ligera diaria son los que mejor reducen grasa visceral, estabilizan la glucosa y mejoran la variabilidad de la frecuencia cardiaca.[^1][^2][^3] Si solo haces cardio o dependes de pasos sin entrenamiento, el progreso se estanca. Esta guía te muestra cómo organizar tu semana para que cada bloque de movimiento cumpla una función específica.
 
+> **Resumen rápido (TL;DR)**: programa 3 días de fuerza, alterna cardio zona 2 e intervalos, acumula ≥60.000 pasos y usa HRV/peso/fuerza como tablero de control. Ajusta volumen y calorías cada 4-6 semanas.
+
 ## 1. Por Qué Necesitas un Enfoque Híbrido
 
 - **Fuerza**: La red de 84 ensayos aleatorizados analizada en 2024 situó al entrenamiento de fuerza combinado con HIIT entre las estrategias más eficaces para reducir grasa visceral en personas con sobrepeso u obesidad.[^1]
@@ -105,6 +107,28 @@ Tiempo total: 55-65 minutos.
 El entrenamiento híbrido ordenado es el socio perfecto de tus macros. Usa este plan como plantilla, registra tus métricas y evoluciona cada 4-6 semanas. El objetivo no es entrenar más, sino combinar estímulos para que cada minuto sume a tu salud metabólica.
 
 ---
+
+## Preguntas Frecuentes
+
+**¿Qué priorizo si solo dispongo de 3 días para entrenar?**
+
+Realiza dos sesiones full-body de fuerza y un bloque HIIT/MIIT. Completa el resto con caminatas largas o bici suave para sostener el gasto.
+
+**¿Cómo evito el sobreentrenamiento cuando sumo HIIT?**
+
+Monitoriza HRV, descanso y RPE. Si la HRV cae ≥10% tres días seguidos, reduce intervalos o cambia a cardio moderado hasta recuperar tendencia.
+
+**¿Necesito dispositivos para medir HRV?**
+
+No es obligatorio: combina frecuencia cardiaca en reposo, calidad de sueño y sensaciones al despertar como alternativa económica.
+
+## Próximo Paso
+
+Descarga el planner semanal de Nutrifit, enlaza tus datos con las calculadoras ([TDEE](/tdee), [masa muscular](/masa-muscular)) y recibe actualizaciones exclusivas suscribiéndote a la newsletter.
+
+## Sobre el Autor y la Revisión
+
+Diseñado por **Dr. Nutrifit**, entrenador y consultor en salud metabólica. Última revisión editorial: 2025-01-28. Contacto profesional: contacto@nutrifit.com.
 
 [^1]: Chen, X., He, H., Xie, K., et al. (2024). Effects of various exercise types on visceral adipose tissue in individuals with overweight and obesity: A systematic review and network meta-analysis of 84 randomized controlled trials. _Obesity Reviews_, 25(3), e13666. https://doi.org/10.1111/obr.13666
 [^2]: Kazeminasab, F., Bahrami Kerchi, A., Behzadnejad, N., et al. (2024). The Effects of Exercise Interventions on Ectopic and Subcutaneous Fat in Patients with Type 2 Diabetes Mellitus. _Journal of Clinical Medicine_, 13(17), 5005. https://doi.org/10.3390/jcm13175005

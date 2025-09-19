@@ -16,6 +16,8 @@ featured: true
 
 El debate IMC vs porcentaje de grasa corporal sigue vivo, pero la evidencia de 2023-2025 es clara: **no existe un único número que describa toda tu salud**. Hoy se recomienda combinar métricas que capten la grasa visceral, la masa muscular y la distribución corporal para reducir el riesgo cardiometabólico y orientar tus objetivos físicos.[^1][^2]
 
+> **Resumen rápido (TL;DR)**: utiliza IMC y cintura/altura para cribado, suma RFM/% grasa para decisiones finas y registra fuerza/masa magra cada 4-6 semanas para detectar sarcopenia encubierta.
+
 ## 1. Qué Mide Cada Indicador
 
 ### IMC (Índice de Masa Corporal)
@@ -144,6 +146,28 @@ Panel básico recomendado = IMC + Cintura/altura + % de grasa + Fuerza / masa ma
 El IMC sigue siendo útil, pero en 2025 solo es la puerta de entrada. Usa los indicadores que mejor describen tu cuerpo y tus hábitos para tomar decisiones informadas y sostenibles.
 
 ---
+
+## Preguntas Frecuentes
+
+**¿Qué métrica uso si mi BIA cambia mucho entre mediciones?**
+
+Evalúa en condiciones estandarizadas (misma hora, hidratación y entrenamiento). Complementa con la relación cintura/altura y fotografías para validar tendencias.
+
+**¿Cómo interpreto un IMC normal con cintura elevada?**
+
+Sugiere obesidad de peso normal: enfoca tus intervenciones en fuerza + déficit moderado hasta llevar la cintura por debajo de 0.5 veces tu altura.
+
+**¿Es suficiente un DEXA anual?**
+
+Sí para la mayoría. Si estás en recomposición activa o procesos clínicos, realiza uno cada 6 meses y usa pliegues/BIA como seguimiento mensual.
+
+## Próximo Paso
+
+Descarga la checklist de mediciones, enlaza con la [calculadora de IMC](/imc) y la [calculadora de grasa corporal](/grasa-corporal) y recibe alertas de actualización sumándote a la newsletter.
+
+## Sobre el Autor y la Revisión
+
+Artículo preparado por **Dr. Nutrifit**, especialista en composición corporal y asesor en clínicas metabólicas. Última revisión editorial: 2025-01-28. Contacto: contacto@nutrifit.com.
 
 [^1]: Suthahar, N., Lau, E. S., & Savarese, G. (2025). Relative Fat Mass: Refining Adiposity Measurement in the Era Beyond Body Mass Index. _Current Heart Failure Reports_, 22(1). https://doi.org/10.1007/s11897-025-00709-w
 [^2]: Zhang, Y., Chen, G.-C., Sotres-Alvarez, D., et al. (2024). General or Central Obesity and Mortality Among US Hispanic and Latino Adults. _JAMA Network Open_, 7(1). https://doi.org/10.1001/jamanetworkopen.2023.51070

@@ -24,6 +24,8 @@ La discusión sobre cuánta proteína comer dejó atrás el antiguo “0.8 g/kg�
 
 ## 1. Calcula tu Punto de Partida
 
+> **Resumen rápido (TL;DR)**: apunta a 1.6-2.2 g/kg de proteína repartidos en 3-5 comidas, ajusta grasas a 0.8-1.0 g/kg, completa con carbohidratos y revisa tu ingesta cada 4-6 semanas según fuerza, masa magra y biofeedback.
+
 La forma más fiable de estimar tu ingesta es combinar el peso corporal con tu objetivo actual. Usa estas referencias diarias por kilogramo de peso corporal (si tienes >30% de grasa, calcula usando tu peso objetivo o masa libre de grasa estimada).
 
 | Objetivo / Contexto                    | g de proteína por kg | Comentarios clave                                                                 |
@@ -118,6 +120,28 @@ No basta con llegar al total: la distribución influye en la síntesis proteica 
 La proteína no es solo para culturistas: es tu seguro de salud, metabolismo y longevidad. Ajusta la cantidad a tu realidad, reparte bien tus comidas y acompáñala con entrenamiento de fuerza y un plan calórico coherente para ver resultados sostenibles.
 
 ---
+
+## Preguntas Frecuentes
+
+**¿Qué hago si me cuesta alcanzar la proteína con comida?**
+
+Planifica cada comida alrededor de una fuente principal, añade snacks proteicos (yogur, queso cottage, batidos) y usa suplementos solo para completar el total diario.
+
+**¿Cuánta proteína necesito los días de descanso?**
+
+Mantén la misma ingesta diaria: la síntesis y reparación muscular continúan fuera del gimnasio, especialmente en déficits calóricos o fases de fuerza alta.
+
+**¿Proteína vegetal o animal para hipertrofia?**
+
+Ambas funcionan si alcanzas la dosis total y la leucina por comida. Combina legumbres + cereales o usa mezclas vegetales reforzadas con ≥2 g de leucina.
+
+## Próximo Paso
+
+Utiliza la [calculadora de proteína](/proteina) y la plantilla de seguimiento para evaluar tu consumo real. Suscríbete a la newsletter para recibir actualizaciones trimestrales sobre ingesta proteica y nuevas guías.
+
+## Sobre el Autor y la Revisión
+
+Contenido desarrollado por **Dr. Nutrifit**, nutricionista deportivo y consultor de recomposición corporal. Última revisión: 2025-01-28. Contacto profesional: contacto@nutrifit.com.
 
 [^1]: Zhang, Y., Ma, X., Chen, H., et al. (2024). Reevaluation of the protein requirement in Chinese elderly adults without sarcopenia using the indicator amino acid oxidation technique. _British Journal of Nutrition_, 132(1), 134–142. https://doi.org/10.1017/S0007114523002611
 [^2]: Estrada-deLeón, D. B., Struijk, E. A., Caballero, F. F., et al. (2023). Distribution of daily protein intake across meals and all-cause mortality in community-dwelling older adults. _British Journal of Nutrition_, 129(10), 1727–1736. https://doi.org/10.1017/S0007114522003695

@@ -22,6 +22,8 @@ featured: false
 
 El mercado de suplementos no se detiene, pero solo un puñado de compuestos sigue acumulando resultados sólidos. Tras las últimas revisiones sistemáticas de 2024 y 2025, cuatro protagonistas destacan por impacto consistente en composición corporal, rendimiento y recuperación: **creatina**, **N-acetilcisteína (NAC)**, **coenzima Q10** y la dupla **cafeína + L-teanina**. Esta guía explica qué puedes esperar de cada uno, cómo dosificarlos y cuándo evitarlos.
 
+> **Resumen rápido (TL;DR)**: usa creatina diariamente como base, incorpora NAC y CoQ10 en bloques de entrenamiento exigentes y reserva cafeína + L-teanina para sesiones clave. Introduce un suplemento nuevo cada 2-3 semanas y registra fuerza, HRV, sueño y marcadores sanguíneos.
+
 ## 1. Radiografía Rápida de los Suplementos con Evidencia
 
 | Suplemento             | Objetivo principal                                              | Evidencia 2024-2025                                                                                                         | Dosis eficaz                                                  | Mejor momento                                                |
@@ -86,6 +88,28 @@ El mercado de suplementos no se detiene, pero solo un puñado de compuestos sigu
 - [Calculadora de TDEE](/tdee): ajusta calorías a tu nuevo gasto y stack.
 - [Calculadora de proteína](/proteina): asegura 1.6-2.0 g/kg si buscas hipertrofia.
 - [Calculadora de masa muscular](/masa-muscular): monitoriza la respuesta a creatina y CoQ10.
+
+## Preguntas Frecuentes
+
+**¿La creatina provoca retención de líquido?**
+
+Solo incrementa agua intracelular y fosfocreatina muscular, lo cual es positivo para la fuerza. Si notas hinchazón, revisa sodio e hidratación diaria.
+
+**¿Puedo usar NAC y CoQ10 al mismo tiempo?**
+
+Sí, pero limita la duración a 4-6 semanas para evitar bloquear adaptaciones. Alterna bloques y controla marcadores hepáticos cuando sea necesario.
+
+**¿Quién debe evitar cafeína + L-teanina?**
+
+Personas con hipertensión no controlada, trastornos del sueño o sensibilidad elevada a estimulantes. Consulta con tu médico antes de iniciar.
+
+## Próximo Paso
+
+Descarga la hoja de planificación de suplementos, enlaza con tu calendario de entrenamientos y recibe alertas de nuevos estudios suscribiéndote a la newsletter de Nutrifit.
+
+## Sobre el Autor y la Revisión
+
+Escrito por **Dr. Nutrifit**, farmacéutico clínico y asesor de alto rendimiento. Última revisión editorial: 2025-01-28. Contacto: contacto@nutrifit.com.
 
 Los suplementos funcionan cuando cubres primero los básicos: alimentación adecuada, entrenamiento bien diseñado y sueño suficiente. Una vez que esas piezas están sólidas, los compuestos con evidencia pueden darte el extra que buscas en rendimiento, recuperación y foco mental.
 

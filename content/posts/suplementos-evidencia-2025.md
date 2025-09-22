@@ -103,17 +103,7 @@ Sí, pero limita la duración a 4-6 semanas para evitar bloquear adaptaciones. A
 
 Personas con hipertensión no controlada, trastornos del sueño o sensibilidad elevada a estimulantes. Consulta con tu médico antes de iniciar.
 
-## Próximo Paso
-
-Descarga la hoja de planificación de suplementos, enlaza con tu calendario de entrenamientos y recibe alertas de nuevos estudios suscribiéndote a la newsletter de Nutrifit.
-
-## Sobre el Autor y la Revisión
-
-Escrito por **Dr. Nutrifit**, farmacéutico clínico y asesor de alto rendimiento. Última revisión editorial: 2025-09-13. Contacto: contacto@nutrifit.com.
-
-Los suplementos funcionan cuando cubres primero los básicos: alimentación adecuada, entrenamiento bien diseñado y sueño suficiente. Una vez que esas piezas están sólidas, los compuestos con evidencia pueden darte el extra que buscas en rendimiento, recuperación y foco mental.
-
----
+## Revisión
 
 [^1]: Pashayee-Khamene, F., Heidari, Z., Asbaghi, O., et al. (2024). Creatine supplementation protocols with or without training interventions on body composition: a GRADE-assessed systematic review and dose-response meta-analysis. _Journal of the International Society of Sports Nutrition_, 21(1). https://doi.org/10.1080/15502783.2024.2380058
 [^2]: Asgharzadeh, S., Ashtary-Larky, D., Ashtari, F., et al. (2024). The impact of N-acetylcysteine on lactate, biomarkers of oxidative stress, immune response, and muscle damage: A systematic review and meta-analysis. _Journal of Cellular and Molecular Medicine_, 28(23). https://doi.org/10.1111/jcmm.70198

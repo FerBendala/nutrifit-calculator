@@ -161,13 +161,7 @@ Sugiere obesidad de peso normal: enfoca tus intervenciones en fuerza + déficit 
 
 Sí para la mayoría. Si estás en recomposición activa o procesos clínicos, realiza uno cada 6 meses y usa pliegues/BIA como seguimiento mensual.
 
-## Próximo Paso
-
-Descarga la checklist de mediciones, enlaza con la [calculadora de IMC](/imc) y la [calculadora de grasa corporal](/grasa-corporal) y recibe alertas de actualización sumándote a la newsletter.
-
-## Sobre el Autor y la Revisión
-
-Artículo preparado por **Dr. Nutrifit**, especialista en composición corporal y asesor en clínicas metabólicas. Última revisión editorial: 2025-01-20. Contacto: contacto@nutrifit.com.
+## Revisión
 
 [^1]: Suthahar, N., Lau, E. S., & Savarese, G. (2025). Relative Fat Mass: Refining Adiposity Measurement in the Era Beyond Body Mass Index. _Current Heart Failure Reports_, 22(1). https://doi.org/10.1007/s11897-025-00709-w
 [^2]: Zhang, Y., Chen, G.-C., Sotres-Alvarez, D., et al. (2024). General or Central Obesity and Mortality Among US Hispanic and Latino Adults. _JAMA Network Open_, 7(1). https://doi.org/10.1001/jamanetworkopen.2023.51070

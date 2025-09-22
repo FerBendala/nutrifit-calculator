@@ -124,11 +124,7 @@ Solo si te ayuda a adherirte. La evidencia reciente muestra que iguala resultado
 
 Descarga la hoja de seguimiento del déficit, conecta con la [calculadora principal](/) y regístrate en la newsletter para recibir alertas cuando se publiquen nuevas recomendaciones clínicas.
 
-## Sobre el Autor y la Revisión
-
-Redactado por **Dr. Nutrifit**, nutricionista clínico y asesor de atletas recreativos. Última revisión editorial: 2025-09-17. Escríbenos a contacto@nutrifit.com para colaboraciones o revisiones de plan.
-
----
+## Revisión
 
 [^1]: Hall, K. D. (2022). Energy compensation and metabolic adaptation: "The Biggest Loser" study reinterpreted. _Obesity (Silver Spring)_, 30(1). https://doi.org/10.1002/oby.23308
 [^2]: American Diabetes Association. (2024). Standards of Care in Diabetes—2024. _Diabetes Care_, 47(Supplement_1), S1–S321.

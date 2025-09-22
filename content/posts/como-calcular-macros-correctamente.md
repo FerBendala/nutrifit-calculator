@@ -136,13 +136,7 @@ Sí, pero incrementa la proteína hacia el rango alto (2.0-2.2 g/kg) en déficit
 
 La evidencia 2024 muestra que las reducciones severas pueden limitar la potencia y la síntesis de glucógeno. Mantén al menos 3-4 g/kg en fases de hipertrofia o fuerza alta.
 
-## Próximo Paso
-
-Descarga nuestra plantilla de seguimiento semanal y conecta este plan con la [calculadora principal](/) para automatizar ajustes. Únete a la newsletter de Nutrifit y recibe actualizaciones trimestrales sobre nuevas guías y estudios.
-
-## Sobre el Autor y la Revisión
-
-Artículo elaborado por **Dr. Nutrifit**, especialista en nutrición clínica y entrenamiento de fuerza. Revisión editorial 2025-09-18. Para consultas personalizadas o colaboraciones, escríbenos a contacto@nutrifit.com.
+## Revisión
 
 [^1]: Rafii, M., Chapman, K., Elango, R., et al. (2022). Dietary Protein Requirement of Adult Men is Higher Than the Current RDA: Evidence from Indicator Amino Acid Oxidation. _Journal of Nutrition_, 152(8), 1881–1889.
 [^2]: Mountjoy, M., Burke, L. M., Ackerman, K. E., et al. (2023). International Olympic Committee (IOC) Consensus Statement on Relative Energy Deficiency in Sport (REDs) Update 2023. _British Journal of Sports Medicine_, 57, 175–189.

@@ -135,13 +135,7 @@ Mantén la misma ingesta diaria: la síntesis y reparación muscular continúan 
 
 Ambas funcionan si alcanzas la dosis total y la leucina por comida. Combina legumbres + cereales o usa mezclas vegetales reforzadas con ≥2 g de leucina.
 
-## Próximo Paso
-
-Utiliza la [calculadora de proteína](/proteina) y la plantilla de seguimiento para evaluar tu consumo real. Suscríbete a la newsletter para recibir actualizaciones trimestrales sobre ingesta proteica y nuevas guías.
-
-## Sobre el Autor y la Revisión
-
-Contenido desarrollado por **Dr. Nutrifit**, nutricionista deportivo y consultor de recomposición corporal. Última revisión: 2025-09-15. Contacto profesional: contacto@nutrifit.com.
+## Revisión
 
 [^1]: Zhang, Y., Ma, X., Chen, H., et al. (2024). Reevaluation of the protein requirement in Chinese elderly adults without sarcopenia using the indicator amino acid oxidation technique. _British Journal of Nutrition_, 132(1), 134–142. https://doi.org/10.1017/S0007114523002611
 [^2]: Estrada-deLeón, D. B., Struijk, E. A., Caballero, F. F., et al. (2023). Distribution of daily protein intake across meals and all-cause mortality in community-dwelling older adults. _British Journal of Nutrition_, 129(10), 1727–1736. https://doi.org/10.1017/S0007114522003695

@@ -89,17 +89,7 @@ Confía primero en tus sensaciones y datos de rendimiento. Usa el wearable para 
 
 Bloquea 7-8 h de sueño diurno en ambiente totalmente oscuro, usa luz brillante al inicio del turno y gafas de bloqueo al terminar. Planifica siestas ancla antes del turno para mantener la alerta.
 
-## Próximo Paso
-
-Descarga la plantilla “Sleep Score” de Nutrifit, enlaza tus datos con la [calculadora de TDEE](/tdee) y recibe actualizaciones trimestrales de protocolos suscribiéndote a nuestra newsletter.
-
-## Sobre el Autor y la Revisión
-
-Artículo elaborado por **Dr. Nutrifit**, especialista en sueño deportivo y salud metabólica. Última revisión editorial: 2025-09-22. Para consultorías privadas escribe a contacto@nutrifit.com.
-
-Los resultados dependen de combinar infraestructura (ambiente), hábitos (rituales nocturnos) y métricas (wearables/diarios). Ajusta el plan cada mes con tus datos reales y mantén el sueño como pieza central de tu estrategia de rendimiento.
-
----
+## Revisión
 
 [^1]: Matos, J. P. P., Guilherme, L. Q., da Encarnação, S. G. A., et al. (2025). Influence of sleep quality on recovery and performance in endurance and ultra-endurance runners. _Healthcare_, 13(7), 812. https://doi.org/10.3390/healthcare13070812
 [^2]: Olsen, M. L. S., Thorlund, J. B., Zachariae, R., et al. (2025). Digitally delivered CBT-I for patients with chronic pain and insomnia (Back2Sleep trial protocol). _Trials_, 26(1), 292. https://doi.org/10.1186/s13063-025-09013-3

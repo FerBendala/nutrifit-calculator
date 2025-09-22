@@ -142,7 +142,7 @@ Descarga nuestra plantilla de seguimiento semanal y conecta este plan con la [ca
 
 ## Sobre el Autor y la Revisión
 
-Artículo elaborado por **Dr. Nutrifit**, especialista en nutrición clínica y entrenamiento de fuerza. Revisión editorial 2025-01-28. Para consultas personalizadas o colaboraciones, escríbenos a contacto@nutrifit.com.
+Artículo elaborado por **Dr. Nutrifit**, especialista en nutrición clínica y entrenamiento de fuerza. Revisión editorial 2025-09-18. Para consultas personalizadas o colaboraciones, escríbenos a contacto@nutrifit.com.
 
 [^1]: Rafii, M., Chapman, K., Elango, R., et al. (2022). Dietary Protein Requirement of Adult Men is Higher Than the Current RDA: Evidence from Indicator Amino Acid Oxidation. _Journal of Nutrition_, 152(8), 1881–1889.
 [^2]: Mountjoy, M., Burke, L. M., Ackerman, K. E., et al. (2023). International Olympic Committee (IOC) Consensus Statement on Relative Energy Deficiency in Sport (REDs) Update 2023. _British Journal of Sports Medicine_, 57, 175–189.

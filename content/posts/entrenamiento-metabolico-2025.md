@@ -128,7 +128,7 @@ Descarga el planner semanal de Nutrifit, enlaza tus datos con las calculadoras (
 
 ## Sobre el Autor y la Revisión
 
-Diseñado por **Dr. Nutrifit**, entrenador y consultor en salud metabólica. Última revisión editorial: 2025-01-28. Contacto profesional: contacto@nutrifit.com.
+Diseñado por **Dr. Nutrifit**, entrenador y consultor en salud metabólica. Última revisión editorial: 2025-09-16. Contacto profesional: contacto@nutrifit.com.
 
 [^1]: Chen, X., He, H., Xie, K., et al. (2024). Effects of various exercise types on visceral adipose tissue in individuals with overweight and obesity: A systematic review and network meta-analysis of 84 randomized controlled trials. _Obesity Reviews_, 25(3), e13666. https://doi.org/10.1111/obr.13666
 [^2]: Kazeminasab, F., Bahrami Kerchi, A., Behzadnejad, N., et al. (2024). The Effects of Exercise Interventions on Ectopic and Subcutaneous Fat in Patients with Type 2 Diabetes Mellitus. _Journal of Clinical Medicine_, 13(17), 5005. https://doi.org/10.3390/jcm13175005

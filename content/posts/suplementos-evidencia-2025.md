@@ -109,7 +109,7 @@ Descarga la hoja de planificación de suplementos, enlaza con tu calendario de e
 
 ## Sobre el Autor y la Revisión
 
-Escrito por **Dr. Nutrifit**, farmacéutico clínico y asesor de alto rendimiento. Última revisión editorial: 2025-01-28. Contacto: contacto@nutrifit.com.
+Escrito por **Dr. Nutrifit**, farmacéutico clínico y asesor de alto rendimiento. Última revisión editorial: 2025-09-13. Contacto: contacto@nutrifit.com.
 
 Los suplementos funcionan cuando cubres primero los básicos: alimentación adecuada, entrenamiento bien diseñado y sueño suficiente. Una vez que esas piezas están sólidas, los compuestos con evidencia pueden darte el extra que buscas en rendimiento, recuperación y foco mental.
 

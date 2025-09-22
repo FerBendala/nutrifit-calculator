@@ -141,7 +141,7 @@ Utiliza la [calculadora de proteína](/proteina) y la plantilla de seguimiento p
 
 ## Sobre el Autor y la Revisión
 
-Contenido desarrollado por **Dr. Nutrifit**, nutricionista deportivo y consultor de recomposición corporal. Última revisión: 2025-01-28. Contacto profesional: contacto@nutrifit.com.
+Contenido desarrollado por **Dr. Nutrifit**, nutricionista deportivo y consultor de recomposición corporal. Última revisión: 2025-09-15. Contacto profesional: contacto@nutrifit.com.
 
 [^1]: Zhang, Y., Ma, X., Chen, H., et al. (2024). Reevaluation of the protein requirement in Chinese elderly adults without sarcopenia using the indicator amino acid oxidation technique. _British Journal of Nutrition_, 132(1), 134–142. https://doi.org/10.1017/S0007114523002611
 [^2]: Estrada-deLeón, D. B., Struijk, E. A., Caballero, F. F., et al. (2023). Distribution of daily protein intake across meals and all-cause mortality in community-dwelling older adults. _British Journal of Nutrition_, 129(10), 1727–1736. https://doi.org/10.1017/S0007114522003695

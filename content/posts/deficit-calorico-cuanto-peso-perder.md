@@ -126,7 +126,7 @@ Descarga la hoja de seguimiento del déficit, conecta con la [calculadora princi
 
 ## Sobre el Autor y la Revisión
 
-Redactado por **Dr. Nutrifit**, nutricionista clínico y asesor de atletas recreativos. Última revisión editorial: 2025-01-28. Escríbenos a contacto@nutrifit.com para colaboraciones o revisiones de plan.
+Redactado por **Dr. Nutrifit**, nutricionista clínico y asesor de atletas recreativos. Última revisión editorial: 2025-09-17. Escríbenos a contacto@nutrifit.com para colaboraciones o revisiones de plan.
 
 ---
 

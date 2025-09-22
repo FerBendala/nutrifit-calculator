@@ -95,7 +95,7 @@ Descarga la plantilla “Sleep Score” de Nutrifit, enlaza tus datos con la [ca
 
 ## Sobre el Autor y la Revisión
 
-Artículo elaborado por **Dr. Nutrifit**, especialista en sueño deportivo y salud metabólica. Última revisión editorial: 2025-01-30. Para consultorías privadas escribe a contacto@nutrifit.com.
+Artículo elaborado por **Dr. Nutrifit**, especialista en sueño deportivo y salud metabólica. Última revisión editorial: 2025-09-22. Para consultorías privadas escribe a contacto@nutrifit.com.
 
 Los resultados dependen de combinar infraestructura (ambiente), hábitos (rituales nocturnos) y métricas (wearables/diarios). Ajusta el plan cada mes con tus datos reales y mantén el sueño como pieza central de tu estrategia de rendimiento.
 

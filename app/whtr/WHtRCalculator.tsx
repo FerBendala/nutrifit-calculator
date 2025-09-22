@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { NumberInput } from '@/components/NumberInput';
 import { Button } from '@/components/ui/button';
-import { Calculator, Heart } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { calculateWHtRAnalysis } from '@/lib/formulas';
+import { Calculator, Heart } from 'lucide-react';
+import { useState } from 'react';
 
 interface FormData {
   waistCircumference: string;

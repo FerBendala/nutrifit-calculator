@@ -371,7 +371,7 @@ export function calculateWHtR(waistCircumference: number, height: number): numbe
   if (waistCircumference <= 0 || height <= 0) {
     throw new Error('La circunferencia de cintura y altura deben ser mayores que 0');
   }
-  
+
   return Math.round((waistCircumference / height) * 1000) / 1000; // 3 decimales
 }
 
@@ -386,13 +386,13 @@ export function calculateWHtRAnalysis(waistCircumference: number, height: number
   targetRange: string;
 } {
   const whtr = calculateWHtR(waistCircumference, height);
-  
+
   let category: string;
   let riskLevel: 'Muy bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy alto';
   let healthStatus: string;
   let recommendations: string[];
   let comparisonWithIMC: string;
-  
+
   if (whtr < 0.40) {
     category = 'Peso muy bajo';
     riskLevel = 'Muy bajo';
@@ -449,7 +449,7 @@ export function calculateWHtRAnalysis(waistCircumference: number, height: number
     ];
     comparisonWithIMC = 'WHtR crítico - requiere intervención inmediata';
   }
-  
+
   return {
     whtr,
     category,

@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { NumberInput } from '@/components/NumberInput';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Calculator, Target, TrendingUp, Heart, Info } from 'lucide-react';
 import { calculateWHtRAnalysis } from '@/lib/formulas';
-import { NumberInput } from '@/components/NumberInput';
+import { Calculator, Heart, Info, TrendingUp } from 'lucide-react';
+import { useState } from 'react';
 
 interface FormData {
   waistCircumference: string;
@@ -40,7 +40,7 @@ export function WHtRCalculator() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const waist = parseFloat(formData.waistCircumference);
     const height = parseFloat(formData.height);
 
@@ -69,127 +69,139 @@ export function WHtRCalculator() {
   };
 
   return (
-    <article className="grid gap-[2.618rem] lg:grid-cols-2 lg:items-start">
-      {/* Calculadora */}
-      <section className="space-golden-sm">
-        <Card className="card-golden-lg">
-          <CardHeader className="text-center space-golden-xs">
-            <CardTitle className="flex items-center justify-center gap-2 text-2xl">
-              <Calculator className="h-6 w-6 text-blue-600" />
-              Ratio Cintura-Altura
-            </CardTitle>
-            <p className="text-sm text-muted-foreground">
-              Medición a la altura del ombligo en ayunas
-            </p>
-          </CardHeader>
-          
-          <CardContent className="space-golden-sm">
-            <form onSubmit={handleSubmit} className="space-golden-sm">
-              <NumberInput
-                id="waistCircumference"
-                label="Circunferencia de cintura"
-                value={formData.waistCircumference}
-                onChange={(value) => handleInputChange('waistCircumference', value)}
-                placeholder="85"
-                unit="cm"
-                min={30}
-                max={200}
-                step={0.1}
-              />
+    <Card className="card-golden-lg shadow-golden-lg">
+      <CardHeader>
+        <CardTitle className="text-2xl font-bold text-center text-gray-900">
+          Calculadora de WHtR (Ratio Cintura-Altura)
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="grid gap-[2.618rem] lg:grid-cols-2 lg:items-start">
+          {/* Calculadora */}
+          <section className="space-golden-sm">
+            <div className="space-golden-sm">
+              <p className="text-sm text-gray-600 text-center mb-4">
+                💡 <strong>Instrucciones:</strong> Mide la cintura en el punto más estrecho del torso, 
+                generalmente a la altura del ombligo, en ayunas y después de exhalar normalmente.
+              </p>
 
-              <NumberInput
-                id="height"
-                label="Altura"
-                value={formData.height}
-                onChange={(value) => handleInputChange('height', value)}
-                placeholder="170"
-                unit="cm"
-                min={100}
-                max={250}
-                step={0.1}
-              />
+              <form onSubmit={handleSubmit} className="space-golden-md">
+                <div className="grid gap-[1.618rem] md:grid-cols-2">
+                  <NumberInput
+                    id="waistCircumference"
+                    label="Circunferencia de cintura"
+                    value={formData.waistCircumference}
+                    onChange={(value) => handleInputChange('waistCircumference', value)}
+                    placeholder="85"
+                    unit="cm"
+                    min={30}
+                    max={200}
+                    step={0.1}
+                    required
+                  />
 
-              <Button type="submit" className="w-full" size="lg">
-                <Calculator className="mr-2 h-4 w-4" />
-                Calcular WHtR
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-
-        {/* Información adicional */}
-        <Alert className="bg-blue-50 border-blue-200">
-          <Info className="h-4 w-4 text-blue-600" />
-          <AlertDescription className="text-blue-800">
-            <strong>¿Cómo medir correctamente?</strong><br />
-            Mide la cintura en el punto más estrecho del torso, generalmente a la altura del ombligo, 
-            en ayunas y después de exhalar normalmente.
-          </AlertDescription>
-        </Alert>
-      </section>
-
-      {/* Resultados */}
-      {result && (
-        <section className="space-golden-sm">
-          {/* Resultado principal */}
-          <Card className="card-golden-lg">
-            <CardContent className="text-center space-golden-sm pt-6">
-              <div className="space-golden-xs">
-                <div className="text-5xl font-bold text-blue-600 mb-[0.382rem]">
-                  {result.whtr}
+                  <NumberInput
+                    id="height"
+                    label="Altura"
+                    value={formData.height}
+                    onChange={(value) => handleInputChange('height', value)}
+                    placeholder="170"
+                    unit="cm"
+                    min={100}
+                    max={250}
+                    step={0.1}
+                    required
+                  />
                 </div>
-                <div className="text-xl font-bold text-blue-700 mb-[0.382rem]">
-                  WHtR (Ratio Cintura-Altura)
+
+                <Button 
+                  type="submit" 
+                  disabled={!formData.waistCircumference || !formData.height}
+                  className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
+                >
+                  <Calculator className="mr-2 h-4 w-4" />
+                  🎯 Calcular WHtR
+                </Button>
+              </form>
+            </div>
+          </section>
+
+          {/* Resultados */}
+          {result && (
+            <section className="space-golden-sm">
+              {/* Resultado principal */}
+              <div className="text-center space-golden-lg">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <article className="text-center p-6 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                    <div className="text-3xl font-bold text-blue-600 mb-2">
+                      {result.whtr}
+                    </div>
+                    <div className="text-sm font-medium text-blue-800">WHtR</div>
+                  </article>
+
+                  <article className={`text-center p-6 rounded-lg border-l-4 ${getRiskColor(result.riskLevel)}`}>
+                    <div className="text-3xl font-bold mb-2">
+                      <Heart className="h-8 w-8 mx-auto" />
+                    </div>
+                    <div className="text-sm font-medium">{result.category}</div>
+                  </article>
+
+                  <article className={`text-center p-6 rounded-lg border-l-4 ${getRiskColor(result.riskLevel)}`}>
+                    <div className="text-3xl font-bold mb-2">
+                      {result.riskLevel}
+                    </div>
+                    <div className="text-sm font-medium">Riesgo</div>
+                  </article>
                 </div>
-                <div className="text-lg text-muted-foreground">
-                  Evaluación de distribución de grasa abdominal
+
+                {/* Interpretación detallada */}
+                <div className="mt-8 space-golden-lg">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <article className="card-golden bg-white/50">
+                      <header className="p-6 pb-0">
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          Estado de Salud
+                        </h3>
+                      </header>
+                      <div className="p-6">
+                        <p className="text-sm text-gray-600 leading-[1.618] mb-4">
+                          <strong>{result.healthStatus}</strong>
+                        </p>
+                        <p className="text-sm text-gray-600 leading-[1.618]">
+                          {result.comparisonWithIMC}
+                        </p>
+                      </div>
+                    </article>
+
+                    <article className="card-golden bg-white/50">
+                      <header className="p-6 pb-0">
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          Recomendaciones
+                        </h3>
+                      </header>
+                      <div className="p-6">
+                        <ul className="space-y-2">
+                          {result.recommendations.map((rec, index) => (
+                            <li key={index} className="flex items-start gap-2">
+                              <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-1 flex-shrink-0"></span>
+                              <span className="text-sm text-gray-600 leading-[1.618]">{rec}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="bg-green-50 p-3 rounded-lg border border-green-200 mt-4">
+                          <p className="text-green-800 text-sm leading-[1.618]">
+                            <strong>🎯 Rango objetivo:</strong> {result.targetRange}
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
                 </div>
               </div>
-
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium ${getRiskColor(result.riskLevel)}`}>
-                <Heart className="h-4 w-4" />
-                {result.category} - Riesgo {result.riskLevel}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Interpretación detallada */}
-          <Card className="card-golden">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-xl">
-                <TrendingUp className="h-5 w-5 text-green-600" />
-                Interpretación y Estado de Salud
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-golden-sm">
-              <Alert className={getRiskColor(result.riskLevel)}>
-                <AlertDescription className="leading-[1.618]">
-                  <strong>{result.healthStatus}</strong><br />
-                  {result.comparisonWithIMC}
-                </AlertDescription>
-              </Alert>
-
-              <div className="space-golden-xs">
-                <h4 className="font-semibold text-lg">Recomendaciones específicas:</h4>
-                <ul className="space-y-2">
-                  {result.recommendations.map((rec, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-blue-600 mt-1">•</span>
-                      <span className="leading-[1.618]">{rec}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                <p className="text-green-800 leading-[1.618]">
-                  <strong>🎯 Rango objetivo:</strong> {result.targetRange}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-      )}
-    </article>
+            </section>
+          )}
+        </div>
+      </CardContent>
+    </Card>
   );
 }

@@ -366,6 +366,101 @@ export function calculate1RMAnalysis(weight: number, reps: number): {
   };
 }
 
+// Función para calcular WHtR (Waist-to-Height Ratio)
+export function calculateWHtR(waistCircumference: number, height: number): number {
+  if (waistCircumference <= 0 || height <= 0) {
+    throw new Error('La circunferencia de cintura y altura deben ser mayores que 0');
+  }
+  
+  return Math.round((waistCircumference / height) * 1000) / 1000; // 3 decimales
+}
+
+// Análisis completo de WHtR con interpretación y riesgos
+export function calculateWHtRAnalysis(waistCircumference: number, height: number): {
+  whtr: number;
+  category: string;
+  riskLevel: 'Muy bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy alto';
+  healthStatus: string;
+  recommendations: string[];
+  comparisonWithIMC: string;
+  targetRange: string;
+} {
+  const whtr = calculateWHtR(waistCircumference, height);
+  
+  let category: string;
+  let riskLevel: 'Muy bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy alto';
+  let healthStatus: string;
+  let recommendations: string[];
+  let comparisonWithIMC: string;
+  
+  if (whtr < 0.40) {
+    category = 'Peso muy bajo';
+    riskLevel = 'Muy bajo';
+    healthStatus = 'Posible desnutrición o peso extremadamente bajo';
+    recommendations = [
+      'Consultar con un profesional de la salud',
+      'Evaluar estado nutricional completo',
+      'Considerar aumento de peso saludable',
+      'Revisar posibles trastornos alimentarios'
+    ];
+    comparisonWithIMC = 'WHtR sugiere peso muy bajo, corroborar con IMC y composición corporal';
+  } else if (whtr >= 0.40 && whtr < 0.50) {
+    category = 'Saludable';
+    riskLevel = 'Bajo';
+    healthStatus = 'Distribución de grasa corporal óptima';
+    recommendations = [
+      'Mantener hábitos saludables actuales',
+      'Ejercicio regular y dieta equilibrada',
+      'Monitoreo periódico cada 6-12 meses',
+      'Enfocarse en masa muscular y fuerza'
+    ];
+    comparisonWithIMC = 'WHtR indica distribución saludable, independientemente del IMC';
+  } else if (whtr >= 0.50 && whtr < 0.60) {
+    category = 'Riesgo aumentado';
+    riskLevel = 'Moderado';
+    healthStatus = 'Acumulación de grasa abdominal moderada';
+    recommendations = [
+      'Reducir grasa abdominal con déficit calórico moderado',
+      'Ejercicio cardiovascular y entrenamiento de fuerza',
+      'Reducir azúcares simples y procesados',
+      'Monitoreo cada 3-4 meses'
+    ];
+    comparisonWithIMC = 'WHtR detecta riesgo que el IMC puede no capturar completamente';
+  } else if (whtr >= 0.60 && whtr < 0.70) {
+    category = 'Riesgo alto';
+    riskLevel = 'Alto';
+    healthStatus = 'Obesidad abdominal significativa';
+    recommendations = [
+      'Consultar profesional de la salud urgente',
+      'Plan estructurado de pérdida de peso',
+      'Evaluación de síndrome metabólico',
+      'Monitoreo mensual de progreso'
+    ];
+    comparisonWithIMC = 'WHtR indica riesgo alto independiente del IMC total';
+  } else {
+    category = 'Riesgo muy alto';
+    riskLevel = 'Muy alto';
+    healthStatus = 'Obesidad abdominal severa con alto riesgo cardiometabólico';
+    recommendations = [
+      'Atención médica inmediata especializada',
+      'Evaluación completa cardiometabólica',
+      'Plan médico supervisado de pérdida de peso',
+      'Monitoreo semanal inicial'
+    ];
+    comparisonWithIMC = 'WHtR crítico - requiere intervención inmediata';
+  }
+  
+  return {
+    whtr,
+    category,
+    riskLevel,
+    healthStatus,
+    recommendations,
+    comparisonWithIMC,
+    targetRange: '0.40-0.50 (óptimo para salud cardiometabólica)'
+  };
+}
+
 /**
  * Calculate maximum heart rate using different formulas
  */

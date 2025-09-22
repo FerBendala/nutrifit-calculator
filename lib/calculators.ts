@@ -91,7 +91,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     icon: Ruler,
     priority: 'high',
     category: 'body-composition',
-    relatedCalculators: ['composicion', 'imc', 'peso-ideal', 'ritmo-cardiaco']
+    relatedCalculators: ['composicion', 'imc', 'peso-ideal', 'whtr']
   },
   {
     key: 'peso-ideal',
@@ -101,7 +101,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     icon: Scale,
     priority: 'high',
     category: 'body-composition',
-    relatedCalculators: ['imc', 'grasa-corporal', 'masa-muscular', 'composicion']
+    relatedCalculators: ['imc', 'grasa-corporal', 'masa-muscular', 'whtr']
   },
   {
     key: 'masa-muscular',
@@ -132,6 +132,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'fitness',
     relatedCalculators: ['masa-muscular', 'proteina', 'composicion', 'ritmo-cardiaco']
+  },
+  {
+    key: 'whtr',
+    title: 'WHtR (Ratio Cintura-Altura)',
+    href: '/whtr',
+    description: 'Evaluación de riesgo cardiometabólico por distribución de grasa abdominal',
+    icon: Target,
+    priority: 'high',
+    category: 'body-composition',
+    relatedCalculators: ['imc', 'grasa-corporal', 'composicion', 'peso-ideal']
   }
 ];
 

@@ -1,6 +1,6 @@
 ---
 title: 'Cómo Calcular Macros Correctamente: Guía Completa 2025'
-date: '2025-01-10'
+date: '2025-09-18'
 author: 'Dr. Nutrifit'
 description: 'Actualiza tus macros con la evidencia científica más reciente para mejorar la composición corporal, el rendimiento y la salud metabólica.'
 categories: ['Nutrición', 'Macronutrientes', 'Planificación alimentaria']
@@ -144,8 +144,8 @@ Descarga nuestra plantilla de seguimiento semanal y conecta este plan con la [ca
 
 Artículo elaborado por **Dr. Nutrifit**, especialista en nutrición clínica y entrenamiento de fuerza. Revisión editorial 2025-01-28. Para consultas personalizadas o colaboraciones, escríbenos a contacto@nutrifit.com.
 
-[^1]: Rafii, M., Chapman, K., Elango, R., et al. (2022). Dietary Protein Requirement of Adult Men is Higher Than the Current RDA: Evidence from Indicator Amino Acid Oxidation. *Journal of Nutrition*, 152(8), 1881–1889.
-[^2]: Mountjoy, M., Burke, L. M., Ackerman, K. E., et al. (2023). International Olympic Committee (IOC) Consensus Statement on Relative Energy Deficiency in Sport (REDs) Update 2023. *British Journal of Sports Medicine*, 57, 175–189.
-[^3]: American Diabetes Association. (2024). Standards of Care in Diabetes—2024. *Diabetes Care*, 47(Supplement_1), S1–S321.
-[^4]: Burke, L. M., Hawley, J. A. (2021). Carbohydrate Availability and Training Adaptation in Athletes. *Sports Medicine*, 51(1), 3–17.
-[^5]: Lichtenstein, A. H., Appel, L. J., Vadiveloo, M., et al. (2021). Dietary Guidance to Improve Cardiovascular Health: A Scientific Statement From the American Heart Association. *Circulation*, 144, e472–e487.
+[^1]: Rafii, M., Chapman, K., Elango, R., et al. (2022). Dietary Protein Requirement of Adult Men is Higher Than the Current RDA: Evidence from Indicator Amino Acid Oxidation. _Journal of Nutrition_, 152(8), 1881–1889.
+[^2]: Mountjoy, M., Burke, L. M., Ackerman, K. E., et al. (2023). International Olympic Committee (IOC) Consensus Statement on Relative Energy Deficiency in Sport (REDs) Update 2023. _British Journal of Sports Medicine_, 57, 175–189.
+[^3]: American Diabetes Association. (2024). Standards of Care in Diabetes—2024. _Diabetes Care_, 47(Supplement_1), S1–S321.
+[^4]: Burke, L. M., Hawley, J. A. (2021). Carbohydrate Availability and Training Adaptation in Athletes. _Sports Medicine_, 51(1), 3–17.
+[^5]: Lichtenstein, A. H., Appel, L. J., Vadiveloo, M., et al. (2021). Dietary Guidance to Improve Cardiovascular Health: A Scientific Statement From the American Heart Association. _Circulation_, 144, e472–e487.

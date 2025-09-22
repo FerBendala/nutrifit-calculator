@@ -86,6 +86,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de 1RM con fórmulas Brzycki, Epley, Lander, O\'Conner y Lombardi validadas científicamente. Planifica entrenamientos de fuerza con precisión médica. Utilizada por atletas y entrenadores.',
     keywords: ['calculadora 1RM', 'calculadora fit', 'una repetición máxima', '1RM', 'fuerza máxima', 'Brzycki', 'Epley', 'Lander', 'powerlifting', 'entrenamiento fuerza', 'repetición máxima', 'calculadora fitness'],
     path: '/1rm'
+  },
+  whtr: {
+    title: 'Calculadora WHtR Médica | Ratio Cintura-Altura | Riesgo Cardiometabólico',
+    description: 'Calculadora profesional WHtR (Waist-to-Height Ratio) para evaluar riesgo cardiometabólico por distribución de grasa abdominal. Mejor predictor que el IMC para diabetes y síndrome metabólico. Validado científicamente.',
+    keywords: ['calculadora WHtR', 'calculadora fit', 'ratio cintura altura', 'WHtR', 'waist height ratio', 'riesgo cardiometabólico', 'grasa abdominal', 'síndrome metabólico', 'diabetes', 'obesidad central', 'calculadora médica'],
+    path: '/whtr'
   }
 };
 

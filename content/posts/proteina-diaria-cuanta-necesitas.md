@@ -1,6 +1,6 @@
 ---
 title: 'Proteína Diaria: Cuánta Necesitas y Cómo Distribuirla'
-date: '2025-01-22'
+date: '2025-09-15'
 author: 'Dr. Nutrifit'
 description: 'Calcula tu ingesta ideal de proteína en 2025 según objetivo, edad y dieta, con guías por comida y estrategias respaldadas por la evidencia más reciente.'
 categories: ['Nutrición', 'Proteína', 'Composición corporal']

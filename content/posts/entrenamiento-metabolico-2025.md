@@ -1,6 +1,6 @@
 ---
 title: 'Cómo Combinar Fuerza, Cardio y NEAT para Resultados Reales'
-date: '2025-01-25'
+date: '2025-09-16'
 author: 'Dr. Nutrifit'
 description: 'Diseña un plan semanal que mezcle fuerza, cardio inteligente y actividad diaria para reducir grasa visceral y mejorar tu salud cardiometabólica en 2025.'
 categories: ['Fitness', 'Salud Metabólica', 'Entrenamiento']

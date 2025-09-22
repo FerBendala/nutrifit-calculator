@@ -1,6 +1,6 @@
 ---
 title: '¿Cuánto Peso Puedes Perder sin Comprometer tu Salud?'
-date: '2025-01-15'
+date: '2025-09-17'
 author: 'Dr. Nutrifit'
 description: 'Actualiza tu estrategia de pérdida de peso con la evidencia 2021-2025: aprende a calcular un déficit calórico seguro, mantener masa magra y evitar la adaptación metabólica.'
 categories:

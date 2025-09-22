@@ -1,12 +1,11 @@
 "use client";
 
-import { NumberInput } from '@/components/NumberInput';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { calculateWHtRAnalysis } from '@/lib/formulas';
-import { Calculator, Heart, Info, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { NumberInput } from '@/components/NumberInput';
+import { Button } from '@/components/ui/button';
+import { Calculator, Heart } from 'lucide-react';
+import { calculateWHtRAnalysis } from '@/lib/formulas';
 
 interface FormData {
   waistCircumference: string;
@@ -59,12 +58,12 @@ export function WHtRCalculator() {
 
   const getRiskColor = (riskLevel: string) => {
     switch (riskLevel) {
-      case 'Muy bajo': return 'text-blue-700 bg-blue-50';
-      case 'Bajo': return 'text-green-700 bg-green-50';
-      case 'Moderado': return 'text-yellow-700 bg-yellow-50';
-      case 'Alto': return 'text-orange-700 bg-orange-50';
-      case 'Muy alto': return 'text-red-700 bg-red-50';
-      default: return 'text-gray-700 bg-gray-50';
+      case 'Muy bajo': return 'text-blue-700 bg-blue-50 border-blue-400';
+      case 'Bajo': return 'text-green-700 bg-green-50 border-green-400';
+      case 'Moderado': return 'text-yellow-700 bg-yellow-50 border-yellow-400';
+      case 'Alto': return 'text-orange-700 bg-orange-50 border-orange-400';
+      case 'Muy alto': return 'text-red-700 bg-red-50 border-red-400';
+      default: return 'text-gray-700 bg-gray-50 border-gray-400';
     }
   };
 
@@ -76,62 +75,64 @@ export function WHtRCalculator() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid gap-[2.618rem] lg:grid-cols-2 lg:items-start">
-          {/* Calculadora */}
-          <section className="space-golden-sm">
-            <div className="space-golden-sm">
-              <p className="text-sm text-gray-600 text-center mb-4">
-                💡 <strong>Instrucciones:</strong> Mide la cintura en el punto más estrecho del torso, 
-                generalmente a la altura del ombligo, en ayunas y después de exhalar normalmente.
-              </p>
+        {/* Instrucciones */}
+        <div className="bg-blue-50 rounded-lg p-4 mb-6 border border-blue-200">
+          <p className="text-sm text-blue-800 text-center">
+            💡 <strong>Instrucciones:</strong> Mide la cintura en el punto más estrecho del torso,
+            generalmente a la altura del ombligo, en ayunas y después de exhalar normalmente.
+          </p>
+        </div>
 
-              <form onSubmit={handleSubmit} className="space-golden-md">
-                <div className="grid gap-[1.618rem] md:grid-cols-2">
-                  <NumberInput
-                    id="waistCircumference"
-                    label="Circunferencia de cintura"
-                    value={formData.waistCircumference}
-                    onChange={(value) => handleInputChange('waistCircumference', value)}
-                    placeholder="85"
-                    unit="cm"
-                    min={30}
-                    max={200}
-                    step={0.1}
-                    required
-                  />
+        <div className="max-w-4xl mx-auto">
+          <form onSubmit={handleSubmit} className="space-golden-md">
+            <div className="grid gap-[1.618rem] md:grid-cols-2 max-w-2xl mx-auto">
+              <NumberInput
+                id="waistCircumference"
+                label="Circunferencia de cintura"
+                value={formData.waistCircumference}
+                onChange={(value) => handleInputChange('waistCircumference', value)}
+                placeholder="85"
+                unit="cm"
+                min={30}
+                max={200}
+                step={0.1}
+                required
+              />
 
-                  <NumberInput
-                    id="height"
-                    label="Altura"
-                    value={formData.height}
-                    onChange={(value) => handleInputChange('height', value)}
-                    placeholder="170"
-                    unit="cm"
-                    min={100}
-                    max={250}
-                    step={0.1}
-                    required
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  disabled={!formData.waistCircumference || !formData.height}
-                  className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
-                >
-                  <Calculator className="mr-2 h-4 w-4" />
-                  🎯 Calcular WHtR
-                </Button>
-              </form>
+              <NumberInput
+                id="height"
+                label="Altura"
+                value={formData.height}
+                onChange={(value) => handleInputChange('height', value)}
+                placeholder="170"
+                unit="cm"
+                min={100}
+                max={250}
+                step={0.1}
+                required
+              />
             </div>
-          </section>
 
-          {/* Resultados */}
-          {result && (
-            <section className="space-golden-sm">
+            <div className="flex justify-center mt-6">
+              <Button
+                type="submit"
+                disabled={!formData.waistCircumference || !formData.height}
+                className="btn-golden-lg font-semibold transition-golden px-8"
+              >
+                <Calculator className="mr-2 h-4 w-4" />
+                🎯 Calcular WHtR
+              </Button>
+            </div>
+          </form>
+        </div>
+
+        {/* Resultados */}
+        {result && (
+          <div className="mt-8 border-t pt-8">
+            <section className="max-w-4xl mx-auto">
               {/* Resultado principal */}
               <div className="text-center space-golden-lg">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
                   <article className="text-center p-6 bg-blue-50 rounded-lg border-l-4 border-blue-400">
                     <div className="text-3xl font-bold text-blue-600 mb-2">
                       {result.whtr}
@@ -199,8 +200,8 @@ export function WHtRCalculator() {
                 </div>
               </div>
             </section>
-          )}
-        </div>
+          </div>
+        )}
       </CardContent>
     </Card>
   );

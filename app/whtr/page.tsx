@@ -4,9 +4,7 @@ import { EmbedWidget } from '@/components/EmbedWidget';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
 import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SocialShare } from '@/components/SocialShare';
-import { Card } from '@/components/ui/card';
 import { generateMetadata } from '@/lib/seo';
-import { Target } from 'lucide-react';
 import { WHtRCalculator } from './WHtRCalculator';
 
 export const metadata = generateMetadata('whtr');

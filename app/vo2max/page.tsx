@@ -11,7 +11,7 @@ import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { calculateVO2MaxCooper, calculateVO2MaxRockport, calculateVO2MaxAstrand, calculateVO2MaxStepTest, analyzeVO2Max } from '@/lib/formulas';
+import { analyzeVO2Max, calculateVO2MaxAstrand, calculateVO2MaxCooper, calculateVO2MaxRockport, calculateVO2MaxStepTest } from '@/lib/formulas';
 import { Activity, Calculator, Heart, Info, TrendingUp, Zap } from 'lucide-react';
 import { useState } from 'react';
 

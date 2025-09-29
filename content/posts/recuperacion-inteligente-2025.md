@@ -1,17 +1,18 @@
 ---
-title: 'Recuperación Inteligente 2025: Protocolos Basados en Ciencia para Potenciar tu Entrenamiento'
-date: '2025-02-02'
+title: 'Recuperación Inteligente: Protocolos Basados en Ciencia para Potenciar tu Entrenamiento'
+date: '2025-09-29'
 author: 'Dr. Nutrifit'
 description: 'Integra frío, respiración, movilidad y monitorización con wearables para acelerar la recuperación y estabilizar tu sistema nervioso con la evidencia más reciente.'
 categories: ['Recuperación', 'Rendimiento', 'Salud Metabólica']
-tags: ['recuperación activa', 'crioterapia', 'respiración', 'HRV', 'foam rolling']
-image: 'https://cdn.pixabay.com/photo/2016/11/29/11/30/man-1866536_1280.jpg'
+tags:
+  ['recuperación activa', 'crioterapia', 'respiración', 'HRV', 'foam rolling']
+image: 'https://img.freepik.com/foto-gratis/mujer-abdominales-visibles-haciendo-ejercicio_23-2150228904.jpg?t=st=1759158213~exp=1759161813~hmac=01a2a98888f00f9bb8f50eff682115721e4d6f96d74cf7b984244f2c31b06d9d&w=2000'
 slug: 'recuperacion-inteligente-2025'
 readTime: 9
 featured: false
 ---
 
-# Recuperación Inteligente 2025: Protocolos Basados en Ciencia para Potenciar tu Entrenamiento
+# Recuperación Inteligente: Protocolos Basados en Ciencia para Potenciar tu Entrenamiento
 
 El volumen de entrenamiento y los déficits calóricos llevan solo la mitad del camino. Los progresos reales ocurren cuando la recuperación está diseñada con el mismo detalle que tus macros o tus sesiones de fuerza. Las revisiones y meta-análisis publicados entre 2024 y 2025 ofrecen un mapa claro sobre qué intervenciones funcionan y cómo combinarlas: inmersión en frío y contrastes bien dosificados, trabajo respiratorio/yoga para modular la HRV, y tecnología portátil para ajustar la carga en tiempo real.[^1][^2][^3][^4]
 
@@ -26,15 +27,15 @@ El volumen de entrenamiento y los déficits calóricos llevan solo la mitad del 
 
 ## 2. Semana Tipo de Recuperación Híbrida
 
-| Día | Estímulo clave | Duración | Objetivo |
-| --- | -------------- | -------- | -------- |
-| Lunes | Inmersión en frío (10-12°C) | 12 min post-fuerza | Reducir inflamación y restablecer potencia |
-| Martes | Movilidad + foam rolling selectivo | 20 min | liberar zonas específicas y evaluar dolor |
-| Miércoles | Sesión guiada de respiración (6 ciclos/min) | 15 min | Aumentar HRV antes de dormir |
-| Jueves | Contraste térmico (3 ciclos frío-calor) | 18 min | Estimular flujo sanguíneo y CK |
-| Viernes | Yoga o movilidad restaurativa | 30 min | Reset neuromuscular y fase parasimpática |
-| Sábado | Caminata consciente + monitor HRV | 40 min | Controlar carga aeróbica baja |
-| Domingo | Revisión de métricas (HRV, sueño, DOMS) | 10 min | Ajustes para la semana siguiente |
+| Día       | Estímulo clave                              | Duración           | Objetivo                                   |
+| --------- | ------------------------------------------- | ------------------ | ------------------------------------------ |
+| Lunes     | Inmersión en frío (10-12°C)                 | 12 min post-fuerza | Reducir inflamación y restablecer potencia |
+| Martes    | Movilidad + foam rolling selectivo          | 20 min             | liberar zonas específicas y evaluar dolor  |
+| Miércoles | Sesión guiada de respiración (6 ciclos/min) | 15 min             | Aumentar HRV antes de dormir               |
+| Jueves    | Contraste térmico (3 ciclos frío-calor)     | 18 min             | Estimular flujo sanguíneo y CK             |
+| Viernes   | Yoga o movilidad restaurativa               | 30 min             | Reset neuromuscular y fase parasimpática   |
+| Sábado    | Caminata consciente + monitor HRV           | 40 min             | Controlar carga aeróbica baja              |
+| Domingo   | Revisión de métricas (HRV, sueño, DOMS)     | 10 min             | Ajustes para la semana siguiente           |
 
 ## 3. Protocolos Clave Explicados
 

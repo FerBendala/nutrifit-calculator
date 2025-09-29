@@ -41,7 +41,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     icon: Activity,
     priority: 'high',
     category: 'nutrition',
-    relatedCalculators: ['bmr', 'home', 'proteina', 'ritmo-cardiaco']
+    relatedCalculators: ['bmr', 'home', 'proteina', 'ritmo-cardiaco', 'vo2max']
   },
   {
     key: 'proteina',
@@ -81,7 +81,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     icon: Heart,
     priority: 'high',
     category: 'fitness',
-    relatedCalculators: ['1rm', 'masa-muscular', 'tdee', 'grasa-corporal']
+    relatedCalculators: ['1rm', 'masa-muscular', 'tdee', 'grasa-corporal', 'vo2max']
   },
   {
     key: 'grasa-corporal',
@@ -111,7 +111,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     icon: Dumbbell,
     priority: 'high',
     category: 'fitness',
-    relatedCalculators: ['1rm', 'proteina', 'composicion', 'peso-ideal']
+    relatedCalculators: ['1rm', 'proteina', 'composicion', 'peso-ideal', 'vo2max']
   },
   {
     key: 'bmr',
@@ -131,7 +131,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     icon: Trophy,
     priority: 'high',
     category: 'fitness',
-    relatedCalculators: ['masa-muscular', 'proteina', 'composicion', 'ritmo-cardiaco']
+    relatedCalculators: ['masa-muscular', 'proteina', 'composicion', 'ritmo-cardiaco', 'vo2max']
   },
   {
     key: 'whtr',
@@ -142,6 +142,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'body-composition',
     relatedCalculators: ['imc', 'grasa-corporal', 'composicion', 'peso-ideal']
+  },
+  {
+    key: 'vo2max',
+    title: 'VO2 Max (Capacidad Cardiovascular)',
+    href: '/vo2max',
+    description: 'Evaluación de la capacidad cardiovascular con 4 métodos científicos',
+    icon: Activity,
+    priority: 'high',
+    category: 'fitness',
+    relatedCalculators: ['ritmo-cardiaco', '1rm', 'masa-muscular', 'tdee']
   }
 ];
 

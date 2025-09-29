@@ -92,6 +92,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional WHtR (Waist-to-Height Ratio) para evaluar riesgo cardiometabólico por distribución de grasa abdominal. Mejor predictor que el IMC para diabetes y síndrome metabólico. Validado científicamente.',
     keywords: ['calculadora WHtR', 'calculadora fit', 'ratio cintura altura', 'WHtR', 'waist height ratio', 'riesgo cardiometabólico', 'grasa abdominal', 'síndrome metabólico', 'diabetes', 'obesidad central', 'calculadora médica'],
     path: '/whtr'
+  },
+  vo2max: {
+    title: 'Calculadora VO2 Max | Capacidad Cardiovascular | Test de Cooper',
+    description: 'Calculadora profesional de VO2 Max con 4 métodos científicos (Cooper, Rockport, Astrand, Step Test). Evalúa tu capacidad cardiovascular, zonas de entrenamiento y nivel de fitness. Ideal para deportistas y salud cardíaca.',
+    keywords: ['calculadora VO2 Max', 'test de Cooper', 'capacidad cardiovascular', 'VO2 max', 'fitness cardiovascular', 'zonas de entrenamiento', 'salud cardíaca', 'deporte', 'entrenamiento', 'aeróbico', 'anaeróbico'],
+    path: '/vo2max'
   }
 };
 

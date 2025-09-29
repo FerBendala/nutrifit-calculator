@@ -507,6 +507,10 @@ export default function RitmoCardiacoPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/vo2max" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> Mide tu VO2 Max con tests científicos validados</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/agua" className="text-blue-600 hover:underline font-medium transition-golden">Mantén hidratación óptima:</a></strong> Fundamental para el rendimiento cardiovascular</span>
                 </li>
               </ul>

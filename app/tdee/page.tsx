@@ -397,6 +397,10 @@ export default function TDEEPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/vo2max" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> El TDEE se relaciona directamente con el entrenamiento de resistencia</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/1rm" className="text-blue-600 hover:underline font-medium transition-golden">Planifica entrenamientos intensos:</a></strong> El entrenamiento de fuerza aumenta significativamente tu TDEE</span>
                 </li>
                 <li className="flex items-start">

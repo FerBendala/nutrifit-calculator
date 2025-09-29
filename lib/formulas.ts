@@ -1119,3 +1119,181 @@ export function calculateMuscleMass(
     }
   };
 }
+
+// ========== VO2 MAX CALCULATIONS ==========
+
+/**
+ * Calculate VO2 Max using Cooper test (12-minute run/walk)
+ * Formula: VO2 max = (distance in meters - 504.9) / 44.73
+ * Source: Cooper, K. H. (1968). A means of assessing maximal oxygen intake.
+ */
+export function calculateVO2MaxCooper(distance: number, weight: number): number {
+  if (distance <= 0 || weight <= 0) {
+    throw new Error('La distancia y el peso deben ser mayores que 0');
+  }
+  // Convert distance from meters to the expected unit (assuming meters input)
+  const vo2max = (distance - 504.9) / 44.73;
+  return Math.round(vo2max * 10) / 10; // 1 decimal place
+}
+
+/**
+ * Calculate VO2 Max using Rockport Walking Test
+ * Formula for men: VO2 max = 132.853 - (0.0769 × weight) - (0.3877 × age) + (6.315 × gender) - (3.2649 × time) - (0.1565 × heartRate)
+ * Formula for women: VO2 max = 132.853 - (0.0769 × weight) - (0.3877 × age) - (3.2649 × time) - (0.1565 × heartRate)
+ * Source: Kline et al. (1987)
+ */
+export function calculateVO2MaxRockport(
+  gender: 'male' | 'female',
+  weight: number, // kg
+  age: number,
+  timeMinutes: number, // minutes for 1 mile
+  heartRate: number // bpm
+): number {
+  if (weight <= 0 || age <= 0 || timeMinutes <= 0 || heartRate <= 0) {
+    throw new Error('Todos los valores deben ser mayores que 0');
+  }
+
+  const genderFactor = gender === 'male' ? 6.315 : 0;
+  const baseVO2 = 132.853;
+  const weightFactor = 0.0769 * weight;
+  const ageFactor = 0.3877 * age;
+  const timeFactor = 3.2649 * timeMinutes;
+  const hrFactor = 0.1565 * heartRate;
+
+  const vo2max = baseVO2 - weightFactor - ageFactor + genderFactor - timeFactor - hrFactor;
+  return Math.round(vo2max * 10) / 10; // 1 decimal place
+}
+
+/**
+ * Calculate VO2 Max using Astrand-Rhyming cycle ergometer test
+ * Formula: VO2 max = (work rate × 6.12 × body weight × 1.8) / (heart rate × 1000)
+ * Where work rate is in watts, body weight in kg
+ */
+export function calculateVO2MaxAstrand(
+  workRate: number, // watts
+  bodyWeight: number, // kg
+  heartRate: number // bpm
+): number {
+  if (workRate <= 0 || bodyWeight <= 0 || heartRate <= 0) {
+    throw new Error('Todos los valores deben ser mayores que 0');
+  }
+
+  const vo2max = (workRate * 6.12 * bodyWeight * 1.8) / (heartRate * 1000);
+  return Math.round(vo2max * 10) / 10; // 1 decimal place
+}
+
+/**
+ * Calculate VO2 Max using step test (Harvard step test)
+ * Score = (test duration in seconds × 100) / (2 × (pulse1 + pulse2 + pulse3))
+ * VO2 max = 1.979 + (0.077 × body weight) - (0.016 × age) + (0.019 × score)
+ */
+export function calculateVO2MaxStepTest(
+  testDuration: number, // seconds
+  pulse1: number, // bpm (1st minute)
+  pulse2: number, // bpm (2nd minute)
+  pulse3: number, // bpm (3rd minute)
+  bodyWeight: number, // kg
+  age: number
+): number {
+  if (testDuration <= 0 || pulse1 <= 0 || pulse2 <= 0 || pulse3 <= 0 || bodyWeight <= 0 || age <= 0) {
+    throw new Error('Todos los valores deben ser mayores que 0');
+  }
+
+  const score = (testDuration * 100) / (2 * (pulse1 + pulse2 + pulse3));
+  const vo2max = 1.979 + (0.077 * bodyWeight) - (0.016 * age) + (0.019 * score);
+  return Math.round(vo2max * 10) / 10; // 1 decimal place
+}
+
+/**
+ * Analyze VO2 Max results and provide interpretation
+ */
+export function analyzeVO2Max(vo2max: number, age: number, gender: 'male' | 'female'): {
+  vo2max: number;
+  category: string;
+  fitnessLevel: string;
+  healthStatus: string;
+  recommendations: string[];
+  comparison: string;
+  trainingZones: {
+    zone1: string;
+    zone2: string;
+    zone3: string;
+    zone4: string;
+    zone5: string;
+  };
+} {
+  // Age and gender adjusted norms (simplified)
+  const norms = {
+    male: {
+      excellent: age < 30 ? 55 : age < 40 ? 50 : age < 50 ? 45 : 40,
+      good: age < 30 ? 45 : age < 40 ? 40 : age < 50 ? 35 : 30,
+      average: age < 30 ? 35 : age < 40 ? 30 : age < 50 ? 25 : 20,
+      poor: age < 30 ? 25 : age < 40 ? 20 : age < 50 ? 15 : 10
+    },
+    female: {
+      excellent: age < 30 ? 45 : age < 40 ? 40 : age < 50 ? 35 : 30,
+      good: age < 30 ? 35 : age < 40 ? 30 : age < 50 ? 25 : 20,
+      average: age < 30 ? 25 : age < 40 ? 20 : age < 50 ? 15 : 10,
+      poor: age < 30 ? 15 : age < 40 ? 10 : age < 50 ? 5 : 5
+    }
+  };
+
+  const userNorms = norms[gender];
+  let category: string;
+  let fitnessLevel: string;
+
+  if (vo2max >= userNorms.excellent) {
+    category = 'Excelente';
+    fitnessLevel = 'Atleta de élite';
+  } else if (vo2max >= userNorms.good) {
+    category = 'Bueno';
+    fitnessLevel = 'Buena condición física';
+  } else if (vo2max >= userNorms.average) {
+    category = 'Promedio';
+    fitnessLevel = 'Condición física moderada';
+  } else {
+    category = 'Bajo';
+    fitnessLevel = 'Necesita mejorar';
+  }
+
+  const healthStatus = vo2max > userNorms.average
+    ? 'Salud cardiovascular óptima'
+    : 'Riesgo cardiovascular aumentado';
+
+  const recommendations: string[] = [];
+
+  if (vo2max < userNorms.average) {
+    recommendations.push('Incluye entrenamiento cardiovascular regular (correr, nadar, ciclismo)');
+    recommendations.push('Realiza ejercicios de intervalos de alta intensidad (HIIT)');
+    recommendations.push('Mantén un peso saludable para mejorar la eficiencia cardiovascular');
+  } else {
+    recommendations.push('Continúa con tu rutina actual para mantener la condición física');
+    recommendations.push('Considera entrenamientos de tempo para mejorar el umbral láctico');
+  }
+
+  recommendations.push('Combina con entrenamiento de fuerza para mejorar la economía de movimiento');
+
+  const comparison = gender === 'male'
+    ? `Para hombres de tu edad: Excelente (>${userNorms.excellent}), Bueno (${userNorms.good}-${userNorms.excellent}), Promedio (${userNorms.average}-${userNorms.good})`
+    : `Para mujeres de tu edad: Excelente (>${userNorms.excellent}), Bueno (${userNorms.good}-${userNorms.excellent}), Promedio (${userNorms.average}-${userNorms.good})`;
+
+  // Calculate training zones based on VO2 max
+  const maxHeartRate = 220 - age;
+  const zones = {
+    zone1: `${Math.round(maxHeartRate * 0.5)}-${Math.round(maxHeartRate * 0.6)} bpm (Recuperación activa)`,
+    zone2: `${Math.round(maxHeartRate * 0.6)}-${Math.round(maxHeartRate * 0.7)} bpm (Resistencia básica)`,
+    zone3: `${Math.round(maxHeartRate * 0.7)}-${Math.round(maxHeartRate * 0.8)} bpm (Tempo)`,
+    zone4: `${Math.round(maxHeartRate * 0.8)}-${Math.round(maxHeartRate * 0.9)} bpm (Umbral)`,
+    zone5: `${Math.round(maxHeartRate * 0.9)}-${Math.round(maxHeartRate * 1.0)} bpm (VO2 max)`
+  };
+
+  return {
+    vo2max,
+    category,
+    fitnessLevel,
+    healthStatus,
+    recommendations,
+    comparison,
+    trainingZones: zones
+  };
+}

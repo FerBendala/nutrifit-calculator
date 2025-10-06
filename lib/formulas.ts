@@ -1378,7 +1378,7 @@ export function calculateSkeletalMuscleMassIndex(
   }[ethnicity];
 
   const smmi = (height * 0.00744) + (age * -0.00088) + genderFactor + ethnicityFactor +
-               (waistCircumference * -0.0001) + (hipCircumference * -0.0001) + (forearmCircumference * 0.0001) + 2.947;
+    (waistCircumference * -0.0001) + (hipCircumference * -0.0001) + (forearmCircumference * 0.0001) + 2.947;
 
   return Math.round(smmi * 100) / 100; // 2 decimal places
 }
@@ -1478,8 +1478,8 @@ export function analyzeSarcopenia(
   const followUp = age > 65
     ? 'Evaluación anual con médico geriatra o especialista en sarcopenia'
     : age > 50
-    ? 'Evaluación cada 2 años o ante síntomas de debilidad'
-    : 'Evaluación cada 3-5 años como prevención';
+      ? 'Evaluación cada 2 años o ante síntomas de debilidad'
+      : 'Evaluación cada 3-5 años como prevención';
 
   return {
     sarcopeniaIndex,

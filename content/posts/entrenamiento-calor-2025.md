@@ -1,17 +1,24 @@
 ---
-title: 'Entrenamiento en Calor 2025: Estrategias de Aclimatación, Hidratación y Rendimiento'
-date: '2025-02-05'
+title: 'Entrenamiento en Calor: Estrategias de Aclimatación, Hidratación y Rendimiento'
+date: '2025-10-06'
 author: 'Dr. Nutrifit'
 description: 'Domina la preparación para competir y entrenar en ambientes calurosos con protocolos de aclimatación, hidratación y recuperación avalados por la evidencia más reciente.'
 categories: ['Rendimiento', 'Recuperación', 'Salud Metabólica']
-tags: ['entrenamiento en calor', 'aclimatación', 'hidratación', 'electrolitos', 'HRV']
-image: 'https://cdn.pixabay.com/photo/2016/07/26/12/39/training-1541595_1280.jpg'
+tags:
+  [
+    'entrenamiento en calor',
+    'aclimatación',
+    'hidratación',
+    'electrolitos',
+    'HRV',
+  ]
+image: 'https://cdn.pixabay.com/photo/2020/08/02/02/48/surfer-5456599_1280.jpg'
 slug: 'entrenamiento-calor-2025'
 readTime: 10
 featured: false
 ---
 
-# Entrenamiento en Calor 2025: Estrategias de Aclimatación, Hidratación y Rendimiento
+# Entrenamiento en Calor: Estrategias de Aclimatación, Hidratación y Rendimiento
 
 El aumento de las olas de calor y la frecuencia de competiciones en climas cálidos obliga a planificar la recuperación y la hidratación con la misma precisión que la fuerza o los macros. Los consensos y meta-análisis 2024-2025 muestran que la aclimatación progresiva, el control del sodio y los protocolos de enfriamiento reducen el deterioro de la potencia, la HRV y la calidad del sueño en escenarios de calor extremo.[^1][^2][^3][^4]
 
@@ -25,11 +32,11 @@ El aumento de las olas de calor y la frecuencia de competiciones en climas cáli
 
 ## 2. Plan de Aclimatación en 3 Fases
 
-| Fase | Duración | Objetivo | Claves |
-| ---- | -------- | -------- | ------ |
-| Base | Días -14 a -10 | Exposición leve | Añade 20-30 min en ambiente cálido (25-28 °C), intensidad baja-moderada |
-| Progresión | Días -9 a -4 | Estímulo cardiovascular | 45-60 min en calor (28-32 °C) con uno o dos estímulos de intensidad (tempo, fartlek) |
-| Afinado | Días -3 a 0 | Mantener adaptaciones | Reduce volumen (30-40% menos) pero conserva sesiones en calor para sostener la respuesta térmica |
+| Fase       | Duración       | Objetivo                | Claves                                                                                           |
+| ---------- | -------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
+| Base       | Días -14 a -10 | Exposición leve         | Añade 20-30 min en ambiente cálido (25-28 °C), intensidad baja-moderada                          |
+| Progresión | Días -9 a -4   | Estímulo cardiovascular | 45-60 min en calor (28-32 °C) con uno o dos estímulos de intensidad (tempo, fartlek)             |
+| Afinado    | Días -3 a 0    | Mantener adaptaciones   | Reduce volumen (30-40% menos) pero conserva sesiones en calor para sostener la respuesta térmica |
 
 - Controla el peso antes y después: descensos >2% indican deshidratación.
 - HRV: mantiene tendencia estable si la carga térmica está bien ajustada; descensos sostenidos implican bajar volumen.
@@ -86,13 +93,7 @@ Si el peso y la orina se mantienen estables y no aparecen calambres. En sudorado
 
 Descarga la plantilla de aclimatación Nutrifit, vincula tus datos con la [calculadora de TDEE](/tdee) y recibe recordatorios de ajustes térmicos y de hidratación suscribiéndote a la newsletter.
 
-## Sobre el Autor y la Revisión
-
-Contenido elaborado por **Dr. Nutrifit**, consultor en rendimiento y termorregulación. Última revisión editorial: 2025-02-05. Para planes personalizados escribe a contacto@nutrifit.com.
-
-Un plan térmico sólido transforma el calor de enemigo a aliado. Mide, ajusta y documenta tu respuesta cada semana para mantener el rendimiento y proteger tu salud.
-
----
+## Revisión
 
 [^1]: Rosa, J. P. P., Silva, A., Lira, C. A. B., & Mello, M. T. (2025). The potential impact of heat on athletes’ sleep at the Paris 2024 Olympics and Paralympics Games. _Sleep Science_, 18(2), e236–e240. https://doi.org/10.1055/s-0044-1791236
 [^2]: Sawka, M. N., Cheuvront, S. N., & Kenefick, R. W. (2023). American College of Sports Medicine position statement: Exercise and fluid replacement in the heat. _Medicine & Science in Sports & Exercise_, 55(6), 1200–1214.

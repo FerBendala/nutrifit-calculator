@@ -11,7 +11,7 @@ import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { calculateSarcopeniaIndex, calculateAppendicularSkeletalMuscleMass, calculateSkeletalMuscleMassIndex, analyzeSarcopenia } from '@/lib/formulas';
+import { analyzeSarcopenia, calculateAppendicularSkeletalMuscleMass, calculateSarcopeniaIndex, calculateSkeletalMuscleMassIndex } from '@/lib/formulas';
 import { AlertCircle, Calculator, Dumbbell, Heart, Info, Shield, TrendingUp, Users } from 'lucide-react';
 import { useState } from 'react';
 

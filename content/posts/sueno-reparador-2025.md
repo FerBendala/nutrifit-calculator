@@ -6,7 +6,7 @@ description: 'Diseña una estrategia de sueño basada en evidencia 2024-2025 par
 categories: ['Sueño', 'Recuperación', 'Rendimiento']
 tags:
   ['higiene del sueño', 'HRV', 'atletas', 'recuperación', 'salud metabólica']
-image: 'https://img.freepik.com/foto-gratis/mujer-hermosa-durmiendo-casa_23-2148832931.jpg?t=st=1758552764~exp=1758556364~hmac=a4d1defdbbe5afe578bc7b9b4e651da6f844c82af849fa32c60c733864335f17&w=2000'
+image: 'https://cdn.pixabay.com/photo/2017/04/03/10/42/woman-2197947_1280.jpg'
 slug: 'sueno-reparador-2025'
 readTime: 9
 featured: false

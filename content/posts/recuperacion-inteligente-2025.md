@@ -6,7 +6,7 @@ description: 'Integra frío, respiración, movilidad y monitorización con weara
 categories: ['Recuperación', 'Rendimiento', 'Salud Metabólica']
 tags:
   ['recuperación activa', 'crioterapia', 'respiración', 'HRV', 'foam rolling']
-image: 'https://img.freepik.com/foto-gratis/mujer-abdominales-visibles-haciendo-ejercicio_23-2150228904.jpg?t=st=1759158213~exp=1759161813~hmac=01a2a98888f00f9bb8f50eff682115721e4d6f96d74cf7b984244f2c31b06d9d&w=2000'
+image: 'https://cdn.pixabay.com/photo/2022/04/18/13/27/yoga-7140566_1280.jpg'
 slug: 'recuperacion-inteligente-2025'
 readTime: 9
 featured: false
@@ -111,13 +111,7 @@ RMSSD para tendencias diarias y SDNN para visión semanal. Compara contra tu bas
 
 Descarga la checklist de recuperación Nutrifit, sincroniza tus hábitos con la [calculadora de TDEE](/tdee) y recibe recordatorios de ajustes trimestrales uniéndote a nuestra newsletter.
 
-## Sobre el Autor y la Revisión
-
-Documento elaborado por **Dr. Nutrifit**, especialista en recuperación deportiva y salud metabólica. Última revisión editorial: 2025-02-02. Para asesorías personalizadas o talleres escribe a contacto@nutrifit.com.
-
-Los protocolos funcionan cuando se cuantifican igual que el entrenamiento: mide, ajusta y repite. Usa estos pilares como base y actualiza tu plan cada vez que tus métricas indiquen que la balanza simpático-parasimpático necesita recalibrarse.
-
----
+## Revisión
 
 [^1]: Wang, H., Wang, L., & Pan, Y. (2025). Impact of different doses of cold water immersion on recovery from acute exercise-induced muscle damage: a network meta-analysis. _Frontiers in Physiology_, 16, 1525726. https://doi.org/10.3389/fphys.2025.1525726
 [^2]: Chen, R., Ma, X., Ma, X., & Cui, C. (2024). The effects of hydrotherapy and cryotherapy on recovery from acute post-exercise induced muscle damage. _BMC Musculoskeletal Disorders_, 25(1), 749. https://doi.org/10.1186/s12891-024-07315-2

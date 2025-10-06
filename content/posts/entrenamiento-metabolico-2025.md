@@ -5,7 +5,7 @@ author: 'Dr. Nutrifit'
 description: 'Diseña un plan semanal que mezcle fuerza, cardio inteligente y actividad diaria para reducir grasa visceral y mejorar tu salud cardiometabólica en 2025.'
 categories: ['Fitness', 'Salud Metabólica', 'Entrenamiento']
 tags: ['entrenamiento de fuerza', 'cardio', 'HIIT', 'NEAT', 'salud metabólica']
-image: 'https://img.freepik.com/foto-gratis/ajuste-hombre-sosteniendo-pesas-vista-lateral_23-2149517265.jpg?t=st=1758277628~exp=1758281228~hmac=d8efeae006a525d842d2b66c3e8502d1be5d13566fbbdf983aed241bba4e4edb&w=2000'
+image: 'https://cdn.pixabay.com/photo/2017/08/07/14/02/man-2604149_1280.jpg'
 slug: 'entrenamiento-metabolico-2025'
 readTime: 9
 featured: true

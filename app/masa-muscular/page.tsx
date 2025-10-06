@@ -487,6 +487,10 @@ export default function MasaMuscularPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/sarcopenia" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa riesgo de sarcopenia:</a></strong> Monitorea la pérdida muscular relacionada con la edad</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
                     <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades basadas en masa magra</span>
                   </li>
                   <li className="flex items-start">

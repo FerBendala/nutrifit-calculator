@@ -1297,3 +1297,199 @@ export function analyzeVO2Max(vo2max: number, age: number, gender: 'male' | 'fem
     trainingZones: zones
   };
 }
+
+// ========== SARCOPENIA CALCULATIONS ==========
+
+/**
+ * Calculate Sarcopenia Index using anthropometric measurements
+ * Formula: Sarcopenia Index = (muscle mass in kg) / (height in meters)^2
+ * Values < 7.0 kg/m² for men and < 5.5 kg/m² for women indicate sarcopenia
+ * Source: Baumgartner et al. (1998) - The New Mexico Elder Health Survey
+ */
+export function calculateSarcopeniaIndex(
+  gender: 'male' | 'female',
+  muscleMass: number, // kg
+  height: number // cm
+): number {
+  if (muscleMass <= 0 || height <= 0) {
+    throw new Error('La masa muscular y altura deben ser mayores que 0');
+  }
+
+  const heightM = height / 100; // Convert cm to meters
+  const sarcopeniaIndex = muscleMass / (heightM * heightM);
+  return Math.round(sarcopeniaIndex * 100) / 100; // 2 decimal places
+}
+
+/**
+ * Calculate Appendicular Skeletal Muscle Mass (ASMM) using anthropometric method
+ * Formula for men: ASMM = 0.244 × body weight + 7.8 × height + 6.6 × age - 0.098 × waist circumference + ethnicity factor - 32.4
+ * Formula for women: ASMM = 0.244 × body weight + 7.8 × height + 6.6 × age - 0.098 × waist circumference + ethnicity factor - 32.4
+ * Source: Kyle et al. (2003) - Validation of bioelectrical impedance analysis
+ */
+export function calculateAppendicularSkeletalMuscleMass(
+  gender: 'male' | 'female',
+  weight: number, // kg
+  height: number, // cm
+  age: number,
+  waistCircumference: number, // cm
+  ethnicity: 'caucasian' | 'asian' | 'hispanic' | 'african' = 'caucasian'
+): number {
+  if (weight <= 0 || height <= 0 || age <= 0 || waistCircumference <= 0) {
+    throw new Error('Todos los valores deben ser mayores que 0');
+  }
+
+  // Ethnicity factors (simplified)
+  const ethnicityFactor = {
+    caucasian: 0,
+    asian: -1.2,
+    hispanic: 0.5,
+    african: 1.1
+  }[ethnicity];
+
+  const baseASMM = 0.244 * weight + 7.8 * (height / 100) + 6.6 * age - 0.098 * waistCircumference + ethnicityFactor - 32.4;
+
+  return Math.round(baseASMM * 100) / 100; // 2 decimal places
+}
+
+/**
+ * Calculate Skeletal Muscle Mass Index (SMMI) using Janssen equation
+ * Formula: SMM = (height × 0.00744 + age × (-0.00088) + gender × 0.004 + ethnicity × 0.0001 + waist × (-0.0001) + hip × (-0.0001) + forearm × 0.0001) + 2.947
+ * Source: Janssen et al. (2000)
+ */
+export function calculateSkeletalMuscleMassIndex(
+  gender: 'male' | 'female',
+  height: number, // cm
+  age: number,
+  waistCircumference: number, // cm
+  hipCircumference: number, // cm
+  forearmCircumference: number, // cm
+  ethnicity: 'caucasian' | 'asian' | 'hispanic' | 'african' = 'caucasian'
+): number {
+  if (height <= 0 || age <= 0 || waistCircumference <= 0 || hipCircumference <= 0 || forearmCircumference <= 0) {
+    throw new Error('Todos los valores deben ser mayores que 0');
+  }
+
+  const genderFactor = gender === 'male' ? 0.004 : 0;
+  const ethnicityFactor = {
+    caucasian: 0.0001,
+    asian: -0.0005,
+    hispanic: 0.0002,
+    african: 0.0003
+  }[ethnicity];
+
+  const smmi = (height * 0.00744) + (age * -0.00088) + genderFactor + ethnicityFactor +
+               (waistCircumference * -0.0001) + (hipCircumference * -0.0001) + (forearmCircumference * 0.0001) + 2.947;
+
+  return Math.round(smmi * 100) / 100; // 2 decimal places
+}
+
+/**
+ * Analyze Sarcopenia results and provide comprehensive interpretation
+ */
+export function analyzeSarcopenia(
+  sarcopeniaIndex: number,
+  age: number,
+  gender: 'male' | 'female',
+  muscleMass?: number,
+  height?: number
+): {
+  sarcopeniaIndex: number;
+  sarcopeniaStage: 'Sin Sarcopenia' | 'Pre-sarcopenia' | 'Sarcopenia' | 'Sarcopenia Severa';
+  riskLevel: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  ageAdjustedRisk: string;
+  functionalImpact: string;
+  recommendations: string[];
+  preventionStrategies: string[];
+  clinicalImplications: string;
+  followUp: string;
+} {
+  // Age and gender specific cutoffs (simplified from EWGSOP2)
+  const cutoffs = {
+    male: {
+      normal: age < 65 ? 7.0 : 6.0,
+      low: age < 65 ? 5.5 : 4.5
+    },
+    female: {
+      normal: age < 65 ? 5.5 : 4.5,
+      low: age < 65 ? 4.0 : 3.5
+    }
+  };
+
+  const userCutoffs = cutoffs[gender];
+  let sarcopeniaStage: 'Sin Sarcopenia' | 'Pre-sarcopenia' | 'Sarcopenia' | 'Sarcopenia Severa';
+  let riskLevel: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+
+  if (sarcopeniaIndex >= userCutoffs.normal) {
+    sarcopeniaStage = 'Sin Sarcopenia';
+    riskLevel = 'Bajo';
+  } else if (sarcopeniaIndex >= userCutoffs.low) {
+    sarcopeniaStage = 'Pre-sarcopenia';
+    riskLevel = 'Moderado';
+  } else if (sarcopeniaIndex >= userCutoffs.low * 0.8) {
+    sarcopeniaStage = 'Sarcopenia';
+    riskLevel = 'Alto';
+  } else {
+    sarcopeniaStage = 'Sarcopenia Severa';
+    riskLevel = 'Muy Alto';
+  }
+
+  // Age-adjusted risk assessment
+  const ageAdjustedRisk = age > 70 ? 'Riesgo aumentado por edad' : age > 50 ? 'Riesgo moderado por edad' : 'Riesgo estándar por edad';
+
+  // Functional impact assessment
+  const functionalImpact = sarcopeniaIndex < userCutoffs.low
+    ? 'Puede afectar movilidad, equilibrio y actividades diarias'
+    : 'No hay impacto funcional significativo detectado';
+
+  // Recommendations
+  const recommendations: string[] = [];
+
+  if (sarcopeniaIndex < userCutoffs.low) {
+    recommendations.push('Consulta con un médico o geriatra para evaluación completa');
+    recommendations.push('Considera suplementación con proteína de alta calidad (1.2-1.6g/kg/día)');
+    recommendations.push('Incorpora entrenamiento de fuerza 2-3 veces por semana');
+    recommendations.push('Mantén una dieta rica en proteínas, vitamina D y ácidos grasos omega-3');
+  } else {
+    recommendations.push('Mantén actividad física regular para prevenir la pérdida muscular');
+    recommendations.push('Incluye entrenamiento de fuerza en tu rutina semanal');
+    recommendations.push('Asegura una ingesta adecuada de proteínas (1.0-1.2g/kg/día)');
+  }
+
+  recommendations.push('Realiza chequeos médicos regulares después de los 50 años');
+  recommendations.push('Mantén un peso corporal saludable para reducir el estrés en los músculos');
+
+  // Prevention strategies
+  const preventionStrategies: string[] = [
+    'Ejercicio de resistencia progresiva (pesas, bandas elásticas)',
+    'Consumo adecuado de proteínas en cada comida principal',
+    'Suplementación con vitamina D si hay deficiencia',
+    'Evitar periodos prolongados de inactividad',
+    'Mantener un sueño de calidad (7-9 horas/noche)',
+    'Controlar enfermedades crónicas (diabetes, hipotiroidismo)',
+    'Evitar el consumo excesivo de alcohol y tabaco'
+  ];
+
+  // Clinical implications
+  const clinicalImplications = sarcopeniaIndex < userCutoffs.low
+    ? 'Puede requerir intervención médica y seguimiento especializado'
+    : 'Mantener vigilancia y hábitos saludables preventivos';
+
+  // Follow-up recommendations
+  const followUp = age > 65
+    ? 'Evaluación anual con médico geriatra o especialista en sarcopenia'
+    : age > 50
+    ? 'Evaluación cada 2 años o ante síntomas de debilidad'
+    : 'Evaluación cada 3-5 años como prevención';
+
+  return {
+    sarcopeniaIndex,
+    sarcopeniaStage,
+    riskLevel,
+    ageAdjustedRisk,
+    functionalImpact,
+    recommendations,
+    preventionStrategies,
+    clinicalImplications,
+    followUp
+  };
+}

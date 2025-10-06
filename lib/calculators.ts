@@ -152,6 +152,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'fitness',
     relatedCalculators: ['ritmo-cardiaco', '1rm', 'masa-muscular', 'tdee']
+  },
+  {
+    key: 'sarcopenia',
+    title: 'Índice de Sarcopenia',
+    href: '/sarcopenia',
+    description: 'Evaluación médica de pérdida muscular relacionada con la edad',
+    icon: Dumbbell,
+    priority: 'high',
+    category: 'health',
+    relatedCalculators: ['masa-muscular', 'proteina', 'composicion', 'vo2max']
   }
 ];
 

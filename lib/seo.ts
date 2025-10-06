@@ -98,6 +98,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de VO2 Max con 4 métodos científicos (Cooper, Rockport, Astrand, Step Test). Evalúa tu capacidad cardiovascular, zonas de entrenamiento y nivel de fitness. Ideal para deportistas y salud cardíaca.',
     keywords: ['calculadora VO2 Max', 'test de Cooper', 'capacidad cardiovascular', 'VO2 max', 'fitness cardiovascular', 'zonas de entrenamiento', 'salud cardíaca', 'deporte', 'entrenamiento', 'aeróbico', 'anaeróbico'],
     path: '/vo2max'
+  },
+  sarcopenia: {
+    title: 'Calculadora Índice de Sarcopenia | Pérdida Muscular | EWGSOP',
+    description: 'Calculadora médica profesional del Índice de Sarcopenia con fórmulas Baumgartner, ASMM y SMMI. Evalúa pérdida muscular relacionada con la edad, riesgo funcional y estrategias preventivas. Basado en estándares EWGSOP2.',
+    keywords: ['calculadora sarcopenia', 'índice sarcopenia', 'pérdida muscular', 'sarcopenia', 'masa muscular edad', 'EWGSOP2', 'geriatría', 'envejecimiento', 'masa muscular', 'fragilidad', 'salud muscular', 'prevención sarcopenia'],
+    path: '/sarcopenia'
   }
 };
 

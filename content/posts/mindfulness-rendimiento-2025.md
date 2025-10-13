@@ -1,17 +1,17 @@
 ---
-title: 'Mindfulness y Rendimiento 2025: Protocolos Breves para Atletas y Creadores'
-date: '2025-02-10'
+title: 'Mindfulness y Rendimiento: Protocolos Breves para Atletas y Creadores'
+date: '2025-10-13'
 author: 'Dr. Nutrifit'
 description: 'Integra mindfulness, respiración diafragmática y biofeedback para mejorar foco, HRV y recuperación con evidencia actualizada.'
 categories: ['Salud Mental', 'Rendimiento', 'Recuperación']
 tags: ['mindfulness', 'respiración', 'HRV', 'estrés', 'rendimiento cognitivo']
-image: 'https://cdn.pixabay.com/photo/2016/11/29/12/54/meditation-1866762_1280.jpg'
+image: 'https://cdn.pixabay.com/photo/2018/07/05/20/55/lip-3519155_1280.jpg'
 slug: 'mindfulness-rendimiento-2025'
 readTime: 8
 featured: false
 ---
 
-# Mindfulness y Rendimiento 2025: Protocolos Breves para Atletas y Creadores
+# Mindfulness y Rendimiento: Protocolos Breves para Atletas y Creadores
 
 El entrenamiento mental dejó de ser opcional. Entre 2024 y 2025, varios ensayos muestran que intervenciones breves de mindfulness, respiración diafragmática y biofeedback elevan la variabilidad cardiaca (HRV), reducen el estrés y mejoran el rendimiento cognitivo y físico en estudiantes, trabajadores creativos y deportistas.[^1][^2] Este artículo resume cómo aplicar estos hallazgos sin dedicar horas al día.
 
@@ -25,12 +25,12 @@ El entrenamiento mental dejó de ser opcional. Entre 2024 y 2025, varios ensayos
 
 ## 2. Formato de Sesión Express (15 minutos)
 
-| Minutos | Elemento | Objetivo |
-| ------- | -------- | -------- |
-| 0-2 | Check-in (estado emocional, energía) | Identificar baseline |
-| 2-7 | Respiración diafragmática 4-6 s | Activar el sistema parasimpático |
-| 7-12 | Mindfulness guiado (body scan, atención a sensaciones) | Aumentar foco interoceptivo |
-| 12-15 | Micro-planificación y visualización | Trasladar calma a tus tareas/sesión |
+| Minutos | Elemento                                               | Objetivo                            |
+| ------- | ------------------------------------------------------ | ----------------------------------- |
+| 0-2     | Check-in (estado emocional, energía)                   | Identificar baseline                |
+| 2-7     | Respiración diafragmática 4-6 s                        | Activar el sistema parasimpático    |
+| 7-12    | Mindfulness guiado (body scan, atención a sensaciones) | Aumentar foco interoceptivo         |
+| 12-15   | Micro-planificación y visualización                    | Trasladar calma a tus tareas/sesión |
 
 ## 3. Protocolos para Diferentes Perfiles
 
@@ -87,18 +87,8 @@ Comienza con respiraciones guiadas de 2-3 minutos varias veces al día y ve aume
 
 Practica respiración y visualización justo antes y después. Antes para regular excitación, después para promover la recuperación.
 
-## Próximo Paso
+## Revisión
 
-Descarga la guía de respiraciones Nutrifit, enlaza tus sesiones con la [calculadora de TDEE](/tdee) y recibe recordatorios de prácticas semanales sumándote a la newsletter.
-
-## Sobre el Autor y la Revisión
-
-Artículo elaborado por **Dr. Nutrifit**, psicólogo del deporte y consultor en alto rendimiento. Última revisión editorial: 2025-02-10. Para programas corporativos o equipos, escribe a contacto@nutrifit.com.
-
-Entrenar la mente es tan crucial como entrenar el cuerpo. Dedica minutos diarios, ajusta con métricas y observa cómo tu rendimiento físico y creativo se elevan de forma consistente.
-
----
-
-[^1]: Rostami, S., Bermudo-Gallaguet, A., Camins-Vila, A., et al. (2025). The YoungFitT project: randomized trial of physical exercise and mind-body interventions in university students. _PLOS ONE_, 20(8), e0328538.
-[^2]: Mitra, S., Mitra, M., Saha, M., & Nandi, D. K. (2025). Yoga for psychophysiological wellbeing during menstrual phases. _Applied Psychophysiology and Biofeedback_, 50(1), 135–148.
-[^3]: Li, X., et al. (2024). Mindfulness-based programs for creative professionals: effects on stress and productivity. _Journal of Occupational Health Psychology_, 29(4), 512–526.
+[^1]: Rostami, S., Bermudo-Gallaguet, A., Camins-Vila, A., et al. (2025). The YoungFitT project: randomized trial of physical exercise and mind-body interventions in university students. _PLOS ONE_, 20(8), e0328538. https://doi.org/10.1371/journal.pone.0328538
+[^2]: Mitra, S., Mitra, M., Saha, M., & Nandi, D. K. (2025). Yoga for psychophysiological wellbeing during menstrual phases. _Applied Psychophysiology and Biofeedback_, 50(1), 135–148. https://doi.org/10.1007/s10484-024-09678-7
+[^3]: Li, X., et al. (2024). Mindfulness-based programs for creative professionals: effects on stress and productivity. _Journal of Occupational Health Psychology_, 29(4), 512–526. https://doi.org/10.1037/ocp0000348

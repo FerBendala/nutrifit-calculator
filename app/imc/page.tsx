@@ -390,6 +390,10 @@ export default function IMCPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/fmi" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu FMI metabólico:</a></strong> Índice avanzado de masa grasa para evaluación precisa</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu gasto calórico total:</a></strong> Conoce tu TDEE para planificar mejor tu alimentación</span>
                 </li>
                 <li className="flex items-start">

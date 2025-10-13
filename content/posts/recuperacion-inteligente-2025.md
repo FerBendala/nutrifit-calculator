@@ -107,10 +107,6 @@ Si buscas hipertrofia y notas que fuerza y volumen se estancan, limita el frío 
 
 RMSSD para tendencias diarias y SDNN para visión semanal. Compara contra tu baseline de 2-3 semanas y toma decisiones cuando la caída supere 10% y se acompañe de peor sueño o fatiga.
 
-## Próximo Paso
-
-Descarga la checklist de recuperación Nutrifit, sincroniza tus hábitos con la [calculadora de TDEE](/tdee) y recibe recordatorios de ajustes trimestrales uniéndote a nuestra newsletter.
-
 ## Revisión
 
 [^1]: Wang, H., Wang, L., & Pan, Y. (2025). Impact of different doses of cold water immersion on recovery from acute exercise-induced muscle damage: a network meta-analysis. _Frontiers in Physiology_, 16, 1525726. https://doi.org/10.3389/fphys.2025.1525726

@@ -630,6 +630,10 @@ export default function ComposicionPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/fmi" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu FMI metabólico:</a></strong> Índice avanzado de masa grasa independiente de altura</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Determina tu gasto calórico:</a></strong> La masa magra influye directamente en tu metabolismo basal</span>
                 </li>
                 <li className="flex items-start">

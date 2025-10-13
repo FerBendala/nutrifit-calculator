@@ -120,10 +120,6 @@ Sigue el déficit, pero prioriza caminatas y proteína alta (2.0-2.2 g/kg). Sin 
 
 Solo si te ayuda a adherirte. La evidencia reciente muestra que iguala resultados con restricción continua cuando las calorías semanales son las mismas.[^3][^4][^5]
 
-## Próximo Paso
-
-Descarga la hoja de seguimiento del déficit, conecta con la [calculadora principal](/) y regístrate en la newsletter para recibir alertas cuando se publiquen nuevas recomendaciones clínicas.
-
 ## Revisión
 
 [^1]: Hall, K. D. (2022). Energy compensation and metabolic adaptation: "The Biggest Loser" study reinterpreted. _Obesity (Silver Spring)_, 30(1). https://doi.org/10.1002/oby.23308

@@ -89,10 +89,6 @@ Evítala inmediatamente después de sesiones de hipertrofia; úsala en días de 
 
 Si el peso y la orina se mantienen estables y no aparecen calambres. En sudoradores salados o sesiones largas, considera análisis de sudor para personalizar las cantidades.
 
-## Próximo Paso
-
-Descarga la plantilla de aclimatación Nutrifit, vincula tus datos con la [calculadora de TDEE](/tdee) y recibe recordatorios de ajustes térmicos y de hidratación suscribiéndote a la newsletter.
-
 ## Revisión
 
 [^1]: Rosa, J. P. P., Silva, A., Lira, C. A. B., & Mello, M. T. (2025). The potential impact of heat on athletes’ sleep at the Paris 2024 Olympics and Paralympics Games. _Sleep Science_, 18(2), e236–e240. https://doi.org/10.1055/s-0044-1791236

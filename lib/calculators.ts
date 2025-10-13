@@ -182,6 +182,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'fitness',
     relatedCalculators: ['masa-muscular', 'proteina', 'composicion', '1rm']
+  },
+  {
+    key: 'fmi',
+    title: 'FMI (Índice Masa Grasa)',
+    href: '/fmi',
+    description: 'Evaluación médica de la grasa corporal independiente de la altura',
+    icon: Scale,
+    priority: 'high',
+    category: 'body-composition',
+    relatedCalculators: ['grasa-corporal', 'composicion', 'ffmi', 'imc']
   }
 ];
 

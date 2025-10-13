@@ -1834,15 +1834,15 @@ export function analyzeFFMI(
   const healthImplications = normalizedFFMI > geneticLimit * 0.9
     ? 'Cerca del límite genético. Excelente desarrollo muscular con beneficios metabólicos.'
     : normalizedFFMI > geneticLimit * 0.7
-    ? 'Buen desarrollo muscular. Mejora el metabolismo basal y la salud ósea.'
-    : 'Espacio para mejora muscular. El entrenamiento de fuerza mejorará la salud general.';
+      ? 'Buen desarrollo muscular. Mejora el metabolismo basal y la salud ósea.'
+      : 'Espacio para mejora muscular. El entrenamiento de fuerza mejorará la salud general.';
 
   // Training focus
   const trainingFocus = normalizedFFMI < geneticLimit * 0.8
     ? 'Enfoque en hipertrofia: 8-12 repeticiones, progresión de cargas'
     : normalizedFFMI < geneticLimit
-    ? 'Equilibrio hipertrofia-fuerza: 6-10 repeticiones, periodización'
-    : 'Enfoque en fuerza máxima: 3-6 repeticiones, potencia y mantenimiento';
+      ? 'Equilibrio hipertrofia-fuerza: 6-10 repeticiones, periodización'
+      : 'Enfoque en fuerza máxima: 3-6 repeticiones, potencia y mantenimiento';
 
   return {
     ffmi,
@@ -1886,6 +1886,206 @@ export function calculateFFMIFromComposition(
     leanBodyMass,
     ffmi,
     normalizedFFMI,
+    analysis
+  };
+}
+
+// ========== FMI (FAT MASS INDEX) CALCULATIONS ==========
+
+/**
+ * Calculate Fat Mass Index (FMI)
+ * Formula: FMI = fat mass (kg) / (height in meters)^2
+ * Source: Schutz et al. (2002) - Used for body composition assessment
+ */
+export function calculateFMI(fatMass: number, height: number): number {
+  if (fatMass <= 0 || height <= 0) {
+    throw new Error('La masa grasa y altura deben ser mayores que 0');
+  }
+
+  const heightM = height / 100; // Convert cm to meters
+  const fmi = fatMass / (heightM * heightM);
+  return Math.round(fmi * 100) / 100; // 2 decimal places
+}
+
+/**
+ * Calculate FMI from body weight and body fat percentage
+ * Formula: FMI = (body weight × body fat %) / (height in meters)^2
+ */
+export function calculateFMIFromComposition(
+  weight: number,
+  bodyFatPercentage: number,
+  height: number
+): number {
+  if (weight <= 0 || bodyFatPercentage < 0 || bodyFatPercentage > 100 || height <= 0) {
+    throw new Error('Los valores deben ser válidos: peso > 0, grasa 0-100%, altura > 0');
+  }
+
+  const fatMass = weight * (bodyFatPercentage / 100);
+  return calculateFMI(fatMass, height);
+}
+
+/**
+ * Calculate comprehensive FMI analysis with health implications
+ */
+export function analyzeFMI(
+  fatMass: number,
+  height: number,
+  gender: 'male' | 'female',
+  age?: number
+): {
+  fmi: number;
+  category: string;
+  healthRisk: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  metabolicRisk: string;
+  cardiovascularRisk: string;
+  recommendations: string[];
+  comparison: string;
+  idealRange: string;
+  clinicalInterpretation: string;
+  associatedConditions: string[];
+} {
+  const fmi = calculateFMI(fatMass, height);
+
+  // FMI categories based on research (Kelly et al., 2009)
+  let category: string;
+  let healthRisk: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+
+  if (gender === 'male') {
+    if (fmi < 3.0) {
+      category = 'Muy bajo (posible desnutrición)';
+      healthRisk = 'Moderado';
+    } else if (fmi < 6.0) {
+      category = 'Óptimo (saludable)';
+      healthRisk = 'Bajo';
+    } else if (fmi < 9.0) {
+      category = 'Moderado (vigilancia)';
+      healthRisk = 'Moderado';
+    } else if (fmi < 12.0) {
+      category = 'Alto riesgo (acción necesaria)';
+      healthRisk = 'Alto';
+    } else {
+      category = 'Muy alto riesgo (intervención urgente)';
+      healthRisk = 'Muy Alto';
+    }
+  } else {
+    if (fmi < 5.0) {
+      category = 'Muy bajo (posible desnutrición)';
+      healthRisk = 'Moderado';
+    } else if (fmi < 9.0) {
+      category = 'Óptimo (saludable)';
+      healthRisk = 'Bajo';
+    } else if (fmi < 13.0) {
+      category = 'Moderado (vigilancia)';
+      healthRisk = 'Moderado';
+    } else if (fmi < 17.0) {
+      category = 'Alto riesgo (acción necesaria)';
+      healthRisk = 'Alto';
+    } else {
+      category = 'Muy alto riesgo (intervención urgente)';
+      healthRisk = 'Muy Alto';
+    }
+  }
+
+  // Metabolic risk assessment
+  const metabolicRisk = fmi > (gender === 'male' ? 9.0 : 13.0)
+    ? 'Mayor riesgo de resistencia a la insulina y síndrome metabólico'
+    : 'Riesgo metabólico estándar o reducido';
+
+  // Cardiovascular risk assessment
+  const cardiovascularRisk = fmi > (gender === 'male' ? 6.0 : 9.0)
+    ? `Riesgo cardiovascular aumentado en ${(fmi / (gender === 'male' ? 6.0 : 9.0) * 100 - 100).toFixed(0)}% según estudios epidemiológicos`
+    : 'Riesgo cardiovascular dentro de parámetros saludables';
+
+  // Recommendations
+  const recommendations: string[] = [];
+
+  if (fmi > (gender === 'male' ? 9.0 : 13.0)) {
+    recommendations.push('Consulta con un médico para evaluación metabólica completa');
+    recommendations.push('Implementa programa de reducción de grasa: combinación cardio + fuerza');
+    recommendations.push('Dieta hipocalórica controlada bajo supervisión médica');
+    recommendations.push('Monitorea glucosa, lípidos y presión arterial regularmente');
+    recommendations.push('Considera apoyo psicológico para cambios de hábitos');
+  } else if (fmi > (gender === 'male' ? 6.0 : 9.0)) {
+    recommendations.push('Mantén vigilancia con chequeos médicos regulares');
+    recommendations.push('Incorpora actividad física regular (150 min/semana)');
+    recommendations.push('Equilibra alimentación con control calórico moderado');
+    recommendations.push('Monitorea cambios en composición corporal');
+  } else {
+    recommendations.push('Mantén hábitos actuales con actividad física regular');
+    recommendations.push('Continúa con alimentación equilibrada y chequeos preventivos');
+    recommendations.push('Usa como referencia para mantener composición corporal óptima');
+  }
+
+  recommendations.push('Combina con evaluación de masa muscular (FFMI) para análisis completo');
+  recommendations.push('Realiza seguimiento cada 3-6 meses para detectar cambios');
+
+  // Comparison
+  const comparison = gender === 'male'
+    ? `Hombres: Óptimo (3-6), Moderado (6-9), Alto riesgo (9-12), Muy alto (>12)`
+    : `Mujeres: Óptimo (5-9), Moderado (9-13), Alto riesgo (13-17), Muy alto (>17)`;
+
+  // Ideal range
+  const idealRange = gender === 'male' ? '3.0-6.0' : '5.0-9.0';
+
+  // Clinical interpretation
+  const clinicalInterpretation = fmi > (gender === 'male' ? 9.0 : 13.0)
+    ? 'Indicativo de exceso de grasa corporal con riesgo metabólico aumentado. Requiere intervención médica.'
+    : fmi < (gender === 'male' ? 3.0 : 5.0)
+    ? 'Posible desnutrición o pérdida excesiva de grasa. Evaluar estado nutricional.'
+    : 'Composición corporal favorable. Continuar con hábitos saludables preventivos.';
+
+  // Associated conditions
+  const associatedConditions = fmi > (gender === 'male' ? 9.0 : 13.0)
+    ? ['Síndrome metabólico', 'Diabetes tipo 2', 'Hipertensión', 'Dislipidemia', 'Esteatosis hepática']
+    : fmi < (gender === 'male' ? 3.0 : 5.0)
+    ? ['Posible desnutrición', 'Osteoporosis', 'Anemia', 'Déficit inmunológico']
+    : ['Riesgo estándar', 'Composición corporal saludable'];
+
+  return {
+    fmi,
+    category,
+    healthRisk,
+    metabolicRisk,
+    cardiovascularRisk,
+    recommendations,
+    comparison,
+    idealRange,
+    clinicalInterpretation,
+    associatedConditions
+  };
+}
+
+/**
+ * Calculate FMI with additional body composition metrics
+ * Includes FMI, body fat percentage, and comprehensive analysis
+ */
+export function calculateComprehensiveFMI(
+  weight: number,
+  bodyFatPercentage: number,
+  height: number,
+  gender: 'male' | 'female',
+  age?: number
+): {
+  fmi: number;
+  bodyFatPercentage: number;
+  fatMass: number;
+  leanBodyMass: number;
+  analysis: ReturnType<typeof analyzeFMI>;
+} {
+  if (weight <= 0 || bodyFatPercentage < 0 || bodyFatPercentage > 100 || height <= 0) {
+    throw new Error('Los valores deben ser válidos: peso > 0, grasa 0-100%, altura > 0');
+  }
+
+  const fatMass = weight * (bodyFatPercentage / 100);
+  const leanBodyMass = weight * (1 - bodyFatPercentage / 100);
+  const fmi = calculateFMI(fatMass, height);
+  const analysis = analyzeFMI(fatMass, height, gender, age);
+
+  return {
+    fmi,
+    bodyFatPercentage,
+    fatMass,
+    leanBodyMass,
     analysis
   };
 }

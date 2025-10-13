@@ -385,6 +385,10 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/fmi" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de FMI:</a></strong> Índice de masa grasa según estándares Schutz para evaluación metabólica</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/imc" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de IMC:</a></strong> Estándares oficiales de la OMS para evaluación de peso corporal</span>
                 </li>
                 <li className="flex items-start">

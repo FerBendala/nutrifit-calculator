@@ -116,6 +116,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional del Índice de Masa Libre de Grasa (FFMI) según fórmula Katch-McArdle. Evalúa desarrollo muscular independiente de grasa corporal. Ideal para atletas, fisicoculturistas y seguimiento de hipertrofia muscular.',
     keywords: ['calculadora FFMI', 'índice masa libre de grasa', 'FFMI', 'fat-free mass index', 'desarrollo muscular', 'hipertrofia', 'atletas', 'fisicoculturismo', 'composición corporal', 'masa muscular', 'Katch-McArdle', 'genética muscular'],
     path: '/ffmi'
+  },
+  fmi: {
+    title: 'Calculadora FMI Médica | Índice Masa Grasa | Schutz | Composición Corporal',
+    description: 'Calculadora profesional del Índice de Masa Grasa (FMI) según fórmula Schutz. Evalúa cantidad de grasa corporal independiente de altura. Complementa FFMI para análisis completo de composición corporal. Ideal para evaluación médica y seguimiento nutricional.',
+    keywords: ['calculadora FMI', 'índice masa grasa', 'FMI', 'fat mass index', 'grasa corporal', 'composición corporal', 'obesidad', 'salud metabólica', 'evaluación nutricional', 'índice antropométrico', 'Schutz', 'análisis corporal'],
+    path: '/fmi'
   }
 };
 

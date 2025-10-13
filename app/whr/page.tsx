@@ -11,7 +11,7 @@ import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { calculateWHR, analyzeWHR, calculateComprehensiveWHR } from '@/lib/formulas';
+import { analyzeWHR, calculateComprehensiveWHR } from '@/lib/formulas';
 import { AlertTriangle, Calculator, Heart, Info, Ruler, Scale, TrendingUp, Zap } from 'lucide-react';
 import { useState } from 'react';
 
@@ -567,12 +567,10 @@ export default function WHRPage() {
               <div className="p-6">
                 <p className="text-gray-700 leading-relaxed mb-4">
                   El <strong>Ratio Cintura-Cadera (WHR)</strong> es una medida antropométrica que evalúa la distribución de la grasa corporal
-                  comparando la circunferencia de la cintura con la de las caderas. Es un indicador clave de <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">riesgo cardiovascular</a>
-                  y síndrome metabólico según estándares de la OMS.
+                  comparando la circunferencia de la cintura con la de las caderas. Es un indicador clave de <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">riesgo cardiovascular</a> y síndrome metabólico según estándares de la OMS. Estudios epidemiológicos como el <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504067/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Framingham Heart Study</a> validan su precisión predictiva superior al IMC.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  A diferencia del IMC, el WHR identifica la <a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">grasa visceral peligrosa</a>
-                  que se acumula alrededor de los órganos internos, principal factor de riesgo para enfermedades cardíacas.
+                  A diferencia del IMC, el WHR identifica la <a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">grasa visceral peligrosa</a> que se acumula alrededor de los órganos internos, principal factor de riesgo para enfermedades cardíacas. Estudios como el <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504067/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">Framingham Heart Study</a> demuestran su superioridad predictiva sobre el IMC tradicional.
                 </p>
               </div>
             </section>
@@ -597,7 +595,7 @@ export default function WHRPage() {
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Predice riesgo cardiovascular:</strong> Mejor predictor que IMC según estudios OMS</span>
+                      <span><strong>Predice riesgo cardiovascular:</strong> Mejor predictor que IMC según estudios OMS - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504067/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">evidencia Framingham</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -668,6 +666,7 @@ export default function WHRPage() {
                       <li>• En ayunas, después de exhalar normalmente</li>
                       <li>• Cinta métrica horizontal alrededor del cuerpo</li>
                       <li>• No comprimir la piel excesivamente</li>
+                      <li>• <a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Protocolo OMS oficial</a></li>
                     </ul>
                   </article>
                   <article>

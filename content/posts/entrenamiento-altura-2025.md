@@ -86,12 +86,8 @@ No, pero permitir sesiones intensas en altitud baja o en hipoxia intermitente me
 
 Reduce el volumen 30-40% durante 48 h, agrega siestas/respiración, revisa hidratación y analiza si necesitas descender momentáneamente.
 
-## Próximo Paso
+## Revisión
 
-Descarga la plantilla de planificación en altura de Nutrifit, cruza tus datos con la [calculadora de TDEE](/tdee) y recibe alertas de nuevas guías suscribiéndote a la newsletter.
-
-## Sobre el Autor y la Revisión
-
-[^1]: Chapman, R. F., & Levine, B. D. (2018). The Science of Altitude Training. _Sports Medicine_, 48(4), 775–787.
-[^2]: Saunders, P. U., Pyne, D. B., & Gore, C. J. (2019). Endurance Training at Altitude. _International Journal of Sports Physiology and Performance_, 14(2), 200–206.
-[^3]: Govus, A. D., et al. (2015). Iron supplementation improves iron stores and performance during altitude training. _Medicine & Science in Sports & Exercise_, 47(7), 1351–1359.
+[^1]: Chapman, R. F., & Levine, B. D. (2018). The science of altitude training. _Sports Medicine_, 48(4), 775–787. https://doi.org/10.1007/s40279-017-0820-1
+[^2]: Saunders, P. U., Pyne, D. B., & Gore, C. J. (2019). Endurance training at altitude. _International Journal of Sports Physiology and Performance_, 14(2), 200–206. https://doi.org/10.1123/ijspp.2018-0475
+[^3]: Govus, A. D., et al. (2015). Iron supplementation improves iron stores and performance during altitude training. _Medicine & Science in Sports & Exercise_, 47(7), 1351–1359. https://doi.org/10.1249/MSS.0000000000000518

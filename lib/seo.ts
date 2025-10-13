@@ -110,6 +110,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de Ratio Cintura-Cadera (WHR) según estándares OMS. Evalúa distribución de grasa corporal, riesgo cardiovascular y síndrome metabólico. Complementa WHtR e IMC para evaluación completa de salud.',
     keywords: ['calculadora WHR', 'ratio cintura cadera', 'WHR', 'waist hip ratio', 'distribución grasa', 'riesgo cardiovascular', 'síndrome metabólico', 'obesidad central', 'forma corporal', 'androide ginoide', 'salud cardiovascular', 'OMS'],
     path: '/whr'
+  },
+  ffmi: {
+    title: 'Calculadora FFMI Médica | Índice Masa Libre de Grasa | Katch-McArdle',
+    description: 'Calculadora profesional del Índice de Masa Libre de Grasa (FFMI) según fórmula Katch-McArdle. Evalúa desarrollo muscular independiente de grasa corporal. Ideal para atletas, fisicoculturistas y seguimiento de hipertrofia muscular.',
+    keywords: ['calculadora FFMI', 'índice masa libre de grasa', 'FFMI', 'fat-free mass index', 'desarrollo muscular', 'hipertrofia', 'atletas', 'fisicoculturismo', 'composición corporal', 'masa muscular', 'Katch-McArdle', 'genética muscular'],
+    path: '/ffmi'
   }
 };
 

@@ -626,6 +626,10 @@ export default function ComposicionPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/ffmi" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu FFMI muscular avanzado:</a></strong> Índice preciso de desarrollo muscular para atletas serios</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Determina tu gasto calórico:</a></strong> La masa magra influye directamente en tu metabolismo basal</span>
                 </li>
                 <li className="flex items-start">

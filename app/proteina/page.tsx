@@ -531,6 +531,10 @@ export default function ProteinaPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/ffmi" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu desarrollo muscular:</a></strong> Usa FFMI para optimizar ingesta proteica según masa libre de grasa</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu gasto calórico:</a></strong> Determina cuántas calorías necesitas según tu actividad</span>
                 </li>
                 <li className="flex items-start">

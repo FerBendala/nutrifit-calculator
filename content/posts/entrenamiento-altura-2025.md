@@ -1,17 +1,17 @@
 ---
-title: 'Entrenamiento en Altura 2025: Planifica tu Campamento, Nutrición y Monitoreo'
-date: '2025-02-08'
+title: 'Entrenamiento en Altura: Planifica tu Campamento, Nutrición y Monitoreo'
+date: '2025-10-13'
 author: 'Dr. Nutrifit'
 description: 'Cómo diseñar concentraciones en altura con fases de aclimatación, control de hierro, hidratación y seguimiento de métricas para maximizar el rendimiento a nivel del mar.'
 categories: ['Rendimiento', 'Planificación', 'Nutrición']
 tags: ['altitud', 'live high train low', 'hierro', 'HRV', 'aclimatación']
-image: 'https://cdn.pixabay.com/photo/2017/07/23/05/56/running-2539955_1280.jpg'
+image: 'https://cdn.pixabay.com/photo/2020/01/14/21/11/mountains-4766345_1280.jpg'
 slug: 'entrenamiento-altura-2025'
 readTime: 9
 featured: false
 ---
 
-# Entrenamiento en Altura 2025: Planifica tu Campamento, Nutrición y Monitoreo
+# Entrenamiento en Altura: Planifica tu Campamento, Nutrición y Monitoreo
 
 El entrenamiento en altura sigue siendo una de las herramientas más potentes para impulsar la capacidad aeróbica, pero solo si se planifica con precisión. Estudios recientes enfatizan que elegir la altura adecuada, proteger el estado de hierro y controlar la carga interna son determinantes para convertir la hipoxia en ventaja competitiva.[^1][^2] Este artículo reúne prácticas actualizadas para que tu próximo campamento “live high-train low” o “live high-train high” esté respaldado por datos, no por intuición.
 
@@ -25,12 +25,12 @@ El entrenamiento en altura sigue siendo una de las herramientas más potentes pa
 
 ## 2. Fases del Campamento
 
-| Fase | Duración | Objetivo | Claves |
-| ---- | -------- | -------- | ------ |
-| Preparación | -21 a -7 días | Optimizar reservas | Evaluación médica, ferritina >40 µg/L, ajuste de carga y sueño |
-| Aclimatación inicial | Días 1-5 | Adaptación ventilatoria | Volumen -20%, intensidades ≤zona 2, hidratación alta |
-| Carga específica | Días 6-21 | Estímulo hematológico y neuromuscular | Introduce HIIT controlado (1-2/semana), fuerza ligera, monitoreo diario |
-| Reintegración | Días 22-32 | Consolidar adaptaciones | Descenso a nivel del mar, microciclo de descarga 4-7 días, competición 7-21 días después |
+| Fase                 | Duración      | Objetivo                              | Claves                                                                                   |
+| -------------------- | ------------- | ------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Preparación          | -21 a -7 días | Optimizar reservas                    | Evaluación médica, ferritina >40 µg/L, ajuste de carga y sueño                           |
+| Aclimatación inicial | Días 1-5      | Adaptación ventilatoria               | Volumen -20%, intensidades ≤zona 2, hidratación alta                                     |
+| Carga específica     | Días 6-21     | Estímulo hematológico y neuromuscular | Introduce HIIT controlado (1-2/semana), fuerza ligera, monitoreo diario                  |
+| Reintegración        | Días 22-32    | Consolidar adaptaciones               | Descenso a nivel del mar, microciclo de descarga 4-7 días, competición 7-21 días después |
 
 ## 3. Nutrición y Hierro: Los Pilares Invisibles
 
@@ -48,15 +48,15 @@ El entrenamiento en altura sigue siendo una de las herramientas más potentes pa
 
 ## 5. Estructura Semanal de Referencia
 
-| Día | Mañana (Live High) | Tarde (Train Low o High) | Comentarios |
-| --- | ------------------ | ----------------------- | ----------- |
-| Lunes | Rodaje aeróbico 60-75 min zona 2 | Gimnasio fuerza básica (60 min) | Monitoriza SpO₂ post-ejercicio |
-| Martes | Intervalos controlados (6×3 min @ zona 4 con r1:1) en altitud media | Recuperación activa/rodillo 40 min | Mantén lactato <6 mmol/L |
-| Miércoles | Rodaje suave + técnica | Siesta + movilidad y respiración | Día de mayor enfoque en HRV |
-| Jueves | HIIT “train low” (pista o cinta a nivel inferior) | Subidas cortas o pliometría ligera | Viaje/descenso al valle si es posible |
-| Viernes | Rodaje largo 90-110 min | Fuerza excéntrica ligera | Evalúa ferritina/hemoglobina cada 2 semanas |
-| Sábado | Fartlek progresivo | Movilidad + crioterapia suave | Evita doble HIIT en la misma semana |
-| Domingo | Recuperación completa | Paseo o yoga restaurativo | Review semanal y ajustes |
+| Día       | Mañana (Live High)                                                  | Tarde (Train Low o High)           | Comentarios                                 |
+| --------- | ------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------- |
+| Lunes     | Rodaje aeróbico 60-75 min zona 2                                    | Gimnasio fuerza básica (60 min)    | Monitoriza SpO₂ post-ejercicio              |
+| Martes    | Intervalos controlados (6×3 min @ zona 4 con r1:1) en altitud media | Recuperación activa/rodillo 40 min | Mantén lactato <6 mmol/L                    |
+| Miércoles | Rodaje suave + técnica                                              | Siesta + movilidad y respiración   | Día de mayor enfoque en HRV                 |
+| Jueves    | HIIT “train low” (pista o cinta a nivel inferior)                   | Subidas cortas o pliometría ligera | Viaje/descenso al valle si es posible       |
+| Viernes   | Rodaje largo 90-110 min                                             | Fuerza excéntrica ligera           | Evalúa ferritina/hemoglobina cada 2 semanas |
+| Sábado    | Fartlek progresivo                                                  | Movilidad + crioterapia suave      | Evita doble HIIT en la misma semana         |
+| Domingo   | Recuperación completa                                               | Paseo o yoga restaurativo          | Review semanal y ajustes                    |
 
 ## 6. Manejo de Riesgos y Emergencias
 
@@ -91,12 +91,6 @@ Reduce el volumen 30-40% durante 48 h, agrega siestas/respiración, revisa hidra
 Descarga la plantilla de planificación en altura de Nutrifit, cruza tus datos con la [calculadora de TDEE](/tdee) y recibe alertas de nuevas guías suscribiéndote a la newsletter.
 
 ## Sobre el Autor y la Revisión
-
-Artículo elaborado por **Dr. Nutrifit**, consultor en fisiología del ejercicio y entrenamiento en altura. Última revisión editorial: 2025-02-08. Para planes personalizados o análisis de hierro y HRV en campamentos, escribe a contacto@nutrifit.com.
-
-La altura multiplica lo que planificas: con datos, paciencia y ajustes diarios convertirás la hipoxia en progreso real y sostenible.
-
----
 
 [^1]: Chapman, R. F., & Levine, B. D. (2018). The Science of Altitude Training. _Sports Medicine_, 48(4), 775–787.
 [^2]: Saunders, P. U., Pyne, D. B., & Gore, C. J. (2019). Endurance Training at Altitude. _International Journal of Sports Physiology and Performance_, 14(2), 200–206.

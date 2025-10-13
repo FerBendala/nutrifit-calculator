@@ -1693,3 +1693,199 @@ export function calculateComprehensiveWHR(
     recommendations
   };
 }
+
+// ========== FFMI (FAT-FREE MASS INDEX) CALCULATIONS ==========
+
+/**
+ * Calculate Fat-Free Mass Index (FFMI)
+ * Formula: FFMI = lean body mass (kg) / (height in meters)^2
+ * Source: Katch & McArdle (1977) - Used in bodybuilding and athletic performance
+ */
+export function calculateFFMI(leanBodyMass: number, height: number): number {
+  if (leanBodyMass <= 0 || height <= 0) {
+    throw new Error('La masa libre de grasa y altura deben ser mayores que 0');
+  }
+
+  const heightM = height / 100; // Convert cm to meters
+  const ffmi = leanBodyMass / (heightM * heightM);
+  return Math.round(ffmi * 100) / 100; // 2 decimal places
+}
+
+/**
+ * Calculate normalized FFMI (height-adjusted)
+ * Formula: Normalized FFMI = FFMI + 6.1 × (1.8 - height in meters)
+ * Source: Used to compare individuals of different heights
+ */
+export function calculateNormalizedFFMI(ffmi: number, height: number): number {
+  if (height <= 0) {
+    throw new Error('La altura debe ser mayor que 0');
+  }
+
+  const heightM = height / 100; // Convert cm to meters
+  const normalizedFFMI = ffmi + 6.1 * (1.8 - heightM);
+  return Math.round(normalizedFFMI * 100) / 100; // 2 decimal places
+}
+
+/**
+ * Calculate comprehensive FFMI analysis with body composition insights
+ */
+export function analyzeFFMI(
+  leanBodyMass: number,
+  height: number,
+  gender: 'male' | 'female',
+  age?: number,
+  bodyFatPercentage?: number
+): {
+  ffmi: number;
+  normalizedFFMI: number;
+  category: string;
+  muscleDevelopment: string;
+  athleticPotential: string;
+  geneticLimit: number;
+  recommendations: string[];
+  comparison: string;
+  healthImplications: string;
+  trainingFocus: string;
+} {
+  const ffmi = calculateFFMI(leanBodyMass, height);
+  const normalizedFFMI = calculateNormalizedFFMI(ffmi, height);
+
+  // FFMI categories based on research (Kouri et al., 1995)
+  let category: string;
+  let muscleDevelopment: string;
+  let athleticPotential: string;
+
+  if (gender === 'male') {
+    if (normalizedFFMI >= 25) {
+      category = 'Excelente (atleta de élite)';
+      muscleDevelopment = 'Desarrollo muscular excepcional';
+      athleticPotential = 'Potencial para competir al más alto nivel';
+    } else if (normalizedFFMI >= 22) {
+      category = 'Muy bueno (atleta avanzado)';
+      muscleDevelopment = 'Desarrollo muscular avanzado';
+      athleticPotential = 'Potencial para deportes de fuerza y potencia';
+    } else if (normalizedFFMI >= 20) {
+      category = 'Bueno (atleta intermedio)';
+      muscleDevelopment = 'Buen desarrollo muscular';
+      athleticPotential = 'Potencial para mejora significativa con entrenamiento';
+    } else if (normalizedFFMI >= 18) {
+      category = 'Promedio (principiante)';
+      muscleDevelopment = 'Desarrollo muscular básico';
+      athleticPotential = 'Potencial para ganar músculo con entrenamiento consistente';
+    } else {
+      category = 'Bajo (necesita desarrollo)';
+      muscleDevelopment = 'Poco desarrollo muscular';
+      athleticPotential = 'Necesita enfoque en ganancia muscular';
+    }
+  } else {
+    if (normalizedFFMI >= 20) {
+      category = 'Excelente (atleta de élite)';
+      muscleDevelopment = 'Desarrollo muscular excepcional para mujeres';
+      athleticPotential = 'Potencial para competir al más alto nivel';
+    } else if (normalizedFFMI >= 18) {
+      category = 'Muy bueno (atleta avanzada)';
+      muscleDevelopment = 'Desarrollo muscular avanzado';
+      athleticPotential = 'Potencial para deportes de fuerza y potencia';
+    } else if (normalizedFFMI >= 16) {
+      category = 'Bueno (atleta intermedia)';
+      muscleDevelopment = 'Buen desarrollo muscular';
+      athleticPotential = 'Potencial para mejora significativa';
+    } else if (normalizedFFMI >= 14) {
+      category = 'Promedio (principiante)';
+      muscleDevelopment = 'Desarrollo muscular básico';
+      athleticPotential = 'Potencial para ganar músculo';
+    } else {
+      category = 'Bajo (necesita desarrollo)';
+      muscleDevelopment = 'Poco desarrollo muscular';
+      athleticPotential = 'Necesita enfoque en ganancia muscular';
+    }
+  }
+
+  // Genetic limit estimation (simplified)
+  const geneticLimit = gender === 'male' ? 25 + (age ? Math.max(0, (30 - age) * 0.1) : 0) : 20 + (age ? Math.max(0, (30 - age) * 0.1) : 0);
+
+  // Recommendations
+  const recommendations: string[] = [];
+
+  if (normalizedFFMI < geneticLimit * 0.8) {
+    recommendations.push('Enfoque prioritario en hipertrofia muscular');
+    recommendations.push('Programa de entrenamiento: 3-5 sesiones semanales de fuerza');
+    recommendations.push('Déficit calórico controlado para revelar músculo ganado');
+    recommendations.push('Aumenta ingesta proteica a 1.8-2.2g/kg de peso corporal');
+  } else if (normalizedFFMI < geneticLimit) {
+    recommendations.push('Continúa con entrenamiento consistente');
+    recommendations.push('Optimiza recuperación y nutrición');
+    recommendations.push('Considera periodos de especialización muscular');
+  } else {
+    recommendations.push('Cerca del límite genético - mantenimiento y prevención de lesiones');
+    recommendations.push('Enfoque en fuerza máxima y potencia');
+    recommendations.push('Monitorea composición corporal para evitar exceso de grasa');
+  }
+
+  recommendations.push('Usa nuestra calculadora de proteína para optimizar ingesta');
+  recommendations.push('Combina con evaluación de masa muscular para seguimiento');
+
+  // Comparison
+  const comparison = gender === 'male'
+    ? `Hombres: Excelente (≥25), Muy bueno (22-25), Bueno (20-22), Promedio (18-20)`
+    : `Mujeres: Excelente (≥20), Muy bueno (18-20), Bueno (16-18), Promedio (14-16)`;
+
+  // Health implications
+  const healthImplications = normalizedFFMI > geneticLimit * 0.9
+    ? 'Cerca del límite genético. Excelente desarrollo muscular con beneficios metabólicos.'
+    : normalizedFFMI > geneticLimit * 0.7
+    ? 'Buen desarrollo muscular. Mejora el metabolismo basal y la salud ósea.'
+    : 'Espacio para mejora muscular. El entrenamiento de fuerza mejorará la salud general.';
+
+  // Training focus
+  const trainingFocus = normalizedFFMI < geneticLimit * 0.8
+    ? 'Enfoque en hipertrofia: 8-12 repeticiones, progresión de cargas'
+    : normalizedFFMI < geneticLimit
+    ? 'Equilibrio hipertrofia-fuerza: 6-10 repeticiones, periodización'
+    : 'Enfoque en fuerza máxima: 3-6 repeticiones, potencia y mantenimiento';
+
+  return {
+    ffmi,
+    normalizedFFMI,
+    category,
+    muscleDevelopment,
+    athleticPotential,
+    geneticLimit,
+    recommendations,
+    comparison,
+    healthImplications,
+    trainingFocus
+  };
+}
+
+/**
+ * Calculate FFMI from body composition data
+ * Estimates lean body mass from weight and body fat percentage
+ */
+export function calculateFFMIFromComposition(
+  weight: number,
+  bodyFatPercentage: number,
+  height: number,
+  gender: 'male' | 'female'
+): {
+  leanBodyMass: number;
+  ffmi: number;
+  normalizedFFMI: number;
+  analysis: ReturnType<typeof analyzeFFMI>;
+} {
+  if (weight <= 0 || bodyFatPercentage < 0 || bodyFatPercentage > 50 || height <= 0) {
+    throw new Error('Los valores deben ser válidos: peso > 0, grasa 0-50%, altura > 0');
+  }
+
+  const leanBodyMass = weight * (1 - bodyFatPercentage / 100);
+  const ffmi = calculateFFMI(leanBodyMass, height);
+  const normalizedFFMI = calculateNormalizedFFMI(ffmi, height);
+  const analysis = analyzeFFMI(leanBodyMass, height, gender);
+
+  return {
+    leanBodyMass,
+    ffmi,
+    normalizedFFMI,
+    analysis
+  };
+}

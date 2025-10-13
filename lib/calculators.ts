@@ -172,6 +172,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'body-composition',
     relatedCalculators: ['whtr', 'imc', 'grasa-corporal', 'composicion']
+  },
+  {
+    key: 'ffmi',
+    title: 'FFMI (Índice Masa Libre de Grasa)',
+    href: '/ffmi',
+    description: 'Evaluación del desarrollo muscular independiente de la grasa corporal',
+    icon: Dumbbell,
+    priority: 'high',
+    category: 'fitness',
+    relatedCalculators: ['masa-muscular', 'proteina', 'composicion', '1rm']
   }
 ];
 

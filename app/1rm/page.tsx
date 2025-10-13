@@ -698,6 +698,10 @@ export default function OneRMPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/ffmi" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu FFMI muscular:</a></strong> Evalúa desarrollo muscular independiente de grasa para atletas avanzados</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu proteína:</a></strong> Nutrición específica para ganar fuerza y músculo</span>
                 </li>
                 <li className="flex items-start">

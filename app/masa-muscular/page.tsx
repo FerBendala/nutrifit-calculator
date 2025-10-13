@@ -483,6 +483,10 @@ export default function MasaMuscularPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/whr" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa distribución de grasa:</a></strong> El WHR complementa el análisis de composición corporal</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
                     <span><strong><a href="/vo2max" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> La masa muscular mejora la eficiencia del oxígeno</span>
                   </li>
                   <li className="flex items-start">

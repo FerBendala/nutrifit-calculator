@@ -162,6 +162,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'health',
     relatedCalculators: ['masa-muscular', 'proteina', 'composicion', 'vo2max']
+  },
+  {
+    key: 'whr',
+    title: 'Ratio Cintura-Cadera (WHR)',
+    href: '/whr',
+    description: 'Evaluación médica de distribución de grasa y riesgo cardiovascular',
+    icon: Ruler,
+    priority: 'high',
+    category: 'body-composition',
+    relatedCalculators: ['whtr', 'imc', 'grasa-corporal', 'composicion']
   }
 ];
 

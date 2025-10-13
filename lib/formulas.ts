@@ -1493,3 +1493,203 @@ export function analyzeSarcopenia(
     followUp
   };
 }
+
+// ========== WHR (WAIST-HIP RATIO) CALCULATIONS ==========
+
+/**
+ * Calculate Waist-Hip Ratio (WHR)
+ * Formula: WHR = waist circumference (cm) / hip circumference (cm)
+ * Source: World Health Organization (WHO) and various cardiovascular studies
+ */
+export function calculateWHR(waistCircumference: number, hipCircumference: number): number {
+  if (waistCircumference <= 0 || hipCircumference <= 0) {
+    throw new Error('La circunferencia de cintura y cadera deben ser mayores que 0');
+  }
+
+  if (waistCircumference >= hipCircumference) {
+    throw new Error('La circunferencia de cintura debe ser menor que la de cadera');
+  }
+
+  const whr = waistCircumference / hipCircumference;
+  return Math.round(whr * 1000) / 1000; // 3 decimal places
+}
+
+/**
+ * Calculate Waist-to-Hip Ratio analysis with health implications
+ */
+export function analyzeWHR(waistCircumference: number, hipCircumference: number, gender: 'male' | 'female', age?: number): {
+  whr: number;
+  category: string;
+  healthRisk: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  cardiovascularRisk: string;
+  metabolicRisk: string;
+  recommendations: string[];
+  comparison: string;
+  idealRange: string;
+  clinicalInterpretation: string;
+} {
+  const whr = calculateWHR(waistCircumference, hipCircumference);
+
+  // WHO cutoffs for WHR (slightly adjusted for clinical practice)
+  const cutoffs = {
+    male: {
+      low: 0.85,
+      moderate: 0.90,
+      high: 0.95,
+      veryHigh: 1.00
+    },
+    female: {
+      low: 0.75,
+      moderate: 0.80,
+      high: 0.85,
+      veryHigh: 0.90
+    }
+  };
+
+  const userCutoffs = cutoffs[gender];
+  let category: string;
+  let healthRisk: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+
+  if (whr < userCutoffs.low) {
+    category = 'Excelente (distribución óptima)';
+    healthRisk = 'Bajo';
+  } else if (whr < userCutoffs.moderate) {
+    category = 'Bueno (distribución favorable)';
+    healthRisk = 'Bajo';
+  } else if (whr < userCutoffs.high) {
+    category = 'Moderado (vigilancia recomendada)';
+    healthRisk = 'Moderado';
+  } else if (whr < userCutoffs.veryHigh) {
+    category = 'Alto riesgo (acción necesaria)';
+    healthRisk = 'Alto';
+  } else {
+    category = 'Muy alto riesgo (intervención urgente)';
+    healthRisk = 'Muy Alto';
+  }
+
+  // Cardiovascular risk assessment
+  const cardiovascularRisk = whr > userCutoffs.moderate
+    ? `Riesgo cardiovascular aumentado en ${(whr / userCutoffs.moderate * 100 - 100).toFixed(0)}% según estudios epidemiológicos`
+    : 'Riesgo cardiovascular dentro de parámetros saludables';
+
+  // Metabolic risk assessment
+  const metabolicRisk = whr > userCutoffs.high
+    ? 'Mayor riesgo de síndrome metabólico, diabetes tipo 2 y resistencia a la insulina'
+    : 'Riesgo metabólico estándar o reducido';
+
+  // Recommendations
+  const recommendations: string[] = [];
+
+  if (whr > userCutoffs.moderate) {
+    recommendations.push('Consulta con un médico para evaluación cardiovascular completa');
+    recommendations.push('Implementa cambios en la alimentación: reduce azúcares y grasas saturadas');
+    recommendations.push('Aumenta la actividad física: combina cardio con entrenamiento de fuerza');
+    recommendations.push('Considera reducción calórica controlada bajo supervisión médica');
+    recommendations.push('Monitorea otros factores de riesgo: presión arterial, glucosa, lípidos');
+  } else {
+    recommendations.push('Mantén tu estilo de vida actual con actividad física regular');
+    recommendations.push('Continúa con una alimentación equilibrada rica en frutas y vegetales');
+    recommendations.push('Realiza chequeos médicos preventivos anuales');
+  }
+
+  recommendations.push('Mide tu WHR cada 3-6 meses para monitorear cambios');
+  recommendations.push('Combina con otras métricas como WHtR e IMC para evaluación completa');
+
+  // Comparison with standards
+  const comparison = gender === 'male'
+    ? `Hombres: Óptimo (< 0.90), Moderado (0.90-0.95), Alto riesgo (> 0.95)`
+    : `Mujeres: Óptimo (< 0.80), Moderado (0.80-0.85), Alto riesgo (> 0.85)`;
+
+  // Ideal range
+  const idealRange = gender === 'male' ? '0.80-0.90' : '0.70-0.80';
+
+  // Clinical interpretation
+  const clinicalInterpretation = whr > userCutoffs.high
+    ? 'Indicativo de obesidad central y mayor riesgo cardiometabólico. Requiere intervención médica.'
+    : 'Distribución de grasa favorable. Continuar con hábitos saludables preventivos.';
+
+  return {
+    whr,
+    category,
+    healthRisk,
+    cardiovascularRisk,
+    metabolicRisk,
+    recommendations,
+    comparison,
+    idealRange,
+    clinicalInterpretation
+  };
+}
+
+/**
+ * Calculate Waist-Hip Ratio with additional anthropometric measurements
+ * Includes waist-hip ratio, waist-height ratio, and body shape classification
+ */
+export function calculateComprehensiveWHR(
+  waistCircumference: number,
+  hipCircumference: number,
+  height: number,
+  gender: 'male' | 'female'
+): {
+  whr: number;
+  whtr: number;
+  bodyShape: string;
+  androidGynoidRatio: string;
+  healthScore: number;
+  recommendations: string[];
+} {
+  const whr = calculateWHR(waistCircumference, hipCircumference);
+  const whtr = waistCircumference / height; // Waist-height ratio
+
+  // Body shape classification based on WHR
+  let bodyShape: string;
+  if (gender === 'male') {
+    if (whr < 0.85) bodyShape = 'Ginoide (forma de pera)';
+    else if (whr < 0.90) bodyShape = 'Intermedio';
+    else bodyShape = 'Androide (forma de manzana)';
+  } else {
+    if (whr < 0.75) bodyShape = 'Ginoide (forma de pera)';
+    else if (whr < 0.80) bodyShape = 'Intermedio';
+    else bodyShape = 'Androide (forma de manzana)';
+  }
+
+  // Android-gynoid ratio assessment
+  const androidGynoidRatio = whr > 0.85
+    ? 'Predominio androide (grasa central)'
+    : 'Predominio ginoide (grasa periférica)';
+
+  // Health score (0-100, higher is better)
+  let healthScore = 100;
+  if (whr > 0.90) healthScore -= 30;
+  else if (whr > 0.85) healthScore -= 15;
+  else if (whr > 0.80) healthScore -= 5;
+
+  if (whtr > 0.5) healthScore -= 20;
+  else if (whtr > 0.45) healthScore -= 10;
+
+  healthScore = Math.max(0, healthScore);
+
+  // Recommendations based on comprehensive analysis
+  const recommendations: string[] = [];
+
+  if (healthScore < 70) {
+    recommendations.push('Enfoque prioritario en reducción de grasa abdominal');
+    recommendations.push('Programa de ejercicio: 150 minutos semanales de actividad moderada');
+    recommendations.push('Dieta mediterránea o DASH para mejorar perfil metabólico');
+  } else {
+    recommendations.push('Mantén hábitos actuales con monitoreo regular');
+    recommendations.push('Ejercicio de fuerza 2-3 veces por semana');
+  }
+
+  recommendations.push('Medición antropométrica cada 3 meses');
+  recommendations.push('Evaluación médica anual con análisis de sangre');
+
+  return {
+    whr,
+    whtr,
+    bodyShape,
+    androidGynoidRatio,
+    healthScore,
+    recommendations
+  };
+}

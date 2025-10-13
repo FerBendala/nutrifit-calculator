@@ -104,6 +104,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora médica profesional del Índice de Sarcopenia con fórmulas Baumgartner, ASMM y SMMI. Evalúa pérdida muscular relacionada con la edad, riesgo funcional y estrategias preventivas. Basado en estándares EWGSOP2.',
     keywords: ['calculadora sarcopenia', 'índice sarcopenia', 'pérdida muscular', 'sarcopenia', 'masa muscular edad', 'EWGSOP2', 'geriatría', 'envejecimiento', 'masa muscular', 'fragilidad', 'salud muscular', 'prevención sarcopenia'],
     path: '/sarcopenia'
+  },
+  whr: {
+    title: 'Calculadora WHR Médica | Ratio Cintura-Cadera | OMS | Riesgo Cardiovascular',
+    description: 'Calculadora profesional de Ratio Cintura-Cadera (WHR) según estándares OMS. Evalúa distribución de grasa corporal, riesgo cardiovascular y síndrome metabólico. Complementa WHtR e IMC para evaluación completa de salud.',
+    keywords: ['calculadora WHR', 'ratio cintura cadera', 'WHR', 'waist hip ratio', 'distribución grasa', 'riesgo cardiovascular', 'síndrome metabólico', 'obesidad central', 'forma corporal', 'androide ginoide', 'salud cardiovascular', 'OMS'],
+    path: '/whr'
   }
 };
 

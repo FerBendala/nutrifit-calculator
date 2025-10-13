@@ -1,0 +1,738 @@
+"use client";
+
+import { Container } from '@/components/Container';
+import { CalculatorNavigation } from '@/components/ContextualLinks';
+import { EmbedWidget } from '@/components/EmbedWidget';
+import { NumberInput } from '@/components/NumberInput';
+import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { SchemaMarkup } from '@/components/SchemaMarkup';
+import { SelectInput } from '@/components/SelectInput';
+import { SocialShare } from '@/components/SocialShare';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { calculateWHR, analyzeWHR, calculateComprehensiveWHR } from '@/lib/formulas';
+import { AlertTriangle, Calculator, Heart, Info, Ruler, Scale, TrendingUp, Zap } from 'lucide-react';
+import { useState } from 'react';
+
+interface WHRResult {
+  method: string;
+  whr?: number;
+  whtr?: number;
+  bodyShape?: string;
+  androidGynoidRatio?: string;
+  healthScore?: number;
+  category: string;
+  healthRisk: string;
+  cardiovascularRisk: string;
+  metabolicRisk: string;
+  recommendations: string[];
+  comparison: string;
+  idealRange: string;
+  clinicalInterpretation: string;
+}
+
+export default function WHRPage() {
+  const [activeTab, setActiveTab] = useState('basic');
+  const [formData, setFormData] = useState({
+    // Basic WHR
+    basicGender: 'male',
+    basicWaist: '',
+    basicHip: '',
+
+    // Comprehensive WHR
+    comprehensiveGender: 'male',
+    comprehensiveWaist: '',
+    comprehensiveHip: '',
+    comprehensiveHeight: ''
+  });
+
+  const [result, setResult] = useState<WHRResult | null>(null);
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      let analysis: any;
+      let method: string;
+
+      switch (activeTab) {
+        case 'basic':
+          const basicGender = formData.basicGender as 'male' | 'female';
+          const basicWaist = parseFloat(formData.basicWaist);
+          const basicHip = parseFloat(formData.basicHip);
+
+          analysis = analyzeWHR(basicWaist, basicHip, basicGender);
+          method = 'Ratio Cintura-Cadera Básico (OMS)';
+          break;
+
+        case 'comprehensive':
+          const comprehensiveGender = formData.comprehensiveGender as 'male' | 'female';
+          const comprehensiveWaist = parseFloat(formData.comprehensiveWaist);
+          const comprehensiveHip = parseFloat(formData.comprehensiveHip);
+          const comprehensiveHeight = parseFloat(formData.comprehensiveHeight);
+
+          const comprehensiveResult = calculateComprehensiveWHR(
+            comprehensiveWaist,
+            comprehensiveHip,
+            comprehensiveHeight,
+            comprehensiveGender
+          );
+
+          analysis = {
+            whr: comprehensiveResult.whr,
+            whtr: comprehensiveResult.whtr,
+            category: getWHRCategory(comprehensiveResult.whr, comprehensiveGender),
+            healthRisk: getWHRRisk(comprehensiveResult.whr, comprehensiveGender),
+            cardiovascularRisk: getCardiovascularRisk(comprehensiveResult.whr, comprehensiveGender),
+            metabolicRisk: getMetabolicRisk(comprehensiveResult.whr, comprehensiveGender),
+            recommendations: comprehensiveResult.recommendations,
+            comparison: getWHRComparison(comprehensiveGender),
+            idealRange: getWHRIdealRange(comprehensiveGender),
+            clinicalInterpretation: getClinicalInterpretation(comprehensiveResult.whr, comprehensiveGender)
+          };
+          method = 'Análisis Integral WHR + WHtR';
+          break;
+
+        default:
+          throw new Error('Método no válido');
+      }
+
+      setResult({
+        method,
+        whr: analysis.whr,
+        whtr: analysis.whtr,
+        bodyShape: analysis.bodyShape,
+        androidGynoidRatio: analysis.androidGynoidRatio,
+        healthScore: analysis.healthScore,
+        category: analysis.category,
+        healthRisk: analysis.healthRisk,
+        cardiovascularRisk: analysis.cardiovascularRisk,
+        metabolicRisk: analysis.metabolicRisk,
+        recommendations: analysis.recommendations,
+        comparison: analysis.comparison,
+        idealRange: analysis.idealRange,
+        clinicalInterpretation: analysis.clinicalInterpretation
+      });
+
+    } catch (error: any) {
+      alert(`Error: ${error.message}`);
+    }
+  };
+
+  const isFormValid = () => {
+    switch (activeTab) {
+      case 'basic':
+        return formData.basicGender && formData.basicWaist && formData.basicHip;
+      case 'comprehensive':
+        return formData.comprehensiveGender && formData.comprehensiveWaist && formData.comprehensiveHip && formData.comprehensiveHeight;
+      default:
+        return false;
+    }
+  };
+
+  const getRiskColor = (riskLevel: string) => {
+    switch (riskLevel) {
+      case 'Bajo': return 'text-green-600 bg-green-50 border-green-400';
+      case 'Moderado': return 'text-blue-600 bg-blue-50 border-blue-400';
+      case 'Alto': return 'text-orange-600 bg-orange-50 border-orange-400';
+      case 'Muy Alto': return 'text-red-600 bg-red-50 border-red-400';
+      default: return 'text-gray-600 bg-gray-50 border-gray-400';
+    }
+  };
+
+  // Helper functions for comprehensive analysis
+  function getWHRCategory(whr: number, gender: 'male' | 'female'): string {
+    const cutoffs = {
+      male: { low: 0.85, moderate: 0.90, high: 0.95, veryHigh: 1.00 },
+      female: { low: 0.75, moderate: 0.80, high: 0.85, veryHigh: 0.90 }
+    };
+
+    const userCutoffs = cutoffs[gender];
+
+    if (whr < userCutoffs.low) return 'Excelente (distribución óptima)';
+    else if (whr < userCutoffs.moderate) return 'Bueno (distribución favorable)';
+    else if (whr < userCutoffs.high) return 'Moderado (vigilancia recomendada)';
+    else if (whr < userCutoffs.veryHigh) return 'Alto riesgo (acción necesaria)';
+    else return 'Muy alto riesgo (intervención urgente)';
+  }
+
+  function getWHRRisk(whr: number, gender: 'male' | 'female'): string {
+    const cutoffs = {
+      male: { low: 0.85, moderate: 0.90, high: 0.95, veryHigh: 1.00 },
+      female: { low: 0.75, moderate: 0.80, high: 0.85, veryHigh: 0.90 }
+    };
+
+    const userCutoffs = cutoffs[gender];
+
+    if (whr < userCutoffs.low) return 'Bajo';
+    else if (whr < userCutoffs.moderate) return 'Bajo';
+    else if (whr < userCutoffs.high) return 'Moderado';
+    else if (whr < userCutoffs.veryHigh) return 'Alto';
+    else return 'Muy Alto';
+  }
+
+  function getCardiovascularRisk(whr: number, gender: 'male' | 'female'): string {
+    const cutoffs = {
+      male: { moderate: 0.90, high: 0.95 },
+      female: { moderate: 0.80, high: 0.85 }
+    };
+
+    const userCutoffs = cutoffs[gender];
+
+    if (whr > userCutoffs.moderate) {
+      return `Riesgo cardiovascular aumentado en ${(whr / userCutoffs.moderate * 100 - 100).toFixed(0)}% según estudios epidemiológicos`;
+    }
+    return 'Riesgo cardiovascular dentro de parámetros saludables';
+  }
+
+  function getMetabolicRisk(whr: number, gender: 'male' | 'female'): string {
+    const cutoffs = {
+      male: { high: 0.95 },
+      female: { high: 0.85 }
+    };
+
+    const userCutoffs = cutoffs[gender];
+
+    if (whr > userCutoffs.high) {
+      return 'Mayor riesgo de síndrome metabólico, diabetes tipo 2 y resistencia a la insulina';
+    }
+    return 'Riesgo metabólico estándar o reducido';
+  }
+
+  function getWHRComparison(gender: 'male' | 'female'): string {
+    return gender === 'male'
+      ? `Hombres: Óptimo (< 0.90), Moderado (0.90-0.95), Alto riesgo (> 0.95)`
+      : `Mujeres: Óptimo (< 0.80), Moderado (0.80-0.85), Alto riesgo (> 0.85)`;
+  }
+
+  function getWHRIdealRange(gender: 'male' | 'female'): string {
+    return gender === 'male' ? '0.80-0.90' : '0.70-0.80';
+  }
+
+  function getClinicalInterpretation(whr: number, gender: 'male' | 'female'): string {
+    const cutoffs = {
+      male: { high: 0.95 },
+      female: { high: 0.85 }
+    };
+
+    const userCutoffs = cutoffs[gender];
+
+    if (whr > userCutoffs.high) {
+      return 'Indicativo de obesidad central y mayor riesgo cardiometabólico. Requiere intervención médica.';
+    }
+    return 'Distribución de grasa favorable. Continuar con hábitos saludables preventivos.';
+  }
+
+  return (
+    <>
+      <SchemaMarkup calculatorKey="whr" />
+      <Container size="xl" className="space-golden-lg">
+        <main className="max-w-5xl mx-auto space-golden-lg">
+          <header className="text-center space-golden-lg pt-[2.618rem]">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Calculadora WHR Médica (Ratio Cintura-Cadera)
+            </h1>
+            <p className="text-gray-700 leading-relaxed max-w-4xl mx-auto text-lg">
+              Calculadora profesional de Ratio Cintura-Cadera según estándares OMS.
+              Evalúa distribución de grasa corporal, riesgo cardiovascular y síndrome metabólico.
+              Complementa perfectamente WHtR e IMC para evaluación médica completa.
+            </p>
+          </header>
+
+          <section id="calculator" aria-label="Calculadora de WHR">
+            <Card className="card-golden-lg shadow-golden-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-center text-gray-900">
+                  Calculadora de Ratio Cintura-Cadera
+                </CardTitle>
+                <p className="text-center text-muted-foreground">
+                  Elige el tipo de análisis según tus datos disponibles
+                </p>
+              </CardHeader>
+              <CardContent>
+                <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="basic">Análisis Básico OMS</TabsTrigger>
+                    <TabsTrigger value="comprehensive">Análisis Integral</TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="basic" className="space-golden-sm">
+                    <form onSubmit={handleSubmit} className="space-golden-md">
+                      <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                        <div className="flex items-start gap-3">
+                          <Info className="h-5 w-5 text-blue-600 mt-0.5" />
+                          <div>
+                            <h3 className="font-semibold text-blue-800 mb-1">Análisis Básico OMS</h3>
+                            <p className="text-sm text-blue-700">
+                              Método estándar de la OMS para evaluar riesgo cardiovascular por distribución de grasa.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="grid gap-[1.618rem] md:grid-cols-2">
+                        <SelectInput
+                          id="basicGender"
+                          label="Sexo"
+                          value={formData.basicGender}
+                          onChange={(value) => handleInputChange('basicGender', value)}
+                          options={[
+                            { value: 'male', label: 'Hombre' },
+                            { value: 'female', label: 'Mujer' }
+                          ]}
+                          required
+                        />
+
+                        <NumberInput
+                          id="basicWaist"
+                          label="Circunferencia de cintura"
+                          value={formData.basicWaist}
+                          onChange={(value) => handleInputChange('basicWaist', value)}
+                          placeholder="85"
+                          unit="cm"
+                          min={50}
+                          max={150}
+                          required
+                        />
+
+                        <NumberInput
+                          id="basicHip"
+                          label="Circunferencia de cadera"
+                          value={formData.basicHip}
+                          onChange={(value) => handleInputChange('basicHip', value)}
+                          placeholder="95"
+                          unit="cm"
+                          min={60}
+                          max={160}
+                          required
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        disabled={!isFormValid()}
+                        className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
+                      >
+                        <Calculator className="mr-2 h-4 w-4" />
+                        Calcular WHR Básico
+                      </Button>
+                    </form>
+                  </TabsContent>
+
+                  <TabsContent value="comprehensive" className="space-golden-sm">
+                    <form onSubmit={handleSubmit} className="space-golden-md">
+                      <div className="bg-green-50 rounded-lg p-4 mb-6">
+                        <div className="flex items-start gap-3">
+                          <Info className="h-5 w-5 text-green-600 mt-0.5" />
+                          <div>
+                            <h3 className="font-semibold text-green-800 mb-1">Análisis Integral WHR + WHtR</h3>
+                            <p className="text-sm text-green-700">
+                              Análisis completo que incluye ratio cintura-cadera, ratio cintura-altura y clasificación morfológica.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="grid gap-[1.618rem] md:grid-cols-2">
+                        <SelectInput
+                          id="comprehensiveGender"
+                          label="Sexo"
+                          value={formData.comprehensiveGender}
+                          onChange={(value) => handleInputChange('comprehensiveGender', value)}
+                          options={[
+                            { value: 'male', label: 'Hombre' },
+                            { value: 'female', label: 'Mujer' }
+                          ]}
+                          required
+                        />
+
+                        <NumberInput
+                          id="comprehensiveWaist"
+                          label="Circunferencia de cintura"
+                          value={formData.comprehensiveWaist}
+                          onChange={(value) => handleInputChange('comprehensiveWaist', value)}
+                          placeholder="85"
+                          unit="cm"
+                          min={50}
+                          max={150}
+                          required
+                        />
+
+                        <NumberInput
+                          id="comprehensiveHip"
+                          label="Circunferencia de cadera"
+                          value={formData.comprehensiveHip}
+                          onChange={(value) => handleInputChange('comprehensiveHip', value)}
+                          placeholder="95"
+                          unit="cm"
+                          min={60}
+                          max={160}
+                          required
+                        />
+
+                        <NumberInput
+                          id="comprehensiveHeight"
+                          label="Altura"
+                          value={formData.comprehensiveHeight}
+                          onChange={(value) => handleInputChange('comprehensiveHeight', value)}
+                          placeholder="170"
+                          unit="cm"
+                          min={120}
+                          max={220}
+                          required
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        disabled={!isFormValid()}
+                        className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
+                      >
+                        <Calculator className="mr-2 h-4 w-4" />
+                        Calcular Análisis Integral
+                      </Button>
+                    </form>
+                  </TabsContent>
+                </Tabs>
+              </CardContent>
+            </Card>
+          </section>
+
+          {result && (
+            <section className="card-golden-lg shadow-golden-lg">
+              <header className="p-6 pb-0">
+                <h2 className="text-2xl font-bold text-center text-gray-900">
+                  Resultados - {result.method}
+                </h2>
+              </header>
+              <div className="p-6">
+                <div className="space-golden-lg">
+                  {/* Main Results */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <article className="text-center p-6 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                      <div className="text-3xl font-bold text-blue-600 mb-2">
+                        {result.whr?.toFixed(3)}
+                      </div>
+                      <div className="text-sm font-medium text-blue-800">WHR</div>
+                    </article>
+
+                    {result.whtr && (
+                      <article className="text-center p-6 bg-green-50 rounded-lg border-l-4 border-green-400">
+                        <div className="text-3xl font-bold text-green-600 mb-2">
+                          {result.whtr.toFixed(3)}
+                        </div>
+                        <div className="text-sm font-medium text-green-800">WHtR</div>
+                      </article>
+                    )}
+
+                    <article className={`text-center p-6 rounded-lg border-l-4 ${getRiskColor(result.healthRisk)}`}>
+                      <div className="text-3xl font-bold mb-2">
+                        {result.category}
+                      </div>
+                      <div className="text-sm font-medium">Estado</div>
+                    </article>
+                  </div>
+
+                  {/* Body Shape Analysis */}
+                  {result.bodyShape && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <article className="card-golden bg-white/50">
+                        <header className="p-6 pb-0">
+                          <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+                            <Scale className="h-5 w-5 mr-2 text-blue-600" />
+                            Clasificación Morfológica
+                          </h3>
+                        </header>
+                        <div className="p-6">
+                          <div className="space-y-3">
+                            <div>
+                              <div className="font-medium text-gray-900 mb-1">Forma corporal:</div>
+                              <div className="text-sm text-gray-600">{result.bodyShape}</div>
+                            </div>
+                            <div>
+                              <div className="font-medium text-gray-900 mb-1">Tipo de distribución:</div>
+                              <div className="text-sm text-gray-600">{result.androidGynoidRatio}</div>
+                            </div>
+                            {result.healthScore !== undefined && (
+                              <div>
+                                <div className="font-medium text-gray-900 mb-1">Puntuación de salud:</div>
+                                <div className="text-sm text-gray-600">{result.healthScore}/100</div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </article>
+
+                      <article className="card-golden bg-white/50">
+                        <header className="p-6 pb-0">
+                          <h3 className="text-lg font-semibold text-gray-900">
+                            Rango ideal
+                          </h3>
+                        </header>
+                        <div className="p-6">
+                          <p className="text-sm text-gray-600 leading-[1.618]">
+                            {result.idealRange}
+                          </p>
+                        </div>
+                      </article>
+                    </div>
+                  )}
+
+                  {/* Health Risks */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <article className="card-golden bg-white/50">
+                      <header className="p-6 pb-0">
+                        <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+                          <Heart className="h-5 w-5 mr-2 text-red-600" />
+                          Riesgo Cardiovascular
+                        </h3>
+                      </header>
+                      <div className="p-6">
+                        <p className="text-sm text-gray-600 leading-[1.618]">
+                          {result.cardiovascularRisk}
+                        </p>
+                      </div>
+                    </article>
+
+                    <article className="card-golden bg-white/50">
+                      <header className="p-6 pb-0">
+                        <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+                          <TrendingUp className="h-5 w-5 mr-2 text-orange-600" />
+                          Riesgo Metabólico
+                        </h3>
+                      </header>
+                      <div className="p-6">
+                        <p className="text-sm text-gray-600 leading-[1.618]">
+                          {result.metabolicRisk}
+                        </p>
+                      </div>
+                    </article>
+                  </div>
+
+                  {/* Clinical Interpretation */}
+                  <article className="card-golden-lg bg-blue-50 border-l-4 border-blue-400">
+                    <header className="p-6 pb-0">
+                      <h3 className="text-xl font-semibold text-blue-800 flex items-center">
+                        <Info className="w-5 h-5 mr-2" />
+                        Interpretación Clínica
+                      </h3>
+                    </header>
+                    <div className="p-6">
+                      <p className="text-blue-800 leading-relaxed mb-4">
+                        <strong>{result.clinicalInterpretation}</strong>
+                      </p>
+                      <p className="text-sm text-blue-700 leading-relaxed">
+                        {result.comparison}
+                      </p>
+                    </div>
+                  </article>
+
+                  {/* Recommendations */}
+                  <article className="card-golden bg-white/50">
+                    <header className="p-6 pb-0">
+                      <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+                        <Zap className="h-5 w-5 mr-2 text-green-600" />
+                        Recomendaciones Personalizadas
+                      </h3>
+                    </header>
+                    <div className="p-6">
+                      <ul className="space-y-2">
+                        {result.recommendations.map((rec, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-1 flex-shrink-0"></span>
+                            <span className="text-sm text-gray-600 leading-[1.618]">{rec}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+          )}
+
+          <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
+            <header>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+                ¿Qué es el Ratio Cintura-Cadera (WHR)?
+              </h2>
+            </header>
+
+            <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-8">
+              <div className="p-6">
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  El <strong>Ratio Cintura-Cadera (WHR)</strong> es una medida antropométrica que evalúa la distribución de la grasa corporal
+                  comparando la circunferencia de la cintura con la de las caderas. Es un indicador clave de <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">riesgo cardiovascular</a>
+                  y síndrome metabólico según estándares de la OMS.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  A diferencia del IMC, el WHR identifica la <a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">grasa visceral peligrosa</a>
+                  que se acumula alrededor de los órganos internos, principal factor de riesgo para enfermedades cardíacas.
+                </p>
+              </div>
+            </section>
+
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <article className="card-golden-lg bg-green-50 border-l-4 border-green-400">
+                <header className="p-6 pb-0">
+                  <h3 className="text-xl font-semibold text-green-800 flex items-center">
+                    <Scale className="w-5 h-5 mr-2" />
+                    Ventajas del WHR sobre el IMC
+                  </h3>
+                </header>
+                <div className="p-6">
+                  <ul className="space-y-2 text-green-800">
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Detecta grasa visceral:</strong> Identifica la grasa más peligrosa para la salud</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Independiente de altura:</strong> Más preciso que IMC para personas altas/bajas</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Predice riesgo cardiovascular:</strong> Mejor predictor que IMC según estudios OMS</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Sensible a cambios:</strong> Detecta mejoras en distribución de grasa</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Estándar médico:</strong> Utilizado por cardiólogos y endocrinólogos</span>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+
+              <article className="card-golden-lg bg-yellow-50 border-l-4 border-yellow-400">
+                <header className="p-6 pb-0">
+                  <h3 className="text-xl font-semibold text-yellow-800 flex items-center">
+                    <AlertTriangle className="w-5 h-5 mr-2" />
+                    Clasificación de Formas Corporales
+                  </h3>
+                </header>
+                <div className="p-6">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                        <span className="text-blue-600 text-sm">🍐</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-blue-800">Tipo Ginoide (Pera)</div>
+                        <div className="text-sm text-blue-700">WHR bajo - Grasa en caderas y muslos</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                        <span className="text-orange-600 text-sm">⭕</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-orange-800">Tipo Intermedio</div>
+                        <div className="text-sm text-orange-700">WHR moderado - Distribución equilibrada</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                        <span className="text-red-600 text-sm">🍎</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-red-800">Tipo Androide (Manzana)</div>
+                        <div className="text-sm text-red-700">WHR alto - Grasa abdominal central</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </section>
+
+            <section className="card-golden-lg bg-purple-50 border-l-4 border-purple-400 mt-8">
+              <header className="p-6 pb-0">
+                <h3 className="text-xl font-semibold text-purple-800 flex items-center">
+                  <Ruler className="w-5 h-5 mr-2" />
+                  Cómo Medir Correctamente
+                </h3>
+              </header>
+              <div className="p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <article>
+                    <h4 className="font-semibold text-purple-800 mb-3">Medición de Cintura</h4>
+                    <ul className="space-y-2 text-sm text-purple-700">
+                      <li>• Punto más estrecho del torso (generalmente ombligo)</li>
+                      <li>• En ayunas, después de exhalar normalmente</li>
+                      <li>• Cinta métrica horizontal alrededor del cuerpo</li>
+                      <li>• No comprimir la piel excesivamente</li>
+                    </ul>
+                  </article>
+                  <article>
+                    <h4 className="font-semibold text-purple-800 mb-3">Medición de Cadera</h4>
+                    <ul className="space-y-2 text-sm text-purple-700">
+                      <li>• Punto más ancho de las caderas/glúteos</li>
+                      <li>• Cinta métrica horizontal alrededor del cuerpo</li>
+                      <li>• Incluir la parte más prominente de los glúteos</li>
+                      <li>• Mantener postura erguida durante la medición</li>
+                    </ul>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            {/* Enlaces contextuales */}
+            <section className="card-golden-lg bg-orange-50 border-l-4 border-orange-400 mt-8">
+              <header className="p-6 pb-0">
+                <h3 className="text-xl font-semibold text-orange-800 flex items-center">
+                  <Info className="w-5 h-5 mr-2" />
+                  Complementa tu evaluación de WHR
+                </h3>
+              </header>
+              <div className="p-6">
+                <ul className="text-sm text-orange-800 space-golden-xs">
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/whtr" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu WHtR:</a></strong> Ratio cintura-altura para riesgo cardiometabólico</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/imc" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu IMC:</a></strong> Combina métricas antropométricas para evaluación completa</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">Mide tu grasa corporal:</a></strong> Conoce el porcentaje total de grasa para contexto</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/composicion" className="text-blue-600 hover:underline font-medium transition-golden">Análisis de composición:</a></strong> Evaluación completa de masa magra vs grasa</span>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </article>
+
+          {/* Calculadoras relacionadas */}
+          <RelatedCalculators currentPage="whr" />
+
+          {/* Widget para embeber */}
+          <section className="flex justify-center">
+            <EmbedWidget />
+          </section>
+
+          {/* Social Share */}
+          <SocialShare
+            title="Calculadora WHR Médica - Ratio Cintura-Cadera OMS"
+            url="https://nutrifit-calculator.com/whr"
+            description="Calcula tu Ratio Cintura-Cadera según estándares OMS. Evalúa distribución de grasa, riesgo cardiovascular y obtén recomendaciones médicas profesionales. ¡Totalmente gratis!"
+          />
+
+          {/* Navegación entre calculadoras */}
+          <CalculatorNavigation currentCalculator="whr" />
+        </main>
+      </Container>
+    </>
+  );
+}

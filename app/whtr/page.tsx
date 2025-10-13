@@ -214,6 +214,10 @@ export default function WHtRPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/whr" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu WHR:</a></strong> Ratio cintura-cadera para análisis complementario de distribución grasa</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
                     <span><strong><a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">Mide tu grasa corporal:</a></strong> Conoce el porcentaje total de grasa</span>
                   </li>
                   <li className="flex items-start">

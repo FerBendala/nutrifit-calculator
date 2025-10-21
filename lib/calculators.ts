@@ -192,6 +192,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'body-composition',
     relatedCalculators: ['grasa-corporal', 'composicion', 'ffmi', 'imc']
+  },
+  {
+    key: 'bai',
+    title: 'BAI (Índice Adiposidad Corporal)',
+    href: '/bai',
+    description: 'Estimación de grasa corporal sin báscula usando solo cadera y altura',
+    icon: Target,
+    priority: 'high',
+    category: 'body-composition',
+    relatedCalculators: ['fmi', 'grasa-corporal', 'whr', 'imc']
   }
 ];
 

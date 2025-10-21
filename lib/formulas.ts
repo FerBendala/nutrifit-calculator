@@ -2089,3 +2089,165 @@ export function calculateComprehensiveFMI(
     analysis
   };
 }
+
+// ========== BAI (BODY ADIPOSITY INDEX) CALCULATIONS ==========
+
+/**
+ * Calculate Body Adiposity Index (BAI)
+ * Formula: BAI = (hip circumference in cm) / (height in m)^1.5 - 18
+ * Source: Bergman et al. (2011) - Obesity Journal
+ * Estimates body fat percentage without using body weight
+ */
+export function calculateBAI(hipCircumference: number, height: number): number {
+  if (hipCircumference <= 0 || height <= 0) {
+    throw new Error('La circunferencia de cadera y altura deben ser mayores que 0');
+  }
+
+  const heightM = height / 100; // Convert cm to meters
+  const bai = (hipCircumference / Math.pow(heightM, 1.5)) - 18;
+  return Math.round(bai * 100) / 100; // 2 decimal places
+}
+
+/**
+ * Calculate comprehensive BAI analysis with health implications
+ */
+export function analyzeBAI(
+  hipCircumference: number,
+  height: number,
+  gender: 'male' | 'female',
+  age?: number
+): {
+  bai: number;
+  estimatedBodyFat: number;
+  category: string;
+  healthRisk: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  metabolicImplications: string;
+  comparison: string;
+  recommendations: string[];
+  idealRange: string;
+  clinicalInterpretation: string;
+  advantages: string[];
+  limitations: string[];
+} {
+  const bai = calculateBAI(hipCircumference, height);
+  
+  // BAI approximates body fat percentage directly
+  const estimatedBodyFat = bai;
+
+  // BAI categories based on research (Bergman et al., 2011)
+  let category: string;
+  let healthRisk: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+
+  if (gender === 'male') {
+    if (estimatedBodyFat < 8) {
+      category = 'Muy bajo (atleta élite)';
+      healthRisk = 'Bajo';
+    } else if (estimatedBodyFat < 20) {
+      category = 'Óptimo (saludable)';
+      healthRisk = 'Bajo';
+    } else if (estimatedBodyFat < 25) {
+      category = 'Moderado (vigilancia)';
+      healthRisk = 'Moderado';
+    } else if (estimatedBodyFat < 30) {
+      category = 'Alto (acción necesaria)';
+      healthRisk = 'Alto';
+    } else {
+      category = 'Muy alto (obesidad)';
+      healthRisk = 'Muy Alto';
+    }
+  } else {
+    if (estimatedBodyFat < 21) {
+      category = 'Muy bajo (atleta élite)';
+      healthRisk = 'Bajo';
+    } else if (estimatedBodyFat < 33) {
+      category = 'Óptimo (saludable)';
+      healthRisk = 'Bajo';
+    } else if (estimatedBodyFat < 39) {
+      category = 'Moderado (vigilancia)';
+      healthRisk = 'Moderado';
+    } else if (estimatedBodyFat < 45) {
+      category = 'Alto (acción necesaria)';
+      healthRisk = 'Alto';
+    } else {
+      category = 'Muy alto (obesidad)';
+      healthRisk = 'Muy Alto';
+    }
+  }
+
+  // Metabolic implications
+  const metabolicImplications = estimatedBodyFat > (gender === 'male' ? 25 : 39)
+    ? 'Riesgo elevado de síndrome metabólico, resistencia a la insulina y enfermedades cardiovasculares'
+    : estimatedBodyFat < (gender === 'male' ? 8 : 21)
+    ? 'Posible déficit hormonal o desnutrición. Evaluar estado de salud general'
+    : 'Composición corporal favorable dentro de parámetros saludables';
+
+  // Recommendations
+  const recommendations: string[] = [];
+
+  if (estimatedBodyFat > (gender === 'male' ? 25 : 39)) {
+    recommendations.push('Consulta médica para evaluación metabólica completa');
+    recommendations.push('Programa de reducción de grasa: déficit calórico moderado');
+    recommendations.push('Ejercicio combinado: 150 min cardio + 3 sesiones fuerza/semana');
+    recommendations.push('Monitoreo de glucosa, lípidos y presión arterial');
+    recommendations.push('Considera medición con DEXA para validar resultados de BAI');
+  } else if (estimatedBodyFat > (gender === 'male' ? 20 : 33)) {
+    recommendations.push('Mantén vigilancia con chequeos preventivos regulares');
+    recommendations.push('Incorpora actividad física regular (150 min/semana)');
+    recommendations.push('Dieta equilibrada con control calórico moderado');
+    recommendations.push('Monitorea circunferencia de cadera cada 3 meses');
+  } else {
+    recommendations.push('Mantén hábitos actuales con actividad física regular');
+    recommendations.push('Continúa con alimentación equilibrada');
+    recommendations.push('Usa como referencia para mantener composición corporal óptima');
+  }
+
+  recommendations.push('Combina BAI con otras métricas (IMC, WHR, FFMI) para evaluación completa');
+  recommendations.push('El BAI es más preciso en mujeres que en hombres según estudios');
+
+  // Comparison
+  const comparison = gender === 'male'
+    ? `Hombres: Óptimo (8-20%), Moderado (20-25%), Alto (25-30%), Muy alto (>30%)`
+    : `Mujeres: Óptimo (21-33%), Moderado (33-39%), Alto (39-45%), Muy alto (>45%)`;
+
+  // Ideal range
+  const idealRange = gender === 'male' ? '8-20%' : '21-33%';
+
+  // Clinical interpretation
+  const clinicalInterpretation = estimatedBodyFat > (gender === 'male' ? 25 : 39)
+    ? 'Indicativo de exceso de adiposidad corporal. Mayor riesgo metabólico y cardiovascular. Requiere intervención.'
+    : estimatedBodyFat < (gender === 'male' ? 8 : 21)
+    ? 'Nivel de grasa corporal muy bajo. Evaluar posible desnutrición o desequilibrio hormonal.'
+    : 'Adiposidad corporal en rango saludable. Continuar con hábitos preventivos actuales.';
+
+  // Advantages of BAI
+  const advantages = [
+    'No requiere conocer el peso corporal',
+    'Útil cuando no hay acceso a báscula',
+    'Correlaciona bien con DEXA en ciertos grupos étnicos',
+    'Especialmente preciso en mujeres afrodescendientes',
+    'Simple de calcular con solo cinta métrica'
+  ];
+
+  // Limitations of BAI
+  const limitations = [
+    'Menor precisión en hombres que en mujeres',
+    'Puede sobreestimar grasa en atletas musculosos',
+    'Varía según grupo étnico y edad',
+    'No distingue entre grasa visceral y subcutánea',
+    'Menos validado que métodos tradicionales como IMC'
+  ];
+
+  return {
+    bai,
+    estimatedBodyFat,
+    category,
+    healthRisk,
+    metabolicImplications,
+    comparison,
+    recommendations,
+    idealRange,
+    clinicalInterpretation,
+    advantages,
+    limitations
+  };
+}

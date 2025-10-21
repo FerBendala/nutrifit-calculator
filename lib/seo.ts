@@ -122,6 +122,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional del Índice de Masa Grasa (FMI) según fórmula Schutz. Evalúa cantidad de grasa corporal independiente de altura. Complementa FFMI para análisis completo de composición corporal. Ideal para evaluación médica y seguimiento nutricional.',
     keywords: ['calculadora FMI', 'índice masa grasa', 'FMI', 'fat mass index', 'grasa corporal', 'composición corporal', 'obesidad', 'salud metabólica', 'evaluación nutricional', 'índice antropométrico', 'Schutz', 'análisis corporal'],
     path: '/fmi'
+  },
+  bai: {
+    title: 'Calculadora BAI Médica | Índice Adiposidad Corporal | Bergman | Sin Báscula',
+    description: 'Calculadora profesional del Índice de Adiposidad Corporal (BAI) según fórmula Bergman. Estima grasa corporal sin báscula usando solo cadera y altura. Especialmente precisa en mujeres. Alternativa práctica al IMC para evaluación de composición corporal.',
+    keywords: ['calculadora BAI', 'índice adiposidad corporal', 'BAI', 'body adiposity index', 'grasa corporal sin báscula', 'circunferencia cadera', 'composición corporal', 'Bergman', 'estimación grasa', 'sin peso', 'antropometría', 'evaluación corporal'],
+    path: '/bai'
   }
 };
 

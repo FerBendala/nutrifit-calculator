@@ -748,6 +748,10 @@ export default function FMIPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/bai" className="text-blue-600 hover:underline font-medium transition-golden">Calcula BAI sin báscula:</a></strong> Estima grasa corporal usando solo cadera y altura según Bergman</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
                     <span><strong><a href="/ffmi" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu desarrollo muscular:</a></strong> Usa FFMI para análisis complementario de masa libre de grasa</span>
                   </li>
                   <li className="flex items-start">

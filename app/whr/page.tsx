@@ -702,6 +702,10 @@ export default function WHRPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 mr-2">•</span>
+                    <span><strong><a href="/bai" className="text-blue-600 hover:underline font-medium transition-golden">Calcula BAI sin peso:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
                     <span><strong><a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium transition-golden">Mide tu grasa corporal:</a></strong> Conoce el porcentaje total de grasa para contexto</span>
                   </li>
                   <li className="flex items-start">

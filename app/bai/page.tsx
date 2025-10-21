@@ -1,20 +1,20 @@
 'use client';
 
-import { useState } from 'react';
-import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { SchemaMarkup } from '@/components/SchemaMarkup';
-import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { Container } from '@/components/Container';
 import { EmbedWidget } from '@/components/EmbedWidget';
-import { SocialShare } from '@/components/SocialShare';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { analyzeBAI } from '@/lib/formulas';
-import { Calculator, Info, Scale, Target, AlertTriangle, Ruler, Users } from 'lucide-react';
 import { NumberInput } from '@/components/NumberInput';
+import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
+import { SocialShare } from '@/components/SocialShare';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { AdSlot } from '@/components/UnifiedAdSlot';
-import type { Metadata } from 'next';
+import { analyzeBAI } from '@/lib/formulas';
+import { AlertTriangle, Calculator, Info, Ruler, Scale, Target, Users } from 'lucide-react';
+import { useState } from 'react';
 
 export default function BAIPage() {
   const [hipCircumference, setHipCircumference] = useState<string>('95');
@@ -51,16 +51,14 @@ export default function BAIPage() {
         />
 
         <main className="max-w-5xl mx-auto space-golden-lg">
-          <header className="text-center mb-8">
-            <div className="flex justify-center items-center mb-4">
-              <Target className="w-12 h-12 text-orange-600" />
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Calculadora BAI Médica (Índice de Adiposidad Corporal)
+          <header className="text-center space-golden-lg pt-[2.618rem]">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Calculadora BAI Médica (Índice Adiposidad Corporal)
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-              Estima tu porcentaje de grasa corporal <strong>sin báscula</strong> usando solo la circunferencia de cadera y altura.
-              Fórmula Bergman validada científicamente, especialmente precisa en mujeres.
+            <p className="text-gray-700 leading-relaxed max-w-4xl mx-auto text-lg">
+              Calculadora profesional del Índice de Adiposidad Corporal según fórmula Bergman.
+              Estima grasa corporal <strong>sin báscula</strong> usando solo circunferencia de cadera y altura.
+              Especialmente precisa en mujeres según estudios clínicos.
             </p>
           </header>
 
@@ -87,15 +85,17 @@ export default function BAIPage() {
           </section>
 
           {/* Formulario de cálculo */}
-          <section className="card-golden-lg bg-white mb-8">
-            <header className="p-6 pb-0">
-              <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-                <Calculator className="w-6 h-6 mr-2 text-orange-600" />
-                Calcular tu BAI
-              </h2>
-            </header>
-            <div className="p-6">
-              <div className="max-w-2xl mx-auto space-golden-md">
+          <section id="calculator" aria-label="Calculadora de BAI">
+            <Card className="card-golden-lg shadow-golden-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-center text-gray-900">
+                  Calculadora de Índice de Adiposidad Corporal
+                </CardTitle>
+                <p className="text-center text-muted-foreground">
+                  Estima tu porcentaje de grasa corporal sin báscula
+                </p>
+              </CardHeader>
+              <CardContent className="space-golden-md">
                 <SelectInput
                   id="gender"
                   label="Sexo biológico"
@@ -133,17 +133,16 @@ export default function BAIPage() {
                   />
                 </div>
 
-                <button
+                <Button
+                  type="button"
                   onClick={calculateBAI}
-                  className="w-full bg-gradient-to-r from-orange-600 to-orange-500 text-white px-8 py-4 rounded-xl font-semibold 
-                           hover:from-orange-700 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl
-                           flex items-center justify-center mx-auto"
+                  className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
                 >
-                  <Calculator className="w-5 h-5 mr-2" />
+                  <Calculator className="mr-2 h-4 w-4" />
                   Calcular BAI
-                </button>
-              </div>
-            </div>
+                </Button>
+              </CardContent>
+            </Card>
           </section>
 
           {/* Resultados */}
@@ -185,18 +184,16 @@ export default function BAIPage() {
                 </Card>
               </div>
 
-              <Alert className={`mb-6 border-l-4 ${
-                result.healthRisk === 'Bajo' ? 'bg-green-50 border-green-500' :
-                result.healthRisk === 'Moderado' ? 'bg-yellow-50 border-yellow-500' :
-                result.healthRisk === 'Alto' ? 'bg-orange-50 border-orange-500' :
-                'bg-red-50 border-red-500'
-              }`}>
-                <AlertTriangle className={`h-5 w-5 ${
-                  result.healthRisk === 'Bajo' ? 'text-green-600' :
-                  result.healthRisk === 'Moderado' ? 'text-yellow-600' :
-                  result.healthRisk === 'Alto' ? 'text-orange-600' :
-                  'text-red-600'
-                }`} />
+              <Alert className={`mb-6 border-l-4 ${result.healthRisk === 'Bajo' ? 'bg-green-50 border-green-500' :
+                  result.healthRisk === 'Moderado' ? 'bg-yellow-50 border-yellow-500' :
+                    result.healthRisk === 'Alto' ? 'bg-orange-50 border-orange-500' :
+                      'bg-red-50 border-red-500'
+                }`}>
+                <AlertTriangle className={`h-5 w-5 ${result.healthRisk === 'Bajo' ? 'text-green-600' :
+                    result.healthRisk === 'Moderado' ? 'text-yellow-600' :
+                      result.healthRisk === 'Alto' ? 'text-orange-600' :
+                        'text-red-600'
+                  }`} />
                 <AlertDescription className="ml-2">
                   <strong>Categoría:</strong> {result.category} | <strong>Riesgo de salud:</strong> {result.healthRisk}
                 </AlertDescription>
@@ -262,12 +259,11 @@ export default function BAIPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className={`px-3 py-2 rounded-lg text-sm font-medium ${
-                      result.healthRisk === 'Bajo' ? 'bg-green-100 text-green-800' :
-                      result.healthRisk === 'Moderado' ? 'bg-yellow-100 text-yellow-800' :
-                      result.healthRisk === 'Alto' ? 'bg-orange-100 text-orange-800' :
-                      'bg-red-100 text-red-800'
-                    }`}>
+                    <div className={`px-3 py-2 rounded-lg text-sm font-medium ${result.healthRisk === 'Bajo' ? 'bg-green-100 text-green-800' :
+                        result.healthRisk === 'Moderado' ? 'bg-yellow-100 text-yellow-800' :
+                          result.healthRisk === 'Alto' ? 'bg-orange-100 text-orange-800' :
+                            'bg-red-100 text-red-800'
+                      }`}>
                       {result.healthRisk}
                     </div>
                   </CardContent>
@@ -282,7 +278,13 @@ export default function BAIPage() {
           </div>
 
           {/* Información adicional */}
-          <article className="space-golden-lg">
+          <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
+            <header>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+                Información Completa sobre el BAI
+              </h2>
+            </header>
+            
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <article className="card-golden-lg bg-green-50 border-l-4 border-green-400">
                 <header className="p-6 pb-0">

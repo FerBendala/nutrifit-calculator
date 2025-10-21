@@ -1,6 +1,6 @@
 ---
-title: 'Índice Cintura-Cadera y Entrenamiento 2025: Cómo Interpretarlo y Ajustar tu Plan'
-date: '2025-02-14'
+title: 'Índice Cintura-Cadera y Entrenamiento: Cómo Interpretarlo y Ajustar tu Plan'
+date: '2025-10-21'
 author: 'Dr. Nutrifit'
 description: 'Aprende a usar tu ratio cintura-cadera (WHR) para medir riesgo cardiometabólico y personalizar nutrición y entrenamiento.'
 categories: ['Salud Metabólica', 'Evaluación', 'Planificación']
@@ -18,7 +18,7 @@ readTime: 8
 featured: false
 ---
 
-# Índice Cintura-Cadera y Entrenamiento 2025: Cómo Interpretarlo y Ajustar tu Plan
+# Índice Cintura-Cadera y Entrenamiento: Cómo Interpretarlo y Ajustar tu Plan
 
 El índice cintura-cadera (WHR) es uno de los marcadores más sencillos y potentes para evaluar riesgo cardiometabólico. En 2025, estudios y guías de salud confirman que un WHR elevado se asocia con mayor grasa visceral, disfunción metabólica y riesgo de enfermedad cardiovascular, incluso cuando el IMC es “normal”.[^1][^2] Esta guía te ayuda a medirlo correctamente, interpretarlo y convertirlo en decisiones prácticas sobre nutrición y entrenamiento.
 

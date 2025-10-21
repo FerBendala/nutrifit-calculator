@@ -2031,15 +2031,15 @@ export function analyzeFMI(
   const clinicalInterpretation = fmi > (gender === 'male' ? 9.0 : 13.0)
     ? 'Indicativo de exceso de grasa corporal con riesgo metabólico aumentado. Requiere intervención médica.'
     : fmi < (gender === 'male' ? 3.0 : 5.0)
-    ? 'Posible desnutrición o pérdida excesiva de grasa. Evaluar estado nutricional.'
-    : 'Composición corporal favorable. Continuar con hábitos saludables preventivos.';
+      ? 'Posible desnutrición o pérdida excesiva de grasa. Evaluar estado nutricional.'
+      : 'Composición corporal favorable. Continuar con hábitos saludables preventivos.';
 
   // Associated conditions
   const associatedConditions = fmi > (gender === 'male' ? 9.0 : 13.0)
     ? ['Síndrome metabólico', 'Diabetes tipo 2', 'Hipertensión', 'Dislipidemia', 'Esteatosis hepática']
     : fmi < (gender === 'male' ? 3.0 : 5.0)
-    ? ['Posible desnutrición', 'Osteoporosis', 'Anemia', 'Déficit inmunológico']
-    : ['Riesgo estándar', 'Composición corporal saludable'];
+      ? ['Posible desnutrición', 'Osteoporosis', 'Anemia', 'Déficit inmunológico']
+      : ['Riesgo estándar', 'Composición corporal saludable'];
 
   return {
     fmi,
@@ -2130,7 +2130,7 @@ export function analyzeBAI(
   limitations: string[];
 } {
   const bai = calculateBAI(hipCircumference, height);
-  
+
   // BAI approximates body fat percentage directly
   const estimatedBodyFat = bai;
 
@@ -2178,8 +2178,8 @@ export function analyzeBAI(
   const metabolicImplications = estimatedBodyFat > (gender === 'male' ? 25 : 39)
     ? 'Riesgo elevado de síndrome metabólico, resistencia a la insulina y enfermedades cardiovasculares'
     : estimatedBodyFat < (gender === 'male' ? 8 : 21)
-    ? 'Posible déficit hormonal o desnutrición. Evaluar estado de salud general'
-    : 'Composición corporal favorable dentro de parámetros saludables';
+      ? 'Posible déficit hormonal o desnutrición. Evaluar estado de salud general'
+      : 'Composición corporal favorable dentro de parámetros saludables';
 
   // Recommendations
   const recommendations: string[] = [];
@@ -2216,8 +2216,8 @@ export function analyzeBAI(
   const clinicalInterpretation = estimatedBodyFat > (gender === 'male' ? 25 : 39)
     ? 'Indicativo de exceso de adiposidad corporal. Mayor riesgo metabólico y cardiovascular. Requiere intervención.'
     : estimatedBodyFat < (gender === 'male' ? 8 : 21)
-    ? 'Nivel de grasa corporal muy bajo. Evaluar posible desnutrición o desequilibrio hormonal.'
-    : 'Adiposidad corporal en rango saludable. Continuar con hábitos preventivos actuales.';
+      ? 'Nivel de grasa corporal muy bajo. Evaluar posible desnutrición o desequilibrio hormonal.'
+      : 'Adiposidad corporal en rango saludable. Continuar con hábitos preventivos actuales.';
 
   // Advantages of BAI
   const advantages = [

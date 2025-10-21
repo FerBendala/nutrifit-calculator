@@ -9,8 +9,8 @@ import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
 import { SocialShare } from '@/components/SocialShare';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AdSlot } from '@/components/UnifiedAdSlot';
 import { analyzeBAI } from '@/lib/formulas';
 import { AlertTriangle, Calculator, Info, Ruler, Scale, Target, Users } from 'lucide-react';
@@ -185,14 +185,14 @@ export default function BAIPage() {
               </div>
 
               <Alert className={`mb-6 border-l-4 ${result.healthRisk === 'Bajo' ? 'bg-green-50 border-green-500' :
-                  result.healthRisk === 'Moderado' ? 'bg-yellow-50 border-yellow-500' :
-                    result.healthRisk === 'Alto' ? 'bg-orange-50 border-orange-500' :
-                      'bg-red-50 border-red-500'
+                result.healthRisk === 'Moderado' ? 'bg-yellow-50 border-yellow-500' :
+                  result.healthRisk === 'Alto' ? 'bg-orange-50 border-orange-500' :
+                    'bg-red-50 border-red-500'
                 }`}>
                 <AlertTriangle className={`h-5 w-5 ${result.healthRisk === 'Bajo' ? 'text-green-600' :
-                    result.healthRisk === 'Moderado' ? 'text-yellow-600' :
-                      result.healthRisk === 'Alto' ? 'text-orange-600' :
-                        'text-red-600'
+                  result.healthRisk === 'Moderado' ? 'text-yellow-600' :
+                    result.healthRisk === 'Alto' ? 'text-orange-600' :
+                      'text-red-600'
                   }`} />
                 <AlertDescription className="ml-2">
                   <strong>Categoría:</strong> {result.category} | <strong>Riesgo de salud:</strong> {result.healthRisk}
@@ -260,9 +260,9 @@ export default function BAIPage() {
                   </CardHeader>
                   <CardContent>
                     <div className={`px-3 py-2 rounded-lg text-sm font-medium ${result.healthRisk === 'Bajo' ? 'bg-green-100 text-green-800' :
-                        result.healthRisk === 'Moderado' ? 'bg-yellow-100 text-yellow-800' :
-                          result.healthRisk === 'Alto' ? 'bg-orange-100 text-orange-800' :
-                            'bg-red-100 text-red-800'
+                      result.healthRisk === 'Moderado' ? 'bg-yellow-100 text-yellow-800' :
+                        result.healthRisk === 'Alto' ? 'bg-orange-100 text-orange-800' :
+                          'bg-red-100 text-red-800'
                       }`}>
                       {result.healthRisk}
                     </div>
@@ -284,7 +284,7 @@ export default function BAIPage() {
                 Información Completa sobre el BAI
               </h2>
             </header>
-            
+
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <article className="card-golden-lg bg-green-50 border-l-4 border-green-400">
                 <header className="p-6 pb-0">

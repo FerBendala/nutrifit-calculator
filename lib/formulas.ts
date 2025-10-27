@@ -2464,18 +2464,18 @@ export function calculateIdealBodyWeightRobinson(
 
   const heightInches = height / 2.54; // Convert cm to inches
   const baseHeight = 60; // 5 feet = 60 inches
-  
+
   if (heightInches < baseHeight) {
     // For people shorter than 5 feet, use proportional calculation
     const proportion = heightInches / baseHeight;
     return gender === 'male' ? Math.round(52 * proportion) : Math.round(49 * proportion);
   }
-  
+
   const inchesOver5Feet = heightInches - baseHeight;
-  const ibw = gender === 'male' 
+  const ibw = gender === 'male'
     ? 52 + (1.9 * inchesOver5Feet)
     : 49 + (1.7 * inchesOver5Feet);
-  
+
   return Math.round(ibw * 10) / 10; // 1 decimal place
 }
 
@@ -2546,7 +2546,7 @@ export function analyzeAdjustedBodyWeight(
   const adjustedWeight = calculateAdjustedBodyWeight(actualWeight, idealWeight);
   const weightDifference = actualWeight - idealWeight;
   const percentageOverIdeal = ((actualWeight - idealWeight) / idealWeight) * 100;
-  
+
   const heightM = height / 100;
   const bmiActual = actualWeight / (heightM * heightM);
   const bmiIdeal = idealWeight / (heightM * heightM);
@@ -2573,8 +2573,8 @@ export function analyzeAdjustedBodyWeight(
     reason: actualWeight > idealWeight * 1.20
       ? 'Usa peso ajustado para cálculos clínicos (dosis medicamentos, calorías, proteínas)'
       : actualWeight < idealWeight * 0.90
-      ? 'Usa peso ideal como objetivo terapéutico, pero calcula con peso actual para necesidades'
-      : 'Usa peso actual para todos los cálculos nutricionales y clínicos'
+        ? 'Usa peso ideal como objetivo terapéutico, pero calcula con peso actual para necesidades'
+        : 'Usa peso actual para todos los cálculos nutricionales y clínicos'
   };
 
   // Protein needs (g/kg/day)
@@ -2600,8 +2600,8 @@ export function analyzeAdjustedBodyWeight(
     recommended: actualWeight > idealWeight * 1.20
       ? `Usa peso ajustado (${adjustedWeight} kg): ${Math.round(adjustedWeight * 1.2)}-${Math.round(adjustedWeight * 1.8)} g/día`
       : actualWeight < idealWeight * 0.90
-      ? `Usa peso ideal (${idealWeight} kg): ${Math.round(idealWeight * 1.2)}-${Math.round(idealWeight * 1.8)} g/día`
-      : `Usa peso actual (${actualWeight} kg): ${Math.round(actualWeight * 1.2)}-${Math.round(actualWeight * 1.8)} g/día`
+        ? `Usa peso ideal (${idealWeight} kg): ${Math.round(idealWeight * 1.2)}-${Math.round(idealWeight * 1.8)} g/día`
+        : `Usa peso actual (${actualWeight} kg): ${Math.round(actualWeight * 1.2)}-${Math.round(actualWeight * 1.8)} g/día`
   };
 
   // Calorie needs estimation (using simple multiplier)
@@ -2613,13 +2613,13 @@ export function analyzeAdjustedBodyWeight(
     recommended: actualWeight > idealWeight * 1.20
       ? `${Math.round(adjustedWeight * calorieMultiplier)} kcal/día (basado en peso ajustado)`
       : actualWeight < idealWeight * 0.90
-      ? `${Math.round(actualWeight * calorieMultiplier)} kcal/día (basado en peso actual para recuperación)`
-      : `${Math.round(actualWeight * calorieMultiplier)} kcal/día (basado en peso actual)`
+        ? `${Math.round(actualWeight * calorieMultiplier)} kcal/día (basado en peso actual para recuperación)`
+        : `${Math.round(actualWeight * calorieMultiplier)} kcal/día (basado en peso actual)`
   };
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (actualWeight > idealWeight * 1.40) {
     recommendations.push('IMPORTANTE: Consulta con médico y nutricionista para plan de pérdida de peso supervisado');
     recommendations.push('Usa siempre el peso ajustado para cálculos de medicamentos y necesidades nutricionales');

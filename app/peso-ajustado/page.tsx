@@ -1,20 +1,20 @@
 'use client';
 
-import { useState } from 'react';
-import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { SchemaMarkup } from '@/components/SchemaMarkup';
-import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { Container } from '@/components/Container';
 import { EmbedWidget } from '@/components/EmbedWidget';
-import { SocialShare } from '@/components/SocialShare';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { analyzeAdjustedBodyWeight } from '@/lib/formulas';
-import { Calculator, Info, Scale, TrendingUp, Users, Activity, AlertTriangle, Pill } from 'lucide-react';
 import { NumberInput } from '@/components/NumberInput';
+import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
+import { SocialShare } from '@/components/SocialShare';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AdSlot } from '@/components/UnifiedAdSlot';
+import { analyzeAdjustedBodyWeight } from '@/lib/formulas';
+import { Activity, AlertTriangle, Calculator, Info, Pill, Scale, TrendingUp } from 'lucide-react';
+import { useState } from 'react';
 
 export default function PesoAjustadoPage() {
   const [formData, setFormData] = useState({
@@ -36,7 +36,7 @@ export default function PesoAjustadoPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!isFormValid()) return;
 
     try {
@@ -65,13 +65,13 @@ export default function PesoAjustadoPage() {
         />
 
         <main className="max-w-5xl mx-auto space-golden-lg">
-          <header className="text-center space-golden-lg pt-[2.618rem]">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Calculadora Peso Ajustado Clínico (ABW)
+          <header className="text-center space-golden-md">
+            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
+              Calculadora Peso Ajustado Clínico ABW
             </h1>
-            <p className="text-gray-700 leading-relaxed max-w-4xl mx-auto text-lg">
-              Calculadora profesional de Peso Ajustado según fórmula Robinson.
-              Herramienta clínica esencial para dosificación de medicamentos, necesidades calóricas y proteicas en obesidad y bajo peso.
+            <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
+              Calculadora profesional de Peso Ajustado (ABW) según fórmula Robinson.
+              Herramienta clínica esencial para dosificación de medicamentos y necesidades nutricionales.
             </p>
           </header>
 
@@ -100,12 +100,10 @@ export default function PesoAjustadoPage() {
           <section id="calculator" aria-label="Calculadora de Peso Ajustado">
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold text-center text-gray-900">
-                  Calculadora de Peso Ajustado Clínico
+                <CardTitle className="text-2xl font-semibold flex items-center justify-center">
+                  <span className="text-3xl mr-3">⚖️</span>
+                  Calculadora de Peso Ajustado
                 </CardTitle>
-                <p className="text-center text-muted-foreground">
-                  Calcula tu peso ajustado para uso clínico y nutricional
-                </p>
               </CardHeader>
               <CardContent className="space-golden-md">
                 <form onSubmit={handleSubmit} className="space-golden-md">
@@ -414,10 +412,228 @@ export default function PesoAjustadoPage() {
           {/* Información adicional */}
           <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
             <header>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-                Información Completa sobre el Peso Ajustado
+              <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
+                Importancia del Peso Ajustado en medicina clínica
               </h2>
+
+              <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
+                El Peso Ajustado (ABW) es una herramienta fundamental en práctica clínica hospitalaria y ambulatoria.
+                Permite calcular con precisión dosis de medicamentos, necesidades nutricionales y requerimientos metabólicos
+                en personas con obesidad o bajo peso, evitando errores de dosificación potencialmente graves.
+              </p>
             </header>
+
+            <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
+              <article className="card-golden space-golden-sm">
+                <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                  <span className="text-2xl mr-3">🏥</span>
+                  Aplicaciones médicas del ABW
+                </h3>
+                <ul className="text-sm text-muted-foreground space-golden-xs">
+                  <li className="flex items-start py-[0.382rem] border-b border-border/30">
+                    <span className="text-blue-600 mr-2">•</span>
+                    <span><strong>Dosificación de fármacos:</strong> Antibióticos, quimioterapia y anestésicos según <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4163889/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">guías farmacológicas</a></span>
+                  </li>
+                  <li className="flex items-start py-[0.382rem] border-b border-border/30">
+                    <span className="text-green-600 mr-2">•</span>
+                    <span><strong>Nutrición hospitalaria:</strong> Cálculo preciso de calorías y proteínas en soporte nutricional</span>
+                  </li>
+                  <li className="flex items-start py-[0.382rem] border-b border-border/30">
+                    <span className="text-purple-600 mr-2">•</span>
+                    <span><strong>Líquidos intravenosos:</strong> Ajuste de volumen en pacientes críticos</span>
+                  </li>
+                  <li className="flex items-start py-[0.382rem] border-b border-border/30">
+                    <span className="text-red-600 mr-2">•</span>
+                    <span><strong>Enfermedad renal:</strong> Prescripción de proteínas según <a href="/proteina" className="text-blue-600 hover:underline">necesidades ajustadas</a></span>
+                  </li>
+                  <li className="flex items-start py-[0.382rem] border-b border-border/30">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span><strong>Cirugía bariátrica:</strong> Evaluación pre y post-operatoria</span>
+                  </li>
+                  <li className="flex items-start py-[0.382rem]">
+                    <span className="text-yellow-600 mr-2">•</span>
+                    <span><strong>Cuidados intensivos:</strong> Manejo nutricional y farmacológico preciso</span>
+                  </li>
+                </ul>
+              </article>
+
+              <article className="card-golden space-golden-sm">
+                <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
+                  <span className="text-2xl mr-3">⚠️</span>
+                  Por qué no usar solo peso actual
+                </h3>
+                <div className="space-golden-sm">
+                  <section className="py-[0.382rem] border-b border-border/30">
+                    <h4 className="font-semibold text-sm text-orange-700">En obesidad:</h4>
+                    <ul className="text-sm text-muted-foreground mt-1 space-y-1">
+                      <li>• Sobrestima dosis de fármacos hidrofílicos</li>
+                      <li>• Calcula calorías excesivas para pérdida de peso</li>
+                      <li>• Aumenta riesgo de toxicidad medicamentosa</li>
+                    </ul>
+                  </section>
+                  <section className="py-[0.382rem] border-b border-border/30">
+                    <h4 className="font-semibold text-sm text-blue-700">En bajo peso:</h4>
+                    <ul className="text-sm text-muted-foreground mt-1 space-y-1">
+                      <li>• Subestima necesidades nutricionales</li>
+                      <li>• Dificulta recuperación ponderal</li>
+                      <li>• No refleja necesidades para peso objetivo</li>
+                    </ul>
+                  </section>
+                  <section className="py-[0.382rem]">
+                    <h4 className="font-semibold text-sm text-green-700">Con ABW:</h4>
+                    <ul className="text-sm text-muted-foreground mt-1 space-y-1">
+                      <li>• Dosificación precisa y segura</li>
+                      <li>• Necesidades calóricas realistas</li>
+                      <li>• Menor riesgo de efectos adversos</li>
+                    </ul>
+                  </section>
+                </div>
+              </article>
+            </section>
+
+            <section className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">💊</span>
+                Medicamentos que requieren ABW para dosificación
+              </h3>
+              <div className="grid gap-[1.618rem] md:grid-cols-3">
+                <article className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                    <span className="text-lg mr-2">💉</span>
+                    Antibióticos:
+                  </h4>
+                  <ul className="text-xs text-blue-700 space-y-1">
+                    <li>• Aminoglucósidos (gentamicina)</li>
+                    <li>• Vancomicina</li>
+                    <li>• Colistina</li>
+                  </ul>
+                </article>
+                <article className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-purple-700 flex items-center">
+                    <span className="text-lg mr-2">🧬</span>
+                    Quimioterapia:
+                  </h4>
+                  <ul className="text-xs text-blue-700 space-y-1">
+                    <li>• Carboplatino</li>
+                    <li>• Doxorrubicina liposomal</li>
+                    <li>• Ciclofosfamida</li>
+                  </ul>
+                </article>
+                <article className="card-golden bg-white/50">
+                  <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
+                    <span className="text-lg mr-2">⚕️</span>
+                    Otros críticos:
+                  </h4>
+                  <ul className="text-xs text-blue-700 space-y-1">
+                    <li>• Anestésicos (propofol)</li>
+                    <li>• Anticoagulantes (enoxaparina)</li>
+                    <li>• Inmunosupresores</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
+              <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">📊</span>
+                Categorías de peso según ABW
+              </h3>
+              <div className="grid gap-4 md:grid-cols-2">
+                <article>
+                  <h4 className="font-semibold mb-2">Peso normal (85-120% PI):</h4>
+                  <ul className="text-sm text-purple-800 space-y-1">
+                    <li>• <strong>Usa peso actual</strong> para todos los cálculos</li>
+                    <li>• No necesitas peso ajustado</li>
+                    <li>• Mantén hábitos saludables actuales</li>
+                    <li>• Monitoriza cada 2-4 semanas</li>
+                  </ul>
+                </article>
+                <article>
+                  <h4 className="font-semibold mb-2">Sobrepeso (120-140% PI):</h4>
+                  <ul className="text-sm text-purple-800 space-y-1">
+                    <li>• <strong>Usa ABW</strong> para medicamentos y nutrición</li>
+                    <li>• Considera reducción gradual 5-10% en 6 meses</li>
+                    <li>• Combina déficit calórico con ejercicio</li>
+                    <li>• Preserva masa muscular con <a href="/proteina" className="text-blue-600 hover:underline">proteína adecuada</a></li>
+                  </ul>
+                </article>
+                <article>
+                  <h4 className="font-semibold mb-2">Obesidad (&gt;140% PI):</h4>
+                  <ul className="text-sm text-purple-800 space-y-1">
+                    <li>• <strong>SIEMPRE usa ABW</strong> en cálculos clínicos</li>
+                    <li>• Consulta médico y nutricionista</li>
+                    <li>• Objetivo: 0.5-1 kg/semana de pérdida</li>
+                    <li>• Prioriza entrenamiento de fuerza</li>
+                  </ul>
+                </article>
+                <article>
+                  <h4 className="font-semibold mb-2">Bajo peso (&lt;85% PI):</h4>
+                  <ul className="text-sm text-purple-800 space-y-1">
+                    <li>• <strong>Usa peso actual</strong> para necesidades</li>
+                    <li>• Peso ideal como objetivo terapéutico</li>
+                    <li>• Superávit 300-500 kcal/día</li>
+                    <li>• Evaluación médica si &lt;80% PI</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+                <span className="text-2xl mr-3">⚠️</span>
+                Factores de ajuste especiales
+              </h3>
+              <div className="grid gap-4 md:grid-cols-2">
+                <article>
+                  <h4 className="font-semibold mb-2">Factor 0.25 (en lugar de 0.4):</h4>
+                  <ul className="text-sm text-red-800 space-y-1">
+                    <li>• <strong>IMC &gt; 40</strong> (obesidad mórbida)</li>
+                    <li>• Reduce sobreestimación en obesidad extrema</li>
+                    <li>• Especialmente para fármacos hidrofílicos</li>
+                    <li>• Recomendación de algunos protocolos hospitalarios</li>
+                  </ul>
+                </article>
+                <article>
+                  <h4 className="font-semibold mb-2">Condiciones que modifican el cálculo:</h4>
+                  <ul className="text-sm text-red-800 space-y-1">
+                    <li>• <strong>Edema o ascitis:</strong> Resta el peso del líquido acumulado</li>
+                    <li>• <strong>Amputaciones:</strong> Ajusta por porcentaje de peso perdido</li>
+                    <li>• <strong>Embarazo:</strong> Consulta tablas específicas de peso gestacional</li>
+                    <li>• <strong>Edad pediátrica:</strong> Usa percentiles de crecimiento, no ABW</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section className="space-y-4 mb-[2.618rem]">
+              <h3 className="text-lg font-medium">❓ Preguntas frecuentes sobre Peso Ajustado</h3>
+              <div className="space-y-3">
+                <article className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold mb-2">¿El peso ajustado es mi peso ideal?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    <strong>No.</strong> El peso ajustado NO es un objetivo de peso saludable. Es una herramienta
+                    clínica para calcular dosis de medicamentos y necesidades nutricionales con mayor precisión en
+                    personas con obesidad o bajo peso. Tu peso ideal se calcula con la <a href="/peso-ideal" className="text-blue-600 hover:underline">calculadora de peso ideal</a>.
+                  </p>
+                </article>
+                <article className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold mb-2">¿Por qué el factor 0.4 en la fórmula?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    El factor 0.4 (40%) representa que el tejido adiposo tiene aproximadamente el 40% de la demanda
+                    metabólica de la masa magra. Aunque la grasa tiene menor vascularización y metabolismo que el
+                    músculo, sigue requiriendo nutrientes y afectando la farmacocinética de medicamentos.
+                  </p>
+                </article>
+                <article className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold mb-2">¿Cuándo debo recalcular mi ABW?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Recalcula tu peso ajustado cada vez que tu peso actual cambie ±5 kg, o al menos cada 3 meses
+                    si estás en proceso de pérdida/ganancia de peso. En hospitalizaciones, se recalcula semanalmente
+                    o tras cambios significativos en el estado nutricional o hidratación.
+                  </p>
+                </article>
+              </div>
+            </section>
             
             <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mt-8">
               <header className="p-6 pb-0">

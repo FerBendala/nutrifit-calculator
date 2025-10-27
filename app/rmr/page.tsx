@@ -85,12 +85,12 @@ export default function RMRPage() {
         />
 
         <main className="max-w-5xl mx-auto space-golden-lg">
-          <header className="text-center space-golden-lg pt-[2.618rem]">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Calculadora RMR Médica (Tasa Metabólica en Reposo)
+          <header className="text-center space-golden-md">
+            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
+              Calculadora RMR Médica
             </h1>
-            <p className="text-gray-700 leading-relaxed max-w-4xl mx-auto text-lg">
-              Calculadora profesional de RMR con 3 fórmulas científicas validadas: Mifflin-St Jeor, Harris-Benedict y Katch-McArdle.
+            <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
+              Calculadora profesional de RMR (Resting Metabolic Rate) con 3 fórmulas científicas validadas.
               Gasto energético en reposo más práctico que BMR para planificación nutricional diaria.
             </p>
           </header>
@@ -123,12 +123,10 @@ export default function RMRPage() {
           <section id="calculator" aria-label="Calculadora de RMR">
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold text-center text-gray-900">
-                  Calculadora de Tasa Metabólica en Reposo
+                <CardTitle className="text-2xl font-semibold flex items-center justify-center">
+                  <span className="text-3xl mr-3">🔥</span>
+                  Calculadora de RMR
                 </CardTitle>
-                <p className="text-center text-muted-foreground">
-                  Elige el método según tus datos disponibles
-                </p>
               </CardHeader>
               <CardContent className="space-golden-md">
                 <Tabs defaultValue="basic" className="w-full">

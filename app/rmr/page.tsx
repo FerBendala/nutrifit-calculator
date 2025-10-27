@@ -12,7 +12,6 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { AdSlot } from '@/components/UnifiedAdSlot';
 import { analyzeRMR } from '@/lib/formulas';
 import { Activity, AlertTriangle, Calculator, Flame, Info, TrendingUp, Users } from 'lucide-react';
 import { useState } from 'react';
@@ -484,11 +483,6 @@ export default function RMRPage() {
               </Card>
             </section>
           )}
-
-          {/* Espacio para anuncios */}
-          <div className="my-12 flex justify-center">
-            <AdSlot adSlot="3456789013" adFormat="horizontal" />
-          </div>
 
           {/* Información adicional */}
           <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">

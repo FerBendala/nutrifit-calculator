@@ -11,7 +11,6 @@ import { SocialShare } from '@/components/SocialShare';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/UnifiedAdSlot';
 import { analyzeAdjustedBodyWeight } from '@/lib/formulas';
 import { Activity, AlertTriangle, Calculator, Info, Pill, Scale, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
@@ -404,11 +403,6 @@ export default function PesoAjustadoPage() {
             </section>
           )}
 
-          {/* Espacio para anuncios */}
-          <div className="my-12 flex justify-center">
-            <AdSlot adSlot="3456789014" adFormat="horizontal" />
-          </div>
-
           {/* Información adicional */}
           <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
             <header>
@@ -634,7 +628,7 @@ export default function PesoAjustadoPage() {
                 </article>
               </div>
             </section>
-            
+
             <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mt-8">
               <header className="p-6 pb-0">
                 <h3 className="text-xl font-semibold text-blue-800 flex items-center">

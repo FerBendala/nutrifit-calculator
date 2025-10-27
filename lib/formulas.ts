@@ -2273,7 +2273,7 @@ export function calculateRMRMifflin(
 
   const baseCalories = 10 * weight + 6.25 * height - 5 * age;
   const rmr = gender === 'male' ? baseCalories + 5 : baseCalories - 161;
-  
+
   return Math.round(rmr);
 }
 
@@ -2294,13 +2294,13 @@ export function calculateRMRHarris(
   }
 
   let rmr: number;
-  
+
   if (gender === 'male') {
     rmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
   } else {
     rmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
   }
-  
+
   return Math.round(rmr);
 }
 
@@ -2320,7 +2320,7 @@ export function calculateRMRKatch(
 
   const leanBodyMass = weight * (1 - bodyFatPercentage / 100);
   const rmr = 370 + (21.6 * leanBodyMass);
-  
+
   return Math.round(rmr);
 }
 
@@ -2356,10 +2356,10 @@ export function analyzeRMR(
 } {
   const mifflin = calculateRMRMifflin(weight, height, age, gender);
   const harris = calculateRMRHarris(weight, height, age, gender);
-  
+
   let katch: number | null = null;
   let average: number;
-  
+
   if (bodyFatPercentage !== undefined && bodyFatPercentage >= 0 && bodyFatPercentage <= 100) {
     katch = calculateRMRKatch(weight, bodyFatPercentage);
     average = Math.round((mifflin + harris + katch) / 3);
@@ -2378,19 +2378,19 @@ export function analyzeRMR(
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (katch) {
     recommendations.push('Tu RMR con Katch-McArdle (basado en masa magra) es el más preciso para ti');
     recommendations.push('Mantén o aumenta tu masa muscular para elevar tu metabolismo basal');
   } else {
     recommendations.push('Para mayor precisión, mide tu porcentaje de grasa corporal y usa Katch-McArdle');
   }
-  
+
   recommendations.push(`Tu RMR promedio es ${average} kcal/día - este es tu gasto en reposo completo`);
   recommendations.push('Para perder grasa: consume 10-20% menos de tus necesidades calóricas totales');
   recommendations.push('Para ganar músculo: consume 5-15% más de tus necesidades calóricas totales');
   recommendations.push('El entrenamiento de fuerza puede aumentar tu RMR hasta un 7-8% a largo plazo');
-  
+
   if (age > 40) {
     recommendations.push('A partir de los 40 años, el RMR disminuye ~2% por década - prioriza entrenamiento de fuerza');
   }
@@ -2398,7 +2398,7 @@ export function analyzeRMR(
   // Metabolic context
   const caloriesPerKg = Math.round(average / weight);
   let metabolicContext: string;
-  
+
   if (caloriesPerKg < 20) {
     metabolicContext = 'Metabolismo basal relativamente bajo - enfócate en aumentar masa muscular y actividad física';
   } else if (caloriesPerKg < 25) {
@@ -2408,13 +2408,13 @@ export function analyzeRMR(
   }
 
   // Age comparison
-  const expectedRMR = gender === 'male' 
+  const expectedRMR = gender === 'male'
     ? 1600 - ((age - 30) * 20)
     : 1400 - ((age - 30) * 15);
-  
+
   const deviation = ((average - expectedRMR) / expectedRMR) * 100;
   let comparisonByAge: string;
-  
+
   if (Math.abs(deviation) < 10) {
     comparisonByAge = `Tu RMR está dentro del promedio esperado para tu edad (±10%)`;
   } else if (deviation > 0) {
@@ -2427,7 +2427,7 @@ export function analyzeRMR(
   const factors = {
     muscleImpact: 'La masa muscular quema 3 veces más calorías que la grasa en reposo (13 kcal/kg vs 4.5 kcal/kg)',
     ageImpact: `El RMR disminuye aproximadamente ${gender === 'male' ? '2-3%' : '1-2%'} por década después de los 30 años`,
-    genderImpact: gender === 'male' 
+    genderImpact: gender === 'male'
       ? 'Los hombres tienen un RMR ~5-10% mayor debido a mayor masa muscular y menor grasa corporal'
       : 'Las mujeres tienen un RMR ~5-10% menor debido a menor masa muscular y mayor porcentaje de grasa'
   };
@@ -2442,5 +2442,241 @@ export function analyzeRMR(
     metabolicContext,
     comparisonByAge,
     factors
+  };
+}
+
+// ========== ADJUSTED BODY WEIGHT (ABW) CALCULATIONS ==========
+
+/**
+ * Calculate Ideal Body Weight using Robinson formula (1983)
+ * Most widely used in clinical practice
+ * Formula: Men: 52 kg + 1.9 kg per inch over 5 feet
+ *         Women: 49 kg + 1.7 kg per inch over 5 feet
+ * Source: Robinson et al. (1983) - American Journal of Clinical Nutrition
+ */
+export function calculateIdealBodyWeightRobinson(
+  height: number,
+  gender: 'male' | 'female'
+): number {
+  if (height <= 0) {
+    throw new Error('La altura debe ser mayor que 0');
+  }
+
+  const heightInches = height / 2.54; // Convert cm to inches
+  const baseHeight = 60; // 5 feet = 60 inches
+  
+  if (heightInches < baseHeight) {
+    // For people shorter than 5 feet, use proportional calculation
+    const proportion = heightInches / baseHeight;
+    return gender === 'male' ? Math.round(52 * proportion) : Math.round(49 * proportion);
+  }
+  
+  const inchesOver5Feet = heightInches - baseHeight;
+  const ibw = gender === 'male' 
+    ? 52 + (1.9 * inchesOver5Feet)
+    : 49 + (1.7 * inchesOver5Feet);
+  
+  return Math.round(ibw * 10) / 10; // 1 decimal place
+}
+
+/**
+ * Calculate Adjusted Body Weight (ABW)
+ * Used in clinical nutrition and pharmacology
+ * Formula: ABW = IBW + 0.4 * (Actual Weight - IBW)
+ * Source: Clinical guidelines for obesity and critical care
+ */
+export function calculateAdjustedBodyWeight(
+  actualWeight: number,
+  idealWeight: number,
+  adjustmentFactor: number = 0.4
+): number {
+  if (actualWeight <= 0 || idealWeight <= 0) {
+    throw new Error('El peso actual e ideal deben ser mayores que 0');
+  }
+
+  // If actual weight is less than or equal to ideal weight, use actual weight
+  if (actualWeight <= idealWeight) {
+    return actualWeight;
+  }
+
+  const abw = idealWeight + (adjustmentFactor * (actualWeight - idealWeight));
+  return Math.round(abw * 10) / 10; // 1 decimal place
+}
+
+/**
+ * Comprehensive Adjusted Body Weight analysis
+ */
+export function analyzeAdjustedBodyWeight(
+  actualWeight: number,
+  height: number,
+  gender: 'male' | 'female',
+  age?: number
+): {
+  actualWeight: number;
+  idealWeight: number;
+  adjustedWeight: number;
+  weightDifference: number;
+  percentageOverIdeal: number;
+  bmiActual: number;
+  bmiIdeal: number;
+  weightCategory: string;
+  clinicalUse: {
+    useActualWeight: boolean;
+    useIdealWeight: boolean;
+    useAdjustedWeight: boolean;
+    reason: string;
+  };
+  proteinNeeds: {
+    byActualWeight: { min: number; max: number };
+    byIdealWeight: { min: number; max: number };
+    byAdjustedWeight: { min: number; max: number };
+    recommended: string;
+  };
+  calorieNeeds: {
+    byActualWeight: number;
+    byIdealWeight: number;
+    byAdjustedWeight: number;
+    recommended: string;
+  };
+  recommendations: string[];
+  clinicalApplications: string[];
+  importantNotes: string[];
+} {
+  const idealWeight = calculateIdealBodyWeightRobinson(height, gender);
+  const adjustedWeight = calculateAdjustedBodyWeight(actualWeight, idealWeight);
+  const weightDifference = actualWeight - idealWeight;
+  const percentageOverIdeal = ((actualWeight - idealWeight) / idealWeight) * 100;
+  
+  const heightM = height / 100;
+  const bmiActual = actualWeight / (heightM * heightM);
+  const bmiIdeal = idealWeight / (heightM * heightM);
+
+  // Determine weight category
+  let weightCategory: string;
+  if (actualWeight < idealWeight * 0.85) {
+    weightCategory = 'Bajo peso (< 85% del peso ideal)';
+  } else if (actualWeight <= idealWeight * 1.10) {
+    weightCategory = 'Peso normal (85-110% del peso ideal)';
+  } else if (actualWeight <= idealWeight * 1.20) {
+    weightCategory = 'Sobrepeso ligero (110-120% del peso ideal)';
+  } else if (actualWeight <= idealWeight * 1.40) {
+    weightCategory = 'Sobrepeso moderado (120-140% del peso ideal)';
+  } else {
+    weightCategory = 'Obesidad (> 140% del peso ideal)';
+  }
+
+  // Clinical use guidance
+  const clinicalUse = {
+    useActualWeight: actualWeight <= idealWeight * 1.20,
+    useIdealWeight: actualWeight < idealWeight * 0.90,
+    useAdjustedWeight: actualWeight > idealWeight * 1.20,
+    reason: actualWeight > idealWeight * 1.20
+      ? 'Usa peso ajustado para cálculos clínicos (dosis medicamentos, calorías, proteínas)'
+      : actualWeight < idealWeight * 0.90
+      ? 'Usa peso ideal como objetivo terapéutico, pero calcula con peso actual para necesidades'
+      : 'Usa peso actual para todos los cálculos nutricionales y clínicos'
+  };
+
+  // Protein needs (g/kg/day)
+  const proteinRanges = {
+    sedentary: { min: 0.8, max: 1.0 },
+    active: { min: 1.2, max: 1.6 },
+    athlete: { min: 1.6, max: 2.2 }
+  };
+
+  const proteinNeeds = {
+    byActualWeight: {
+      min: Math.round(actualWeight * 0.8),
+      max: Math.round(actualWeight * 2.2)
+    },
+    byIdealWeight: {
+      min: Math.round(idealWeight * 0.8),
+      max: Math.round(idealWeight * 2.2)
+    },
+    byAdjustedWeight: {
+      min: Math.round(adjustedWeight * 0.8),
+      max: Math.round(adjustedWeight * 2.2)
+    },
+    recommended: actualWeight > idealWeight * 1.20
+      ? `Usa peso ajustado (${adjustedWeight} kg): ${Math.round(adjustedWeight * 1.2)}-${Math.round(adjustedWeight * 1.8)} g/día`
+      : actualWeight < idealWeight * 0.90
+      ? `Usa peso ideal (${idealWeight} kg): ${Math.round(idealWeight * 1.2)}-${Math.round(idealWeight * 1.8)} g/día`
+      : `Usa peso actual (${actualWeight} kg): ${Math.round(actualWeight * 1.2)}-${Math.round(actualWeight * 1.8)} g/día`
+  };
+
+  // Calorie needs estimation (using simple multiplier)
+  const calorieMultiplier = 25; // kcal/kg/day for moderate activity
+  const calorieNeeds = {
+    byActualWeight: Math.round(actualWeight * calorieMultiplier),
+    byIdealWeight: Math.round(idealWeight * calorieMultiplier),
+    byAdjustedWeight: Math.round(adjustedWeight * calorieMultiplier),
+    recommended: actualWeight > idealWeight * 1.20
+      ? `${Math.round(adjustedWeight * calorieMultiplier)} kcal/día (basado en peso ajustado)`
+      : actualWeight < idealWeight * 0.90
+      ? `${Math.round(actualWeight * calorieMultiplier)} kcal/día (basado en peso actual para recuperación)`
+      : `${Math.round(actualWeight * calorieMultiplier)} kcal/día (basado en peso actual)`
+  };
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (actualWeight > idealWeight * 1.40) {
+    recommendations.push('IMPORTANTE: Consulta con médico y nutricionista para plan de pérdida de peso supervisado');
+    recommendations.push('Usa siempre el peso ajustado para cálculos de medicamentos y necesidades nutricionales');
+    recommendations.push('Objetivo realista: perder 0.5-1 kg por semana (déficit de 500-1000 kcal/día)');
+    recommendations.push('Prioriza entrenamiento de fuerza para preservar masa muscular durante pérdida de peso');
+  } else if (actualWeight > idealWeight * 1.20) {
+    recommendations.push('Usa peso ajustado para cálculos clínicos más precisos');
+    recommendations.push('Considera reducción gradual de peso: 5-10% en 6 meses');
+    recommendations.push('Combina déficit calórico moderado con ejercicio regular');
+  } else if (actualWeight < idealWeight * 0.85) {
+    recommendations.push('IMPORTANTE: Evalúa con profesional de salud - posible desnutrición');
+    recommendations.push('Enfócate en ganar peso saludablemente: superávit de 300-500 kcal/día');
+    recommendations.push('Prioriza alimentos densos en nutrientes y proteína de calidad');
+    recommendations.push('Considera entrenamiento de fuerza para ganar masa muscular, no solo grasa');
+  } else {
+    recommendations.push('Tu peso está en rango saludable - usa peso actual para cálculos');
+    recommendations.push('Mantén hábitos saludables: actividad física regular y alimentación equilibrada');
+    recommendations.push('Monitoriza peso cada 2-4 semanas para detectar cambios tempranos');
+  }
+
+  if (age && age > 65) {
+    recommendations.push('A partir de 65 años: mantén peso estable, la pérdida involuntaria es factor de riesgo');
+    recommendations.push('Aumenta ligeramente proteína: 1.0-1.2 g/kg/día para prevenir sarcopenia');
+  }
+
+  // Clinical applications
+  const clinicalApplications = [
+    'Cálculo de dosis de medicamentos (especialmente antibióticos y quimioterapia)',
+    'Determinación de necesidades nutricionales en hospitalización',
+    'Planificación de soporte nutricional enteral o parenteral',
+    'Ajuste de líquidos intravenosos en pacientes críticos',
+    'Prescripción de proteínas en enfermedad renal o hepática'
+  ];
+
+  // Important notes
+  const importantNotes = [
+    'El peso ajustado NO es un objetivo de peso saludable - es una herramienta clínica',
+    'En obesidad mórbida (IMC > 40), algunos expertos recomiendan factor 0.25 en lugar de 0.4',
+    'El peso ajustado es más preciso que peso actual para dosificación de fármacos lipofílicos',
+    'En bajo peso extremo, usa el peso actual para evitar subestimar necesidades',
+    'Siempre combina con evaluación de composición corporal para mayor precisión'
+  ];
+
+  return {
+    actualWeight,
+    idealWeight,
+    adjustedWeight,
+    weightDifference,
+    percentageOverIdeal,
+    bmiActual,
+    bmiIdeal,
+    weightCategory,
+    clinicalUse,
+    proteinNeeds,
+    calorieNeeds,
+    recommendations,
+    clinicalApplications,
+    importantNotes
   };
 }

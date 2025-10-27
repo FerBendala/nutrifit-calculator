@@ -212,6 +212,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'nutrition',
     relatedCalculators: ['bmr', 'tdee', 'home', 'composicion']
+  },
+  {
+    key: 'peso-ajustado',
+    title: 'Peso Ajustado Clínico (ABW)',
+    href: '/peso-ajustado',
+    description: 'Peso ajustado para cálculos clínicos, medicamentos y nutrición',
+    icon: Scale,
+    priority: 'high',
+    category: 'body-composition',
+    relatedCalculators: ['peso-ideal', 'imc', 'proteina', 'bmr']
   }
 ];
 

@@ -134,6 +134,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de RMR (Resting Metabolic Rate) con fórmulas Mifflin-St Jeor, Harris-Benedict y Katch-McArdle. Gasto energético en reposo más práctico que BMR. Ideal para planificación nutricional y seguimiento metabólico diario.',
     keywords: ['calculadora RMR', 'tasa metabólica reposo', 'RMR', 'resting metabolic rate', 'metabolismo basal', 'gasto energético', 'Mifflin-St Jeor', 'Harris-Benedict', 'Katch-McArdle', 'calorías reposo', 'metabolismo', 'nutrición'],
     path: '/rmr'
+  },
+  'peso-ajustado': {
+    title: 'Calculadora Peso Ajustado Clínico ABW | Robinson | Farmacia y Nutrición',
+    description: 'Calculadora profesional de Peso Ajustado (ABW - Adjusted Body Weight) según fórmula Robinson. Fundamental para dosificación de medicamentos, necesidades calóricas y proteicas en obesidad y bajo peso. Herramienta clínica validada para profesionales de salud.',
+    keywords: ['calculadora peso ajustado', 'ABW', 'adjusted body weight', 'peso clínico', 'Robinson', 'dosificación medicamentos', 'nutrición clínica', 'peso ideal', 'obesidad', 'farmacia', 'necesidades proteicas', 'cálculos clínicos'],
+    path: '/peso-ajustado'
   }
 };
 

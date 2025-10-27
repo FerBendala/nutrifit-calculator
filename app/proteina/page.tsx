@@ -523,6 +523,10 @@ export default function ProteinaPage() {
               <ul className="text-sm text-orange-800 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/peso-ajustado" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado:</a></strong> ABW clínico para necesidades proteicas precisas en obesidad o bajo peso</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tus calorías totales:</a></strong> Integra tu proteína en un plan nutricional completo</span>
                 </li>
                 <li className="flex items-start">

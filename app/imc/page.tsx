@@ -382,6 +382,10 @@ export default function IMCPage() {
               <ul className="text-sm text-orange-800 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/peso-ajustado" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado Clínico:</a></strong> ABW para dosificación y necesidades nutricionales según tu IMC</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tus calorías diarias:</a></strong> Determina cuántas calorías necesitas según tu IMC y objetivo</span>
                 </li>
                 <li className="flex items-start">

@@ -1,21 +1,21 @@
 'use client';
 
-import { useState } from 'react';
-import { Container } from '@/components/Container';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { SchemaMarkup } from '@/components/SchemaMarkup';
-import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { Container } from '@/components/Container';
 import { EmbedWidget } from '@/components/EmbedWidget';
-import { SocialShare } from '@/components/SocialShare';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { analyzeRMR } from '@/lib/formulas';
-import { Calculator, Flame, Info, TrendingUp, Users, Activity, AlertTriangle } from 'lucide-react';
 import { NumberInput } from '@/components/NumberInput';
+import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
+import { SocialShare } from '@/components/SocialShare';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { AdSlot } from '@/components/UnifiedAdSlot';
+import { analyzeRMR } from '@/lib/formulas';
+import { Activity, AlertTriangle, Calculator, Flame, Info, TrendingUp, Users } from 'lucide-react';
+import { useState } from 'react';
 
 export default function RMRPage() {
   const [formData, setFormData] = useState({
@@ -45,7 +45,7 @@ export default function RMRPage() {
 
   const handleSubmit = (e: React.FormEvent, tab: 'basic' | 'advanced') => {
     e.preventDefault();
-    
+
     if (!isFormValid(tab)) return;
 
     try {
@@ -499,7 +499,7 @@ export default function RMRPage() {
                 Información Completa sobre el RMR
               </h2>
             </header>
-            
+
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <article className="card-golden-lg bg-green-50 border-l-4 border-green-400">
                 <header className="p-6 pb-0">

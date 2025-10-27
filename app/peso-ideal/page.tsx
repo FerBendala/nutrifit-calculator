@@ -468,6 +468,31 @@ export default function PesoIdealPage() {
           {/* Calculadoras relacionadas */}
           <RelatedCalculators currentPage="peso-ideal" />
 
+          {/* Sección de navegación mejorada */}
+          <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+            <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl">
+              Mejora tu evaluación de peso corporal
+            </h3>
+            <ul className="text-sm text-orange-800 space-golden-xs">
+              <li className="flex items-start">
+                <span className="text-orange-600 mr-2">•</span>
+                <span><strong><a href="/peso-ajustado" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado Clínico:</a></strong> ABW para dosificación de medicamentos y necesidades nutricionales precisas</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 mr-2">•</span>
+                <span><strong><a href="/imc" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu IMC:</a></strong> Índice de masa corporal para contexto de salud general</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 mr-2">•</span>
+                <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Calcula proteína necesaria:</a></strong> Basado en tu peso ideal o ajustado</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-orange-600 mr-2">•</span>
+                <span><strong><a href="/bmr" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu BMR:</a></strong> Metabolismo basal para planificación calórica precisa</span>
+              </li>
+            </ul>
+          </section>
+
           {/* Widget para embeber - genera backlinks naturales */}
           <section className="flex justify-center">
             <EmbedWidget />

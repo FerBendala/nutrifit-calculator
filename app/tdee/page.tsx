@@ -393,6 +393,10 @@ export default function TDEEPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/rmr" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu RMR práctico:</a></strong> Tasa metabólica en reposo más accesible para seguimiento diario</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tus macronutrientes:</a></strong> Usa tu TDEE para determinar la distribución de macros perfecta</span>
                 </li>
                 <li className="flex items-start">

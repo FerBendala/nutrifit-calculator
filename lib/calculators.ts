@@ -202,6 +202,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'body-composition',
     relatedCalculators: ['fmi', 'grasa-corporal', 'whr', 'imc']
+  },
+  {
+    key: 'rmr',
+    title: 'RMR (Tasa Metabólica en Reposo)',
+    href: '/rmr',
+    description: 'Gasto energético en reposo con 3 fórmulas científicas validadas',
+    icon: Flame,
+    priority: 'high',
+    category: 'nutrition',
+    relatedCalculators: ['bmr', 'tdee', 'home', 'composicion']
   }
 ];
 

@@ -2251,3 +2251,196 @@ export function analyzeBAI(
     limitations
   };
 }
+
+// ========== RMR (RESTING METABOLIC RATE) CALCULATIONS ==========
+
+/**
+ * Calculate Resting Metabolic Rate (RMR) using Mifflin-St Jeor equation
+ * RMR is similar to BMR but measured under less strict conditions
+ * Formula: Men: 10*weight + 6.25*height - 5*age + 5
+ *         Women: 10*weight + 6.25*height - 5*age - 161
+ * Source: Mifflin et al. (1990) - American Journal of Clinical Nutrition
+ */
+export function calculateRMRMifflin(
+  weight: number,
+  height: number,
+  age: number,
+  gender: 'male' | 'female'
+): number {
+  if (weight <= 0 || height <= 0 || age <= 0) {
+    throw new Error('El peso, altura y edad deben ser mayores que 0');
+  }
+
+  const baseCalories = 10 * weight + 6.25 * height - 5 * age;
+  const rmr = gender === 'male' ? baseCalories + 5 : baseCalories - 161;
+  
+  return Math.round(rmr);
+}
+
+/**
+ * Calculate RMR using Harris-Benedict equation (revised 1984)
+ * Formula: Men: 88.362 + (13.397*weight) + (4.799*height) - (5.677*age)
+ *         Women: 447.593 + (9.247*weight) + (3.098*height) - (4.330*age)
+ * Source: Harris & Benedict (1918), revised Roza & Shizgal (1984)
+ */
+export function calculateRMRHarris(
+  weight: number,
+  height: number,
+  age: number,
+  gender: 'male' | 'female'
+): number {
+  if (weight <= 0 || height <= 0 || age <= 0) {
+    throw new Error('El peso, altura y edad deben ser mayores que 0');
+  }
+
+  let rmr: number;
+  
+  if (gender === 'male') {
+    rmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+  } else {
+    rmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+  }
+  
+  return Math.round(rmr);
+}
+
+/**
+ * Calculate RMR using Katch-McArdle equation (based on lean body mass)
+ * Formula: RMR = 370 + (21.6 * lean body mass in kg)
+ * Source: Katch & McArdle (1996)
+ * Most accurate when body composition is known
+ */
+export function calculateRMRKatch(
+  weight: number,
+  bodyFatPercentage: number
+): number {
+  if (weight <= 0 || bodyFatPercentage < 0 || bodyFatPercentage > 100) {
+    throw new Error('El peso debe ser mayor que 0 y el porcentaje de grasa entre 0-100%');
+  }
+
+  const leanBodyMass = weight * (1 - bodyFatPercentage / 100);
+  const rmr = 370 + (21.6 * leanBodyMass);
+  
+  return Math.round(rmr);
+}
+
+/**
+ * Comprehensive RMR analysis with all three formulas and recommendations
+ */
+export function analyzeRMR(
+  weight: number,
+  height: number,
+  age: number,
+  gender: 'male' | 'female',
+  bodyFatPercentage?: number
+): {
+  mifflin: number;
+  harris: number;
+  katch: number | null;
+  average: number;
+  dailyCalorieNeeds: {
+    sedentary: number;
+    light: number;
+    moderate: number;
+    active: number;
+    veryActive: number;
+  };
+  recommendations: string[];
+  metabolicContext: string;
+  comparisonByAge: string;
+  factors: {
+    muscleImpact: string;
+    ageImpact: string;
+    genderImpact: string;
+  };
+} {
+  const mifflin = calculateRMRMifflin(weight, height, age, gender);
+  const harris = calculateRMRHarris(weight, height, age, gender);
+  
+  let katch: number | null = null;
+  let average: number;
+  
+  if (bodyFatPercentage !== undefined && bodyFatPercentage >= 0 && bodyFatPercentage <= 100) {
+    katch = calculateRMRKatch(weight, bodyFatPercentage);
+    average = Math.round((mifflin + harris + katch) / 3);
+  } else {
+    average = Math.round((mifflin + harris) / 2);
+  }
+
+  // Activity level multipliers (same as TDEE)
+  const dailyCalorieNeeds = {
+    sedentary: Math.round(average * 1.2),
+    light: Math.round(average * 1.375),
+    moderate: Math.round(average * 1.55),
+    active: Math.round(average * 1.725),
+    veryActive: Math.round(average * 1.9)
+  };
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (katch) {
+    recommendations.push('Tu RMR con Katch-McArdle (basado en masa magra) es el más preciso para ti');
+    recommendations.push('Mantén o aumenta tu masa muscular para elevar tu metabolismo basal');
+  } else {
+    recommendations.push('Para mayor precisión, mide tu porcentaje de grasa corporal y usa Katch-McArdle');
+  }
+  
+  recommendations.push(`Tu RMR promedio es ${average} kcal/día - este es tu gasto en reposo completo`);
+  recommendations.push('Para perder grasa: consume 10-20% menos de tus necesidades calóricas totales');
+  recommendations.push('Para ganar músculo: consume 5-15% más de tus necesidades calóricas totales');
+  recommendations.push('El entrenamiento de fuerza puede aumentar tu RMR hasta un 7-8% a largo plazo');
+  
+  if (age > 40) {
+    recommendations.push('A partir de los 40 años, el RMR disminuye ~2% por década - prioriza entrenamiento de fuerza');
+  }
+
+  // Metabolic context
+  const caloriesPerKg = Math.round(average / weight);
+  let metabolicContext: string;
+  
+  if (caloriesPerKg < 20) {
+    metabolicContext = 'Metabolismo basal relativamente bajo - enfócate en aumentar masa muscular y actividad física';
+  } else if (caloriesPerKg < 25) {
+    metabolicContext = 'Metabolismo basal normal - mantén hábitos saludables actuales';
+  } else {
+    metabolicContext = 'Metabolismo basal elevado - probablemente debido a buena masa muscular o alta actividad';
+  }
+
+  // Age comparison
+  const expectedRMR = gender === 'male' 
+    ? 1600 - ((age - 30) * 20)
+    : 1400 - ((age - 30) * 15);
+  
+  const deviation = ((average - expectedRMR) / expectedRMR) * 100;
+  let comparisonByAge: string;
+  
+  if (Math.abs(deviation) < 10) {
+    comparisonByAge = `Tu RMR está dentro del promedio esperado para tu edad (±10%)`;
+  } else if (deviation > 0) {
+    comparisonByAge = `Tu RMR es ${Math.abs(Math.round(deviation))}% superior al promedio de tu edad - excelente`;
+  } else {
+    comparisonByAge = `Tu RMR es ${Math.abs(Math.round(deviation))}% inferior al promedio de tu edad - considera aumentar masa muscular`;
+  }
+
+  // Factors explanation
+  const factors = {
+    muscleImpact: 'La masa muscular quema 3 veces más calorías que la grasa en reposo (13 kcal/kg vs 4.5 kcal/kg)',
+    ageImpact: `El RMR disminuye aproximadamente ${gender === 'male' ? '2-3%' : '1-2%'} por década después de los 30 años`,
+    genderImpact: gender === 'male' 
+      ? 'Los hombres tienen un RMR ~5-10% mayor debido a mayor masa muscular y menor grasa corporal'
+      : 'Las mujeres tienen un RMR ~5-10% menor debido a menor masa muscular y mayor porcentaje de grasa'
+  };
+
+  return {
+    mifflin,
+    harris,
+    katch,
+    average,
+    dailyCalorieNeeds,
+    recommendations,
+    metabolicContext,
+    comparisonByAge,
+    factors
+  };
+}

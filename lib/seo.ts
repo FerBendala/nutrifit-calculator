@@ -128,6 +128,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional del Índice de Adiposidad Corporal (BAI) según fórmula Bergman. Estima grasa corporal sin báscula usando solo cadera y altura. Especialmente precisa en mujeres. Alternativa práctica al IMC para evaluación de composición corporal.',
     keywords: ['calculadora BAI', 'índice adiposidad corporal', 'BAI', 'body adiposity index', 'grasa corporal sin báscula', 'circunferencia cadera', 'composición corporal', 'Bergman', 'estimación grasa', 'sin peso', 'antropometría', 'evaluación corporal'],
     path: '/bai'
+  },
+  rmr: {
+    title: 'Calculadora RMR Médica | Tasa Metabólica Reposo | 3 Fórmulas Científicas',
+    description: 'Calculadora profesional de RMR (Resting Metabolic Rate) con fórmulas Mifflin-St Jeor, Harris-Benedict y Katch-McArdle. Gasto energético en reposo más práctico que BMR. Ideal para planificación nutricional y seguimiento metabólico diario.',
+    keywords: ['calculadora RMR', 'tasa metabólica reposo', 'RMR', 'resting metabolic rate', 'metabolismo basal', 'gasto energético', 'Mifflin-St Jeor', 'Harris-Benedict', 'Katch-McArdle', 'calorías reposo', 'metabolismo', 'nutrición'],
+    path: '/rmr'
   }
 };
 

@@ -626,6 +626,10 @@ export default function ComposicionPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/rmr" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu RMR con Katch-McArdle:</a></strong> Usa tu masa magra para metabolismo basal más preciso</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/ffmi" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu FFMI muscular avanzado:</a></strong> Índice preciso de desarrollo muscular para atletas serios</span>
                 </li>
                 <li className="flex items-start">

@@ -579,6 +579,10 @@ export default function BMRPage() {
               <ul className="text-sm text-orange-800 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/rmr" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu RMR práctico:</a></strong> Tasa metabólica en reposo sin condiciones estrictas de laboratorio</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu TDEE completo:</a></strong> Añade actividad física a tu BMR para calorías diarias totales</span>
                 </li>
                 <li className="flex items-start">

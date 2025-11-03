@@ -1,7 +1,7 @@
 'use client';
 
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Container } from '@/components/Container';
+import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
@@ -55,13 +55,7 @@ export default function PesoAjustadoPage() {
     <>
       <SchemaMarkup calculatorKey="peso-ajustado" />
 
-      <Container size="xl" className="space-golden-lg">
-        <Breadcrumbs
-          items={[
-            { label: 'Inicio', href: '/' },
-            { label: 'Peso Ajustado Clínico (ABW)', href: '/peso-ajustado' }
-          ]}
-        />
+      <Container size="xl" className="py-[4.236rem]">
 
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
@@ -753,6 +747,9 @@ export default function PesoAjustadoPage() {
             url="https://nutrifit-calculator.com/peso-ajustado"
             description="Calcula tu peso ajustado clínico con fórmula Robinson. Herramienta médica para dosificación precisa y necesidades nutricionales. ¡Totalmente gratis!"
           />
+
+          {/* Navegación entre calculadoras */}
+          <CalculatorNavigation currentCalculator="peso-ajustado" />
         </main>
       </Container>
     </>

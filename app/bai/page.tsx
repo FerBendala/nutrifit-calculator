@@ -1,7 +1,7 @@
 'use client';
 
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Container } from '@/components/Container';
+import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
@@ -42,13 +42,7 @@ export default function BAIPage() {
     <>
       <SchemaMarkup calculatorKey="bai" />
 
-      <Container size="xl" className="space-golden-lg">
-        <Breadcrumbs
-          items={[
-            { label: 'Inicio', href: '/' },
-            { label: 'BAI (Índice Adiposidad Corporal)', href: '/bai' }
-          ]}
-        />
+      <Container size="xl" className="py-[4.236rem]">
 
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
@@ -481,6 +475,9 @@ export default function BAIPage() {
             url="https://nutrifit-calculator.com/bai"
             description="Calcula tu porcentaje de grasa corporal sin báscula con la fórmula Bergman. Estimación precisa usando solo cadera y altura. ¡Totalmente gratis!"
           />
+
+          {/* Navegación entre calculadoras */}
+          <CalculatorNavigation currentCalculator="bai" />
         </main>
       </Container>
     </>

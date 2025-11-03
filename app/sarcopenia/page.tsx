@@ -156,7 +156,7 @@ export default function SarcopeniaPage() {
   return (
     <>
       <SchemaMarkup calculatorKey="sarcopenia" />
-      <Container size="xl" className="space-golden-lg">
+      <Container size="xl" className="py-[4.236rem]">
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

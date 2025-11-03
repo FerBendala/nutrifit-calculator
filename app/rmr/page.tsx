@@ -1,7 +1,7 @@
 'use client';
 
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Container } from '@/components/Container';
+import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
@@ -75,13 +75,7 @@ export default function RMRPage() {
     <>
       <SchemaMarkup calculatorKey="rmr" />
 
-      <Container size="xl" className="space-golden-lg">
-        <Breadcrumbs
-          items={[
-            { label: 'Inicio', href: '/' },
-            { label: 'RMR (Tasa Metabólica en Reposo)', href: '/rmr' }
-          ]}
-        />
+      <Container size="xl" className="py-[4.236rem]">
 
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
@@ -659,6 +653,9 @@ export default function RMRPage() {
             url="https://nutrifit-calculator.com/rmr"
             description="Calcula tu RMR con 3 fórmulas científicas validadas. Gasto energético en reposo más práctico que BMR. ¡Totalmente gratis!"
           />
+
+          {/* Navegación entre calculadoras */}
+          <CalculatorNavigation currentCalculator="rmr" />
         </main>
       </Container>
     </>

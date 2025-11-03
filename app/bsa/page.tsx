@@ -1,7 +1,7 @@
 'use client';
 
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Container } from '@/components/Container';
+import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
@@ -11,7 +11,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { analyzeBSA } from '@/lib/formulas';
-import { Activity, AlertTriangle, Calculator, Heart, Info, Pill, Stethoscope, TrendingUp } from 'lucide-react';
+import { Activity, AlertTriangle, Calculator, Heart, Info, Pill, Stethoscope } from 'lucide-react';
 import { useState } from 'react';
 
 export default function BSAPage() {
@@ -48,13 +48,7 @@ export default function BSAPage() {
     <>
       <SchemaMarkup calculatorKey="bsa" />
 
-      <Container size="xl" className="space-golden-lg">
-        <Breadcrumbs
-          items={[
-            { label: 'Inicio', href: '/' },
-            { label: 'BSA (Superficie Corporal)', href: '/bsa' }
-          ]}
-        />
+      <Container size="xl" className="py-[4.236rem]">
 
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
@@ -587,6 +581,9 @@ export default function BSAPage() {
               url="https://nutrifit-calculator.com/bsa"
               description="Calculadora profesional de BSA con fórmulas Du Bois, Mosteller, Haycock, Gehan y Boyd. Esencial para dosificación de quimioterapia y aplicaciones clínicas."
             />
+
+            {/* Navegación entre calculadoras */}
+            <CalculatorNavigation currentCalculator="bsa" />
           </article>
         </main>
       </Container>

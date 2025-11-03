@@ -2680,3 +2680,225 @@ export function analyzeAdjustedBodyWeight(
     importantNotes
   };
 }
+
+/**
+ * Calculate Body Surface Area (BSA) using Du Bois formula (1916)
+ * Most accurate and widely used in clinical practice
+ * BSA (m²) = 0.007184 × weight^0.425 × height^0.725
+ */
+export function calculateBSADuBois(weight: number, height: number): number {
+  // Weight in kg, height in cm
+  // BSA (m²) = 0.007184 × weight^0.425 × height^0.725
+  return 0.007184 * Math.pow(weight, 0.425) * Math.pow(height, 0.725);
+}
+
+/**
+ * Calculate Body Surface Area using Mosteller formula (1987)
+ * Simplified and commonly used in pediatric and adult medicine
+ * BSA (m²) = √((height × weight) / 3600)
+ */
+export function calculateBSAMosteller(weight: number, height: number): number {
+  // Weight in kg, height in cm
+  return Math.sqrt((height * weight) / 3600);
+}
+
+/**
+ * Calculate Body Surface Area using Haycock formula (1978)
+ * More accurate for children and small adults
+ * BSA (m²) = 0.024265 × weight^0.5378 × height^0.3964
+ */
+export function calculateBSAHaycock(weight: number, height: number): number {
+  // Weight in kg, height in cm
+  const heightInMeters = height / 100;
+  return 0.024265 * Math.pow(weight, 0.5378) * Math.pow(heightInMeters, 0.3964);
+}
+
+/**
+ * Calculate Body Surface Area using Gehan & George formula (1970)
+ * Useful for extremes of body size
+ * BSA (m²) = 0.0235 × weight^0.51456 × height^0.42246
+ */
+export function calculateBSAGehan(weight: number, height: number): number {
+  const heightInMeters = height / 100;
+  return 0.0235 * Math.pow(weight, 0.51456) * Math.pow(heightInMeters, 0.42246);
+}
+
+/**
+ * Calculate Body Surface Area using Boyd formula (1935)
+ * Older formula, still referenced in some contexts
+ * BSA (m²) = 0.0003207 × (weight^0.7285 - 0.0188 × log10(weight)) × height^0.3
+ */
+export function calculateBSABoyd(weight: number, height: number): number {
+  const heightInMeters = height / 100;
+  const logWeight = Math.log10(weight);
+  return 0.0003207 * (Math.pow(weight, 0.7285) - 0.0188 * logWeight) * Math.pow(heightInMeters, 0.3);
+}
+
+/**
+ * Comprehensive BSA analysis with all formulas and clinical applications
+ */
+export interface BSAAnalysis {
+  duBois: number;
+  mosteller: number;
+  haycock: number;
+  gehan: number;
+  boyd: number;
+  average: number;
+  primaryFormula: string;
+  comparison: {
+    formula: string;
+    value: number;
+    difference: number;
+  }[];
+  clinicalApplications: {
+    chemotherapy: {
+      doseArea: number; // mg/m²
+      exampleDose: number; // example dose in mg
+    };
+    cardiacIndex: {
+      cardiacOutput: number; // L/min (normal range: 4-8)
+      strokeVolume: number; // mL/beat
+    };
+    drugDosage: {
+      examples: {
+        drug: string;
+        dosePerBSA: string;
+        calculatedDose: number;
+        unit: string;
+      }[];
+    };
+    fluidResuscitation: {
+      maintenanceFluids: number; // mL/day
+      burnResuscitation: number; // mL for 24h (Parkland formula)
+    };
+    nutritionalSupport: {
+      totalCalories: number; // kcal/day
+      proteinNeeds: number; // g/day
+    };
+  };
+  accuracyNotes: string[];
+  recommendations: string[];
+}
+
+export function analyzeBSA(weight: number, height: number): BSAAnalysis {
+  const duBois = calculateBSADuBois(weight, height);
+  const mosteller = calculateBSAMosteller(weight, height);
+  const haycock = calculateBSAHaycock(weight, height);
+  const gehan = calculateBSAGehan(weight, height);
+  const boyd = calculateBSABoyd(weight, height);
+
+  const average = (duBois + mosteller + haycock + gehan + boyd) / 5;
+
+  // Determine primary formula (Du Bois is gold standard)
+  const primaryFormula = 'Du Bois (1916)';
+
+  // Compare all formulas relative to Du Bois
+  const comparison = [
+    { formula: 'Du Bois', value: duBois, difference: 0 },
+    { formula: 'Mosteller', value: mosteller, difference: ((mosteller - duBois) / duBois) * 100 },
+    { formula: 'Haycock', value: haycock, difference: ((haycock - duBois) / duBois) * 100 },
+    { formula: 'Gehan & George', value: gehan, difference: ((gehan - duBois) / duBois) * 100 },
+    { formula: 'Boyd', value: boyd, difference: ((boyd - duBois) / duBois) * 100 }
+  ];
+
+  // Clinical applications
+  const chemotherapyDoseArea = 75; // Example: 75 mg/m²
+  const exampleChemoDose = average * chemotherapyDoseArea;
+
+  const normalCardiacIndex = 5; // L/min/m² (normal range 2.5-4.0 L/min/m²)
+  const cardiacOutput = average * normalCardiacIndex; // Total cardiac output
+  const strokeVolume = (cardiacOutput * 1000) / 70; // Assuming 70 bpm
+
+  const drugDosageExamples = [
+    {
+      drug: 'Doxorrubicina (quimioterapia)',
+      dosePerBSA: '60-75 mg/m²',
+      calculatedDose: Math.round(average * 67.5), // average of range
+      unit: 'mg'
+    },
+    {
+      drug: 'Cisplatino (quimioterapia)',
+      dosePerBSA: '50-100 mg/m²',
+      calculatedDose: Math.round(average * 75),
+      unit: 'mg'
+    },
+    {
+      drug: 'Gentamicina (antibiótico)',
+      dosePerBSA: '1.5-2 mg/kg (corregido por BSA si IMC >30)',
+      calculatedDose: Math.round(weight * 1.75),
+      unit: 'mg'
+    },
+    {
+      drug: 'Fluidos mantenimiento',
+      dosePerBSA: '1500-2000 mL/m²/día',
+      calculatedDose: Math.round(average * 1750),
+      unit: 'mL/día'
+    }
+  ];
+
+  // Maintenance fluids: 1500-2000 mL/m²/day
+  const maintenanceFluids = average * 1750;
+
+  // Burn resuscitation (Parkland formula): 4 mL/kg/% burn area
+  // Using average burn of 20% for calculation example
+  const burnPercentage = 20;
+  const burnResuscitation24h = 4 * weight * burnPercentage;
+
+  // Nutritional support
+  // Total calories: 25-30 kcal/kg, or 1000-1200 kcal/m²
+  const totalCalories = Math.max(average * 1100, weight * 27.5);
+  // Protein: 1.2-1.5 g/kg or 40-50 g/m²
+  const proteinNeeds = Math.max(average * 45, weight * 1.35);
+
+  const accuracyNotes = [
+    'Du Bois es la fórmula más precisa y estándar en medicina clínica desde 1916',
+    'Mosteller es la más simple y comúnmente usada en pediatría',
+    'Haycock es más precisa para niños y adultos de talla pequeña',
+    'Gehan & George es útil en extremos de tamaño corporal',
+    'Las diferencias entre fórmulas suelen ser <3% en la mayoría de casos',
+    'En obesidad o bajo peso extremo, consulta con especialista para ajustes'
+  ];
+
+  const recommendations = [
+    'Usa la fórmula Du Bois como referencia estándar en la mayoría de casos',
+    'En pediatría, considera Haycock o Mosteller por su simplicidad',
+    'Para quimioterapia y fármacos críticos, siempre usa la misma fórmula de forma consistente',
+    'Combina BSA con ABW (peso ajustado) en pacientes con obesidad para mayor precisión',
+    'El BSA es esencial en oncología, cardiología y cuidados intensivos',
+    'Revisa las dosis calculadas con el equipo médico, especialmente en pacientes críticos'
+  ];
+
+  return {
+    duBois,
+    mosteller,
+    haycock,
+    gehan,
+    boyd,
+    average,
+    primaryFormula,
+    comparison,
+    clinicalApplications: {
+      chemotherapy: {
+        doseArea: chemotherapyDoseArea,
+        exampleDose: Math.round(exampleChemoDose)
+      },
+      cardiacIndex: {
+        cardiacOutput: Math.round(cardiacOutput * 10) / 10,
+        strokeVolume: Math.round(strokeVolume)
+      },
+      drugDosage: {
+        examples: drugDosageExamples
+      },
+      fluidResuscitation: {
+        maintenanceFluids: Math.round(maintenanceFluids),
+        burnResuscitation: Math.round(burnResuscitation24h)
+      },
+      nutritionalSupport: {
+        totalCalories: Math.round(totalCalories),
+        proteinNeeds: Math.round(proteinNeeds)
+      }
+    },
+    accuracyNotes,
+    recommendations
+  };
+}

@@ -140,6 +140,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de Peso Ajustado (ABW - Adjusted Body Weight) según fórmula Robinson. Fundamental para dosificación de medicamentos, necesidades calóricas y proteicas en obesidad y bajo peso. Herramienta clínica validada para profesionales de salud.',
     keywords: ['calculadora peso ajustado', 'ABW', 'adjusted body weight', 'peso clínico', 'Robinson', 'dosificación medicamentos', 'nutrición clínica', 'peso ideal', 'obesidad', 'farmacia', 'necesidades proteicas', 'cálculos clínicos'],
     path: '/peso-ajustado'
+  },
+  bsa: {
+    title: 'Calculadora BSA Superficie Corporal | 5 Fórmulas Científicas | Du Bois | Mosteller',
+    description: 'Calculadora profesional de BSA (Body Surface Area - Superficie Corporal) con 5 fórmulas científicas: Du Bois, Mosteller, Haycock, Gehan y Boyd. Esencial para dosificación de quimioterapia, cálculo cardiaco, fluidos intravenosos y nutrición hospitalaria. Herramienta clínica validada.',
+    keywords: ['calculadora BSA', 'superficie corporal', 'body surface area', 'BSA', 'Du Bois', 'Mosteller', 'Haycock', 'quimioterapia', 'dosificación medicamentos', 'cardiac index', 'fluidos intravenosos', 'nutrición hospitalaria', 'oncología', 'cuidados intensivos'],
+    path: '/bsa'
   }
 };
 

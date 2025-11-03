@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -222,6 +222,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'body-composition',
     relatedCalculators: ['peso-ideal', 'imc', 'proteina', 'bmr']
+  },
+  {
+    key: 'bsa',
+    title: 'BSA (Superficie Corporal)',
+    href: '/bsa',
+    description: 'Superficie corporal con 5 fórmulas científicas para dosis médicas y aplicaciones clínicas',
+    icon: Stethoscope,
+    priority: 'high',
+    category: 'health',
+    relatedCalculators: ['peso-ajustado', 'imc', 'peso-ideal', 'proteina']
   }
 ];
 

@@ -2902,3 +2902,221 @@ export function analyzeBSA(weight: number, height: number): BSAAnalysis {
     recommendations
   };
 }
+
+/**
+ * Calculate A Body Shape Index (ABSI) - Krakauer & Krakauer (2012)
+ * Predicts mortality risk better than BMI alone by incorporating waist circumference
+ * ABSI = WC / (BMI^(2/3) × height^(1/2))
+ * Where WC is in meters, BMI is kg/m², height is in meters
+ */
+export function calculateABSI(waistCircumference: number, bmi: number, height: number): number {
+  // Convert waist circumference from cm to meters
+  const waistMeters = waistCircumference / 100;
+  const heightMeters = height / 100;
+  
+  // ABSI formula: WC / (BMI^(2/3) × height^(1/2))
+  const denominator = Math.pow(bmi, 2/3) * Math.pow(heightMeters, 1/2);
+  return waistMeters / denominator;
+}
+
+/**
+ * Calculate ABSI z-score (standardized score)
+ * Compares individual ABSI to population mean
+ */
+export function calculateABSIZScore(absi: number, gender: 'male' | 'female', age: number): number {
+  // Population means and standard deviations by gender (from Krakauer & Krakauer 2012)
+  // These are approximate values - actual values vary by population
+  const meanABSI = gender === 'male' ? 0.0808 : 0.0806;
+  const sdABSI = gender === 'male' ? 0.0054 : 0.0059;
+  
+  // Age adjustment (ABSI increases slightly with age)
+  const ageAdjustment = age > 50 ? 0.0001 * (age - 50) : 0;
+  const adjustedMean = meanABSI + ageAdjustment;
+  
+  return (absi - adjustedMean) / sdABSI;
+}
+
+/**
+ * Comprehensive ABSI analysis with mortality risk assessment
+ */
+export interface ABSIAnalysis {
+  absi: number;
+  absiZScore: number;
+  mortalityRisk: 'Muy Bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  riskCategory: string;
+  percentile: number;
+  relativeRisk: number; // Relative risk compared to average
+  healthStatus: string;
+  recommendations: string[];
+  comparison: {
+    metric: string;
+    value: number;
+    status: string;
+  }[];
+  clinicalInterpretation: string;
+  mortalityRiskFactors: string[];
+  improvementStrategies: string[];
+}
+
+export function analyzeABSI(
+  waistCircumference: number,
+  weight: number,
+  height: number,
+  gender: 'male' | 'female',
+  age: number
+): ABSIAnalysis {
+  const heightMeters = height / 100;
+  const bmi = weight / (heightMeters * heightMeters);
+  const absi = calculateABSI(waistCircumference, bmi, height);
+  const absiZScore = calculateABSIZScore(absi, gender, age);
+
+  // Percentile calculation based on z-score
+  // Using cumulative distribution function of standard normal distribution
+  const percentile = Math.round((0.5 * (1 + erf(absiZScore / Math.sqrt(2)))) * 100);
+  // Clamp percentile to 0-100 range
+  const clampedPercentile = Math.max(0, Math.min(100, percentile));
+
+  // Mortality risk assessment based on ABSI z-score
+  let mortalityRisk: 'Muy Bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  let riskCategory: string;
+  let relativeRisk: number;
+  let healthStatus: string;
+
+  if (absiZScore < -1.0) {
+    mortalityRisk = 'Muy Bajo';
+    riskCategory = 'Riesgo muy bajo de mortalidad';
+    relativeRisk = 0.6;
+    healthStatus = 'Excelente - ABSI indica bajo riesgo de mortalidad';
+  } else if (absiZScore < -0.5) {
+    mortalityRisk = 'Bajo';
+    riskCategory = 'Riesgo bajo de mortalidad';
+    relativeRisk = 0.8;
+    healthStatus = 'Bueno - Riesgo de mortalidad por debajo del promedio';
+  } else if (absiZScore < 0.5) {
+    mortalityRisk = 'Moderado';
+    riskCategory = 'Riesgo promedio de mortalidad';
+    relativeRisk = 1.0;
+    healthStatus = 'Moderado - Riesgo de mortalidad en rango promedio';
+  } else if (absiZScore < 1.0) {
+    mortalityRisk = 'Alto';
+    riskCategory = 'Riesgo alto de mortalidad';
+    relativeRisk = 1.4;
+    healthStatus = 'Alerta - Riesgo de mortalidad por encima del promedio';
+  } else {
+    mortalityRisk = 'Muy Alto';
+    riskCategory = 'Riesgo muy alto de mortalidad';
+    relativeRisk = 2.0;
+    healthStatus = 'Crítico - Riesgo de mortalidad significativamente elevado';
+  }
+
+  // Comparison with other metrics
+  const whr = waistCircumference / (height * 0.5); // Approximate hip circumference
+  const whtr = waistCircumference / height;
+  
+  const comparison = [
+    {
+      metric: 'ABSI',
+      value: absi,
+      status: absiZScore < 0 ? 'Favorable' : absiZScore < 0.5 ? 'Normal' : 'Desfavorable'
+    },
+    {
+      metric: 'IMC',
+      value: bmi,
+      status: bmi < 25 ? 'Normal' : bmi < 30 ? 'Sobrepeso' : 'Obesidad'
+    },
+    {
+      metric: 'WHtR',
+      value: whtr,
+      status: whtr < 0.5 ? 'Normal' : whtr < 0.6 ? 'Elevado' : 'Alto'
+    },
+    {
+      metric: 'Circunferencia Cintura',
+      value: waistCircumference,
+      status: (gender === 'male' && waistCircumference < 94) || (gender === 'female' && waistCircumference < 80)
+        ? 'Normal'
+        : (gender === 'male' && waistCircumference < 102) || (gender === 'female' && waistCircumference < 88)
+        ? 'Elevada'
+        : 'Alta'
+    }
+  ];
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (absiZScore > 0.5) {
+    recommendations.push('Prioriza reducción de grasa abdominal mediante ejercicio cardiovascular regular');
+    recommendations.push('Implementa dieta con déficit calórico moderado (300-500 kcal/día)');
+    recommendations.push('Incluye entrenamiento de fuerza para preservar masa muscular durante pérdida de peso');
+    recommendations.push('Considera evaluación médica para descartar síndrome metabólico');
+  } else if (absiZScore > 0) {
+    recommendations.push('Mantén actividad física regular (150 min/semana de ejercicio moderado)');
+    recommendations.push('Monitorea circunferencia de cintura mensualmente');
+    recommendations.push('Sigue una dieta equilibrada rica en fibra y proteína');
+  } else {
+    recommendations.push('Mantén tus hábitos actuales de ejercicio y nutrición');
+    recommendations.push('Continúa monitoreando tu ABSI anualmente');
+    recommendations.push('Considera evaluación de composición corporal para optimización');
+  }
+
+  // Mortality risk factors
+  const mortalityRiskFactors: string[] = [];
+  if (absiZScore > 1.0) {
+    mortalityRiskFactors.push('Riesgo cardiovascular significativamente elevado');
+    mortalityRiskFactors.push('Mayor riesgo de diabetes tipo 2');
+    mortalityRiskFactors.push('Aumento del riesgo de eventos cardiovasculares');
+    mortalityRiskFactors.push('Mayor riesgo de mortalidad por todas las causas');
+  } else if (absiZScore > 0.5) {
+    mortalityRiskFactors.push('Riesgo cardiovascular moderadamente elevado');
+    mortalityRiskFactors.push('Mayor riesgo de síndrome metabólico');
+  }
+
+  // Improvement strategies
+  const improvementStrategies: string[] = [];
+  if (absiZScore > 0) {
+    improvementStrategies.push('Reducir circunferencia de cintura 5-10 cm puede mejorar significativamente el ABSI');
+    improvementStrategies.push('Perder 5-10% del peso corporal actual puede reducir el riesgo');
+    improvementStrategies.push('Ejercicio de alta intensidad (HIIT) es efectivo para reducir grasa abdominal');
+    improvementStrategies.push('Dieta mediterránea o DASH puede mejorar el perfil de riesgo');
+  }
+
+  const clinicalInterpretation = `Tu ABSI de ${absi.toFixed(4)} (z-score: ${absiZScore.toFixed(2)}) indica un ${riskCategory.toLowerCase()}. 
+    Este índice predice mortalidad mejor que el IMC solo al incorporar la distribución de grasa abdominal. 
+    Un ABSI elevado se asocia con mayor riesgo cardiovascular, diabetes y mortalidad por todas las causas. 
+    ${absiZScore > 0.5 ? 'Se recomienda intervención médica y cambios en estilo de vida.' : 'Mantén hábitos saludables para preservar tu bajo riesgo.'}`;
+
+  return {
+    absi,
+    absiZScore,
+    mortalityRisk,
+    riskCategory,
+    percentile: clampedPercentile,
+    relativeRisk,
+    healthStatus,
+    recommendations,
+    comparison,
+    clinicalInterpretation,
+    mortalityRiskFactors,
+    improvementStrategies
+  };
+}
+
+/**
+ * Error function approximation for z-score to percentile conversion
+ */
+function erf(x: number): number {
+  // Approximation of error function
+  const a1 =  0.254829592;
+  const a2 = -0.284496736;
+  const a3 =  1.421413741;
+  const a4 = -1.453152027;
+  const a5 =  1.061405429;
+  const p  =  0.3275911;
+
+  const sign = x < 0 ? -1 : 1;
+  x = Math.abs(x);
+
+  const t = 1.0 / (1.0 + p * x);
+  const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+
+  return sign * y;
+}

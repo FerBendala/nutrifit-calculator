@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -232,6 +232,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'health',
     relatedCalculators: ['peso-ajustado', 'imc', 'peso-ideal', 'proteina']
+  },
+  {
+    key: 'absi',
+    title: 'ABSI (A Body Shape Index)',
+    href: '/absi',
+    description: 'Índice de forma corporal que predice mortalidad mejor que el IMC solo',
+    icon: AlertTriangle,
+    priority: 'high',
+    category: 'health',
+    relatedCalculators: ['imc', 'whtr', 'whr', 'grasa-corporal']
   }
 ];
 

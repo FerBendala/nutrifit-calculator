@@ -146,6 +146,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de BSA (Body Surface Area - Superficie Corporal) con 5 fórmulas científicas: Du Bois, Mosteller, Haycock, Gehan y Boyd. Esencial para dosificación de quimioterapia, cálculo cardiaco, fluidos intravenosos y nutrición hospitalaria. Herramienta clínica validada.',
     keywords: ['calculadora BSA', 'superficie corporal', 'body surface area', 'BSA', 'Du Bois', 'Mosteller', 'Haycock', 'quimioterapia', 'dosificación medicamentos', 'cardiac index', 'fluidos intravenosos', 'nutrición hospitalaria', 'oncología', 'cuidados intensivos'],
     path: '/bsa'
+  },
+  absi: {
+    title: 'Calculadora ABSI | A Body Shape Index | Predicción Mortalidad | Krakauer',
+    description: 'Calculadora profesional de ABSI (A Body Shape Index) según fórmula Krakauer & Krakauer (2012). Predice riesgo de mortalidad mejor que el IMC solo al incorporar distribución de grasa abdominal. Evaluación de riesgo cardiovascular, diabetes y mortalidad por todas las causas.',
+    keywords: ['calculadora ABSI', 'A Body Shape Index', 'ABSI', 'Krakauer', 'predicción mortalidad', 'riesgo cardiovascular', 'índice forma corporal', 'mortalidad', 'riesgo salud', 'circunferencia cintura', 'distribución grasa', 'síndrome metabólico'],
+    path: '/absi'
   }
 };
 

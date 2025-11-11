@@ -152,6 +152,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de ABSI (A Body Shape Index) según fórmula Krakauer & Krakauer (2012). Predice riesgo de mortalidad mejor que el IMC solo al incorporar distribución de grasa abdominal. Evaluación de riesgo cardiovascular, diabetes y mortalidad por todas las causas.',
     keywords: ['calculadora ABSI', 'A Body Shape Index', 'ABSI', 'Krakauer', 'predicción mortalidad', 'riesgo cardiovascular', 'índice forma corporal', 'mortalidad', 'riesgo salud', 'circunferencia cintura', 'distribución grasa', 'síndrome metabólico'],
     path: '/absi'
+  },
+  bri: {
+    title: 'Calculadora BRI | Body Roundness Index | Riesgo Metabólico | Thomas',
+    description: 'Calculadora profesional de BRI (Body Roundness Index) según fórmula Thomas et al. (2013). Predice riesgo metabólico y cardiovascular basándose en la forma corporal. Evaluación de síndrome metabólico, diabetes tipo 2 y enfermedad cardiovascular.',
+    keywords: ['calculadora BRI', 'Body Roundness Index', 'BRI', 'Thomas', 'riesgo metabólico', 'riesgo cardiovascular', 'índice redondez corporal', 'síndrome metabólico', 'diabetes', 'circunferencia cintura', 'forma corporal'],
+    path: '/bri'
   }
 };
 

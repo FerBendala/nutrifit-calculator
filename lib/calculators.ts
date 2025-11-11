@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -242,6 +242,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'health',
     relatedCalculators: ['imc', 'whtr', 'whr', 'grasa-corporal']
+  },
+  {
+    key: 'bri',
+    title: 'BRI (Body Roundness Index)',
+    href: '/bri',
+    description: 'Índice de redondez corporal que predice riesgo metabólico y cardiovascular',
+    icon: Circle,
+    priority: 'high',
+    category: 'health',
+    relatedCalculators: ['absi', 'imc', 'whtr', 'whr']
   }
 ];
 

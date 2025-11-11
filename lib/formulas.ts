@@ -3120,3 +3120,188 @@ function erf(x: number): number {
 
   return sign * y;
 }
+
+/**
+ * Calculate Body Roundness Index (BRI) - Thomas et al. (2013)
+ * Predicts metabolic and cardiovascular risk by estimating body roundness
+ * BRI = 364.2 - 365.5 × √(1 - (WC/(2π))² / (0.5 × height)²)
+ * Where WC is waist circumference in meters, height is in meters
+ */
+export function calculateBRI(waistCircumference: number, height: number): number {
+  // Convert to meters
+  const waistMeters = waistCircumference / 100;
+  const heightMeters = height / 100;
+  
+  // BRI formula: 364.2 - 365.5 × √(1 - (WC/(2π))² / (0.5 × height)²)
+  const numerator = Math.pow(waistMeters / (2 * Math.PI), 2);
+  const denominator = Math.pow(0.5 * heightMeters, 2);
+  const sqrtTerm = Math.sqrt(1 - (numerator / denominator));
+  
+  return 364.2 - 365.5 * sqrtTerm;
+}
+
+/**
+ * Comprehensive BRI analysis with metabolic and cardiovascular risk assessment
+ */
+export interface BRIAnalysis {
+  bri: number;
+  riskCategory: 'Muy Bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  metabolicRisk: string;
+  cardiovascularRisk: string;
+  healthStatus: string;
+  briInterpretation: string;
+  comparison: {
+    metric: string;
+    value: number;
+    status: string;
+  }[];
+  recommendations: string[];
+  riskFactors: string[];
+  improvementStrategies: string[];
+  clinicalInterpretation: string;
+}
+
+export function analyzeBRI(
+  waistCircumference: number,
+  weight: number,
+  height: number,
+  gender: 'male' | 'female',
+  age: number
+): BRIAnalysis {
+  const bri = calculateBRI(waistCircumference, height);
+  const heightMeters = height / 100;
+  const bmi = weight / (heightMeters * heightMeters);
+  const whtr = waistCircumference / height;
+
+  // BRI risk categories based on research (Thomas et al. 2013, and subsequent studies)
+  // BRI ranges typically: 0-20 (very low risk) to 20+ (high risk)
+  let riskCategory: 'Muy Bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  let metabolicRisk: string;
+  let cardiovascularRisk: string;
+  let healthStatus: string;
+  let briInterpretation: string;
+
+  if (bri < 3) {
+    riskCategory = 'Muy Bajo';
+    metabolicRisk = 'Riesgo metabólico muy bajo';
+    cardiovascularRisk = 'Riesgo cardiovascular muy bajo';
+    healthStatus = 'Excelente - BRI indica forma corporal óptima';
+    briInterpretation = 'Tu BRI indica una forma corporal muy favorable con bajo riesgo de complicaciones metabólicas y cardiovasculares.';
+  } else if (bri < 5) {
+    riskCategory = 'Bajo';
+    metabolicRisk = 'Riesgo metabólico bajo';
+    cardiovascularRisk = 'Riesgo cardiovascular bajo';
+    healthStatus = 'Bueno - Forma corporal saludable';
+    briInterpretation = 'Tu BRI está en rango saludable, indicando bajo riesgo de síndrome metabólico y enfermedad cardiovascular.';
+  } else if (bri < 8) {
+    riskCategory = 'Moderado';
+    metabolicRisk = 'Riesgo metabólico moderado';
+    cardiovascularRisk = 'Riesgo cardiovascular moderado';
+    healthStatus = 'Moderado - Algunos factores de riesgo presentes';
+    briInterpretation = 'Tu BRI indica riesgo moderado. Se recomienda monitoreo y cambios en estilo de vida preventivos.';
+  } else if (bri < 12) {
+    riskCategory = 'Alto';
+    metabolicRisk = 'Riesgo metabólico alto';
+    cardiovascularRisk = 'Riesgo cardiovascular alto';
+    healthStatus = 'Alerta - Riesgo elevado de complicaciones';
+    briInterpretation = 'Tu BRI indica riesgo elevado de síndrome metabólico y enfermedad cardiovascular. Se recomienda intervención.';
+  } else {
+    riskCategory = 'Muy Alto';
+    metabolicRisk = 'Riesgo metabólico muy alto';
+    cardiovascularRisk = 'Riesgo cardiovascular muy alto';
+    healthStatus = 'Crítico - Riesgo muy elevado, requiere atención médica';
+    briInterpretation = 'Tu BRI indica riesgo muy elevado. Se recomienda evaluación médica inmediata y cambios significativos en estilo de vida.';
+  }
+
+  // Comparison with other metrics
+  const comparison = [
+    {
+      metric: 'BRI',
+      value: bri,
+      status: riskCategory === 'Muy Bajo' || riskCategory === 'Bajo' ? 'Favorable' : riskCategory === 'Moderado' ? 'Moderado' : 'Desfavorable'
+    },
+    {
+      metric: 'IMC',
+      value: bmi,
+      status: bmi < 25 ? 'Normal' : bmi < 30 ? 'Sobrepeso' : 'Obesidad'
+    },
+    {
+      metric: 'WHtR',
+      value: whtr,
+      status: whtr < 0.5 ? 'Normal' : whtr < 0.6 ? 'Elevado' : 'Alto'
+    },
+    {
+      metric: 'Circunferencia Cintura',
+      value: waistCircumference,
+      status: (gender === 'male' && waistCircumference < 94) || (gender === 'female' && waistCircumference < 80)
+        ? 'Normal'
+        : (gender === 'male' && waistCircumference < 102) || (gender === 'female' && waistCircumference < 88)
+        ? 'Elevada'
+        : 'Alta'
+    }
+  ];
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (bri >= 8) {
+    recommendations.push('Prioriza reducción de grasa abdominal mediante ejercicio cardiovascular regular (150+ min/semana)');
+    recommendations.push('Implementa dieta con déficit calórico moderado (300-500 kcal/día)');
+    recommendations.push('Incluye entrenamiento de fuerza 2-3 veces por semana para preservar masa muscular');
+    recommendations.push('Considera evaluación médica para descartar síndrome metabólico y diabetes');
+    recommendations.push('Monitorea presión arterial, glucosa y lípidos regularmente');
+  } else if (bri >= 5) {
+    recommendations.push('Mantén actividad física regular (150 min/semana de ejercicio moderado)');
+    recommendations.push('Monitorea circunferencia de cintura mensualmente');
+    recommendations.push('Sigue una dieta equilibrada rica en fibra, proteína y grasas saludables');
+    recommendations.push('Evita alimentos ultraprocesados y azúcares añadidos');
+  } else {
+    recommendations.push('Mantén tus hábitos actuales de ejercicio y nutrición');
+    recommendations.push('Continúa monitoreando tu BRI anualmente');
+    recommendations.push('Considera evaluación de composición corporal para optimización');
+  }
+
+  // Risk factors
+  const riskFactors: string[] = [];
+  if (bri >= 12) {
+    riskFactors.push('Alto riesgo de síndrome metabólico');
+    riskFactors.push('Mayor riesgo de diabetes tipo 2');
+    riskFactors.push('Aumento del riesgo de enfermedad cardiovascular');
+    riskFactors.push('Mayor riesgo de hipertensión arterial');
+    riskFactors.push('Riesgo elevado de dislipidemia (colesterol y triglicéridos)');
+  } else if (bri >= 8) {
+    riskFactors.push('Riesgo moderado-alto de síndrome metabólico');
+    riskFactors.push('Mayor riesgo de resistencia a la insulina');
+    riskFactors.push('Aumento del riesgo cardiovascular');
+  }
+
+  // Improvement strategies
+  const improvementStrategies: string[] = [];
+  if (bri >= 5) {
+    improvementStrategies.push('Reducir circunferencia de cintura 5-10 cm puede mejorar significativamente el BRI');
+    improvementStrategies.push('Perder 5-10% del peso corporal actual puede reducir el riesgo metabólico');
+    improvementStrategies.push('Ejercicio de alta intensidad (HIIT) es efectivo para reducir grasa abdominal');
+    improvementStrategies.push('Dieta mediterránea o DASH puede mejorar el perfil metabólico');
+    improvementStrategies.push('Reducir consumo de azúcares refinados y carbohidratos procesados');
+    improvementStrategies.push('Aumentar consumo de fibra (25-30g/día) y proteína magra');
+  }
+
+  const clinicalInterpretation = `Tu BRI de ${bri.toFixed(2)} indica ${riskCategory.toLowerCase()}. 
+    El Body Roundness Index predice riesgo metabólico y cardiovascular basándose en la forma corporal. 
+    Un BRI elevado se asocia con mayor riesgo de síndrome metabólico, diabetes tipo 2 y enfermedad cardiovascular. 
+    ${bri >= 8 ? 'Se recomienda intervención médica y cambios significativos en estilo de vida.' : 'Mantén hábitos saludables para preservar tu bajo riesgo.'}`;
+
+  return {
+    bri,
+    riskCategory,
+    metabolicRisk,
+    cardiovascularRisk,
+    healthStatus,
+    briInterpretation,
+    comparison,
+    recommendations,
+    riskFactors,
+    improvementStrategies,
+    clinicalInterpretation
+  };
+}

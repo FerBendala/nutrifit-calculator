@@ -1,6 +1,6 @@
 ---
 title: 'Tasa Metabólica en Reposo: Cómo Interpretarla y Ajustar tu Plan'
-date: '202511-03'
+date: '2025-11-03'
 author: 'Dr. Nutrifit'
 description: 'Aprende a medir tu RMR con fiabilidad, identificar adaptaciones metabólicas y sincronizar entrenamiento, déficit o súperávit con tus datos.'
 categories: ['Salud Metabólica', 'Evaluación', 'Planificación']

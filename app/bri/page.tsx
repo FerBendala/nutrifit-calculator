@@ -106,7 +106,6 @@ export default function BRIPage() {
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <span className="text-3xl mr-3">⭕</span>
                   Calculadora de BRI
                 </CardTitle>
               </CardHeader>
@@ -193,7 +192,7 @@ export default function BRIPage() {
                     disabled={!isFormValid}
                     className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
                   >
-                    ⭕ Calcular BRI
+                    Calcular BRI
                   </Button>
                 </form>
               </CardContent>

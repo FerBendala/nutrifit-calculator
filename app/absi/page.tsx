@@ -105,7 +105,6 @@ export default function ABSIPage() {
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <span className="text-3xl mr-3">⚠️</span>
                   Calculadora de ABSI
                 </CardTitle>
               </CardHeader>
@@ -192,7 +191,7 @@ export default function ABSIPage() {
                     disabled={!isFormValid}
                     className="w-full md:w-auto btn-golden-lg font-semibold transition-golden"
                   >
-                    ⚠️ Calcular ABSI
+                    Calcular ABSI
                   </Button>
                 </form>
               </CardContent>

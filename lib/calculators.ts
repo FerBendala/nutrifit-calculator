@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -252,6 +252,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'health',
     relatedCalculators: ['absi', 'imc', 'whtr', 'whr']
+  },
+  {
+    key: 'ci',
+    title: 'CI (Conicity Index)',
+    href: '/ci',
+    description: 'Índice de conicidad que evalúa distribución de grasa abdominal y riesgo cardiovascular',
+    icon: Gauge,
+    priority: 'high',
+    category: 'health',
+    relatedCalculators: ['absi', 'bri', 'whtr', 'whr']
   }
 ];
 

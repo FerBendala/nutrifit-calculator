@@ -3305,3 +3305,198 @@ export function analyzeBRI(
     clinicalInterpretation
   };
 }
+
+/**
+ * Calculate Conicity Index (CI) - Valdez (1991)
+ * Evaluates abdominal fat distribution by comparing waist circumference
+ * to the expected circumference of a cylinder with the same weight and height
+ * CI = WC / (0.109 × √(weight/height))
+ * Where WC is waist circumference in meters, weight is in kg, height is in meters
+ */
+export function calculateConicityIndex(waistCircumference: number, weight: number, height: number): number {
+  // Convert to meters
+  const waistMeters = waistCircumference / 100;
+  const heightMeters = height / 100;
+  
+  // CI formula: WC / (0.109 × √(weight/height))
+  const denominator = 0.109 * Math.sqrt(weight / heightMeters);
+  return waistMeters / denominator;
+}
+
+/**
+ * Comprehensive Conicity Index analysis with cardiovascular and metabolic risk assessment
+ */
+export interface CIAnalysis {
+  ci: number;
+  riskCategory: 'Muy Bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  cardiovascularRisk: string;
+  metabolicRisk: string;
+  healthStatus: string;
+  ciInterpretation: string;
+  comparison: {
+    metric: string;
+    value: number;
+    status: string;
+  }[];
+  recommendations: string[];
+  riskFactors: string[];
+  improvementStrategies: string[];
+  clinicalInterpretation: string;
+}
+
+export function analyzeConicityIndex(
+  waistCircumference: number,
+  weight: number,
+  height: number,
+  gender: 'male' | 'female',
+  age: number
+): CIAnalysis {
+  const ci = calculateConicityIndex(waistCircumference, weight, height);
+  const heightMeters = height / 100;
+  const bmi = weight / (heightMeters * heightMeters);
+  const whtr = waistCircumference / height;
+
+  // CI risk categories based on research (Valdez 1991, and subsequent studies)
+  // CI < 1.18: Very low risk (normal distribution)
+  // CI 1.18-1.25: Low to moderate risk
+  // CI 1.25-1.30: Moderate to high risk
+  // CI > 1.30: High risk (abdominal obesity)
+  let riskCategory: 'Muy Bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  let cardiovascularRisk: string;
+  let metabolicRisk: string;
+  let healthStatus: string;
+  let ciInterpretation: string;
+
+  if (ci < 1.18) {
+    riskCategory = 'Muy Bajo';
+    cardiovascularRisk = 'Riesgo cardiovascular muy bajo';
+    metabolicRisk = 'Riesgo metabólico muy bajo';
+    healthStatus = 'Excelente - CI indica distribución de grasa favorable';
+    ciInterpretation = 'Tu CI indica una distribución de grasa corporal muy favorable, con bajo riesgo de complicaciones cardiovasculares y metabólicas.';
+  } else if (ci < 1.25) {
+    riskCategory = 'Bajo';
+    cardiovascularRisk = 'Riesgo cardiovascular bajo';
+    metabolicRisk = 'Riesgo metabólico bajo';
+    healthStatus = 'Bueno - Distribución de grasa saludable';
+    ciInterpretation = 'Tu CI está en rango saludable, indicando distribución de grasa corporal favorable y bajo riesgo cardiovascular.';
+  } else if (ci < 1.30) {
+    riskCategory = 'Moderado';
+    cardiovascularRisk = 'Riesgo cardiovascular moderado';
+    metabolicRisk = 'Riesgo metabólico moderado';
+    healthStatus = 'Moderado - Algunos factores de riesgo presentes';
+    ciInterpretation = 'Tu CI indica riesgo moderado de distribución de grasa abdominal. Se recomienda monitoreo y cambios en estilo de vida preventivos.';
+  } else if (ci < 1.35) {
+    riskCategory = 'Alto';
+    cardiovascularRisk = 'Riesgo cardiovascular alto';
+    metabolicRisk = 'Riesgo metabólico alto';
+    healthStatus = 'Alerta - Riesgo elevado de complicaciones';
+    ciInterpretation = 'Tu CI indica riesgo elevado de distribución de grasa abdominal. Se recomienda intervención para reducir circunferencia de cintura.';
+  } else {
+    riskCategory = 'Muy Alto';
+    cardiovascularRisk = 'Riesgo cardiovascular muy alto';
+    metabolicRisk = 'Riesgo metabólico muy alto';
+    healthStatus = 'Crítico - Riesgo muy elevado, requiere atención médica';
+    ciInterpretation = 'Tu CI indica riesgo muy elevado de distribución de grasa abdominal. Se recomienda evaluación médica inmediata y cambios significativos en estilo de vida.';
+  }
+
+  // Comparison with other metrics
+  const comparison = [
+    {
+      metric: 'CI',
+      value: ci,
+      status: riskCategory === 'Muy Bajo' || riskCategory === 'Bajo' ? 'Favorable' : riskCategory === 'Moderado' ? 'Moderado' : 'Desfavorable'
+    },
+    {
+      metric: 'IMC',
+      value: bmi,
+      status: bmi < 25 ? 'Normal' : bmi < 30 ? 'Sobrepeso' : 'Obesidad'
+    },
+    {
+      metric: 'WHtR',
+      value: whtr,
+      status: whtr < 0.5 ? 'Normal' : whtr < 0.6 ? 'Elevado' : 'Alto'
+    },
+    {
+      metric: 'Circunferencia Cintura',
+      value: waistCircumference,
+      status: (gender === 'male' && waistCircumference < 94) || (gender === 'female' && waistCircumference < 80)
+        ? 'Normal'
+        : (gender === 'male' && waistCircumference < 102) || (gender === 'female' && waistCircumference < 88)
+        ? 'Elevada'
+        : 'Alta'
+    }
+  ];
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (ci >= 1.30) {
+    recommendations.push('Prioriza reducción de grasa abdominal mediante ejercicio cardiovascular regular (150+ min/semana)');
+    recommendations.push('Implementa dieta con déficit calórico moderado (300-500 kcal/día)');
+    recommendations.push('Incluye entrenamiento de fuerza 2-3 veces por semana para preservar masa muscular');
+    recommendations.push('Considera evaluación médica para descartar síndrome metabólico y diabetes');
+    recommendations.push('Monitorea presión arterial, glucosa y lípidos regularmente');
+    recommendations.push('Reduce consumo de azúcares refinados y carbohidratos procesados');
+  } else if (ci >= 1.25) {
+    recommendations.push('Mantén actividad física regular (150 min/semana de ejercicio moderado)');
+    recommendations.push('Monitorea circunferencia de cintura mensualmente');
+    recommendations.push('Sigue una dieta equilibrada rica en fibra, proteína y grasas saludables');
+    recommendations.push('Evita alimentos ultraprocesados y azúcares añadidos');
+    recommendations.push('Incluye ejercicios específicos para fortalecer core y reducir grasa abdominal');
+  } else {
+    recommendations.push('Mantén tus hábitos actuales de ejercicio y nutrición');
+    recommendations.push('Continúa monitoreando tu CI anualmente');
+    recommendations.push('Considera evaluación de composición corporal para optimización');
+  }
+
+  // Risk factors
+  const riskFactors: string[] = [];
+  if (ci >= 1.35) {
+    riskFactors.push('Alto riesgo de síndrome metabólico');
+    riskFactors.push('Mayor riesgo de diabetes tipo 2');
+    riskFactors.push('Aumento del riesgo de enfermedad cardiovascular');
+    riskFactors.push('Mayor riesgo de hipertensión arterial');
+    riskFactors.push('Riesgo elevado de dislipidemia (colesterol y triglicéridos)');
+    riskFactors.push('Mayor riesgo de enfermedad coronaria');
+  } else if (ci >= 1.30) {
+    riskFactors.push('Riesgo moderado-alto de síndrome metabólico');
+    riskFactors.push('Mayor riesgo de resistencia a la insulina');
+    riskFactors.push('Aumento del riesgo cardiovascular');
+    riskFactors.push('Riesgo de hipertensión arterial');
+  } else if (ci >= 1.25) {
+    riskFactors.push('Riesgo moderado de distribución de grasa abdominal');
+    riskFactors.push('Mayor riesgo de resistencia a la insulina');
+  }
+
+  // Improvement strategies
+  const improvementStrategies: string[] = [];
+  if (ci >= 1.25) {
+    improvementStrategies.push('Reducir circunferencia de cintura 5-10 cm puede mejorar significativamente el CI');
+    improvementStrategies.push('Perder 5-10% del peso corporal actual puede reducir el riesgo cardiovascular');
+    improvementStrategies.push('Ejercicio de alta intensidad (HIIT) es efectivo para reducir grasa abdominal');
+    improvementStrategies.push('Dieta mediterránea o DASH puede mejorar el perfil metabólico');
+    improvementStrategies.push('Reducir consumo de azúcares refinados y carbohidratos procesados');
+    improvementStrategies.push('Aumentar consumo de fibra (25-30g/día) y proteína magra');
+    improvementStrategies.push('Ejercicios específicos para core (planchas, abdominales) pueden ayudar');
+  }
+
+  const clinicalInterpretation = `Tu CI de ${ci.toFixed(3)} indica ${riskCategory.toLowerCase()}. 
+    El Conicity Index evalúa la distribución de grasa abdominal comparando la circunferencia de cintura con la esperada
+    para un cilindro con el mismo peso y altura. Un CI elevado se asocia con mayor riesgo de síndrome metabólico,
+    diabetes tipo 2 y enfermedad cardiovascular. 
+    ${ci >= 1.30 ? 'Se recomienda intervención médica y cambios significativos en estilo de vida.' : 'Mantén hábitos saludables para preservar tu bajo riesgo.'}`;
+
+  return {
+    ci,
+    riskCategory,
+    cardiovascularRisk,
+    metabolicRisk,
+    healthStatus,
+    ciInterpretation,
+    comparison,
+    recommendations,
+    riskFactors,
+    improvementStrategies,
+    clinicalInterpretation
+  };
+}

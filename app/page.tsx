@@ -385,6 +385,10 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/ci" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de CI:</a></strong> Conicity Index que evalúa distribución de grasa abdominal y riesgo cardiovascular</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de TDEE:</a></strong> Fórmula Mifflin-St Jeor validada para gasto calórico preciso</span>
                 </li>
                 <li className="flex items-start">

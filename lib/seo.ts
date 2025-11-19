@@ -158,6 +158,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de BRI (Body Roundness Index) según fórmula Thomas et al. (2013). Predice riesgo metabólico y cardiovascular basándose en la forma corporal. Evaluación de síndrome metabólico, diabetes tipo 2 y enfermedad cardiovascular.',
     keywords: ['calculadora BRI', 'Body Roundness Index', 'BRI', 'Thomas', 'riesgo metabólico', 'riesgo cardiovascular', 'índice redondez corporal', 'síndrome metabólico', 'diabetes', 'circunferencia cintura', 'forma corporal'],
     path: '/bri'
+  },
+  ci: {
+    title: 'Calculadora CI | Conicity Index | Distribución Grasa Abdominal | Valdez',
+    description: 'Calculadora profesional de CI (Conicity Index) según fórmula Valdez (1991). Evalúa distribución de grasa abdominal comparando cintura con circunferencia esperada. Predice riesgo cardiovascular y metabólico. Herramienta epidemiológica validada.',
+    keywords: ['calculadora CI', 'Conicity Index', 'CI', 'Valdez', 'índice conicidad', 'distribución grasa abdominal', 'riesgo cardiovascular', 'riesgo metabólico', 'circunferencia cintura', 'obesidad abdominal', 'síndrome metabólico'],
+    path: '/ci'
   }
 };
 

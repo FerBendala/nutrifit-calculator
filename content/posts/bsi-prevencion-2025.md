@@ -5,7 +5,7 @@ author: 'Dr. Nutrifit'
 description: 'Protocolos prácticos para vigilar la salud ósea de corredores y deportistas con datos de DEXA, TBS, carga y nutrición.'
 categories: ['Prevención', 'Salud Ósea', 'Entrenamiento']
 tags: ['bone stress injury', 'DEXA', 'TBS', 'corredores', 'prevención']
-image: 'https://cdn.pixabay.com/photo/2016/11/21/15/47/athlete-1840437_1280.jpg'
+image: 'https://cdn.pixabay.com/photo/2024/04/01/11/58/injury-8668706_1280.jpg'
 slug: 'bsi-prevencion-2025'
 readTime: 8
 featured: false
@@ -19,10 +19,10 @@ Las **bone stress injuries (BSI)** dejaron de ser un “azar” del corredor. Ho
 
 ## 1. Evidencia reciente clave
 
-- **DEXA como monitor dinámico**: la revisión en *OJSM* documenta cómo DEXA se usa no solo para diagnóstico sino para adaptaciones de entrenamiento y composición corporal tras una lesión musculoesquelética.[^1]
+- **DEXA como monitor dinámico**: la revisión en _OJSM_ documenta cómo DEXA se usa no solo para diagnóstico sino para adaptaciones de entrenamiento y composición corporal tras una lesión musculoesquelética.[^1]
 - **Screening MRI**: en 15 años de seguimiento a lanzadores de cricket, el screening anual con MRI detectó BSI lumbares antes de que aparecieran síntomas, reduciendo interrupciones prolongadas.[^3]
-- **TBS en corredores**: el estudio en *Clinical Journal of Sport Medicine* halló que el TBS puede discriminar riesgo de fractura por estrés incluso cuando el BMD parece normal.[^2]
-- **Cluster geométrico**: el análisis en *Journal of Biomechanics* mostró que la geometría pelvis-fémur (medida por DEXA) se agrupa en perfiles con incidencias de BSI diferentes, abriendo la puerta a machine learning aplicado a la estructura ósea.[^4]
+- **TBS en corredores**: el estudio en _Clinical Journal of Sport Medicine_ halló que el TBS puede discriminar riesgo de fractura por estrés incluso cuando el BMD parece normal.[^2]
+- **Cluster geométrico**: el análisis en _Journal of Biomechanics_ mostró que la geometría pelvis-fémur (medida por DEXA) se agrupa en perfiles con incidencias de BSI diferentes, abriendo la puerta a machine learning aplicado a la estructura ósea.[^4]
 - **Shockwave focal**: corredores tratados con terapia de ondas de choque focal mostraron altos índices de retorno a la carrera sin cirugía, posicionando al ESWT como herramienta en lesiones de bajo riesgo.[^5]
 - **Para atletas**: atletas paralímpicos presentan prevalencias altas de BMD bajo pero TBS normal; esto confirma que la microarquitectura puede mantenerse pese a la baja densidad, lo que obliga a personalizar la lectura del riesgo.[^6]
 
@@ -33,12 +33,12 @@ Las **bone stress injuries (BSI)** dejaron de ser un “azar” del corredor. Ho
 3. **Marcadores internos**: disponibilidad energética (EA = (ingesta − gasto ejercicio)/FFM), vitamina D, ferritina y estradiol/testosterona.
 4. **Herramientas de imagen**: MRI temprana si hay dolor localizado que dura >7 días o si el historial muestra BSI recurrentes en misma región.
 
-| Semana | Acción                                           | Indicador principal                       |
-| ------ | ------------------------------------------------ | ----------------------------------------- |
-| 0      | DEXA + TBS + bioquímica                          | BMD Z-score/TBS                           |
-| 4      | Control de carga + EA                            | EA ≥ 30 kcal/kg FFM/día                   |
-| 8      | Revisión de síntomas + posible MRI screening     | Dolor <3/10 sin aumento tras cargas      |
-| 12     | Repetir DEXA/TBS si hubo lesión o pérdida ósea   | Cambios en BMD/TBS y composición corporal |
+| Semana | Acción                                         | Indicador principal                       |
+| ------ | ---------------------------------------------- | ----------------------------------------- |
+| 0      | DEXA + TBS + bioquímica                        | BMD Z-score/TBS                           |
+| 4      | Control de carga + EA                          | EA ≥ 30 kcal/kg FFM/día                   |
+| 8      | Revisión de síntomas + posible MRI screening   | Dolor <3/10 sin aumento tras cargas       |
+| 12     | Repetir DEXA/TBS si hubo lesión o pérdida ósea | Cambios en BMD/TBS y composición corporal |
 
 ## 3. Periodización de carga y nutrición
 
@@ -74,9 +74,9 @@ Cada 12 meses o antes si perdiste >5% de peso magro, tienes EA baja o una nueva 
 
 ## Referencias
 
-[^1]: Ramey, E., et al. (2025). *The Use of Dual-Energy X-ray Absorptiometry in Evaluating Recovery After Musculoskeletal Injuries in Athletes*. Orthopaedic Journal of Sports Medicine, 13(2), 387342. https://doi.org/10.1177/23259671251387342
-[^2]: Wallace, R., et al. (2025). *Can Trabecular Bone Score Enhance Fracture Risk Assessment in Long-Distance Runners With Bone Stress Injuries?* Clinical Journal of Sport Medicine, 35(1), 1279. https://doi.org/10.1097/JSM.0000000000001279
-[^3]: Hughes, T., et al. (2025). *MRI Screening for lumbar bone stress injuries in young male cricket fast bowlers: a 15-year retrospective cohort study*. British Journal of Sports Medicine, 59(4), 110221. https://doi.org/10.1136/bjsports-2025-110221
-[^4]: Tenforde, A., et al. (2023). *A hierarchical clustering approach for examining the relationship between pelvis-proximal femur geometry and bone stress injury in runners*. Journal of Biomechanics, 154, 111782. https://doi.org/10.1016/j.jbiomech.2023.111782
-[^5]: Taylor, K., et al. (2023). *Outcomes Using Focused Shockwave for Treatment of Bone Stress Injury in Runners*. Bioengineering, 10(8), 885. https://doi.org/10.3390/bioengineering10080885
-[^6]: Sundgot-Borgen, J., et al. (2023). *High prevalence of low bone mineral density but normal trabecular bone score in Norwegian elite Para athletes*. Frontiers in Sports and Active Living, 5, 1246828. https://doi.org/10.3389/fspor.2023.1246828
+[^1]: Ramey, E., et al. (2025). _The Use of Dual-Energy X-ray Absorptiometry in Evaluating Recovery After Musculoskeletal Injuries in Athletes_. Orthopaedic Journal of Sports Medicine, 13(2), 387342. https://doi.org/10.1177/23259671251387342
+[^2]: Wallace, R., et al. (2025). _Can Trabecular Bone Score Enhance Fracture Risk Assessment in Long-Distance Runners With Bone Stress Injuries?_ Clinical Journal of Sport Medicine, 35(1), 1279. https://doi.org/10.1097/JSM.0000000000001279
+[^3]: Hughes, T., et al. (2025). _MRI Screening for lumbar bone stress injuries in young male cricket fast bowlers: a 15-year retrospective cohort study_. British Journal of Sports Medicine, 59(4), 110221. https://doi.org/10.1136/bjsports-2025-110221
+[^4]: Tenforde, A., et al. (2023). _A hierarchical clustering approach for examining the relationship between pelvis-proximal femur geometry and bone stress injury in runners_. Journal of Biomechanics, 154, 111782. https://doi.org/10.1016/j.jbiomech.2023.111782
+[^5]: Taylor, K., et al. (2023). _Outcomes Using Focused Shockwave for Treatment of Bone Stress Injury in Runners_. Bioengineering, 10(8), 885. https://doi.org/10.3390/bioengineering10080885
+[^6]: Sundgot-Borgen, J., et al. (2023). _High prevalence of low bone mineral density but normal trabecular bone score in Norwegian elite Para athletes_. Frontiers in Sports and Active Living, 5, 1246828. https://doi.org/10.3389/fspor.2023.1246828

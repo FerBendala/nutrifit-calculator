@@ -3500,3 +3500,227 @@ export function analyzeConicityIndex(
     clinicalInterpretation
   };
 }
+
+/**
+ * Calculate Visceral Adipose Tissue (VAT) - Lee et al. (2008)
+ * Estimates visceral fat area (cm²) using anthropometric measurements
+ * VAT = -266.4 + (0.67 × age) + (0.68 × BMI) + (11.4 × gender) - (0.08 × BMI × age)
+ * Where gender: 0 for female, 1 for male
+ * 
+ * Alternative formula (Ryo et al. 2005):
+ * VAT = 0.0001 × (WC^2 × BMI × age × gender_factor)
+ */
+export function calculateVATLee(
+  age: number,
+  bmi: number,
+  gender: 'male' | 'female'
+): number {
+  const genderFactor = gender === 'male' ? 1 : 0;
+  // Lee et al. (2008) formula
+  const vat = -266.4 + (0.67 * age) + (0.68 * bmi) + (11.4 * genderFactor) - (0.08 * bmi * age);
+  return Math.max(0, vat); // VAT cannot be negative
+}
+
+/**
+ * Calculate Visceral Adipose Tissue using Ryo et al. (2005) formula
+ * VAT = 0.0001 × (WC^2 × BMI × age × gender_factor)
+ * Where WC is waist circumference in cm, gender_factor: 1.0 for male, 0.9 for female
+ */
+export function calculateVATRyo(
+  waistCircumference: number,
+  bmi: number,
+  age: number,
+  gender: 'male' | 'female'
+): number {
+  const genderFactor = gender === 'male' ? 1.0 : 0.9;
+  const vat = 0.0001 * (waistCircumference * waistCircumference * bmi * age * genderFactor);
+  return vat;
+}
+
+/**
+ * Comprehensive VAT analysis with metabolic and cardiovascular risk assessment
+ */
+export interface VATAnalysis {
+  vatLee: number;
+  vatRyo: number;
+  vatAverage: number;
+  riskCategory: 'Muy Bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  metabolicRisk: string;
+  cardiovascularRisk: string;
+  healthStatus: string;
+  vatInterpretation: string;
+  comparison: {
+    metric: string;
+    value: number;
+    status: string;
+  }[];
+  recommendations: string[];
+  riskFactors: string[];
+  improvementStrategies: string[];
+  clinicalInterpretation: string;
+}
+
+export function analyzeVAT(
+  waistCircumference: number,
+  weight: number,
+  height: number,
+  gender: 'male' | 'female',
+  age: number
+): VATAnalysis {
+  const heightMeters = height / 100;
+  const bmi = weight / (heightMeters * heightMeters);
+  
+  const vatLee = calculateVATLee(age, bmi, gender);
+  const vatRyo = calculateVATRyo(waistCircumference, bmi, age, gender);
+  const vatAverage = (vatLee + vatRyo) / 2;
+
+  // VAT risk categories based on research
+  // VAT < 100 cm²: Very low risk
+  // VAT 100-130 cm²: Low to moderate risk
+  // VAT 130-160 cm²: Moderate to high risk
+  // VAT > 160 cm²: High risk
+  let riskCategory: 'Muy Bajo' | 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  let metabolicRisk: string;
+  let cardiovascularRisk: string;
+  let healthStatus: string;
+  let vatInterpretation: string;
+
+  if (vatAverage < 100) {
+    riskCategory = 'Muy Bajo';
+    metabolicRisk = 'Riesgo metabólico muy bajo';
+    cardiovascularRisk = 'Riesgo cardiovascular muy bajo';
+    healthStatus = 'Excelente - Grasa visceral en rango óptimo';
+    vatInterpretation = 'Tu grasa visceral está en rango muy favorable, indicando bajo riesgo de complicaciones metabólicas y cardiovasculares.';
+  } else if (vatAverage < 130) {
+    riskCategory = 'Bajo';
+    metabolicRisk = 'Riesgo metabólico bajo';
+    cardiovascularRisk = 'Riesgo cardiovascular bajo';
+    healthStatus = 'Bueno - Grasa visceral en rango saludable';
+    vatInterpretation = 'Tu grasa visceral está en rango saludable, indicando bajo riesgo de síndrome metabólico y enfermedad cardiovascular.';
+  } else if (vatAverage < 160) {
+    riskCategory = 'Moderado';
+    metabolicRisk = 'Riesgo metabólico moderado';
+    cardiovascularRisk = 'Riesgo cardiovascular moderado';
+    healthStatus = 'Moderado - Algunos factores de riesgo presentes';
+    vatInterpretation = 'Tu grasa visceral indica riesgo moderado. Se recomienda monitoreo y cambios en estilo de vida preventivos.';
+  } else if (vatAverage < 200) {
+    riskCategory = 'Alto';
+    metabolicRisk = 'Riesgo metabólico alto';
+    cardiovascularRisk = 'Riesgo cardiovascular alto';
+    healthStatus = 'Alerta - Riesgo elevado de complicaciones';
+    vatInterpretation = 'Tu grasa visceral indica riesgo elevado de síndrome metabólico y enfermedad cardiovascular. Se recomienda intervención.';
+  } else {
+    riskCategory = 'Muy Alto';
+    metabolicRisk = 'Riesgo metabólico muy alto';
+    cardiovascularRisk = 'Riesgo cardiovascular muy alto';
+    healthStatus = 'Crítico - Riesgo muy elevado, requiere atención médica';
+    vatInterpretation = 'Tu grasa visceral indica riesgo muy elevado. Se recomienda evaluación médica inmediata y cambios significativos en estilo de vida.';
+  }
+
+  // Comparison with other metrics
+  const whtr = waistCircumference / height;
+  const comparison = [
+    {
+      metric: 'Grasa Visceral (VAT)',
+      value: vatAverage,
+      status: riskCategory === 'Muy Bajo' || riskCategory === 'Bajo' ? 'Favorable' : riskCategory === 'Moderado' ? 'Moderado' : 'Desfavorable'
+    },
+    {
+      metric: 'IMC',
+      value: bmi,
+      status: bmi < 25 ? 'Normal' : bmi < 30 ? 'Sobrepeso' : 'Obesidad'
+    },
+    {
+      metric: 'WHtR',
+      value: whtr,
+      status: whtr < 0.5 ? 'Normal' : whtr < 0.6 ? 'Elevado' : 'Alto'
+    },
+    {
+      metric: 'Circunferencia Cintura',
+      value: waistCircumference,
+      status: (gender === 'male' && waistCircumference < 94) || (gender === 'female' && waistCircumference < 80)
+        ? 'Normal'
+        : (gender === 'male' && waistCircumference < 102) || (gender === 'female' && waistCircumference < 88)
+        ? 'Elevada'
+        : 'Alta'
+    }
+  ];
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (vatAverage >= 160) {
+    recommendations.push('Prioriza reducción de grasa visceral mediante ejercicio cardiovascular regular (150+ min/semana)');
+    recommendations.push('Implementa dieta con déficit calórico moderado (300-500 kcal/día)');
+    recommendations.push('Incluye entrenamiento de fuerza 2-3 veces por semana para preservar masa muscular');
+    recommendations.push('Considera evaluación médica para descartar síndrome metabólico y diabetes');
+    recommendations.push('Monitorea presión arterial, glucosa y lípidos regularmente');
+    recommendations.push('Reduce consumo de azúcares refinados, carbohidratos procesados y alcohol');
+    recommendations.push('Aumenta consumo de fibra (25-30g/día) y proteína magra');
+  } else if (vatAverage >= 130) {
+    recommendations.push('Mantén actividad física regular (150 min/semana de ejercicio moderado)');
+    recommendations.push('Monitorea circunferencia de cintura mensualmente');
+    recommendations.push('Sigue una dieta equilibrada rica en fibra, proteína y grasas saludables');
+    recommendations.push('Evita alimentos ultraprocesados y azúcares añadidos');
+    recommendations.push('Incluye ejercicios específicos para fortalecer core y reducir grasa abdominal');
+  } else {
+    recommendations.push('Mantén tus hábitos actuales de ejercicio y nutrición');
+    recommendations.push('Continúa monitoreando tu grasa visceral anualmente');
+    recommendations.push('Considera evaluación de composición corporal para optimización');
+  }
+
+  // Risk factors
+  const riskFactors: string[] = [];
+  if (vatAverage >= 200) {
+    riskFactors.push('Alto riesgo de síndrome metabólico');
+    riskFactors.push('Mayor riesgo de diabetes tipo 2');
+    riskFactors.push('Aumento del riesgo de enfermedad cardiovascular');
+    riskFactors.push('Mayor riesgo de hipertensión arterial');
+    riskFactors.push('Riesgo elevado de dislipidemia (colesterol y triglicéridos)');
+    riskFactors.push('Mayor riesgo de enfermedad coronaria');
+    riskFactors.push('Riesgo de esteatosis hepática (hígado graso)');
+  } else if (vatAverage >= 160) {
+    riskFactors.push('Riesgo moderado-alto de síndrome metabólico');
+    riskFactors.push('Mayor riesgo de resistencia a la insulina');
+    riskFactors.push('Aumento del riesgo cardiovascular');
+    riskFactors.push('Riesgo de hipertensión arterial');
+    riskFactors.push('Mayor riesgo de esteatosis hepática');
+  } else if (vatAverage >= 130) {
+    riskFactors.push('Riesgo moderado de distribución de grasa visceral');
+    riskFactors.push('Mayor riesgo de resistencia a la insulina');
+  }
+
+  // Improvement strategies
+  const improvementStrategies: string[] = [];
+  if (vatAverage >= 130) {
+    improvementStrategies.push('Reducir circunferencia de cintura 5-10 cm puede reducir significativamente la grasa visceral');
+    improvementStrategies.push('Perder 5-10% del peso corporal actual puede reducir el riesgo metabólico');
+    improvementStrategies.push('Ejercicio de alta intensidad (HIIT) es efectivo para reducir grasa visceral');
+    improvementStrategies.push('Dieta mediterránea o DASH puede mejorar el perfil metabólico');
+    improvementStrategies.push('Reducir consumo de azúcares refinados y carbohidratos procesados');
+    improvementStrategies.push('Aumentar consumo de fibra (25-30g/día) y proteína magra');
+    improvementStrategies.push('Reducir consumo de alcohol puede ayudar a reducir grasa visceral');
+    improvementStrategies.push('Ejercicios específicos para core (planchas, abdominales) pueden ayudar');
+  }
+
+  const clinicalInterpretation = `Tu grasa visceral estimada de ${vatAverage.toFixed(1)} cm² indica ${riskCategory.toLowerCase()}. 
+    La grasa visceral es el tejido adiposo que rodea los órganos internos y es más peligrosa que la grasa subcutánea.
+    Un exceso de grasa visceral se asocia con mayor riesgo de síndrome metabólico, diabetes tipo 2 y enfermedad cardiovascular. 
+    ${vatAverage >= 160 ? 'Se recomienda intervención médica y cambios significativos en estilo de vida.' : 'Mantén hábitos saludables para preservar tu bajo riesgo.'}`;
+
+  return {
+    vatLee,
+    vatRyo,
+    vatAverage,
+    riskCategory,
+    metabolicRisk,
+    cardiovascularRisk,
+    healthStatus,
+    vatInterpretation,
+    comparison,
+    recommendations,
+    riskFactors,
+    improvementStrategies,
+    clinicalInterpretation
+  };
+}

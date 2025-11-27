@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -262,6 +262,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'health',
     relatedCalculators: ['absi', 'bri', 'whtr', 'whr']
+  },
+  {
+    key: 'grasa-visceral',
+    title: 'Grasa Visceral (VAT)',
+    href: '/grasa-visceral',
+    description: 'Estimación de grasa visceral con 2 fórmulas científicas para evaluación de riesgo metabólico',
+    icon: Layers,
+    priority: 'high',
+    category: 'health',
+    relatedCalculators: ['ci', 'bri', 'absi', 'whtr']
   }
 ];
 

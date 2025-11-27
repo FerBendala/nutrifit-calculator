@@ -164,6 +164,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de CI (Conicity Index) según fórmula Valdez (1991). Evalúa distribución de grasa abdominal comparando cintura con circunferencia esperada. Predice riesgo cardiovascular y metabólico. Herramienta epidemiológica validada.',
     keywords: ['calculadora CI', 'Conicity Index', 'CI', 'Valdez', 'índice conicidad', 'distribución grasa abdominal', 'riesgo cardiovascular', 'riesgo metabólico', 'circunferencia cintura', 'obesidad abdominal', 'síndrome metabólico'],
     path: '/ci'
+  },
+  'grasa-visceral': {
+    title: 'Calculadora Grasa Visceral | VAT | Tejido Adiposo Visceral | Lee | Ryo',
+    description: 'Calculadora profesional de grasa visceral (VAT) con 2 fórmulas científicas: Lee et al. (2008) y Ryo et al. (2005). Estima tejido adiposo visceral que rodea órganos internos. Predice riesgo metabólico, diabetes y enfermedad cardiovascular.',
+    keywords: ['calculadora grasa visceral', 'VAT', 'visceral adipose tissue', 'grasa visceral', 'Lee', 'Ryo', 'tejido adiposo visceral', 'riesgo metabólico', 'diabetes', 'síndrome metabólico', 'hígado graso', 'riesgo cardiovascular'],
+    path: '/grasa-visceral'
   }
 };
 

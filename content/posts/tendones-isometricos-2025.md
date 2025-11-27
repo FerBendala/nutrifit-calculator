@@ -1,6 +1,6 @@
 ---
 title: 'Tendones en 2025: Isométricos, Carga Progresiva y Qué Dice la Evidencia'
-date: '2025-11-14'
+date: '2025-11-27'
 author: 'Dr. Nutrifit'
 description: 'Guía práctica para tendinopatías (Aquiles, rotuliana, glúteo medio) usando isométricos, eccentrics y soporte adyuvante basado en evidencia reciente.'
 categories: ['Rehabilitación', 'Entrenamiento', 'Salud']

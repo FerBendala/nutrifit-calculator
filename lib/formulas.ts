@@ -2913,9 +2913,9 @@ export function calculateABSI(waistCircumference: number, bmi: number, height: n
   // Convert waist circumference from cm to meters
   const waistMeters = waistCircumference / 100;
   const heightMeters = height / 100;
-  
+
   // ABSI formula: WC / (BMI^(2/3) × height^(1/2))
-  const denominator = Math.pow(bmi, 2/3) * Math.pow(heightMeters, 1/2);
+  const denominator = Math.pow(bmi, 2 / 3) * Math.pow(heightMeters, 1 / 2);
   return waistMeters / denominator;
 }
 
@@ -2928,11 +2928,11 @@ export function calculateABSIZScore(absi: number, gender: 'male' | 'female', age
   // These are approximate values - actual values vary by population
   const meanABSI = gender === 'male' ? 0.0808 : 0.0806;
   const sdABSI = gender === 'male' ? 0.0054 : 0.0059;
-  
+
   // Age adjustment (ABSI increases slightly with age)
   const ageAdjustment = age > 50 ? 0.0001 * (age - 50) : 0;
   const adjustedMean = meanABSI + ageAdjustment;
-  
+
   return (absi - adjustedMean) / sdABSI;
 }
 
@@ -3012,7 +3012,7 @@ export function analyzeABSI(
   // Comparison with other metrics
   const whr = waistCircumference / (height * 0.5); // Approximate hip circumference
   const whtr = waistCircumference / height;
-  
+
   const comparison = [
     {
       metric: 'ABSI',
@@ -3035,14 +3035,14 @@ export function analyzeABSI(
       status: (gender === 'male' && waistCircumference < 94) || (gender === 'female' && waistCircumference < 80)
         ? 'Normal'
         : (gender === 'male' && waistCircumference < 102) || (gender === 'female' && waistCircumference < 88)
-        ? 'Elevada'
-        : 'Alta'
+          ? 'Elevada'
+          : 'Alta'
     }
   ];
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (absiZScore > 0.5) {
     recommendations.push('Prioriza reducción de grasa abdominal mediante ejercicio cardiovascular regular');
     recommendations.push('Implementa dieta con déficit calórico moderado (300-500 kcal/día)');
@@ -3105,12 +3105,12 @@ export function analyzeABSI(
  */
 function erf(x: number): number {
   // Approximation of error function
-  const a1 =  0.254829592;
+  const a1 = 0.254829592;
   const a2 = -0.284496736;
-  const a3 =  1.421413741;
+  const a3 = 1.421413741;
   const a4 = -1.453152027;
-  const a5 =  1.061405429;
-  const p  =  0.3275911;
+  const a5 = 1.061405429;
+  const p = 0.3275911;
 
   const sign = x < 0 ? -1 : 1;
   x = Math.abs(x);
@@ -3131,12 +3131,12 @@ export function calculateBRI(waistCircumference: number, height: number): number
   // Convert to meters
   const waistMeters = waistCircumference / 100;
   const heightMeters = height / 100;
-  
+
   // BRI formula: 364.2 - 365.5 × √(1 - (WC/(2π))² / (0.5 × height)²)
   const numerator = Math.pow(waistMeters / (2 * Math.PI), 2);
   const denominator = Math.pow(0.5 * heightMeters, 2);
   const sqrtTerm = Math.sqrt(1 - (numerator / denominator));
-  
+
   return 364.2 - 365.5 * sqrtTerm;
 }
 
@@ -3236,14 +3236,14 @@ export function analyzeBRI(
       status: (gender === 'male' && waistCircumference < 94) || (gender === 'female' && waistCircumference < 80)
         ? 'Normal'
         : (gender === 'male' && waistCircumference < 102) || (gender === 'female' && waistCircumference < 88)
-        ? 'Elevada'
-        : 'Alta'
+          ? 'Elevada'
+          : 'Alta'
     }
   ];
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (bri >= 8) {
     recommendations.push('Prioriza reducción de grasa abdominal mediante ejercicio cardiovascular regular (150+ min/semana)');
     recommendations.push('Implementa dieta con déficit calórico moderado (300-500 kcal/día)');
@@ -3317,7 +3317,7 @@ export function calculateConicityIndex(waistCircumference: number, weight: numbe
   // Convert to meters
   const waistMeters = waistCircumference / 100;
   const heightMeters = height / 100;
-  
+
   // CI formula: WC / (0.109 × √(weight/height))
   const denominator = 0.109 * Math.sqrt(weight / heightMeters);
   return waistMeters / denominator;
@@ -3422,14 +3422,14 @@ export function analyzeConicityIndex(
       status: (gender === 'male' && waistCircumference < 94) || (gender === 'female' && waistCircumference < 80)
         ? 'Normal'
         : (gender === 'male' && waistCircumference < 102) || (gender === 'female' && waistCircumference < 88)
-        ? 'Elevada'
-        : 'Alta'
+          ? 'Elevada'
+          : 'Alta'
     }
   ];
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (ci >= 1.30) {
     recommendations.push('Prioriza reducción de grasa abdominal mediante ejercicio cardiovascular regular (150+ min/semana)');
     recommendations.push('Implementa dieta con déficit calórico moderado (300-500 kcal/día)');
@@ -3569,7 +3569,7 @@ export function analyzeVAT(
 ): VATAnalysis {
   const heightMeters = height / 100;
   const bmi = weight / (heightMeters * heightMeters);
-  
+
   const vatLee = calculateVATLee(age, bmi, gender);
   const vatRyo = calculateVATRyo(waistCircumference, bmi, age, gender);
   const vatAverage = (vatLee + vatRyo) / 2;
@@ -3641,14 +3641,14 @@ export function analyzeVAT(
       status: (gender === 'male' && waistCircumference < 94) || (gender === 'female' && waistCircumference < 80)
         ? 'Normal'
         : (gender === 'male' && waistCircumference < 102) || (gender === 'female' && waistCircumference < 88)
-        ? 'Elevada'
-        : 'Alta'
+          ? 'Elevada'
+          : 'Alta'
     }
   ];
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (vatAverage >= 160) {
     recommendations.push('Prioriza reducción de grasa visceral mediante ejercicio cardiovascular regular (150+ min/semana)');
     recommendations.push('Implementa dieta con déficit calórico moderado (300-500 kcal/día)');

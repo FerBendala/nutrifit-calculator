@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare, Clock } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -282,6 +282,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'body-composition',
     relatedCalculators: ['masa-muscular', 'grasa-corporal', 'composicion', 'ffmi']
+  },
+  {
+    key: 'edad-metabolica',
+    title: 'Edad Metabólica',
+    href: '/edad-metabolica',
+    description: 'Compara tu metabolismo con el promedio de tu edad cronológica usando BMR',
+    icon: Clock,
+    priority: 'high',
+    category: 'health',
+    relatedCalculators: ['bmr', 'rmr', 'tdee', 'masa-muscular']
   }
 ];
 

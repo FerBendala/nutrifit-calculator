@@ -3965,3 +3965,241 @@ export function analyzeLBM(
     clinicalInterpretation
   };
 }
+
+/**
+ * Calculate expected BMR for a given age using Mifflin-St Jeor formula
+ * Uses average values for weight and height at each age
+ */
+function calculateExpectedBMRByAge(
+  age: number,
+  gender: 'male' | 'female',
+  weight: number,
+  height: number
+): number {
+  // Use Mifflin-St Jeor formula with current weight/height but adjust for age
+  // The formula already includes age, so we calculate what BMR should be at this age
+  if (gender === 'male') {
+    return 10 * weight + 6.25 * height - 5 * age + 5;
+  } else {
+    return 10 * weight + 6.25 * height - 5 * age - 161;
+  }
+}
+
+/**
+ * Calculate Metabolic Age by comparing actual BMR with expected BMR at different ages
+ * Metabolic Age indicates how "old" or "young" your metabolism is compared to your chronological age
+ */
+export function calculateMetabolicAge(
+  actualBMR: number,
+  weight: number,
+  height: number,
+  gender: 'male' | 'female',
+  chronologicalAge: number
+): number {
+  // Binary search to find the age where expected BMR matches actual BMR
+  let lowAge = 15;
+  let highAge = 100;
+  let metabolicAge = chronologicalAge;
+
+  // Iterate to find the age where expected BMR equals actual BMR
+  for (let i = 0; i < 50; i++) {
+    const testAge = (lowAge + highAge) / 2;
+    const expectedBMR = calculateExpectedBMRByAge(testAge, gender, weight, height);
+    
+    if (Math.abs(expectedBMR - actualBMR) < 1) {
+      metabolicAge = Math.round(testAge);
+      break;
+    } else if (expectedBMR > actualBMR) {
+      // If expected BMR is higher, metabolism is "younger" (lower age)
+      highAge = testAge;
+    } else {
+      // If expected BMR is lower, metabolism is "older" (higher age)
+      lowAge = testAge;
+    }
+  }
+
+  return Math.round(metabolicAge);
+}
+
+/**
+ * Comprehensive Metabolic Age analysis
+ */
+export interface MetabolicAgeAnalysis {
+  chronologicalAge: number;
+  metabolicAge: number;
+  ageDifference: number;
+  actualBMR: number;
+  expectedBMR: number;
+  category: 'Mucho Más Joven' | 'Más Joven' | 'Similar' | 'Más Viejo' | 'Mucho Más Viejo';
+  metabolicStatus: string;
+  interpretation: string;
+  comparison: {
+    metric: string;
+    value: number;
+    status: string;
+  }[];
+  recommendations: string[];
+  improvementStrategies: string[];
+  factors: {
+    muscleMass: string;
+    activityLevel: string;
+    nutrition: string;
+    sleep: string;
+  };
+  clinicalInterpretation: string;
+}
+
+export function analyzeMetabolicAge(
+  weight: number,
+  height: number,
+  age: number,
+  gender: 'male' | 'female',
+  bodyFatPercentage?: number
+): MetabolicAgeAnalysis {
+  // Calculate actual BMR using Mifflin-St Jeor
+  const actualBMR = calculateExpectedBMRByAge(age, gender, weight, height);
+  
+  // Calculate metabolic age
+  const metabolicAge = calculateMetabolicAge(actualBMR, weight, height, gender, age);
+  
+  // Calculate expected BMR for chronological age
+  const expectedBMR = calculateExpectedBMRByAge(age, gender, weight, height);
+  
+  const ageDifference = metabolicAge - age;
+
+  // Categorize metabolic age
+  let category: 'Mucho Más Joven' | 'Más Joven' | 'Similar' | 'Más Viejo' | 'Mucho Más Viejo';
+  let metabolicStatus: string;
+  let interpretation: string;
+
+  if (ageDifference <= -10) {
+    category = 'Mucho Más Joven';
+    metabolicStatus = 'Excelente - Metabolismo muy eficiente';
+    interpretation = `Tu metabolismo es ${Math.abs(ageDifference)} años más joven que tu edad cronológica. Esto indica un metabolismo muy eficiente, típico de personas con buena masa muscular, actividad física regular y hábitos saludables.`;
+  } else if (ageDifference < -5) {
+    category = 'Más Joven';
+    metabolicStatus = 'Bueno - Metabolismo eficiente';
+    interpretation = `Tu metabolismo es ${Math.abs(ageDifference)} años más joven que tu edad cronológica. Esto indica un metabolismo eficiente, probablemente debido a buena composición corporal y actividad física.`;
+  } else if (ageDifference <= 5) {
+    category = 'Similar';
+    metabolicStatus = 'Normal - Metabolismo acorde a tu edad';
+    interpretation = `Tu metabolismo es similar a tu edad cronológica (diferencia de ${Math.abs(ageDifference)} años). Esto es normal y esperado para tu edad.`;
+  } else if (ageDifference < 10) {
+    category = 'Más Viejo';
+    metabolicStatus = 'Atención - Metabolismo menos eficiente';
+    interpretation = `Tu metabolismo es ${ageDifference} años mayor que tu edad cronológica. Esto puede indicar pérdida de masa muscular, sedentarismo o hábitos que afectan el metabolismo.`;
+  } else {
+    category = 'Mucho Más Viejo';
+    metabolicStatus = 'Alerta - Metabolismo significativamente menos eficiente';
+    interpretation = `Tu metabolismo es ${ageDifference} años mayor que tu edad cronológica. Esto indica un metabolismo menos eficiente que requiere atención. Puede estar relacionado con pérdida significativa de masa muscular, sedentarismo o factores metabólicos.`;
+  }
+
+  // Comparison with other metrics
+  const heightMeters = height / 100;
+  const bmi = weight / (heightMeters * heightMeters);
+  const comparison = [
+    {
+      metric: 'Edad Metabólica',
+      value: metabolicAge,
+      status: category === 'Mucho Más Joven' || category === 'Más Joven' ? 'Favorable' : category === 'Similar' ? 'Normal' : 'Desfavorable'
+    },
+    {
+      metric: 'Edad Cronológica',
+      value: age,
+      status: 'Referencia'
+    },
+    {
+      metric: 'BMR Real',
+      value: actualBMR,
+      status: 'Actual'
+    },
+    {
+      metric: 'BMR Esperado',
+      value: expectedBMR,
+      status: 'Referencia'
+    }
+  ];
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (category === 'Mucho Más Viejo' || category === 'Más Viejo') {
+    recommendations.push('Prioriza entrenamiento de fuerza 3-4 veces por semana para aumentar masa muscular');
+    recommendations.push('Aumenta actividad física diaria (caminar, subir escaleras, actividades cotidianas)');
+    recommendations.push('Consume suficiente proteína (1.6-2.2g por kg de peso corporal) para preservar/aumentar masa muscular');
+    recommendations.push('Evita dietas muy restrictivas que pueden reducir aún más el metabolismo');
+    recommendations.push('Mejora calidad y cantidad de sueño (7-9 horas por noche)');
+    recommendations.push('Considera evaluación médica para descartar condiciones que afecten el metabolismo');
+    recommendations.push('Mantén hidratación adecuada (35ml por kg de peso)');
+  } else if (category === 'Similar') {
+    recommendations.push('Mantén hábitos actuales de ejercicio y nutrición');
+    recommendations.push('Incluye entrenamiento de fuerza regular para preservar masa muscular');
+    recommendations.push('Monitorea tu edad metabólica periódicamente');
+    recommendations.push('Considera optimizar composición corporal para mejorar metabolismo');
+  } else {
+    recommendations.push('Mantén tus excelentes hábitos de ejercicio y nutrición');
+    recommendations.push('Continúa monitoreando tu edad metabólica anualmente');
+    recommendations.push('Considera compartir tus estrategias para mantener un metabolismo joven');
+  }
+
+  // Improvement strategies
+  const improvementStrategies: string[] = [];
+  if (category === 'Mucho Más Viejo' || category === 'Más Viejo') {
+    improvementStrategies.push('Entrenamiento de fuerza: aumenta masa muscular para elevar BMR');
+    improvementStrategies.push('Ejercicio cardiovascular: 150+ min/semana de actividad moderada-intensa');
+    improvementStrategies.push('Proteína adecuada: 1.6-2.2g por kg de peso para síntesis proteica');
+    improvementStrategies.push('Sueño: 7-9 horas de calidad para optimizar hormonas metabólicas');
+    improvementStrategies.push('Hidratación: agua suficiente para procesos metabólicos');
+    improvementStrategies.push('Evita restricciones calóricas extremas que reducen metabolismo');
+    improvementStrategies.push('Incluye ejercicios de alta intensidad (HIIT) 1-2 veces por semana');
+    improvementStrategies.push('Mantén masa muscular durante pérdida de peso');
+  }
+
+  // Factors affecting metabolic age
+  const factors = {
+    muscleMass: category === 'Mucho Más Joven' || category === 'Más Joven'
+      ? 'Tu masa muscular está contribuyendo positivamente a un metabolismo joven'
+      : category === 'Similar'
+      ? 'Tu masa muscular está en rango normal para tu edad'
+      : 'Aumentar masa muscular puede mejorar significativamente tu edad metabólica',
+    activityLevel: category === 'Mucho Más Joven' || category === 'Más Joven'
+      ? 'Tu nivel de actividad física está manteniendo tu metabolismo activo'
+      : category === 'Similar'
+      ? 'Mantén o aumenta tu actividad física para preservar metabolismo'
+      : 'Aumentar actividad física es crucial para mejorar tu edad metabólica',
+    nutrition: category === 'Mucho Más Joven' || category === 'Más Joven'
+      ? 'Tu nutrición está apoyando un metabolismo eficiente'
+      : category === 'Similar'
+      ? 'Optimiza tu nutrición para mantener metabolismo'
+      : 'Mejorar nutrición (proteína, hidratación, evitar restricciones extremas) puede ayudar',
+    sleep: category === 'Mucho Más Joven' || category === 'Más Joven'
+      ? 'Tu sueño probablemente está optimizando hormonas metabólicas'
+      : category === 'Similar'
+      ? 'Mantén hábitos de sueño saludables'
+      : 'Mejorar calidad y cantidad de sueño puede ayudar a optimizar metabolismo'
+  };
+
+  const clinicalInterpretation = `Tu edad metabólica de ${metabolicAge} años ${ageDifference > 0 ? 'es mayor' : ageDifference < 0 ? 'es menor' : 'es similar'} a tu edad cronológica de ${age} años (diferencia de ${Math.abs(ageDifference)} años). 
+    La edad metabólica refleja la eficiencia de tu metabolismo comparado con el promedio de personas de tu edad. 
+    ${category === 'Mucho Más Joven' || category === 'Más Joven' 
+      ? 'Un metabolismo más joven indica buena composición corporal, actividad física regular y hábitos saludables.' 
+      : category === 'Similar'
+      ? 'Un metabolismo similar a tu edad es normal y esperado.'
+      : 'Un metabolismo más viejo puede indicar pérdida de masa muscular, sedentarismo o factores que afectan el metabolismo. Se recomienda intervención con ejercicio y nutrición.'}`;
+
+  return {
+    chronologicalAge: age,
+    metabolicAge,
+    ageDifference,
+    actualBMR,
+    expectedBMR,
+    category,
+    metabolicStatus,
+    interpretation,
+    comparison,
+    recommendations,
+    improvementStrategies,
+    factors,
+    clinicalInterpretation
+  };
+}

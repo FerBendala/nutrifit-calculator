@@ -397,6 +397,10 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/edad-metabolica" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de Edad Metabólica:</a></strong> Compara tu metabolismo con el promedio de tu edad cronológica</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de TDEE:</a></strong> Fórmula Mifflin-St Jeor validada para gasto calórico preciso</span>
                 </li>
                 <li className="flex items-start">

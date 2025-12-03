@@ -176,6 +176,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de masa magra (LBM) con método Standard y 3 variantes científicas: Boer (1984) para atletas, James (1976) para población general, y Hume (1966) independiente. Evalúa composición corporal, incluye músculos, huesos, órganos y agua. Útil para atletas y prevención de sarcopenia.',
     keywords: ['calculadora masa magra', 'LBM', 'lean body mass', 'masa magra', 'composición corporal', 'masa libre de grasa', 'Boer', 'James', 'Hume', 'sarcopenia', 'masa muscular', 'grasa corporal'],
     path: '/masa-magra'
+  },
+  'edad-metabolica': {
+    title: 'Calculadora Edad Metabólica | Metabolic Age | Eficiencia Metabolismo | BMR',
+    description: 'Calculadora profesional de edad metabólica que compara tu metabolismo (BMR) con el promedio de personas de tu edad cronológica. Indica si tu metabolismo es más joven o más viejo que tu edad real. Útil para evaluar eficiencia metabólica y salud general.',
+    keywords: ['calculadora edad metabólica', 'metabolic age', 'edad metabólica', 'BMR', 'metabolismo', 'eficiencia metabólica', 'metabolismo joven', 'metabolismo viejo', 'salud metabólica', 'metabolismo basal'],
+    path: '/edad-metabolica'
   }
 };
 

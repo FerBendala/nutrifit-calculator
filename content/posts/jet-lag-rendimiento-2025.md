@@ -1,19 +1,19 @@
 ---
-title: 'Jet Lag y Rendimiento en 2025: Plan Exprés para Viajes Transmeridianos'
-date: '2025-11-17'
+title: 'Jet Lag y Rendimiento: Plan Exprés para Viajes Transmeridianos'
+date: '2025-12-2'
 author: 'Dr. Nutrifit'
 description: 'Cómo minimizar el jet lag en deportistas: luz, crononutrición, siestas, melatonina y carga optimizada según dirección del viaje.'
 categories: ['Salud', 'Rendimiento', 'Recuperación']
 tags: ['jet lag', 'sueño', 'crononutrición', 'viajes', 'luz']
-image: 'https://cdn.pixabay.com/photo/2017/06/30/19/42/airport-2457268_1280.jpg'
+image: 'https://cdn.pixabay.com/photo/2019/06/04/21/53/airplane-4252410_1280.jpg'
 slug: 'jet-lag-rendimiento-2025'
 readTime: 8
 featured: false
 ---
 
-# Jet Lag y Rendimiento en 2025: Plan Exprés para Viajes Transmeridianos
+# Jet Lag y Rendimiento: Plan Exprés para Viajes Transmeridianos
 
-Cruzar husos horarios reduce la calidad del sueño y altera la percepción de esfuerzo. Una revisión crítica en *Experimental Physiology* destaca que la adaptación varía por dirección y cronotipo, y que la evidencia en atletas aún es heterogénea.[^1] Un análisis de rendimiento en fútbol internacional mostró que viajar hacia el este aumentó la carrera total y de alta velocidad, probablemente por ajustes tácticos y fatiga circadiana.[^2] Además, estudios recientes evalúan incluso a modelos de IA para recomendaciones, confirmando la necesidad de pautas claras y humanas.[^3]
+Cruzar husos horarios reduce la calidad del sueño y altera la percepción de esfuerzo. Una revisión crítica en _Experimental Physiology_ destaca que la adaptación varía por dirección y cronotipo, y que la evidencia en atletas aún es heterogénea.[^1] Un análisis de rendimiento en fútbol internacional mostró que viajar hacia el este aumentó la carrera total y de alta velocidad, probablemente por ajustes tácticos y fatiga circadiana.[^2] Además, estudios recientes evalúan incluso a modelos de IA para recomendaciones, confirmando la necesidad de pautas claras y humanas.[^3]
 
 > **TL;DR**: Ajusta luz y horarios 2-3 días antes, come y entrena según la hora de destino, usa melatonina de forma estratégica y controla la carga las primeras 48-72 h postvuelo.
 
@@ -26,15 +26,18 @@ Cruzar husos horarios reduce la calidad del sueño y altera la percepción de es
 ## 2. Protocolo práctico (según dirección)
 
 ### Viajes al ESTE (más difíciles)
+
 - Adelanta sueño 30-60 min/día 2-3 días antes.
 - Exposición a luz brillante por la mañana en destino; evita luz intensa la tarde/noche.
 - Cena ligera en horario de destino; melatonina 0.5-3 mg 60-90 min antes de dormir las primeras 2-3 noches.
 
 ### Viajes al OESTE
+
 - Retrasa sueño 30-60 min/día previos; luz intensa al atardecer en destino.
 - Evita melatonina salvo que tengas insomnio; prioriza siestas cortas (20-30 min) si hay somnolencia diurna.
 
 ### Común a ambos
+
 - Hidratación suficiente sin sobrecargar (evita hiponatremia); limita alcohol.
 - Dividir carga de entrenamiento: sesiones técnicas ligeras + movilidad el día 1; carga moderada día 2-3 si HRV y RPE son estables.
 - En vuelos >8 h: duerme en bloques de 90 min, usa antifaz y tapones; camina cada 90 min.
@@ -72,6 +75,6 @@ Solo si dormiste bien y tus métricas (HRV/RPE) están estables. Preferible téc
 
 ## Referencias
 
-[^1]: Harrington, M., et al. (2025). *Impact of long-haul airline travel on athletic performance and recovery: a critical review of the literature*. Experimental Physiology, 110(2), 91831. https://doi.org/10.1113/EP091831
-[^2]: Suarez-Arrones, L., et al. (2025). *Effects of Prematch Travel and Training on Physical and Technical Performance in International Football Matches*. International Journal of Sports Physiology and Performance, 20(1), 0511. https://doi.org/10.1123/ijspp.2023-0511
-[^3]: Caia, J., et al. (2025). *“Can We Trust Them?” An Expert Evaluation of Large Language Models to Provide Sleep and Jet Lag Recommendations for Athletes*. Sports Medicine, 55(4), 2303. https://doi.org/10.1007/s40279-025-02303-5
+[^1]: Harrington, M., et al. (2025). _Impact of long-haul airline travel on athletic performance and recovery: a critical review of the literature_. Experimental Physiology, 110(2), 91831. https://doi.org/10.1113/EP091831
+[^2]: Suarez-Arrones, L., et al. (2025). _Effects of Prematch Travel and Training on Physical and Technical Performance in International Football Matches_. International Journal of Sports Physiology and Performance, 20(1), 0511. https://doi.org/10.1123/ijspp.2023-0511
+[^3]: Caia, J., et al. (2025). _“Can We Trust Them?” An Expert Evaluation of Large Language Models to Provide Sleep and Jet Lag Recommendations for Athletes_. Sports Medicine, 55(4), 2303. https://doi.org/10.1007/s40279-025-02303-5

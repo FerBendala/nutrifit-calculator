@@ -4030,6 +4030,7 @@ export interface MetabolicAgeAnalysis {
   ageDifference: number;
   actualBMR: number;
   expectedBMR: number;
+  formulaUsed: 'Mifflin-St Jeor' | 'Katch-McArdle';
   category: 'Mucho Más Joven' | 'Más Joven' | 'Similar' | 'Más Viejo' | 'Mucho Más Viejo';
   metabolicStatus: string;
   interpretation: string;
@@ -4056,13 +4057,24 @@ export function analyzeMetabolicAge(
   gender: 'male' | 'female',
   bodyFatPercentage?: number
 ): MetabolicAgeAnalysis {
-  // Calculate actual BMR using Mifflin-St Jeor
-  const actualBMR = calculateExpectedBMRByAge(age, gender, weight, height);
+  // Calculate actual BMR - use Katch-McArdle if body fat percentage is provided (more accurate)
+  let actualBMR: number;
+  let formulaUsed: 'Mifflin-St Jeor' | 'Katch-McArdle';
+  if (bodyFatPercentage !== undefined && bodyFatPercentage >= 0 && bodyFatPercentage <= 100) {
+    // Katch-McArdle formula (more accurate when body fat is known)
+    const leanBodyMass = weight * (1 - bodyFatPercentage / 100);
+    actualBMR = 370 + (21.6 * leanBodyMass);
+    formulaUsed = 'Katch-McArdle';
+  } else {
+    // Mifflin-St Jeor formula (standard when body fat is not known)
+    actualBMR = calculateExpectedBMRByAge(age, gender, weight, height);
+    formulaUsed = 'Mifflin-St Jeor';
+  }
   
   // Calculate metabolic age
   const metabolicAge = calculateMetabolicAge(actualBMR, weight, height, gender, age);
   
-  // Calculate expected BMR for chronological age
+  // Calculate expected BMR for chronological age (always use Mifflin-St Jeor for comparison)
   const expectedBMR = calculateExpectedBMRByAge(age, gender, weight, height);
   
   const ageDifference = metabolicAge - age;
@@ -4193,6 +4205,7 @@ export function analyzeMetabolicAge(
     ageDifference,
     actualBMR,
     expectedBMR,
+    formulaUsed,
     category,
     metabolicStatus,
     interpretation,

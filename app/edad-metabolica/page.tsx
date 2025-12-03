@@ -20,7 +20,9 @@ export default function EdadMetabolicaPage() {
     weight: '70',
     height: '175',
     age: '30',
-    gender: 'male' as 'male' | 'female'
+    gender: 'male' as 'male' | 'female',
+    bodyFatPercentage: '',
+    useBodyFat: 'no' as 'yes' | 'no'
   });
 
   const [result, setResult] = useState<ReturnType<typeof analyzeMetabolicAge> | null>(null);
@@ -35,11 +37,16 @@ export default function EdadMetabolicaPage() {
     if (!formData.weight || !formData.height || !formData.age) return;
 
     try {
+      const bodyFatPercentage = formData.useBodyFat === 'yes' && formData.bodyFatPercentage
+        ? parseFloat(formData.bodyFatPercentage)
+        : undefined;
+
       const analysis = analyzeMetabolicAge(
         parseFloat(formData.weight),
         parseFloat(formData.height),
         parseInt(formData.age),
-        formData.gender
+        formData.gender,
+        bodyFatPercentage
       );
       setResult(analysis);
     } catch (error) {
@@ -47,7 +54,8 @@ export default function EdadMetabolicaPage() {
     }
   };
 
-  const isFormValid = formData.weight && formData.height && formData.age;
+  const isFormValid = formData.weight && formData.height && formData.age && 
+    (formData.useBodyFat === 'no' || (formData.useBodyFat === 'yes' && formData.bodyFatPercentage));
 
   const getCategoryColor = (category: string) => {
     switch (category) {
@@ -114,8 +122,9 @@ export default function EdadMetabolicaPage() {
                       <Info className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
                       <p className="text-sm text-gray-700">
                         <strong>Nota:</strong> La edad metabólica se calcula comparando tu BMR con el promedio esperado
-                        para personas de tu edad. Un metabolismo más joven indica mayor eficiencia metabólica, típicamente
-                        asociada con buena masa muscular y actividad física regular.
+                        para personas de tu edad. Si conoces tu porcentaje de grasa corporal, puedes proporcionarlo para
+                        un cálculo más preciso usando la fórmula Katch-McArdle. Si no lo conoces, puedes usar nuestra
+                        <a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium"> calculadora de grasa corporal</a>.
                       </p>
                     </div>
                   </div>
@@ -171,6 +180,42 @@ export default function EdadMetabolicaPage() {
                       ]}
                       required
                     />
+
+                    <div className="md:col-span-2">
+                      <SelectInput
+                        id="useBodyFat"
+                        label="¿Conoces tu porcentaje de grasa corporal?"
+                        value={formData.useBodyFat}
+                        onChange={handleInputChange('useBodyFat')}
+                        options={[
+                          { value: 'no', label: 'No (usar fórmula estándar)' },
+                          { value: 'yes', label: 'Sí (cálculo más preciso)' }
+                        ]}
+                        required
+                      />
+                    </div>
+
+                    {formData.useBodyFat === 'yes' && (
+                      <div className="md:col-span-2">
+                        <NumberInput
+                          id="bodyFatPercentage"
+                          label="Porcentaje de Grasa Corporal"
+                          value={formData.bodyFatPercentage}
+                          onChange={handleInputChange('bodyFatPercentage')}
+                          min={5}
+                          max={50}
+                          step={0.1}
+                          unit="%"
+                          placeholder="15.0"
+                          required={formData.useBodyFat === 'yes'}
+                        />
+                        <p className="text-xs text-gray-600 mt-1">
+                          Si no conoces tu porcentaje de grasa corporal, puedes usar nuestra{' '}
+                          <a href="/grasa-corporal" className="text-blue-600 hover:underline">calculadora de grasa corporal</a> o{' '}
+                          <a href="/composicion" className="text-blue-600 hover:underline">calculadora de composición corporal</a>.
+                        </p>
+                      </div>
+                    )}
                   </div>
 
                   <Button
@@ -213,6 +258,26 @@ export default function EdadMetabolicaPage() {
                       {result.interpretation}
                     </p>
                   </div>
+
+                  {/* Fórmula utilizada */}
+                  <Card className="bg-gradient-to-br from-indigo-50 to-indigo-100 border-l-4 border-indigo-400">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm font-semibold flex items-center text-indigo-900">
+                        <Info className="w-4 h-4 mr-2" />
+                        Fórmula Utilizada
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-lg font-bold text-indigo-700 mb-1">
+                        {result.formulaUsed}
+                      </div>
+                      <p className="text-xs text-indigo-600">
+                        {result.formulaUsed === 'Katch-McArdle' 
+                          ? 'Cálculo más preciso usando masa magra' 
+                          : 'Fórmula estándar. Para mayor precisión, proporciona tu porcentaje de grasa corporal.'}
+                      </p>
+                    </CardContent>
+                  </Card>
 
                   {/* Comparación de Edades */}
                   <div className="grid gap-4 md:grid-cols-2">

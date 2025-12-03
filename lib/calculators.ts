@@ -277,7 +277,7 @@ export const CALCULATORS: CalculatorConfig[] = [
     key: 'masa-magra',
     title: 'Masa Magra (LBM)',
     href: '/masa-magra',
-    description: 'Cálculo de masa magra con 4 fórmulas científicas para evaluación de composición corporal',
+    description: 'Cálculo de masa magra con método Standard y 3 variantes científicas para evaluación de composición corporal',
     icon: ActivitySquare,
     priority: 'high',
     category: 'body-composition',

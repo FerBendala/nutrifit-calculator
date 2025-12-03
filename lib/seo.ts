@@ -172,8 +172,8 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     path: '/grasa-visceral'
   },
   'masa-magra': {
-    title: 'Calculadora Masa Magra | LBM | Lean Body Mass | 4 Fórmulas Científicas',
-    description: 'Calculadora profesional de masa magra (LBM) con 4 fórmulas científicas: Standard, Boer (1984), James (1976) y Hume (1966). Evalúa composición corporal, incluye músculos, huesos, órganos y agua. Útil para atletas y prevención de sarcopenia.',
+    title: 'Calculadora Masa Magra | LBM | Lean Body Mass | Método Standard + 3 Variantes',
+    description: 'Calculadora profesional de masa magra (LBM) con método Standard y 3 variantes científicas: Boer (1984) para atletas, James (1976) para población general, y Hume (1966) independiente. Evalúa composición corporal, incluye músculos, huesos, órganos y agua. Útil para atletas y prevención de sarcopenia.',
     keywords: ['calculadora masa magra', 'LBM', 'lean body mass', 'masa magra', 'composición corporal', 'masa libre de grasa', 'Boer', 'James', 'Hume', 'sarcopenia', 'masa muscular', 'grasa corporal'],
     path: '/masa-magra'
   }

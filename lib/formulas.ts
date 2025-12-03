@@ -3898,7 +3898,7 @@ export function analyzeLBM(
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (category === 'Muy Bajo' || category === 'Bajo') {
     recommendations.push('Prioriza entrenamiento de fuerza 3-4 veces por semana para aumentar masa muscular');
     recommendations.push('Consume suficiente proteína (1.6-2.2g por kg de peso corporal)');
@@ -3942,9 +3942,9 @@ export function analyzeLBM(
 
   const clinicalInterpretation = `Tu masa magra de ${lbmAverage.toFixed(1)} kg (${lbmPercentage.toFixed(1)}% del peso corporal) indica ${category.toLowerCase()}. 
     La masa magra incluye músculos, huesos, órganos, agua y otros tejidos no grasos. Mantener o aumentar la masa magra es crucial para 
-    la salud metabólica, función física y prevención de sarcopenia. ${category === 'Muy Bajo' || category === 'Bajo' 
-    ? 'Se recomienda intervención con entrenamiento de fuerza y nutrición adecuada para aumentar masa magra.' 
-    : 'Mantén hábitos saludables para preservar tu masa magra.'}`;
+    la salud metabólica, función física y prevención de sarcopenia. ${category === 'Muy Bajo' || category === 'Bajo'
+      ? 'Se recomienda intervención con entrenamiento de fuerza y nutrición adecuada para aumentar masa magra.'
+      : 'Mantén hábitos saludables para preservar tu masa magra.'}`;
 
   return {
     lbmStandard,

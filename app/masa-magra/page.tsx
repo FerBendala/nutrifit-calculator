@@ -79,7 +79,7 @@ export default function MasaMagraPage() {
               Calculadora Masa Magra Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de masa magra (LBM) con 4 fórmulas científicas validadas.
+              Calculadora profesional de masa magra (LBM) con método Standard y 3 variantes científicas.
               Evalúa composición corporal incluyendo músculos, huesos, órganos y agua.
             </p>
           </header>
@@ -92,8 +92,9 @@ export default function MasaMagraPage() {
                 crucial para la salud metabólica, función física y prevención de sarcopenia (pérdida muscular relacionada con la edad).
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Esta calculadora utiliza cuatro fórmulas científicas validadas: <strong>Standard</strong>, <strong>Boer (1984)</strong>,
-                <strong> James (1976)</strong> y <strong>Hume (1966)</strong> para calcular la masa magra. Es complementaria a otras
+                Esta calculadora utiliza el método <strong>Standard</strong> (LBM = Peso - Masa Grasa) y tres variantes científicas:
+                <strong> Boer (1984)</strong> ajustada para atletas, <strong>James (1976)</strong> ajustada para población general,
+                y <strong>Hume (1966)</strong> fórmula independiente basada en género y altura. Es complementaria a otras
                 calculadoras de composición corporal como <a href="/masa-muscular" className="text-blue-600 hover:underline">Masa Muscular</a>,
                 <a href="/grasa-corporal" className="text-blue-600 hover:underline"> Grasa Corporal</a>, <a href="/composicion" className="text-blue-600 hover:underline">Composición Corporal</a> y
                 <a href="/ffmi" className="text-blue-600 hover:underline"> FFMI</a>.
@@ -529,45 +530,45 @@ export default function MasaMagraPage() {
             <section className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
               <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📐</span>
-                Fórmulas Científicas Utilizadas
+                Métodos de Cálculo Utilizados
               </h3>
               <div className="space-y-4">
                 <div className="bg-white p-4 rounded-lg border-2 border-blue-200">
-                  <h4 className="font-semibold text-blue-900 mb-2">Fórmula Standard:</h4>
+                  <h4 className="font-semibold text-blue-900 mb-2">Método Standard (Base):</h4>
                   <div className="font-mono text-sm mb-2 bg-gray-50 p-3 rounded">
                     <p>LBM = Peso Total - Masa Grasa</p>
                     <p>Masa Grasa = Peso × (% Grasa Corporal / 100)</p>
                   </div>
                   <p className="text-sm text-gray-700">
-                    Método directo que resta la masa grasa del peso total. Es la base para otros métodos.
+                    Método directo que resta la masa grasa del peso total. Es la base para los ajustes de Boer y James.
                   </p>
                 </div>
                 <div className="bg-white p-4 rounded-lg border-2 border-blue-200">
-                  <h4 className="font-semibold text-blue-900 mb-2">Fórmula Boer (1984):</h4>
+                  <h4 className="font-semibold text-blue-900 mb-2">Ajuste Boer (1984) - Para Atletas:</h4>
                   <div className="font-mono text-sm mb-2 bg-gray-50 p-3 rounded">
                     <p>LBM = (Peso - Masa Grasa) × 1.02</p>
                   </div>
                   <p className="text-sm text-gray-700">
-                    Ajuste del 2% para atletas, que tienden a tener mayor masa magra. Validada en poblaciones atléticas.
+                    Ajuste del +2% sobre el método Standard para atletas, que tienden a tener mayor masa magra. Validada en poblaciones atléticas.
                   </p>
                 </div>
                 <div className="bg-white p-4 rounded-lg border-2 border-blue-200">
-                  <h4 className="font-semibold text-blue-900 mb-2">Fórmula James (1976):</h4>
+                  <h4 className="font-semibold text-blue-900 mb-2">Ajuste James (1976) - Población General:</h4>
                   <div className="font-mono text-sm mb-2 bg-gray-50 p-3 rounded">
                     <p>LBM = (Peso - Masa Grasa) × 0.98</p>
                   </div>
                   <p className="text-sm text-gray-700">
-                    Ajuste del -2% para población general, considerando variaciones en composición corporal.
+                    Ajuste del -2% sobre el método Standard para población general, considerando variaciones en composición corporal.
                   </p>
                 </div>
                 <div className="bg-white p-4 rounded-lg border-2 border-blue-200">
-                  <h4 className="font-semibold text-blue-900 mb-2">Fórmula Hume (1966):</h4>
+                  <h4 className="font-semibold text-blue-900 mb-2">Fórmula Hume (1966) - Independiente:</h4>
                   <div className="font-mono text-sm mb-2 bg-gray-50 p-3 rounded">
                     <p>Hombres: LBM = (0.32810 × Peso) + (0.33929 × Altura) - 29.5336</p>
                     <p>Mujeres: LBM = (0.29569 × Peso) + (0.41813 × Altura) - 43.2933</p>
                   </div>
                   <p className="text-sm text-gray-700">
-                    Fórmula basada en género y altura, sin requerir porcentaje de grasa corporal. Útil cuando no se conoce la grasa corporal.
+                    Fórmula completamente independiente basada en género y altura, sin requerir porcentaje de grasa corporal. Útil cuando no se conoce la grasa corporal.
                   </p>
                 </div>
               </div>

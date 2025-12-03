@@ -1,5 +1,5 @@
 ---
-title: 'Hierro, Rendimiento y Menstruación: Checklist 2025 para Deportistas'
+title: 'Hierro, Rendimiento y Menstruación: Checklist para Deportistas'
 date: '2025-11-27'
 author: 'Dr. Nutrifit'
 description: 'Cómo prevenir y corregir la deficiencia de hierro en atletas, con protocolos prácticos y evidencia reciente.'
@@ -11,7 +11,7 @@ readTime: 8
 featured: false
 ---
 
-# Hierro, Rendimiento y Menstruación: Checklist 2025 para Deportistas
+# Hierro, Rendimiento y Menstruación: Checklist para Deportistas
 
 La deficiencia de hierro sigue siendo el “limitante invisible” en deportes de resistencia y en mujeres con ciclos abundantes. Estudios recientes en cohortes olímpicas muestran anomalías hematológicas frecuentes, y nuevos suplementos (hierro ligado a levadura) buscan reducir efectos gastrointestinales.[^1][^2] En clubes profesionales, el perfil genético y la ferritina inicial condicionan la respuesta a la suplementación y el rendimiento aeróbico.[^3]
 
@@ -63,7 +63,7 @@ La deficiencia de hierro sigue siendo el “limitante invisible” en deportes d
 - Tras estancias en altitud, programa analítica 2-3 semanas después de descender.
 - Usa RPE y HRV: si RPE sube sin causa y HRV cae, revisa hierro antes de subir volumen.
 
-## Checklist 2025
+## Checklist
 
 - [ ] Ferritina y Hb al día; repetir cada 3-6 meses o tras altitud.
 - [ ] Cribado de HMB en mujeres y plan de soporte.

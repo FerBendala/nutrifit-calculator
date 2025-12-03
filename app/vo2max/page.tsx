@@ -191,7 +191,7 @@ export default function VO2MaxPage() {
               </CardHeader>
               <CardContent>
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                  <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4">
+                  <TabsList className="relative z-10 grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mb-6 sm:mb-6 lg:mb-0 h-auto sm:h-auto lg:h-10">
                     <TabsTrigger value="cooper">Test de Cooper</TabsTrigger>
                     <TabsTrigger value="rockport">Test de Rockport</TabsTrigger>
                     <TabsTrigger value="astrand">Test de Astrand</TabsTrigger>

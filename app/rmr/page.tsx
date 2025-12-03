@@ -123,7 +123,7 @@ export default function RMRPage() {
               </CardHeader>
               <CardContent className="space-golden-md">
                 <Tabs defaultValue="basic" className="w-full">
-                  <TabsList className="grid w-full grid-cols-2 mb-[1.618rem]">
+                  <TabsList className="relative z-10 grid w-full grid-cols-1 sm:grid-cols-2 gap-2 mb-6 sm:mb-[1.618rem] h-auto sm:h-10">
                     <TabsTrigger value="basic">Cálculo Básico</TabsTrigger>
                     <TabsTrigger value="advanced">Con Composición Corporal</TabsTrigger>
                   </TabsList>

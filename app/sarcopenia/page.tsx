@@ -181,7 +181,7 @@ export default function SarcopeniaPage() {
               </CardHeader>
               <CardContent>
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                  <TabsList className="grid w-full grid-cols-3">
+                  <TabsList className="relative z-10 grid w-full grid-cols-1 md:grid-cols-3 gap-2 mb-6 md:mb-0 h-auto md:h-10">
                     <TabsTrigger value="index">Índice Básico</TabsTrigger>
                     <TabsTrigger value="asmm">ASMM Completo</TabsTrigger>
                     <TabsTrigger value="smmi">SMMI Avanzado</TabsTrigger>

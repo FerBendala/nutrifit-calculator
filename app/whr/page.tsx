@@ -256,7 +256,7 @@ export default function WHRPage() {
               </CardHeader>
               <CardContent>
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                  <TabsList className="grid w-full grid-cols-2">
+                  <TabsList className="relative z-10 grid w-full grid-cols-1 sm:grid-cols-2 gap-2 mb-6 sm:mb-0 h-auto sm:h-10">
                     <TabsTrigger value="basic">Análisis Básico OMS</TabsTrigger>
                     <TabsTrigger value="comprehensive">Análisis Integral</TabsTrigger>
                   </TabsList>

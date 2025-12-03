@@ -170,6 +170,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de grasa visceral (VAT) con 2 fórmulas científicas: Lee et al. (2008) y Ryo et al. (2005). Estima tejido adiposo visceral que rodea órganos internos. Predice riesgo metabólico, diabetes y enfermedad cardiovascular.',
     keywords: ['calculadora grasa visceral', 'VAT', 'visceral adipose tissue', 'grasa visceral', 'Lee', 'Ryo', 'tejido adiposo visceral', 'riesgo metabólico', 'diabetes', 'síndrome metabólico', 'hígado graso', 'riesgo cardiovascular'],
     path: '/grasa-visceral'
+  },
+  'masa-magra': {
+    title: 'Calculadora Masa Magra | LBM | Lean Body Mass | 4 Fórmulas Científicas',
+    description: 'Calculadora profesional de masa magra (LBM) con 4 fórmulas científicas: Standard, Boer (1984), James (1976) y Hume (1966). Evalúa composición corporal, incluye músculos, huesos, órganos y agua. Útil para atletas y prevención de sarcopenia.',
+    keywords: ['calculadora masa magra', 'LBM', 'lean body mass', 'masa magra', 'composición corporal', 'masa libre de grasa', 'Boer', 'James', 'Hume', 'sarcopenia', 'masa muscular', 'grasa corporal'],
+    path: '/masa-magra'
   }
 };
 

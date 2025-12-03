@@ -3724,3 +3724,244 @@ export function analyzeVAT(
     clinicalInterpretation
   };
 }
+
+/**
+ * Calculate Lean Body Mass (LBM) using multiple methods
+ * LBM = Total Body Weight - Fat Mass
+ * Includes muscle, bone, organs, water, and other non-fat tissues
+ */
+export function calculateLBMStandard(
+  weight: number,
+  bodyFatPercentage: number
+): number {
+  const fatMass = weight * (bodyFatPercentage / 100);
+  return weight - fatMass;
+}
+
+/**
+ * Calculate LBM using Boer method (1984) - adjusted for athletes
+ */
+export function calculateLBMBoer(
+  weight: number,
+  bodyFatPercentage: number
+): number {
+  const standardLBM = calculateLBMStandard(weight, bodyFatPercentage);
+  return standardLBM * 1.02; // Slight adjustment for athletes
+}
+
+/**
+ * Calculate LBM using James method (1976) - age-adjusted for general population
+ */
+export function calculateLBMJames(
+  weight: number,
+  bodyFatPercentage: number
+): number {
+  const standardLBM = calculateLBMStandard(weight, bodyFatPercentage);
+  return standardLBM * 0.98; // Slight adjustment for general population
+}
+
+/**
+ * Calculate LBM using Hume method (1966) - based on gender and height
+ */
+export function calculateLBMHume(
+  weight: number,
+  height: number,
+  gender: 'male' | 'female'
+): number {
+  const heightMeters = height / 100;
+  if (gender === 'male') {
+    return (0.32810 * weight) + (0.33929 * height) - 29.5336;
+  } else {
+    return (0.29569 * weight) + (0.41813 * height) - 43.2933;
+  }
+}
+
+/**
+ * Comprehensive LBM analysis with health assessment
+ */
+export interface LBMAnalysis {
+  lbmStandard: number;
+  lbmBoer: number;
+  lbmJames: number;
+  lbmHume: number;
+  lbmAverage: number;
+  fatMass: number;
+  bodyFatPercentage: number;
+  lbmPercentage: number;
+  category: 'Muy Bajo' | 'Bajo' | 'Normal' | 'Alto' | 'Muy Alto';
+  healthStatus: string;
+  lbmInterpretation: string;
+  comparison: {
+    metric: string;
+    value: number;
+    status: string;
+  }[];
+  recommendations: string[];
+  benefits: string[];
+  improvementStrategies: string[];
+  clinicalInterpretation: string;
+}
+
+export function analyzeLBM(
+  weight: number,
+  height: number,
+  bodyFatPercentage: number,
+  gender: 'male' | 'female',
+  age: number
+): LBMAnalysis {
+  const lbmStandard = calculateLBMStandard(weight, bodyFatPercentage);
+  const lbmBoer = calculateLBMBoer(weight, bodyFatPercentage);
+  const lbmJames = calculateLBMJames(weight, bodyFatPercentage);
+  const lbmHume = calculateLBMHume(weight, height, gender);
+  const lbmAverage = (lbmStandard + lbmBoer + lbmJames + lbmHume) / 4;
+
+  const fatMass = weight * (bodyFatPercentage / 100);
+  const lbmPercentage = (lbmAverage / weight) * 100;
+
+  // LBM categories based on percentage of total weight and gender
+  // Higher LBM percentage is generally better (more muscle, less fat)
+  let category: 'Muy Bajo' | 'Bajo' | 'Normal' | 'Alto' | 'Muy Alto';
+  let healthStatus: string;
+  let lbmInterpretation: string;
+
+  if (gender === 'male') {
+    if (lbmPercentage < 70) {
+      category = 'Muy Bajo';
+      healthStatus = 'Masa magra muy baja - Riesgo de sarcopenia y pérdida funcional';
+      lbmInterpretation = 'Tu masa magra está muy por debajo de lo recomendado, lo que puede indicar pérdida muscular significativa o alto porcentaje de grasa corporal.';
+    } else if (lbmPercentage < 75) {
+      category = 'Bajo';
+      healthStatus = 'Masa magra baja - Requiere atención para prevenir pérdida muscular';
+      lbmInterpretation = 'Tu masa magra está por debajo de lo ideal. Se recomienda aumentar masa muscular y reducir grasa corporal.';
+    } else if (lbmPercentage < 85) {
+      category = 'Normal';
+      healthStatus = 'Masa magra en rango saludable';
+      lbmInterpretation = 'Tu masa magra está en un rango saludable. Mantén hábitos de ejercicio y nutrición adecuados.';
+    } else if (lbmPercentage < 90) {
+      category = 'Alto';
+      healthStatus = 'Masa magra alta - Excelente composición corporal';
+      lbmInterpretation = 'Tu masa magra está en un rango excelente, indicando buena composición corporal y bajo porcentaje de grasa.';
+    } else {
+      category = 'Muy Alto';
+      healthStatus = 'Masa magra muy alta - Nivel atlético';
+      lbmInterpretation = 'Tu masa magra está en un nivel muy alto, típico de atletas o personas muy entrenadas.';
+    }
+  } else {
+    if (lbmPercentage < 60) {
+      category = 'Muy Bajo';
+      healthStatus = 'Masa magra muy baja - Riesgo de sarcopenia y pérdida funcional';
+      lbmInterpretation = 'Tu masa magra está muy por debajo de lo recomendado, lo que puede indicar pérdida muscular significativa o alto porcentaje de grasa corporal.';
+    } else if (lbmPercentage < 65) {
+      category = 'Bajo';
+      healthStatus = 'Masa magra baja - Requiere atención para prevenir pérdida muscular';
+      lbmInterpretation = 'Tu masa magra está por debajo de lo ideal. Se recomienda aumentar masa muscular y reducir grasa corporal.';
+    } else if (lbmPercentage < 75) {
+      category = 'Normal';
+      healthStatus = 'Masa magra en rango saludable';
+      lbmInterpretation = 'Tu masa magra está en un rango saludable. Mantén hábitos de ejercicio y nutrición adecuados.';
+    } else if (lbmPercentage < 80) {
+      category = 'Alto';
+      healthStatus = 'Masa magra alta - Excelente composición corporal';
+      lbmInterpretation = 'Tu masa magra está en un rango excelente, indicando buena composición corporal y bajo porcentaje de grasa.';
+    } else {
+      category = 'Muy Alto';
+      healthStatus = 'Masa magra muy alta - Nivel atlético';
+      lbmInterpretation = 'Tu masa magra está en un nivel muy alto, típico de atletas o personas muy entrenadas.';
+    }
+  }
+
+  // Comparison with other metrics
+  const heightMeters = height / 100;
+  const bmi = weight / (heightMeters * heightMeters);
+  const comparison = [
+    {
+      metric: 'Masa Magra (LBM)',
+      value: lbmAverage,
+      status: category === 'Normal' || category === 'Alto' || category === 'Muy Alto' ? 'Favorable' : 'Desfavorable'
+    },
+    {
+      metric: 'Masa Grasa',
+      value: fatMass,
+      status: bodyFatPercentage < (gender === 'male' ? 20 : 25) ? 'Normal' : bodyFatPercentage < (gender === 'male' ? 25 : 32) ? 'Elevada' : 'Alta'
+    },
+    {
+      metric: 'Porcentaje Grasa Corporal',
+      value: bodyFatPercentage,
+      status: bodyFatPercentage < (gender === 'male' ? 20 : 25) ? 'Normal' : bodyFatPercentage < (gender === 'male' ? 25 : 32) ? 'Elevado' : 'Alto'
+    },
+    {
+      metric: 'IMC',
+      value: bmi,
+      status: bmi < 25 ? 'Normal' : bmi < 30 ? 'Sobrepeso' : 'Obesidad'
+    }
+  ];
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (category === 'Muy Bajo' || category === 'Bajo') {
+    recommendations.push('Prioriza entrenamiento de fuerza 3-4 veces por semana para aumentar masa muscular');
+    recommendations.push('Consume suficiente proteína (1.6-2.2g por kg de peso corporal)');
+    recommendations.push('Mantén un ligero superávit calórico (200-300 kcal/día) si buscas ganar masa');
+    recommendations.push('Incluye ejercicios compuestos (sentadillas, peso muerto, press) en tu rutina');
+    recommendations.push('Considera evaluación médica para descartar sarcopenia o pérdida muscular patológica');
+    recommendations.push('Monitorea progreso con mediciones de circunferencias y fuerza');
+  } else if (category === 'Normal') {
+    recommendations.push('Mantén entrenamiento de fuerza regular (2-3 veces por semana)');
+    recommendations.push('Consume proteína adecuada (1.2-1.6g por kg de peso corporal)');
+    recommendations.push('Mantén balance calórico para preservar masa magra');
+    recommendations.push('Incluye ejercicios de resistencia para mantener masa muscular');
+  } else {
+    recommendations.push('Mantén tus hábitos actuales de ejercicio y nutrición');
+    recommendations.push('Continúa monitoreando tu masa magra regularmente');
+    recommendations.push('Considera periodización del entrenamiento para optimización continua');
+  }
+
+  // Benefits of maintaining/increasing LBM
+  const benefits: string[] = [];
+  if (category === 'Normal' || category === 'Alto' || category === 'Muy Alto') {
+    benefits.push('Mayor tasa metabólica en reposo (quema más calorías en reposo)');
+    benefits.push('Mejor función física y movilidad');
+    benefits.push('Menor riesgo de sarcopenia relacionada con la edad');
+    benefits.push('Mejor salud ósea y densidad mineral');
+    benefits.push('Mayor fuerza y resistencia');
+    benefits.push('Mejor control glucémico y sensibilidad a la insulina');
+    benefits.push('Mejor composición corporal y apariencia física');
+  }
+
+  // Improvement strategies
+  const improvementStrategies: string[] = [];
+  if (category === 'Muy Bajo' || category === 'Bajo') {
+    improvementStrategies.push('Entrenamiento de fuerza progresivo: aumenta peso o repeticiones gradualmente');
+    improvementStrategies.push('Proteína post-entrenamiento: consume 20-30g de proteína después del ejercicio');
+    improvementStrategies.push('Descanso adecuado: permite 48 horas de recuperación entre sesiones de mismo grupo muscular');
+    improvementStrategies.push('Hidratación: bebe suficiente agua (35ml por kg de peso)');
+    improvementStrategies.push('Sueño: duerme 7-9 horas para optimizar recuperación y síntesis proteica');
+    improvementStrategies.push('Suplementación: considera creatina (3-5g/día) para mejorar rendimiento y masa muscular');
+  }
+
+  const clinicalInterpretation = `Tu masa magra de ${lbmAverage.toFixed(1)} kg (${lbmPercentage.toFixed(1)}% del peso corporal) indica ${category.toLowerCase()}. 
+    La masa magra incluye músculos, huesos, órganos, agua y otros tejidos no grasos. Mantener o aumentar la masa magra es crucial para 
+    la salud metabólica, función física y prevención de sarcopenia. ${category === 'Muy Bajo' || category === 'Bajo' 
+    ? 'Se recomienda intervención con entrenamiento de fuerza y nutrición adecuada para aumentar masa magra.' 
+    : 'Mantén hábitos saludables para preservar tu masa magra.'}`;
+
+  return {
+    lbmStandard,
+    lbmBoer,
+    lbmJames,
+    lbmHume,
+    lbmAverage,
+    fatMass,
+    bodyFatPercentage,
+    lbmPercentage,
+    category,
+    healthStatus,
+    lbmInterpretation,
+    comparison,
+    recommendations,
+    benefits,
+    improvementStrategies,
+    clinicalInterpretation
+  };
+}

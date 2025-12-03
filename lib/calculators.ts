@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -272,6 +272,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'health',
     relatedCalculators: ['ci', 'bri', 'absi', 'whtr']
+  },
+  {
+    key: 'masa-magra',
+    title: 'Masa Magra (LBM)',
+    href: '/masa-magra',
+    description: 'Cálculo de masa magra con 4 fórmulas científicas para evaluación de composición corporal',
+    icon: ActivitySquare,
+    priority: 'high',
+    category: 'body-composition',
+    relatedCalculators: ['masa-muscular', 'grasa-corporal', 'composicion', 'ffmi']
   }
 ];
 

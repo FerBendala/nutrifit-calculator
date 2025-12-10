@@ -182,6 +182,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de edad metabólica que compara tu metabolismo (BMR) con el promedio de personas de tu edad cronológica. Indica si tu metabolismo es más joven o más viejo que tu edad real. Útil para evaluar eficiencia metabólica y salud general.',
     keywords: ['calculadora edad metabólica', 'metabolic age', 'edad metabólica', 'BMR', 'metabolismo', 'eficiencia metabólica', 'metabolismo joven', 'metabolismo viejo', 'salud metabólica', 'metabolismo basal'],
     path: '/edad-metabolica'
+  },
+  'presion-arterial-media': {
+    title: 'Calculadora Presión Arterial Media (MAP) | Perfusión Órganos | Evaluación Cardiovascular',
+    description: 'Calculadora médica profesional de presión arterial media (MAP) para evaluación de perfusión de órganos y riesgo cardiovascular. Interpretación clínica según guías AHA/ACC. Útil para profesionales de la salud.',
+    keywords: ['calculadora MAP', 'presión arterial media', 'MAP', 'perfusión órganos', 'presión arterial', 'hipertensión', 'hipotensión', 'evaluación cardiovascular', 'riesgo cardiovascular', 'presión sistólica', 'presión diastólica'],
+    path: '/presion-arterial-media'
   }
 };
 

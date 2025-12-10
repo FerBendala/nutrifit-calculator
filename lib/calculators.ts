@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare, Clock } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare, Clock, HeartPulse } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -292,6 +292,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'health',
     relatedCalculators: ['bmr', 'rmr', 'tdee', 'masa-muscular']
+  },
+  {
+    key: 'presion-arterial-media',
+    title: 'Presión Arterial Media (MAP)',
+    href: '/presion-arterial-media',
+    description: 'Presión arterial media para evaluación de perfusión de órganos y riesgo cardiovascular',
+    icon: HeartPulse,
+    priority: 'high',
+    category: 'health',
+    relatedCalculators: ['ritmo-cardiaco', 'vo2max', 'absi', 'bri']
   }
 ];
 

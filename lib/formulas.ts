@@ -4216,3 +4216,246 @@ export function analyzeMetabolicAge(
     clinicalInterpretation
   };
 }
+
+// ============================================================================
+// PRESIÓN ARTERIAL MEDIA (MAP - Mean Arterial Pressure)
+// ============================================================================
+
+/**
+ * Calculate Mean Arterial Pressure (MAP)
+ * MAP represents the average arterial pressure throughout one cardiac cycle
+ * Formula: MAP = DBP + (1/3)(SBP - DBP) = (2 × DBP + SBP) / 3
+ * 
+ * @param systolicBP Systolic blood pressure (mmHg)
+ * @param diastolicBP Diastolic blood pressure (mmHg)
+ * @returns Mean arterial pressure (mmHg)
+ */
+export function calculateMAP(systolicBP: number, diastolicBP: number): number {
+  if (systolicBP <= 0 || diastolicBP <= 0) {
+    throw new Error('Las presiones arteriales deben ser valores positivos');
+  }
+  if (systolicBP < diastolicBP) {
+    throw new Error('La presión sistólica debe ser mayor que la diastólica');
+  }
+
+  // Standard formula: MAP = DBP + (1/3)(SBP - DBP)
+  const map = diastolicBP + (1/3) * (systolicBP - diastolicBP);
+  
+  return Math.round(map * 10) / 10; // Round to 1 decimal place
+}
+
+/**
+ * Comprehensive MAP analysis with clinical interpretation
+ */
+export interface MAPAnalysis {
+  map: number;
+  systolicBP: number;
+  diastolicBP: number;
+  category: 'Hipotensión' | 'Normal' | 'Prehipertensión' | 'Hipertensión Estadio 1' | 'Hipertensión Estadio 2' | 'Crisis Hipertensiva';
+  bpCategory: 'Normal' | 'Elevada' | 'Hipertensión Estadio 1' | 'Hipertensión Estadio 2' | 'Crisis Hipertensiva';
+  status: string;
+  interpretation: string;
+  clinicalSignificance: string;
+  organPerfusion: {
+    status: string;
+    description: string;
+    risk: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  };
+  recommendations: string[];
+  monitoring: {
+    frequency: string;
+    actions: string[];
+  };
+  riskFactors: string[];
+  clinicalInterpretation: string;
+}
+
+/**
+ * Analyze Mean Arterial Pressure with clinical interpretation
+ * Based on AHA/ACC 2017 guidelines
+ */
+export function analyzeMAP(systolicBP: number, diastolicBP: number): MAPAnalysis {
+  const map = calculateMAP(systolicBP, diastolicBP);
+
+  // Categorize MAP
+  let category: 'Hipotensión' | 'Normal' | 'Prehipertensión' | 'Hipertensión Estadio 1' | 'Hipertensión Estadio 2' | 'Crisis Hipertensiva';
+  let status: string;
+  let interpretation: string;
+
+  if (map < 70) {
+    category = 'Hipotensión';
+    status = 'Presión arterial media baja';
+    interpretation = `Tu MAP de ${map} mmHg está por debajo del rango normal (70-100 mmHg). Esto puede indicar hipotensión, que puede causar síntomas como mareos, fatiga o desmayos. La perfusión de órganos puede estar comprometida.`;
+  } else if (map >= 70 && map < 93) {
+    category = 'Normal';
+    status = 'Presión arterial media normal';
+    interpretation = `Tu MAP de ${map} mmHg está dentro del rango normal (70-100 mmHg). Esto indica una presión arterial adecuada para mantener la perfusión de órganos vitales.`;
+  } else if (map >= 93 && map < 100) {
+    category = 'Prehipertensión';
+    status = 'Presión arterial media en rango prehipertensivo';
+    interpretation = `Tu MAP de ${map} mmHg está en el rango prehipertensivo. Aunque no es hipertensión, es importante monitorear y adoptar hábitos saludables para prevenir el desarrollo de hipertensión.`;
+  } else if (map >= 100 && map < 110) {
+    category = 'Hipertensión Estadio 1';
+    status = 'Hipertensión estadio 1';
+    interpretation = `Tu MAP de ${map} mmHg indica hipertensión estadio 1. Se recomienda cambios en el estilo de vida y posiblemente medicación según evaluación médica.`;
+  } else if (map >= 110 && map < 120) {
+    category = 'Hipertensión Estadio 2';
+    status = 'Hipertensión estadio 2';
+    interpretation = `Tu MAP de ${map} mmHg indica hipertensión estadio 2. Requiere intervención médica con medicación y cambios en el estilo de vida.`;
+  } else {
+    category = 'Crisis Hipertensiva';
+    status = 'Crisis hipertensiva - Atención médica inmediata';
+    interpretation = `Tu MAP de ${map} mmHg indica una crisis hipertensiva. Se requiere atención médica inmediata.`;
+  }
+
+  // Categorize BP according to AHA/ACC 2017 guidelines
+  let bpCategory: 'Normal' | 'Elevada' | 'Hipertensión Estadio 1' | 'Hipertensión Estadio 2' | 'Crisis Hipertensiva';
+  if (systolicBP < 120 && diastolicBP < 80) {
+    bpCategory = 'Normal';
+  } else if (systolicBP >= 120 && systolicBP < 130 && diastolicBP < 80) {
+    bpCategory = 'Elevada';
+  } else if ((systolicBP >= 130 && systolicBP < 140) || (diastolicBP >= 80 && diastolicBP < 90)) {
+    bpCategory = 'Hipertensión Estadio 1';
+  } else if ((systolicBP >= 140 && systolicBP < 180) || (diastolicBP >= 90 && diastolicBP < 120)) {
+    bpCategory = 'Hipertensión Estadio 2';
+  } else {
+    bpCategory = 'Crisis Hipertensiva';
+  }
+
+  // Organ perfusion assessment
+  let organPerfusion: {
+    status: string;
+    description: string;
+    risk: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
+  };
+
+  if (map >= 70 && map <= 100) {
+    organPerfusion = {
+      status: 'Óptima',
+      description: 'La perfusión de órganos vitales (cerebro, corazón, riñones) es adecuada. El MAP está en el rango ideal para mantener el flujo sanguíneo a los órganos.',
+      risk: 'Bajo'
+    };
+  } else if (map < 70) {
+    organPerfusion = {
+      status: 'Comprometida',
+      description: 'MAP bajo puede comprometer la perfusión de órganos vitales, especialmente en el cerebro y los riñones. Puede causar isquemia y daño orgánico.',
+      risk: 'Alto'
+    };
+  } else if (map > 100 && map < 110) {
+    organPerfusion = {
+      status: 'Aumentada',
+      description: 'MAP elevado aumenta la carga de trabajo del corazón y puede causar daño a largo plazo en órganos como riñones, cerebro y corazón.',
+      risk: 'Moderado'
+    };
+  } else {
+    organPerfusion = {
+      status: 'Crítica',
+      description: 'MAP muy elevado representa un riesgo significativo de daño orgánico agudo, incluyendo accidente cerebrovascular, infarto de miocardio o insuficiencia renal.',
+      risk: 'Muy Alto'
+    };
+  }
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (map < 70) {
+    recommendations.push('Buscar atención médica para evaluar la causa de la hipotensión');
+    recommendations.push('Aumentar la ingesta de líquidos y electrolitos si está deshidratado');
+    recommendations.push('Evitar cambios bruscos de posición (ortostatismo)');
+    recommendations.push('Considerar medias de compresión si hay hipotensión ortostática');
+  } else if (map >= 70 && map < 100) {
+    recommendations.push('Mantener hábitos saludables: dieta equilibrada, ejercicio regular');
+    recommendations.push('Monitorear la presión arterial regularmente');
+    recommendations.push('Mantener un peso saludable');
+    recommendations.push('Limitar el consumo de sodio y alcohol');
+  } else if (map >= 100) {
+    recommendations.push('Consultar con un médico para evaluación y tratamiento');
+    recommendations.push('Adoptar una dieta baja en sodio (DASH)');
+    recommendations.push('Realizar ejercicio físico regular (150 min/semana)');
+    recommendations.push('Mantener un peso saludable');
+    recommendations.push('Limitar o evitar el consumo de alcohol');
+    recommendations.push('Gestionar el estrés mediante técnicas de relajación');
+    recommendations.push('Tomar medicación según prescripción médica');
+  }
+
+  // Monitoring frequency
+  let monitoring: {
+    frequency: string;
+    actions: string[];
+  };
+
+  if (map < 70 || map >= 110) {
+    monitoring = {
+      frequency: 'Diario o según indicación médica',
+      actions: [
+        'Medir presión arterial al menos 2 veces al día',
+        'Registrar valores en un diario',
+        'Consultar con médico si hay cambios significativos',
+        'Buscar atención de emergencia si hay síntomas de crisis hipertensiva'
+      ]
+    };
+  } else if (map >= 100 && map < 110) {
+    monitoring = {
+      frequency: 'Varias veces por semana',
+      actions: [
+        'Medir presión arterial 2-3 veces por semana',
+        'Registrar valores para seguimiento médico',
+        'Consultar con médico regularmente'
+      ]
+    };
+  } else {
+    monitoring = {
+      frequency: 'Mensual o según indicación médica',
+      actions: [
+        'Medir presión arterial mensualmente',
+        'Mantener hábitos saludables',
+        'Consultar con médico en chequeos regulares'
+      ]
+    };
+  }
+
+  // Risk factors
+  const riskFactors: string[] = [];
+  if (map >= 100) {
+    riskFactors.push('Enfermedad cardiovascular');
+    riskFactors.push('Accidente cerebrovascular');
+    riskFactors.push('Enfermedad renal crónica');
+    riskFactors.push('Daño a órganos diana');
+    riskFactors.push('Síndrome metabólico');
+  }
+  if (map < 70) {
+    riskFactors.push('Síncope y caídas');
+    riskFactors.push('Isquemia de órganos');
+    riskFactors.push('Shock');
+  }
+
+  // Clinical interpretation
+  const clinicalInterpretation = `MAP de ${map} mmHg con presión arterial ${systolicBP}/${diastolicBP} mmHg. ` +
+    `${category === 'Hipotensión' 
+      ? 'MAP bajo indica hipotensión que puede comprometer la perfusión de órganos. Requiere evaluación de la causa subyacente.'
+      : category === 'Normal'
+      ? 'MAP normal indica presión arterial adecuada para mantener la perfusión de órganos vitales.'
+      : category === 'Prehipertensión'
+      ? 'MAP en rango prehipertensivo requiere monitoreo y cambios en el estilo de vida para prevenir hipertensión.'
+      : category === 'Hipertensión Estadio 1'
+      ? 'MAP elevado indica hipertensión estadio 1. Requiere intervención con cambios en el estilo de vida y posiblemente medicación.'
+      : category === 'Hipertensión Estadio 2'
+      ? 'MAP significativamente elevado indica hipertensión estadio 2. Requiere tratamiento médico inmediato con medicación y cambios en el estilo de vida.'
+      : 'MAP muy elevado indica crisis hipertensiva que requiere atención médica inmediata para prevenir daño orgánico agudo.'}`;
+
+  return {
+    map,
+    systolicBP,
+    diastolicBP,
+    category,
+    bpCategory,
+    status,
+    interpretation,
+    clinicalSignificance: `La presión arterial media (MAP) es un indicador crítico de la perfusión de órganos. Representa la presión promedio en las arterias durante un ciclo cardíaco completo. Un MAP adecuado (70-100 mmHg) es esencial para mantener el flujo sanguíneo a órganos vitales como el cerebro, corazón y riñones.`,
+    organPerfusion,
+    recommendations,
+    monitoring,
+    riskFactors,
+    clinicalInterpretation
+  };
+}

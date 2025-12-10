@@ -1,5 +1,5 @@
 ---
-title: 'Entrenar en Perimenopausia 2025: Sueño, Fuerza y Carga Hormética'
+title: 'Entrenar en Perimenopausia: Sueño, Fuerza y Carga Hormética'
 date: '2025-12-10'
 author: 'Dr. Nutrifit'
 description: 'Guía práctica para mujeres 40-55: cómo ajustar entrenamiento, sueño y nutrición durante la transición perimenopáusica con evidencia reciente.'
@@ -11,7 +11,7 @@ readTime: 9
 featured: false
 ---
 
-# Entrenar en Perimenopausia 2025: Sueño, Fuerza y Carga Hormética
+# Entrenar en Perimenopausia: Sueño, Fuerza y Carga Hormética
 
 La transición perimenopáusica trae cambios en sueño, energía y composición corporal, pero el entrenamiento inteligente puede amortiguar la sintomatología y mantener el rendimiento. Una red de 31 RCTs posiciona el ejercicio (fuerza, aeróbico y mente-cuerpo) como intervención de primera línea para mejorar el sueño en mujeres peri-postmenopáusicas.[^1] Revisiones de 2024-2025 también remarcan que el estilo de vida sigue siendo el modulador principal, por encima de la medicación, cuando se aplica de forma estructurada.[^2]
 

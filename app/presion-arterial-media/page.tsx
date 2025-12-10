@@ -10,8 +10,8 @@ import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { analyzeMAP } from '@/lib/formulas';
+import { Activity, AlertTriangle, CheckCircle, Clock, HeartPulse, Info, Stethoscope } from 'lucide-react';
 import { useState } from 'react';
-import { HeartPulse, Info, AlertTriangle, CheckCircle, Clock, Activity, Stethoscope } from 'lucide-react';
 
 export default function PresionArterialMediaPage() {
   const [formData, setFormData] = useState({
@@ -41,7 +41,7 @@ export default function PresionArterialMediaPage() {
     }
   };
 
-  const isFormValid = formData.systolicBP && formData.diastolicBP && 
+  const isFormValid = formData.systolicBP && formData.diastolicBP &&
     parseFloat(formData.systolicBP) > parseFloat(formData.diastolicBP);
 
   return (
@@ -110,15 +110,15 @@ export default function PresionArterialMediaPage() {
                     />
                   </div>
 
-                  {formData.systolicBP && formData.diastolicBP && 
-                   parseFloat(formData.systolicBP) <= parseFloat(formData.diastolicBP) && (
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                      <p className="text-sm text-red-700">
-                        <AlertTriangle className="w-4 h-4 inline mr-2" />
-                        La presión sistólica debe ser mayor que la diastólica.
-                      </p>
-                    </div>
-                  )}
+                  {formData.systolicBP && formData.diastolicBP &&
+                    parseFloat(formData.systolicBP) <= parseFloat(formData.diastolicBP) && (
+                      <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                        <p className="text-sm text-red-700">
+                          <AlertTriangle className="w-4 h-4 inline mr-2" />
+                          La presión sistólica debe ser mayor que la diastólica.
+                        </p>
+                      </div>
+                    )}
 
                   <Button
                     type="submit"
@@ -143,44 +143,39 @@ export default function PresionArterialMediaPage() {
               </header>
               <div className="p-6 space-golden-md">
                 {/* MAP Principal */}
-                <Card className={`bg-gradient-to-br ${
-                  result.category === 'Hipotensión' ? 'from-red-50 to-red-100' :
+                <Card className={`bg-gradient-to-br ${result.category === 'Hipotensión' ? 'from-red-50 to-red-100' :
                   result.category === 'Normal' ? 'from-green-50 to-green-100' :
-                  result.category === 'Prehipertensión' ? 'from-yellow-50 to-yellow-100' :
-                  result.category === 'Hipertensión Estadio 1' ? 'from-orange-50 to-orange-100' :
-                  result.category === 'Hipertensión Estadio 2' ? 'from-red-50 to-red-100' :
-                  'from-red-50 to-red-100'
-                } border-l-4 ${
-                  result.category === 'Hipotensión' ? 'border-red-400' :
-                  result.category === 'Normal' ? 'border-green-400' :
-                  result.category === 'Prehipertensión' ? 'border-yellow-400' :
-                  result.category === 'Hipertensión Estadio 1' ? 'border-orange-400' :
-                  result.category === 'Hipertensión Estadio 2' ? 'border-red-400' :
-                  'border-red-500'
-                }`}>
+                    result.category === 'Prehipertensión' ? 'from-yellow-50 to-yellow-100' :
+                      result.category === 'Hipertensión Estadio 1' ? 'from-orange-50 to-orange-100' :
+                        result.category === 'Hipertensión Estadio 2' ? 'from-red-50 to-red-100' :
+                          'from-red-50 to-red-100'
+                  } border-l-4 ${result.category === 'Hipotensión' ? 'border-red-400' :
+                    result.category === 'Normal' ? 'border-green-400' :
+                      result.category === 'Prehipertensión' ? 'border-yellow-400' :
+                        result.category === 'Hipertensión Estadio 1' ? 'border-orange-400' :
+                          result.category === 'Hipertensión Estadio 2' ? 'border-red-400' :
+                            'border-red-500'
+                  }`}>
                   <CardHeader className="pb-2">
-                    <CardTitle className={`text-sm font-semibold flex items-center ${
-                      result.category === 'Normal' ? 'text-green-900' :
+                    <CardTitle className={`text-sm font-semibold flex items-center ${result.category === 'Normal' ? 'text-green-900' :
                       result.category === 'Hipotensión' || result.category === 'Crisis Hipertensiva' ? 'text-red-900' :
-                      'text-orange-900'
-                    }`}>
+                        'text-orange-900'
+                      }`}>
                       <HeartPulse className="w-4 h-4 mr-2" />
                       Presión Arterial Media (MAP)
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className={`text-5xl font-bold mb-2 ${
-                      result.category === 'Normal' ? 'text-green-700' :
+                    <div className={`text-5xl font-bold mb-2 ${result.category === 'Normal' ? 'text-green-700' :
                       result.category === 'Hipotensión' || result.category === 'Crisis Hipertensiva' ? 'text-red-700' :
-                      'text-orange-700'
-                    }`}>
+                        'text-orange-700'
+                      }`}>
                       {result.map} mmHg
                     </div>
-                    <div className={`text-lg font-semibold mb-1 ${
-                      result.category === 'Normal' ? 'text-green-800' :
+                    <div className={`text-lg font-semibold mb-1 ${result.category === 'Normal' ? 'text-green-800' :
                       result.category === 'Hipotensión' || result.category === 'Crisis Hipertensiva' ? 'text-red-800' :
-                      'text-orange-800'
-                    }`}>
+                        'text-orange-800'
+                      }`}>
                       {result.status}
                     </div>
                     <p className="text-sm text-gray-700">
@@ -245,41 +240,37 @@ export default function PresionArterialMediaPage() {
                 </Card>
 
                 {/* Perfusión de Órganos */}
-                <Card className={`bg-gradient-to-br ${
-                  result.organPerfusion.risk === 'Bajo' ? 'from-green-50 to-green-100 border-green-400' :
+                <Card className={`bg-gradient-to-br ${result.organPerfusion.risk === 'Bajo' ? 'from-green-50 to-green-100 border-green-400' :
                   result.organPerfusion.risk === 'Moderado' ? 'from-yellow-50 to-yellow-100 border-yellow-400' :
-                  result.organPerfusion.risk === 'Alto' ? 'from-orange-50 to-orange-100 border-orange-400' :
-                  'from-red-50 to-red-100 border-red-400'
-                } border-l-4`}>
+                    result.organPerfusion.risk === 'Alto' ? 'from-orange-50 to-orange-100 border-orange-400' :
+                      'from-red-50 to-red-100 border-red-400'
+                  } border-l-4`}>
                   <CardHeader className="pb-2">
-                    <CardTitle className={`text-sm font-semibold flex items-center ${
-                      result.organPerfusion.risk === 'Bajo' ? 'text-green-900' :
+                    <CardTitle className={`text-sm font-semibold flex items-center ${result.organPerfusion.risk === 'Bajo' ? 'text-green-900' :
                       result.organPerfusion.risk === 'Moderado' ? 'text-yellow-900' :
-                      result.organPerfusion.risk === 'Alto' ? 'text-orange-900' :
-                      'text-red-900'
-                    }`}>
+                        result.organPerfusion.risk === 'Alto' ? 'text-orange-900' :
+                          'text-red-900'
+                      }`}>
                       <CheckCircle className="w-4 h-4 mr-2" />
                       Perfusión de Órganos
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className={`text-lg font-bold mb-1 ${
-                      result.organPerfusion.risk === 'Bajo' ? 'text-green-700' :
+                    <div className={`text-lg font-bold mb-1 ${result.organPerfusion.risk === 'Bajo' ? 'text-green-700' :
                       result.organPerfusion.risk === 'Moderado' ? 'text-yellow-700' :
-                      result.organPerfusion.risk === 'Alto' ? 'text-orange-700' :
-                      'text-red-700'
-                    }`}>
+                        result.organPerfusion.risk === 'Alto' ? 'text-orange-700' :
+                          'text-red-700'
+                      }`}>
                       {result.organPerfusion.status}
                     </div>
                     <p className="text-sm text-gray-700 mb-2">
                       {result.organPerfusion.description}
                     </p>
-                    <div className={`text-xs font-semibold inline-block px-2 py-1 rounded ${
-                      result.organPerfusion.risk === 'Bajo' ? 'bg-green-200 text-green-800' :
+                    <div className={`text-xs font-semibold inline-block px-2 py-1 rounded ${result.organPerfusion.risk === 'Bajo' ? 'bg-green-200 text-green-800' :
                       result.organPerfusion.risk === 'Moderado' ? 'bg-yellow-200 text-yellow-800' :
-                      result.organPerfusion.risk === 'Alto' ? 'bg-orange-200 text-orange-800' :
-                      'bg-red-200 text-red-800'
-                    }`}>
+                        result.organPerfusion.risk === 'Alto' ? 'bg-orange-200 text-orange-800' :
+                          'bg-red-200 text-red-800'
+                      }`}>
                       Riesgo: {result.organPerfusion.risk}
                     </div>
                   </CardContent>
@@ -576,7 +567,10 @@ export default function PresionArterialMediaPage() {
           </article>
 
           <RelatedCalculators currentPage="/presion-arterial-media" />
-          <EmbedWidget />
+          <section className="flex justify-center">
+            <EmbedWidget />
+          </section>
+
           <SocialShare
             title="Calculadora de Presión Arterial Media (MAP) - Evaluación Cardiovascular"
             url="https://nutrifit-calculator.com/presion-arterial-media"

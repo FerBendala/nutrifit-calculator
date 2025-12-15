@@ -12,7 +12,7 @@ tags:
     'isométricos',
     'salud cardiovascular',
   ]
-image: 'https://cdn.pixabay.com/photo/2016/02/19/10/00/heart-1202245_1280.jpg'
+image: 'https://cdn.pixabay.com/photo/2016/11/14/03/06/woman-1822459_1280.jpg'
 slug: 'presion-arterial-entrenamiento'
 readTime: 8
 featured: false

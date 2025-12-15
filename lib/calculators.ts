@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare, Clock, HeartPulse } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare, Clock, HeartPulse, TrendingDown } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -302,6 +302,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'health',
     relatedCalculators: ['ritmo-cardiaco', 'vo2max', 'absi', 'bri']
+  },
+  {
+    key: 'recuperacion-cardiaca',
+    title: 'Recuperación Cardíaca (HRR)',
+    href: '/recuperacion-cardiaca',
+    description: 'Evaluación de recuperación cardíaca después del ejercicio para medir condición cardiovascular',
+    icon: TrendingDown,
+    priority: 'high',
+    category: 'fitness',
+    relatedCalculators: ['ritmo-cardiaco', 'vo2max', 'presion-arterial-media', 'tdee']
   }
 ];
 

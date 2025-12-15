@@ -188,6 +188,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora médica profesional de presión arterial media (MAP) para evaluación de perfusión de órganos y riesgo cardiovascular. Interpretación clínica según guías AHA/ACC. Útil para profesionales de la salud.',
     keywords: ['calculadora MAP', 'presión arterial media', 'MAP', 'perfusión órganos', 'presión arterial', 'hipertensión', 'hipotensión', 'evaluación cardiovascular', 'riesgo cardiovascular', 'presión sistólica', 'presión diastólica'],
     path: '/presion-arterial-media'
+  },
+  'recuperacion-cardiaca': {
+    title: 'Calculadora Recuperación Cardíaca (HRR) | Condición Cardiovascular | Evaluación Fitness',
+    description: 'Calculadora profesional de recuperación cardíaca (HRR) para evaluar condición cardiovascular y función autonómica. Mide la velocidad de recuperación del corazón después del ejercicio. Útil para atletas y evaluación médica.',
+    keywords: ['calculadora HRR', 'recuperación cardíaca', 'HRR', 'heart rate recovery', 'condición cardiovascular', 'frecuencia cardíaca', 'ejercicio', 'fitness cardiovascular', 'función autonómica', 'recuperación post-ejercicio'],
+    path: '/recuperacion-cardiaca'
   }
 };
 

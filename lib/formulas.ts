@@ -4218,6 +4218,334 @@ export function analyzeMetabolicAge(
 }
 
 // ============================================================================
+// RECUPERACIÓN CARDÍACA (HRR - Heart Rate Recovery)
+// ============================================================================
+
+/**
+ * Calculate Heart Rate Recovery (HRR) at 1 minute
+ * HRR measures how quickly the heart rate decreases after stopping exercise
+ * HRR1 = Peak HR during exercise - HR at 1 minute post-exercise
+ * 
+ * @param peakHR Peak heart rate during exercise (bpm)
+ * @param hr1min Heart rate at 1 minute after stopping exercise (bpm)
+ * @returns Heart rate recovery at 1 minute (bpm)
+ */
+export function calculateHRR1min(peakHR: number, hr1min: number): number {
+  if (peakHR <= 0 || hr1min <= 0) {
+    throw new Error('Las frecuencias cardíacas deben ser valores positivos');
+  }
+  if (peakHR < hr1min) {
+    throw new Error('La frecuencia cardíaca pico debe ser mayor que la frecuencia cardíaca post-ejercicio');
+  }
+
+  return peakHR - hr1min;
+}
+
+/**
+ * Calculate Heart Rate Recovery (HRR) at 2 minutes
+ * HRR2 = Peak HR during exercise - HR at 2 minutes post-exercise
+ * 
+ * @param peakHR Peak heart rate during exercise (bpm)
+ * @param hr2min Heart rate at 2 minutes after stopping exercise (bpm)
+ * @returns Heart rate recovery at 2 minutes (bpm)
+ */
+export function calculateHRR2min(peakHR: number, hr2min: number): number {
+  if (peakHR <= 0 || hr2min <= 0) {
+    throw new Error('Las frecuencias cardíacas deben ser valores positivos');
+  }
+  if (peakHR < hr2min) {
+    throw new Error('La frecuencia cardíaca pico debe ser mayor que la frecuencia cardíaca post-ejercicio');
+  }
+
+  return peakHR - hr2min;
+}
+
+/**
+ * Calculate percentage HRR recovery
+ * Percentage recovery = (HRR / Peak HR) × 100
+ * 
+ * @param hrr Heart rate recovery value (bpm)
+ * @param peakHR Peak heart rate during exercise (bpm)
+ * @returns Percentage recovery
+ */
+export function calculateHRRPercentage(hrr: number, peakHR: number): number {
+  if (peakHR <= 0) {
+    throw new Error('La frecuencia cardíaca pico debe ser positiva');
+  }
+  
+  return Math.round((hrr / peakHR) * 100 * 10) / 10;
+}
+
+/**
+ * Comprehensive HRR analysis with clinical interpretation
+ */
+export interface HRRAnalysis {
+  peakHR: number;
+  hr1min?: number;
+  hr2min?: number;
+  hrr1min?: number;
+  hrr2min?: number;
+  hrr1minPercentage?: number;
+  hrr2minPercentage?: number;
+  category1min?: 'Excelente' | 'Buena' | 'Normal' | 'Pobre' | 'Muy Pobre';
+  category2min?: 'Excelente' | 'Buena' | 'Normal' | 'Pobre' | 'Muy Pobre';
+  status: string;
+  interpretation: string;
+  cardiovascularFitness: {
+    level: string;
+    description: string;
+    risk: 'Bajo' | 'Moderado' | 'Alto';
+  };
+  recommendations: string[];
+  clinicalSignificance: string;
+  improvementStrategies: string[];
+  monitoring: {
+    frequency: string;
+    actions: string[];
+  };
+  riskFactors: string[];
+  clinicalInterpretation: string;
+}
+
+/**
+ * Analyze Heart Rate Recovery with clinical interpretation
+ * Based on clinical guidelines and research
+ */
+export function analyzeHRR(
+  peakHR: number,
+  hr1min?: number,
+  hr2min?: number,
+  age?: number,
+  gender?: 'male' | 'female'
+): HRRAnalysis {
+  let hrr1min: number | undefined;
+  let hrr2min: number | undefined;
+  let hrr1minPercentage: number | undefined;
+  let hrr2minPercentage: number | undefined;
+  let category1min: 'Excelente' | 'Buena' | 'Normal' | 'Pobre' | 'Muy Pobre' | undefined;
+  let category2min: 'Excelente' | 'Buena' | 'Normal' | 'Pobre' | 'Muy Pobre' | undefined;
+
+  // Calculate HRR at 1 minute if provided
+  if (hr1min !== undefined) {
+    hrr1min = calculateHRR1min(peakHR, hr1min);
+    hrr1minPercentage = calculateHRRPercentage(hrr1min, peakHR);
+    
+    // Categorize HRR1min (normal values: >12 bpm is good, >18 bpm is excellent)
+    if (hrr1min >= 18) {
+      category1min = 'Excelente';
+    } else if (hrr1min >= 15) {
+      category1min = 'Buena';
+    } else if (hrr1min >= 12) {
+      category1min = 'Normal';
+    } else if (hrr1min >= 8) {
+      category1min = 'Pobre';
+    } else {
+      category1min = 'Muy Pobre';
+    }
+  }
+
+  // Calculate HRR at 2 minutes if provided
+  if (hr2min !== undefined) {
+    hrr2min = calculateHRR2min(peakHR, hr2min);
+    hrr2minPercentage = calculateHRRPercentage(hrr2min, peakHR);
+    
+    // Categorize HRR2min (normal values: >22 bpm is good, >30 bpm is excellent)
+    if (hrr2min >= 30) {
+      category2min = 'Excelente';
+    } else if (hrr2min >= 25) {
+      category2min = 'Buena';
+    } else if (hrr2min >= 22) {
+      category2min = 'Normal';
+    } else if (hrr2min >= 15) {
+      category2min = 'Pobre';
+    } else {
+      category2min = 'Muy Pobre';
+    }
+  }
+
+  // Determine overall status
+  let status: string;
+  let interpretation: string;
+
+  if (hrr1min !== undefined && hrr2min !== undefined) {
+    const avgCategory = 
+      (category1min === 'Excelente' || category2min === 'Excelente') ? 'Excelente' :
+      (category1min === 'Buena' || category2min === 'Buena') ? 'Buena' :
+      (category1min === 'Normal' || category2min === 'Normal') ? 'Normal' :
+      (category1min === 'Pobre' || category2min === 'Pobre') ? 'Pobre' :
+      'Muy Pobre';
+
+    if (avgCategory === 'Excelente') {
+      status = 'Recuperación cardíaca excelente';
+      interpretation = `Tu recuperación cardíaca es excelente (${hrr1min} bpm a 1 min, ${hrr2min} bpm a 2 min). Esto indica una excelente condición cardiovascular y función autonómica. Tu corazón se recupera rápidamente después del ejercicio.`;
+    } else if (avgCategory === 'Buena') {
+      status = 'Recuperación cardíaca buena';
+      interpretation = `Tu recuperación cardíaca es buena (${hrr1min} bpm a 1 min, ${hrr2min} bpm a 2 min). Esto indica una buena condición cardiovascular. Tu corazón se recupera adecuadamente después del ejercicio.`;
+    } else if (avgCategory === 'Normal') {
+      status = 'Recuperación cardíaca normal';
+      interpretation = `Tu recuperación cardíaca está en el rango normal (${hrr1min} bpm a 1 min, ${hrr2min} bpm a 2 min). Esto es típico para personas con condición física promedio.`;
+    } else if (avgCategory === 'Pobre') {
+      status = 'Recuperación cardíaca pobre';
+      interpretation = `Tu recuperación cardíaca es pobre (${hrr1min} bpm a 1 min, ${hrr2min} bpm a 2 min). Esto puede indicar una condición cardiovascular subóptima o disfunción autonómica. Se recomienda consultar con un médico.`;
+    } else {
+      status = 'Recuperación cardíaca muy pobre';
+      interpretation = `Tu recuperación cardíaca es muy pobre (${hrr1min} bpm a 1 min, ${hrr2min} bpm a 2 min). Esto puede indicar un problema cardiovascular o disfunción autonómica significativa. Se recomienda consultar con un médico urgentemente.`;
+    }
+  } else if (hrr1min !== undefined) {
+    if (category1min === 'Excelente') {
+      status = 'Recuperación cardíaca excelente';
+      interpretation = `Tu recuperación cardíaca a 1 minuto es excelente (${hrr1min} bpm). Esto indica una excelente condición cardiovascular.`;
+    } else if (category1min === 'Buena') {
+      status = 'Recuperación cardíaca buena';
+      interpretation = `Tu recuperación cardíaca a 1 minuto es buena (${hrr1min} bpm). Esto indica una buena condición cardiovascular.`;
+    } else if (category1min === 'Normal') {
+      status = 'Recuperación cardíaca normal';
+      interpretation = `Tu recuperación cardíaca a 1 minuto está en el rango normal (${hrr1min} bpm).`;
+    } else if (category1min === 'Pobre') {
+      status = 'Recuperación cardíaca pobre';
+      interpretation = `Tu recuperación cardíaca a 1 minuto es pobre (${hrr1min} bpm). Se recomienda consultar con un médico.`;
+    } else {
+      status = 'Recuperación cardíaca muy pobre';
+      interpretation = `Tu recuperación cardíaca a 1 minuto es muy pobre (${hrr1min} bpm). Se recomienda consultar con un médico urgentemente.`;
+    }
+  } else if (hrr2min !== undefined) {
+    if (category2min === 'Excelente') {
+      status = 'Recuperación cardíaca excelente';
+      interpretation = `Tu recuperación cardíaca a 2 minutos es excelente (${hrr2min} bpm). Esto indica una excelente condición cardiovascular.`;
+    } else if (category2min === 'Buena') {
+      status = 'Recuperación cardíaca buena';
+      interpretation = `Tu recuperación cardíaca a 2 minutos es buena (${hrr2min} bpm). Esto indica una buena condición cardiovascular.`;
+    } else if (category2min === 'Normal') {
+      status = 'Recuperación cardíaca normal';
+      interpretation = `Tu recuperación cardíaca a 2 minutos está en el rango normal (${hrr2min} bpm).`;
+    } else if (category2min === 'Pobre') {
+      status = 'Recuperación cardíaca pobre';
+      interpretation = `Tu recuperación cardíaca a 2 minutos es pobre (${hrr2min} bpm). Se recomienda consultar con un médico.`;
+    } else {
+      status = 'Recuperación cardíaca muy pobre';
+      interpretation = `Tu recuperación cardíaca a 2 minutos es muy pobre (${hrr2min} bpm). Se recomienda consultar con un médico urgentemente.`;
+    }
+  } else {
+    status = 'Datos insuficientes';
+    interpretation = 'Proporciona al menos una medida de frecuencia cardíaca post-ejercicio para calcular la recuperación cardíaca.';
+  }
+
+  // Cardiovascular fitness assessment
+  let cardiovascularFitness: {
+    level: string;
+    description: string;
+    risk: 'Bajo' | 'Moderado' | 'Alto';
+  };
+
+  const bestCategory = category1min || category2min;
+  if (bestCategory === 'Excelente' || bestCategory === 'Buena') {
+    cardiovascularFitness = {
+      level: 'Alta',
+      description: 'Una recuperación cardíaca buena o excelente indica una condición cardiovascular alta, función autonómica saludable y bajo riesgo cardiovascular.',
+      risk: 'Bajo'
+    };
+  } else if (bestCategory === 'Normal') {
+    cardiovascularFitness = {
+      level: 'Moderada',
+      description: 'Una recuperación cardíaca normal indica una condición cardiovascular moderada. Hay margen para mejorar con ejercicio regular.',
+      risk: 'Moderado'
+    };
+  } else {
+    cardiovascularFitness = {
+      level: 'Baja',
+      description: 'Una recuperación cardíaca pobre puede indicar condición cardiovascular baja, disfunción autonómica o riesgo cardiovascular aumentado. Requiere evaluación médica.',
+      risk: 'Alto'
+    };
+  }
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (bestCategory === 'Excelente' || bestCategory === 'Buena') {
+    recommendations.push('Mantener tu rutina de ejercicio regular');
+    recommendations.push('Continuar con entrenamiento cardiovascular variado');
+    recommendations.push('Monitorear la recuperación cardíaca periódicamente');
+  } else if (bestCategory === 'Normal') {
+    recommendations.push('Aumentar la frecuencia de ejercicio cardiovascular (3-5 veces por semana)');
+    recommendations.push('Incluir entrenamiento de intervalos de alta intensidad (HIIT)');
+    recommendations.push('Mantener un peso saludable');
+    recommendations.push('Gestionar el estrés mediante técnicas de relajación');
+  } else {
+    recommendations.push('Consultar con un médico para evaluación cardiovascular');
+    recommendations.push('Iniciar un programa de ejercicio gradual bajo supervisión médica');
+    recommendations.push('Realizar ejercicio cardiovascular regular de intensidad moderada');
+    recommendations.push('Evitar ejercicio intenso hasta evaluación médica');
+    recommendations.push('Monitorear otros factores de riesgo cardiovascular');
+  }
+
+  // Clinical significance
+  const clinicalSignificance = `La recuperación cardíaca (HRR) es un indicador importante de la condición cardiovascular y la función del sistema nervioso autónomo. Mide la capacidad del corazón para recuperarse después del ejercicio. Una recuperación rápida (HRR alta) indica buena condición cardiovascular, mientras que una recuperación lenta puede indicar problemas cardiovasculares o disfunción autonómica.`;
+
+  // Improvement strategies
+  const improvementStrategies: string[] = [
+    'Ejercicio cardiovascular regular (150 minutos/semana de intensidad moderada o 75 minutos de alta intensidad)',
+    'Entrenamiento de intervalos de alta intensidad (HIIT) 2-3 veces por semana',
+    'Entrenamiento de resistencia 2-3 veces por semana',
+    'Mantener un peso saludable',
+    'Gestionar el estrés y mejorar la calidad del sueño',
+    'Evitar el tabaco y limitar el consumo de alcohol',
+    'Seguir una dieta saludable para el corazón'
+  ];
+
+  // Monitoring
+  const monitoring = {
+    frequency: bestCategory === 'Pobre' || bestCategory === 'Muy Pobre' ? 'Mensual o según indicación médica' : 'Trimestral',
+    actions: [
+      'Medir la recuperación cardíaca después de ejercicio regular',
+      'Registrar valores para seguimiento',
+      'Consultar con médico si hay cambios significativos o valores persistentemente bajos',
+      'Realizar pruebas de esfuerzo periódicas si es recomendado por médico'
+    ]
+  };
+
+  // Risk factors
+  const riskFactors: string[] = [];
+  if (bestCategory === 'Pobre' || bestCategory === 'Muy Pobre') {
+    riskFactors.push('Enfermedad cardiovascular');
+    riskFactors.push('Mortalidad cardiovascular aumentada');
+    riskFactors.push('Disfunción autonómica');
+    riskFactors.push('Condición física baja');
+  }
+
+  // Clinical interpretation
+  let clinicalInterpretation = `HRR de ${hrr1min !== undefined ? `${hrr1min} bpm a 1 min` : ''}${hrr1min !== undefined && hrr2min !== undefined ? ' y ' : ''}${hrr2min !== undefined ? `${hrr2min} bpm a 2 min` : ''} con frecuencia cardíaca pico de ${peakHR} bpm. `;
+  
+  if (bestCategory === 'Excelente' || bestCategory === 'Buena') {
+    clinicalInterpretation += 'Una recuperación cardíaca buena o excelente indica condición cardiovascular óptima y bajo riesgo cardiovascular.';
+  } else if (bestCategory === 'Normal') {
+    clinicalInterpretation += 'Una recuperación cardíaca normal es típica para personas con condición física promedio. Hay margen para mejorar con ejercicio regular.';
+  } else {
+    clinicalInterpretation += 'Una recuperación cardíaca pobre puede indicar condición cardiovascular subóptima, disfunción autonómica o riesgo cardiovascular aumentado. Requiere evaluación médica y posiblemente pruebas adicionales.';
+  }
+
+  return {
+    peakHR,
+    hr1min,
+    hr2min,
+    hrr1min,
+    hrr2min,
+    hrr1minPercentage,
+    hrr2minPercentage,
+    category1min,
+    category2min,
+    status,
+    interpretation,
+    cardiovascularFitness,
+    recommendations,
+    clinicalSignificance,
+    improvementStrategies,
+    monitoring,
+    riskFactors,
+    clinicalInterpretation
+  };
+}
+
+// ============================================================================
 // PRESIÓN ARTERIAL MEDIA (MAP - Mean Arterial Pressure)
 // ============================================================================
 

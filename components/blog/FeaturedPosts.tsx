@@ -90,11 +90,6 @@ export function FeaturedPosts({
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 192px"
                   />
-                  <div className="absolute top-2 right-2 z-10">
-                    <div className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-gray-900">
-                      Premium
-                    </div>
-                  </div>
                 </div>
               </div>
             )}

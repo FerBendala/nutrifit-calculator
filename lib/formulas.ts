@@ -4787,3 +4787,334 @@ export function analyzeMAP(systolicBP: number, diastolicBP: number): MAPAnalysis
     clinicalInterpretation
   };
 }
+
+// ============================================================================
+// FRECUENCIA CARDÍACA DE RESERVA (HRR - Heart Rate Reserve)
+// ============================================================================
+
+/**
+ * Calculate Heart Rate Reserve (HRR)
+ * HRR = Maximum Heart Rate - Resting Heart Rate
+ * This is used in the Karvonen method for calculating training zones
+ * 
+ * @param maxHR Maximum heart rate (bpm)
+ * @param restingHR Resting heart rate (bpm)
+ * @returns Heart rate reserve (bpm)
+ */
+export function calculateHRR(maxHR: number, restingHR: number): number {
+  if (maxHR <= 0 || restingHR <= 0) {
+    throw new Error('Las frecuencias cardíacas deben ser valores positivos');
+  }
+  if (maxHR <= restingHR) {
+    throw new Error('La frecuencia cardíaca máxima debe ser mayor que la frecuencia cardíaca en reposo');
+  }
+
+  return maxHR - restingHR;
+}
+
+/**
+ * Calculate target heart rate using Karvonen method
+ * Target HR = (HRR × Intensity%) + Resting HR
+ * 
+ * @param maxHR Maximum heart rate (bpm)
+ * @param restingHR Resting heart rate (bpm)
+ * @param intensity Training intensity as percentage (0-100)
+ * @returns Target heart rate (bpm)
+ */
+export function calculateTargetHRKarvonen(maxHR: number, restingHR: number, intensity: number): number {
+  if (intensity < 0 || intensity > 100) {
+    throw new Error('La intensidad debe estar entre 0 y 100%');
+  }
+
+  const hrr = calculateHRR(maxHR, restingHR);
+  return Math.round((hrr * intensity / 100) + restingHR);
+}
+
+/**
+ * Calculate training zones using Heart Rate Reserve (Karvonen method)
+ */
+export interface HRRTrainingZones {
+  hrr: number;
+  maxHR: number;
+  restingHR: number;
+  zones: {
+    zone1: { min: number; max: number; name: string; description: string; intensity: string; color: string; };
+    zone2: { min: number; max: number; name: string; description: string; intensity: string; color: string; };
+    zone3: { min: number; max: number; name: string; description: string; intensity: string; color: string; };
+    zone4: { min: number; max: number; name: string; description: string; intensity: string; color: string; };
+    zone5: { min: number; max: number; name: string; description: string; intensity: string; color: string; };
+  };
+  fatBurning: {
+    min: number;
+    max: number;
+    optimal: number;
+    percentage: string;
+  };
+}
+
+/**
+ * Calculate training zones using HRR (Karvonen method)
+ * More accurate than simple percentage of max HR because it accounts for resting HR
+ */
+export function calculateHRRTrainingZones(maxHR: number, restingHR: number): HRRTrainingZones {
+  const hrr = calculateHRR(maxHR, restingHR);
+
+  // Zone 1: 50-60% HRR - Very light, recovery
+  const zone1Min = calculateTargetHRKarvonen(maxHR, restingHR, 50);
+  const zone1Max = calculateTargetHRKarvonen(maxHR, restingHR, 60);
+
+  // Zone 2: 60-70% HRR - Light, aerobic base
+  const zone2Min = calculateTargetHRKarvonen(maxHR, restingHR, 60);
+  const zone2Max = calculateTargetHRKarvonen(maxHR, restingHR, 70);
+
+  // Zone 3: 70-80% HRR - Moderate, aerobic
+  const zone3Min = calculateTargetHRKarvonen(maxHR, restingHR, 70);
+  const zone3Max = calculateTargetHRKarvonen(maxHR, restingHR, 80);
+
+  // Zone 4: 80-90% HRR - Hard, threshold
+  const zone4Min = calculateTargetHRKarvonen(maxHR, restingHR, 80);
+  const zone4Max = calculateTargetHRKarvonen(maxHR, restingHR, 90);
+
+  // Zone 5: 90-100% HRR - Maximum, VO2 max
+  const zone5Min = calculateTargetHRKarvonen(maxHR, restingHR, 90);
+  const zone5Max = calculateTargetHRKarvonen(maxHR, restingHR, 100);
+
+  // Fat burning zone: 60-70% HRR (optimal at 65%)
+  const fatBurningMin = zone2Min;
+  const fatBurningMax = zone2Max;
+  const fatBurningOptimal = calculateTargetHRKarvonen(maxHR, restingHR, 65);
+
+  return {
+    hrr,
+    maxHR,
+    restingHR,
+    zones: {
+      zone1: {
+        min: zone1Min,
+        max: zone1Max,
+        name: 'Zona 1: Recuperación',
+        description: 'Actividad muy ligera, ideal para recuperación activa y calentamiento',
+        intensity: '50-60% HRR',
+        color: 'blue'
+      },
+      zone2: {
+        min: zone2Min,
+        max: zone2Max,
+        name: 'Zona 2: Aeróbica Base',
+        description: 'Actividad ligera, mejora la capacidad aeróbica y quema de grasa',
+        intensity: '60-70% HRR',
+        color: 'green'
+      },
+      zone3: {
+        min: zone3Min,
+        max: zone3Max,
+        name: 'Zona 3: Aeróbica',
+        description: 'Actividad moderada, mejora la eficiencia cardiovascular',
+        intensity: '70-80% HRR',
+        color: 'yellow'
+      },
+      zone4: {
+        min: zone4Min,
+        max: zone4Max,
+        name: 'Zona 4: Umbral',
+        description: 'Actividad intensa, mejora el umbral de lactato y la capacidad anaeróbica',
+        intensity: '80-90% HRR',
+        color: 'orange'
+      },
+      zone5: {
+        min: zone5Min,
+        max: zone5Max,
+        name: 'Zona 5: Máxima',
+        description: 'Actividad máxima, mejora la potencia y capacidad anaeróbica',
+        intensity: '90-100% HRR',
+        color: 'red'
+      }
+    },
+    fatBurning: {
+      min: fatBurningMin,
+      max: fatBurningMax,
+      optimal: fatBurningOptimal,
+      percentage: '60-70% HRR'
+    }
+  };
+}
+
+/**
+ * Comprehensive Heart Rate Reserve analysis with clinical interpretation
+ */
+export interface HeartRateReserveAnalysis {
+  hrr: number;
+  maxHR: number;
+  restingHR: number;
+  hrrPercentage: number;
+  trainingZones: HRRTrainingZones;
+  status: string;
+  interpretation: string;
+  cardiovascularFitness: {
+    level: string;
+    description: string;
+    hrrRange: string;
+  };
+  recommendations: string[];
+  clinicalSignificance: string;
+  trainingGuidance: {
+    beginners: string[];
+    intermediate: string[];
+    advanced: string[];
+  };
+  clinicalInterpretation: string;
+}
+
+/**
+ * Analyze Heart Rate Reserve with comprehensive interpretation
+ */
+export function analyzeHeartRateReserve(
+  maxHR: number,
+  restingHR: number,
+  age?: number,
+  gender?: 'male' | 'female'
+): HeartRateReserveAnalysis {
+  const hrr = calculateHRR(maxHR, restingHR);
+  const hrrPercentage = Math.round((hrr / maxHR) * 100 * 10) / 10;
+  const trainingZones = calculateHRRTrainingZones(maxHR, restingHR);
+
+  // Determine status based on HRR
+  let status: string;
+  let interpretation: string;
+
+  // Normal HRR is typically 60-80% of max HR
+  // Higher HRR indicates better cardiovascular fitness
+  if (hrrPercentage >= 75) {
+    status = 'Reserva cardíaca excelente';
+    interpretation = `Tu frecuencia cardíaca de reserva (HRR) es excelente (${hrr} bpm, ${hrrPercentage}% de tu FC máxima). Esto indica una excelente condición cardiovascular y una gran capacidad de adaptación al ejercicio.`;
+  } else if (hrrPercentage >= 65) {
+    status = 'Reserva cardíaca buena';
+    interpretation = `Tu frecuencia cardíaca de reserva (HRR) es buena (${hrr} bpm, ${hrrPercentage}% de tu FC máxima). Esto indica una buena condición cardiovascular.`;
+  } else if (hrrPercentage >= 55) {
+    status = 'Reserva cardíaca normal';
+    interpretation = `Tu frecuencia cardíaca de reserva (HRR) está en el rango normal (${hrr} bpm, ${hrrPercentage}% de tu FC máxima). Esto es típico para personas con condición física promedio.`;
+  } else if (hrrPercentage >= 45) {
+    status = 'Reserva cardíaca baja';
+    interpretation = `Tu frecuencia cardíaca de reserva (HRR) es baja (${hrr} bpm, ${hrrPercentage}% de tu FC máxima). Esto puede indicar condición cardiovascular subóptima. Se recomienda ejercicio regular para mejorar.`;
+  } else {
+    status = 'Reserva cardíaca muy baja';
+    interpretation = `Tu frecuencia cardíaca de reserva (HRR) es muy baja (${hrr} bpm, ${hrrPercentage}% de tu FC máxima). Esto puede indicar condición cardiovascular baja o frecuencia cardíaca en reposo elevada. Se recomienda consultar con un médico y comenzar un programa de ejercicio gradual.`;
+  }
+
+  // Cardiovascular fitness assessment
+  let cardiovascularFitness: {
+    level: string;
+    description: string;
+    hrrRange: string;
+  };
+
+  if (hrrPercentage >= 75) {
+    cardiovascularFitness = {
+      level: 'Alta',
+      description: 'Una HRR alta indica excelente condición cardiovascular, frecuencia cardíaca en reposo baja y gran capacidad de adaptación al ejercicio.',
+      hrrRange: '≥75% de FC máxima'
+    };
+  } else if (hrrPercentage >= 65) {
+    cardiovascularFitness = {
+      level: 'Buena',
+      description: 'Una HRR buena indica buena condición cardiovascular y capacidad adecuada para el ejercicio.',
+      hrrRange: '65-74% de FC máxima'
+    };
+  } else if (hrrPercentage >= 55) {
+    cardiovascularFitness = {
+      level: 'Moderada',
+      description: 'Una HRR moderada indica condición cardiovascular promedio. Hay margen para mejorar con ejercicio regular.',
+      hrrRange: '55-64% de FC máxima'
+    };
+  } else if (hrrPercentage >= 45) {
+    cardiovascularFitness = {
+      level: 'Baja',
+      description: 'Una HRR baja puede indicar condición cardiovascular subóptima o frecuencia cardíaca en reposo elevada. Se recomienda ejercicio regular.',
+      hrrRange: '45-54% de FC máxima'
+    };
+  } else {
+    cardiovascularFitness = {
+      level: 'Muy Baja',
+      description: 'Una HRR muy baja puede indicar condición cardiovascular baja, frecuencia cardíaca en reposo muy elevada o problemas cardiovasculares. Requiere evaluación médica.',
+      hrrRange: '<45% de FC máxima'
+    };
+  }
+
+  // Recommendations
+  const recommendations: string[] = [];
+  
+  if (hrrPercentage >= 75) {
+    recommendations.push('Mantener tu rutina de ejercicio regular');
+    recommendations.push('Continuar con entrenamiento variado incluyendo intervalos de alta intensidad');
+    recommendations.push('Monitorear la HRR periódicamente para mantener la condición');
+  } else if (hrrPercentage >= 65) {
+    recommendations.push('Continuar con ejercicio cardiovascular regular (3-5 veces por semana)');
+    recommendations.push('Incluir entrenamiento de intervalos de alta intensidad (HIIT) 1-2 veces por semana');
+    recommendations.push('Mantener un peso saludable');
+  } else if (hrrPercentage >= 55) {
+    recommendations.push('Aumentar la frecuencia de ejercicio cardiovascular (4-5 veces por semana)');
+    recommendations.push('Incluir entrenamiento de intervalos de alta intensidad (HIIT)');
+    recommendations.push('Mantener un peso saludable');
+    recommendations.push('Gestionar el estrés y mejorar la calidad del sueño');
+  } else {
+    recommendations.push('Iniciar un programa de ejercicio gradual bajo supervisión médica si es necesario');
+    recommendations.push('Realizar ejercicio cardiovascular regular de intensidad moderada');
+    recommendations.push('Consultar con un médico para evaluación cardiovascular');
+    recommendations.push('Monitorear otros factores de riesgo cardiovascular');
+  }
+
+  // Clinical significance
+  const clinicalSignificance = `La frecuencia cardíaca de reserva (HRR) es la diferencia entre la frecuencia cardíaca máxima y la frecuencia cardíaca en reposo. Es un indicador importante de la condición cardiovascular y se utiliza en el método de Karvonen para calcular zonas de entrenamiento más precisas que el simple porcentaje de la frecuencia cardíaca máxima. Una HRR alta indica buena condición cardiovascular y capacidad de adaptación al ejercicio.`;
+
+  // Training guidance
+  const trainingGuidance = {
+    beginners: [
+      'Enfócate en las Zonas 1 y 2 (50-70% HRR) para construir una base aeróbica',
+      'Entrena 3-4 veces por semana durante 20-30 minutos',
+      'Progresivamente aumenta la duración antes de aumentar la intensidad',
+      'Monitorea tu frecuencia cardíaca en reposo para ver mejoras'
+    ],
+    intermediate: [
+      'Combina entrenamiento en Zonas 2-3 (60-80% HRR) con sesiones de Zona 4 (80-90% HRR)',
+      'Entrena 4-5 veces por semana con variación de intensidad',
+      'Incluye 1-2 sesiones de intervalos de alta intensidad por semana',
+      'Usa la HRR para calcular tus zonas de entrenamiento precisas'
+    ],
+    advanced: [
+      'Utiliza todas las zonas de entrenamiento según tu plan de periodización',
+      'Incluye entrenamiento en Zona 5 (90-100% HRR) para mejorar VO2 max',
+      'Varía la intensidad y duración según tus objetivos',
+      'Monitorea la HRR para ajustar la intensidad del entrenamiento'
+    ]
+  };
+
+  // Clinical interpretation
+  let clinicalInterpretation = `HRR de ${hrr} bpm (${hrrPercentage}% de FC máxima) con FC máxima de ${maxHR} bpm y FC en reposo de ${restingHR} bpm. `;
+  
+  if (hrrPercentage >= 75) {
+    clinicalInterpretation += 'Una HRR excelente indica condición cardiovascular óptima y gran capacidad de adaptación al ejercicio.';
+  } else if (hrrPercentage >= 65) {
+    clinicalInterpretation += 'Una HRR buena indica buena condición cardiovascular y capacidad adecuada para el ejercicio.';
+  } else if (hrrPercentage >= 55) {
+    clinicalInterpretation += 'Una HRR moderada es típica para personas con condición física promedio. Hay margen para mejorar con ejercicio regular.';
+  } else if (hrrPercentage >= 45) {
+    clinicalInterpretation += 'Una HRR baja puede indicar condición cardiovascular subóptima o frecuencia cardíaca en reposo elevada. Se recomienda ejercicio regular y posible evaluación médica.';
+  } else {
+    clinicalInterpretation += 'Una HRR muy baja puede indicar condición cardiovascular baja, frecuencia cardíaca en reposo muy elevada o problemas cardiovasculares. Requiere evaluación médica y posiblemente pruebas adicionales.';
+  }
+
+  return {
+    hrr,
+    maxHR,
+    restingHR,
+    hrrPercentage,
+    trainingZones,
+    status,
+    interpretation,
+    cardiovascularFitness,
+    recommendations,
+    clinicalSignificance,
+    trainingGuidance,
+    clinicalInterpretation
+  };
+}

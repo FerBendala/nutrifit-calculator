@@ -194,6 +194,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora profesional de recuperación cardíaca (HRR) para evaluar condición cardiovascular y función autonómica. Mide la velocidad de recuperación del corazón después del ejercicio. Útil para atletas y evaluación médica.',
     keywords: ['calculadora HRR', 'recuperación cardíaca', 'HRR', 'heart rate recovery', 'condición cardiovascular', 'frecuencia cardíaca', 'ejercicio', 'fitness cardiovascular', 'función autonómica', 'recuperación post-ejercicio'],
     path: '/recuperacion-cardiaca'
+  },
+  'frecuencia-cardiaca-reserva': {
+    title: 'Calculadora Frecuencia Cardíaca de Reserva (HRR) | Método Karvonen | Zonas Entrenamiento',
+    description: 'Calculadora profesional de frecuencia cardíaca de reserva (HRR) usando método Karvonen para calcular zonas de entrenamiento precisas. Más exacta que porcentajes simples de FC máxima. Ideal para atletas y entrenadores.',
+    keywords: ['calculadora HRR', 'frecuencia cardíaca de reserva', 'HRR', 'heart rate reserve', 'método Karvonen', 'zonas de entrenamiento', 'frecuencia cardíaca máxima', 'FC en reposo', 'entrenamiento cardiovascular', 'zonas cardíacas'],
+    path: '/frecuencia-cardiaca-reserva'
   }
 };
 

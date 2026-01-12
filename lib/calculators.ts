@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare, Clock, HeartPulse, TrendingDown } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare, Clock, HeartPulse, TrendingDown, BarChart3 } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -312,6 +312,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'fitness',
     relatedCalculators: ['ritmo-cardiaco', 'vo2max', 'presion-arterial-media', 'tdee']
+  },
+  {
+    key: 'frecuencia-cardiaca-reserva',
+    title: 'Frecuencia Cardíaca de Reserva (HRR)',
+    href: '/frecuencia-cardiaca-reserva',
+    description: 'Calculadora de frecuencia cardíaca de reserva usando método Karvonen para zonas de entrenamiento precisas',
+    icon: BarChart3,
+    priority: 'high',
+    category: 'fitness',
+    relatedCalculators: ['ritmo-cardiaco', 'recuperacion-cardiaca', 'vo2max', 'tdee']
   }
 ];
 

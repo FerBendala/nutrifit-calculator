@@ -4789,332 +4789,320 @@ export function analyzeMAP(systolicBP: number, diastolicBP: number): MAPAnalysis
 }
 
 // ============================================================================
-// FRECUENCIA CARDÍACA DE RESERVA (HRR - Heart Rate Reserve)
+// DENSIDAD ÓSEA (BMD - Bone Mineral Density)
 // ============================================================================
 
 /**
- * Calculate Heart Rate Reserve (HRR)
- * HRR = Maximum Heart Rate - Resting Heart Rate
- * This is used in the Karvonen method for calculating training zones
+ * Calculate T-Score from BMD
+ * T-Score compares BMD to healthy young adult (peak bone mass)
+ * T-Score = (BMD - BMD_young_adult) / SD_young_adult
  * 
- * @param maxHR Maximum heart rate (bpm)
- * @param restingHR Resting heart rate (bpm)
- * @returns Heart rate reserve (bpm)
+ * @param bmd Bone mineral density (g/cm²)
+ * @param youngAdultBMD Average BMD of healthy young adult (g/cm²)
+ * @param sd Standard deviation of young adult BMD (g/cm²)
+ * @returns T-Score
  */
-export function calculateHRR(maxHR: number, restingHR: number): number {
-  if (maxHR <= 0 || restingHR <= 0) {
-    throw new Error('Las frecuencias cardíacas deben ser valores positivos');
+export function calculateTScore(bmd: number, youngAdultBMD: number, sd: number): number {
+  if (sd <= 0) {
+    throw new Error('La desviación estándar debe ser positiva');
   }
-  if (maxHR <= restingHR) {
-    throw new Error('La frecuencia cardíaca máxima debe ser mayor que la frecuencia cardíaca en reposo');
-  }
-
-  return maxHR - restingHR;
+  
+  return Math.round(((bmd - youngAdultBMD) / sd) * 10) / 10;
 }
 
 /**
- * Calculate target heart rate using Karvonen method
- * Target HR = (HRR × Intensity%) + Resting HR
+ * Calculate Z-Score from BMD
+ * Z-Score compares BMD to age-matched peers
+ * Z-Score = (BMD - BMD_age_matched) / SD_age_matched
  * 
- * @param maxHR Maximum heart rate (bpm)
- * @param restingHR Resting heart rate (bpm)
- * @param intensity Training intensity as percentage (0-100)
- * @returns Target heart rate (bpm)
+ * @param bmd Bone mineral density (g/cm²)
+ * @param ageMatchedBMD Average BMD of age-matched peers (g/cm²)
+ * @param sd Standard deviation of age-matched BMD (g/cm²)
+ * @returns Z-Score
  */
-export function calculateTargetHRKarvonen(maxHR: number, restingHR: number, intensity: number): number {
-  if (intensity < 0 || intensity > 100) {
-    throw new Error('La intensidad debe estar entre 0 y 100%');
+export function calculateZScore(bmd: number, ageMatchedBMD: number, sd: number): number {
+  if (sd <= 0) {
+    throw new Error('La desviación estándar debe ser positiva');
+  }
+  
+  return Math.round(((bmd - ageMatchedBMD) / sd) * 10) / 10;
+}
+
+/**
+ * Estimate BMD from age, gender, and other factors
+ * Simplified estimation based on population averages
+ * Note: This is an approximation. Actual BMD requires DXA scan.
+ * 
+ * @param age Age in years
+ * @param gender Gender ('male' | 'female')
+ * @param weight Weight in kg
+ * @param height Height in cm
+ * @returns Estimated BMD (g/cm²)
+ */
+export function estimateBMD(age: number, gender: 'male' | 'female', weight: number, height: number): number {
+  if (age < 0 || weight <= 0 || height <= 0) {
+    throw new Error('La edad, peso y altura deben ser valores positivos');
   }
 
-  const hrr = calculateHRR(maxHR, restingHR);
-  return Math.round((hrr * intensity / 100) + restingHR);
+  // Base BMD values (peak bone mass around age 30)
+  const baseBMD = gender === 'male' ? 1.05 : 0.95; // g/cm²
+  
+  // Age-related decline (approximately 0.5-1% per year after age 30)
+  const ageFactor = age > 30 ? 1 - ((age - 30) * 0.008) : 1;
+  
+  // Weight factor (higher weight = slightly higher BMD due to loading)
+  const weightFactor = 1 + ((weight - 70) / 1000);
+  
+  // Height factor (taller individuals may have slightly lower BMD)
+  const heightFactor = 1 - ((height - 170) / 5000);
+  
+  const estimatedBMD = baseBMD * ageFactor * weightFactor * heightFactor;
+  
+  // Ensure reasonable bounds
+  return Math.max(0.6, Math.min(1.3, Math.round(estimatedBMD * 100) / 100));
 }
 
 /**
- * Calculate training zones using Heart Rate Reserve (Karvonen method)
+ * Comprehensive BMD analysis with clinical interpretation
  */
-export interface HRRTrainingZones {
-  hrr: number;
-  maxHR: number;
-  restingHR: number;
-  zones: {
-    zone1: { min: number; max: number; name: string; description: string; intensity: string; color: string; };
-    zone2: { min: number; max: number; name: string; description: string; intensity: string; color: string; };
-    zone3: { min: number; max: number; name: string; description: string; intensity: string; color: string; };
-    zone4: { min: number; max: number; name: string; description: string; intensity: string; color: string; };
-    zone5: { min: number; max: number; name: string; description: string; intensity: string; color: string; };
-  };
-  fatBurning: {
-    min: number;
-    max: number;
-    optimal: number;
-    percentage: string;
-  };
-}
-
-/**
- * Calculate training zones using HRR (Karvonen method)
- * More accurate than simple percentage of max HR because it accounts for resting HR
- */
-export function calculateHRRTrainingZones(maxHR: number, restingHR: number): HRRTrainingZones {
-  const hrr = calculateHRR(maxHR, restingHR);
-
-  // Zone 1: 50-60% HRR - Very light, recovery
-  const zone1Min = calculateTargetHRKarvonen(maxHR, restingHR, 50);
-  const zone1Max = calculateTargetHRKarvonen(maxHR, restingHR, 60);
-
-  // Zone 2: 60-70% HRR - Light, aerobic base
-  const zone2Min = calculateTargetHRKarvonen(maxHR, restingHR, 60);
-  const zone2Max = calculateTargetHRKarvonen(maxHR, restingHR, 70);
-
-  // Zone 3: 70-80% HRR - Moderate, aerobic
-  const zone3Min = calculateTargetHRKarvonen(maxHR, restingHR, 70);
-  const zone3Max = calculateTargetHRKarvonen(maxHR, restingHR, 80);
-
-  // Zone 4: 80-90% HRR - Hard, threshold
-  const zone4Min = calculateTargetHRKarvonen(maxHR, restingHR, 80);
-  const zone4Max = calculateTargetHRKarvonen(maxHR, restingHR, 90);
-
-  // Zone 5: 90-100% HRR - Maximum, VO2 max
-  const zone5Min = calculateTargetHRKarvonen(maxHR, restingHR, 90);
-  const zone5Max = calculateTargetHRKarvonen(maxHR, restingHR, 100);
-
-  // Fat burning zone: 60-70% HRR (optimal at 65%)
-  const fatBurningMin = zone2Min;
-  const fatBurningMax = zone2Max;
-  const fatBurningOptimal = calculateTargetHRKarvonen(maxHR, restingHR, 65);
-
-  return {
-    hrr,
-    maxHR,
-    restingHR,
-    zones: {
-      zone1: {
-        min: zone1Min,
-        max: zone1Max,
-        name: 'Zona 1: Recuperación',
-        description: 'Actividad muy ligera, ideal para recuperación activa y calentamiento',
-        intensity: '50-60% HRR',
-        color: 'blue'
-      },
-      zone2: {
-        min: zone2Min,
-        max: zone2Max,
-        name: 'Zona 2: Aeróbica Base',
-        description: 'Actividad ligera, mejora la capacidad aeróbica y quema de grasa',
-        intensity: '60-70% HRR',
-        color: 'green'
-      },
-      zone3: {
-        min: zone3Min,
-        max: zone3Max,
-        name: 'Zona 3: Aeróbica',
-        description: 'Actividad moderada, mejora la eficiencia cardiovascular',
-        intensity: '70-80% HRR',
-        color: 'yellow'
-      },
-      zone4: {
-        min: zone4Min,
-        max: zone4Max,
-        name: 'Zona 4: Umbral',
-        description: 'Actividad intensa, mejora el umbral de lactato y la capacidad anaeróbica',
-        intensity: '80-90% HRR',
-        color: 'orange'
-      },
-      zone5: {
-        min: zone5Min,
-        max: zone5Max,
-        name: 'Zona 5: Máxima',
-        description: 'Actividad máxima, mejora la potencia y capacidad anaeróbica',
-        intensity: '90-100% HRR',
-        color: 'red'
-      }
-    },
-    fatBurning: {
-      min: fatBurningMin,
-      max: fatBurningMax,
-      optimal: fatBurningOptimal,
-      percentage: '60-70% HRR'
-    }
-  };
-}
-
-/**
- * Comprehensive Heart Rate Reserve analysis with clinical interpretation
- */
-export interface HeartRateReserveAnalysis {
-  hrr: number;
-  maxHR: number;
-  restingHR: number;
-  hrrPercentage: number;
-  trainingZones: HRRTrainingZones;
+export interface BMDAnalysis {
+  bmd?: number;
+  tScore?: number;
+  zScore?: number;
+  site: 'lumbar' | 'femoral' | 'forearm' | 'total';
+  category: 'Normal' | 'Osteopenia' | 'Osteoporosis' | 'Severe Osteoporosis';
   status: string;
   interpretation: string;
-  cardiovascularFitness: {
-    level: string;
+  fractureRisk: {
+    level: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
     description: string;
-    hrrRange: string;
+    riskPercentage: string;
   };
   recommendations: string[];
   clinicalSignificance: string;
-  trainingGuidance: {
-    beginners: string[];
-    intermediate: string[];
-    advanced: string[];
+  preventionStrategies: string[];
+  monitoring: {
+    frequency: string;
+    actions: string[];
   };
+  riskFactors: string[];
   clinicalInterpretation: string;
 }
 
 /**
- * Analyze Heart Rate Reserve with comprehensive interpretation
+ * Analyze Bone Mineral Density with clinical interpretation
+ * Based on WHO criteria and clinical guidelines
  */
-export function analyzeHeartRateReserve(
-  maxHR: number,
-  restingHR: number,
+export function analyzeBMD(
+  bmd?: number,
+  tScore?: number,
+  zScore?: number,
+  site: 'lumbar' | 'femoral' | 'forearm' | 'total' = 'lumbar',
   age?: number,
   gender?: 'male' | 'female'
-): HeartRateReserveAnalysis {
-  const hrr = calculateHRR(maxHR, restingHR);
-  const hrrPercentage = Math.round((hrr / maxHR) * 100 * 10) / 10;
-  const trainingZones = calculateHRRTrainingZones(maxHR, restingHR);
+): BMDAnalysis {
+  // If BMD is not provided but T-Score is, estimate BMD
+  let actualBMD = bmd;
+  let actualTScore = tScore;
+  let actualZScore = zScore;
 
-  // Determine status based on HRR
+  // If only T-Score is provided, estimate BMD (using average young adult BMD)
+  if (!actualBMD && actualTScore !== undefined) {
+    const youngAdultBMD = site === 'lumbar' ? 1.0 : site === 'femoral' ? 0.95 : 0.75;
+    const sd = 0.12; // Typical SD for BMD
+    actualBMD = Math.round((youngAdultBMD + (actualTScore * sd)) * 100) / 100;
+  }
+
+  // If only BMD is provided, calculate T-Score (using average values)
+  if (actualBMD !== undefined && actualTScore === undefined) {
+    const youngAdultBMD = site === 'lumbar' ? 1.0 : site === 'femoral' ? 0.95 : 0.75;
+    const sd = 0.12;
+    actualTScore = calculateTScore(actualBMD, youngAdultBMD, sd);
+  }
+
+  // Determine category based on T-Score (WHO criteria)
+  let category: 'Normal' | 'Osteopenia' | 'Osteoporosis' | 'Severe Osteoporosis';
+  
+  if (actualTScore === undefined) {
+    category = 'Normal'; // Default if no T-Score available
+  } else if (actualTScore >= -1.0) {
+    category = 'Normal';
+  } else if (actualTScore >= -2.5) {
+    category = 'Osteopenia';
+  } else if (actualTScore > -3.0) {
+    category = 'Osteoporosis';
+  } else {
+    category = 'Severe Osteoporosis';
+  }
+
+  // Determine status and interpretation
   let status: string;
   let interpretation: string;
 
-  // Normal HRR is typically 60-80% of max HR
-  // Higher HRR indicates better cardiovascular fitness
-  if (hrrPercentage >= 75) {
-    status = 'Reserva cardíaca excelente';
-    interpretation = `Tu frecuencia cardíaca de reserva (HRR) es excelente (${hrr} bpm, ${hrrPercentage}% de tu FC máxima). Esto indica una excelente condición cardiovascular y una gran capacidad de adaptación al ejercicio.`;
-  } else if (hrrPercentage >= 65) {
-    status = 'Reserva cardíaca buena';
-    interpretation = `Tu frecuencia cardíaca de reserva (HRR) es buena (${hrr} bpm, ${hrrPercentage}% de tu FC máxima). Esto indica una buena condición cardiovascular.`;
-  } else if (hrrPercentage >= 55) {
-    status = 'Reserva cardíaca normal';
-    interpretation = `Tu frecuencia cardíaca de reserva (HRR) está en el rango normal (${hrr} bpm, ${hrrPercentage}% de tu FC máxima). Esto es típico para personas con condición física promedio.`;
-  } else if (hrrPercentage >= 45) {
-    status = 'Reserva cardíaca baja';
-    interpretation = `Tu frecuencia cardíaca de reserva (HRR) es baja (${hrr} bpm, ${hrrPercentage}% de tu FC máxima). Esto puede indicar condición cardiovascular subóptima. Se recomienda ejercicio regular para mejorar.`;
+  if (category === 'Normal') {
+    status = 'Densidad ósea normal';
+    interpretation = actualBMD !== undefined 
+      ? `Tu densidad ósea (${actualBMD} g/cm²) está en el rango normal. Tu T-Score de ${actualTScore} indica que tu densidad ósea es comparable a la de un adulto joven saludable.`
+      : `Tu T-Score de ${actualTScore} indica densidad ósea normal. Tu densidad ósea es comparable a la de un adulto joven saludable.`;
+  } else if (category === 'Osteopenia') {
+    status = 'Osteopenia (densidad ósea baja)';
+    interpretation = actualBMD !== undefined
+      ? `Tu densidad ósea (${actualBMD} g/cm²) está por debajo de lo normal. Tu T-Score de ${actualTScore} indica osteopenia, que es una disminución de la densidad ósea que puede aumentar el riesgo de fracturas.`
+      : `Tu T-Score de ${actualTScore} indica osteopenia (densidad ósea baja). Esto puede aumentar el riesgo de fracturas. Se recomienda tomar medidas preventivas.`;
+  } else if (category === 'Osteoporosis') {
+    status = 'Osteoporosis';
+    interpretation = actualBMD !== undefined
+      ? `Tu densidad ósea (${actualBMD} g/cm²) está significativamente baja. Tu T-Score de ${actualTScore} indica osteoporosis, una condición que aumenta significativamente el riesgo de fracturas. Se requiere tratamiento médico.`
+      : `Tu T-Score de ${actualTScore} indica osteoporosis. Esta condición aumenta significativamente el riesgo de fracturas. Se requiere evaluación y tratamiento médico.`;
   } else {
-    status = 'Reserva cardíaca muy baja';
-    interpretation = `Tu frecuencia cardíaca de reserva (HRR) es muy baja (${hrr} bpm, ${hrrPercentage}% de tu FC máxima). Esto puede indicar condición cardiovascular baja o frecuencia cardíaca en reposo elevada. Se recomienda consultar con un médico y comenzar un programa de ejercicio gradual.`;
+    status = 'Osteoporosis severa';
+    interpretation = actualBMD !== undefined
+      ? `Tu densidad ósea (${actualBMD} g/cm²) está muy baja. Tu T-Score de ${actualTScore} indica osteoporosis severa, con riesgo muy alto de fracturas. Se requiere tratamiento médico inmediato.`
+      : `Tu T-Score de ${actualTScore} indica osteoporosis severa, con riesgo muy alto de fracturas. Se requiere tratamiento médico inmediato.`;
   }
 
-  // Cardiovascular fitness assessment
-  let cardiovascularFitness: {
-    level: string;
+  // Fracture risk assessment
+  let fractureRisk: {
+    level: 'Bajo' | 'Moderado' | 'Alto' | 'Muy Alto';
     description: string;
-    hrrRange: string;
+    riskPercentage: string;
   };
 
-  if (hrrPercentage >= 75) {
-    cardiovascularFitness = {
-      level: 'Alta',
-      description: 'Una HRR alta indica excelente condición cardiovascular, frecuencia cardíaca en reposo baja y gran capacidad de adaptación al ejercicio.',
-      hrrRange: '≥75% de FC máxima'
+  if (category === 'Normal') {
+    fractureRisk = {
+      level: 'Bajo',
+      description: 'El riesgo de fractura es bajo con densidad ósea normal.',
+      riskPercentage: '<10%'
     };
-  } else if (hrrPercentage >= 65) {
-    cardiovascularFitness = {
-      level: 'Buena',
-      description: 'Una HRR buena indica buena condición cardiovascular y capacidad adecuada para el ejercicio.',
-      hrrRange: '65-74% de FC máxima'
+  } else if (category === 'Osteopenia') {
+    fractureRisk = {
+      level: 'Moderado',
+      description: 'El riesgo de fractura está moderadamente aumentado con osteopenia.',
+      riskPercentage: '10-20%'
     };
-  } else if (hrrPercentage >= 55) {
-    cardiovascularFitness = {
-      level: 'Moderada',
-      description: 'Una HRR moderada indica condición cardiovascular promedio. Hay margen para mejorar con ejercicio regular.',
-      hrrRange: '55-64% de FC máxima'
-    };
-  } else if (hrrPercentage >= 45) {
-    cardiovascularFitness = {
-      level: 'Baja',
-      description: 'Una HRR baja puede indicar condición cardiovascular subóptima o frecuencia cardíaca en reposo elevada. Se recomienda ejercicio regular.',
-      hrrRange: '45-54% de FC máxima'
+  } else if (category === 'Osteoporosis') {
+    fractureRisk = {
+      level: 'Alto',
+      description: 'El riesgo de fractura está significativamente aumentado con osteoporosis.',
+      riskPercentage: '20-40%'
     };
   } else {
-    cardiovascularFitness = {
-      level: 'Muy Baja',
-      description: 'Una HRR muy baja puede indicar condición cardiovascular baja, frecuencia cardíaca en reposo muy elevada o problemas cardiovasculares. Requiere evaluación médica.',
-      hrrRange: '<45% de FC máxima'
+    fractureRisk = {
+      level: 'Muy Alto',
+      description: 'El riesgo de fractura es muy alto con osteoporosis severa.',
+      riskPercentage: '>40%'
     };
   }
 
   // Recommendations
   const recommendations: string[] = [];
   
-  if (hrrPercentage >= 75) {
-    recommendations.push('Mantener tu rutina de ejercicio regular');
-    recommendations.push('Continuar con entrenamiento variado incluyendo intervalos de alta intensidad');
-    recommendations.push('Monitorear la HRR periódicamente para mantener la condición');
-  } else if (hrrPercentage >= 65) {
-    recommendations.push('Continuar con ejercicio cardiovascular regular (3-5 veces por semana)');
-    recommendations.push('Incluir entrenamiento de intervalos de alta intensidad (HIIT) 1-2 veces por semana');
-    recommendations.push('Mantener un peso saludable');
-  } else if (hrrPercentage >= 55) {
-    recommendations.push('Aumentar la frecuencia de ejercicio cardiovascular (4-5 veces por semana)');
-    recommendations.push('Incluir entrenamiento de intervalos de alta intensidad (HIIT)');
-    recommendations.push('Mantener un peso saludable');
-    recommendations.push('Gestionar el estrés y mejorar la calidad del sueño');
+  if (category === 'Normal') {
+    recommendations.push('Mantener una dieta rica en calcio (1000-1200 mg/día)');
+    recommendations.push('Asegurar ingesta adecuada de vitamina D (800-1000 UI/día)');
+    recommendations.push('Realizar ejercicio con carga de peso regular');
+    recommendations.push('Evitar el tabaco y limitar el consumo de alcohol');
+    recommendations.push('Realizar seguimiento periódico según recomendación médica');
+  } else if (category === 'Osteopenia') {
+    recommendations.push('Consultar con un médico para evaluación completa');
+    recommendations.push('Aumentar ingesta de calcio (1200-1500 mg/día)');
+    recommendations.push('Asegurar niveles adecuados de vitamina D');
+    recommendations.push('Iniciar programa de ejercicio con carga de peso');
+    recommendations.push('Considerar suplementación si es recomendada por médico');
+    recommendations.push('Evitar factores de riesgo (tabaco, alcohol excesivo)');
   } else {
-    recommendations.push('Iniciar un programa de ejercicio gradual bajo supervisión médica si es necesario');
-    recommendations.push('Realizar ejercicio cardiovascular regular de intensidad moderada');
-    recommendations.push('Consultar con un médico para evaluación cardiovascular');
-    recommendations.push('Monitorear otros factores de riesgo cardiovascular');
+    recommendations.push('Consultar urgentemente con un médico especialista');
+    recommendations.push('Iniciar tratamiento médico según indicación');
+    recommendations.push('Aumentar ingesta de calcio (1500 mg/día)');
+    recommendations.push('Asegurar niveles adecuados de vitamina D');
+    recommendations.push('Realizar ejercicio supervisado con carga de peso');
+    recommendations.push('Tomar medidas para prevenir caídas');
+    recommendations.push('Considerar medicamentos para la osteoporosis si es recomendado');
   }
 
   // Clinical significance
-  const clinicalSignificance = `La frecuencia cardíaca de reserva (HRR) es la diferencia entre la frecuencia cardíaca máxima y la frecuencia cardíaca en reposo. Es un indicador importante de la condición cardiovascular y se utiliza en el método de Karvonen para calcular zonas de entrenamiento más precisas que el simple porcentaje de la frecuencia cardíaca máxima. Una HRR alta indica buena condición cardiovascular y capacidad de adaptación al ejercicio.`;
+  const clinicalSignificance = `La densidad ósea (BMD) es una medida de la cantidad de mineral óseo por unidad de área. Se utiliza para diagnosticar osteoporosis y evaluar el riesgo de fracturas. El T-Score compara la densidad ósea con la de un adulto joven saludable del mismo género, mientras que el Z-Score compara con personas de la misma edad. Una densidad ósea baja aumenta significativamente el riesgo de fracturas, especialmente en cadera, columna vertebral y muñeca.`;
 
-  // Training guidance
-  const trainingGuidance = {
-    beginners: [
-      'Enfócate en las Zonas 1 y 2 (50-70% HRR) para construir una base aeróbica',
-      'Entrena 3-4 veces por semana durante 20-30 minutos',
-      'Progresivamente aumenta la duración antes de aumentar la intensidad',
-      'Monitorea tu frecuencia cardíaca en reposo para ver mejoras'
-    ],
-    intermediate: [
-      'Combina entrenamiento en Zonas 2-3 (60-80% HRR) con sesiones de Zona 4 (80-90% HRR)',
-      'Entrena 4-5 veces por semana con variación de intensidad',
-      'Incluye 1-2 sesiones de intervalos de alta intensidad por semana',
-      'Usa la HRR para calcular tus zonas de entrenamiento precisas'
-    ],
-    advanced: [
-      'Utiliza todas las zonas de entrenamiento según tu plan de periodización',
-      'Incluye entrenamiento en Zona 5 (90-100% HRR) para mejorar VO2 max',
-      'Varía la intensidad y duración según tus objetivos',
-      'Monitorea la HRR para ajustar la intensidad del entrenamiento'
+  // Prevention strategies
+  const preventionStrategies: string[] = [
+    'Dieta rica en calcio: lácteos, vegetales de hoja verde, pescado con espinas',
+    'Exposición solar moderada para síntesis de vitamina D (15-20 min/día)',
+    'Ejercicio con carga de peso: caminar, correr, entrenamiento de fuerza',
+    'Ejercicios de equilibrio para prevenir caídas',
+    'Evitar el tabaco (reduce la densidad ósea)',
+    'Limitar el consumo de alcohol (máximo 1-2 bebidas/día)',
+    'Mantener un peso saludable (ni muy bajo ni muy alto)',
+    'Evitar dietas extremas o restrictivas'
+  ];
+
+  // Monitoring
+  const monitoring = {
+    frequency: category === 'Normal' ? 'Cada 2-3 años o según recomendación médica' : 
+                category === 'Osteopenia' ? 'Anual o según recomendación médica' : 
+                'Cada 6-12 meses según indicación médica',
+    actions: [
+      'Realizar DXA scan periódicamente según recomendación médica',
+      'Monitorear niveles de calcio y vitamina D en sangre',
+      'Evaluar factores de riesgo de fractura',
+      'Revisar medicamentos que puedan afectar la densidad ósea',
+      'Evaluar riesgo de caídas y tomar medidas preventivas'
     ]
   };
 
+  // Risk factors
+  const riskFactors: string[] = [];
+  if (category !== 'Normal') {
+    riskFactors.push('Edad avanzada (especialmente >65 años)');
+    riskFactors.push('Género femenino (mayor riesgo post-menopausia)');
+    riskFactors.push('Historia familiar de osteoporosis');
+    riskFactors.push('Bajo peso corporal (IMC <18.5)');
+    riskFactors.push('Fumar');
+    riskFactors.push('Consumo excesivo de alcohol');
+    riskFactors.push('Sedentarismo');
+    riskFactors.push('Deficiencia de calcio o vitamina D');
+    riskFactors.push('Uso prolongado de corticosteroides');
+    riskFactors.push('Menopausia temprana');
+  }
+
   // Clinical interpretation
-  let clinicalInterpretation = `HRR de ${hrr} bpm (${hrrPercentage}% de FC máxima) con FC máxima de ${maxHR} bpm y FC en reposo de ${restingHR} bpm. `;
+  let clinicalInterpretation = '';
   
-  if (hrrPercentage >= 75) {
-    clinicalInterpretation += 'Una HRR excelente indica condición cardiovascular óptima y gran capacidad de adaptación al ejercicio.';
-  } else if (hrrPercentage >= 65) {
-    clinicalInterpretation += 'Una HRR buena indica buena condición cardiovascular y capacidad adecuada para el ejercicio.';
-  } else if (hrrPercentage >= 55) {
-    clinicalInterpretation += 'Una HRR moderada es típica para personas con condición física promedio. Hay margen para mejorar con ejercicio regular.';
-  } else if (hrrPercentage >= 45) {
-    clinicalInterpretation += 'Una HRR baja puede indicar condición cardiovascular subóptima o frecuencia cardíaca en reposo elevada. Se recomienda ejercicio regular y posible evaluación médica.';
+  if (actualBMD !== undefined) {
+    clinicalInterpretation += `BMD de ${actualBMD} g/cm² en ${site === 'lumbar' ? 'columna lumbar' : site === 'femoral' ? 'cuello femoral' : site === 'forearm' ? 'antebrazo' : 'total'}. `;
+  }
+  
+  if (actualTScore !== undefined) {
+    clinicalInterpretation += `T-Score de ${actualTScore} (${category}). `;
+  }
+  
+  if (actualZScore !== undefined) {
+    clinicalInterpretation += `Z-Score de ${actualZScore}. `;
+  }
+
+  if (category === 'Normal') {
+    clinicalInterpretation += 'La densidad ósea está dentro del rango normal. Se recomienda mantener hábitos saludables para preservar la salud ósea.';
+  } else if (category === 'Osteopenia') {
+    clinicalInterpretation += 'La densidad ósea está por debajo de lo normal (osteopenia). Se recomienda evaluación médica y medidas preventivas para reducir el riesgo de progresión a osteoporosis.';
+  } else if (category === 'Osteoporosis') {
+    clinicalInterpretation += 'La densidad ósea está significativamente baja (osteoporosis). Se requiere evaluación médica y tratamiento para reducir el riesgo de fracturas.';
   } else {
-    clinicalInterpretation += 'Una HRR muy baja puede indicar condición cardiovascular baja, frecuencia cardíaca en reposo muy elevada o problemas cardiovasculares. Requiere evaluación médica y posiblemente pruebas adicionales.';
+    clinicalInterpretation += 'La densidad ósea está muy baja (osteoporosis severa). Se requiere tratamiento médico inmediato para reducir el riesgo muy alto de fracturas.';
   }
 
   return {
-    hrr,
-    maxHR,
-    restingHR,
-    hrrPercentage,
-    trainingZones,
+    bmd: actualBMD,
+    tScore: actualTScore,
+    zScore: actualZScore,
+    site,
+    category,
     status,
     interpretation,
-    cardiovascularFitness,
+    fractureRisk,
     recommendations,
     clinicalSignificance,
-    trainingGuidance,
+    preventionStrategies,
+    monitoring,
+    riskFactors,
     clinicalInterpretation
   };
 }

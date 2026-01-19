@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare, Clock, HeartPulse, TrendingDown, BarChart3 } from 'lucide-react';
+import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare, Clock, HeartPulse, TrendingDown, Bone } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -314,14 +314,14 @@ export const CALCULATORS: CalculatorConfig[] = [
     relatedCalculators: ['ritmo-cardiaco', 'vo2max', 'presion-arterial-media', 'tdee']
   },
   {
-    key: 'frecuencia-cardiaca-reserva',
-    title: 'Frecuencia Cardíaca de Reserva (HRR)',
-    href: '/frecuencia-cardiaca-reserva',
-    description: 'Calculadora de frecuencia cardíaca de reserva usando método Karvonen para zonas de entrenamiento precisas',
-    icon: BarChart3,
+    key: 'densidad-osea',
+    title: 'Densidad Ósea (BMD)',
+    href: '/densidad-osea',
+    description: 'Evaluación de densidad mineral ósea y riesgo de osteoporosis según criterios WHO',
+    icon: Bone,
     priority: 'high',
-    category: 'fitness',
-    relatedCalculators: ['ritmo-cardiaco', 'recuperacion-cardiaca', 'vo2max', 'tdee']
+    category: 'health',
+    relatedCalculators: ['sarcopenia', 'edad-metabolica', 'imc', 'composicion']
   }
 ];
 

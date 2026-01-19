@@ -195,11 +195,11 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     keywords: ['calculadora HRR', 'recuperación cardíaca', 'HRR', 'heart rate recovery', 'condición cardiovascular', 'frecuencia cardíaca', 'ejercicio', 'fitness cardiovascular', 'función autonómica', 'recuperación post-ejercicio'],
     path: '/recuperacion-cardiaca'
   },
-  'frecuencia-cardiaca-reserva': {
-    title: 'Calculadora Frecuencia Cardíaca de Reserva (HRR) | Método Karvonen | Zonas Entrenamiento',
-    description: 'Calculadora profesional de frecuencia cardíaca de reserva (HRR) usando método Karvonen para calcular zonas de entrenamiento precisas. Más exacta que porcentajes simples de FC máxima. Ideal para atletas y entrenadores.',
-    keywords: ['calculadora HRR', 'frecuencia cardíaca de reserva', 'HRR', 'heart rate reserve', 'método Karvonen', 'zonas de entrenamiento', 'frecuencia cardíaca máxima', 'FC en reposo', 'entrenamiento cardiovascular', 'zonas cardíacas'],
-    path: '/frecuencia-cardiaca-reserva'
+  'densidad-osea': {
+    title: 'Calculadora Densidad Ósea (BMD) | Osteoporosis | T-Score | Z-Score | WHO',
+    description: 'Calculadora médica profesional de densidad mineral ósea (BMD) para evaluación de osteoporosis según criterios WHO. Calcula T-Score y Z-Score. Evalúa riesgo de fracturas y proporciona recomendaciones clínicas.',
+    keywords: ['calculadora BMD', 'densidad ósea', 'BMD', 'bone mineral density', 'osteoporosis', 'osteopenia', 'T-Score', 'Z-Score', 'densidad mineral ósea', 'riesgo fracturas', 'DXA scan', 'WHO criterios'],
+    path: '/densidad-osea'
   }
 };
 

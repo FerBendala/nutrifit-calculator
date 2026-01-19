@@ -409,7 +409,7 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/frecuencia-cardiaca-reserva" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de Frecuencia Cardíaca de Reserva (HRR):</a></strong> Método Karvonen para zonas de entrenamiento precisas usando FC máxima y FC en reposo</span>
+                  <span><strong><a href="/densidad-osea" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de Densidad Ósea (BMD):</a></strong> Evaluación de densidad mineral ósea y riesgo de osteoporosis según criterios WHO</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>

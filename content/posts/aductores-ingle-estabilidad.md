@@ -76,8 +76,8 @@ Unos aductores fuertes y un control pélvico estable ayudan a sostener el rendim
 
 ## Referencias
 
-1. Quintana-Cepedal M, de la Calle O, Diez-Solorzano P et al. The Copenhagen Adduction Exercise Effect on Sport Performance and Injury Prevention: A Systematic Review With Meta-Analysis. Scandinavian Journal of Medicine & Science in Sports. (sin año). DOI: 10.1111/sms.70119. citeturn1view0
-2. Quintana-Cepedal M, Vicente-Rodríguez G, Crespo I et al. Is hip adductor or abductor strength in healthy athletes associated with future groin pain? A systematic review and meta-analysis. British Journal of Sports Medicine. (sin año). DOI: 10.1136/bjsports-2024-108836. citeturn4view0
-3. Schaber M, Guiser Z, Brauer L et al. The Neuromuscular Effects of the Copenhagen Adductor Exercise: A Systematic Review. International Journal of Sports Physical Therapy. (sin año). DOI: 10.26603/001c.27975. citeturn4view2
-4. Mosler AB, Agricola R, Weir A et al. Which factors differentiate athletes with hip/groin pain from those without? A systematic review with meta-analysis. British Journal of Sports Medicine. (sin año). DOI: 10.1136/bjsports-2015-094602. citeturn4view1
-5. Bisciotti GN, Chamari K, Cena E et al. The conservative treatment of longstanding adductor-related groin pain syndrome: a critical and systematic review. Biology of Sport. (sin año). DOI: 10.5114/biolsport.2020.97669. citeturn4view3
+1. Quintana-Cepedal M, de la Calle O, Diez-Solorzano P et al. The Copenhagen Adduction Exercise Effect on Sport Performance and Injury Prevention: A Systematic Review With Meta-Analysis. Scandinavian Journal of Medicine & Science in Sports. (sin año). https://doi.org/10.1111/sms.70119
+2. Quintana-Cepedal M, Vicente-Rodríguez G, Crespo I et al. Is hip adductor or abductor strength in healthy athletes associated with future groin pain? A systematic review and meta-analysis. British Journal of Sports Medicine. (sin año). https://doi.org/10.1136/bjsports-2024-108836
+3. Schaber M, Guiser Z, Brauer L et al. The Neuromuscular Effects of the Copenhagen Adductor Exercise: A Systematic Review. International Journal of Sports Physical Therapy. (sin año). https://doi.org/10.26603/001c.27975
+4. Mosler AB, Agricola R, Weir A et al. Which factors differentiate athletes with hip/groin pain from those without? A systematic review with meta-analysis. British Journal of Sports Medicine. (sin año). https://doi.org/10.1136/bjsports-2015-094602
+5. Bisciotti GN, Chamari K, Cena E et al. The conservative treatment of longstanding adductor-related groin pain syndrome: a critical and systematic review. Biology of Sport. (sin año). https://doi.org/10.5114/biolsport.2020.97669

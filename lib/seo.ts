@@ -200,6 +200,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora médica profesional de densidad mineral ósea (BMD) para evaluación de osteoporosis según criterios WHO. Calcula T-Score y Z-Score. Evalúa riesgo de fracturas y proporciona recomendaciones clínicas.',
     keywords: ['calculadora BMD', 'densidad ósea', 'BMD', 'bone mineral density', 'osteoporosis', 'osteopenia', 'T-Score', 'Z-Score', 'densidad mineral ósea', 'riesgo fracturas', 'DXA scan', 'WHO criterios'],
     path: '/densidad-osea'
+  },
+  egfr: {
+    title: 'Calculadora eGFR (Filtrado Glomerular) | CKD-EPI | MDRD | Función Renal',
+    description: 'Calculadora médica de filtrado glomerular estimado (eGFR) con fórmulas CKD-EPI y MDRD. Estadificación de enfermedad renal crónica (ERC) y Cockcroft-Gault para ajuste de dosis. Para profesionales de la salud.',
+    keywords: ['calculadora eGFR', 'filtrado glomerular', 'CKD-EPI', 'MDRD', 'función renal', 'creatinina', 'ERC', 'enfermedad renal crónica', 'Cockcroft-Gault', 'clearance creatinina'],
+    path: '/egfr'
   }
 };
 

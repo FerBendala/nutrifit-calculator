@@ -554,6 +554,10 @@ export default function BSAPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/egfr" className="text-blue-600 hover:underline font-medium transition-golden">eGFR (Filtrado Glomerular):</a></strong> Para ajuste de dosis según función renal (CKD-EPI, Cockcroft-Gault)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Necesidades de Proteína:</a></strong> El BSA se usa también para calcular requerimientos nutricionales hospitalarios</span>
                 </li>
                 <li className="flex items-start">

@@ -413,6 +413,10 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/egfr" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de eGFR (Filtrado Glomerular):</a></strong> Estimación de función renal con CKD-EPI, MDRD y Cockcroft-Gault para estadificación de ERC</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de TDEE:</a></strong> Fórmula Mifflin-St Jeor validada para gasto calórico preciso</span>
                 </li>
                 <li className="flex items-start">

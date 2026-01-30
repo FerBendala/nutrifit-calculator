@@ -4005,7 +4005,7 @@ export function calculateMetabolicAge(
   for (let i = 0; i < 50; i++) {
     const testAge = (lowAge + highAge) / 2;
     const expectedBMR = calculateExpectedBMRByAge(testAge, gender, weight, height);
-    
+
     if (Math.abs(expectedBMR - actualBMR) < 1) {
       metabolicAge = Math.round(testAge);
       break;
@@ -4070,13 +4070,13 @@ export function analyzeMetabolicAge(
     actualBMR = calculateExpectedBMRByAge(age, gender, weight, height);
     formulaUsed = 'Mifflin-St Jeor';
   }
-  
+
   // Calculate metabolic age
   const metabolicAge = calculateMetabolicAge(actualBMR, weight, height, gender, age);
-  
+
   // Calculate expected BMR for chronological age (always use Mifflin-St Jeor for comparison)
   const expectedBMR = calculateExpectedBMRByAge(age, gender, weight, height);
-  
+
   const ageDifference = metabolicAge - age;
 
   // Categorize metabolic age
@@ -4134,7 +4134,7 @@ export function analyzeMetabolicAge(
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (category === 'Mucho Más Viejo' || category === 'Más Viejo') {
     recommendations.push('Prioriza entrenamiento de fuerza 3-4 veces por semana para aumentar masa muscular');
     recommendations.push('Aumenta actividad física diaria (caminar, subir escaleras, actividades cotidianas)');
@@ -4172,32 +4172,32 @@ export function analyzeMetabolicAge(
     muscleMass: category === 'Mucho Más Joven' || category === 'Más Joven'
       ? 'Tu masa muscular está contribuyendo positivamente a un metabolismo joven'
       : category === 'Similar'
-      ? 'Tu masa muscular está en rango normal para tu edad'
-      : 'Aumentar masa muscular puede mejorar significativamente tu edad metabólica',
+        ? 'Tu masa muscular está en rango normal para tu edad'
+        : 'Aumentar masa muscular puede mejorar significativamente tu edad metabólica',
     activityLevel: category === 'Mucho Más Joven' || category === 'Más Joven'
       ? 'Tu nivel de actividad física está manteniendo tu metabolismo activo'
       : category === 'Similar'
-      ? 'Mantén o aumenta tu actividad física para preservar metabolismo'
-      : 'Aumentar actividad física es crucial para mejorar tu edad metabólica',
+        ? 'Mantén o aumenta tu actividad física para preservar metabolismo'
+        : 'Aumentar actividad física es crucial para mejorar tu edad metabólica',
     nutrition: category === 'Mucho Más Joven' || category === 'Más Joven'
       ? 'Tu nutrición está apoyando un metabolismo eficiente'
       : category === 'Similar'
-      ? 'Optimiza tu nutrición para mantener metabolismo'
-      : 'Mejorar nutrición (proteína, hidratación, evitar restricciones extremas) puede ayudar',
+        ? 'Optimiza tu nutrición para mantener metabolismo'
+        : 'Mejorar nutrición (proteína, hidratación, evitar restricciones extremas) puede ayudar',
     sleep: category === 'Mucho Más Joven' || category === 'Más Joven'
       ? 'Tu sueño probablemente está optimizando hormonas metabólicas'
       : category === 'Similar'
-      ? 'Mantén hábitos de sueño saludables'
-      : 'Mejorar calidad y cantidad de sueño puede ayudar a optimizar metabolismo'
+        ? 'Mantén hábitos de sueño saludables'
+        : 'Mejorar calidad y cantidad de sueño puede ayudar a optimizar metabolismo'
   };
 
   const clinicalInterpretation = `Tu edad metabólica de ${metabolicAge} años ${ageDifference > 0 ? 'es mayor' : ageDifference < 0 ? 'es menor' : 'es similar'} a tu edad cronológica de ${age} años (diferencia de ${Math.abs(ageDifference)} años). 
     La edad metabólica refleja la eficiencia de tu metabolismo comparado con el promedio de personas de tu edad. 
-    ${category === 'Mucho Más Joven' || category === 'Más Joven' 
-      ? 'Un metabolismo más joven indica buena composición corporal, actividad física regular y hábitos saludables.' 
+    ${category === 'Mucho Más Joven' || category === 'Más Joven'
+      ? 'Un metabolismo más joven indica buena composición corporal, actividad física regular y hábitos saludables.'
       : category === 'Similar'
-      ? 'Un metabolismo similar a tu edad es normal y esperado.'
-      : 'Un metabolismo más viejo puede indicar pérdida de masa muscular, sedentarismo o factores que afectan el metabolismo. Se recomienda intervención con ejercicio y nutrición.'}`;
+        ? 'Un metabolismo similar a tu edad es normal y esperado.'
+        : 'Un metabolismo más viejo puede indicar pérdida de masa muscular, sedentarismo o factores que afectan el metabolismo. Se recomienda intervención con ejercicio y nutrición.'}`;
 
   return {
     chronologicalAge: age,
@@ -4272,7 +4272,7 @@ export function calculateHRRPercentage(hrr: number, peakHR: number): number {
   if (peakHR <= 0) {
     throw new Error('La frecuencia cardíaca pico debe ser positiva');
   }
-  
+
   return Math.round((hrr / peakHR) * 100 * 10) / 10;
 }
 
@@ -4329,7 +4329,7 @@ export function analyzeHRR(
   if (hr1min !== undefined) {
     hrr1min = calculateHRR1min(peakHR, hr1min);
     hrr1minPercentage = calculateHRRPercentage(hrr1min, peakHR);
-    
+
     // Categorize HRR1min (normal values: >12 bpm is good, >18 bpm is excellent)
     if (hrr1min >= 18) {
       category1min = 'Excelente';
@@ -4348,7 +4348,7 @@ export function analyzeHRR(
   if (hr2min !== undefined) {
     hrr2min = calculateHRR2min(peakHR, hr2min);
     hrr2minPercentage = calculateHRRPercentage(hrr2min, peakHR);
-    
+
     // Categorize HRR2min (normal values: >22 bpm is good, >30 bpm is excellent)
     if (hrr2min >= 30) {
       category2min = 'Excelente';
@@ -4368,12 +4368,12 @@ export function analyzeHRR(
   let interpretation: string;
 
   if (hrr1min !== undefined && hrr2min !== undefined) {
-    const avgCategory = 
+    const avgCategory =
       (category1min === 'Excelente' || category2min === 'Excelente') ? 'Excelente' :
-      (category1min === 'Buena' || category2min === 'Buena') ? 'Buena' :
-      (category1min === 'Normal' || category2min === 'Normal') ? 'Normal' :
-      (category1min === 'Pobre' || category2min === 'Pobre') ? 'Pobre' :
-      'Muy Pobre';
+        (category1min === 'Buena' || category2min === 'Buena') ? 'Buena' :
+          (category1min === 'Normal' || category2min === 'Normal') ? 'Normal' :
+            (category1min === 'Pobre' || category2min === 'Pobre') ? 'Pobre' :
+              'Muy Pobre';
 
     if (avgCategory === 'Excelente') {
       status = 'Recuperación cardíaca excelente';
@@ -4460,7 +4460,7 @@ export function analyzeHRR(
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (bestCategory === 'Excelente' || bestCategory === 'Buena') {
     recommendations.push('Mantener tu rutina de ejercicio regular');
     recommendations.push('Continuar con entrenamiento cardiovascular variado');
@@ -4514,7 +4514,7 @@ export function analyzeHRR(
 
   // Clinical interpretation
   let clinicalInterpretation = `HRR de ${hrr1min !== undefined ? `${hrr1min} bpm a 1 min` : ''}${hrr1min !== undefined && hrr2min !== undefined ? ' y ' : ''}${hrr2min !== undefined ? `${hrr2min} bpm a 2 min` : ''} con frecuencia cardíaca pico de ${peakHR} bpm. `;
-  
+
   if (bestCategory === 'Excelente' || bestCategory === 'Buena') {
     clinicalInterpretation += 'Una recuperación cardíaca buena o excelente indica condición cardiovascular óptima y bajo riesgo cardiovascular.';
   } else if (bestCategory === 'Normal') {
@@ -4567,8 +4567,8 @@ export function calculateMAP(systolicBP: number, diastolicBP: number): number {
   }
 
   // Standard formula: MAP = DBP + (1/3)(SBP - DBP)
-  const map = diastolicBP + (1/3) * (systolicBP - diastolicBP);
-  
+  const map = diastolicBP + (1 / 3) * (systolicBP - diastolicBP);
+
   return Math.round(map * 10) / 10; // Round to 1 decimal place
 }
 
@@ -4685,7 +4685,7 @@ export function analyzeMAP(systolicBP: number, diastolicBP: number): MAPAnalysis
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (map < 70) {
     recommendations.push('Buscar atención médica para evaluar la causa de la hipotensión');
     recommendations.push('Aumentar la ingesta de líquidos y electrolitos si está deshidratado');
@@ -4759,17 +4759,17 @@ export function analyzeMAP(systolicBP: number, diastolicBP: number): MAPAnalysis
 
   // Clinical interpretation
   const clinicalInterpretation = `MAP de ${map} mmHg con presión arterial ${systolicBP}/${diastolicBP} mmHg. ` +
-    `${category === 'Hipotensión' 
+    `${category === 'Hipotensión'
       ? 'MAP bajo indica hipotensión que puede comprometer la perfusión de órganos. Requiere evaluación de la causa subyacente.'
       : category === 'Normal'
-      ? 'MAP normal indica presión arterial adecuada para mantener la perfusión de órganos vitales.'
-      : category === 'Prehipertensión'
-      ? 'MAP en rango prehipertensivo requiere monitoreo y cambios en el estilo de vida para prevenir hipertensión.'
-      : category === 'Hipertensión Estadio 1'
-      ? 'MAP elevado indica hipertensión estadio 1. Requiere intervención con cambios en el estilo de vida y posiblemente medicación.'
-      : category === 'Hipertensión Estadio 2'
-      ? 'MAP significativamente elevado indica hipertensión estadio 2. Requiere tratamiento médico inmediato con medicación y cambios en el estilo de vida.'
-      : 'MAP muy elevado indica crisis hipertensiva que requiere atención médica inmediata para prevenir daño orgánico agudo.'}`;
+        ? 'MAP normal indica presión arterial adecuada para mantener la perfusión de órganos vitales.'
+        : category === 'Prehipertensión'
+          ? 'MAP en rango prehipertensivo requiere monitoreo y cambios en el estilo de vida para prevenir hipertensión.'
+          : category === 'Hipertensión Estadio 1'
+            ? 'MAP elevado indica hipertensión estadio 1. Requiere intervención con cambios en el estilo de vida y posiblemente medicación.'
+            : category === 'Hipertensión Estadio 2'
+              ? 'MAP significativamente elevado indica hipertensión estadio 2. Requiere tratamiento médico inmediato con medicación y cambios en el estilo de vida.'
+              : 'MAP muy elevado indica crisis hipertensiva que requiere atención médica inmediata para prevenir daño orgánico agudo.'}`;
 
   return {
     map,
@@ -4806,7 +4806,7 @@ export function calculateTScore(bmd: number, youngAdultBMD: number, sd: number):
   if (sd <= 0) {
     throw new Error('La desviación estándar debe ser positiva');
   }
-  
+
   return Math.round(((bmd - youngAdultBMD) / sd) * 10) / 10;
 }
 
@@ -4824,7 +4824,7 @@ export function calculateZScore(bmd: number, ageMatchedBMD: number, sd: number):
   if (sd <= 0) {
     throw new Error('La desviación estándar debe ser positiva');
   }
-  
+
   return Math.round(((bmd - ageMatchedBMD) / sd) * 10) / 10;
 }
 
@@ -4846,18 +4846,18 @@ export function estimateBMD(age: number, gender: 'male' | 'female', weight: numb
 
   // Base BMD values (peak bone mass around age 30)
   const baseBMD = gender === 'male' ? 1.05 : 0.95; // g/cm²
-  
+
   // Age-related decline (approximately 0.5-1% per year after age 30)
   const ageFactor = age > 30 ? 1 - ((age - 30) * 0.008) : 1;
-  
+
   // Weight factor (higher weight = slightly higher BMD due to loading)
   const weightFactor = 1 + ((weight - 70) / 1000);
-  
+
   // Height factor (taller individuals may have slightly lower BMD)
   const heightFactor = 1 - ((height - 170) / 5000);
-  
+
   const estimatedBMD = baseBMD * ageFactor * weightFactor * heightFactor;
-  
+
   // Ensure reasonable bounds
   return Math.max(0.6, Math.min(1.3, Math.round(estimatedBMD * 100) / 100));
 }
@@ -4922,7 +4922,7 @@ export function analyzeBMD(
 
   // Determine category based on T-Score (WHO criteria)
   let category: 'Normal' | 'Osteopenia' | 'Osteoporosis' | 'Severe Osteoporosis';
-  
+
   if (actualTScore === undefined) {
     category = 'Normal'; // Default if no T-Score available
   } else if (actualTScore >= -1.0) {
@@ -4941,7 +4941,7 @@ export function analyzeBMD(
 
   if (category === 'Normal') {
     status = 'Densidad ósea normal';
-    interpretation = actualBMD !== undefined 
+    interpretation = actualBMD !== undefined
       ? `Tu densidad ósea (${actualBMD} g/cm²) está en el rango normal. Tu T-Score de ${actualTScore} indica que tu densidad ósea es comparable a la de un adulto joven saludable.`
       : `Tu T-Score de ${actualTScore} indica densidad ósea normal. Tu densidad ósea es comparable a la de un adulto joven saludable.`;
   } else if (category === 'Osteopenia') {
@@ -4996,7 +4996,7 @@ export function analyzeBMD(
 
   // Recommendations
   const recommendations: string[] = [];
-  
+
   if (category === 'Normal') {
     recommendations.push('Mantener una dieta rica en calcio (1000-1200 mg/día)');
     recommendations.push('Asegurar ingesta adecuada de vitamina D (800-1000 UI/día)');
@@ -5037,9 +5037,9 @@ export function analyzeBMD(
 
   // Monitoring
   const monitoring = {
-    frequency: category === 'Normal' ? 'Cada 2-3 años o según recomendación médica' : 
-                category === 'Osteopenia' ? 'Anual o según recomendación médica' : 
-                'Cada 6-12 meses según indicación médica',
+    frequency: category === 'Normal' ? 'Cada 2-3 años o según recomendación médica' :
+      category === 'Osteopenia' ? 'Anual o según recomendación médica' :
+        'Cada 6-12 meses según indicación médica',
     actions: [
       'Realizar DXA scan periódicamente según recomendación médica',
       'Monitorear niveles de calcio y vitamina D en sangre',
@@ -5066,15 +5066,15 @@ export function analyzeBMD(
 
   // Clinical interpretation
   let clinicalInterpretation = '';
-  
+
   if (actualBMD !== undefined) {
     clinicalInterpretation += `BMD de ${actualBMD} g/cm² en ${site === 'lumbar' ? 'columna lumbar' : site === 'femoral' ? 'cuello femoral' : site === 'forearm' ? 'antebrazo' : 'total'}. `;
   }
-  
+
   if (actualTScore !== undefined) {
     clinicalInterpretation += `T-Score de ${actualTScore} (${category}). `;
   }
-  
+
   if (actualZScore !== undefined) {
     clinicalInterpretation += `Z-Score de ${actualZScore}. `;
   }
@@ -5104,5 +5104,146 @@ export function analyzeBMD(
     monitoring,
     riskFactors,
     clinicalInterpretation
+  };
+}
+
+// ============ eGFR (Filtrado Glomerular Estimado) ============
+
+export interface EGFRResult {
+  ckdEpi: number;
+  mdrd: number;
+  cockcroftGault?: number;
+  stage: '1' | '2' | '3a' | '3b' | '4' | '5';
+  stageLabel: string;
+  interpretation: string;
+  recommendations: string[];
+  clinicalSignificance: string;
+}
+
+/**
+ * CKD-EPI 2009: estimación de GFR (mL/min/1.73 m²) a partir de creatinina sérica (mg/dL), edad, sexo y raza.
+ * Levey AS, et al. Ann Intern Med. 2009.
+ */
+export function calculateEGFRCkdEpi(
+  creatinineMgDl: number,
+  age: number,
+  sex: 'male' | 'female',
+  isBlack: boolean = false
+): number {
+  if (creatinineMgDl <= 0 || age < 18) return 0;
+  const k = sex === 'female' ? 0.7 : 0.9;
+  const a = sex === 'female'
+    ? (creatinineMgDl <= 0.7 ? -0.329 : -1.209)
+    : (creatinineMgDl <= 0.9 ? -0.411 : -1.209);
+  const scrRatio = creatinineMgDl / k;
+  let gfr = (sex === 'female' ? 144 : 141) * Math.pow(scrRatio, a) * Math.pow(0.993, age);
+  if (isBlack) gfr *= 1.159;
+  return Math.round(gfr * 10) / 10;
+}
+
+/**
+ * MDRD-4: ecuación de 4 variables (creatinina mg/dL, edad, sexo, raza). mL/min/1.73 m².
+ */
+export function calculateEGFRMDRD(
+  creatinineMgDl: number,
+  age: number,
+  sex: 'male' | 'female',
+  isBlack: boolean = false
+): number {
+  if (creatinineMgDl <= 0 || age < 18) return 0;
+  let gfr = 175 * Math.pow(creatinineMgDl, -1.154) * Math.pow(age, -0.203);
+  if (sex === 'female') gfr *= 0.742;
+  if (isBlack) gfr *= 1.212;
+  return Math.round(Math.min(Math.max(gfr, 0), 999) * 10) / 10;
+}
+
+/**
+ * Cockcroft-Gault: clearance de creatinina (mL/min), no estandarizado a BSA. Útil para ajuste de dosis.
+ */
+export function calculateCreatinineClearanceCockcroftGault(
+  creatinineMgDl: number,
+  age: number,
+  weightKg: number,
+  sex: 'male' | 'female'
+): number {
+  if (creatinineMgDl <= 0 || age < 18 || weightKg <= 0) return 0;
+  let crCl = ((140 - age) * weightKg) / (72 * creatinineMgDl);
+  if (sex === 'female') crCl *= 0.85;
+  return Math.round(crCl * 10) / 10;
+}
+
+function getCKDStage(gfr: number): { stage: '1' | '2' | '3a' | '3b' | '4' | '5'; label: string } {
+  if (gfr >= 90) return { stage: '1', label: 'G1 - Normal o alto (≥90)' };
+  if (gfr >= 60) return { stage: '2', label: 'G2 - Leve (60-89)' };
+  if (gfr >= 45) return { stage: '3a', label: 'G3a - Leve-moderado (45-59)' };
+  if (gfr >= 30) return { stage: '3b', label: 'G3b - Moderado-severo (30-44)' };
+  if (gfr >= 15) return { stage: '4', label: 'G4 - Severo (15-29)' };
+  return { stage: '5', label: 'G5 - Enfermedad renal terminal (<15)' };
+}
+
+export function analyzeEGFR(
+  creatinineMgDl: number,
+  age: number,
+  sex: 'male' | 'female',
+  weightKg?: number,
+  isBlack: boolean = false
+): EGFRResult {
+  const ckdEpi = calculateEGFRCkdEpi(creatinineMgDl, age, sex, isBlack);
+  const mdrd = calculateEGFRMDRD(creatinineMgDl, age, sex, isBlack);
+  const cockcroftGault = weightKg && weightKg > 0
+    ? calculateCreatinineClearanceCockcroftGault(creatinineMgDl, age, weightKg, sex)
+    : undefined;
+  const { stage, label: stageLabel } = getCKDStage(ckdEpi);
+
+  let interpretation: string;
+  const recommendations: string[] = [];
+
+  if (ckdEpi >= 90) {
+    interpretation = `Tu filtrado glomerular estimado (eGFR) es de ${ckdEpi} mL/min/1.73 m² (CKD-EPI), dentro del rango normal. La función renal está preservada.`;
+    recommendations.push('Mantener hidratación adecuada');
+    recommendations.push('Evitar nefrotóxicos innecesarios (AINES, contrastes sin indicación)');
+    recommendations.push('Control de tensión y glucemia si hay factores de riesgo');
+  } else if (ckdEpi >= 60) {
+    interpretation = `Tu eGFR es de ${ckdEpi} mL/min/1.73 m² (estadio G2). Indica función renal levemente disminuida. Conviene confirmar con repetir analítica y valorar causa.`;
+    recommendations.push('Repetir creatinina y eGFR en 3-6 meses');
+    recommendations.push('Valorar proteinuria y sedimento');
+    recommendations.push('Control de tensión arterial y glucemia');
+    recommendations.push('Evitar nefrotóxicos');
+  } else if (ckdEpi >= 45) {
+    interpretation = `Tu eGFR es de ${ckdEpi} mL/min/1.73 m² (estadio G3a). Función renal levemente a moderadamente reducida. Se recomienda seguimiento nefrológico.`;
+    recommendations.push('Seguimiento con médico o nefrología');
+    recommendations.push('Control estricto de tensión y diabetes');
+    recommendations.push('Ajustar dosis de fármacos según función renal');
+    recommendations.push('Valorar causa y progresión');
+  } else if (ckdEpi >= 30) {
+    interpretation = `Tu eGFR es de ${ckdEpi} mL/min/1.73 m² (estadio G3b). Reducción moderada-severa de la función renal. Es importante valoración nefrológica.`;
+    recommendations.push('Valoración nefrológica recomendada');
+    recommendations.push('Control de tensión, anemia, fosfato y PTH');
+    recommendations.push('Ajuste de medicación según guías');
+    recommendations.push('Preparación para posibles opciones de tratamiento renal sustitutivo');
+  } else if (ckdEpi >= 15) {
+    interpretation = `Tu eGFR es de ${ckdEpi} mL/min/1.73 m² (estadio G4). Enfermedad renal severa. Se requiere seguimiento nefrológico estrecho.`;
+    recommendations.push('Seguimiento nefrológico estrecho');
+    recommendations.push('Preparación para diálisis o trasplante según criterio médico');
+    recommendations.push('Manejo de complicaciones (anemia, metabolismo óseo, acidosis)');
+    recommendations.push('Dieta y medicación adaptadas a función renal');
+  } else {
+    interpretation = `Tu eGFR es de ${ckdEpi} mL/min/1.73 m² (estadio G5). Enfermedad renal terminal. Requiere tratamiento sustitutivo (diálisis o trasplante) o cuidados conservadores según indicación médica.`;
+    recommendations.push('Manejo por nefrología y equipo multidisciplinar');
+    recommendations.push('Diálisis o trasplante según indicación y preferencias');
+    recommendations.push('Cuidados paliativos renales si se elige no dializar');
+  }
+
+  const clinicalSignificance = 'El eGFR estima la tasa de filtración glomerular (capacidad de filtrado de los riñones). Se utiliza para detectar y estadificar la enfermedad renal crónica (ERC), ajustar dosis de medicamentos y planificar seguimiento. CKD-EPI es la ecuación recomendada en la mayoría de guías; MDRD se mantiene por comparación histórica. Cockcroft-Gault estima el clearance de creatinina (mL/min) y se usa sobre todo para ajuste de dosis. Los resultados deben interpretarse siempre en contexto clínico y con un profesional de la salud.';
+
+  return {
+    ckdEpi,
+    mdrd,
+    cockcroftGault,
+    stage,
+    stageLabel,
+    interpretation,
+    recommendations,
+    clinicalSignificance
   };
 }

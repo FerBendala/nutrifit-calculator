@@ -1,4 +1,4 @@
-import { Activity, Calculator, Droplet, Dumbbell, Flame, Heart, Ruler, Scale, Target, Trophy, Zap, Stethoscope, AlertTriangle, Circle, Gauge, Layers, ActivitySquare, Clock, HeartPulse, TrendingDown, Bone } from 'lucide-react';
+import { Activity, ActivitySquare, AlertTriangle, Bone, Calculator, Circle, Clock, Droplet, Dumbbell, Flame, Gauge, Heart, HeartPulse, Layers, Ruler, Scale, Stethoscope, Target, TrendingDown, Trophy, Zap } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -322,6 +322,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'health',
     relatedCalculators: ['sarcopenia', 'edad-metabolica', 'imc', 'composicion']
+  },
+  {
+    key: 'egfr',
+    title: 'Filtrado Glomerular (eGFR)',
+    href: '/egfr',
+    description: 'Estimación de función renal con CKD-EPI, MDRD y Cockcroft-Gault para estadificación de ERC',
+    icon: Gauge,
+    priority: 'high',
+    category: 'health',
+    relatedCalculators: ['bsa', 'peso-ajustado', 'agua', 'presion-arterial-media']
   }
 ];
 

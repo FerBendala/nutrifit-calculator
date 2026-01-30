@@ -728,6 +728,17 @@ export default function PesoAjustadoPage() {
                       Índice de masa corporal para contexto general de salud
                     </span>
                   </li>
+                  <li className="flex items-start">
+                    <span className="text-orange-600 mr-2">•</span>
+                    <span>
+                      <strong>
+                        <a href="/egfr" className="text-blue-600 hover:underline font-medium transition-golden">
+                          eGFR (Filtrado Glomerular):
+                        </a>
+                      </strong>{' '}
+                      Estimación de función renal para ajuste de dosis según CKD-EPI y Cockcroft-Gault
+                    </span>
+                  </li>
                 </ul>
               </div>
             </section>

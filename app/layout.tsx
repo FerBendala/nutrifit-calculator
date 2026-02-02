@@ -1,6 +1,7 @@
 import { ConsentBanner } from '@/components/ConsentBanner';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import { Toaster } from '@/components/ui/toaster';
 import { SITE_CONFIG } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -68,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head>
         {/* Resource hints optimizados para Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -126,26 +127,33 @@ export default function RootLayout({
         )}
       </head>
       <body className={inter.className}>
-        {/* GTM noscript */}
-        {GTM_ID && (
-          <noscript>
-            <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-              height="0"
-              width="0"
-              style={{ display: 'none', visibility: 'hidden' }}
-            />
-          </noscript>
-        )}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* GTM noscript */}
+          {GTM_ID && (
+            <noscript>
+              <iframe
+                src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+                height="0"
+                width="0"
+                style={{ display: 'none', visibility: 'hidden' }}
+              />
+            </noscript>
+          )}
 
-        <div className="relative flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
 
-        <ConsentBanner />
-        <Toaster />
+          <ConsentBanner />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

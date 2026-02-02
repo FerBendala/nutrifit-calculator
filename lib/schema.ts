@@ -298,6 +298,13 @@ export function generateCalculatorSchemaByKey(calculatorKey: string): SchemaMark
   const calculator = CALCULATORS.find(calc => calc.key === calculatorKey);
 
   if (!calculator) {
+    // Para la home, generar schemas básicos + FAQ de home
+    if (calculatorKey === 'home') {
+      const schemas = [generateWebApplicationSchema(), generateWebsiteSchema()];
+      const faqSchema = generateFAQSchema('home');
+      if (faqSchema) schemas.push(faqSchema);
+      return schemas;
+    }
     console.warn(`Calculadora con key "${calculatorKey}" no encontrada`);
     return [generateWebApplicationSchema(), generateWebsiteSchema()];
   }
@@ -318,6 +325,128 @@ export function generateAllCalculatorsSchema(): SchemaMarkup[] {
   return schemas;
 }
 
+// FAQs por calculadora para rich snippets
+const CALCULATOR_FAQS: Record<string, Array<{ question: string; answer: string }>> = {
+  home: [
+    {
+      question: '¿Cómo calcular mis calorías diarias?',
+      answer: 'Introduce tu peso, altura, edad, sexo y nivel de actividad física. Nuestra calculadora usa la fórmula Mifflin-St Jeor validada científicamente para calcular tu metabolismo basal (BMR) y lo multiplica por tu factor de actividad para obtener tus calorías diarias (TDEE).'
+    },
+    {
+      question: '¿Cuántas calorías necesito para perder peso?',
+      answer: 'Para perder peso de forma saludable, necesitas crear un déficit calórico del 15-25% respecto a tu TDEE. Esto equivale a perder 0.5-1kg por semana. Nuestra calculadora te muestra las calorías exactas según tu objetivo.'
+    },
+    {
+      question: '¿Cómo distribuir mis macronutrientes?',
+      answer: 'La distribución recomendada es: proteínas 25-30% (1.6-2.2g/kg), grasas 20-35% (0.8-1.2g/kg), y carbohidratos el resto. Nuestra calculadora ajusta estos valores según tu objetivo específico.'
+    },
+    {
+      question: '¿Con qué frecuencia debo recalcular mis macros?',
+      answer: 'Recalcula cada 4-6 semanas o cuando hayas perdido/ganado 2-3kg de peso. Tu metabolismo se adapta con el tiempo, por lo que es importante ajustar regularmente.'
+    }
+  ],
+  imc: [
+    {
+      question: '¿Qué es el IMC y cómo se calcula?',
+      answer: 'El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso con tu altura. Se calcula dividiendo tu peso en kilogramos entre tu altura en metros al cuadrado (kg/m²). Los rangos están establecidos por la OMS.'
+    },
+    {
+      question: '¿Cuál es el IMC normal?',
+      answer: 'Según la OMS, un IMC entre 18.5 y 24.9 se considera peso normal. Por debajo de 18.5 es bajo peso, entre 25-29.9 es sobrepeso, y 30 o más es obesidad.'
+    },
+    {
+      question: '¿El IMC es preciso para todos?',
+      answer: 'No, el IMC tiene limitaciones. No distingue entre masa muscular y grasa, por lo que atletas pueden tener IMC alto siendo saludables. Para una evaluación completa, considera también la composición corporal.'
+    }
+  ],
+  tdee: [
+    {
+      question: '¿Qué es el TDEE?',
+      answer: 'TDEE (Total Daily Energy Expenditure) es el gasto energético total diario. Incluye tu metabolismo basal (BMR), la termogénesis de alimentos (TEF), la actividad física planificada (EAT) y las actividades no ejercicio (NEAT).'
+    },
+    {
+      question: '¿Cómo uso el TDEE para mis objetivos?',
+      answer: 'Para perder peso: consume 300-500 kcal menos que tu TDEE. Para mantener: consume tu TDEE exacto. Para ganar músculo: consume 200-400 kcal más que tu TDEE.'
+    },
+    {
+      question: '¿Por qué mi TDEE es diferente al de otras personas?',
+      answer: 'El TDEE varía por genética, composición corporal, hormonas y historial metabólico. Dos personas con el mismo peso pueden tener metabolismos muy diferentes.'
+    }
+  ],
+  proteina: [
+    {
+      question: '¿Cuánta proteína necesito al día?',
+      answer: 'Las necesidades varían según tu objetivo: 1.6-2.2g/kg para ganancia muscular, 1.2-1.6g/kg para mantenimiento activo, y 0.8g/kg mínimo recomendado por la OMS.'
+    },
+    {
+      question: '¿Puedo consumir demasiada proteína?',
+      answer: 'Para personas sanas, consumos de hasta 2.5g/kg son seguros. Sin embargo, si tienes problemas renales, consulta con un profesional antes de aumentar tu ingesta.'
+    }
+  ],
+  agua: [
+    {
+      question: '¿Cuánta agua debo beber al día?',
+      answer: 'La recomendación general es 30-40ml por kg de peso corporal. Esto aumenta con el ejercicio, clima cálido y mayor ingesta de proteínas.'
+    },
+    {
+      question: '¿Cómo saber si estoy bien hidratado?',
+      answer: 'El color de la orina es un buen indicador: amarillo claro indica buena hidratación, mientras que amarillo oscuro indica deshidratación.'
+    }
+  ],
+  bmr: [
+    {
+      question: '¿Qué es el BMR?',
+      answer: 'BMR (Basal Metabolic Rate) es la cantidad de calorías que tu cuerpo quema en reposo absoluto para funciones vitales como respirar, circular sangre y mantener la temperatura corporal.'
+    },
+    {
+      question: '¿Qué fórmula es más precisa para el BMR?',
+      answer: 'La ecuación Mifflin-St Jeor es considerada la más precisa para la mayoría de personas. Sin embargo, la fórmula Katch-McArdle es más precisa si conoces tu porcentaje de grasa corporal.'
+    }
+  ],
+  'grasa-corporal': [
+    {
+      question: '¿Cuál es un porcentaje de grasa corporal saludable?',
+      answer: 'Para hombres: 10-20% es saludable, 6-13% es atlético. Para mujeres: 18-28% es saludable, 14-20% es atlético. Las mujeres necesitan más grasa esencial.'
+    },
+    {
+      question: '¿Cómo medir la grasa corporal en casa?',
+      answer: 'Puedes usar medidas de pliegues cutáneos con calibrador, método de la circunferencia (Navy), o bioimpedancia con básculas especiales. Cada método tiene diferentes niveles de precisión.'
+    }
+  ],
+  'ritmo-cardiaco': [
+    {
+      question: '¿Cuál es mi frecuencia cardíaca máxima?',
+      answer: 'La fórmula más común es 220 menos tu edad. Sin embargo, fórmulas más precisas como Tanaka (208 - 0.7 × edad) pueden dar mejores resultados para personas entrenadas.'
+    },
+    {
+      question: '¿Qué zona de frecuencia cardíaca quema más grasa?',
+      answer: 'La zona de quema de grasa está entre 60-70% de tu FCmax. Sin embargo, entrenar a mayor intensidad (70-85%) quema más calorías totales y puede ser más efectivo para perder peso.'
+    }
+  ]
+};
+
+// Schema FAQPage para rich snippets
+export function generateFAQSchema(calculatorKey: string): SchemaMarkup | null {
+  const faqs = CALCULATOR_FAQS[calculatorKey];
+  
+  if (!faqs || faqs.length === 0) {
+    return null;
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  };
+}
+
 // Función principal para generar todos los schemas
 export function generateAllSchemas(calculator?: CalculatorConfig): SchemaMarkup[] {
   const schemas = [generateWebApplicationSchema(), generateWebsiteSchema()];
@@ -325,6 +454,12 @@ export function generateAllSchemas(calculator?: CalculatorConfig): SchemaMarkup[
   if (calculator) {
     schemas.push(generateCalculatorSchema(calculator));
     schemas.push(generateHowToSchema(calculator));
+    
+    // Agregar FAQ schema si existe para esta calculadora
+    const faqSchema = generateFAQSchema(calculator.key);
+    if (faqSchema) {
+      schemas.push(faqSchema);
+    }
   }
 
   return schemas;

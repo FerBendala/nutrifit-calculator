@@ -1,14 +1,16 @@
 'use client';
 
+import { trackResultShared } from '@/lib/analytics';
 import { useEffect, useState } from 'react';
 
 interface SocialShareProps {
   title: string;
   url: string;
   description?: string;
+  calculatorName?: string;
 }
 
-export function SocialShare({ title, url, description }: SocialShareProps) {
+export function SocialShare({ title, url, description, calculatorName = 'general' }: SocialShareProps) {
   const [copied, setCopied] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -26,6 +28,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
     if (isClient && navigator.share) {
       try {
         await navigator.share(shareData);
+        trackResultShared(calculatorName, 'native');
       } catch (err) {
         console.log('Error sharing:', err);
       }
@@ -38,10 +41,15 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
+      trackResultShared(calculatorName, 'copy_link');
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.log('Error copying to clipboard:', err);
     }
+  };
+
+  const handleSocialClick = (platform: string) => {
+    trackResultShared(calculatorName, platform);
   };
 
   const shareUrls = {
@@ -76,6 +84,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
           rel="noopener noreferrer nofollow"
           className="px-3 py-2 text-xs bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
           aria-label="Compartir en Twitter"
+          onClick={() => handleSocialClick('twitter')}
         >
           🐦 Twitter
         </a>
@@ -87,6 +96,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
           rel="noopener noreferrer nofollow"
           className="px-3 py-2 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
           aria-label="Compartir en Facebook"
+          onClick={() => handleSocialClick('facebook')}
         >
           📘 Facebook
         </a>
@@ -98,6 +108,7 @@ export function SocialShare({ title, url, description }: SocialShareProps) {
           rel="noopener noreferrer nofollow"
           className="px-3 py-2 text-xs bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
           aria-label="Compartir en WhatsApp"
+          onClick={() => handleSocialClick('whatsapp')}
         >
           💬 WhatsApp
         </a>

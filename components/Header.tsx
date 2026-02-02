@@ -1,6 +1,7 @@
 "use client";
 
 import { CalculatorIcon } from '@/components/CalculatorIcon';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
@@ -179,10 +180,16 @@ export function Header() {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
+            
+            {/* Theme Toggle - Desktop */}
+            <ThemeToggle />
           </nav>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden ml-auto">
+          <div className="md:hidden ml-auto flex items-center gap-2">
+            {/* Theme Toggle - Mobile */}
+            <ThemeToggle />
+            
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button

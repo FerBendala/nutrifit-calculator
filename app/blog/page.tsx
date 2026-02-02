@@ -1,11 +1,11 @@
 import { BlogHeader } from '@/components/blog/BlogHeader';
-import { CategoryFilter } from '@/components/blog/CategoryFilter';
+import { BlogSearch } from '@/components/blog/BlogSearch';
 import { FeaturedPosts } from '@/components/blog/FeaturedPosts';
 import { BlogPagination } from '@/components/blog/Pagination';
 import { PostCard } from '@/components/blog/PostCard';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
-import { getAllCategories, getFeaturedPosts, getPaginatedPosts, POSTS_PER_PAGE } from '@/lib/blog';
+import { getAllCategories, getFeaturedPosts, getPaginatedPosts, POSTS_PER_PAGE, getAllPosts } from '@/lib/blog';
 import { SITE_CONFIG } from '@/lib/seo';
 import type { Metadata } from 'next';
 
@@ -59,10 +59,11 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const currentPage = Math.max(1, parseInt(params.page || '1', 10) || 1);
 
   // Cargar datos del blog
-  const [paginatedResult, featuredPosts, categories] = await Promise.all([
+  const [paginatedResult, featuredPosts, categories, allPosts] = await Promise.all([
     getPaginatedPosts(currentPage, POSTS_PER_PAGE),
     getFeaturedPosts(),
     getAllCategories(),
+    getAllPosts(), // Para la búsqueda en cliente
   ]);
 
   const { posts, pagination } = paginatedResult;
@@ -107,49 +108,25 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           <BlogHeader />
 
           <div className="space-y-8">
-            {/* Filtros y Búsqueda */}
-            <CategoryFilter
-              categories={categories}
-              showSearch={false} // Solo filtros por ahora
-            />
-
             {/* Posts Destacados - Solo en la primera página */}
             {currentPage === 1 && featuredPosts.length > 0 && (
               <FeaturedPosts posts={featuredPosts} />
             )}
 
-            {/* Posts Paginados */}
-            <section className="space-y-6">
-              {posts.length > 0 ? (
-                <>
-                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {posts.map((post) => (
-                      <PostCard
-                        key={post.slug}
-                        post={post}
-                        featured={post.featured}
-                      />
-                    ))}
-                  </div>
+            {/* Búsqueda y Filtros con Posts */}
+            <BlogSearch
+              posts={allPosts}
+              categories={categories}
+            />
 
-                  {/* Paginación */}
-                  <BlogPagination
-                    pagination={pagination}
-                    basePath="/blog"
-                    className="pt-4"
-                  />
-                </>
-              ) : (
-                <div className="text-center py-12">
-                  <p className="text-muted-foreground text-lg">
-                    Pronto tendremos artículos increíbles para ti.
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Estamos trabajando en crear contenido de alta calidad. Vuelve pronto para más actualizaciones.
-                  </p>
-                </div>
-              )}
-            </section>
+            {/* Paginación - Solo mostrar cuando no hay búsqueda activa */}
+            {posts.length > 0 && pagination.totalPages > 1 && (
+              <BlogPagination
+                pagination={pagination}
+                basePath="/blog"
+                className="pt-4"
+              />
+            )}
 
             {/* Call to Action compacto */}
             <section className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-6 text-center space-y-4">

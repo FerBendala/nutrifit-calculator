@@ -1,5 +1,4 @@
-'use client';
-
+// Server Component - no requiere interactividad
 import { CalculatorConfig } from '@/lib/calculators';
 import { generateAllSchemas, generateCalculatorSchemaByKey } from '@/lib/schema';
 

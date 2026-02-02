@@ -1,5 +1,4 @@
-'use client';
-
+// Server Component - no requiere interactividad
 interface JsonLdProps {
   data: object | object[];
 }

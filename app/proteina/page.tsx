@@ -1,19 +1,30 @@
 "use client";
 
+import dynamic from 'next/dynamic';
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
-import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
-import { RelatedCalculators } from '@/components/RelatedCalculators';
 import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
-import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { formatGrams } from '@/lib/format';
 import { calculateProteinNeeds } from '@/lib/formulas';
 import { generateJsonLd } from '@/lib/seo';
 import { useState } from 'react';
+
+// Lazy load componentes no críticos
+const EmbedWidget = dynamic(() => import('@/components/EmbedWidget').then(mod => ({ default: mod.EmbedWidget })), {
+  loading: () => <div className="h-96 animate-pulse bg-gray-100 rounded-lg" />,
+});
+
+const RelatedCalculators = dynamic(() => import('@/components/RelatedCalculators').then(mod => ({ default: mod.RelatedCalculators })), {
+  loading: () => <div className="h-48 animate-pulse bg-gradient-to-r from-blue-50 to-green-50 rounded-lg" />,
+});
+
+const SocialShare = dynamic(() => import('@/components/SocialShare').then(mod => ({ default: mod.SocialShare })), {
+  loading: () => <div className="h-24 animate-pulse bg-gray-100 rounded-lg" />,
+});
 
 export default function ProteinaPage() {
   const [formData, setFormData] = useState({

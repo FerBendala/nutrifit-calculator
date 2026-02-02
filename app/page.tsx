@@ -1,11 +1,22 @@
+import dynamic from 'next/dynamic';
 import { CalculatorForm } from '@/components/CalculatorForm';
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
-import { EmbedWidget } from '@/components/EmbedWidget';
-import { RelatedCalculators } from '@/components/RelatedCalculators';
 import { SchemaMarkup } from '@/components/SchemaMarkup';
-import { SocialShare } from '@/components/SocialShare';
 import { generateMetadata as generateMeta } from '@/lib/seo';
+
+// Lazy load componentes no críticos para mejorar performance
+const EmbedWidget = dynamic(() => import('@/components/EmbedWidget').then(mod => ({ default: mod.EmbedWidget })), {
+  loading: () => <div className="h-96 animate-pulse bg-gray-100 rounded-lg" />,
+});
+
+const RelatedCalculators = dynamic(() => import('@/components/RelatedCalculators').then(mod => ({ default: mod.RelatedCalculators })), {
+  loading: () => <div className="h-48 animate-pulse bg-gradient-to-r from-blue-50 to-green-50 rounded-lg" />,
+});
+
+const SocialShare = dynamic(() => import('@/components/SocialShare').then(mod => ({ default: mod.SocialShare })), {
+  loading: () => <div className="h-24 animate-pulse bg-gray-100 rounded-lg" />,
+});
 
 export const metadata = generateMeta('home');
 

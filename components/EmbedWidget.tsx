@@ -1,5 +1,6 @@
 'use client';
 
+import { trackEmbedCodeCopied } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
@@ -73,6 +74,7 @@ export function EmbedWidget({ title, calculatorName }: EmbedWidgetProps = {}) {
     try {
       await navigator.clipboard.writeText(embedCode);
       setCopied(true);
+      trackEmbedCodeCopied(calculatorTitle);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Error copying to clipboard:', err);

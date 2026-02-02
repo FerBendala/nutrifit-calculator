@@ -1,5 +1,6 @@
 "use client";
 
+import { trackResultCopied } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 import { Copy, Check } from 'lucide-react';
 import { useState } from 'react';
@@ -9,9 +10,10 @@ import { useToast } from '@/hooks/use-toast';
 interface CopyButtonProps {
   text: string;
   className?: string;
+  calculatorName?: string;
 }
 
-export function CopyButton({ text, className }: CopyButtonProps) {
+export function CopyButton({ text, className, calculatorName = 'general' }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
@@ -20,6 +22,7 @@ export function CopyButton({ text, className }: CopyButtonProps) {
     
     if (success) {
       setCopied(true);
+      trackResultCopied(calculatorName, 'full_results');
       toast({
         title: "¡Copiado!",
         description: "Los resultados se han copiado al portapapeles",

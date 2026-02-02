@@ -453,6 +453,14 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/fibra" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora de Fibra Diaria:</a></strong> Necesidades de fibra según edad, sexo y calorías (IOM/FDA)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/azucar" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora de Límite de Azúcar:</a></strong> Azúcares libres según calorías (recomendaciones OMS &lt;10% y &lt;5%)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/1rm" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora médica de 1RM:</a></strong> Fuerza máxima con 5 fórmulas científicas para atletas</span>
                 </li>
               </ul>

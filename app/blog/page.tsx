@@ -1,51 +1,74 @@
 import { BlogHeader } from '@/components/blog/BlogHeader';
 import { CategoryFilter } from '@/components/blog/CategoryFilter';
 import { FeaturedPosts } from '@/components/blog/FeaturedPosts';
+import { BlogPagination } from '@/components/blog/Pagination';
 import { PostCard } from '@/components/blog/PostCard';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
-import { getAllCategories, getAllPosts, getFeaturedPosts } from '@/lib/blog';
+import { getAllCategories, getFeaturedPosts, getPaginatedPosts, POSTS_PER_PAGE } from '@/lib/blog';
 import { SITE_CONFIG } from '@/lib/seo';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Blog de Nutrición y Fitness | Calculadora Fitness',
-  description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica. Guías prácticas para complementar nuestras calculadoras médicas.',
-  openGraph: {
-    title: 'Blog de Nutrición y Fitness | Calculadora Fitness',
-    description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
-    type: 'website',
-    url: `${SITE_CONFIG.url}/blog`,
-    images: [
-      {
-        url: `${SITE_CONFIG.url}/images/blog-og.jpg`,
-        width: 1200,
-        height: 630,
-        alt: 'Blog de Nutrición y Fitness',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Blog de Nutrición y Fitness | Calculadora Fitness',
-    description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
-    images: [`${SITE_CONFIG.url}/images/blog-og.jpg`],
-  },
-  alternates: {
-    canonical: `${SITE_CONFIG.url}/blog`,
-  },
-};
+interface BlogPageProps {
+  searchParams: Promise<{ page?: string }>;
+}
 
-export default async function BlogPage() {
+export async function generateMetadata({ searchParams }: BlogPageProps): Promise<Metadata> {
+  const params = await searchParams;
+  const currentPage = Math.max(1, parseInt(params.page || '1', 10) || 1);
+
+  const title = currentPage > 1
+    ? `Blog de Nutrición y Fitness - Página ${currentPage} | Calculadora Fitness`
+    : 'Blog de Nutrición y Fitness | Calculadora Fitness';
+
+  const canonicalUrl = currentPage > 1
+    ? `${SITE_CONFIG.url}/blog?page=${currentPage}`
+    : `${SITE_CONFIG.url}/blog`;
+
+  return {
+    title,
+    description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica. Guías prácticas para complementar nuestras calculadoras médicas.',
+    openGraph: {
+      title,
+      description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
+      type: 'website',
+      url: canonicalUrl,
+      images: [
+        {
+          url: `${SITE_CONFIG.url}/images/blog-og.jpg`,
+          width: 1200,
+          height: 630,
+          alt: 'Blog de Nutrición y Fitness',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
+      images: [`${SITE_CONFIG.url}/images/blog-og.jpg`],
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
+  };
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const params = await searchParams;
+  const currentPage = Math.max(1, parseInt(params.page || '1', 10) || 1);
+
   // Cargar datos del blog
-  const [allPosts, featuredPosts, categories] = await Promise.all([
-    getAllPosts(),
+  const [paginatedResult, featuredPosts, categories] = await Promise.all([
+    getPaginatedPosts(currentPage, POSTS_PER_PAGE),
     getFeaturedPosts(),
     getAllCategories(),
   ]);
 
-  // Separar posts regulares (no destacados)
-  const regularPosts = allPosts.filter(post => !post.featured);
+  const { posts, pagination } = paginatedResult;
+
+  // Para el JSON-LD, obtener los primeros 5 posts de la primera página
+  const allPostsForSchema = currentPage === 1 ? posts.slice(0, 5) : [];
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -58,18 +81,20 @@ export default async function BlogPage() {
       name: SITE_CONFIG.name,
       url: SITE_CONFIG.url,
     },
-    mainEntity: allPosts.slice(0, 5).map(post => ({
-      '@type': 'BlogPosting',
-      headline: post.title,
-      description: post.description,
-      author: {
-        '@type': 'Person',
-        name: post.author,
-      },
-      datePublished: post.date,
-      url: `${SITE_CONFIG.url}/blog/${post.slug}`,
-      keywords: post.tags.join(', '),
-    })),
+    ...(allPostsForSchema.length > 0 && {
+      mainEntity: allPostsForSchema.map(post => ({
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: post.description,
+        author: {
+          '@type': 'Person',
+          name: post.author,
+        },
+        datePublished: post.date,
+        url: `${SITE_CONFIG.url}/blog/${post.slug}`,
+        keywords: post.tags.join(', '),
+      })),
+    }),
   };
 
   return (
@@ -88,23 +113,32 @@ export default async function BlogPage() {
               showSearch={false} // Solo filtros por ahora
             />
 
-            {/* Posts Destacados */}
-            {featuredPosts.length > 0 && (
+            {/* Posts Destacados - Solo en la primera página */}
+            {currentPage === 1 && featuredPosts.length > 0 && (
               <FeaturedPosts posts={featuredPosts} />
             )}
 
-            {/* Todos los Posts */}
+            {/* Posts Paginados */}
             <section className="space-y-6">
-              {allPosts.length > 0 ? (
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {allPosts.map((post) => (
-                    <PostCard
-                      key={post.slug}
-                      post={post}
-                      featured={post.featured}
-                    />
-                  ))}
-                </div>
+              {posts.length > 0 ? (
+                <>
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {posts.map((post) => (
+                      <PostCard
+                        key={post.slug}
+                        post={post}
+                        featured={post.featured}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Paginación */}
+                  <BlogPagination
+                    pagination={pagination}
+                    basePath="/blog"
+                    className="pt-4"
+                  />
+                </>
               ) : (
                 <div className="text-center py-12">
                   <p className="text-muted-foreground text-lg">
@@ -129,25 +163,25 @@ export default async function BlogPage() {
                   href="/"
                   className="bg-primary text-primary-foreground px-3 py-2 rounded-md hover:bg-primary/90 transition-colors text-xs font-medium"
                 >
-                  🧮 Calorías
+                  Calorías
                 </a>
                 <a
                   href="/proteina"
                   className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                 >
-                  🥩 Proteína
+                  Proteína
                 </a>
                 <a
                   href="/imc"
                   className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                 >
-                  📏 IMC
+                  IMC
                 </a>
                 <a
                   href="/grasa-corporal"
                   className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                 >
-                  📊 Grasa
+                  Grasa
                 </a>
               </div>
             </section>

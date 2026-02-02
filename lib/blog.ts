@@ -29,6 +29,77 @@ export interface PostPreview extends PostFrontMatter {
   excerpt: string;
 }
 
+// Constante para paginación
+export const POSTS_PER_PAGE = 12;
+
+// Interface para metadata de paginación
+export interface PaginationMeta {
+  currentPage: number;
+  totalPages: number;
+  totalPosts: number;
+  postsPerPage: number;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+}
+
+// Interface para resultado paginado
+export interface PaginatedPostsResult {
+  posts: PostPreview[];
+  pagination: PaginationMeta;
+}
+
+// Función para calcular total de páginas
+export function calculateTotalPages(totalPosts: number, postsPerPage: number = POSTS_PER_PAGE): number {
+  return Math.ceil(totalPosts / postsPerPage);
+}
+
+// Función para obtener posts paginados
+export async function getPaginatedPosts(
+  page: number = 1,
+  postsPerPage: number = POSTS_PER_PAGE
+): Promise<PaginatedPostsResult> {
+  try {
+    const allPosts = await getAllPosts();
+    const totalPosts = allPosts.length;
+    const totalPages = calculateTotalPages(totalPosts, postsPerPage);
+
+    // Validar página
+    const validPage = Math.max(1, Math.min(page, totalPages || 1));
+
+    // Calcular offset
+    const startIndex = (validPage - 1) * postsPerPage;
+    const endIndex = startIndex + postsPerPage;
+
+    // Obtener posts para la página actual
+    const posts = allPosts.slice(startIndex, endIndex);
+
+    return {
+      posts,
+      pagination: {
+        currentPage: validPage,
+        totalPages,
+        totalPosts,
+        postsPerPage,
+        hasNextPage: validPage < totalPages,
+        hasPrevPage: validPage > 1,
+      },
+    };
+  } catch (error) {
+    console.error('Error getting paginated posts:', error);
+    return {
+      posts: [],
+      pagination: {
+        currentPage: 1,
+        totalPages: 0,
+        totalPosts: 0,
+        postsPerPage,
+        hasNextPage: false,
+        hasPrevPage: false,
+      },
+    };
+  }
+}
+
 // Función para obtener todos los slugs de los posts
 export function getAllPostSlugs(): string[] {
   try {

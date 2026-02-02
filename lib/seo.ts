@@ -206,6 +206,18 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Calculadora médica de filtrado glomerular estimado (eGFR) con fórmulas CKD-EPI y MDRD. Estadificación de enfermedad renal crónica (ERC) y Cockcroft-Gault para ajuste de dosis. Para profesionales de la salud.',
     keywords: ['calculadora eGFR', 'filtrado glomerular', 'CKD-EPI', 'MDRD', 'función renal', 'creatinina', 'ERC', 'enfermedad renal crónica', 'Cockcroft-Gault', 'clearance creatinina'],
     path: '/egfr'
+  },
+  fibra: {
+    title: 'Calculadora de Fibra Diaria | Necesidades IOM/FDA | Nutrición',
+    description: 'Calculadora de necesidades de fibra dietética según edad, sexo y calorías. Recomendaciones IOM/FDA (14 g por 1000 kcal). Consejos y fuentes de fibra para una dieta saludable.',
+    keywords: ['calculadora fibra', 'fibra dietética', 'fibra diaria', 'IOM', 'FDA', 'necesidades fibra', 'dieta fibra', 'salud digestiva', 'nutrición'],
+    path: '/fibra'
+  },
+  azucar: {
+    title: 'Calculadora de Azúcar Diaria | Límite OMS | Azúcares Libres',
+    description: 'Límite máximo de azúcares libres según tus calorías diarias. Recomendaciones OMS: menos del 10% y menos del 5% de la energía. Para una dieta saludable.',
+    keywords: ['calculadora azúcar', 'azúcares libres', 'límite azúcar', 'OMS', 'azúcar diaria', 'recomendaciones OMS', 'nutrición', 'dieta saludable'],
+    path: '/azucar'
   }
 };
 

@@ -1,4 +1,4 @@
-import { Activity, ActivitySquare, AlertTriangle, Bone, Calculator, Circle, Clock, Droplet, Dumbbell, Flame, Gauge, Heart, HeartPulse, Layers, Ruler, Scale, Stethoscope, Target, TrendingDown, Trophy, Zap } from 'lucide-react';
+import { Activity, ActivitySquare, AlertTriangle, Bone, Calculator, Circle, Clock, Droplet, Dumbbell, Flame, Gauge, Heart, HeartPulse, Layers, Leaf, Ruler, Scale, Stethoscope, Target, TrendingDown, Trophy, Zap } from 'lucide-react';
 
 export interface CalculatorConfig {
   key: string;
@@ -332,6 +332,26 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'high',
     category: 'health',
     relatedCalculators: ['bsa', 'peso-ajustado', 'agua', 'presion-arterial-media']
+  },
+  {
+    key: 'fibra',
+    title: 'Fibra Diaria',
+    href: '/fibra',
+    description: 'Necesidades de fibra dietética según edad, sexo y calorías (recomendaciones IOM/FDA)',
+    icon: Leaf,
+    priority: 'medium',
+    category: 'nutrition',
+    relatedCalculators: ['home', 'proteina', 'agua', 'tdee']
+  },
+  {
+    key: 'azucar',
+    title: 'Azúcar Diaria (Límite OMS)',
+    href: '/azucar',
+    description: 'Límite máximo de azúcares libres según calorías (recomendaciones OMS <10% y <5%)',
+    icon: Circle,
+    priority: 'medium',
+    category: 'nutrition',
+    relatedCalculators: ['home', 'tdee', 'fibra', 'proteina']
   }
 ];
 

@@ -171,6 +171,144 @@ export function calculateWaterNeeds(weight: number, activityLevel: 'low' | 'mode
   };
 }
 
+// ============ Fibra dietética (recomendaciones IOM / FDA) ============
+
+export interface FiberResult {
+  byAgeSex: number;
+  byCalories?: number;
+  recommendedMin: number;
+  recommendedMax: number;
+  interpretation: string;
+  tips: string[];
+  foodSources: string[];
+}
+
+/**
+ * Recomendación de fibra por edad y sexo (Adequate Intake, IOM/FDA).
+ * Valores en g/día para adultos; para menores de 19 se usan rangos estándar.
+ */
+export function getFiberRecommendationByAgeSex(age: number, sex: 'male' | 'female'): number {
+  if (age >= 51) return sex === 'female' ? 21 : 30;
+  if (age >= 19) return sex === 'female' ? 25 : 38;
+  if (age >= 14) return sex === 'female' ? 26 : 38;
+  if (age >= 9) return sex === 'female' ? 26 : 31;
+  return 25; // default adult-like
+}
+
+/**
+ * Recomendación de fibra según ingesta calórica: 14 g por 1000 kcal (IOM).
+ */
+export function getFiberRecommendationByCalories(calories: number): number {
+  if (calories <= 0) return 0;
+  return Math.round((calories / 1000) * 14);
+}
+
+/**
+ * Analiza necesidades de fibra y devuelve recomendación unificada, interpretación y consejos.
+ */
+export function analyzeFiberNeeds(
+  age: number,
+  sex: 'male' | 'female',
+  dailyCalories?: number
+): FiberResult {
+  const byAgeSex = getFiberRecommendationByAgeSex(age, sex);
+  const byCalories = dailyCalories && dailyCalories > 0 ? getFiberRecommendationByCalories(dailyCalories) : undefined;
+
+  let recommendedMin: number;
+  let recommendedMax: number;
+  let interpretation: string;
+
+  if (byCalories !== undefined) {
+    recommendedMin = Math.min(byAgeSex, byCalories);
+    recommendedMax = Math.max(byAgeSex, byCalories);
+    interpretation = `Según tu edad y sexo se recomiendan ${byAgeSex} g de fibra al día. Según tu ingesta calórica (${dailyCalories} kcal), la recomendación es ${byCalories} g (14 g por cada 1000 kcal). Objetivo orientativo: entre ${recommendedMin} y ${recommendedMax} g al día.`;
+  } else {
+    recommendedMin = byAgeSex;
+    recommendedMax = byAgeSex + 5;
+    interpretation = `Para tu edad (${age} años) y sexo, la ingesta adecuada de fibra es ${byAgeSex} g al día según las guías IOM/FDA. Si conoces tu ingesta calórica, introdúcela para obtener una recomendación adicional basada en calorías.`;
+  }
+
+  const tips: string[] = [
+    'Aumenta la fibra de forma gradual para evitar molestias digestivas.',
+    'Bebe suficiente agua cuando aumentes la fibra.',
+    'Prioriza frutas, verduras, legumbres y cereales integrales.',
+    'Incluye variedad: fibra soluble (avena, manzana) e insoluble (integrales, verduras).',
+    'Lee etiquetas: busca "fibra" en la información nutricional.'
+  ];
+
+  const foodSources: string[] = [
+    'Legumbres (lentejas, garbanzos, alubias): 7-10 g por ración',
+    'Cereales integrales (avena, pan integral, arroz integral): 2-4 g por ración',
+    'Frutas (manzana, pera, frutos rojos, plátano): 2-4 g por pieza',
+    'Verduras (brócoli, zanahoria, espinacas): 2-4 g por ración',
+    'Frutos secos y semillas: 2-3 g por puñado'
+  ];
+
+  return {
+    byAgeSex,
+    byCalories,
+    recommendedMin,
+    recommendedMax,
+    interpretation,
+    tips,
+    foodSources
+  };
+}
+
+// ============ Azúcar (recomendaciones OMS) ============
+
+export interface SugarResult {
+  maxGrams10Percent: number;
+  maxGrams5Percent: number;
+  interpretation: string;
+  tips: string[];
+  freeSugarsDefinition: string[];
+}
+
+/** Azúcar aporta ~4 kcal/g. OMS: azúcares libres <10% (fuerte) y <5% (beneficio adicional) de la energía. */
+const KCAL_PER_GRAM_SUGAR = 4;
+
+/**
+ * Máximo de azúcares libres (g/día) para un % de calorías (OMS: 10% o 5%).
+ */
+export function getMaxSugarGramsByPercent(dailyCalories: number, percent: number): number {
+  if (dailyCalories <= 0) return 0;
+  const calorieLimit = (dailyCalories * percent) / 100;
+  return Math.round((calorieLimit / KCAL_PER_GRAM_SUGAR) * 10) / 10;
+}
+
+/**
+ * Analiza límite de azúcar según OMS e interpretación.
+ */
+export function analyzeSugarLimit(dailyCalories: number): SugarResult {
+  const maxGrams10Percent = getMaxSugarGramsByPercent(dailyCalories, 10);
+  const maxGrams5Percent = getMaxSugarGramsByPercent(dailyCalories, 5);
+
+  const interpretation = `Para ${dailyCalories} kcal/día, la OMS recomienda limitar los azúcares libres a menos del 10% de la energía: máximo ${maxGrams10Percent} g al día. Para beneficios adicionales (caries, peso), menos del 5%: máximo ${maxGrams5Percent} g al día.`;
+
+  const tips: string[] = [
+    'Prioriza alimentos sin azúcares añadidos y revisa etiquetas ("azúcar", "jarabes", "miel").',
+    'Bebidas azucaradas concentran mucho azúcar: limita refrescos, zumos envasados y bebidas energéticas.',
+    'La fruta entera no cuenta como azúcares libres; sí los zumos y concentrados.',
+    'Endulza con moderación: pequeñas cantidades son compatibles con el límite OMS.',
+    'Compara por 100 g o por ración en el etiquetado para elegir opciones con menos azúcar.'
+  ];
+
+  const freeSugarsDefinition: string[] = [
+    'Azúcares añadidos (sacarosa, glucosa, jarabe de maíz, miel, etc.).',
+    'Azúcares naturalmente presentes en zumos, concentrados y néctares.',
+    'No incluye: azúcares en fruta y verdura enteras ni en la leche sin azúcar.'
+  ];
+
+  return {
+    maxGrams10Percent,
+    maxGrams5Percent,
+    interpretation,
+    tips,
+    freeSugarsDefinition
+  };
+}
+
 /**
  * Calculate body fat percentage using Navy Method
  */

@@ -415,6 +415,14 @@ export default function TDEEPage() {
                   <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades específicas de proteína según tu objetivo</span>
                 </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/fibra" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu fibra diaria:</a></strong> Necesidades de fibra según calorías (IOM/FDA)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/azucar" className="text-blue-600 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según tus calorías</span>
+                </li>
               </ul>
             </section>
 

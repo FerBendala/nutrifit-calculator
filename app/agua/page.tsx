@@ -497,6 +497,10 @@ export default function AguaPage() {
                   <span className="text-orange-600 mr-2">•</span>
                   <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Conoce tu TDEE:</a></strong> Mayor gasto calórico requiere más hidratación</span>
                 </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">•</span>
+                  <span><strong><a href="/fibra" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu fibra diaria:</a></strong> Necesidades de fibra según IOM/FDA para dieta equilibrada</span>
+                </li>
               </ul>
             </section>
 

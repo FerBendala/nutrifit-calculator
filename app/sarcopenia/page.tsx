@@ -145,11 +145,11 @@ export default function SarcopeniaPage() {
 
   const getRiskColor = (riskLevel: string) => {
     switch (riskLevel) {
-      case 'Bajo': return 'text-green-600 bg-green-50 border-green-400';
-      case 'Moderado': return 'text-blue-600 bg-blue-50 border-blue-400';
-      case 'Alto': return 'text-orange-600 bg-orange-50 border-orange-400';
-      case 'Muy Alto': return 'text-red-600 bg-red-50 border-red-400';
-      default: return 'text-gray-600 bg-gray-50 border-gray-400';
+      case 'Bajo': return 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 border-green-400';
+      case 'Moderado': return 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border-blue-400';
+      case 'Alto': return 'text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30 border-orange-400';
+      case 'Muy Alto': return 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border-red-400';
+      default: return 'text-muted-foreground bg-muted border-gray-400';
     }
   };
 
@@ -159,10 +159,10 @@ export default function SarcopeniaPage() {
       <Container size="xl" className="py-[4.236rem]">
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Calculadora Índice de Sarcopenia Médica
+            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
+              Calculadora de Sarcopenia Médica
             </h1>
-            <p className="text-gray-700 leading-relaxed max-w-4xl mx-auto text-lg">
+            <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
               Calculadora profesional para evaluar la pérdida muscular relacionada con la edad.
               Basada en estándares EWGSOP2 con fórmulas Baumgartner, ASMM y SMMI.
               Ideal para adultos mayores, geriatras y profesionales de la salud.
@@ -172,7 +172,7 @@ export default function SarcopeniaPage() {
           <section id="calculator" aria-label="Calculadora de Índice de Sarcopenia">
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold text-center text-gray-900">
+                <CardTitle className="text-2xl font-bold text-center text-foreground">
                   Calculadora de Sarcopenia
                 </CardTitle>
                 <p className="text-center text-muted-foreground">
@@ -189,12 +189,12 @@ export default function SarcopeniaPage() {
 
                   <TabsContent value="index" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                      <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-blue-600 mt-0.5" />
+                          <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-blue-800 mb-1">Índice de Sarcopenia (Baumgartner)</h3>
-                            <p className="text-sm text-blue-700">
+                            <h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-1">Índice de Sarcopenia (Baumgartner)</h3>
+                            <p className="text-sm text-blue-700 dark:text-blue-300">
                               Método simple que requiere masa muscular y altura. Ideal para screening inicial.
                             </p>
                           </div>
@@ -253,12 +253,12 @@ export default function SarcopeniaPage() {
 
                   <TabsContent value="asmm" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-green-50 rounded-lg p-4 mb-6">
+                      <div className="bg-green-50 dark:bg-green-950/30 rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-green-600 mt-0.5" />
+                          <Info className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-green-800 mb-1">Masa Muscular Esquelética Apendicular (ASMM)</h3>
-                            <p className="text-sm text-green-700">
+                            <h3 className="font-semibold text-green-800 dark:text-green-200 mb-1">Masa Muscular Esquelética Apendicular (ASMM)</h3>
+                            <p className="text-sm text-green-700 dark:text-green-300">
                               Método más preciso que incluye edad, peso, altura y circunferencia de cintura.
                             </p>
                           </div>
@@ -355,12 +355,12 @@ export default function SarcopeniaPage() {
 
                   <TabsContent value="smmi" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-purple-50 rounded-lg p-4 mb-6">
+                      <div className="bg-purple-50 dark:bg-purple-950/30 rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-purple-600 mt-0.5" />
+                          <Info className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-purple-800 mb-1">Índice de Masa Muscular Esquelética (SMMI)</h3>
-                            <p className="text-sm text-purple-700">
+                            <h3 className="font-semibold text-purple-800 dark:text-purple-200 mb-1">Índice de Masa Muscular Esquelética (SMMI)</h3>
+                            <p className="text-sm text-purple-700 dark:text-purple-300">
                               Método más completo que incluye múltiples medidas antropométricas para mayor precisión.
                             </p>
                           </div>
@@ -474,7 +474,7 @@ export default function SarcopeniaPage() {
           {result && (
             <section className="card-golden-lg shadow-golden-lg">
               <header className="p-6 pb-0">
-                <h2 className="text-2xl font-bold text-center text-gray-900">
+                <h2 className="text-2xl font-bold text-center text-foreground">
                   Resultados - {result.method}
                 </h2>
               </header>
@@ -482,11 +482,11 @@ export default function SarcopeniaPage() {
                 <div className="space-golden-lg">
                   {/* Main Results */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article className="text-center p-6 bg-blue-50 rounded-lg border-l-4 border-blue-400">
-                      <div className="text-3xl font-bold text-blue-600 mb-2">
+                    <article className="text-center p-6 bg-blue-50 dark:bg-blue-950/30 rounded-lg border-l-4 border-blue-400">
+                      <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                         {result.sarcopeniaIndex?.toFixed(2) || result.asmm?.toFixed(2) || result.smmi?.toFixed(2)}
                       </div>
-                      <div className="text-sm font-medium text-blue-800">
+                      <div className="text-sm font-medium text-blue-800 dark:text-blue-200">
                         {activeTab === 'index' ? 'Índice de Sarcopenia' : activeTab === 'asmm' ? 'ASMM (kg)' : 'SMMI'}
                       </div>
                     </article>
@@ -508,39 +508,39 @@ export default function SarcopeniaPage() {
 
                   {/* Detailed Analysis */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <article className="card-golden bg-white/50">
+                    <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
-                        <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-                          <Shield className="h-5 w-5 mr-2 text-blue-600" />
+                        <h3 className="text-lg font-semibold text-foreground flex items-center">
+                          <Shield className="h-5 w-5 mr-2 text-blue-600 dark:text-blue-400" />
                           Evaluación Clínica
                         </h3>
                       </header>
                       <div className="p-6">
                         <div className="space-y-3">
                           <div>
-                            <div className="font-medium text-gray-900 mb-1">Riesgo ajustado por edad:</div>
-                            <div className="text-sm text-gray-600">{result.ageAdjustedRisk}</div>
+                            <div className="font-medium text-foreground mb-1">Riesgo ajustado por edad:</div>
+                            <div className="text-sm text-muted-foreground">{result.ageAdjustedRisk}</div>
                           </div>
                           <div>
-                            <div className="font-medium text-gray-900 mb-1">Impacto funcional:</div>
-                            <div className="text-sm text-gray-600">{result.functionalImpact}</div>
+                            <div className="font-medium text-foreground mb-1">Impacto funcional:</div>
+                            <div className="text-sm text-muted-foreground">{result.functionalImpact}</div>
                           </div>
                           <div>
-                            <div className="font-medium text-gray-900 mb-1">Implicaciones clínicas:</div>
-                            <div className="text-sm text-gray-600">{result.clinicalImplications}</div>
+                            <div className="font-medium text-foreground mb-1">Implicaciones clínicas:</div>
+                            <div className="text-sm text-muted-foreground">{result.clinicalImplications}</div>
                           </div>
                         </div>
                       </div>
                     </article>
 
-                    <article className="card-golden bg-white/50">
+                    <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <h3 className="text-lg font-semibold text-foreground">
                           Seguimiento recomendado
                         </h3>
                       </header>
                       <div className="p-6">
-                        <p className="text-sm text-gray-600 leading-[1.618]">
+                        <p className="text-sm text-muted-foreground leading-[1.618]">
                           {result.followUp}
                         </p>
                       </div>
@@ -549,10 +549,10 @@ export default function SarcopeniaPage() {
 
                   {/* Recommendations */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <article className="card-golden bg-white/50">
+                    <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
-                        <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-                          <TrendingUp className="h-5 w-5 mr-2 text-green-600" />
+                        <h3 className="text-lg font-semibold text-foreground flex items-center">
+                          <TrendingUp className="h-5 w-5 mr-2 text-green-600 dark:text-green-400" />
                           Recomendaciones Personalizadas
                         </h3>
                       </header>
@@ -561,17 +561,17 @@ export default function SarcopeniaPage() {
                           {result.recommendations.map((rec, index) => (
                             <li key={index} className="flex items-start gap-2">
                               <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-1 flex-shrink-0"></span>
-                              <span className="text-sm text-gray-600 leading-[1.618]">{rec}</span>
+                              <span className="text-sm text-muted-foreground leading-[1.618]">{rec}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </article>
 
-                    <article className="card-golden bg-white/50">
+                    <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
-                        <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-                          <Dumbbell className="h-5 w-5 mr-2 text-orange-600" />
+                        <h3 className="text-lg font-semibold text-foreground flex items-center">
+                          <Dumbbell className="h-5 w-5 mr-2 text-orange-600 dark:text-orange-400" />
                           Estrategias de Prevención
                         </h3>
                       </header>
@@ -580,7 +580,7 @@ export default function SarcopeniaPage() {
                           {result.preventionStrategies.map((strategy, index) => (
                             <li key={index} className="flex items-start gap-2">
                               <span className="w-2 h-2 bg-orange-400 rounded-full mt-2 mr-1 flex-shrink-0"></span>
-                              <span className="text-sm text-gray-600 leading-[1.618]">{strategy}</span>
+                              <span className="text-sm text-muted-foreground leading-[1.618]">{strategy}</span>
                             </li>
                           ))}
                         </ul>
@@ -594,35 +594,35 @@ export default function SarcopeniaPage() {
 
           <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
             <header>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+              <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
                 ¿Qué es la Sarcopenia?
               </h2>
             </header>
 
-            <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-8">
+            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-8">
               <div className="p-6">
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-muted-foreground leading-relaxed mb-4">
                   La <strong>sarcopenia</strong> es la pérdida progresiva y generalizada de masa muscular esquelética
-                  que ocurre con el <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2804956/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">envejecimiento</a>.
+                  que ocurre con el <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2804956/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">envejecimiento</a>.
                   Afecta la movilidad, el equilibrio y aumenta el riesgo de caídas y fracturas.
                 </p>
-                <p className="text-gray-700 leading-relaxed">
-                  Según la <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3377163/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">EWGSOP2</a>,
+                <p className="text-muted-foreground leading-relaxed">
+                  Según la <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3377163/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">EWGSOP2</a>,
                   se diagnostica cuando hay baja masa muscular más baja fuerza o rendimiento físico reducido.
                 </p>
               </div>
             </section>
 
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <article className="card-golden-lg bg-red-50 border-l-4 border-red-400">
+              <article className="card-golden-lg bg-red-50 dark:bg-red-950/30 border-l-4 border-red-400">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-red-800 flex items-center">
+                  <h3 className="text-xl font-semibold text-red-800 dark:text-red-200 flex items-center">
                     <AlertCircle className="w-5 h-5 mr-2" />
                     Factores de Riesgo de Sarcopenia
                   </h3>
                 </header>
                 <div className="p-6">
-                  <ul className="space-y-2 text-red-800">
+                  <ul className="space-y-2 text-red-800 dark:text-red-200">
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Edad avanzada:</strong> Mayor riesgo después de los 50 años</span>
@@ -647,15 +647,15 @@ export default function SarcopeniaPage() {
                 </div>
               </article>
 
-              <article className="card-golden-lg bg-green-50 border-l-4 border-green-400">
+              <article className="card-golden-lg bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-green-800 flex items-center">
+                  <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 flex items-center">
                     <Heart className="w-5 h-5 mr-2" />
                     Beneficios de la Prevención
                   </h3>
                 </header>
                 <div className="p-6">
-                  <ul className="space-y-2 text-green-800">
+                  <ul className="space-y-2 text-green-800 dark:text-green-200">
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Mejor movilidad:</strong> Mantiene independencia funcional</span>
@@ -681,56 +681,56 @@ export default function SarcopeniaPage() {
               </article>
             </section>
 
-            <section className="card-golden-lg bg-purple-50 border-l-4 border-purple-400 mt-8">
+            <section className="card-golden-lg bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-400 mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-purple-800 flex items-center">
+                <h3 className="text-xl font-semibold text-purple-800 dark:text-purple-200 flex items-center">
                   <Users className="w-5 h-5 mr-2" />
                   Estadísticas de Sarcopenia
                 </h3>
               </header>
               <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                  <div className="p-4 bg-white/50 rounded-lg">
-                    <div className="text-2xl font-bold text-purple-600 mb-2">10-20%</div>
-                    <div className="text-sm text-purple-800">Prevalencia en adultos &gt; 50 años</div>
+                  <div className="p-4 bg-card/50 rounded-lg">
+                    <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-2">10-20%</div>
+                    <div className="text-sm text-purple-800 dark:text-purple-200">Prevalencia en adultos &gt; 50 años</div>
                   </div>
-                  <div className="p-4 bg-white/50 rounded-lg">
-                    <div className="text-2xl font-bold text-purple-600 mb-2">50%</div>
-                    <div className="text-sm text-purple-800">Prevalencia en adultos &gt; 80 años</div>
+                  <div className="p-4 bg-card/50 rounded-lg">
+                    <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-2">50%</div>
+                    <div className="text-sm text-purple-800 dark:text-purple-200">Prevalencia en adultos &gt; 80 años</div>
                   </div>
-                  <div className="p-4 bg-white/50 rounded-lg">
-                    <div className="text-2xl font-bold text-purple-600 mb-2">3x</div>
-                    <div className="text-sm text-purple-800">Mayor riesgo de mortalidad</div>
+                  <div className="p-4 bg-card/50 rounded-lg">
+                    <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-2">3x</div>
+                    <div className="text-sm text-purple-800 dark:text-purple-200">Mayor riesgo de mortalidad</div>
                   </div>
                 </div>
               </div>
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="card-golden-lg bg-orange-50 border-l-4 border-orange-400 mt-8">
+            <section className="card-golden-lg bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-400 mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-orange-800 flex items-center">
+                <h3 className="text-xl font-semibold text-orange-800 dark:text-orange-200 flex items-center">
                   <Info className="w-5 h-5 mr-2" />
                   Complementa tu evaluación de sarcopenia
                 </h3>
               </header>
               <div className="p-6">
-                <ul className="text-sm text-orange-800 space-golden-xs">
+                <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
-                    <span><strong><a href="/masa-muscular" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu masa muscular:</a></strong> Evalúa la cantidad total de músculo</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span><strong><a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu masa muscular:</a></strong> Evalúa la cantidad total de músculo</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
-                    <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Optimiza tu ingesta proteica:</a></strong> Fundamental para mantener la masa muscular</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu ingesta proteica:</a></strong> Fundamental para mantener la masa muscular</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
-                    <span><strong><a href="/composicion" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa composición corporal:</a></strong> Relación entre músculo y grasa corporal</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span><strong><a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa composición corporal:</a></strong> Relación entre músculo y grasa corporal</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
-                    <span><strong><a href="/vo2max" className="text-blue-600 hover:underline font-medium transition-golden">Mide tu capacidad cardiovascular:</a></strong> El ejercicio aeróbico ayuda a prevenir la sarcopenia</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span><strong><a href="/vo2max" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mide tu capacidad cardiovascular:</a></strong> El ejercicio aeróbico ayuda a prevenir la sarcopenia</span>
                   </li>
                 </ul>
               </div>

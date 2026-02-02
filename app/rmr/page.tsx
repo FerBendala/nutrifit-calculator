@@ -80,7 +80,7 @@ export default function RMRPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora RMR Médica
+              Calculadora de RMR Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calculadora profesional de RMR (Resting Metabolic Rate) con 3 fórmulas científicas validadas.
@@ -88,24 +88,24 @@ export default function RMRPage() {
             </p>
           </header>
 
-          <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-8">
+          <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-8">
             <div className="p-6">
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 El <strong>RMR (Resting Metabolic Rate)</strong> mide las calorías que quemas en reposo completo, similar al BMR
                 pero bajo condiciones menos estrictas. Desarrollado con fórmulas{' '}
-                <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                   Mifflin-St Jeor (1990)
                 </a>,{' '}
-                <a href="https://pubmed.ncbi.nlm.nih.gov/6741850/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/6741850/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                   Harris-Benedict revisada (1984)
                 </a>{' '}
                 y Katch-McArdle. Estudios recientes en{' '}
-                <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8308339/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium transition-golden">
+                <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8308339/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                   poblaciones diversas
                 </a>{' '}
                 confirman su precisión para planificación nutricional.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 A diferencia del BMR que requiere ayuno de 12 horas y ambiente controlado, el RMR es más práctico para mediciones
                 diarias y ajustes nutricionales. Representa el 60-75% de tu gasto energético total.
               </p>
@@ -130,12 +130,12 @@ export default function RMRPage() {
 
                   <TabsContent value="basic" className="space-golden-sm">
                     <form onSubmit={(e) => handleSubmit(e, 'basic')} className="space-golden-md">
-                      <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                      <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-blue-600 mt-0.5" />
+                          <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-blue-800 mb-1">Método Básico (Mifflin-St Jeor + Harris-Benedict)</h3>
-                            <p className="text-sm text-blue-700">
+                            <h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-1">Método Básico (Mifflin-St Jeor + Harris-Benedict)</h3>
+                            <p className="text-sm text-blue-700 dark:text-blue-300">
                               Usa solo peso, altura, edad y sexo. Precisión estándar para la mayoría de personas.
                             </p>
                           </div>
@@ -208,12 +208,12 @@ export default function RMRPage() {
 
                   <TabsContent value="advanced" className="space-golden-sm">
                     <form onSubmit={(e) => handleSubmit(e, 'advanced')} className="space-golden-md">
-                      <div className="bg-green-50 rounded-lg p-4 mb-6">
+                      <div className="bg-green-50 dark:bg-green-950/30 rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-green-600 mt-0.5" />
+                          <Info className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-green-800 mb-1">Método Avanzado (+ Katch-McArdle)</h3>
-                            <p className="text-sm text-green-700">
+                            <h3 className="font-semibold text-green-800 dark:text-green-200 mb-1">Método Avanzado (+ Katch-McArdle)</h3>
+                            <p className="text-sm text-green-700 dark:text-green-300">
                               Incluye composición corporal para máxima precisión basada en masa magra.
                             </p>
                           </div>
@@ -305,8 +305,8 @@ export default function RMRPage() {
           {result && (
             <section className="space-golden-lg border-t pt-8">
               <header className="mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-                  <Flame className="w-6 h-6 mr-2 text-orange-600" />
+                <h2 className="text-2xl font-bold text-foreground flex items-center">
+                  <Flame className="w-6 h-6 mr-2 text-orange-600 dark:text-orange-400" />
                   Tus Resultados de RMR
                 </h2>
               </header>
@@ -315,30 +315,30 @@ export default function RMRPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-lg">
-                      <Flame className="w-5 h-5 mr-2 text-orange-600" />
+                      <Flame className="w-5 h-5 mr-2 text-orange-600 dark:text-orange-400" />
                       Mifflin-St Jeor
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-3xl font-bold text-orange-600">
+                    <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">
                       {result.mifflin} <span className="text-lg">kcal/día</span>
                     </div>
-                    <p className="text-sm text-gray-600 mt-2">Fórmula más precisa (±10%)</p>
+                    <p className="text-sm text-muted-foreground mt-2">Fórmula más precisa (±10%)</p>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-lg">
-                      <Flame className="w-5 h-5 mr-2 text-blue-600" />
+                      <Flame className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
                       Harris-Benedict
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-3xl font-bold text-blue-600">
+                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
                       {result.harris} <span className="text-lg">kcal/día</span>
                     </div>
-                    <p className="text-sm text-gray-600 mt-2">Fórmula clásica revisada</p>
+                    <p className="text-sm text-muted-foreground mt-2">Fórmula clásica revisada</p>
                   </CardContent>
                 </Card>
 
@@ -346,22 +346,22 @@ export default function RMRPage() {
                   <Card>
                     <CardHeader>
                       <CardTitle className="flex items-center text-lg">
-                        <Flame className="w-5 h-5 mr-2 text-green-600" />
+                        <Flame className="w-5 h-5 mr-2 text-green-600 dark:text-green-400" />
                         Katch-McArdle
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-3xl font-bold text-green-600">
+                      <div className="text-3xl font-bold text-green-600 dark:text-green-400">
                         {result.katch} <span className="text-lg">kcal/día</span>
                       </div>
-                      <p className="text-sm text-gray-600 mt-2">Basado en masa magra</p>
+                      <p className="text-sm text-muted-foreground mt-2">Basado en masa magra</p>
                     </CardContent>
                   </Card>
                 )}
               </div>
 
               <Alert className="mb-6 border-l-4 bg-gradient-to-r from-orange-50 to-yellow-50 border-orange-500">
-                <TrendingUp className="h-5 w-5 text-orange-600" />
+                <TrendingUp className="h-5 w-5 text-orange-600 dark:text-orange-400" />
                 <AlertDescription className="ml-2">
                   <strong>Tu RMR Promedio:</strong> {result.average} kcal/día - Este es tu gasto energético en reposo completo
                 </AlertDescription>
@@ -370,44 +370,44 @@ export default function RMRPage() {
               <Card className="mb-6">
                 <CardHeader>
                   <CardTitle className="flex items-center text-lg">
-                    <Activity className="w-5 h-5 mr-2 text-purple-600" />
+                    <Activity className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
                     Necesidades Calóricas Diarias por Nivel de Actividad
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                    <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
                       <div>
-                        <p className="font-semibold text-gray-900">Sedentario</p>
-                        <p className="text-sm text-gray-600">Poco o ningún ejercicio</p>
+                        <p className="font-semibold text-foreground">Sedentario</p>
+                        <p className="text-sm text-muted-foreground">Poco o ningún ejercicio</p>
                       </div>
-                      <span className="text-xl font-bold text-gray-900">{result.dailyCalorieNeeds.sedentary} kcal</span>
+                      <span className="text-xl font-bold text-foreground">{result.dailyCalorieNeeds.sedentary} kcal</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                    <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
                       <div>
-                        <p className="font-semibold text-blue-900">Ligera actividad</p>
-                        <p className="text-sm text-blue-700">Ejercicio 1-3 días/semana</p>
+                        <p className="font-semibold text-blue-900 dark:text-blue-100">Ligera actividad</p>
+                        <p className="text-sm text-blue-700 dark:text-blue-300">Ejercicio 1-3 días/semana</p>
                       </div>
-                      <span className="text-xl font-bold text-blue-900">{result.dailyCalorieNeeds.light} kcal</span>
+                      <span className="text-xl font-bold text-blue-900 dark:text-blue-100">{result.dailyCalorieNeeds.light} kcal</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                    <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-950/30 rounded-lg">
                       <div>
                         <p className="font-semibold text-green-900">Moderada actividad</p>
-                        <p className="text-sm text-green-700">Ejercicio 3-5 días/semana</p>
+                        <p className="text-sm text-green-700 dark:text-green-300">Ejercicio 3-5 días/semana</p>
                       </div>
                       <span className="text-xl font-bold text-green-900">{result.dailyCalorieNeeds.moderate} kcal</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
+                    <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-950/30 rounded-lg">
                       <div>
                         <p className="font-semibold text-orange-900">Alta actividad</p>
-                        <p className="text-sm text-orange-700">Ejercicio 6-7 días/semana</p>
+                        <p className="text-sm text-orange-700 dark:text-orange-300">Ejercicio 6-7 días/semana</p>
                       </div>
                       <span className="text-xl font-bold text-orange-900">{result.dailyCalorieNeeds.active} kcal</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
+                    <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-950/30 rounded-lg">
                       <div>
                         <p className="font-semibold text-red-900">Muy alta actividad</p>
-                        <p className="text-sm text-red-700">Ejercicio intenso + trabajo físico</p>
+                        <p className="text-sm text-red-700 dark:text-red-300">Ejercicio intenso + trabajo físico</p>
                       </div>
                       <span className="text-xl font-bold text-red-900">{result.dailyCalorieNeeds.veryActive} kcal</span>
                     </div>
@@ -418,18 +418,18 @@ export default function RMRPage() {
               <Card className="mb-6">
                 <CardHeader>
                   <CardTitle className="flex items-center text-lg">
-                    <Info className="w-5 h-5 mr-2 text-blue-600" />
+                    <Info className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
                     Análisis Metabólico
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Contexto Metabólico</h4>
-                    <p className="text-gray-700">{result.metabolicContext}</p>
+                    <h4 className="font-semibold text-foreground mb-2">Contexto Metabólico</h4>
+                    <p className="text-muted-foreground">{result.metabolicContext}</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Comparación por Edad</h4>
-                    <p className="text-gray-700">{result.comparisonByAge}</p>
+                    <h4 className="font-semibold text-foreground mb-2">Comparación por Edad</h4>
+                    <p className="text-muted-foreground">{result.comparisonByAge}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -437,7 +437,7 @@ export default function RMRPage() {
               <Card className="mb-6">
                 <CardHeader>
                   <CardTitle className="flex items-center text-lg">
-                    <TrendingUp className="w-5 h-5 mr-2 text-purple-600" />
+                    <TrendingUp className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
                     Recomendaciones Personalizadas
                   </CardTitle>
                 </CardHeader>
@@ -445,8 +445,8 @@ export default function RMRPage() {
                   <ul className="space-y-2">
                     {result.recommendations.map((rec, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-orange-600 mr-2 flex-shrink-0">•</span>
-                        <span className="text-gray-700">{rec}</span>
+                        <span className="text-orange-600 dark:text-orange-400 mr-2 flex-shrink-0">•</span>
+                        <span className="text-muted-foreground">{rec}</span>
                       </li>
                     ))}
                   </ul>
@@ -456,18 +456,18 @@ export default function RMRPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center text-lg">
-                    <Users className="w-5 h-5 mr-2 text-green-600" />
+                    <Users className="w-5 h-5 mr-2 text-green-600 dark:text-green-400" />
                     Factores que Afectan tu RMR
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <div className="p-3 bg-blue-50 rounded-lg">
-                    <p className="font-semibold text-blue-900 mb-1">💪 Impacto de la Masa Muscular</p>
-                    <p className="text-sm text-blue-700">{result.factors.muscleImpact}</p>
+                  <div className="p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
+                    <p className="font-semibold text-blue-900 dark:text-blue-100 mb-1">💪 Impacto de la Masa Muscular</p>
+                    <p className="text-sm text-blue-700 dark:text-blue-300">{result.factors.muscleImpact}</p>
                   </div>
-                  <div className="p-3 bg-purple-50 rounded-lg">
+                  <div className="p-3 bg-purple-50 dark:bg-purple-950/30 rounded-lg">
                     <p className="font-semibold text-purple-900 mb-1">⏰ Efecto de la Edad</p>
-                    <p className="text-sm text-purple-700">{result.factors.ageImpact}</p>
+                    <p className="text-sm text-purple-700 dark:text-purple-300">{result.factors.ageImpact}</p>
                   </div>
                   <div className="p-3 bg-pink-50 rounded-lg">
                     <p className="font-semibold text-pink-900 mb-1">⚥ Diferencias de Género</p>
@@ -481,24 +481,24 @@ export default function RMRPage() {
           {/* Información adicional */}
           <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
             <header>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+              <h2 className="text-3xl font-semibold mb-[1.618rem] text-center">
                 Información Completa sobre el RMR
               </h2>
             </header>
 
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <article className="card-golden-lg bg-green-50 border-l-4 border-green-400">
+              <article className="card-golden-lg bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-green-800 flex items-center">
+                  <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 flex items-center">
                     <Flame className="w-5 h-5 mr-2" />
                     Ventajas del RMR
                   </h3>
                 </header>
                 <div className="p-6">
-                  <ul className="space-y-2 text-green-800">
+                  <ul className="space-y-2 text-green-800 dark:text-green-200">
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Más práctico que BMR:</strong> No requiere ayuno de 12 horas ni laboratorio - <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">validación científica</a></span>
+                      <span><strong>Más práctico que BMR:</strong> No requiere ayuno de 12 horas ni laboratorio - <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">validación científica</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -516,15 +516,15 @@ export default function RMRPage() {
                 </div>
               </article>
 
-              <article className="card-golden-lg bg-yellow-50 border-l-4 border-yellow-400">
+              <article className="card-golden-lg bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-yellow-800 flex items-center">
+                  <h3 className="text-xl font-semibold text-yellow-800 dark:text-yellow-200 flex items-center">
                     <AlertTriangle className="w-5 h-5 mr-2" />
                     RMR vs BMR: Diferencias Clave
                   </h3>
                 </header>
                 <div className="p-6">
-                  <div className="space-y-3 text-sm text-yellow-800">
+                  <div className="space-y-3 text-sm text-yellow-800 dark:text-yellow-200">
                     <div className="p-3 bg-yellow-100 rounded-lg">
                       <p className="font-semibold mb-1">🔬 BMR (Basal Metabolic Rate)</p>
                       <p>Medición en laboratorio, ayuno 12h, temperatura controlada, máxima precisión científica</p>
@@ -542,59 +542,59 @@ export default function RMRPage() {
               </article>
             </section>
 
-            <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mt-8">
+            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-blue-800 flex items-center">
+                <h3 className="text-xl font-semibold text-blue-800 dark:text-blue-200 flex items-center">
                   <Info className="w-5 h-5 mr-2" />
                   Fórmulas Científicas del RMR
                 </h3>
               </header>
               <div className="p-6">
                 <div className="space-y-4">
-                  <div className="bg-white p-4 rounded-lg border-2 border-blue-200">
-                    <h4 className="font-semibold text-blue-900 mb-2">1. Mifflin-St Jeor (1990)</h4>
+                  <div className="bg-card p-4 rounded-lg border-2 border-blue-200">
+                    <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">1. Mifflin-St Jeor (1990)</h4>
                     <div className="font-mono text-sm mb-2">
                       <p>Hombres: 10×peso + 6.25×altura - 5×edad + 5</p>
                       <p>Mujeres: 10×peso + 6.25×altura - 5×edad - 161</p>
                     </div>
-                    <p className="text-sm text-gray-700">Considerada la más precisa para población general moderna</p>
+                    <p className="text-sm text-muted-foreground">Considerada la más precisa para población general moderna</p>
                   </div>
 
-                  <div className="bg-white p-4 rounded-lg border-2 border-blue-200">
-                    <h4 className="font-semibold text-blue-900 mb-2">2. Harris-Benedict Revisada (1984)</h4>
+                  <div className="bg-card p-4 rounded-lg border-2 border-blue-200">
+                    <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">2. Harris-Benedict Revisada (1984)</h4>
                     <div className="font-mono text-sm mb-2">
                       <p>Hombres: 88.362 + (13.397×peso) + (4.799×altura) - (5.677×edad)</p>
                       <p>Mujeres: 447.593 + (9.247×peso) + (3.098×altura) - (4.330×edad)</p>
                     </div>
-                    <p className="text-sm text-gray-700">Fórmula clásica actualizada por Roza & Shizgal</p>
+                    <p className="text-sm text-muted-foreground">Fórmula clásica actualizada por Roza & Shizgal</p>
                   </div>
 
-                  <div className="bg-white p-4 rounded-lg border-2 border-blue-200">
-                    <h4 className="font-semibold text-blue-900 mb-2">3. Katch-McArdle (1996)</h4>
+                  <div className="bg-card p-4 rounded-lg border-2 border-blue-200">
+                    <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">3. Katch-McArdle (1996)</h4>
                     <div className="font-mono text-sm mb-2">
                       <p>RMR = 370 + (21.6 × masa magra en kg)</p>
                     </div>
-                    <p className="text-sm text-gray-700">
-                      Máxima precisión cuando conoces tu composición corporal - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8308339/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">evidencia clínica</a>
+                    <p className="text-sm text-muted-foreground">
+                      Máxima precisión cuando conoces tu composición corporal - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8308339/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">evidencia clínica</a>
                     </p>
                   </div>
                 </div>
               </div>
             </section>
 
-            <section className="card-golden-lg bg-orange-50 border-l-4 border-orange-400 mt-8">
+            <section className="card-golden-lg bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-400 mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-orange-800">
+                <h3 className="text-xl font-semibold text-orange-800 dark:text-orange-200">
                   Complementa tu evaluación metabólica
                 </h3>
               </header>
               <div className="p-6">
-                <ul className="space-y-3 text-orange-800">
+                <ul className="space-y-3 text-orange-800 dark:text-orange-200">
                   <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/bmr" className="text-blue-600 hover:underline font-medium transition-golden">
+                        <a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Calcula tu BMR preciso:
                         </a>
                       </strong>{' '}
@@ -602,10 +602,10 @@ export default function RMRPage() {
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">
+                        <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Calcula tu TDEE completo:
                         </a>
                       </strong>{' '}
@@ -613,10 +613,10 @@ export default function RMRPage() {
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/composicion" className="text-blue-600 hover:underline font-medium transition-golden">
+                        <a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Mide tu composición corporal:
                         </a>
                       </strong>{' '}
@@ -624,10 +624,10 @@ export default function RMRPage() {
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">
+                        <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Ajusta tu proteína diaria:
                         </a>
                       </strong>{' '}

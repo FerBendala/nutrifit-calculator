@@ -53,7 +53,7 @@ export default function FibraPage() {
 
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Fibra Diaria
+              Calculadora de Fibra Diaria Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Necesidades de fibra dietética según edad, sexo y calorías. Recomendaciones IOM/FDA (14 g por 1000 kcal) para una dieta saludable.
@@ -64,15 +64,15 @@ export default function FibraPage() {
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <Leaf className="w-6 h-6 mr-3 text-green-600" />
+                  <Leaf className="w-6 h-6 mr-3 text-green-600 dark:text-green-400" />
                   Calculadora de Fibra
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-green-50 rounded-lg p-4 mb-6">
+                <div className="bg-green-50 dark:bg-green-950/30 rounded-lg p-4 mb-6">
                   <div className="flex items-start gap-3">
-                    <Info className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-gray-700">
+                    <Info className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-muted-foreground">
                       <strong>Nota:</strong> La ingesta calórica es opcional. Si la introduces, obtendrás además la recomendación por calorías (14 g de fibra por cada 1000 kcal).
                     </p>
                   </div>
@@ -133,7 +133,7 @@ export default function FibraPage() {
             <section className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
               <header className="p-6 pb-0">
                 <h2 className="text-2xl font-semibold flex items-center justify-center">
-                  <Leaf className="w-6 h-6 mr-3 text-green-600" />
+                  <Leaf className="w-6 h-6 mr-3 text-green-600 dark:text-green-400" />
                   Tus Necesidades de Fibra
                 </h2>
               </header>
@@ -144,10 +144,10 @@ export default function FibraPage() {
                       <CardTitle className="text-sm font-semibold text-green-900">Por edad y sexo (IOM/FDA)</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-green-700">
+                      <div className="text-2xl font-bold text-green-700 dark:text-green-300">
                         {formatGrams(result.byAgeSex)}
                       </div>
-                      <p className="text-xs text-green-600 mt-1">Ingesta adecuada diaria</p>
+                      <p className="text-xs text-green-600 dark:text-green-400 mt-1">Ingesta adecuada diaria</p>
                     </CardContent>
                   </Card>
                   {result.byCalories !== undefined && (
@@ -178,13 +178,13 @@ export default function FibraPage() {
 
                 <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
                       <Info className="w-4 h-4 mr-2" />
                       Interpretación
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-700">{result.interpretation}</p>
+                    <p className="text-sm text-muted-foreground">{result.interpretation}</p>
                   </CardContent>
                 </Card>
 
@@ -198,8 +198,8 @@ export default function FibraPage() {
                   <CardContent>
                     <ul className="space-y-2">
                       {result.tips.map((tip, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
-                          <span className="text-green-600 mr-2">•</span>
+                        <li key={index} className="flex items-start text-sm text-muted-foreground">
+                          <span className="text-green-600 dark:text-green-400 mr-2">•</span>
                           <span>{tip}</span>
                         </li>
                       ))}
@@ -217,7 +217,7 @@ export default function FibraPage() {
                   <CardContent>
                     <ul className="space-y-2">
                       {result.foodSources.map((source, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
+                        <li key={index} className="flex items-start text-sm text-muted-foreground">
                           <span className="text-amber-600 mr-2">•</span>
                           <span>{source}</span>
                         </li>
@@ -244,7 +244,7 @@ export default function FibraPage() {
             <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Leaf className="w-5 h-5 mr-3 text-green-600" />
+                  <Leaf className="w-5 h-5 mr-3 text-green-600 dark:text-green-400" />
                   Recomendaciones IOM/FDA
                 </h3>
                 <div className="space-golden-sm text-sm text-muted-foreground">
@@ -255,7 +255,7 @@ export default function FibraPage() {
               </article>
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Info className="w-5 h-5 mr-3 text-blue-600" />
+                  <Info className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400" />
                   Tipos de fibra
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs list-disc list-inside">
@@ -276,17 +276,17 @@ export default function FibraPage() {
             </section>
           </article>
 
-          <section className="bg-orange-50 card-golden border-l-4 border-orange-400 mb-6">
+          <section className="bg-orange-50 dark:bg-orange-950/30 card-golden border-l-4 border-orange-400 mb-6">
             <h3 className="font-bold text-orange-900 mb-3 text-lg">Otras calculadoras de nutrición</h3>
-            <ul className="text-sm text-orange-800 space-y-2">
+            <ul className="text-sm text-orange-800 dark:text-orange-200 space-y-2">
               <li>
-                <strong><a href="/azucar" className="text-blue-600 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según calorías (&lt;10% y &lt;5%)
+                <strong><a href="/azucar" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según calorías (&lt;10% y &lt;5%)
               </li>
               <li>
-                <strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Proteína diaria:</a></strong> Necesidades según objetivo y actividad
+                <strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Proteína diaria:</a></strong> Necesidades según objetivo y actividad
               </li>
               <li>
-                <strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">TDEE:</a></strong> Gasto calórico total diario
+                <strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">TDEE:</a></strong> Gasto calórico total diario
               </li>
             </ul>
           </section>

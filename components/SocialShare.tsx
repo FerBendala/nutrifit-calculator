@@ -60,8 +60,8 @@ export function SocialShare({ title, url, description, calculatorName = 'general
   };
 
   return (
-    <div className="flex flex-col space-y-3 p-4 bg-gray-50 rounded-lg">
-      <h4 className="font-medium text-sm text-gray-900">
+    <div className="flex flex-col space-y-3 p-4 bg-muted rounded-lg">
+      <h4 className="font-medium text-sm">
         📢 Comparte esta calculadora
       </h4>
 

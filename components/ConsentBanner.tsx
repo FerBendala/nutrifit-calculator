@@ -8,13 +8,6 @@ import { initializeAutoAds } from '@/lib/adsense';
 import { Settings } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-    adsbygoogle: any[];
-  }
-}
-
 // Funciones auxiliares fuera del componente para evitar dependencias
 const loadGTM = () => {
   const script = document.createElement('script');

@@ -98,16 +98,16 @@ export default function DensidadOseaPage() {
       case 'Osteopenia': return 'from-yellow-50 to-yellow-100 border-yellow-400 text-yellow-900';
       case 'Osteoporosis': return 'from-orange-50 to-orange-100 border-orange-400 text-orange-900';
       case 'Severe Osteoporosis': return 'from-red-50 to-red-100 border-red-400 text-red-900';
-      default: return 'from-gray-50 to-gray-100 border-gray-400 text-gray-900';
+      default: return 'from-gray-50 to-gray-100 border-gray-400 text-foreground';
     }
   };
 
   const getRiskColor = (level: string) => {
     switch (level) {
-      case 'Bajo': return 'bg-green-200 text-green-800';
-      case 'Moderado': return 'bg-yellow-200 text-yellow-800';
-      case 'Alto': return 'bg-orange-200 text-orange-800';
-      case 'Muy Alto': return 'bg-red-200 text-red-800';
+      case 'Bajo': return 'bg-green-200 text-green-800 dark:text-green-200';
+      case 'Moderado': return 'bg-yellow-200 text-yellow-800 dark:text-yellow-200';
+      case 'Alto': return 'bg-orange-200 text-orange-800 dark:text-orange-200';
+      case 'Muy Alto': return 'bg-red-200 text-red-800 dark:text-red-200';
       default: return 'bg-gray-200 text-gray-800';
     }
   };
@@ -120,7 +120,7 @@ export default function DensidadOseaPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Densidad Ósea (BMD)
+              Calculadora de Densidad Ósea Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calculadora médica profesional de densidad mineral ósea para evaluación de osteoporosis
@@ -133,7 +133,7 @@ export default function DensidadOseaPage() {
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <Bone className="w-6 h-6 mr-3 text-orange-600" />
+                  <Bone className="w-6 h-6 mr-3 text-orange-600 dark:text-orange-400" />
                   Calculadora de Densidad Ósea
                 </CardTitle>
               </CardHeader>
@@ -146,10 +146,10 @@ export default function DensidadOseaPage() {
 
                   <form onSubmit={handleSubmit} className="space-golden-md">
                     <TabsContent value="bmd" className="space-golden-md">
-                      <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                      <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                          <p className="text-sm text-gray-700">
+                          <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                          <p className="text-sm text-muted-foreground">
                             <strong>Nota:</strong> Ingresa tu BMD (g/cm²) o T-Score de tu DXA scan. 
                             Si tienes ambos, ingresa ambos para mayor precisión. El T-Score es el 
                             valor más importante para el diagnóstico según criterios WHO.
@@ -233,10 +233,10 @@ export default function DensidadOseaPage() {
                     </TabsContent>
 
                     <TabsContent value="estimate" className="space-golden-md">
-                      <div className="bg-yellow-50 rounded-lg p-4 mb-6">
+                      <div className="bg-yellow-50 dark:bg-yellow-950/30 rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <AlertTriangle className="h-5 w-5 text-yellow-600 mt-0.5 flex-shrink-0" />
-                          <p className="text-sm text-gray-700">
+                          <AlertTriangle className="h-5 w-5 text-yellow-600 dark:text-yellow-400 mt-0.5 flex-shrink-0" />
+                          <p className="text-sm text-muted-foreground">
                             <strong>Nota:</strong> Esta es una estimación aproximada basada en edad, 
                             género, peso y altura. Para un diagnóstico preciso, se requiere un DXA scan. 
                             Esta estimación no reemplaza una evaluación médica profesional.
@@ -316,7 +316,7 @@ export default function DensidadOseaPage() {
             <section className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
               <header className="p-6 pb-0">
                 <h2 className="text-2xl font-semibold flex items-center justify-center">
-                  <Bone className="w-6 h-6 mr-3 text-orange-600" />
+                  <Bone className="w-6 h-6 mr-3 text-orange-600 dark:text-orange-400" />
                   Resultados de Densidad Ósea
                 </h2>
               </header>
@@ -336,7 +336,7 @@ export default function DensidadOseaPage() {
                     <div className="text-lg font-semibold mb-1">
                       {result.status}
                     </div>
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-muted-foreground">
                       {result.interpretation}
                     </p>
                   </CardContent>
@@ -347,15 +347,15 @@ export default function DensidadOseaPage() {
                   {result.bmd !== undefined && (
                     <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold text-blue-900">
+                        <CardTitle className="text-sm font-semibold text-blue-900 dark:text-blue-100">
                           BMD
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-2xl font-bold text-blue-700">
+                        <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
                           {result.bmd} g/cm²
                         </div>
-                        <p className="text-xs text-blue-600 mt-1">
+                        <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
                           Densidad Mineral Ósea
                         </p>
                       </CardContent>
@@ -388,10 +388,10 @@ export default function DensidadOseaPage() {
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-2xl font-bold text-green-700">
+                        <div className="text-2xl font-bold text-green-700 dark:text-green-300">
                           {result.zScore}
                         </div>
-                        <p className="text-xs text-green-600 mt-1">
+                        <p className="text-xs text-green-600 dark:text-green-400 mt-1">
                           Comparado con edad similar
                         </p>
                       </CardContent>
@@ -416,14 +416,14 @@ export default function DensidadOseaPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className={`text-lg font-bold mb-1 ${result.fractureRisk.level === 'Bajo' ? 'text-green-700' :
-                      result.fractureRisk.level === 'Moderado' ? 'text-yellow-700' :
-                        result.fractureRisk.level === 'Alto' ? 'text-orange-700' :
-                          'text-red-700'
+                    <div className={`text-lg font-bold mb-1 ${result.fractureRisk.level === 'Bajo' ? 'text-green-700 dark:text-green-300' :
+                      result.fractureRisk.level === 'Moderado' ? 'text-yellow-700 dark:text-yellow-300' :
+                        result.fractureRisk.level === 'Alto' ? 'text-orange-700 dark:text-orange-300' :
+                          'text-red-700 dark:text-red-300'
                       }`}>
                       {result.fractureRisk.level}
                     </div>
-                    <p className="text-sm text-gray-700 mb-2">
+                    <p className="text-sm text-muted-foreground mb-2">
                       {result.fractureRisk.description}
                     </p>
                     <div className={`text-xs font-semibold inline-block px-2 py-1 rounded ${getRiskColor(result.fractureRisk.level)}`}>
@@ -435,7 +435,7 @@ export default function DensidadOseaPage() {
                 {/* Recomendaciones */}
                 <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
                       <Info className="w-4 h-4 mr-2" />
                       Recomendaciones
                     </CardTitle>
@@ -443,8 +443,8 @@ export default function DensidadOseaPage() {
                   <CardContent>
                     <ul className="space-y-2">
                       {result.recommendations.map((rec, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
-                          <span className="text-blue-600 mr-2">•</span>
+                        <li key={index} className="flex items-start text-sm text-muted-foreground">
+                          <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                           <span>{rec}</span>
                         </li>
                       ))}
@@ -463,8 +463,8 @@ export default function DensidadOseaPage() {
                   <CardContent>
                     <ul className="space-y-1">
                       {result.preventionStrategies.map((strategy, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
-                          <span className="text-green-600 mr-2">•</span>
+                        <li key={index} className="flex items-start text-sm text-muted-foreground">
+                          <span className="text-green-600 dark:text-green-400 mr-2">•</span>
                           <span>{strategy}</span>
                         </li>
                       ))}
@@ -486,7 +486,7 @@ export default function DensidadOseaPage() {
                     </div>
                     <ul className="space-y-1">
                       {result.monitoring.actions.map((action, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
+                        <li key={index} className="flex items-start text-sm text-muted-foreground">
                           <span className="text-purple-600 mr-2">•</span>
                           <span>{action}</span>
                         </li>
@@ -507,8 +507,8 @@ export default function DensidadOseaPage() {
                     <CardContent>
                       <ul className="space-y-1">
                         {result.riskFactors.map((risk, index) => (
-                          <li key={index} className="flex items-start text-sm text-gray-700">
-                            <span className="text-red-600 mr-2">•</span>
+                          <li key={index} className="flex items-start text-sm text-muted-foreground">
+                            <span className="text-red-600 dark:text-red-400 mr-2">•</span>
                             <span>{risk}</span>
                           </li>
                         ))}
@@ -520,16 +520,16 @@ export default function DensidadOseaPage() {
                 {/* Interpretación Clínica */}
                 <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-400">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-gray-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       Interpretación Clínica
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-700 mb-2">
+                    <p className="text-sm text-muted-foreground mb-2">
                       {result.clinicalSignificance}
                     </p>
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-muted-foreground">
                       {result.clinicalInterpretation}
                     </p>
                   </CardContent>
@@ -555,32 +555,32 @@ export default function DensidadOseaPage() {
             <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Bone className="w-5 h-5 mr-3 text-orange-600" />
+                  <Bone className="w-5 h-5 mr-3 text-orange-600 dark:text-orange-400" />
                   Criterios WHO
                 </h3>
                 <div className="space-golden-sm">
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-green-700 mb-1">Normal:</p>
-                    <p className="text-sm text-green-600">T-Score ≥ -1.0</p>
+                  <div className="bg-green-50 dark:bg-green-950/30 p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-1">Normal:</p>
+                    <p className="text-sm text-green-600 dark:text-green-400">T-Score ≥ -1.0</p>
                   </div>
-                  <div className="bg-yellow-50 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-yellow-700 mb-1">Osteopenia:</p>
-                    <p className="text-sm text-yellow-600">T-Score entre -1.0 y -2.5</p>
+                  <div className="bg-yellow-50 dark:bg-yellow-950/30 p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-yellow-700 dark:text-yellow-300 mb-1">Osteopenia:</p>
+                    <p className="text-sm text-yellow-600 dark:text-yellow-400">T-Score entre -1.0 y -2.5</p>
                   </div>
-                  <div className="bg-orange-50 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-orange-700 mb-1">Osteoporosis:</p>
-                    <p className="text-sm text-orange-600">T-Score ≤ -2.5</p>
+                  <div className="bg-orange-50 dark:bg-orange-950/30 p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-orange-700 dark:text-orange-300 mb-1">Osteoporosis:</p>
+                    <p className="text-sm text-orange-600 dark:text-orange-400">T-Score ≤ -2.5</p>
                   </div>
-                  <div className="bg-red-50 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-red-700 mb-1">Osteoporosis Severa:</p>
-                    <p className="text-sm text-red-600">T-Score ≤ -2.5 + fractura</p>
+                  <div className="bg-red-50 dark:bg-red-950/30 p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-red-700 dark:text-red-300 mb-1">Osteoporosis Severa:</p>
+                    <p className="text-sm text-red-600 dark:text-red-400">T-Score ≤ -2.5 + fractura</p>
                   </div>
                 </div>
               </article>
 
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Info className="w-5 h-5 mr-3 text-blue-600" />
+                  <Info className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400" />
                   Importancia Clínica
                 </h3>
                 <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
@@ -593,49 +593,49 @@ export default function DensidadOseaPage() {
               </article>
             </section>
 
-            <section className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
                 <Shield className="w-5 h-5 mr-3" />
                 Prevención de Osteoporosis
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                     <CheckCircle className="w-4 h-4 mr-2" />
                     Nutrición
                   </h4>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-muted-foreground">
                     Asegurar ingesta adecuada de calcio (1000-1500 mg/día) y vitamina D (800-1000 UI/día). 
                     Los lácteos, vegetales de hoja verde y pescado con espinas son excelentes fuentes de calcio.
                   </p>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                     <TrendingDown className="w-4 h-4 mr-2" />
                     Ejercicio
                   </h4>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-muted-foreground">
                     Ejercicio con carga de peso (caminar, correr, entrenamiento de fuerza) ayuda a 
                     mantener y mejorar la densidad ósea. También son importantes los ejercicios de 
                     equilibrio para prevenir caídas.
                   </p>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                     <AlertTriangle className="w-4 h-4 mr-2" />
                     Factores de Riesgo
                   </h4>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-muted-foreground">
                     Evitar el tabaco, limitar el consumo de alcohol, mantener un peso saludable y 
                     evitar dietas extremas. Algunos medicamentos pueden afectar la densidad ósea.
                   </p>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                     <Info className="w-4 h-4 mr-2" />
                     Detección Temprana
                   </h4>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-muted-foreground">
                     Las mujeres post-menopáusicas y hombres mayores de 70 años deben considerar 
                     realizarse un DXA scan. La detección temprana permite intervención antes de 
                     que ocurran fracturas.

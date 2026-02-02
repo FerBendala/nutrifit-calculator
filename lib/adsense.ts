@@ -1,7 +1,7 @@
 // Gestión centralizada de Google AdSense
 declare global {
   interface Window {
-    adsbygoogle: any[];
+    adsbygoogle?: any[];
     adsenseInitialized?: boolean;
     adsenseSlots?: Set<string>;
   }

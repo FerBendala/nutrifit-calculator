@@ -45,20 +45,20 @@ export default function PrivacidadPage() {
                 </p>
                 <ul className="text-sm space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">•</span>
+                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                     <span>Datos físicos (peso, altura, edad, sexo)</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-600 mr-2">•</span>
+                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
                     <span>Información de actividad física</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">•</span>
+                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
                     <span>Objetivos de fitness</span>
                   </li>
                 </ul>
-                <div className="card-golden bg-green-50 border-l-4 border-green-400 mt-[1rem]">
-                  <p className="text-sm text-green-800 mb-0">
+                <div className="card-golden bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400 mt-[1rem]">
+                  <p className="text-sm text-green-800 dark:text-green-200 mb-0">
                     <strong>🔒 Importante:</strong> Toda esta información se procesa localmente en tu navegador
                     y no se envía a nuestros servidores.
                   </p>
@@ -75,19 +75,19 @@ export default function PrivacidadPage() {
                 </p>
                 <ul className="text-sm space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">•</span>
+                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                     <span>Información del navegador y dispositivo</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>Dirección IP</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-600 mr-2">•</span>
+                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
                     <span>Páginas visitadas y tiempo de navegación</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">•</span>
+                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
                     <span>Cookies y tecnologías similares</span>
                   </li>
                 </ul>
@@ -102,32 +102,32 @@ export default function PrivacidadPage() {
               2. Cómo usamos tu información
             </h2>
 
-            <div className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+            <div className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📋</span>
                 Finalidades del tratamiento
               </h3>
               <div className="grid gap-[1rem] md:grid-cols-2">
-                <article className="card-golden bg-white/50">
-                  <ul className="text-sm text-blue-800 space-golden-xs">
+                <article className="card-golden bg-card/50">
+                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">•</span>
+                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                       <span>Proporcionar y mejorar nuestros servicios</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
+                      <span className="text-green-600 dark:text-green-400 mr-2">•</span>
                       <span>Realizar análisis de uso (Google Analytics)</span>
                     </li>
                   </ul>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <ul className="text-sm text-blue-800 space-golden-xs">
+                <article className="card-golden bg-card/50">
+                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-purple-600 mr-2">•</span>
+                      <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
                       <span>Mostrar publicidad relevante (Google AdSense)</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-600 mr-2">•</span>
+                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                       <span>Cumplir con obligaciones legales</span>
                     </li>
                   </ul>
@@ -144,30 +144,30 @@ export default function PrivacidadPage() {
             </h2>
 
             <div className="grid gap-[1.618rem] md:grid-cols-3 mb-[2.618rem]">
-              <article className="card-golden space-golden-sm bg-green-50">
-                <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
+              <article className="card-golden space-golden-sm bg-green-50 dark:bg-green-950/30">
+                <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300 flex items-center">
                   <span className="text-lg mr-2">✅</span>
                   Necesarias
                 </h4>
-                <p className="text-sm text-green-800 leading-[1.618]">
+                <p className="text-sm text-green-800 dark:text-green-200 leading-[1.618]">
                   Esenciales para el funcionamiento del sitio. Control de consentimiento y navegación básica.
                 </p>
               </article>
-              <article className="card-golden space-golden-sm bg-blue-50">
-                <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+              <article className="card-golden space-golden-sm bg-blue-50 dark:bg-blue-950/30">
+                <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                   <span className="text-lg mr-2">📊</span>
                   Analíticas
                 </h4>
-                <p className="text-sm text-blue-800 leading-[1.618]">
+                <p className="text-sm text-blue-800 dark:text-blue-200 leading-[1.618]">
                   Google Analytics para entender el uso del sitio y mejorar la experiencia.
                 </p>
               </article>
-              <article className="card-golden space-golden-sm bg-yellow-50">
-                <h4 className="font-bold mb-[0.618rem] text-yellow-700 flex items-center">
+              <article className="card-golden space-golden-sm bg-yellow-50 dark:bg-yellow-950/30">
+                <h4 className="font-bold mb-[0.618rem] text-yellow-700 dark:text-yellow-300 flex items-center">
                   <span className="text-lg mr-2">💰</span>
                   Publicitarias
                 </h4>
-                <p className="text-sm text-yellow-800 leading-[1.618]">
+                <p className="text-sm text-yellow-800 dark:text-yellow-200 leading-[1.618]">
                   Google AdSense para mostrar anuncios relevantes y financiar el sitio gratuito.
                 </p>
               </article>
@@ -191,7 +191,7 @@ export default function PrivacidadPage() {
 
             <div className="grid gap-[1.618rem] md:grid-cols-3 mb-[2.618rem]">
               <article className="card-golden space-golden-sm">
-                <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                   <span className="text-lg mr-2">📈</span>
                   Google Analytics
                 </h4>
@@ -200,7 +200,7 @@ export default function PrivacidadPage() {
                 </p>
               </article>
               <article className="card-golden space-golden-sm">
-                <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
+                <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300 flex items-center">
                   <span className="text-lg mr-2">💰</span>
                   Google AdSense
                 </h4>
@@ -209,7 +209,7 @@ export default function PrivacidadPage() {
                 </p>
               </article>
               <article className="card-golden space-golden-sm">
-                <h4 className="font-bold mb-[0.618rem] text-purple-700 flex items-center">
+                <h4 className="font-bold mb-[0.618rem] text-purple-700 dark:text-purple-300 flex items-center">
                   <span className="text-lg mr-2">☁️</span>
                   Netlify
                 </h4>
@@ -227,40 +227,40 @@ export default function PrivacidadPage() {
               5. Tus derechos
             </h2>
 
-            <div className="card-golden-lg bg-purple-50 border-l-4 border-purple-400 mb-[2.618rem]">
+            <div className="card-golden-lg bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-400 mb-[2.618rem]">
               <h3 className="font-bold text-purple-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🛡️</span>
                 Derechos bajo el RGPD
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <article className="card-golden bg-white/50">
-                  <ul className="text-sm text-purple-800 space-golden-xs">
+                <article className="card-golden bg-card/50">
+                  <ul className="text-sm text-purple-800 dark:text-purple-200 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">•</span>
+                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                       <span><strong>Acceso:</strong> Acceder a tus datos personales</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
+                      <span className="text-green-600 dark:text-green-400 mr-2">•</span>
                       <span><strong>Rectificación:</strong> Corregir información inexacta</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-600 mr-2">•</span>
+                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
                       <span><strong>Supresión:</strong> Solicitar eliminación de datos</span>
                     </li>
                   </ul>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <ul className="text-sm text-purple-800 space-golden-xs">
+                <article className="card-golden bg-card/50">
+                  <ul className="text-sm text-purple-800 dark:text-purple-200 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-orange-600 mr-2">•</span>
+                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                       <span><strong>Portabilidad:</strong> Transferir tus datos</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-600 mr-2">•</span>
+                      <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
                       <span><strong>Oposición:</strong> Retirar consentimiento</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                       <span><strong>Limitación:</strong> Restringir procesamiento</span>
                     </li>
                   </ul>
@@ -319,22 +319,22 @@ export default function PrivacidadPage() {
           </section>
 
           {/* Sección de contacto y cambios */}
-          <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+          <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
             <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
               <span className="text-2xl mr-3">📞</span>
               10. Contacto y cambios
             </h3>
             <div className="grid gap-[1.618rem] md:grid-cols-2">
-              <article className="card-golden bg-white/50">
-                <h4 className="font-bold mb-[0.618rem] text-orange-700">📧 Contacto</h4>
-                <ul className="text-sm text-orange-800 space-golden-xs">
+              <article className="card-golden bg-card/50">
+                <h4 className="font-bold mb-[0.618rem] text-orange-700 dark:text-orange-300">📧 Contacto</h4>
+                <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                   <li>• Email: privacy@nutrifit-calculator.com</li>
                   <li>• Formulario de contacto en nuestro sitio web</li>
                 </ul>
               </article>
-              <article className="card-golden bg-white/50">
-                <h4 className="font-bold mb-[0.618rem] text-orange-700">🔄 Cambios</h4>
-                <p className="text-sm text-orange-800 leading-[1.618]">
+              <article className="card-golden bg-card/50">
+                <h4 className="font-bold mb-[0.618rem] text-orange-700 dark:text-orange-300">🔄 Cambios</h4>
+                <p className="text-sm text-orange-800 dark:text-orange-200 leading-[1.618]">
                   Podemos actualizar esta política ocasionalmente. Te notificaremos de cambios
                   significativos a través de nuestro sitio web.
                 </p>
@@ -343,12 +343,12 @@ export default function PrivacidadPage() {
           </section>
 
           {/* Aviso especial sobre datos de salud */}
-          <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400">
+          <section className="bg-yellow-50 dark:bg-yellow-950/30 card-golden-lg border-l-4 border-yellow-400">
             <h3 className="font-semibold text-yellow-900 mb-[1rem] text-lg flex items-center">
               <span className="text-2xl mr-3">🩺</span>
               Tratamiento de datos de salud
             </h3>
-            <p className="text-sm text-yellow-800 leading-[1.618]">
+            <p className="text-sm text-yellow-800 dark:text-yellow-200 leading-[1.618]">
               Los datos que introduces en nuestras calculadoras (peso, altura, etc.)
               se procesan únicamente en tu dispositivo y no se almacenan en nuestros servidores.
               Esta información no se utiliza para diagnósticos médicos y siempre debe complementarse

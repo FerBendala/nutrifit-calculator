@@ -1,75 +1,52 @@
 import { BlogHeader } from '@/components/blog/BlogHeader';
 import { BlogSearch } from '@/components/blog/BlogSearch';
 import { FeaturedPosts } from '@/components/blog/FeaturedPosts';
-import { BlogPagination } from '@/components/blog/Pagination';
-import { PostCard } from '@/components/blog/PostCard';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
-import { getAllCategories, getFeaturedPosts, getPaginatedPosts, POSTS_PER_PAGE, getAllPosts } from '@/lib/blog';
+import { getAllCategories, getFeaturedPosts, getAllPosts } from '@/lib/blog';
 import { SITE_CONFIG } from '@/lib/seo';
 import type { Metadata } from 'next';
 
-interface BlogPageProps {
-  searchParams: Promise<{ page?: string }>;
-}
+export const metadata: Metadata = {
+  title: 'Blog de Nutrición y Fitness | Calculadora Fitness',
+  description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica. Guías prácticas para complementar nuestras calculadoras médicas.',
+  openGraph: {
+    title: 'Blog de Nutrición y Fitness | Calculadora Fitness',
+    description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
+    type: 'website',
+    url: `${SITE_CONFIG.url}/blog`,
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/images/blog-og.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Blog de Nutrición y Fitness',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog de Nutrición y Fitness | Calculadora Fitness',
+    description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
+    images: [`${SITE_CONFIG.url}/images/blog-og.jpg`],
+  },
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/blog`,
+  },
+};
 
-export async function generateMetadata({ searchParams }: BlogPageProps): Promise<Metadata> {
-  const params = await searchParams;
-  const currentPage = Math.max(1, parseInt(params.page || '1', 10) || 1);
-
-  const title = currentPage > 1
-    ? `Blog de Nutrición y Fitness - Página ${currentPage} | Calculadora Fitness`
-    : 'Blog de Nutrición y Fitness | Calculadora Fitness';
-
-  const canonicalUrl = currentPage > 1
-    ? `${SITE_CONFIG.url}/blog?page=${currentPage}`
-    : `${SITE_CONFIG.url}/blog`;
-
-  return {
-    title,
-    description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica. Guías prácticas para complementar nuestras calculadoras médicas.',
-    openGraph: {
-      title,
-      description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
-      type: 'website',
-      url: canonicalUrl,
-      images: [
-        {
-          url: `${SITE_CONFIG.url}/images/blog-og.jpg`,
-          width: 1200,
-          height: 630,
-          alt: 'Blog de Nutrición y Fitness',
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
-      images: [`${SITE_CONFIG.url}/images/blog-og.jpg`],
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  };
-}
-
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const params = await searchParams;
-  const currentPage = Math.max(1, parseInt(params.page || '1', 10) || 1);
-
+export default async function BlogPage() {
   // Cargar datos del blog
-  const [paginatedResult, featuredPosts, categories, allPosts] = await Promise.all([
-    getPaginatedPosts(currentPage, POSTS_PER_PAGE),
+  const [featuredPosts, categories, allPosts] = await Promise.all([
     getFeaturedPosts(),
     getAllCategories(),
-    getAllPosts(), // Para la búsqueda en cliente
+    getAllPosts(),
   ]);
 
-  const { posts, pagination } = paginatedResult;
+  const posts = allPosts.slice(0, 12); // Mostrar primeros 12 posts
 
-  // Para el JSON-LD, obtener los primeros 5 posts de la primera página
-  const allPostsForSchema = currentPage === 1 ? posts.slice(0, 5) : [];
+  // Para el JSON-LD, obtener los primeros 5 posts
+  const allPostsForSchema = posts.slice(0, 5);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -108,8 +85,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           <BlogHeader />
 
           <div className="space-y-8">
-            {/* Posts Destacados - Solo en la primera página */}
-            {currentPage === 1 && featuredPosts.length > 0 && (
+            {/* Posts Destacados */}
+            {featuredPosts.length > 0 && (
               <FeaturedPosts posts={featuredPosts} />
             )}
 
@@ -118,15 +95,6 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               posts={allPosts}
               categories={categories}
             />
-
-            {/* Paginación - Solo mostrar cuando no hay búsqueda activa */}
-            {posts.length > 0 && pagination.totalPages > 1 && (
-              <BlogPagination
-                pagination={pagination}
-                basePath="/blog"
-                className="pt-4"
-              />
-            )}
 
             {/* Call to Action compacto */}
             <section className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-6 text-center space-y-4">

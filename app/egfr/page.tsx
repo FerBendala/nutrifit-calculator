@@ -54,7 +54,7 @@ export default function EGFRPage() {
       case '3b': return 'from-orange-50 to-orange-100 border-orange-400 text-orange-900';
       case '4': return 'from-red-50 to-red-100 border-red-400 text-red-900';
       case '5': return 'from-red-100 to-red-200 border-red-600 text-red-900';
-      default: return 'from-gray-50 to-gray-100 border-gray-400 text-gray-900';
+      default: return 'from-gray-50 to-gray-100 border-gray-400 text-foreground';
     }
   };
 
@@ -68,7 +68,7 @@ export default function EGFRPage() {
 
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Filtrado Glomerular (eGFR)
+              Calculadora de eGFR Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Estimación de función renal con fórmulas CKD-EPI y MDRD. Estadificación de enfermedad renal crónica (ERC) y Cockcroft-Gault para ajuste de dosis. Para profesionales de la salud.
@@ -84,10 +84,10 @@ export default function EGFRPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
                   <div className="flex items-start gap-3">
-                    <Info className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-gray-700">
+                    <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-muted-foreground">
                       <strong>Nota:</strong> Introduce la creatinina sérica en mg/dL (valor de tu analítica).
                       El peso es opcional; si lo introduces se calculará también el clearance de Cockcroft-Gault para ajuste de dosis.
                     </p>
@@ -185,7 +185,7 @@ export default function EGFRPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold mb-1">{result.stageLabel}</div>
-                    <p className="text-sm text-gray-700">{result.interpretation}</p>
+                    <p className="text-sm text-muted-foreground">{result.interpretation}</p>
                   </CardContent>
                 </Card>
 
@@ -203,13 +203,13 @@ export default function EGFRPage() {
                   </Card>
                   <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold text-blue-900">MDRD-4</CardTitle>
+                      <CardTitle className="text-sm font-semibold text-blue-900 dark:text-blue-100">MDRD-4</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-blue-700">
+                      <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
                         {result.mdrd} mL/min/1.73 m²
                       </div>
-                      <p className="text-xs text-blue-600 mt-1">Referencia histórica</p>
+                      <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">Referencia histórica</p>
                     </CardContent>
                   </Card>
                   {result.cockcroftGault !== undefined && (
@@ -221,7 +221,7 @@ export default function EGFRPage() {
                         <div className="text-2xl font-bold text-purple-700">
                           {result.cockcroftGault} mL/min
                         </div>
-                        <p className="text-xs text-purple-600 mt-1">Clearance creatinina (ajuste dosis)</p>
+                        <p className="text-xs text-purple-600 dark:text-purple-400 mt-1">Clearance creatinina (ajuste dosis)</p>
                       </CardContent>
                     </Card>
                   )}
@@ -229,7 +229,7 @@ export default function EGFRPage() {
 
                 <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
                       <Info className="w-4 h-4 mr-2" />
                       Recomendaciones
                     </CardTitle>
@@ -237,8 +237,8 @@ export default function EGFRPage() {
                   <CardContent>
                     <ul className="space-y-2">
                       {result.recommendations.map((rec, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
-                          <span className="text-blue-600 mr-2">•</span>
+                        <li key={index} className="flex items-start text-sm text-muted-foreground">
+                          <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                           <span>{rec}</span>
                         </li>
                       ))}
@@ -248,13 +248,13 @@ export default function EGFRPage() {
 
                 <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-400">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-gray-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       Significado clínico
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-700">{result.clinicalSignificance}</p>
+                    <p className="text-sm text-muted-foreground">{result.clinicalSignificance}</p>
                   </CardContent>
                 </Card>
               </div>
@@ -280,17 +280,17 @@ export default function EGFRPage() {
                   Estadios ERC (KDIGO)
                 </h3>
                 <div className="space-golden-sm text-sm">
-                  <div className="bg-green-50 p-3 rounded-lg"><strong>G1:</strong> ≥90 — Normal o alto</div>
+                  <div className="bg-green-50 dark:bg-green-950/30 p-3 rounded-lg"><strong>G1:</strong> ≥90 — Normal o alto</div>
                   <div className="bg-lime-50 p-3 rounded-lg"><strong>G2:</strong> 60-89 — Leve</div>
-                  <div className="bg-yellow-50 p-3 rounded-lg"><strong>G3a:</strong> 45-59 — Leve-moderado</div>
-                  <div className="bg-orange-50 p-3 rounded-lg"><strong>G3b:</strong> 30-44 — Moderado-severo</div>
-                  <div className="bg-red-50 p-3 rounded-lg"><strong>G4:</strong> 15-29 — Severo</div>
+                  <div className="bg-yellow-50 dark:bg-yellow-950/30 p-3 rounded-lg"><strong>G3a:</strong> 45-59 — Leve-moderado</div>
+                  <div className="bg-orange-50 dark:bg-orange-950/30 p-3 rounded-lg"><strong>G3b:</strong> 30-44 — Moderado-severo</div>
+                  <div className="bg-red-50 dark:bg-red-950/30 p-3 rounded-lg"><strong>G4:</strong> 15-29 — Severo</div>
                   <div className="bg-red-100 p-3 rounded-lg"><strong>G5:</strong> &lt;15 — Enfermedad renal terminal</div>
                 </div>
               </article>
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Info className="w-5 h-5 mr-3 text-blue-600" />
+                  <Info className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400" />
                   Fórmulas utilizadas
                 </h3>
                 <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
@@ -301,12 +301,12 @@ export default function EGFRPage() {
               </article>
             </section>
 
-            <section className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
                 <Info className="w-5 h-5 mr-3" />
                 Limitaciones y uso clínico
               </h3>
-              <p className="text-sm text-gray-700 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 El eGFR es una estimación, no una medida directa del GFR. Puede ser menos preciso en extremos de edad, masa muscular muy alta o baja, embarazo, y en algunas etnias. La ecuación CKD-EPI 2009 incluye un coeficiente racial; la ecuación CKD-EPI 2021 (sin raza) está siendo adoptada en muchas guías. Los resultados deben interpretarse siempre en contexto clínico y con un profesional de la salud. No sustituye la valoración médica ni el seguimiento por nefrología cuando está indicado.
               </p>
             </section>

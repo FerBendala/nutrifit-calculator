@@ -105,21 +105,21 @@ export default function ComposicionPage() {
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'Esencial': return 'text-blue-600';
-      case 'Atlético': return 'text-green-600';
+      case 'Esencial': return 'text-blue-600 dark:text-blue-400';
+      case 'Atlético': return 'text-green-600 dark:text-green-400';
       case 'Fitness': return 'text-emerald-600';
-      case 'Aceptable': return 'text-yellow-600';
-      case 'Obesidad': return 'text-red-600';
-      default: return 'text-gray-600';
+      case 'Aceptable': return 'text-yellow-600 dark:text-yellow-400';
+      case 'Obesidad': return 'text-red-600 dark:text-red-400';
+      default: return 'text-muted-foreground';
     }
   };
 
   const getRiskColor = (riskLevel: string) => {
     switch (riskLevel) {
-      case 'Bajo riesgo': return 'text-green-600';
-      case 'Riesgo moderado': return 'text-yellow-600';
-      case 'Alto riesgo': return 'text-red-600';
-      default: return 'text-gray-600';
+      case 'Bajo riesgo': return 'text-green-600 dark:text-green-400';
+      case 'Riesgo moderado': return 'text-yellow-600 dark:text-yellow-400';
+      case 'Alto riesgo': return 'text-red-600 dark:text-red-400';
+      default: return 'text-muted-foreground';
     }
   };
 
@@ -271,19 +271,19 @@ export default function ComposicionPage() {
                     {/* Body Composition Breakdown */}
                     <div className="space-golden-sm">
                       <article className="text-center card-golden bg-secondary/50 mb-[1rem]">
-                        <div className="text-3xl font-bold text-green-600 mb-[0.382rem]">
+                        <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-[0.382rem]">
                           {formatGrams(result.leanMass, 1)}
                         </div>
-                        <div className="text-sm font-semibold text-green-700">
+                        <div className="text-sm font-semibold text-green-700 dark:text-green-300">
                           Masa Magra (músculo, huesos, órganos)
                         </div>
                       </article>
 
                       <article className="text-center card-golden bg-secondary/50">
-                        <div className="text-3xl font-bold text-red-600 mb-[0.382rem]">
+                        <div className="text-3xl font-bold text-red-600 dark:text-red-400 mb-[0.382rem]">
                           {formatGrams(result.fatMass, 1)}
                         </div>
-                        <div className="text-sm font-semibold text-red-700">
+                        <div className="text-sm font-semibold text-red-700 dark:text-red-300">
                           Masa Grasa
                         </div>
                       </article>
@@ -303,7 +303,7 @@ export default function ComposicionPage() {
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-3">
                           <div
-                            className="bg-green-500 h-3 rounded-full transition-all duration-500 ease-out"
+                            className="bg-green-50 dark:bg-green-950/300 h-3 rounded-full transition-all duration-500 ease-out"
                             style={{ width: `${100 - result.bodyFat}%` }}
                           ></div>
                         </div>
@@ -316,7 +316,7 @@ export default function ComposicionPage() {
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-3">
                           <div
-                            className="bg-red-500 h-3 rounded-full transition-all duration-500 ease-out"
+                            className="bg-red-50 dark:bg-red-950/300 h-3 rounded-full transition-all duration-500 ease-out"
                             style={{ width: `${result.bodyFat}%` }}
                           ></div>
                         </div>
@@ -333,10 +333,10 @@ export default function ComposicionPage() {
                       </h4>
                       <div className="grid gap-[1rem] md:grid-cols-2">
                         <article className="text-center">
-                          <div className="text-3xl font-bold text-purple-600 mb-[0.382rem]">
+                          <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-[0.382rem]">
                             {result.waistHipRatio.toFixed(2)}
                           </div>
-                          <div className="text-sm font-semibold text-purple-700">
+                          <div className="text-sm font-semibold text-purple-700 dark:text-purple-300">
                             Ratio C/C
                           </div>
                         </article>
@@ -394,18 +394,18 @@ export default function ComposicionPage() {
               </article>
             </section>
 
-            <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📋</span>
                 Rangos de grasa corporal saludable
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                     <span className="text-lg mr-2">👨</span>
                     Hombres
                   </h4>
-                  <ul className="text-sm text-blue-800 space-golden-xs">
+                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
                     <li className="flex justify-between">
                       <span>Esencial:</span>
                       <span className="font-medium">2-5%</span>
@@ -428,12 +428,12 @@ export default function ComposicionPage() {
                     </li>
                   </ul>
                 </article>
-                <article className="card-golden bg-white/50">
+                <article className="card-golden bg-card/50">
                   <h4 className="font-bold mb-[0.618rem] text-pink-700 flex items-center">
                     <span className="text-lg mr-2">👩</span>
                     Mujeres
                   </h4>
-                  <ul className="text-sm text-blue-800 space-golden-xs">
+                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
                     <li className="flex justify-between">
                       <span>Esencial:</span>
                       <span className="font-medium">10-13%</span>
@@ -459,34 +459,34 @@ export default function ComposicionPage() {
               </div>
             </section>
 
-            <section className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
+            <section className="bg-green-50 dark:bg-green-950/30 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
               <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🎯</span>
                 Cómo mejorar tu composición corporal
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-red-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-red-700 dark:text-red-300 flex items-center">
                     <span className="text-lg mr-2">📉</span>
                     Para reducir grasa corporal:
                   </h4>
-                  <ul className="text-sm text-green-800 space-golden-xs">
+                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
                     <li>• Déficit calórico moderado (300-500 kcal/día)</li>
                     <li>• Entrenamiento de fuerza 3-4x/semana</li>
                     <li>• Cardio moderado 2-3x/semana</li>
-                    <li>• <a href="/proteina" className="text-blue-600 hover:underline font-medium">Proteína alta</a> (2.0-2.4g/kg)</li>
+                    <li>• <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Proteína alta</a> (2.0-2.4g/kg)</li>
                     <li>• Sueño de calidad (7-9 horas)</li>
                   </ul>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300 flex items-center">
                     <span className="text-lg mr-2">💪</span>
                     Para ganar masa magra:
                   </h4>
-                  <ul className="text-sm text-green-800 space-golden-xs">
+                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
                     <li>• Ligero superávit calórico (200-400 kcal/día)</li>
                     <li>• Entrenamiento de fuerza progresivo</li>
-                    <li>• <a href="/proteina" className="text-blue-600 hover:underline font-medium">Proteína óptima</a> (1.6-2.2g/kg)</li>
+                    <li>• <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Proteína óptima</a> (1.6-2.2g/kg)</li>
                     <li>• Carbohidratos post-entrenamiento</li>
                     <li>• Descanso adecuado entre sesiones</li>
                   </ul>
@@ -494,101 +494,101 @@ export default function ComposicionPage() {
               </div>
             </section>
 
-            <section className="card-golden-lg bg-purple-50 border-l-4 border-purple-400 mb-[2.618rem]">
+            <section className="card-golden-lg bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-400 mb-[2.618rem]">
               <h3 className="font-bold text-purple-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📏</span>
                 Ratio Cintura-Cadera: Indicador de salud
               </h3>
-              <p className="text-sm text-purple-800 mb-[1rem] leading-[1.618]">
+              <p className="text-sm text-purple-800 dark:text-purple-200 mb-[1rem] leading-[1.618]">
                 El ratio cintura-cadera es un indicador importante del riesgo cardiovascular y metabólico.
                 La grasa abdominal (visceral) es más peligrosa que la grasa en caderas y muslos.
               </p>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700">Hombres</h4>
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300">Hombres</h4>
                   <ul className="text-sm space-golden-xs">
                     <li className="flex justify-between">
                       <span>Bajo riesgo:</span>
-                      <span className="text-green-600 font-medium">&lt; 0.90</span>
+                      <span className="text-green-600 dark:text-green-400 font-medium">&lt; 0.90</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Riesgo moderado:</span>
-                      <span className="text-yellow-600 font-medium">0.90 - 0.95</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 font-medium">0.90 - 0.95</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Alto riesgo:</span>
-                      <span className="text-red-600 font-medium">&gt; 0.95</span>
+                      <span className="text-red-600 dark:text-red-400 font-medium">&gt; 0.95</span>
                     </li>
                   </ul>
                 </article>
-                <article className="card-golden bg-white/50">
+                <article className="card-golden bg-card/50">
                   <h4 className="font-bold mb-[0.618rem] text-pink-700">Mujeres</h4>
                   <ul className="text-sm space-golden-xs">
                     <li className="flex justify-between">
                       <span>Bajo riesgo:</span>
-                      <span className="text-green-600 font-medium">&lt; 0.80</span>
+                      <span className="text-green-600 dark:text-green-400 font-medium">&lt; 0.80</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Riesgo moderado:</span>
-                      <span className="text-yellow-600 font-medium">0.80 - 0.85</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 font-medium">0.80 - 0.85</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Alto riesgo:</span>
-                      <span className="text-red-600 font-medium">&gt; 0.85</span>
+                      <span className="text-red-600 dark:text-red-400 font-medium">&gt; 0.85</span>
                     </li>
                   </ul>
                 </article>
               </div>
             </section>
 
-            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 dark:bg-yellow-950/30 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📐</span>
                 Cómo tomar las medidas correctamente
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-yellow-700">Tips para medición precisa:</h4>
-                  <ul className="text-sm text-yellow-800 space-golden-xs">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-yellow-700 dark:text-yellow-300">Tips para medición precisa:</h4>
+                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                       <span>Mide en ayunas por la mañana</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                       <span>Usa cinta métrica flexible pero no elástica</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                       <span>Mantén la cinta firme pero sin apretar</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                       <span>Respira normalmente durante la medición</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                       <span>Toma 2-3 medidas y promedia</span>
                     </li>
                   </ul>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-yellow-700">Puntos de medición específicos:</h4>
-                  <ul className="text-sm text-yellow-800 space-golden-xs">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-yellow-700 dark:text-yellow-300">Puntos de medición específicos:</h4>
+                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                       <span><strong>Cintura:</strong> Parte más estrecha del torso</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                       <span><strong>Cuello:</strong> Justo debajo de la nuez de Adán</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                       <span><strong>Cadera:</strong> Parte más ancha de las caderas</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                       <span>Mantén la postura erguida y natural</span>
                     </li>
                   </ul>
@@ -599,22 +599,22 @@ export default function ComposicionPage() {
             <section className="space-golden-md">
               <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes</h3>
               <div className="space-golden-sm">
-                <article className="card-golden bg-gray-50">
+                <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Es preciso el método Navy comparado con otros métodos?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     El método Navy tiene una precisión del ±3-4% comparado con métodos gold standard como DEXA.
                     Es más preciso que bioimpedancia y mucho más accesible que hidrodensitometría.
                   </p>
                 </article>
-                <article className="card-golden bg-gray-50">
+                <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Con qué frecuencia debo medir mi composición corporal?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Cada 2-4 semanas es suficiente para ver cambios significativos. Los cambios en composición
                     corporal son graduales, especialmente la ganancia de masa magra.
                   </p>
                 </article>
-                <article className="card-golden bg-gray-50">
-                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué mi porcentaje de grasa es diferente a mi <a href="/imc" className="text-blue-600 hover:underline">IMC</a>?</h4>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué mi porcentaje de grasa es diferente a mi <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline">IMC</a>?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     El IMC solo considera peso y altura, no distingue entre músculo y grasa. Una persona
                     musculosa puede tener IMC alto pero bajo porcentaje de grasa. La composición corporal
@@ -625,35 +625,35 @@ export default function ComposicionPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
               <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Optimiza tu plan nutricional según tu composición
               </h3>
-              <ul className="text-sm text-orange-800 space-golden-xs">
+              <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tus macros personalizados:</a></strong> Ajusta proteínas, grasas y carbohidratos según tu composición actual</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tus macros personalizados:</a></strong> Ajusta proteínas, grasas y carbohidratos según tu composición actual</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/rmr" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu RMR con Katch-McArdle:</a></strong> Usa tu masa magra para metabolismo basal más preciso</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/rmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu RMR con Katch-McArdle:</a></strong> Usa tu masa magra para metabolismo basal más preciso</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/ffmi" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu FFMI muscular avanzado:</a></strong> Índice preciso de desarrollo muscular para atletas serios</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/ffmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu FFMI muscular avanzado:</a></strong> Índice preciso de desarrollo muscular para atletas serios</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/fmi" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu FMI metabólico:</a></strong> Índice avanzado de masa grasa independiente de altura</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/fmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FMI metabólico:</a></strong> Índice avanzado de masa grasa independiente de altura</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Determina tu gasto calórico:</a></strong> La masa magra influye directamente en tu metabolismo basal</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Determina tu gasto calórico:</a></strong> La masa magra influye directamente en tu metabolismo basal</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/proteina" className="text-blue-600 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula según tu masa magra para preservar músculo durante pérdida de grasa</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula según tu masa magra para preservar músculo durante pérdida de grasa</span>
                 </li>
               </ul>
             </section>

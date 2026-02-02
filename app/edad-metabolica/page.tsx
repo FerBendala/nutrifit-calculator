@@ -60,17 +60,17 @@ export default function EdadMetabolicaPage() {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'Mucho Más Joven':
-        return 'text-green-700 bg-green-50 border-green-400';
+        return 'text-green-700 dark:text-green-300 bg-green-50 dark:bg-green-950/30 border-green-400';
       case 'Más Joven':
-        return 'text-blue-700 bg-blue-50 border-blue-400';
+        return 'text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30 border-blue-400';
       case 'Similar':
-        return 'text-gray-700 bg-gray-50 border-gray-400';
+        return 'text-muted-foreground bg-muted border-gray-400';
       case 'Más Viejo':
-        return 'text-orange-700 bg-orange-50 border-orange-400';
+        return 'text-orange-700 dark:text-orange-300 bg-orange-50 dark:bg-orange-950/30 border-orange-400';
       case 'Mucho Más Viejo':
-        return 'text-red-700 bg-red-50 border-red-400';
+        return 'text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/30 border-red-400';
       default:
-        return 'text-gray-700 bg-gray-50 border-gray-400';
+        return 'text-muted-foreground bg-muted border-gray-400';
     }
   };
 
@@ -82,7 +82,7 @@ export default function EdadMetabolicaPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora Edad Metabólica
+              Calculadora de Edad Metabólica Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calculadora profesional de edad metabólica que compara tu metabolismo (BMR) con el promedio de personas de tu edad.
@@ -90,19 +90,19 @@ export default function EdadMetabolicaPage() {
             </p>
           </header>
 
-          <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-8">
+          <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-8">
             <div className="p-6">
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 La <strong>edad metabólica</strong> es una medida que compara tu metabolismo basal (BMR) con el promedio
                 esperado de personas de tu edad cronológica. Si tu edad metabólica es menor que tu edad cronológica,
                 significa que tu metabolismo es más eficiente (más "joven"). Si es mayor, indica que tu metabolismo es
                 menos eficiente (más "viejo").
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Esta calculadora utiliza la fórmula <strong>Mifflin-St Jeor</strong> para calcular tu BMR y lo compara
-                con el promedio esperado. Es complementaria a otras calculadoras metabólicas como <a href="/bmr" className="text-blue-600 hover:underline">BMR</a>,
-                <a href="/rmr" className="text-blue-600 hover:underline"> RMR</a>, <a href="/tdee" className="text-blue-600 hover:underline">TDEE</a> y
-                <a href="/masa-muscular" className="text-blue-600 hover:underline"> Masa Muscular</a>.
+                con el promedio esperado. Es complementaria a otras calculadoras metabólicas como <a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline">BMR</a>,
+                <a href="/rmr" className="text-blue-600 dark:text-blue-400 hover:underline"> RMR</a>, <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">TDEE</a> y
+                <a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline"> Masa Muscular</a>.
               </p>
             </div>
           </section>
@@ -117,14 +117,14 @@ export default function EdadMetabolicaPage() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-golden-md">
-                  <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                  <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
                     <div className="flex items-start gap-3">
-                      <Info className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-sm text-gray-700">
+                      <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-muted-foreground">
                         <strong>Nota:</strong> La edad metabólica se calcula comparando tu BMR con el promedio esperado
                         para personas de tu edad. Si conoces tu porcentaje de grasa corporal, puedes proporcionarlo para
                         un cálculo más preciso usando la fórmula Katch-McArdle. Si no lo conoces, puedes usar nuestra
-                        <a href="/grasa-corporal" className="text-blue-600 hover:underline font-medium"> calculadora de grasa corporal</a>.
+                        <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium"> calculadora de grasa corporal</a>.
                       </p>
                     </div>
                   </div>
@@ -209,10 +209,10 @@ export default function EdadMetabolicaPage() {
                           placeholder="15.0"
                           required={formData.useBodyFat === 'yes'}
                         />
-                        <p className="text-xs text-gray-600 mt-1">
+                        <p className="text-xs text-muted-foreground mt-1">
                           Si no conoces tu porcentaje de grasa corporal, puedes usar nuestra{' '}
-                          <a href="/grasa-corporal" className="text-blue-600 hover:underline">calculadora de grasa corporal</a> o{' '}
-                          <a href="/composicion" className="text-blue-600 hover:underline">calculadora de composición corporal</a>.
+                          <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de grasa corporal</a> o{' '}
+                          <a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de composición corporal</a>.
                         </p>
                       </div>
                     )}
@@ -289,10 +289,10 @@ export default function EdadMetabolicaPage() {
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-lg font-bold text-purple-700 mb-1">
+                        <div className="text-lg font-bold text-purple-700 dark:text-purple-300 mb-1">
                           {result.chronologicalAge} años
                         </div>
-                        <p className="text-xs text-purple-600">
+                        <p className="text-xs text-purple-600 dark:text-purple-400">
                           Tu edad real
                         </p>
                       </CardContent>
@@ -300,16 +300,16 @@ export default function EdadMetabolicaPage() {
 
                     <Card className={`bg-gradient-to-br ${result.ageDifference < 0 ? 'from-green-50 to-green-100' : result.ageDifference > 0 ? 'from-red-50 to-red-100' : 'from-gray-50 to-gray-100'}`}>
                       <CardHeader className="pb-2">
-                        <CardTitle className={`text-sm font-semibold flex items-center ${result.ageDifference < 0 ? 'text-green-900' : result.ageDifference > 0 ? 'text-red-900' : 'text-gray-900'}`}>
+                        <CardTitle className={`text-sm font-semibold flex items-center ${result.ageDifference < 0 ? 'text-green-900' : result.ageDifference > 0 ? 'text-red-900' : 'text-foreground'}`}>
                           <Zap className="w-4 h-4 mr-2" />
                           Edad Metabólica
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className={`text-lg font-bold mb-1 ${result.ageDifference < 0 ? 'text-green-700' : result.ageDifference > 0 ? 'text-red-700' : 'text-gray-700'}`}>
+                        <div className={`text-lg font-bold mb-1 ${result.ageDifference < 0 ? 'text-green-700 dark:text-green-300' : result.ageDifference > 0 ? 'text-red-700 dark:text-red-300' : 'text-muted-foreground'}`}>
                           {result.metabolicAge} años
                         </div>
-                        <p className={`text-xs ${result.ageDifference < 0 ? 'text-green-600' : result.ageDifference > 0 ? 'text-red-600' : 'text-gray-600'}`}>
+                        <p className={`text-xs ${result.ageDifference < 0 ? 'text-green-600 dark:text-green-400' : result.ageDifference > 0 ? 'text-red-600 dark:text-red-400' : 'text-muted-foreground'}`}>
                           {result.ageDifference < 0 ? 'Más joven' : result.ageDifference > 0 ? 'Más viejo' : 'Similar'}
                         </p>
                       </CardContent>
@@ -326,7 +326,7 @@ export default function EdadMetabolicaPage() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-base font-medium mb-2">{result.metabolicStatus}</p>
-                      <p className="text-sm text-gray-700">{result.clinicalInterpretation}</p>
+                      <p className="text-sm text-muted-foreground">{result.clinicalInterpretation}</p>
                     </CardContent>
                   </Card>
 
@@ -341,13 +341,13 @@ export default function EdadMetabolicaPage() {
                     <CardContent>
                       <div className="grid gap-3 md:grid-cols-2">
                         {result.comparison.map((metric, index) => (
-                          <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                          <div key={index} className="flex justify-between items-center p-3 bg-muted rounded-lg">
                             <div>
-                              <div className="font-semibold text-sm text-gray-900">{metric.metric}</div>
-                              <div className="text-xs text-gray-600">{metric.status}</div>
+                              <div className="font-semibold text-sm text-foreground">{metric.metric}</div>
+                              <div className="text-xs text-muted-foreground">{metric.status}</div>
                             </div>
                             <div className="text-right">
-                              <div className="font-bold text-lg text-blue-700">
+                              <div className="font-bold text-lg text-blue-700 dark:text-blue-300">
                                 {metric.value.toFixed(metric.metric.includes('BMR') ? 0 : 0)}
                               </div>
                               <div className="text-xs text-gray-500">
@@ -361,7 +361,7 @@ export default function EdadMetabolicaPage() {
                   </Card>
 
                   {/* Factores que Afectan la Edad Metabólica */}
-                  <Card className="bg-purple-50 border-l-4 border-purple-400">
+                  <Card className="bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-400">
                     <CardHeader>
                       <CardTitle className="text-lg font-semibold flex items-center text-purple-900">
                         <Info className="w-5 h-5 mr-2" />
@@ -372,19 +372,19 @@ export default function EdadMetabolicaPage() {
                       <div className="space-y-3">
                         <div className="p-3 bg-white rounded-lg">
                           <div className="font-semibold text-sm text-purple-900 mb-1">Masa Muscular:</div>
-                          <p className="text-xs text-purple-700">{result.factors.muscleMass}</p>
+                          <p className="text-xs text-purple-700 dark:text-purple-300">{result.factors.muscleMass}</p>
                         </div>
                         <div className="p-3 bg-white rounded-lg">
                           <div className="font-semibold text-sm text-purple-900 mb-1">Nivel de Actividad:</div>
-                          <p className="text-xs text-purple-700">{result.factors.activityLevel}</p>
+                          <p className="text-xs text-purple-700 dark:text-purple-300">{result.factors.activityLevel}</p>
                         </div>
                         <div className="p-3 bg-white rounded-lg">
                           <div className="font-semibold text-sm text-purple-900 mb-1">Nutrición:</div>
-                          <p className="text-xs text-purple-700">{result.factors.nutrition}</p>
+                          <p className="text-xs text-purple-700 dark:text-purple-300">{result.factors.nutrition}</p>
                         </div>
                         <div className="p-3 bg-white rounded-lg">
                           <div className="font-semibold text-sm text-purple-900 mb-1">Sueño:</div>
-                          <p className="text-xs text-purple-700">{result.factors.sleep}</p>
+                          <p className="text-xs text-purple-700 dark:text-purple-300">{result.factors.sleep}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -392,9 +392,9 @@ export default function EdadMetabolicaPage() {
 
                   {/* Estrategias de Mejora */}
                   {result.improvementStrategies.length > 0 && (
-                    <Card className="bg-blue-50 border-l-4 border-blue-400">
+                    <Card className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400">
                       <CardHeader>
-                        <CardTitle className="text-lg font-semibold flex items-center text-blue-900">
+                        <CardTitle className="text-lg font-semibold flex items-center text-blue-900 dark:text-blue-100">
                           <TrendingUp className="w-5 h-5 mr-2" />
                           Estrategias para Mejorar tu Edad Metabólica
                         </CardTitle>
@@ -402,8 +402,8 @@ export default function EdadMetabolicaPage() {
                       <CardContent>
                         <ul className="space-y-2">
                           {result.improvementStrategies.map((strategy, index) => (
-                            <li key={index} className="flex items-start text-sm text-blue-800">
-                              <span className="text-blue-600 mr-2">•</span>
+                            <li key={index} className="flex items-start text-sm text-blue-800 dark:text-blue-200">
+                              <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                               <span>{strategy}</span>
                             </li>
                           ))}
@@ -413,7 +413,7 @@ export default function EdadMetabolicaPage() {
                   )}
 
                   {/* Recomendaciones */}
-                  <Card className="bg-yellow-50 border-l-4 border-yellow-400">
+                  <Card className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400">
                     <CardHeader>
                       <CardTitle className="text-lg font-semibold flex items-center text-yellow-900">
                         <Info className="w-5 h-5 mr-2" />
@@ -423,8 +423,8 @@ export default function EdadMetabolicaPage() {
                     <CardContent>
                       <ul className="space-y-2">
                         {result.recommendations.map((rec, index) => (
-                          <li key={index} className="flex items-start text-sm text-yellow-800">
-                            <span className="text-yellow-600 mr-2">•</span>
+                          <li key={index} className="flex items-start text-sm text-yellow-800 dark:text-yellow-200">
+                            <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                             <span>{rec}</span>
                           </li>
                         ))}
@@ -468,15 +468,15 @@ export default function EdadMetabolicaPage() {
                 </h3>
                 <div className="space-golden-sm">
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-green-700">Edad Metabólica &lt; Edad Cronológica (Más Joven):</h4>
+                    <h4 className="font-semibold text-sm text-green-700 dark:text-green-300">Edad Metabólica &lt; Edad Cronológica (Más Joven):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Indica metabolismo eficiente, típico de personas con buena masa muscular y actividad física regular</p>
                   </section>
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-gray-700">Edad Metabólica ≈ Edad Cronológica (Similar):</h4>
+                    <h4 className="font-semibold text-sm text-muted-foreground">Edad Metabólica ≈ Edad Cronológica (Similar):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Metabolismo normal y esperado para tu edad</p>
                   </section>
                   <section className="py-[0.382rem]">
-                    <h4 className="font-semibold text-sm text-red-700">Edad Metabólica &gt; Edad Cronológica (Más Viejo):</h4>
+                    <h4 className="font-semibold text-sm text-red-700 dark:text-red-300">Edad Metabólica &gt; Edad Cronológica (Más Viejo):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Puede indicar pérdida de masa muscular, sedentarismo o factores que afectan el metabolismo</p>
                   </section>
                 </div>
@@ -489,48 +489,48 @@ export default function EdadMetabolicaPage() {
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs">
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-blue-600 mr-2">•</span>
+                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                     <span><strong>Masa muscular:</strong> Mayor masa muscular = metabolismo más joven</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-green-600 mr-2">•</span>
+                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
                     <span><strong>Actividad física:</strong> Ejercicio regular mantiene metabolismo activo</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-purple-600 mr-2">•</span>
+                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
                     <span><strong>Nutrición:</strong> Proteína adecuada y evitar restricciones extremas</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-red-600 mr-2">•</span>
+                    <span className="text-red-600 dark:text-red-400 mr-2">•</span>
                     <span><strong>Sueño:</strong> Calidad y cantidad de sueño afectan hormonas metabólicas</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-orange-600 mr-2">•</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span><strong>Genética:</strong> Algunas personas tienen metabolismo naturalmente más eficiente</span>
                   </li>
                   <li className="flex items-start py-[0.382rem]">
-                    <span className="text-yellow-600 mr-2">•</span>
+                    <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                     <span><strong>Condiciones médicas:</strong> Algunas condiciones pueden afectar el metabolismo</span>
                   </li>
                 </ul>
               </article>
             </section>
 
-            <section className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📐</span>
                 Cómo se Calcula la Edad Metabólica
               </h3>
               <div className="space-y-4">
-                <div className="bg-white p-4 rounded-lg border-2 border-blue-200">
-                  <h4 className="font-semibold text-blue-900 mb-2">Método de Cálculo:</h4>
-                  <div className="font-mono text-sm mb-2 bg-gray-50 p-3 rounded">
+                <div className="bg-card p-4 rounded-lg border-2 border-blue-200">
+                  <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Método de Cálculo:</h4>
+                  <div className="font-mono text-sm mb-2 bg-muted p-3 rounded">
                     <p>1. Se calcula tu BMR usando la fórmula Mifflin-St Jeor</p>
                     <p>2. Se compara tu BMR con el BMR esperado a diferentes edades</p>
                     <p>3. Se encuentra la edad donde el BMR esperado coincide con tu BMR real</p>
                     <p>4. Esta edad es tu "edad metabólica"</p>
                   </div>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-muted-foreground">
                     La edad metabólica indica qué edad tiene tu metabolismo comparado con el promedio de personas
                     de tu edad cronológica. Un metabolismo más joven (edad metabólica menor) indica mayor eficiencia.
                   </p>
@@ -539,19 +539,19 @@ export default function EdadMetabolicaPage() {
             </section>
 
             <section className="space-y-4 mb-[2.618rem]">
-              <h3 className="text-lg font-medium">❓ Preguntas frecuentes sobre edad metabólica</h3>
+              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre edad metabólica</h3>
               <div className="space-y-3">
-                <article className="p-4 bg-gray-50 rounded-lg">
+                <article className="p-4 bg-muted rounded-lg">
                   <h4 className="font-semibold mb-2">¿Cómo puedo mejorar mi edad metabólica?</h4>
                   <p className="text-sm text-muted-foreground">
                     Para mejorar tu edad metabólica: (1) Aumenta masa muscular con entrenamiento de fuerza 3-4 veces por semana,
                     (2) Aumenta actividad física diaria, (3) Consume suficiente proteína (1.6-2.2g por kg de peso),
                     (4) Mejora calidad y cantidad de sueño (7-9 horas), (5) Evita dietas muy restrictivas. Consulta nuestra
-                    <a href="/masa-muscular" className="text-blue-600 hover:underline"> calculadora de masa muscular</a> y
-                    <a href="/proteina" className="text-blue-600 hover:underline"> calculadora de proteína</a> para más información.
+                    <a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de masa muscular</a> y
+                    <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de proteína</a> para más información.
                   </p>
                 </article>
-                <article className="p-4 bg-gray-50 rounded-lg">
+                <article className="p-4 bg-muted rounded-lg">
                   <h4 className="font-semibold mb-2">¿Qué significa tener una edad metabólica más joven?</h4>
                   <p className="text-sm text-muted-foreground">
                     Una edad metabólica más joven que tu edad cronológica indica que tu metabolismo es más eficiente.
@@ -559,7 +559,7 @@ export default function EdadMetabolicaPage() {
                     Un metabolismo más joven puede ayudar a mantener un peso saludable y reducir el riesgo de enfermedades metabólicas.
                   </p>
                 </article>
-                <article className="p-4 bg-gray-50 rounded-lg">
+                <article className="p-4 bg-muted rounded-lg">
                   <h4 className="font-semibold mb-2">¿La edad metabólica puede cambiar?</h4>
                   <p className="text-sm text-muted-foreground">
                     <strong>Sí.</strong> La edad metabólica puede cambiar con el tiempo. Aumentar masa muscular, mejorar actividad física,
@@ -571,27 +571,27 @@ export default function EdadMetabolicaPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
               <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Calculadoras relacionadas para evaluación completa
               </h3>
-              <ul className="text-sm text-orange-800 space-golden-xs">
+              <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/bmr" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora de BMR:</a></strong> Metabolismo basal necesario para calcular edad metabólica</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de BMR:</a></strong> Metabolismo basal necesario para calcular edad metabólica</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/rmr" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora de RMR:</a></strong> Tasa metabólica en reposo complementaria</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/rmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de RMR:</a></strong> Tasa metabólica en reposo complementaria</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/masa-muscular" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora de Masa Muscular:</a></strong> Aumentar masa muscular mejora edad metabólica</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Masa Muscular:</a></strong> Aumentar masa muscular mejora edad metabólica</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Calculadora de TDEE:</a></strong> Gasto calórico total diario</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de TDEE:</a></strong> Gasto calórico total diario</span>
                 </li>
               </ul>
             </section>

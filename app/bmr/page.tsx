@@ -131,7 +131,7 @@ export default function BMRPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora BMR Médica Professional
+              Calculadora de BMR Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calculadora científica de metabolismo basal con 3 fórmulas validadas.
@@ -248,14 +248,14 @@ export default function BMRPage() {
                 </header>
                 <div className="p-6">
                   <div className="text-center space-golden-sm">
-                    <div className="text-6xl font-bold text-red-600 mb-[0.618rem]">
+                    <div className="text-6xl font-bold text-red-600 dark:text-red-400 mb-[0.618rem]">
                       {result.average}
                     </div>
-                    <div className="text-xl font-bold text-red-700 mb-[0.382rem]">
+                    <div className="text-xl font-bold text-red-700 dark:text-red-300 mb-[0.382rem]">
                       calorías por día (kcal/día)
                     </div>
                     <div className="text-lg text-muted-foreground">
-                      Promedio de <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4535334/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">fórmulas científicas validadas</a>
+                      Promedio de <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4535334/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">fórmulas científicas validadas</a>
                     </div>
                     <div className="text-sm text-muted-foreground mt-[0.618rem]">
                       Calorías que tu cuerpo necesita en reposo absoluto
@@ -276,30 +276,30 @@ export default function BMRPage() {
                   <div className="space-golden-md">
                     <section className="card-golden">
                       <div className="flex justify-between items-center mb-[0.618rem]">
-                        <h3 className="font-bold text-lg text-blue-600">
+                        <h3 className="font-bold text-lg text-blue-600 dark:text-blue-400">
                           Mifflin-St Jeor (Recomendada)
                         </h3>
                         <div className="text-right">
-                          <div className="font-bold text-xl text-blue-600">
+                          <div className="font-bold text-xl text-blue-600 dark:text-blue-400">
                             {result.mifflinStJeor} kcal/día
                           </div>
-                          <div className="text-sm text-green-600 font-medium">
+                          <div className="text-sm text-green-600 dark:text-green-400 font-medium">
                             ✓ Más precisa
                           </div>
                         </div>
                       </div>
                       <p className="text-sm text-muted-foreground leading-[1.618]">
-                        Considerada la ecuación más precisa para la población general. <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium"> Estudio original de Mifflin et al. (1990)</a> validada con error del ±10%.
+                        Considerada la ecuación más precisa para la población general. <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium"> Estudio original de Mifflin et al. (1990)</a> validada con error del ±10%.
                       </p>
                     </section>
 
                     <section className="card-golden">
                       <div className="flex justify-between items-center mb-[0.618rem]">
-                        <h3 className="font-bold text-lg text-orange-600">
+                        <h3 className="font-bold text-lg text-orange-600 dark:text-orange-400">
                           Harris-Benedict (Revisada)
                         </h3>
                         <div className="text-right">
-                          <div className="font-bold text-xl text-orange-600">
+                          <div className="font-bold text-xl text-orange-600 dark:text-orange-400">
                             {result.harrisBenedict} kcal/día
                           </div>
                           <div className="text-sm text-muted-foreground">
@@ -308,27 +308,27 @@ export default function BMRPage() {
                         </div>
                       </div>
                       <p className="text-sm text-muted-foreground leading-[1.618]">
-                        <a href="https://pubmed.ncbi.nlm.nih.gov/6865776/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Fórmula clásica revisada (Roza & Shizgal, 1984)</a>. Ampliamente utilizada pero menos precisa que Mifflin-St Jeor.
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/6865776/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Fórmula clásica revisada (Roza & Shizgal, 1984)</a>. Ampliamente utilizada pero menos precisa que Mifflin-St Jeor.
                       </p>
                     </section>
 
                     {result.katchMcArdle && (
                       <section className="card-golden">
                         <div className="flex justify-between items-center mb-[0.618rem]">
-                          <h3 className="font-bold text-lg text-purple-600">
+                          <h3 className="font-bold text-lg text-purple-600 dark:text-purple-400">
                             Katch-McArdle (Composición corporal)
                           </h3>
                           <div className="text-right">
-                            <div className="font-bold text-xl text-purple-600">
+                            <div className="font-bold text-xl text-purple-600 dark:text-purple-400">
                               {result.katchMcArdle} kcal/día
                             </div>
-                            <div className="text-sm text-green-600 font-medium">
+                            <div className="text-sm text-green-600 dark:text-green-400 font-medium">
                               ✓ Más precisa para atletas
                             </div>
                           </div>
                         </div>
                         <p className="text-sm text-muted-foreground leading-[1.618]">
-                          Basada en masa magra. <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Más precisa para atletas</a> con composición corporal conocida.
+                          Basada en masa magra. <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Más precisa para atletas</a> con composición corporal conocida.
                         </p>
                       </section>
                     )}
@@ -353,31 +353,31 @@ export default function BMRPage() {
                       <div className="grid gap-[0.618rem] text-sm">
                         <div className="flex justify-between items-center py-[0.382rem] border-b border-border/30">
                           <span className="font-medium">🪑 Sedentario (sin ejercicio):</span>
-                          <span className="font-bold text-gray-600">{result.dailyCalories.sedentary} kcal/día</span>
+                          <span className="font-bold text-muted-foreground">{result.dailyCalories.sedentary} kcal/día</span>
                         </div>
                         <div className="flex justify-between items-center py-[0.382rem] border-b border-border/30">
                           <span className="font-medium">🚶 Ligero (1-3 días/semana):</span>
-                          <span className="font-bold text-blue-600">{result.dailyCalories.light} kcal/día</span>
+                          <span className="font-bold text-blue-600 dark:text-blue-400">{result.dailyCalories.light} kcal/día</span>
                         </div>
                         <div className="flex justify-between items-center py-[0.382rem] border-b border-border/30">
                           <span className="font-medium">🏃 Moderado (3-5 días/semana):</span>
-                          <span className="font-bold text-green-600">{result.dailyCalories.moderate} kcal/día</span>
+                          <span className="font-bold text-green-600 dark:text-green-400">{result.dailyCalories.moderate} kcal/día</span>
                         </div>
                         <div className="flex justify-between items-center py-[0.382rem] border-b border-border/30">
                           <span className="font-medium">💪 Intenso (6-7 días/semana):</span>
-                          <span className="font-bold text-orange-600">{result.dailyCalories.intense} kcal/día</span>
+                          <span className="font-bold text-orange-600 dark:text-orange-400">{result.dailyCalories.intense} kcal/día</span>
                         </div>
                         <div className="flex justify-between items-center py-[0.382rem]">
                           <span className="font-medium">🔥 Muy intenso (2x/día, trabajo físico):</span>
-                          <span className="font-bold text-red-600">{result.dailyCalories.veryIntense} kcal/día</span>
+                          <span className="font-bold text-red-600 dark:text-red-400">{result.dailyCalories.veryIntense} kcal/día</span>
                         </div>
                       </div>
                     </div>
-                    <div className="mt-[1.618rem] text-sm text-green-800">
+                    <div className="mt-[1.618rem] text-sm text-green-800 dark:text-green-200">
                       <p className="leading-[1.618]">
                         <strong>💡 Consejo:</strong> Para cálculos más precisos de calorías diarias,
-                        usa nuestra <a href="/tdee" className="text-blue-600 hover:underline">calculadora TDEE especializada</a>.
-                        Luego planifica tus <a href="/" className="text-blue-600 hover:underline">macronutrientes completos</a>.
+                        usa nuestra <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora TDEE especializada</a>.
+                        Luego planifica tus <a href="/" className="text-blue-600 dark:text-blue-400 hover:underline">macronutrientes completos</a>.
                       </p>
                     </div>
                   </div>
@@ -409,15 +409,15 @@ export default function BMRPage() {
                 </p>
                 <ul className="text-sm space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-red-600 mr-2">•</span>
+                    <span className="text-red-600 dark:text-red-400 mr-2">•</span>
                     <span><strong>60-70%</strong> de tu gasto calórico diario total</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">•</span>
+                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                     <span><strong>Funciones básicas:</strong> respiración, circulación, reparación celular</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-600 mr-2">•</span>
+                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
                     <span><strong>Medición:</strong> en ayunas, reposo, 12 horas sin comida</span>
                   </li>
                 </ul>
@@ -430,11 +430,11 @@ export default function BMRPage() {
                 </h3>
                 <ul className="text-sm space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">•</span>
+                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
                     <span><strong>Masa muscular:</strong> Más músculo = mayor BMR</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 mr-2">•</span>
+                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span><strong>Edad:</strong> Disminuye 2-3% cada década después de los 30</span>
                   </li>
                   <li className="flex items-start">
@@ -442,53 +442,53 @@ export default function BMRPage() {
                     <span><strong>Sexo:</strong> Los hombres tienen ~15% más BMR</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">•</span>
+                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                     <span><strong>Genética:</strong> Variación del ±15% entre individuos</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-600 mr-2">•</span>
+                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
                     <span><strong>Hormonas:</strong> Tiroides, cortisol, testosterona</span>
                   </li>
                 </ul>
               </article>
             </section>
 
-            <section className="card-golden-lg bg-blue-50 border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🔬</span>
                 Comparación científica de fórmulas BMR
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-3">
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                     <span className="text-lg mr-2">🥇</span>
                     Mifflin-St Jeor (1990)
                   </h4>
-                  <ul className="text-sm text-blue-800 space-golden-xs">
+                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
                     <li>• <strong>Precisión:</strong> ±10% (la mejor)</li>
                     <li>• <strong>Población:</strong> General</li>
                     <li>• <strong>Validación:</strong> Múltiples estudios</li>
                     <li>• <strong>Uso:</strong> Recomendada por ADA</li>
                   </ul>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-orange-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-orange-700 dark:text-orange-300 flex items-center">
                     <span className="text-lg mr-2">🥈</span>
                     Harris-Benedict (1984)
                   </h4>
-                  <ul className="text-sm text-blue-800 space-golden-xs">
+                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
                     <li>• <strong>Precisión:</strong> ±15%</li>
                     <li>• <strong>Población:</strong> General</li>
                     <li>• <strong>Validación:</strong> Clásica, ampliamente usada</li>
                     <li>• <strong>Limitación:</strong> Sobrestima en obesos</li>
                   </ul>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-purple-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-purple-700 dark:text-purple-300 flex items-center">
                     <span className="text-lg mr-2">🏆</span>
                     Katch-McArdle
                   </h4>
-                  <ul className="text-sm text-blue-800 space-golden-xs">
+                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
                     <li>• <strong>Precisión:</strong> ±5% (atletas)</li>
                     <li>• <strong>Población:</strong> Atletas/conocen % grasa</li>
                     <li>• <strong>Validación:</strong> Basada en masa magra</li>
@@ -498,57 +498,57 @@ export default function BMRPage() {
               </div>
             </section>
 
-            <section className="bg-green-50 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
+            <section className="bg-green-50 dark:bg-green-950/30 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
               <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Aplicaciones prácticas del BMR
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700">🎯 Para profesionales de la salud</h4>
-                  <ul className="text-sm text-green-800 space-golden-xs">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300">🎯 Para profesionales de la salud</h4>
+                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
                     <li>• Calcular necesidades calóricas basales</li>
                     <li>• Evaluar tasa metabólica en pacientes</li>
                     <li>• Detectar problemas metabólicos</li>
                     <li>• Monitorear efectos de tratamientos</li>
                   </ul>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700">🏃 Para atletas y fitness</h4>
-                  <ul className="text-sm text-green-800 space-golden-xs">
-                    <li>• Base para calcular <a href="/tdee" className="text-blue-600 hover:underline">TDEE total</a></li>
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300">🏃 Para atletas y fitness</h4>
+                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
+                    <li>• Base para calcular <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">TDEE total</a></li>
                     <li>• Planificar dietas de corte o volumen</li>
-                    <li>• Optimizar <a href="/composicion" className="text-blue-600 hover:underline">composición corporal</a></li>
-                    <li>• Combinar con entrenamiento de <a href="/1rm" className="text-blue-600 hover:underline">fuerza máxima</a></li>
+                    <li>• Optimizar <a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline">composición corporal</a></li>
+                    <li>• Combinar con entrenamiento de <a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline">fuerza máxima</a></li>
                   </ul>
                 </article>
               </div>
             </section>
 
-            <section className="bg-yellow-50 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
+            <section className="bg-yellow-50 dark:bg-yellow-950/30 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
               <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">⚠️</span>
                 Limitaciones y consideraciones importantes
               </h3>
-              <ul className="text-sm text-yellow-800 space-golden-xs">
+              <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-yellow-600 mr-2">•</span>
-                  <span><strong>Son estimaciones:</strong> La <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4535334/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">variación individual</a> puede ser del ±15-20%</span>
+                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span><strong>Son estimaciones:</strong> La <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4535334/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">variación individual</a> puede ser del ±15-20%</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 mr-2">•</span>
-                  <span><strong>Condiciones médicas:</strong> <a href="https://www.thyroid.org/thyroid-function-tests/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Hipotiroidismo</a>, diabetes pueden alterar el BMR</span>
+                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span><strong>Condiciones médicas:</strong> <a href="https://www.thyroid.org/thyroid-function-tests/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Hipotiroidismo</a>, diabetes pueden alterar el BMR</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 mr-2">•</span>
+                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                   <span><strong>Medicamentos:</strong> Algunos fármacos afectan el metabolismo</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 mr-2">•</span>
+                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                   <span><strong>Dietas extremas:</strong> Pueden reducir el BMR hasta un 20%</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 mr-2">•</span>
+                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
                   <span><strong>Consulta profesional:</strong> Para casos específicos, consulta con un nutricionista</span>
                 </li>
               </ul>
@@ -557,21 +557,21 @@ export default function BMRPage() {
             <section className="space-golden-md">
               <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre BMR</h3>
               <div className="space-golden-sm">
-                <article className="card-golden bg-gray-50">
+                <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Cuál es la diferencia entre BMR y TDEE?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
-                    El BMR es tu metabolismo en reposo absoluto. El <a href="/tdee" className="text-blue-600 hover:underline">TDEE</a> incluye
+                    El BMR es tu metabolismo en reposo absoluto. El <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">TDEE</a> incluye
                     el BMR más las calorías quemadas por actividad física y digestión. El TDEE es lo que necesitas para mantener tu peso.
                   </p>
                 </article>
-                <article className="card-golden bg-gray-50">
+                <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Puedo aumentar mi BMR naturalmente?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
-                    Sí, principalmente aumentando la <a href="/masa-muscular" className="text-blue-600 hover:underline">masa muscular</a>.
-                    El músculo quema más calorías en reposo que la grasa. El <a href="/1rm" className="text-blue-600 hover:underline">entrenamiento de fuerza</a> es clave.
+                    Sí, principalmente aumentando la <a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline">masa muscular</a>.
+                    El músculo quema más calorías en reposo que la grasa. El <a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline">entrenamiento de fuerza</a> es clave.
                   </p>
                 </article>
-                <article className="card-golden bg-gray-50">
+                <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Es normal que mi BMR sea diferente al calculado?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Sí, es completamente normal. Las fórmulas son estimaciones poblacionales. Tu BMR real puede variar
@@ -582,39 +582,39 @@ export default function BMRPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="bg-orange-50 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
+            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
               <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Completa tu evaluación metabólica
               </h3>
-              <ul className="text-sm text-orange-800 space-golden-xs">
+              <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/peso-ajustado" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado:</a></strong> ABW para calorías y metabolismo más precisos en obesidad o bajo peso</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/peso-ajustado" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado:</a></strong> ABW para calorías y metabolismo más precisos en obesidad o bajo peso</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/rmr" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu RMR práctico:</a></strong> Tasa metabólica en reposo sin condiciones estrictas de laboratorio</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/rmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu RMR práctico:</a></strong> Tasa metabólica en reposo sin condiciones estrictas de laboratorio</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 hover:underline font-medium transition-golden">Calcula tu TDEE completo:</a></strong> Añade actividad física a tu BMR para calorías diarias totales</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu TDEE completo:</a></strong> Añade actividad física a tu BMR para calorías diarias totales</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/" className="text-blue-600 hover:underline font-medium transition-golden">Planifica tus macros:</a></strong> Distribuye tus calorías en proteínas, grasas y carbohidratos</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica tus macros:</a></strong> Distribuye tus calorías en proteínas, grasas y carbohidratos</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/composicion" className="text-blue-600 hover:underline font-medium transition-golden">Evalúa tu composición corporal:</a></strong> Para usar la fórmula Katch-McArdle más precisa</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu composición corporal:</a></strong> Para usar la fórmula Katch-McArdle más precisa</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/masa-muscular" className="text-blue-600 hover:underline font-medium transition-golden">Desarrolla masa muscular:</a></strong> Aumenta tu BMR con entrenamiento de fuerza</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Desarrolla masa muscular:</a></strong> Aumenta tu BMR con entrenamiento de fuerza</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 mr-2">•</span>
-                  <span><strong><a href="/1rm" className="text-blue-600 hover:underline font-medium transition-golden">Planifica entrenamientos de fuerza:</a></strong> Optimiza tu entrenamiento para maximizar el metabolismo</span>
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica entrenamientos de fuerza:</a></strong> Optimiza tu entrenamiento para maximizar el metabolismo</span>
                 </li>
               </ul>
             </section>

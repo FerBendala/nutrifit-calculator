@@ -45,7 +45,7 @@ export default function AzucarPage() {
 
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Límite de Azúcar Diaria
+              Calculadora de Límite de Azúcar Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Límite máximo de azúcares libres según tus calorías diarias. Recomendaciones OMS: menos del 10% y menos del 5% de la energía para una dieta saludable.
@@ -64,7 +64,7 @@ export default function AzucarPage() {
                 <div className="bg-amber-50 rounded-lg p-4 mb-6">
                   <div className="flex items-start gap-3">
                     <Info className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-muted-foreground">
                       <strong>Nota:</strong> Introduce tu ingesta calórica diaria estimada (o la que quieras como referencia). La OMS recomienda limitar los azúcares libres a menos del 10% de la energía; menos del 5% aporta beneficios adicionales (caries, peso).
                     </p>
                   </div>
@@ -123,23 +123,23 @@ export default function AzucarPage() {
                       <CardTitle className="text-sm font-semibold text-orange-900">Beneficio adicional (&lt;5%)</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-orange-700">
+                      <div className="text-2xl font-bold text-orange-700 dark:text-orange-300">
                         Máximo {formatGrams(result.maxGrams5Percent)}/día
                       </div>
-                      <p className="text-xs text-orange-600 mt-1">Menos del 5% de la energía</p>
+                      <p className="text-xs text-orange-600 dark:text-orange-400 mt-1">Menos del 5% de la energía</p>
                     </CardContent>
                   </Card>
                 </div>
 
                 <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
                       <Info className="w-4 h-4 mr-2" />
                       Interpretación
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-700">{result.interpretation}</p>
+                    <p className="text-sm text-muted-foreground">{result.interpretation}</p>
                   </CardContent>
                 </Card>
 
@@ -153,7 +153,7 @@ export default function AzucarPage() {
                   <CardContent>
                     <ul className="space-y-2">
                       {result.tips.map((tip, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
+                        <li key={index} className="flex items-start text-sm text-muted-foreground">
                           <span className="text-amber-600 mr-2">•</span>
                           <span>{tip}</span>
                         </li>
@@ -164,7 +164,7 @@ export default function AzucarPage() {
 
                 <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-400">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-gray-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       ¿Qué son los azúcares libres?
                     </CardTitle>
@@ -172,7 +172,7 @@ export default function AzucarPage() {
                   <CardContent>
                     <ul className="space-y-2">
                       {result.freeSugarsDefinition.map((item, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
+                        <li key={index} className="flex items-start text-sm text-muted-foreground">
                           <span className="text-gray-500 mr-2">•</span>
                           <span>{item}</span>
                         </li>
@@ -208,7 +208,7 @@ export default function AzucarPage() {
               </article>
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Info className="w-5 h-5 mr-3 text-blue-600" />
+                  <Info className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400" />
                   Fuentes habituales
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs list-disc list-inside">

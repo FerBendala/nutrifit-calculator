@@ -52,7 +52,7 @@ export default function PresionArterialMediaPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Presión Arterial Media (MAP)
+              Calculadora de Presión Arterial Médica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calculadora médica profesional de presión arterial media para evaluación de perfusión de órganos
@@ -65,16 +65,16 @@ export default function PresionArterialMediaPage() {
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <HeartPulse className="w-6 h-6 mr-3 text-red-600" />
+                  <HeartPulse className="w-6 h-6 mr-3 text-red-600 dark:text-red-400" />
                   Calculadora de Presión Arterial Media
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-golden-md">
-                  <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                  <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
                     <div className="flex items-start gap-3">
-                      <Info className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-sm text-gray-700">
+                      <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-muted-foreground">
                         <strong>Nota:</strong> La presión arterial media (MAP) representa la presión promedio en las arterias
                         durante un ciclo cardíaco completo. Es un indicador crítico de la perfusión de órganos vitales.
                         Introduce tus valores de presión arterial sistólica y diastólica.
@@ -112,8 +112,8 @@ export default function PresionArterialMediaPage() {
 
                   {formData.systolicBP && formData.diastolicBP &&
                     parseFloat(formData.systolicBP) <= parseFloat(formData.diastolicBP) && (
-                      <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                        <p className="text-sm text-red-700">
+                      <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 rounded-lg p-3">
+                        <p className="text-sm text-red-700 dark:text-red-300">
                           <AlertTriangle className="w-4 h-4 inline mr-2" />
                           La presión sistólica debe ser mayor que la diastólica.
                         </p>
@@ -137,7 +137,7 @@ export default function PresionArterialMediaPage() {
             <section className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
               <header className="p-6 pb-0">
                 <h2 className="text-2xl font-semibold flex items-center justify-center">
-                  <HeartPulse className="w-6 h-6 mr-3 text-red-600" />
+                  <HeartPulse className="w-6 h-6 mr-3 text-red-600 dark:text-red-400" />
                   Resultados de Presión Arterial Media
                 </h2>
               </header>
@@ -166,19 +166,19 @@ export default function PresionArterialMediaPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className={`text-5xl font-bold mb-2 ${result.category === 'Normal' ? 'text-green-700' :
-                      result.category === 'Hipotensión' || result.category === 'Crisis Hipertensiva' ? 'text-red-700' :
-                        'text-orange-700'
+                    <div className={`text-5xl font-bold mb-2 ${result.category === 'Normal' ? 'text-green-700 dark:text-green-300' :
+                      result.category === 'Hipotensión' || result.category === 'Crisis Hipertensiva' ? 'text-red-700 dark:text-red-300' :
+                        'text-orange-700 dark:text-orange-300'
                       }`}>
                       {result.map} mmHg
                     </div>
-                    <div className={`text-lg font-semibold mb-1 ${result.category === 'Normal' ? 'text-green-800' :
-                      result.category === 'Hipotensión' || result.category === 'Crisis Hipertensiva' ? 'text-red-800' :
-                        'text-orange-800'
+                    <div className={`text-lg font-semibold mb-1 ${result.category === 'Normal' ? 'text-green-800 dark:text-green-200' :
+                      result.category === 'Hipotensión' || result.category === 'Crisis Hipertensiva' ? 'text-red-800 dark:text-red-200' :
+                        'text-orange-800 dark:text-orange-200'
                       }`}>
                       {result.status}
                     </div>
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-muted-foreground">
                       {result.interpretation}
                     </p>
                   </CardContent>
@@ -188,16 +188,16 @@ export default function PresionArterialMediaPage() {
                 <div className="grid gap-4 md:grid-cols-2">
                   <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold flex items-center text-blue-900">
+                      <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
                         <Activity className="w-4 h-4 mr-2" />
                         Presión Sistólica
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-blue-700 mb-1">
+                      <div className="text-2xl font-bold text-blue-700 dark:text-blue-300 mb-1">
                         {result.systolicBP} mmHg
                       </div>
-                      <p className="text-xs text-blue-600">
+                      <p className="text-xs text-blue-600 dark:text-blue-400">
                         Presión máxima durante la contracción del corazón
                       </p>
                     </CardContent>
@@ -211,10 +211,10 @@ export default function PresionArterialMediaPage() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-purple-700 mb-1">
+                      <div className="text-2xl font-bold text-purple-700 dark:text-purple-300 mb-1">
                         {result.diastolicBP} mmHg
                       </div>
-                      <p className="text-xs text-purple-600">
+                      <p className="text-xs text-purple-600 dark:text-purple-400">
                         Presión mínima durante la relajación del corazón
                       </p>
                     </CardContent>
@@ -256,20 +256,20 @@ export default function PresionArterialMediaPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className={`text-lg font-bold mb-1 ${result.organPerfusion.risk === 'Bajo' ? 'text-green-700' :
-                      result.organPerfusion.risk === 'Moderado' ? 'text-yellow-700' :
-                        result.organPerfusion.risk === 'Alto' ? 'text-orange-700' :
-                          'text-red-700'
+                    <div className={`text-lg font-bold mb-1 ${result.organPerfusion.risk === 'Bajo' ? 'text-green-700 dark:text-green-300' :
+                      result.organPerfusion.risk === 'Moderado' ? 'text-yellow-700 dark:text-yellow-300' :
+                        result.organPerfusion.risk === 'Alto' ? 'text-orange-700 dark:text-orange-300' :
+                          'text-red-700 dark:text-red-300'
                       }`}>
                       {result.organPerfusion.status}
                     </div>
-                    <p className="text-sm text-gray-700 mb-2">
+                    <p className="text-sm text-muted-foreground mb-2">
                       {result.organPerfusion.description}
                     </p>
-                    <div className={`text-xs font-semibold inline-block px-2 py-1 rounded ${result.organPerfusion.risk === 'Bajo' ? 'bg-green-200 text-green-800' :
-                      result.organPerfusion.risk === 'Moderado' ? 'bg-yellow-200 text-yellow-800' :
-                        result.organPerfusion.risk === 'Alto' ? 'bg-orange-200 text-orange-800' :
-                          'bg-red-200 text-red-800'
+                    <div className={`text-xs font-semibold inline-block px-2 py-1 rounded ${result.organPerfusion.risk === 'Bajo' ? 'bg-green-200 text-green-800 dark:text-green-200' :
+                      result.organPerfusion.risk === 'Moderado' ? 'bg-yellow-200 text-yellow-800 dark:text-yellow-200' :
+                        result.organPerfusion.risk === 'Alto' ? 'bg-orange-200 text-orange-800 dark:text-orange-200' :
+                          'bg-red-200 text-red-800 dark:text-red-200'
                       }`}>
                       Riesgo: {result.organPerfusion.risk}
                     </div>
@@ -279,7 +279,7 @@ export default function PresionArterialMediaPage() {
                 {/* Recomendaciones */}
                 <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
                       <Info className="w-4 h-4 mr-2" />
                       Recomendaciones
                     </CardTitle>
@@ -287,8 +287,8 @@ export default function PresionArterialMediaPage() {
                   <CardContent>
                     <ul className="space-y-2">
                       {result.recommendations.map((rec, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
-                          <span className="text-blue-600 mr-2">•</span>
+                        <li key={index} className="flex items-start text-sm text-muted-foreground">
+                          <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                           <span>{rec}</span>
                         </li>
                       ))}
@@ -305,13 +305,13 @@ export default function PresionArterialMediaPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-lg font-bold text-purple-700 mb-2">
+                    <div className="text-lg font-bold text-purple-700 dark:text-purple-300 mb-2">
                       {result.monitoring.frequency}
                     </div>
                     <ul className="space-y-1">
                       {result.monitoring.actions.map((action, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
-                          <span className="text-purple-600 mr-2">•</span>
+                        <li key={index} className="flex items-start text-sm text-muted-foreground">
+                          <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
                           <span>{action}</span>
                         </li>
                       ))}
@@ -331,8 +331,8 @@ export default function PresionArterialMediaPage() {
                     <CardContent>
                       <ul className="space-y-1">
                         {result.riskFactors.map((risk, index) => (
-                          <li key={index} className="flex items-start text-sm text-gray-700">
-                            <span className="text-red-600 mr-2">•</span>
+                          <li key={index} className="flex items-start text-sm text-muted-foreground">
+                            <span className="text-red-600 dark:text-red-400 mr-2">•</span>
                             <span>{risk}</span>
                           </li>
                         ))}
@@ -344,16 +344,16 @@ export default function PresionArterialMediaPage() {
                 {/* Interpretación Clínica */}
                 <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-400">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-gray-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Stethoscope className="w-4 h-4 mr-2" />
                       Interpretación Clínica
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-700 mb-2">
+                    <p className="text-sm text-muted-foreground mb-2">
                       {result.clinicalSignificance}
                     </p>
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-muted-foreground">
                       {result.clinicalInterpretation}
                     </p>
                   </CardContent>
@@ -378,14 +378,14 @@ export default function PresionArterialMediaPage() {
             <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <HeartPulse className="w-5 h-5 mr-3 text-red-600" />
+                  <HeartPulse className="w-5 h-5 mr-3 text-red-600 dark:text-red-400" />
                   Fórmula de Cálculo
                 </h3>
-                <div className="bg-blue-50 p-4 rounded-lg mb-3">
-                  <p className="text-sm font-mono text-blue-900 mb-2">
+                <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg mb-3">
+                  <p className="text-sm font-mono text-blue-900 dark:text-blue-100 mb-2">
                     MAP = DBP + (1/3)(SBP - DBP)
                   </p>
-                  <p className="text-sm font-mono text-blue-900">
+                  <p className="text-sm font-mono text-blue-900 dark:text-blue-100">
                     MAP = (2 × DBP + SBP) / 3
                   </p>
                 </div>
@@ -398,25 +398,25 @@ export default function PresionArterialMediaPage() {
 
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <CheckCircle className="w-5 h-5 mr-3 text-green-600" />
+                  <CheckCircle className="w-5 h-5 mr-3 text-green-600 dark:text-green-400" />
                   Rango Normal
                 </h3>
                 <div className="space-golden-sm">
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <p className="text-lg font-bold text-green-700 mb-1">70-100 mmHg</p>
-                    <p className="text-sm text-green-600">Rango normal para perfusión adecuada de órganos</p>
+                  <div className="bg-green-50 dark:bg-green-950/30 p-4 rounded-lg">
+                    <p className="text-lg font-bold text-green-700 dark:text-green-300 mb-1">70-100 mmHg</p>
+                    <p className="text-sm text-green-600 dark:text-green-400">Rango normal para perfusión adecuada de órganos</p>
                   </div>
                   <ul className="text-sm text-muted-foreground space-y-1">
                     <li className="flex items-start">
-                      <span className="text-red-600 mr-2">•</span>
+                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
                       <span><strong>&lt;70 mmHg:</strong> Hipotensión - Perfusión comprometida</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
+                      <span className="text-green-600 dark:text-green-400 mr-2">•</span>
                       <span><strong>70-100 mmHg:</strong> Normal - Perfusión óptima</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-600 mr-2">•</span>
+                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                       <span><strong>&gt;100 mmHg:</strong> Hipertensión - Riesgo cardiovascular</span>
                     </li>
                   </ul>
@@ -424,49 +424,49 @@ export default function PresionArterialMediaPage() {
               </article>
             </section>
 
-            <section className="bg-blue-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
+              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
                 <Stethoscope className="w-5 h-5 mr-3" />
                 Importancia Clínica de la MAP
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                     <HeartPulse className="w-4 h-4 mr-2" />
                     Perfusión de Órganos
                   </h4>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-muted-foreground">
                     La MAP es el principal determinante del flujo sanguíneo a órganos vitales.
                     Un MAP adecuado (70-100 mmHg) asegura que el cerebro, corazón y riñones
                     reciban suficiente oxígeno y nutrientes.
                   </p>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                     <AlertTriangle className="w-4 h-4 mr-2" />
                     Evaluación de Shock
                   </h4>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-muted-foreground">
                     En situaciones de emergencia, un MAP &lt;65 mmHg se considera indicador de shock
                     y requiere intervención inmediata para restaurar la perfusión de órganos.
                   </p>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                     <Activity className="w-4 h-4 mr-2" />
                     Monitoreo Continuo
                   </h4>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-muted-foreground">
                     En unidades de cuidados intensivos, la MAP se monitorea continuamente para
                     evaluar la respuesta al tratamiento y prevenir daño orgánico.
                   </p>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 flex items-center">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
                     <Info className="w-4 h-4 mr-2" />
                     Riesgo Cardiovascular
                   </h4>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-muted-foreground">
                     Un MAP elevado (&gt;100 mmHg) aumenta el riesgo de enfermedad cardiovascular,
                     accidente cerebrovascular y daño a órganos diana a largo plazo.
                   </p>
@@ -476,7 +476,7 @@ export default function PresionArterialMediaPage() {
 
             <section className="card-golden-lg mb-[2.618rem]">
               <h3 className="text-2xl font-semibold mb-[1.618rem] flex items-center">
-                <AlertTriangle className="w-6 h-6 mr-3 text-orange-600" />
+                <AlertTriangle className="w-6 h-6 mr-3 text-orange-600 dark:text-orange-400" />
                 Categorías de Presión Arterial (AHA/ACC 2017)
               </h3>
               <div className="overflow-x-auto">
@@ -490,32 +490,32 @@ export default function PresionArterialMediaPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-gray-200 bg-green-50">
-                      <td className="p-3 font-semibold text-green-700">Normal</td>
+                    <tr className="border-b border-gray-200 bg-green-50 dark:bg-green-950/30">
+                      <td className="p-3 font-semibold text-green-700 dark:text-green-300">Normal</td>
                       <td className="p-3">&lt;120</td>
                       <td className="p-3">&lt;80</td>
                       <td className="p-3">70-93</td>
                     </tr>
-                    <tr className="border-b border-gray-200 bg-yellow-50">
-                      <td className="p-3 font-semibold text-yellow-700">Elevada</td>
+                    <tr className="border-b border-gray-200 bg-yellow-50 dark:bg-yellow-950/30">
+                      <td className="p-3 font-semibold text-yellow-700 dark:text-yellow-300">Elevada</td>
                       <td className="p-3">120-129</td>
                       <td className="p-3">&lt;80</td>
                       <td className="p-3">93-97</td>
                     </tr>
-                    <tr className="border-b border-gray-200 bg-orange-50">
-                      <td className="p-3 font-semibold text-orange-700">Hipertensión Estadio 1</td>
+                    <tr className="border-b border-gray-200 bg-orange-50 dark:bg-orange-950/30">
+                      <td className="p-3 font-semibold text-orange-700 dark:text-orange-300">Hipertensión Estadio 1</td>
                       <td className="p-3">130-139</td>
                       <td className="p-3">80-89</td>
                       <td className="p-3">97-106</td>
                     </tr>
-                    <tr className="border-b border-gray-200 bg-red-50">
-                      <td className="p-3 font-semibold text-red-700">Hipertensión Estadio 2</td>
+                    <tr className="border-b border-gray-200 bg-red-50 dark:bg-red-950/30">
+                      <td className="p-3 font-semibold text-red-700 dark:text-red-300">Hipertensión Estadio 2</td>
                       <td className="p-3">≥140</td>
                       <td className="p-3">≥90</td>
                       <td className="p-3">≥107</td>
                     </tr>
                     <tr className="bg-red-100">
-                      <td className="p-3 font-semibold text-red-800">Crisis Hipertensiva</td>
+                      <td className="p-3 font-semibold text-red-800 dark:text-red-200">Crisis Hipertensiva</td>
                       <td className="p-3">&gt;180</td>
                       <td className="p-3">&gt;120</td>
                       <td className="p-3">&gt;140</td>
@@ -526,37 +526,37 @@ export default function PresionArterialMediaPage() {
             </section>
 
             <section className="bg-gradient-to-r from-blue-50 to-cyan-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 mb-[1.618rem] text-xl">
+              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl">
                 Preguntas Frecuentes (FAQ)
               </h3>
               <div className="space-golden-md">
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-semibold mb-2 text-blue-800">¿Por qué es importante la MAP?</h4>
-                  <p className="text-sm text-gray-700">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-semibold mb-2 text-blue-800 dark:text-blue-200">¿Por qué es importante la MAP?</h4>
+                  <p className="text-sm text-muted-foreground">
                     La MAP es crucial porque representa la presión promedio que impulsa la sangre a través
                     del sistema circulatorio. Un MAP adecuado asegura que los órganos vitales reciban
                     suficiente flujo sanguíneo y oxígeno.
                   </p>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-semibold mb-2 text-blue-800">¿Cuál es la diferencia entre MAP y presión arterial normal?</h4>
-                  <p className="text-sm text-gray-700">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-semibold mb-2 text-blue-800 dark:text-blue-200">¿Cuál es la diferencia entre MAP y presión arterial normal?</h4>
+                  <p className="text-sm text-muted-foreground">
                     La presión arterial normal (SBP/DBP) muestra los valores máximos y mínimos durante
                     el ciclo cardíaco. La MAP calcula el promedio, que es más útil para evaluar la
                     perfusión de órganos y el riesgo cardiovascular a largo plazo.
                   </p>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-semibold mb-2 text-blue-800">¿Qué significa un MAP bajo?</h4>
-                  <p className="text-sm text-gray-700">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-semibold mb-2 text-blue-800 dark:text-blue-200">¿Qué significa un MAP bajo?</h4>
+                  <p className="text-sm text-muted-foreground">
                     Un MAP &lt;70 mmHg indica hipotensión y puede comprometer la perfusión de órganos,
                     especialmente el cerebro y los riñones. Puede causar síntomas como mareos, fatiga,
                     confusión y, en casos severos, shock.
                   </p>
                 </article>
-                <article className="card-golden bg-white/50">
-                  <h4 className="font-semibold mb-2 text-blue-800">¿Cómo puedo mejorar mi MAP?</h4>
-                  <p className="text-sm text-gray-700">
+                <article className="card-golden bg-card/50">
+                  <h4 className="font-semibold mb-2 text-blue-800 dark:text-blue-200">¿Cómo puedo mejorar mi MAP?</h4>
+                  <p className="text-sm text-muted-foreground">
                     Para un MAP elevado: dieta baja en sodio (DASH), ejercicio regular, mantener peso
                     saludable, limitar alcohol, gestionar estrés y tomar medicación según prescripción médica.
                     Para un MAP bajo: consultar con médico para identificar la causa subyacente.

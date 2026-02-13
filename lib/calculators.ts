@@ -352,6 +352,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'medium',
     category: 'nutrition',
     relatedCalculators: ['home', 'tdee', 'fibra', 'proteina']
+  },
+  {
+    key: 'sodio',
+    title: 'Sodio / Sal (Límite OMS)',
+    href: '/sodio',
+    description: 'Límite de sodio y sal según OMS (<2 g sodio / <5 g sal). Incluye recomendación estricta para HTA.',
+    icon: AlertTriangle,
+    priority: 'medium',
+    category: 'nutrition',
+    relatedCalculators: ['home', 'azucar', 'fibra', 'agua']
   }
 ];
 

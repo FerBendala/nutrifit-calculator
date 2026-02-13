@@ -309,6 +309,59 @@ export function analyzeSugarLimit(dailyCalories: number): SugarResult {
   };
 }
 
+// ============ Sodio (recomendaciones OMS) ============
+
+export interface SodiumResult {
+  maxSodiumMg: number;
+  maxSaltGrams: number;
+  strictSodiumMg: number;
+  strictSaltGrams: number;
+  interpretation: string;
+  tips: string[];
+}
+
+/** OMS: <2 g sodio/día (adultos). Sal = ~40% sodio → 2 g sodio ≈ 5 g sal. Estricto (HTA): 1.5 g sodio ≈ 3.75 g sal. */
+const SODIUM_TO_SALT_RATIO = 0.4; // 1 g sal ≈ 0.4 g sodio
+
+/**
+ * Convierte sodio (g) a sal equivalente (g).
+ */
+export function sodiumToSaltGrams(sodiumGrams: number): number {
+  if (sodiumGrams <= 0) return 0;
+  return Math.round((sodiumGrams / SODIUM_TO_SALT_RATIO) * 100) / 100;
+}
+
+/**
+ * Analiza límite de sodio según OMS. Incluye límite general y estricto (ej. hipertensión).
+ */
+export function analyzeSodiumLimit(): SodiumResult {
+  const maxSodiumG = 2;   // OMS: <2 g/día
+  const strictSodiumG = 1.5; // Recomendación más estricta (ej. HTA)
+  const maxSodiumMg = maxSodiumG * 1000;
+  const maxSaltGrams = sodiumToSaltGrams(maxSodiumG);
+  const strictSodiumMg = strictSodiumG * 1000;
+  const strictSaltGrams = sodiumToSaltGrams(strictSodiumG);
+
+  const interpretation = `La OMS recomienda para adultos menos de ${maxSodiumMg} mg de sodio al día (menos de ${maxSaltGrams} g de sal). Para personas con hipertensión o indicación médica se suele recomendar un límite más estricto: menos de ${strictSodiumMg} mg de sodio (menos de ${strictSaltGrams} g de sal) al día.`;
+
+  const tips: string[] = [
+    'La mayor parte del sodio suele venir de alimentos procesados y sal de mesa; revisa etiquetas ("sodio", "sodium").',
+    'Cocina con menos sal y usa especias, ajo, limón o hierbas para dar sabor.',
+    'Lava en agua las conservas (legumbres, aceitunas) para reducir sodio.',
+    'Compara por 100 g en el etiquetado: "alto en sodio" suele ser más de 0,6 g por 100 g.',
+    'Evita añadir sal en la mesa y limita snacks salados, embutidos y salsas comerciales.'
+  ];
+
+  return {
+    maxSodiumMg,
+    maxSaltGrams,
+    strictSodiumMg,
+    strictSaltGrams,
+    interpretation,
+    tips
+  };
+}
+
 /**
  * Calculate body fat percentage using Navy Method
  */

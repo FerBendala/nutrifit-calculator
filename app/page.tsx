@@ -472,6 +472,10 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/sodio" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Sodio/Sal (OMS):</a></strong> Límite de sodio y sal (&lt;2 g sodio / &lt;5 g sal), incl. recomendación para HTA</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                   <span><strong><a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de 1RM:</a></strong> Fuerza máxima con 5 fórmulas científicas para atletas</span>
                 </li>
               </ul>

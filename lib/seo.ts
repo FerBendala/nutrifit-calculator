@@ -218,6 +218,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Límite máximo de azúcares libres según tus calorías diarias. Recomendaciones OMS: menos del 10% y menos del 5% de la energía. Para una dieta saludable.',
     keywords: ['calculadora azúcar', 'azúcares libres', 'límite azúcar', 'OMS', 'azúcar diaria', 'recomendaciones OMS', 'nutrición', 'dieta saludable'],
     path: '/azucar'
+  },
+  sodio: {
+    title: 'Calculadora de Sodio y Sal | Límite OMS | Hipertensión',
+    description: 'Límite de sodio y sal según OMS: menos de 2 g sodio (5 g sal) al día. Incluye recomendación estricta para hipertensión. Nutrición y salud cardiovascular.',
+    keywords: ['calculadora sodio', 'límite sal', 'sodio diario', 'OMS', 'hipertensión', 'reducir sal', 'nutrición', 'salud cardiovascular'],
+    path: '/sodio'
   }
 };
 

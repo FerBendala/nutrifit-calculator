@@ -283,6 +283,9 @@ export default function FibraPage() {
                 <strong><a href="/azucar" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según calorías (&lt;10% y &lt;5%)
               </li>
               <li>
+                <strong><a href="/sodio" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Sodio/Sal (OMS):</a></strong> Límite de sodio y sal, incl. recomendación para HTA
+              </li>
+              <li>
                 <strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Proteína diaria:</a></strong> Necesidades según objetivo y actividad
               </li>
               <li>

@@ -1,4 +1,5 @@
 import { CalculatorConfig, CALCULATORS } from './calculators';
+import { getCanonicalUrl } from './seo';
 
 export interface SchemaMarkup {
   '@context': string;
@@ -11,94 +12,53 @@ export function generateWebApplicationSchema(): SchemaMarkup {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
+    '@id': 'https://nutrifit-calculator.com/#webapp',
     name: 'NutriFit Calculator - Calculadoras Fit GRATIS',
     description: 'Calculadoras fit gratuitas de calorías, macros, IMC y más. Herramientas profesionales para tu nutrición y fitness.',
     url: 'https://nutrifit-calculator.com/',
     applicationCategory: 'HealthApplication',
     operatingSystem: 'Web Browser',
     isAccessibleForFree: true,
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
     offers: {
       '@type': 'Offer',
       price: '0',
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock'
-    },
-    author: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com/'
+      priceCurrency: 'EUR'
     },
     publisher: {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
       url: 'https://nutrifit-calculator.com/'
     },
-    featureList: CALCULATORS.map(calc => calc.title),
-    screenshot: 'https://nutrifit-calculator.com/api/og',
-    softwareVersion: '1.0',
-    datePublished: '2024-08-01',
-    dateModified: new Date().toISOString().split('T')[0],
-    inLanguage: 'es-ES',
-    audience: {
-      '@type': 'Audience',
-      audienceType: 'Fitness enthusiasts, nutritionists, athletes, health-conscious individuals'
-    }
+    inLanguage: 'es-ES'
   };
 }
 
 // Schema para calculadoras individuales
 export function generateCalculatorSchema(calculator: CalculatorConfig): SchemaMarkup {
-  const baseUrl = 'https://nutrifit-calculator.com/';
+  const canonicalUrl = getCanonicalUrl(calculator.href);
 
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
+    '@id': `${canonicalUrl}#app`,
     name: `${calculator.title} - NutriFit Calculator`,
     description: calculator.description,
-    url: `${baseUrl}${calculator.href}`,
+    url: canonicalUrl,
+    mainEntityOfPage: canonicalUrl,
     applicationCategory: 'HealthApplication',
     operatingSystem: 'Web Browser',
     isAccessibleForFree: true,
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
     offers: {
       '@type': 'Offer',
       price: '0',
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock'
-    },
-    author: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: baseUrl
+      priceCurrency: 'EUR'
     },
     publisher: {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
-      url: baseUrl
+      url: 'https://nutrifit-calculator.com/'
     },
-    featureList: [
-      'Cálculo instantáneo',
-      'Fórmulas científicas validadas',
-      'Interfaz intuitiva',
-      'Resultados precisos',
-      'Gratis y sin registro'
-    ],
-    screenshot: `${baseUrl}/api/og?title=${encodeURIComponent(calculator.title)}`,
-    softwareVersion: '1.0',
-    datePublished: '2024-08-01',
-    dateModified: new Date().toISOString().split('T')[0],
-    inLanguage: 'es-ES',
-    audience: {
-      '@type': 'Audience',
-      audienceType: 'Fitness enthusiasts, nutritionists, athletes, health-conscious individuals'
-    },
-    keywords: calculator.title.toLowerCase().replace(/[^a-z0-9\s]/g, '').split(' ').join(', '),
-    mainEntity: {
-      '@type': 'Thing',
-      name: calculator.title,
-      description: calculator.description
-    }
+    inLanguage: 'es-ES'
   };
 }
 
@@ -107,11 +67,13 @@ export function generateCalculatorSchema(calculator: CalculatorConfig): SchemaMa
 // Solo usar HowTo si se agregan pasos detallados y específicos para cada calculadora.
 // Los pasos actuales son descripciones obvias que no aportan valor SEO adicional.
 export function generateHowToSchema(calculator: CalculatorConfig): SchemaMarkup {
+  const canonicalUrl = getCanonicalUrl(calculator.href);
   const steps = getCalculatorSteps(calculator.key);
 
   return {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
+    '@id': `${canonicalUrl}#howto`,
     name: `Cómo usar la ${calculator.title}`,
     description: `Guía paso a paso para usar la ${calculator.title} de forma efectiva`,
     image: `https://nutrifit-calculator.com/api/og?title=${encodeURIComponent(calculator.title)}`,
@@ -259,15 +221,11 @@ export function generateWebsiteSchema(): SchemaMarkup {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': 'https://nutrifit-calculator.com/#website',
     name: 'NutriFit Calculator',
     description: 'Calculadoras fit gratuitas de calorías, macros, IMC y más. Herramientas profesionales para tu nutrición y fitness.',
     url: 'https://nutrifit-calculator.com/',
     inLanguage: 'es-ES',
-    author: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com/'
-    },
     publisher: {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
@@ -280,18 +238,6 @@ export function generateWebsiteSchema(): SchemaMarkup {
         urlTemplate: 'https://nutrifit-calculator.com/?q={search_term_string}'
       },
       'query-input': 'required name=search_term_string'
-    },
-    mainEntity: {
-      '@type': 'ItemList',
-      name: 'Calculadoras de Fitness',
-      description: 'Lista de calculadoras gratuitas para fitness y nutrición',
-      numberOfItems: CALCULATORS.length,
-      itemListElement: CALCULATORS.map((calc, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: calc.title,
-        url: `https://nutrifit-calculator.com/${calc.href}`
-      }))
     }
   };
 }
@@ -319,16 +265,12 @@ export function generateCalculatorSchemaByKey(calculatorKey: string): SchemaMark
 }
 
 // Función que genera Schema para todas las calculadoras automáticamente
+// NOTA: Función legacy / NO USAR en producción para markup por página.
+// Esta función contradice la estrategia actual (sin HowTo, sin WebApp/WebSite en todas).
+// Si se necesita en el futuro, debe respetar la estrategia actual.
 export function generateAllCalculatorsSchema(): SchemaMarkup[] {
-  const schemas = [generateWebApplicationSchema(), generateWebsiteSchema()];
-
-  // Añadir Schema para cada calculadora
-  CALCULATORS.forEach(calculator => {
-    schemas.push(generateCalculatorSchema(calculator));
-    schemas.push(generateHowToSchema(calculator));
-  });
-
-  return schemas;
+  console.warn('generateAllCalculatorsSchema() es legacy y no debe usarse para markup por página');
+  return [];
 }
 
 // FAQs por calculadora para rich snippets
@@ -439,9 +381,17 @@ export function generateFAQSchema(calculatorKey: string): SchemaMarkup | null {
     return null;
   }
 
+  // Construir URL canónica según si es home o calculadora
+  const calculator = CALCULATORS.find(calc => calc.key === calculatorKey);
+  const canonicalUrl = calculator 
+    ? getCanonicalUrl(calculator.href)
+    : 'https://nutrifit-calculator.com/';
+
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    '@id': `${canonicalUrl}#faq`,
+    mainEntityOfPage: canonicalUrl,
     mainEntity: faqs.map(faq => ({
       '@type': 'Question',
       name: faq.question,

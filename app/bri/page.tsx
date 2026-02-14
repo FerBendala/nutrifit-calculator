@@ -76,11 +76,11 @@ export default function BRIPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de BRI Médica
+              Calculadora BRI (Índice de Redondez Corporal)
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de BRI (Body Roundness Index) según fórmula Thomas et al. (2013).
-              Predice riesgo metabólico y cardiovascular basándose en la forma corporal.
+              Calculadora de BRI (Body Roundness Index) según fórmula Thomas et al. (2013).
+              Predice riesgo metabólico y cardiovascular basándose en la forma corporal. Evaluación de síndrome metabólico y diabetes tipo 2.
             </p>
           </header>
 

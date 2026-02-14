@@ -68,10 +68,11 @@ export default function EGFRPage() {
 
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de eGFR Médica
+              Calculadora eGFR (Filtrado Glomerular)
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Estimación de función renal con fórmulas CKD-EPI y MDRD. Estadificación de enfermedad renal crónica (ERC) y Cockcroft-Gault para ajuste de dosis. Para profesionales de la salud.
+              Calculadora médica de filtrado glomerular estimado (eGFR) con fórmulas CKD-EPI, MDRD y Cockcroft-Gault.
+              Estadificación de enfermedad renal crónica (ERC) y ajuste de dosis de medicamentos. Para profesionales de la salud.
             </p>
           </header>
 

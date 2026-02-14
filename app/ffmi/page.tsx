@@ -154,12 +154,11 @@ export default function FFMIPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de FFMI Médica
+              Calculadora FFMI (Índice de Masa Libre de Grasa)
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
-              Calculadora profesional del Índice de Masa Libre de Grasa según fórmula Katch-McArdle.
-              Evalúa tu desarrollo muscular independiente de la grasa corporal.
-              Ideal para atletas, fisicoculturistas y seguimiento preciso de hipertrofia.
+              Calcula tu FFMI (Índice de Masa Libre de Grasa) para evaluar tu desarrollo muscular independientemente de tu grasa corporal.
+              Descubre tu potencial genético y compara tu masa muscular con atletas naturales. Ideal para fisicoculturismo.
             </p>
           </header>
 

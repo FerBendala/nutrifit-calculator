@@ -60,11 +60,11 @@ export default function PesoAjustadoPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora Peso Ajustado Clínico ABW
+              Calculadora de Peso Ajustado (ABW)
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de Peso Ajustado (ABW) según fórmula Robinson.
-              Herramienta clínica esencial para dosificación de medicamentos y necesidades nutricionales.
+              Calcula tu peso ajustado según la fórmula Robinson utilizada en nutrición clínica.
+              Esencial para estimar necesidades energéticas y proteicas en personas con obesidad o bajo peso.
             </p>
           </header>
 

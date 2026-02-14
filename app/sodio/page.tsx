@@ -31,10 +31,11 @@ export default function SodioPage() {
 
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Límite de Sodio y Sal
+              Calculadora de Sodio y Sal
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Límite de sodio y sal según OMS: menos de 2 g de sodio (5 g de sal) al día. Incluye recomendación estricta para hipertensión.
+              Conoce el límite de sodio y sal según la OMS: menos de 2 g de sodio (5 g de sal) al día.
+              Incluye recomendaciones especiales para hipertensión. Cuida tu salud cardiovascular.
             </p>
           </header>
 

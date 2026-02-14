@@ -81,11 +81,11 @@ export default function RitmoCardiacoPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Ritmo Cardíaco Médica
+              Calculadora de Frecuencia Cardíaca
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de frecuencia cardíaca con fórmulas médicas validadas.
-              Zonas de entrenamiento precisas para deportistas y profesionales de la salud.
+              Calcula tu frecuencia cardíaca máxima y zonas de entrenamiento personalizadas.
+              Descubre tus zonas de quema de grasa, cardio y anaeróbica según tu edad.
             </p>
           </header>
 

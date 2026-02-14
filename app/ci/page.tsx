@@ -76,11 +76,11 @@ export default function CIPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de CI Médica
+              Calculadora CI (Índice de Conicidad)
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de CI (Conicity Index) según fórmula Valdez (1991).
-              Evalúa distribución de grasa abdominal y predice riesgo cardiovascular y metabólico.
+              Calculadora de CI (Conicity Index) según fórmula Valdez (1991).
+              Evalúa distribución de grasa abdominal y predice riesgo cardiovascular y metabólico. Herramienta epidemiológica validada.
             </p>
           </header>
 

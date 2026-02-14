@@ -120,11 +120,11 @@ export default function DensidadOseaPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Densidad Ósea Médica
+              Calculadora de Densidad Ósea (BMD)
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora médica profesional de densidad mineral ósea para evaluación de osteoporosis
-              según criterios WHO. Calcula T-Score y Z-Score para evaluar riesgo de fracturas.
+              Calculadora médica de densidad mineral ósea (BMD) para evaluación de osteoporosis según criterios WHO.
+              Calcula T-Score y Z-Score. Evalúa riesgo de fracturas. Para profesionales de la salud.
             </p>
           </header>
 

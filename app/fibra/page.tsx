@@ -53,10 +53,11 @@ export default function FibraPage() {
 
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Fibra Diaria Médica
+              Calculadora de Fibra Diaria
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Necesidades de fibra dietética según edad, sexo y calorías. Recomendaciones IOM/FDA (14 g por 1000 kcal) para una dieta saludable.
+              Calcula cuánta fibra dietética necesitas al día según tu edad, sexo y calorías.
+              Recomendaciones IOM/FDA (14 g por 1000 kcal). Mejora tu salud digestiva con la cantidad correcta de fibra.
             </p>
           </header>
 

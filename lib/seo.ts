@@ -8,221 +8,221 @@ export interface PageMetadata {
 }
 
 export const SITE_CONFIG = {
-  name: 'NutriFit Calculator - Herramientas Médicas Profesionales',
-  description: 'Calculadoras médicas profesionales de nutrición y fitness. Fórmulas científicas validadas utilizadas por nutricionistas y médicos. Precisión profesional garantizada.',
+  name: 'NutriFit Calculator - Calculadoras de Nutrición y Fitness',
+  description: 'Calculadoras de nutrición y fitness con fórmulas científicas validadas. Calcula calorías, macros, grasa corporal, peso ideal y más. Resultados precisos y gratuitos.',
   url: 'https://nutrifit-calculator.com',
   ogImage: '/api/og',
 };
 
 export const PAGE_METADATA: Record<string, PageMetadata> = {
   home: {
-    title: 'Calculadora Profesional de Calorías y Macros | Científicamente Validada',
-    description: 'Calculadora médica profesional de calorías y macronutrientes. Fórmula Mifflin-St Jeor validada científicamente. Resultados precisos para perder grasa, mantener peso o ganar músculo. 100% Gratuita.',
-    keywords: ['calculadora fit', 'calculadora calorías', 'calculadora de macros', 'macronutrientes', 'perder grasa', 'mantener peso', 'ganar músculo', 'peso corporal', 'ejercicio', 'calculadora fitness'],
+    title: 'Calculadora de Calorías y Macros Gratis - Resultados en Segundos',
+    description: 'Calcula tus calorías y macros diarios según tu objetivo: perder grasa, mantener peso o ganar músculo. Fórmula Mifflin-St Jeor validada científicamente. Resultados precisos en segundos. 100% gratuita.',
+    keywords: ['calculadora calorías', 'calculadora macros', 'calcular calorías', 'macronutrientes', 'perder grasa', 'perder peso', 'ganar músculo', 'dieta', 'nutrición', 'calculadora fitness'],
     path: '/'
   },
   imc: {
-    title: 'Calculadora IMC Profesional | Estándares Médicos OMS | Precisión Científica',
-    description: 'Calculadora médica de IMC con estándares oficiales de la OMS. Resultados precisos y categorización profesional de peso corporal. Utilizada por nutricionistas y médicos. Gratuita y confiable.',
-    keywords: ['calculadora IMC', 'calculadora fit', 'índice masa corporal', 'peso ideal', 'peso corporal', 'calculadora peso', 'obesidad', 'calculadora fitness'],
+    title: 'Calculadora de IMC - Calcula tu Índice de Masa Corporal',
+    description: 'Calcula tu IMC (Índice de Masa Corporal) al instante. Descubre si tu peso es normal, bajo peso, sobrepeso u obesidad según los estándares de la OMS. Resultados precisos con interpretación clara.',
+    keywords: ['calculadora IMC', 'calcular IMC', 'índice masa corporal', 'peso ideal', 'calcular peso', 'IMC OMS', 'sobrepeso', 'obesidad', 'peso saludable'],
     path: '/imc/'
   },
   tdee: {
-    title: 'Calculadora TDEE Médica | Gasto Calórico Preciso | Fórmula Científica',
-    description: 'Calculadora profesional de TDEE con fórmula Mifflin-St Jeor validada. Gasto calórico diario exacto para nutricionistas y deportistas. Resultados precisos para objetivos específicos.',
-    keywords: ['calculadora TDEE', 'calculadora fit', 'gasto calórico', 'peso corporal', 'ejercicio físico', 'perder grasa', 'mantener peso', 'calculadora fitness'],
+    title: 'Calculadora TDEE - Cuántas Calorías Necesitas al Día',
+    description: 'Calcula tu gasto calórico diario (TDEE) según tu edad, peso y actividad física. Descubre cuántas calorías necesitas para mantener, perder o ganar peso. Usa la fórmula Mifflin-St Jeor validada científicamente.',
+    keywords: ['calculadora TDEE', 'cuántas calorías necesito', 'gasto calórico diario', 'calcular calorías', 'calorías mantenimiento', 'TDEE calculadora', 'metabolismo', 'perder peso', 'calorías diarias'],
     path: '/tdee/'
   },
   proteina: {
-    title: 'Calculadora de Proteína Médica | Necesidades Científicas | Precisión Profesional',
-    description: 'Calculadora profesional de proteína basada en estudios científicos. Necesidades exactas para deportistas, nutricionistas y objetivos específicos. Fórmulas validadas por la comunidad médica.',
-    keywords: ['calculadora proteína', 'calculadora fit', 'proteína diaria', 'peso corporal', 'ganar músculo', 'ejercicio', 'masa muscular', 'calculadora fitness'],
+    title: 'Calculadora de Proteína Diaria - Cuánta Necesitas',
+    description: 'Calcula cuánta proteína necesitas al día según tu peso, actividad física y objetivo (ganar músculo, perder grasa o mantener). Recomendaciones basadas en estudios científicos. Resultados personalizados al instante.',
+    keywords: ['calculadora proteína', 'cuánta proteína necesito', 'proteína diaria', 'calcular proteína', 'proteína para ganar músculo', 'gramos proteína día', 'proteína peso'],
     path: '/proteina/'
   },
   agua: {
-    title: 'Calculadora de Hidratación Médica | Necesidades Científicas | Precisión Profesional',
-    description: 'Calculadora profesional de hidratación basada en estudios médicos. Necesidades exactas de agua según peso, actividad y condiciones ambientales. Utilizada por deportistas y profesionales de la salud.',
-    keywords: ['calculadora agua', 'agua diaria', 'peso corporal', 'ejercicio', 'hidratación', 'agua ejercicio'],
+    title: 'Calculadora de Agua Diaria - Cuántos Litros Necesitas',
+    description: 'Calcula cuánta agua debes beber al día según tu peso, actividad física y condiciones ambientales. Mantente bien hidratado con recomendaciones personalizadas basadas en estudios científicos.',
+    keywords: ['calculadora agua', 'cuánta agua beber', 'agua diaria', 'litros agua día', 'calcular hidratación', 'cuántos litros agua', 'hidratación diaria'],
     path: '/agua/'
   },
   composicion: {
-    title: 'Calculadora de Composición Corporal Médica | Método Navy Validado | Precisión Científica',
-    description: 'Calculadora profesional de composición corporal con método Navy validado científicamente. Porcentaje de grasa, masa magra y ratio cintura-cadera precisos. Utilizada por nutricionistas y médicos.',
-    keywords: ['calculadora grasa corporal', 'calculadora fit', 'composición corporal', 'masa magra', 'método navy', 'porcentaje grasa', 'medidas corporales', 'calculadora fitness'],
+    title: 'Calculadora de Composición Corporal - Grasa, Músculo y Más',
+    description: 'Calcula tu composición corporal completa con el método Navy validado científicamente. Obtén tu porcentaje de grasa, masa magra y ratio cintura-cadera usando solo medidas simples. Análisis completo de tu cuerpo.',
+    keywords: ['calculadora composición corporal', 'composición corporal', 'calcular composición corporal', 'método navy', 'porcentaje grasa', 'masa magra', 'medidas corporales'],
     path: '/composicion/'
   },
   'ritmo-cardiaco': {
-    title: 'Calculadora de Ritmo Cardíaco Médica | Zonas de Entrenamiento Científicas',
-    description: 'Calculadora profesional de frecuencia cardíaca con fórmulas médicas validadas. Zonas de entrenamiento precisas para deportistas y profesionales. Optimización cardiovascular basada en evidencia científica.',
-    keywords: ['calculadora ritmo cardíaco', 'frecuencia cardíaca máxima', 'zonas entrenamiento', 'quemar grasa', 'cardio', 'pulsaciones'],
+    title: 'Calculadora de Frecuencia Cardíaca - Zonas de Entrenamiento',
+    description: 'Calcula tu frecuencia cardíaca máxima y zonas de entrenamiento personalizadas. Descubre tus zonas de quema de grasa, cardio y anaeróbica según tu edad. Optimiza tu entrenamiento cardiovascular con datos precisos.',
+    keywords: ['calculadora frecuencia cardíaca', 'frecuencia cardíaca máxima', 'zonas de entrenamiento', 'pulsaciones máximas', 'zona quema grasa', 'ritmo cardíaco', 'FCM'],
     path: '/ritmo-cardiaco/'
   },
   'grasa-corporal': {
-    title: 'Calculadora de Grasa Corporal Médica | Métodos Científicos Validados | Precisión Profesional',
-    description: 'Calculadora profesional de grasa corporal con métodos Jackson-Pollock y Durnin-Womersley validados científicamente. Precisión de ±3-5% utilizada por nutricionistas y médicos deportivos.',
-    keywords: ['calculadora grasa corporal', 'calculadora fit', 'pliegues cutáneos', 'Jackson-Pollock', 'Durnin-Womersley', 'composición corporal', 'porcentaje grasa', 'calibrador', 'calculadora fitness'],
+    title: 'Calculadora de Grasa Corporal - Tu % Exacto con Métodos Científicos',
+    description: 'Calcula tu porcentaje de grasa corporal con métodos científicos utilizados por profesionales. Usa pliegues cutáneos (Jackson-Pollock y Durnin-Womersley) para obtener resultados precisos. Descubre tu composición corporal real.',
+    keywords: ['calculadora grasa corporal', 'calcular grasa corporal', 'porcentaje grasa corporal', 'pliegues cutáneos', 'composición corporal', 'cuánta grasa tengo', 'grasa corporal', 'medir grasa'],
     path: '/grasa-corporal/'
   },
   'peso-ideal': {
-    title: 'Calculadora de Peso Ideal Médica | 5 Fórmulas Científicas | Precisión Profesional',
-    description: 'Calculadora profesional de peso ideal con 5 fórmulas médicas validadas (Robinson, Miller, Devine, Hamwi, Peterson). Resultados precisos utilizados por nutricionistas y médicos. Análisis comparativo profesional.',
-    keywords: ['calculadora peso ideal', 'calculadora fit', 'peso ideal', 'fórmulas científicas', 'Robinson', 'Miller', 'Devine', 'Hamwi', 'Peterson', 'peso saludable', 'altura peso', 'calculadora fitness'],
+    title: 'Calculadora de Peso Ideal - 5 Fórmulas para Tu Altura',
+    description: 'Calcula tu peso ideal según tu altura con 5 fórmulas científicas diferentes (Robinson, Miller, Devine, Hamwi, Peterson). Compara resultados y descubre tu rango de peso saludable. Resultados personalizados al instante.',
+    keywords: ['calculadora peso ideal', 'peso ideal según altura', 'cuál es mi peso ideal', 'calcular peso ideal', 'peso saludable', 'peso según altura', 'IMC ideal'],
     path: '/peso-ideal/'
   },
   'masa-muscular': {
-    title: 'Calculadora de Masa Muscular Médica | Fórmula Lee Validada | Precisión Científica',
-    description: 'Calculadora profesional de masa muscular con fórmula de Lee (2000) validada científicamente. Índice de masa muscular preciso para deportistas y profesionales de la salud. Utilizada por nutricionistas deportivos.',
-    keywords: ['calculadora masa muscular', 'calculadora fit', 'masa muscular', 'índice masa muscular', 'composición corporal', 'desarrollo muscular', 'fórmula Lee', 'entrenamiento fuerza', 'músculo', 'calculadora fitness'],
+    title: 'Calculadora de Masa Muscular - Cuánto Músculo Tienes',
+    description: 'Calcula tu masa muscular total e índice de masa muscular con la fórmula de Lee validada científicamente. Descubre cuántos kilogramos de músculo tienes y evalúa tu desarrollo muscular. Ideal para seguir tu progreso en el gym.',
+    keywords: ['calculadora masa muscular', 'cuánta masa muscular tengo', 'calcular masa muscular', 'músculo total', 'índice masa muscular', 'desarrollo muscular', 'cuánto músculo tengo'],
     path: '/masa-muscular/'
   },
   bmr: {
-    title: 'Calculadora BMR Médica | Metabolismo Basal Científico | 3 Fórmulas Validadas',
-    description: 'Calculadora profesional de BMR (metabolismo basal) con fórmulas Mifflin-St Jeor, Harris-Benedict y Katch-McArdle validadas científicamente. Precisión médica para nutricionistas y profesionales de la salud.',
-    keywords: ['calculadora BMR', 'calculadora fit', 'metabolismo basal', 'BMR', 'calorías basal', 'Mifflin-St Jeor', 'Harris-Benedict', 'Katch-McArdle', 'metabolismo', 'calorías reposo', 'calculadora fitness'],
+    title: 'Calculadora de Metabolismo Basal (BMR) - Tu Gasto en Reposo',
+    description: 'Calcula tu metabolismo basal (BMR): las calorías que quemas en reposo absoluto. Usa 3 fórmulas científicas (Mifflin-St Jeor, Harris-Benedict, Katch-McArdle). Descubre cuánta energía necesita tu cuerpo para funcionar.',
+    keywords: ['calculadora BMR', 'metabolismo basal', 'calcular metabolismo', 'calorías en reposo', 'BMR calculadora', 'tasa metabólica basal', 'cuántas calorías quemo', 'metabolismo'],
     path: '/bmr/'
   },
   '1rm': {
-    title: 'Calculadora 1RM Científica | Una Repetición Máxima | 5 Fórmulas Validadas',
-    description: 'Calculadora profesional de 1RM con fórmulas Brzycki, Epley, Lander, O\'Conner y Lombardi validadas científicamente. Planifica entrenamientos de fuerza con precisión médica. Utilizada por atletas y entrenadores.',
-    keywords: ['calculadora 1RM', 'calculadora fit', 'una repetición máxima', '1RM', 'fuerza máxima', 'Brzycki', 'Epley', 'Lander', 'powerlifting', 'entrenamiento fuerza', 'repetición máxima', 'calculadora fitness'],
+    title: 'Calculadora 1RM - Tu Repetición Máxima con 5 Fórmulas',
+    description: 'Calcula tu 1RM (una repetición máxima) con 5 fórmulas científicas validadas. Descubre cuánto peso máximo puedes levantar en press banca, sentadilla o cualquier ejercicio. Planifica tu entrenamiento de fuerza de forma precisa.',
+    keywords: ['calculadora 1RM', '1RM calculadora', 'una repetición máxima', 'calcular 1RM', 'fuerza máxima', 'peso máximo', 'repetición máxima', 'calcular peso máximo'],
     path: '/1rm/'
   },
   whtr: {
-    title: 'Calculadora WHtR Médica | Ratio Cintura-Altura | Riesgo Cardiometabólico',
-    description: 'Calculadora profesional WHtR (Waist-to-Height Ratio) para evaluar riesgo cardiometabólico por distribución de grasa abdominal. Mejor predictor que el IMC para diabetes y síndrome metabólico. Validado científicamente.',
-    keywords: ['calculadora WHtR', 'calculadora fit', 'ratio cintura altura', 'WHtR', 'waist height ratio', 'riesgo cardiometabólico', 'grasa abdominal', 'síndrome metabólico', 'diabetes', 'obesidad central', 'calculadora médica'],
+    title: 'Calculadora WHtR - Ratio Cintura-Altura y Riesgo de Salud',
+    description: 'Calcula tu WHtR (Ratio Cintura-Altura) para evaluar tu riesgo de salud según tu grasa abdominal. Mejor predictor que el IMC para detectar riesgo de diabetes y síndrome metabólico. Solo necesitas cintura y altura.',
+    keywords: ['calculadora WHtR', 'WHtR calculadora', 'ratio cintura altura', 'calcular WHtR', 'grasa abdominal', 'riesgo salud', 'cintura altura'],
     path: '/whtr/'
   },
   vo2max: {
-    title: 'Calculadora VO2 Max | Capacidad Cardiovascular | Test de Cooper',
-    description: 'Calculadora profesional de VO2 Max con 4 métodos científicos (Cooper, Rockport, Astrand, Step Test). Evalúa tu capacidad cardiovascular, zonas de entrenamiento y nivel de fitness. Ideal para deportistas y salud cardíaca.',
-    keywords: ['calculadora VO2 Max', 'test de Cooper', 'capacidad cardiovascular', 'VO2 max', 'fitness cardiovascular', 'zonas de entrenamiento', 'salud cardíaca', 'deporte', 'entrenamiento', 'aeróbico', 'anaeróbico'],
+    title: 'Calculadora VO2 Max - Mide Tu Capacidad Cardiovascular',
+    description: 'Calcula tu VO2 Max con 4 métodos científicos (Test de Cooper, Rockport, Astrand, Step Test). Evalúa tu capacidad cardiovascular y nivel de fitness. Descubre si tu condición aeróbica es excelente, buena o necesita mejorar.',
+    keywords: ['calculadora VO2 Max', 'VO2 max calculadora', 'test de Cooper', 'capacidad cardiovascular', 'calcular VO2 max', 'fitness cardiovascular', 'resistencia aeróbica'],
     path: '/vo2max/'
   },
   sarcopenia: {
-    title: 'Calculadora Índice de Sarcopenia | Pérdida Muscular | EWGSOP',
-    description: 'Calculadora médica profesional del Índice de Sarcopenia con fórmulas Baumgartner, ASMM y SMMI. Evalúa pérdida muscular relacionada con la edad, riesgo funcional y estrategias preventivas. Basado en estándares EWGSOP2.',
-    keywords: ['calculadora sarcopenia', 'índice sarcopenia', 'pérdida muscular', 'sarcopenia', 'masa muscular edad', 'EWGSOP2', 'geriatría', 'envejecimiento', 'masa muscular', 'fragilidad', 'salud muscular', 'prevención sarcopenia'],
+    title: 'Calculadora de Sarcopenia - Evalúa Pérdida Muscular por Edad',
+    description: 'Calculadora médica del Índice de Sarcopenia con fórmulas Baumgartner, ASMM y SMMI según estándares EWGSOP2. Evalúa pérdida muscular relacionada con la edad, riesgo de fragilidad y estrategias preventivas. Para profesionales de la salud y geriatría.',
+    keywords: ['calculadora sarcopenia', 'índice sarcopenia', 'pérdida muscular edad', 'sarcopenia', 'EWGSOP2', 'masa muscular envejecimiento', 'fragilidad', 'geriatría'],
     path: '/sarcopenia/'
   },
   whr: {
-    title: 'Calculadora WHR Médica | Ratio Cintura-Cadera | OMS | Riesgo Cardiovascular',
-    description: 'Calculadora profesional de Ratio Cintura-Cadera (WHR) según estándares OMS. Evalúa distribución de grasa corporal, riesgo cardiovascular y síndrome metabólico. Complementa WHtR e IMC para evaluación completa de salud.',
-    keywords: ['calculadora WHR', 'ratio cintura cadera', 'WHR', 'waist hip ratio', 'distribución grasa', 'riesgo cardiovascular', 'síndrome metabólico', 'obesidad central', 'forma corporal', 'androide ginoide', 'salud cardiovascular', 'OMS'],
+    title: 'Calculadora WHR - Ratio Cintura-Cadera',
+    description: 'Calcula tu WHR (Ratio Cintura-Cadera) según estándares de la OMS para evaluar tu distribución de grasa corporal y riesgo cardiovascular. Descubre si tu forma corporal es androide (manzana) o ginoide (pera).',
+    keywords: ['calculadora WHR', 'WHR calculadora', 'ratio cintura cadera', 'calcular WHR', 'forma corporal', 'distribución grasa', 'cintura cadera'],
     path: '/whr/'
   },
   ffmi: {
-    title: 'Calculadora FFMI Médica | Índice Masa Libre de Grasa | Katch-McArdle',
-    description: 'Calculadora profesional del Índice de Masa Libre de Grasa (FFMI) según fórmula Katch-McArdle. Evalúa desarrollo muscular independiente de grasa corporal. Ideal para atletas, fisicoculturistas y seguimiento de hipertrofia muscular.',
-    keywords: ['calculadora FFMI', 'índice masa libre de grasa', 'FFMI', 'fat-free mass index', 'desarrollo muscular', 'hipertrofia', 'atletas', 'fisicoculturismo', 'composición corporal', 'masa muscular', 'Katch-McArdle', 'genética muscular'],
+    title: 'Calculadora FFMI - Índice de Masa Libre de Grasa',
+    description: 'Calcula tu FFMI (Índice de Masa Libre de Grasa) para evaluar tu desarrollo muscular independientemente de tu grasa corporal. Descubre tu potencial genético y compara tu masa muscular con atletas naturales. Ideal para fisicoculturismo.',
+    keywords: ['calculadora FFMI', 'FFMI calculadora', 'índice masa libre de grasa', 'calcular FFMI', 'masa muscular', 'desarrollo muscular', 'potencial genético muscular'],
     path: '/ffmi/'
   },
   fmi: {
-    title: 'Calculadora FMI Médica | Índice Masa Grasa | Schutz | Composición Corporal',
-    description: 'Calculadora profesional del Índice de Masa Grasa (FMI) según fórmula Schutz. Evalúa cantidad de grasa corporal independiente de altura. Complementa FFMI para análisis completo de composición corporal. Ideal para evaluación médica y seguimiento nutricional.',
-    keywords: ['calculadora FMI', 'índice masa grasa', 'FMI', 'fat mass index', 'grasa corporal', 'composición corporal', 'obesidad', 'salud metabólica', 'evaluación nutricional', 'índice antropométrico', 'Schutz', 'análisis corporal'],
+    title: 'Calculadora FMI - Índice de Masa Grasa Corporal',
+    description: 'Calcula tu FMI (Índice de Masa Grasa) según la fórmula Schutz para evaluar tu cantidad de grasa corporal independientemente de tu altura. Complementa el FFMI para un análisis completo de tu composición corporal.',
+    keywords: ['calculadora FMI', 'FMI calculadora', 'índice masa grasa', 'calcular FMI', 'grasa corporal', 'composición corporal', 'masa grasa'],
     path: '/fmi/'
   },
   bai: {
-    title: 'Calculadora BAI Médica | Índice Adiposidad Corporal | Bergman | Sin Báscula',
-    description: 'Calculadora profesional del Índice de Adiposidad Corporal (BAI) según fórmula Bergman. Estima grasa corporal sin báscula usando solo cadera y altura. Especialmente precisa en mujeres. Alternativa práctica al IMC para evaluación de composición corporal.',
-    keywords: ['calculadora BAI', 'índice adiposidad corporal', 'BAI', 'body adiposity index', 'grasa corporal sin báscula', 'circunferencia cadera', 'composición corporal', 'Bergman', 'estimación grasa', 'sin peso', 'antropometría', 'evaluación corporal'],
+    title: 'Calculadora BAI - Grasa Corporal Sin Báscula',
+    description: 'Calcula tu grasa corporal sin necesidad de báscula usando el BAI (Índice de Adiposidad Corporal). Solo necesitas tu altura y circunferencia de cadera. Especialmente precisa para mujeres. Alternativa práctica al IMC.',
+    keywords: ['calculadora BAI', 'BAI calculadora', 'grasa corporal sin báscula', 'calcular grasa sin peso', 'índice adiposidad corporal', 'BAI fórmula', 'grasa corporal cadera'],
     path: '/bai/'
   },
   rmr: {
-    title: 'Calculadora RMR Médica | Tasa Metabólica Reposo | 3 Fórmulas Científicas',
-    description: 'Calculadora profesional de RMR (Resting Metabolic Rate) con fórmulas Mifflin-St Jeor, Harris-Benedict y Katch-McArdle. Gasto energético en reposo más práctico que BMR. Ideal para planificación nutricional y seguimiento metabólico diario.',
-    keywords: ['calculadora RMR', 'tasa metabólica reposo', 'RMR', 'resting metabolic rate', 'metabolismo basal', 'gasto energético', 'Mifflin-St Jeor', 'Harris-Benedict', 'Katch-McArdle', 'calorías reposo', 'metabolismo', 'nutrición'],
+    title: 'Calculadora RMR - Tasa Metabólica en Reposo',
+    description: 'Calcula tu RMR (Tasa Metabólica en Reposo) con 3 fórmulas científicas. Descubre cuántas calorías quemas en reposo considerando actividades diarias ligeras. Más práctico que el BMR para planificar tu dieta.',
+    keywords: ['calculadora RMR', 'RMR calculadora', 'tasa metabólica reposo', 'calcular RMR', 'calorías reposo', 'metabolismo reposo', 'gasto energético'],
     path: '/rmr/'
   },
   'peso-ajustado': {
-    title: 'Calculadora Peso Ajustado Clínico ABW | Robinson | Farmacia y Nutrición',
-    description: 'Calculadora profesional de Peso Ajustado (ABW - Adjusted Body Weight) según fórmula Robinson. Fundamental para dosificación de medicamentos, necesidades calóricas y proteicas en obesidad y bajo peso. Herramienta clínica validada para profesionales de salud.',
-    keywords: ['calculadora peso ajustado', 'ABW', 'adjusted body weight', 'peso clínico', 'Robinson', 'dosificación medicamentos', 'nutrición clínica', 'peso ideal', 'obesidad', 'farmacia', 'necesidades proteicas', 'cálculos clínicos'],
+    title: 'Calculadora de Peso Ajustado (ABW) - Fórmula para Obesidad',
+    description: 'Calcula tu peso ajustado (ABW) según la fórmula Robinson utilizada en nutrición clínica. Esencial para estimar necesidades energéticas y proteicas en personas con obesidad o bajo peso. Resultado inmediato y preciso.',
+    keywords: ['calculadora peso ajustado', 'peso ajustado obesidad', 'ABW', 'peso ajustado qué es', 'adjusted body weight', 'peso clínico', 'necesidades calóricas obesidad'],
     path: '/peso-ajustado/'
   },
   bsa: {
-    title: 'Calculadora BSA Superficie Corporal | 5 Fórmulas Científicas | Du Bois | Mosteller',
-    description: 'Calculadora profesional de BSA (Body Surface Area - Superficie Corporal) con 5 fórmulas científicas: Du Bois, Mosteller, Haycock, Gehan y Boyd. Esencial para dosificación de quimioterapia, cálculo cardiaco, fluidos intravenosos y nutrición hospitalaria. Herramienta clínica validada.',
-    keywords: ['calculadora BSA', 'superficie corporal', 'body surface area', 'BSA', 'Du Bois', 'Mosteller', 'Haycock', 'quimioterapia', 'dosificación medicamentos', 'cardiac index', 'fluidos intravenosos', 'nutrición hospitalaria', 'oncología', 'cuidados intensivos'],
+    title: 'Calculadora BSA - Superficie Corporal con 5 Fórmulas Médicas',
+    description: 'Calculadora médica de BSA (Superficie Corporal) con 5 fórmulas científicas: Du Bois, Mosteller, Haycock, Gehan y Boyd. Esencial para dosificación de quimioterapia, cálculo de índice cardíaco y fluidos intravenosos. Herramienta clínica validada para profesionales de la salud.',
+    keywords: ['calculadora BSA', 'superficie corporal', 'body surface area', 'BSA médica', 'Du Bois', 'Mosteller', 'dosificación quimioterapia', 'índice cardíaco', 'BSA fórmula'],
     path: '/bsa/'
   },
   absi: {
-    title: 'Calculadora ABSI | A Body Shape Index | Predicción Mortalidad | Krakauer',
-    description: 'Calculadora profesional de ABSI (A Body Shape Index) según fórmula Krakauer & Krakauer (2012). Predice riesgo de mortalidad mejor que el IMC solo al incorporar distribución de grasa abdominal. Evaluación de riesgo cardiovascular, diabetes y mortalidad por todas las causas.',
-    keywords: ['calculadora ABSI', 'A Body Shape Index', 'ABSI', 'Krakauer', 'predicción mortalidad', 'riesgo cardiovascular', 'índice forma corporal', 'mortalidad', 'riesgo salud', 'circunferencia cintura', 'distribución grasa', 'síndrome metabólico'],
+    title: 'Calculadora ABSI - Índice de Forma Corporal y Riesgo de Mortalidad',
+    description: 'Calculadora de ABSI (A Body Shape Index) según fórmula Krakauer & Krakauer (2012). Predice riesgo de mortalidad mejor que el IMC al incorporar distribución de grasa abdominal. Evalúa riesgo cardiovascular, diabetes y mortalidad. Herramienta epidemiológica validada.',
+    keywords: ['calculadora ABSI', 'A Body Shape Index', 'ABSI índice', 'predicción mortalidad', 'riesgo cardiovascular ABSI', 'forma corporal', 'Krakauer'],
     path: '/absi/'
   },
   bri: {
-    title: 'Calculadora BRI | Body Roundness Index | Riesgo Metabólico | Thomas',
-    description: 'Calculadora profesional de BRI (Body Roundness Index) según fórmula Thomas et al. (2013). Predice riesgo metabólico y cardiovascular basándose en la forma corporal. Evaluación de síndrome metabólico, diabetes tipo 2 y enfermedad cardiovascular.',
-    keywords: ['calculadora BRI', 'Body Roundness Index', 'BRI', 'Thomas', 'riesgo metabólico', 'riesgo cardiovascular', 'índice redondez corporal', 'síndrome metabólico', 'diabetes', 'circunferencia cintura', 'forma corporal'],
+    title: 'Calculadora BRI - Índice de Redondez Corporal y Riesgo Metabólico',
+    description: 'Calculadora de BRI (Body Roundness Index) según fórmula Thomas et al. (2013). Predice riesgo metabólico y cardiovascular basándose en la forma corporal. Evaluación de síndrome metabólico, diabetes tipo 2 y enfermedad cardiovascular.',
+    keywords: ['calculadora BRI', 'Body Roundness Index', 'BRI índice', 'riesgo metabólico', 'índice redondez corporal', 'síndrome metabólico', 'Thomas'],
     path: '/bri/'
   },
   ci: {
-    title: 'Calculadora CI | Conicity Index | Distribución Grasa Abdominal | Valdez',
-    description: 'Calculadora profesional de CI (Conicity Index) según fórmula Valdez (1991). Evalúa distribución de grasa abdominal comparando cintura con circunferencia esperada. Predice riesgo cardiovascular y metabólico. Herramienta epidemiológica validada.',
-    keywords: ['calculadora CI', 'Conicity Index', 'CI', 'Valdez', 'índice conicidad', 'distribución grasa abdominal', 'riesgo cardiovascular', 'riesgo metabólico', 'circunferencia cintura', 'obesidad abdominal', 'síndrome metabólico'],
+    title: 'Calculadora CI - Índice de Conicidad y Grasa Abdominal',
+    description: 'Calculadora de CI (Conicity Index) según fórmula Valdez (1991). Evalúa distribución de grasa abdominal comparando cintura con circunferencia esperada. Predice riesgo cardiovascular y metabólico. Herramienta epidemiológica validada para profesionales.',
+    keywords: ['calculadora CI', 'Conicity Index', 'índice conicidad', 'CI Valdez', 'grasa abdominal', 'riesgo cardiovascular CI', 'obesidad abdominal'],
     path: '/ci/'
   },
   'grasa-visceral': {
-    title: 'Calculadora Grasa Visceral | VAT | Tejido Adiposo Visceral | Lee | Ryo',
-    description: 'Calculadora profesional de grasa visceral (VAT) con 2 fórmulas científicas: Lee et al. (2008) y Ryo et al. (2005). Estima tejido adiposo visceral que rodea órganos internos. Predice riesgo metabólico, diabetes y enfermedad cardiovascular.',
-    keywords: ['calculadora grasa visceral', 'VAT', 'visceral adipose tissue', 'grasa visceral', 'Lee', 'Ryo', 'tejido adiposo visceral', 'riesgo metabólico', 'diabetes', 'síndrome metabólico', 'hígado graso', 'riesgo cardiovascular'],
+    title: 'Calculadora de Grasa Visceral - Riesgo Según Tu Grasa Interna',
+    description: 'Calcula tu nivel de grasa visceral (la grasa que rodea tus órganos internos) con 2 fórmulas científicas validadas. Evalúa tu riesgo metabólico y cardiovascular. Descubre si tu grasa visceral está en niveles saludables.',
+    keywords: ['calculadora grasa visceral', 'grasa visceral', 'calcular grasa visceral', 'grasa interna', 'grasa abdominal', 'riesgo metabólico', 'grasa órganos'],
     path: '/grasa-visceral/'
   },
   'masa-magra': {
-    title: 'Calculadora Masa Magra | LBM | Lean Body Mass | Método Standard + 3 Variantes',
-    description: 'Calculadora profesional de masa magra (LBM) con método Standard y 3 variantes científicas: Boer (1984) para atletas, James (1976) para población general, y Hume (1966) independiente. Evalúa composición corporal, incluye músculos, huesos, órganos y agua. Útil para atletas y prevención de sarcopenia.',
-    keywords: ['calculadora masa magra', 'LBM', 'lean body mass', 'masa magra', 'composición corporal', 'masa libre de grasa', 'Boer', 'James', 'Hume', 'sarcopenia', 'masa muscular', 'grasa corporal'],
+    title: 'Calculadora de Masa Magra (LBM) - Músculos, Huesos y Más',
+    description: 'Calcula tu masa magra (LBM) total con 4 métodos científicos. Descubre cuánto pesas sin contar la grasa: músculo, huesos, órganos y agua. Útil para atletas y seguimiento de composición corporal real.',
+    keywords: ['calculadora masa magra', 'LBM calculadora', 'masa magra', 'calcular masa magra', 'lean body mass', 'peso sin grasa', 'composición corporal'],
     path: '/masa-magra/'
   },
   'edad-metabolica': {
-    title: 'Calculadora Edad Metabólica | Metabolic Age | Eficiencia Metabolismo | BMR',
-    description: 'Calculadora profesional de edad metabólica que compara tu metabolismo (BMR) con el promedio de personas de tu edad cronológica. Indica si tu metabolismo es más joven o más viejo que tu edad real. Útil para evaluar eficiencia metabólica y salud general.',
-    keywords: ['calculadora edad metabólica', 'metabolic age', 'edad metabólica', 'BMR', 'metabolismo', 'eficiencia metabólica', 'metabolismo joven', 'metabolismo viejo', 'salud metabólica', 'metabolismo basal'],
+    title: 'Calculadora de Edad Metabólica - ¿Tu Metabolismo es Joven o Viejo?',
+    description: 'Descubre tu edad metabólica comparando tu metabolismo con el promedio de tu edad. Averigua si tu cuerpo funciona como alguien más joven o más viejo de lo que eres. Resultado basado en tu metabolismo basal (BMR).',
+    keywords: ['calculadora edad metabólica', 'edad metabólica', 'metabolic age', 'mi edad metabólica', 'metabolismo joven', 'metabolismo viejo', 'calcular edad metabólica'],
     path: '/edad-metabolica/'
   },
   'presion-arterial-media': {
-    title: 'Calculadora Presión Arterial Media (MAP) | Perfusión Órganos | Evaluación Cardiovascular',
-    description: 'Calculadora médica profesional de presión arterial media (MAP) para evaluación de perfusión de órganos y riesgo cardiovascular. Interpretación clínica según guías AHA/ACC. Útil para profesionales de la salud.',
-    keywords: ['calculadora MAP', 'presión arterial media', 'MAP', 'perfusión órganos', 'presión arterial', 'hipertensión', 'hipotensión', 'evaluación cardiovascular', 'riesgo cardiovascular', 'presión sistólica', 'presión diastólica'],
+    title: 'Calculadora de Presión Arterial Media (MAP) - Evaluación Cardiovascular',
+    description: 'Calculadora médica de presión arterial media (MAP) para evaluación de perfusión de órganos y riesgo cardiovascular. Interpretación clínica según guías AHA/ACC. Herramienta para profesionales de la salud.',
+    keywords: ['calculadora MAP', 'presión arterial media', 'MAP calculadora', 'perfusión órganos', 'presión arterial media fórmula', 'evaluación cardiovascular', 'MAP médica'],
     path: '/presion-arterial-media/'
   },
   'recuperacion-cardiaca': {
-    title: 'Calculadora Recuperación Cardíaca (HRR) | Condición Cardiovascular | Evaluación Fitness',
-    description: 'Calculadora profesional de recuperación cardíaca (HRR) para evaluar condición cardiovascular y función autonómica. Mide la velocidad de recuperación del corazón después del ejercicio. Útil para atletas y evaluación médica.',
-    keywords: ['calculadora HRR', 'recuperación cardíaca', 'HRR', 'heart rate recovery', 'condición cardiovascular', 'frecuencia cardíaca', 'ejercicio', 'fitness cardiovascular', 'función autonómica', 'recuperación post-ejercicio'],
+    title: 'Calculadora de Recuperación Cardíaca - Tu Condición Cardiovascular',
+    description: 'Calcula tu recuperación cardíaca (HRR) para evaluar tu condición cardiovascular. Mide qué tan rápido bajan tus pulsaciones después del ejercicio. Un indicador clave de fitness y salud del corazón.',
+    keywords: ['calculadora recuperación cardíaca', 'HRR calculadora', 'recuperación cardíaca', 'calcular HRR', 'pulsaciones post ejercicio', 'condición cardiovascular', 'fitness cardíaco'],
     path: '/recuperacion-cardiaca/'
   },
   'densidad-osea': {
-    title: 'Calculadora Densidad Ósea (BMD) | Osteoporosis | T-Score | Z-Score | WHO',
-    description: 'Calculadora médica profesional de densidad mineral ósea (BMD) para evaluación de osteoporosis según criterios WHO. Calcula T-Score y Z-Score. Evalúa riesgo de fracturas y proporciona recomendaciones clínicas.',
-    keywords: ['calculadora BMD', 'densidad ósea', 'BMD', 'bone mineral density', 'osteoporosis', 'osteopenia', 'T-Score', 'Z-Score', 'densidad mineral ósea', 'riesgo fracturas', 'DXA scan', 'WHO criterios'],
+    title: 'Calculadora de Densidad Ósea (BMD) - T-Score y Osteoporosis',
+    description: 'Calculadora médica de densidad mineral ósea (BMD) para evaluación de osteoporosis según criterios WHO. Calcula T-Score y Z-Score. Evalúa riesgo de fracturas y categoriza osteopenia u osteoporosis. Para profesionales de la salud.',
+    keywords: ['calculadora BMD', 'densidad ósea', 'BMD calculadora', 'T-Score', 'Z-Score', 'osteoporosis', 'osteopenia', 'densidad mineral ósea', 'WHO'],
     path: '/densidad-osea/'
   },
   egfr: {
-    title: 'Calculadora eGFR (Filtrado Glomerular) | CKD-EPI | MDRD | Función Renal',
-    description: 'Calculadora médica de filtrado glomerular estimado (eGFR) con fórmulas CKD-EPI y MDRD. Estadificación de enfermedad renal crónica (ERC) y Cockcroft-Gault para ajuste de dosis. Para profesionales de la salud.',
-    keywords: ['calculadora eGFR', 'filtrado glomerular', 'CKD-EPI', 'MDRD', 'función renal', 'creatinina', 'ERC', 'enfermedad renal crónica', 'Cockcroft-Gault', 'clearance creatinina'],
+    title: 'Calculadora eGFR - Filtrado Glomerular y Función Renal',
+    description: 'Calculadora médica de filtrado glomerular estimado (eGFR) con fórmulas CKD-EPI, MDRD y Cockcroft-Gault. Estadificación de enfermedad renal crónica (ERC) y ajuste de dosis de medicamentos. Herramienta para profesionales de la salud.',
+    keywords: ['calculadora eGFR', 'filtrado glomerular', 'eGFR calculadora', 'CKD-EPI', 'MDRD', 'función renal', 'creatinina', 'enfermedad renal crónica'],
     path: '/egfr/'
   },
   fibra: {
-    title: 'Calculadora de Fibra Diaria | Necesidades IOM/FDA | Nutrición',
-    description: 'Calculadora de necesidades de fibra dietética según edad, sexo y calorías. Recomendaciones IOM/FDA (14 g por 1000 kcal). Consejos y fuentes de fibra para una dieta saludable.',
-    keywords: ['calculadora fibra', 'fibra dietética', 'fibra diaria', 'IOM', 'FDA', 'necesidades fibra', 'dieta fibra', 'salud digestiva', 'nutrición'],
+    title: 'Calculadora de Fibra Diaria - Cuánta Necesitas',
+    description: 'Calcula cuánta fibra dietética necesitas al día según tu edad, sexo y calorías. Recomendaciones IOM/FDA (14 g por 1000 kcal). Mejora tu salud digestiva con la cantidad correcta de fibra.',
+    keywords: ['calculadora fibra', 'cuánta fibra necesito', 'fibra diaria', 'calcular fibra', 'gramos fibra día', 'fibra dietética', 'necesidades fibra'],
     path: '/fibra/'
   },
   azucar: {
-    title: 'Calculadora de Azúcar Diaria | Límite OMS | Azúcares Libres',
-    description: 'Límite máximo de azúcares libres según tus calorías diarias. Recomendaciones OMS: menos del 10% y menos del 5% de la energía. Para una dieta saludable.',
-    keywords: ['calculadora azúcar', 'azúcares libres', 'límite azúcar', 'OMS', 'azúcar diaria', 'recomendaciones OMS', 'nutrición', 'dieta saludable'],
+    title: 'Calculadora de Azúcar Diaria - Tu Límite Según la OMS',
+    description: 'Calcula tu límite máximo de azúcar al día según las recomendaciones de la OMS. Descubre cuántos gramos de azúcares libres puedes consumir basándote en tus calorías diarias. Para una dieta saludable.',
+    keywords: ['calculadora azúcar', 'límite azúcar día', 'cuánta azúcar consumir', 'azúcar diaria', 'gramos azúcar día', 'OMS azúcar', 'azúcares libres'],
     path: '/azucar/'
   },
   sodio: {
-    title: 'Calculadora de Sodio y Sal | Límite OMS | Hipertensión',
-    description: 'Límite de sodio y sal según OMS: menos de 2 g sodio (5 g sal) al día. Incluye recomendación estricta para hipertensión. Nutrición y salud cardiovascular.',
-    keywords: ['calculadora sodio', 'límite sal', 'sodio diario', 'OMS', 'hipertensión', 'reducir sal', 'nutrición', 'salud cardiovascular'],
+    title: 'Calculadora de Sodio y Sal - Límite Diario Recomendado',
+    description: 'Conoce el límite de sodio y sal según la OMS: menos de 2 g de sodio (5 g de sal) al día. Incluye recomendaciones especiales para hipertensión. Cuida tu salud cardiovascular controlando tu consumo.',
+    keywords: ['calculadora sodio', 'límite sodio', 'cuánta sal consumir', 'sodio diario', 'sal día', 'OMS sodio', 'reducir sal', 'hipertensión'],
     path: '/sodio/'
   }
 };

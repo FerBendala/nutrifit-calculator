@@ -18,12 +18,12 @@ export default function WHtRPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de WHtR Médica
+              Calculadora WHtR (Ratio Cintura-Altura)
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
-              Calculadora profesional de WHtR (Ratio Cintura-Altura) para evaluación de riesgo cardiometabólico.
-              Mejor predictor que el IMC para diabetes, síndrome metabólico y enfermedad cardiovascular.
-              Utilizada por médicos, nutricionistas y profesionales de la salud.
+              Calcula tu WHtR (Ratio Cintura-Altura) para evaluar tu riesgo de salud según tu grasa abdominal.
+              Mejor predictor que el IMC para detectar riesgo de diabetes y síndrome metabólico.
+              Solo necesitas cintura y altura.
             </p>
           </header>
 

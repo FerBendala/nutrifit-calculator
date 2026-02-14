@@ -45,10 +45,11 @@ export default function AzucarPage() {
 
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Límite de Azúcar Médica
+              Calculadora de Azúcar Diaria
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Límite máximo de azúcares libres según tus calorías diarias. Recomendaciones OMS: menos del 10% y menos del 5% de la energía para una dieta saludable.
+              Calcula tu límite máximo de azúcar al día según las recomendaciones de la OMS.
+              Descubre cuántos gramos de azúcares libres puedes consumir basándote en tus calorías diarias.
             </p>
           </header>
 

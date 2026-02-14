@@ -66,11 +66,11 @@ export default function AguaPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Hidratación Médica
+              Calculadora de Agua Diaria
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de hidratación basada en estudios médicos. Necesidades exactas
-              de agua según peso, actividad y condiciones ambientales para profesionales de la salud.
+              Calcula cuánta agua debes beber al día según tu peso, actividad física y condiciones ambientales.
+              Mantente bien hidratado con recomendaciones personalizadas basadas en estudios científicos.
             </p>
           </header>
 

@@ -76,11 +76,11 @@ export default function GrasaVisceralPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Grasa Visceral Médica
+              Calculadora de Grasa Visceral
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de grasa visceral (VAT) con 2 fórmulas científicas validadas.
-              Estima el tejido adiposo visceral que rodea los órganos internos y predice riesgo metabólico.
+              Calcula tu nivel de grasa visceral (la grasa que rodea tus órganos internos) con 2 fórmulas científicas validadas.
+              Evalúa tu riesgo metabólico y cardiovascular. Descubre si tu grasa visceral está en niveles saludables.
             </p>
           </header>
 

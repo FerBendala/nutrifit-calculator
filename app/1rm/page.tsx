@@ -154,11 +154,11 @@ export default function OneRMPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de 1RM Médica
+              Calculadora 1RM
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora de una repetición máxima con 5 fórmulas científicas validadas.
-              Herramienta profesional para atletas, entrenadores y preparadores físicos.
+              Calcula tu 1RM (una repetición máxima) con 5 fórmulas científicas validadas.
+              Descubre cuánto peso máximo puedes levantar y planifica tu entrenamiento de fuerza de forma precisa.
             </p>
           </header>
 

@@ -80,11 +80,11 @@ export default function RMRPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de RMR Médica
+              Calculadora RMR (Tasa Metabólica en Reposo)
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de RMR (Resting Metabolic Rate) con 3 fórmulas científicas validadas.
-              Gasto energético en reposo más práctico que BMR para planificación nutricional diaria.
+              Calcula tu RMR (Tasa Metabólica en Reposo) con 3 fórmulas científicas.
+              Descubre cuántas calorías quemas en reposo considerando actividades diarias ligeras. Más práctico que el BMR.
             </p>
           </header>
 

@@ -169,12 +169,11 @@ export default function FMIPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de FMI Médica
+              Calculadora FMI (Índice de Masa Grasa)
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
-              Calculadora profesional del Índice de Masa Grasa según fórmula Schutz.
-              Evalúa la cantidad de grasa corporal independiente de la altura.
-              Complementa perfectamente FFMI para análisis completo de composición corporal.
+              Calcula tu FMI (Índice de Masa Grasa) según la fórmula Schutz para evaluar tu cantidad de grasa corporal independientemente de tu altura.
+              Complementa el FFMI para un análisis completo de tu composición corporal.
             </p>
           </header>
 

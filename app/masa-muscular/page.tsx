@@ -71,12 +71,12 @@ export default function MasaMuscularPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Masa Muscular Médica
+              Calculadora de Masa Muscular
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
-              Calculadora profesional de masa muscular con fórmula de Lee (2000) validada científicamente.
-              Índice de masa muscular preciso para deportistas y profesionales de la salud.
-              Utilizada por nutricionistas deportivos y médicos especialistas.
+              Calcula tu masa muscular total e índice de masa muscular con la fórmula de Lee validada científicamente.
+              Descubre cuántos kilogramos de músculo tienes y evalúa tu desarrollo muscular.
+              Ideal para seguir tu progreso en el gym.
             </p>
           </header>
 

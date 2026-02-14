@@ -82,11 +82,11 @@ export default function EdadMetabolicaPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Edad Metabólica Médica
+              Calculadora de Edad Metabólica
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de edad metabólica que compara tu metabolismo (BMR) con el promedio de personas de tu edad.
-              Descubre si tu metabolismo es más joven o más viejo que tu edad cronológica.
+              Descubre tu edad metabólica comparando tu metabolismo con el promedio de tu edad.
+              Averigua si tu cuerpo funciona como alguien más joven o más viejo de lo que eres.
             </p>
           </header>
 

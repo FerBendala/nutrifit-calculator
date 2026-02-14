@@ -144,11 +144,11 @@ export default function GrasaCorporalPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Grasa Corporal Médica
+              Calculadora de Grasa Corporal
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de grasa corporal con métodos Jackson-Pollock y Durnin-Womersley
-              validados científicamente. Precisión de ±3-5% utilizada por nutricionistas y médicos.
+              Calcula tu porcentaje de grasa corporal con métodos científicos utilizados por profesionales.
+              Usa pliegues cutáneos (Jackson-Pollock y Durnin-Womersley) para obtener resultados precisos.
             </p>
           </header>
 

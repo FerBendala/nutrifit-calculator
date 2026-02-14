@@ -76,11 +76,11 @@ export default function MasaMagraPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Masa Magra Médica
+              Calculadora de Masa Magra (LBM)
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de masa magra (LBM) con método Standard y 3 variantes científicas.
-              Evalúa composición corporal incluyendo músculos, huesos, órganos y agua.
+              Calcula tu masa magra (LBM) total con 4 métodos científicos.
+              Descubre cuánto pesas sin contar la grasa: músculo, huesos, órganos y agua. Útil para atletas y seguimiento de composición corporal.
             </p>
           </header>
 

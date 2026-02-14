@@ -72,11 +72,11 @@ export default function TDEEPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de TDEE Médica
+              Calculadora TDEE
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de TDEE con fórmula Mifflin-St Jeor validada científicamente.
-              Gasto calórico diario exacto para nutricionistas y deportistas.
+              Calcula tu gasto calórico diario (TDEE) según tu edad, peso y actividad física.
+              Descubre cuántas calorías necesitas para mantener, perder o ganar peso.
             </p>
           </header>
 

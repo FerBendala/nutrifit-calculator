@@ -235,12 +235,11 @@ export default function WHRPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de WHR Médica
+              Calculadora WHR (Ratio Cintura-Cadera)
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
-              Calculadora profesional de Ratio Cintura-Cadera según estándares OMS.
-              Evalúa distribución de grasa corporal, riesgo cardiovascular y síndrome metabólico.
-              Complementa perfectamente WHtR e IMC para evaluación médica completa.
+              Calcula tu WHR (Ratio Cintura-Cadera) según estándares de la OMS para evaluar tu distribución de grasa corporal.
+              Descubre si tu forma corporal es androide (manzana) o ginoide (pera) y evalúa tu riesgo cardiovascular.
             </p>
           </header>
 

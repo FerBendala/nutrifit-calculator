@@ -90,11 +90,11 @@ export default function PesoIdealPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Peso Ideal Médica
+              Calculadora de Peso Ideal
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora profesional de peso ideal con 5 fórmulas médicas validadas científicamente.
-              Resultados precisos utilizados por nutricionistas y médicos con análisis comparativo.
+              Calcula tu peso ideal según tu altura con 5 fórmulas científicas diferentes.
+              Compara resultados y descubre tu rango de peso saludable con resultados personalizados al instante.
             </p>
           </header>
 

@@ -47,12 +47,12 @@ export default function BAIPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de BAI Médica
+              Calculadora BAI (Grasa Corporal Sin Báscula)
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
-              Calculadora profesional del Índice de Adiposidad Corporal según fórmula Bergman.
-              Estima grasa corporal <strong>sin báscula</strong> usando solo circunferencia de cadera y altura.
-              Especialmente precisa en mujeres según estudios clínicos.
+              Calcula tu grasa corporal sin necesidad de báscula usando el BAI (Índice de Adiposidad Corporal).
+              Solo necesitas tu altura y circunferencia de cadera.
+              Especialmente precisa para mujeres. Alternativa práctica al IMC.
             </p>
           </header>
 

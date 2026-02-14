@@ -52,11 +52,11 @@ export default function PresionArterialMediaPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Presión Arterial Médica
+              Calculadora de Presión Arterial Media (MAP)
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora médica profesional de presión arterial media para evaluación de perfusión de órganos
-              y riesgo cardiovascular. Interpretación clínica según guías AHA/ACC.
+              Calculadora médica de presión arterial media (MAP) para evaluación de perfusión de órganos
+              y riesgo cardiovascular. Interpretación clínica según guías AHA/ACC. Herramienta para profesionales de la salud.
             </p>
           </header>
 

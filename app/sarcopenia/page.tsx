@@ -160,12 +160,12 @@ export default function SarcopeniaPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Sarcopenia Médica
+              Calculadora de Sarcopenia
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
-              Calculadora profesional para evaluar la pérdida muscular relacionada con la edad.
-              Basada en estándares EWGSOP2 con fórmulas Baumgartner, ASMM y SMMI.
-              Ideal para adultos mayores, geriatras y profesionales de la salud.
+              Calculadora médica del Índice de Sarcopenia con fórmulas Baumgartner, ASMM y SMMI según estándares EWGSOP2.
+              Evalúa pérdida muscular relacionada con la edad y riesgo de fragilidad.
+              Para profesionales de la salud y geriatría.
             </p>
           </header>
 

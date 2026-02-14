@@ -170,12 +170,12 @@ export default function VO2MaxPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de VO2 Max Médica
+              Calculadora VO2 Max
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
-              Calculadora profesional de capacidad cardiovascular con 4 métodos científicos validados.
-              Evalúa tu nivel de fitness, zonas de entrenamiento y salud cardíaca con precisión médica.
-              Utilizada por deportistas, entrenadores y profesionales de la salud.
+              Calcula tu VO2 Max con 4 métodos científicos (Test de Cooper, Rockport, Astrand, Step Test).
+              Evalúa tu capacidad cardiovascular y nivel de fitness.
+              Descubre si tu condición aeróbica es excelente, buena o necesita mejorar.
             </p>
           </header>
 

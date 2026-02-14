@@ -59,11 +59,11 @@ export default function IMCPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de IMC Médica
+              Calculadora de IMC
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Calculadora médica de IMC con estándares oficiales de la OMS. Resultados precisos
-              y categorización profesional de peso corporal utilizada por nutricionistas y médicos.
+              Calcula tu IMC (Índice de Masa Corporal) al instante. Descubre si tu peso es normal,
+              bajo peso, sobrepeso u obesidad según los estándares de la OMS.
             </p>
           </header>
 

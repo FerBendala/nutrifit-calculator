@@ -43,26 +43,26 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     path: '/'
   },
   imc: {
-    title: 'Calculadora de IMC - Calcula tu Índice de Masa Corporal',
-    description: 'Calcula tu IMC (Índice de Masa Corporal) al instante. Descubre si tu peso es normal, bajo peso, sobrepeso u obesidad según los estándares de la OMS. Resultados precisos con interpretación clara.',
+    title: 'Calculadora de IMC – Descubre tu Categoría de Peso (Normal, Sobrepeso u Obesidad)',
+    description: 'Calcula tu IMC en 5 segundos. Descubre si estás en peso normal, bajo peso, sobrepeso u obesidad según la OMS. Resultado inmediato con interpretación clara. Gratis.',
     keywords: ['calculadora IMC', 'calcular IMC', 'índice masa corporal', 'peso ideal', 'calcular peso', 'IMC OMS', 'sobrepeso', 'obesidad', 'peso saludable'],
     path: '/imc/'
   },
   tdee: {
-    title: 'Calculadora TDEE - Cuántas Calorías Necesitas al Día',
-    description: 'Calcula tu gasto calórico diario (TDEE) según tu edad, peso y actividad física. Descubre cuántas calorías necesitas para mantener, perder o ganar peso. Usa la fórmula Mifflin-St Jeor validada científicamente.',
+    title: 'Calculadora TDEE – Calorías para Mantener, Perder o Ganar Peso',
+    description: 'Calcula tu TDEE en segundos con Mifflin-St Jeor. Obtén tus calorías exactas para mantener, perder o ganar peso + recomendación inicial de macros. Gratis y preciso.',
     keywords: ['calculadora TDEE', 'cuántas calorías necesito', 'gasto calórico diario', 'calcular calorías', 'calorías mantenimiento', 'TDEE calculadora', 'metabolismo', 'perder peso', 'calorías diarias'],
     path: '/tdee/'
   },
   proteina: {
-    title: 'Calculadora de Proteína Diaria - Cuánta Necesitas',
-    description: 'Calcula cuánta proteína necesitas al día según tu peso, actividad física y objetivo (ganar músculo, perder grasa o mantener). Recomendaciones basadas en estudios científicos. Resultados personalizados al instante.',
+    title: 'Calculadora de Proteína – Gramos Exactos para Ganar Músculo o Perder Grasa',
+    description: 'Obtén tus gramos de proteína diaria en segundos según tu objetivo (ganar músculo, perder grasa o mantener). Resultado personalizado basado en ciencia. Gratis.',
     keywords: ['calculadora proteína', 'cuánta proteína necesito', 'proteína diaria', 'calcular proteína', 'proteína para ganar músculo', 'gramos proteína día', 'proteína peso'],
     path: '/proteina/'
   },
   agua: {
-    title: 'Calculadora de Agua Diaria - Cuántos Litros Necesitas',
-    description: 'Calcula cuánta agua debes beber al día según tu peso, actividad física y condiciones ambientales. Mantente bien hidratado con recomendaciones personalizadas basadas en estudios científicos.',
+    title: 'Calculadora de Agua – Litros Exactos que Debes Beber al Día',
+    description: 'Obtén tus litros de agua diaria al instante según tu peso y actividad. Mantente perfectamente hidratado con tu cantidad personalizada. Resultado inmediato, gratis.',
     keywords: ['calculadora agua', 'cuánta agua beber', 'agua diaria', 'litros agua día', 'calcular hidratación', 'cuántos litros agua', 'hidratación diaria'],
     path: '/agua/'
   },
@@ -79,32 +79,32 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     path: '/ritmo-cardiaco/'
   },
   'grasa-corporal': {
-    title: 'Calculadora de Grasa Corporal - Tu % Exacto con Métodos Científicos',
-    description: 'Calcula tu porcentaje de grasa corporal con métodos científicos utilizados por profesionales. Usa pliegues cutáneos (Jackson-Pollock y Durnin-Womersley) para obtener resultados precisos. Descubre tu composición corporal real.',
+    title: 'Calculadora de Grasa Corporal – Tu % Exacto con Pliegues Cutáneos',
+    description: 'Obtén tu porcentaje de grasa corporal en minutos con métodos científicos profesionales. Usa pliegues cutáneos (Jackson-Pollock) para resultados precisos ±3-5%. Gratis.',
     keywords: ['calculadora grasa corporal', 'calcular grasa corporal', 'porcentaje grasa corporal', 'pliegues cutáneos', 'composición corporal', 'cuánta grasa tengo', 'grasa corporal', 'medir grasa'],
     path: '/grasa-corporal/'
   },
   'peso-ideal': {
-    title: 'Calculadora de Peso Ideal - 5 Fórmulas para Tu Altura',
-    description: 'Calcula tu peso ideal según tu altura con 5 fórmulas científicas diferentes (Robinson, Miller, Devine, Hamwi, Peterson). Compara resultados y descubre tu rango de peso saludable. Resultados personalizados al instante.',
+    title: 'Calculadora de Peso Ideal – Tu Rango Saludable Según 5 Fórmulas',
+    description: 'Descubre tu peso ideal al instante con 5 fórmulas científicas (Robinson, Miller, Devine, Hamwi, Peterson). Obtén tu rango de peso saludable personalizado. Gratis.',
     keywords: ['calculadora peso ideal', 'peso ideal según altura', 'cuál es mi peso ideal', 'calcular peso ideal', 'peso saludable', 'peso según altura', 'IMC ideal'],
     path: '/peso-ideal/'
   },
   'masa-muscular': {
-    title: 'Calculadora de Masa Muscular - Cuánto Músculo Tienes',
-    description: 'Calcula tu masa muscular total e índice de masa muscular con la fórmula de Lee validada científicamente. Descubre cuántos kilogramos de músculo tienes y evalúa tu desarrollo muscular. Ideal para seguir tu progreso en el gym.',
+    title: 'Calculadora de Masa Muscular – Cuántos Kilos de Músculo Tienes',
+    description: 'Descubre cuántos kilogramos de músculo tienes con la fórmula Lee validada. Obtén tu índice de masa muscular y evalúa tu progreso. Resultado inmediato, gratis.',
     keywords: ['calculadora masa muscular', 'cuánta masa muscular tengo', 'calcular masa muscular', 'músculo total', 'índice masa muscular', 'desarrollo muscular', 'cuánto músculo tengo'],
     path: '/masa-muscular/'
   },
   bmr: {
-    title: 'Calculadora de Metabolismo Basal (BMR) - Tu Gasto en Reposo',
-    description: 'Calcula tu metabolismo basal (BMR): las calorías que quemas en reposo absoluto. Usa 3 fórmulas científicas (Mifflin-St Jeor, Harris-Benedict, Katch-McArdle). Descubre cuánta energía necesita tu cuerpo para funcionar.',
+    title: 'Calculadora BMR – Cuántas Calorías Quemas en Reposo',
+    description: 'Obtén tu metabolismo basal (BMR) al instante con 3 fórmulas científicas. Descubre cuántas calorías quemas sin hacer nada. Resultado en segundos, gratis.',
     keywords: ['calculadora BMR', 'metabolismo basal', 'calcular metabolismo', 'calorías en reposo', 'BMR calculadora', 'tasa metabólica basal', 'cuántas calorías quemo', 'metabolismo'],
     path: '/bmr/'
   },
   '1rm': {
-    title: 'Calculadora 1RM - Tu Repetición Máxima con 5 Fórmulas',
-    description: 'Calcula tu 1RM (una repetición máxima) con 5 fórmulas científicas validadas. Descubre cuánto peso máximo puedes levantar en press banca, sentadilla o cualquier ejercicio. Planifica tu entrenamiento de fuerza de forma precisa.',
+    title: 'Calculadora 1RM – Tu Peso Máximo en Press Banca, Sentadilla y Más',
+    description: 'Calcula tu 1RM (peso máximo) al instante con 5 fórmulas científicas. Descubre cuánto puedes levantar y planifica tu entrenamiento. Resultado inmediato, gratis.',
     keywords: ['calculadora 1RM', '1RM calculadora', 'una repetición máxima', 'calcular 1RM', 'fuerza máxima', 'peso máximo', 'repetición máxima', 'calcular peso máximo'],
     path: '/1rm/'
   },
@@ -157,8 +157,8 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     path: '/rmr/'
   },
   'peso-ajustado': {
-    title: 'Calculadora de Peso Ajustado (ABW) - Fórmula para Obesidad',
-    description: 'Calcula tu peso ajustado (ABW) según la fórmula Robinson utilizada en nutrición clínica. Esencial para estimar necesidades energéticas y proteicas en personas con obesidad o bajo peso. Resultado inmediato y preciso.',
+    title: 'Calculadora de Peso Ajustado (ABW) – Tu Peso para Cálculos Nutricionales',
+    description: 'Obtén tu peso ajustado (ABW) al instante con la fórmula Robinson. Ideal para calcular necesidades calóricas y proteicas si tienes obesidad. Resultado inmediato y gratis.',
     keywords: ['calculadora peso ajustado', 'peso ajustado obesidad', 'ABW', 'peso ajustado qué es', 'adjusted body weight', 'peso clínico', 'necesidades calóricas obesidad'],
     path: '/peso-ajustado/'
   },

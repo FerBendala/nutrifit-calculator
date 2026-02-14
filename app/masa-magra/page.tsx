@@ -643,7 +643,7 @@ export default function MasaMagraPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora Masa Magra - LBM | Lean Body Mass | 4 Fórmulas Científicas"
-              url="https://nutrifit-calculator.com/masa-magra"
+              url="https://nutrifit-calculator.com/masa-magra/"
               description="Calculadora profesional de masa magra con 4 fórmulas científicas. Evalúa composición corporal incluyendo músculos, huesos, órganos y agua."
             />
 

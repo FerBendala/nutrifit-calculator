@@ -607,7 +607,7 @@ export default function EdadMetabolicaPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora Edad Metabólica - Metabolic Age | Eficiencia Metabolismo | BMR"
-              url="https://nutrifit-calculator.com/edad-metabolica"
+              url="https://nutrifit-calculator.com/edad-metabolica/"
               description="Calculadora profesional de edad metabólica que compara tu metabolismo con el promedio de personas de tu edad. Descubre si tu metabolismo es más joven o más viejo."
             />
 

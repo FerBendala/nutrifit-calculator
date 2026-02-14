@@ -582,7 +582,7 @@ export default function BSAPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora BSA Superficie Corporal - 5 Fórmulas Científicas"
-              url="https://nutrifit-calculator.com/bsa"
+              url="https://nutrifit-calculator.com/bsa/"
               description="Calculadora profesional de BSA con fórmulas Du Bois, Mosteller, Haycock, Gehan y Boyd. Esencial para dosificación de quimioterapia y aplicaciones clínicas."
             />
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { trackEmbedCodeCopied } from '@/lib/analytics';
+import { getCanonicalUrl } from '@/lib/seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
@@ -18,8 +19,7 @@ export function EmbedWidget({ title, calculatorName }: EmbedWidgetProps = {}) {
   const pathname = usePathname();
 
   const { embedCode, calculatorTitle } = useMemo(() => {
-    const baseUrl = 'https://nutrifit-calculator.com';
-    const currentUrl = `${baseUrl}${pathname}`;
+    const currentUrl = getCanonicalUrl(pathname);
 
     // Determinar el título de la calculadora según la ruta
     let pageTitle = title || calculatorName || 'Calculadora de Calorías y Macros';
@@ -64,7 +64,7 @@ export function EmbedWidget({ title, calculatorName }: EmbedWidgetProps = {}) {
     <p>Tu navegador no soporta iframes. <a href="${currentUrl}" target="_blank" rel="noopener">Visita ${pageTitle}</a></p>
   </iframe>
   <p style="font-size: 12px; color: #666; margin-top: 8px; text-align: center;">
-    Calculadora gratuita por <a href="${baseUrl}" target="_blank" rel="noopener" style="color: #2563eb;">NutriFit Calculator</a>
+    Calculadora gratuita por <a href="https://nutrifit-calculator.com/" target="_blank" rel="noopener" style="color: #2563eb;">NutriFit Calculator</a>
   </p>`;
 
     return { embedCode, calculatorTitle: pageTitle };

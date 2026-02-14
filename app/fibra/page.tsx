@@ -301,7 +301,7 @@ export default function FibraPage() {
           </section>
           <SocialShare
             title="Calculadora de Fibra Diaria - Necesidades IOM/FDA"
-            url="https://nutrifit-calculator.com/fibra"
+            url="https://nutrifit-calculator.com/fibra/"
             description="Calcula tus necesidades de fibra según edad, sexo y calorías. Recomendaciones IOM/FDA y consejos prácticos."
           />
           <CalculatorNavigation currentCalculator="fibra" />

@@ -585,7 +585,7 @@ export default function CIPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora CI - Conicity Index | Distribución Grasa Abdominal"
-              url="https://nutrifit-calculator.com/ci"
+              url="https://nutrifit-calculator.com/ci/"
               description="Calculadora profesional de CI según fórmula Valdez. Evalúa distribución de grasa abdominal y predice riesgo cardiovascular y metabólico."
             />
 

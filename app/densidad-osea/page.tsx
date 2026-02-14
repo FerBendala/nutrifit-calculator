@@ -651,7 +651,7 @@ export default function DensidadOseaPage() {
           </section>
           <SocialShare
             title="Calculadora de Densidad Ósea (BMD) - Evaluación de Osteoporosis"
-            url="https://nutrifit-calculator.com/densidad-osea"
+            url="https://nutrifit-calculator.com/densidad-osea/"
             description="Calcula tu densidad mineral ósea (BMD) y evalúa tu riesgo de osteoporosis según criterios WHO. Calcula T-Score y Z-Score. ¡Totalmente gratis!"
           />
           <CalculatorNavigation currentCalculator="densidad-osea" />

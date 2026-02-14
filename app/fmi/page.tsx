@@ -777,7 +777,7 @@ export default function FMIPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora FMI Médica - Índice Masa Grasa Profesional"
-            url="https://nutrifit-calculator.com/fmi"
+            url="https://nutrifit-calculator.com/fmi/"
             description="Calcula tu FMI con fórmulas médicas profesionales. Evalúa cantidad de grasa corporal independiente de altura y obtén recomendaciones personalizadas para salud metabólica. ¡Totalmente gratis!"
           />
 

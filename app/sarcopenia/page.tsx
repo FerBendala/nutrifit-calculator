@@ -748,7 +748,7 @@ export default function SarcopeniaPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora Índice de Sarcopenia - Evaluación Médica"
-            url="https://nutrifit-calculator.com/sarcopenia"
+            url="https://nutrifit-calculator.com/sarcopenia/"
             description="Calcula tu Índice de Sarcopenia con fórmulas médicas profesionales. Evalúa pérdida muscular relacionada con la edad y obtén recomendaciones preventivas. ¡Totalmente gratis!"
           />
 

@@ -897,7 +897,7 @@ export default function GrasaCorporalPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora de Grasa Corporal Gratis"
-              url="https://nutrifit-calculator.com/grasa-corporal"
+              url="https://nutrifit-calculator.com/grasa-corporal/"
               description="Calcula tu porcentaje de grasa corporal con métodos científicos de pliegues cutáneos. ¡Totalmente gratis!"
             />
 

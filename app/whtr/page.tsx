@@ -248,7 +248,7 @@ export default function WHtRPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora WHtR Médica Profesional - Ratio Cintura-Altura"
-            url="https://nutrifit-calculator.com/whtr"
+            url="https://nutrifit-calculator.com/whtr/"
             description="Evalúa tu riesgo cardiometabólico con la calculadora WHtR más precisa. Mejor predictor que el IMC para diabetes y síndrome metabólico. ¡Totalmente gratis!"
           />
 

@@ -734,7 +734,7 @@ export default function OneRMPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora 1RM Científica Profesional - Una Repetición Máxima"
-              url="https://nutrifit-calculator.com/1rm"
+              url="https://nutrifit-calculator.com/1rm/"
               description="Calculadora profesional de 1RM con 5 fórmulas científicas validadas. Planifica entrenamientos de fuerza con precisión. ¡Totalmente gratis!"
             />
 

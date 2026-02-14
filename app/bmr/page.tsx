@@ -630,7 +630,7 @@ export default function BMRPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora BMR Médica Profesional - Metabolismo Basal"
-              url="https://nutrifit-calculator.com/bmr"
+              url="https://nutrifit-calculator.com/bmr/"
               description="Calculadora científica de metabolismo basal con 3 fórmulas validadas. Precisión médica para profesionales de la salud. ¡Totalmente gratis!"
             />
 

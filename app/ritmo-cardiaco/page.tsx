@@ -527,7 +527,7 @@ export default function RitmoCardiacoPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora de Calorías y Macronutrientes Gratis"
-              url="https://nutrifit-calculator.com/ritmo-cardiaco"
+              url="https://nutrifit-calculator.com/ritmo-cardiaco/"
               description="Calcula tus calorías diarias y macros con la fórmula científica Mifflin-St Jeor. ¡Totalmente gratis!"
             />
 

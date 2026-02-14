@@ -727,7 +727,7 @@ export default function WHRPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora WHR Médica - Ratio Cintura-Cadera OMS"
-            url="https://nutrifit-calculator.com/whr"
+            url="https://nutrifit-calculator.com/whr/"
             description="Calcula tu Ratio Cintura-Cadera según estándares OMS. Evalúa distribución de grasa, riesgo cardiovascular y obtén recomendaciones médicas profesionales. ¡Totalmente gratis!"
           />
 

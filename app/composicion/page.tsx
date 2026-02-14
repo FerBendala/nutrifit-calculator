@@ -669,7 +669,7 @@ export default function ComposicionPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora de Calorías y Macronutrientes Gratis"
-              url="https://nutrifit-calculator.com/composicion"
+              url="https://nutrifit-calculator.com/composicion/"
               description="Calcula tus calorías diarias y macros con la fórmula científica Mifflin-St Jeor. ¡Totalmente gratis!"
             />
 

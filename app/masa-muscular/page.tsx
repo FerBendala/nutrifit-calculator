@@ -529,7 +529,7 @@ export default function MasaMuscularPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora de Masa Muscular - Índice y Composición"
-            url="https://nutrifit-calculator.com/masa-muscular"
+            url="https://nutrifit-calculator.com/masa-muscular/"
             description="Calcula tu masa muscular, índice de masa muscular y obtén recomendaciones para optimizar tu desarrollo muscular. ¡Totalmente gratis!"
           />
 

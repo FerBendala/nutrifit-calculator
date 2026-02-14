@@ -13,7 +13,7 @@ export function generateWebApplicationSchema(): SchemaMarkup {
     '@type': 'WebApplication',
     name: 'NutriFit Calculator - Calculadoras Fit GRATIS',
     description: 'Calculadoras fit gratuitas de calorías, macros, IMC y más. Herramientas profesionales para tu nutrición y fitness.',
-    url: 'https://nutrifit-calculator.com',
+    url: 'https://nutrifit-calculator.com/',
     applicationCategory: 'HealthApplication',
     operatingSystem: 'Web Browser',
     isAccessibleForFree: true,
@@ -27,12 +27,12 @@ export function generateWebApplicationSchema(): SchemaMarkup {
     author: {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com'
+      url: 'https://nutrifit-calculator.com/'
     },
     publisher: {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com'
+      url: 'https://nutrifit-calculator.com/'
     },
     featureList: CALCULATORS.map(calc => calc.title),
     screenshot: 'https://nutrifit-calculator.com/api/og',
@@ -49,7 +49,7 @@ export function generateWebApplicationSchema(): SchemaMarkup {
 
 // Schema para calculadoras individuales
 export function generateCalculatorSchema(calculator: CalculatorConfig): SchemaMarkup {
-  const baseUrl = 'https://nutrifit-calculator.com';
+  const baseUrl = 'https://nutrifit-calculator.com/';
 
   return {
     '@context': 'https://schema.org',
@@ -148,12 +148,12 @@ export function generateHowToSchema(calculator: CalculatorConfig): SchemaMarkup 
     author: {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com'
+      url: 'https://nutrifit-calculator.com/'
     },
     publisher: {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com'
+      url: 'https://nutrifit-calculator.com/'
     }
   };
 }
@@ -258,17 +258,17 @@ export function generateWebsiteSchema(): SchemaMarkup {
     '@type': 'WebSite',
     name: 'NutriFit Calculator',
     description: 'Calculadoras fit gratuitas de calorías, macros, IMC y más. Herramientas profesionales para tu nutrición y fitness.',
-    url: 'https://nutrifit-calculator.com',
+    url: 'https://nutrifit-calculator.com/',
     inLanguage: 'es-ES',
     author: {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com'
+      url: 'https://nutrifit-calculator.com/'
     },
     publisher: {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com'
+      url: 'https://nutrifit-calculator.com/'
     },
     potentialAction: {
       '@type': 'SearchAction',
@@ -287,7 +287,7 @@ export function generateWebsiteSchema(): SchemaMarkup {
         '@type': 'ListItem',
         position: index + 1,
         name: calc.title,
-        url: `https://nutrifit-calculator.com${calc.href}`
+        url: `https://nutrifit-calculator.com/${calc.href}`
       }))
     }
   };

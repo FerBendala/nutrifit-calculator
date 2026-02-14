@@ -720,7 +720,7 @@ export default function FFMIPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora FFMI Médica - Índice Masa Libre de Grasa"
-            url="https://nutrifit-calculator.com/ffmi"
+            url="https://nutrifit-calculator.com/ffmi/"
             description="Calcula tu FFMI con fórmulas científicas profesionales. Evalúa desarrollo muscular independiente de grasa corporal y obtén recomendaciones personalizadas para hipertrofia. ¡Totalmente gratis!"
           />
 

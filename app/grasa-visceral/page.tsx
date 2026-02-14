@@ -629,7 +629,7 @@ export default function GrasaVisceralPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora Grasa Visceral - VAT | Tejido Adiposo Visceral"
-              url="https://nutrifit-calculator.com/grasa-visceral"
+              url="https://nutrifit-calculator.com/grasa-visceral/"
               description="Calculadora profesional de grasa visceral con 2 fórmulas científicas. Estima tejido adiposo visceral y predice riesgo metabólico y cardiovascular."
             />
 

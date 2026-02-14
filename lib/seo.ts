@@ -14,6 +14,27 @@ export const SITE_CONFIG = {
   ogImage: '/api/og',
 };
 
+/**
+ * Genera URL canónica con trailing slash
+ * @param path - Ruta relativa (ej: '/tdee' o '/tdee/')
+ * @returns URL completa con trailing slash (ej: 'https://nutrifit-calculator.com/tdee/')
+ */
+export function getCanonicalUrl(path: string): string {
+  const baseUrl = 'https://nutrifit-calculator.com';
+  
+  // Normalizar path: eliminar trailing slash si existe
+  const normalizedPath = path.endsWith('/') && path !== '/' 
+    ? path.slice(0, -1) 
+    : path;
+  
+  // Agregar trailing slash (excepto para la home)
+  const pathWithSlash = normalizedPath === '/' || normalizedPath === ''
+    ? '/'
+    : `${normalizedPath}/`;
+  
+  return `${baseUrl}${pathWithSlash}`;
+}
+
 export const PAGE_METADATA: Record<string, PageMetadata> = {
   home: {
     title: 'Calculadora de Calorías y Macros Gratis - Resultados en Segundos',

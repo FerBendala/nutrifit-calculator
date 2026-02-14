@@ -1,5 +1,6 @@
 'use client';
 
+import { getCanonicalUrl } from '@/lib/seo';
 import { ChevronRight, Home } from 'lucide-react';
 import Link from 'next/link';
 
@@ -15,20 +16,18 @@ interface BreadcrumbsProps {
 
 // Genera el schema BreadcrumbList para SEO
 function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
-  const baseUrl = 'https://nutrifit-calculator.com';
-  
   const itemListElement = [
     {
       '@type': 'ListItem',
       position: 1,
       name: 'Inicio',
-      item: baseUrl
+      item: 'https://nutrifit-calculator.com/'
     },
     ...items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 2,
       name: item.label,
-      ...(item.href ? { item: `${baseUrl}${item.href}` } : {})
+      ...(item.href ? { item: getCanonicalUrl(item.href) } : {})
     }))
   ];
 

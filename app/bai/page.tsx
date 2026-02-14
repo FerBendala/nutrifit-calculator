@@ -472,7 +472,7 @@ export default function BAIPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora BAI Médica - Índice de Adiposidad Corporal"
-            url="https://nutrifit-calculator.com/bai"
+            url="https://nutrifit-calculator.com/bai/"
             description="Calcula tu porcentaje de grasa corporal sin báscula con la fórmula Bergman. Estimación precisa usando solo cadera y altura. ¡Totalmente gratis!"
           />
 

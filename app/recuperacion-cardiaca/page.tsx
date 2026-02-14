@@ -635,7 +635,7 @@ export default function RecuperacionCardiacaPage() {
           </section>
           <SocialShare
             title="Calculadora de Recuperación Cardíaca (HRR) - Evaluación Cardiovascular"
-            url="https://nutrifit-calculator.com/recuperacion-cardiaca"
+            url="https://nutrifit-calculator.com/recuperacion-cardiaca/"
             description="Calcula tu recuperación cardíaca (HRR) para evaluar condición cardiovascular y función autonómica. Mide la velocidad de recuperación del corazón después del ejercicio. ¡Totalmente gratis!"
           />
           <CalculatorNavigation currentCalculator="recuperacion-cardiaca" />

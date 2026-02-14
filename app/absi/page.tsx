@@ -609,7 +609,7 @@ export default function ABSIPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora ABSI - A Body Shape Index | Predicción de Mortalidad"
-              url="https://nutrifit-calculator.com/absi"
+              url="https://nutrifit-calculator.com/absi/"
               description="Calculadora profesional de ABSI según fórmula Krakauer. Predice riesgo de mortalidad mejor que el IMC solo."
             />
 

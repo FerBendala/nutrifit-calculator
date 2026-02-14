@@ -786,7 +786,7 @@ export default function VO2MaxPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora VO2 Max - Capacidad Cardiovascular"
-            url="https://nutrifit-calculator.com/vo2max"
+            url="https://nutrifit-calculator.com/vo2max/"
             description="Calcula tu VO2 Max con 4 métodos científicos. Evalúa tu capacidad cardiovascular y obtén zonas de entrenamiento personalizadas. ¡Totalmente gratis!"
           />
 

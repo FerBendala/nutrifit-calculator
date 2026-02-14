@@ -197,7 +197,7 @@ export default function SodioPage() {
           </section>
           <SocialShare
             title="Calculadora de Límite de Sodio y Sal - Recomendaciones OMS"
-            url="https://nutrifit-calculator.com/sodio"
+            url="https://nutrifit-calculator.com/sodio/"
             description="Límite de sodio y sal según OMS: menos de 2 g sodio (5 g sal). Incluye recomendación estricta para hipertensión."
           />
           <CalculatorNavigation currentCalculator="sodio" />

@@ -501,7 +501,7 @@ export default function PesoIdealPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora de Peso Ideal - 5 Fórmulas Científicas"
-            url="https://nutrifit-calculator.com/peso-ideal"
+            url="https://nutrifit-calculator.com/peso-ideal/"
             description="Calcula tu peso ideal con 5 fórmulas científicas reconocidas. Robinson, Miller, Devine, Hamwi y Peterson. ¡Totalmente gratis!"
           />
 

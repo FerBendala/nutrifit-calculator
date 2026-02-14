@@ -755,7 +755,7 @@ export default function PesoAjustadoPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora Peso Ajustado Clínico ABW - Fórmula Robinson"
-            url="https://nutrifit-calculator.com/peso-ajustado"
+            url="https://nutrifit-calculator.com/peso-ajustado/"
             description="Calcula tu peso ajustado clínico con fórmula Robinson. Herramienta médica para dosificación precisa y necesidades nutricionales. ¡Totalmente gratis!"
           />
 

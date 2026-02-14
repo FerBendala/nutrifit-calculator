@@ -650,7 +650,7 @@ export default function RMRPage() {
           {/* Social Share */}
           <SocialShare
             title="Calculadora RMR Médica - Tasa Metabólica en Reposo"
-            url="https://nutrifit-calculator.com/rmr"
+            url="https://nutrifit-calculator.com/rmr/"
             description="Calcula tu RMR con 3 fórmulas científicas validadas. Gasto energético en reposo más práctico que BMR. ¡Totalmente gratis!"
           />
 

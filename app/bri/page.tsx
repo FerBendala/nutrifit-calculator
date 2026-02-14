@@ -582,7 +582,7 @@ export default function BRIPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora BRI - Body Roundness Index | Riesgo Metabólico"
-              url="https://nutrifit-calculator.com/bri"
+              url="https://nutrifit-calculator.com/bri/"
               description="Calculadora profesional de BRI según fórmula Thomas. Predice riesgo metabólico y cardiovascular basándose en la forma corporal."
             />
 

@@ -329,7 +329,7 @@ export default function EGFRPage() {
           </section>
           <SocialShare
             title="Calculadora de Filtrado Glomerular (eGFR) - Función Renal"
-            url="https://nutrifit-calculator.com/egfr"
+            url="https://nutrifit-calculator.com/egfr/"
             description="Calcula tu eGFR con CKD-EPI y MDRD. Estadificación de enfermedad renal crónica y Cockcroft-Gault para ajuste de dosis."
           />
           <CalculatorNavigation currentCalculator="egfr" />

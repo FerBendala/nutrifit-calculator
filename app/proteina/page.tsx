@@ -586,7 +586,7 @@ export default function ProteinaPage() {
             {/* Social Share */}
             <SocialShare
               title="Calculadora de Calorías y Macronutrientes Gratis"
-              url="https://nutrifit-calculator.com/proteina"
+              url="https://nutrifit-calculator.com/proteina/"
               description="Calcula tus calorías diarias y macros con la fórmula científica Mifflin-St Jeor. ¡Totalmente gratis!"
             />
 

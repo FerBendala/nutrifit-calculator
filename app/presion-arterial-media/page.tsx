@@ -573,7 +573,7 @@ export default function PresionArterialMediaPage() {
 
           <SocialShare
             title="Calculadora de Presión Arterial Media (MAP) - Evaluación Cardiovascular"
-            url="https://nutrifit-calculator.com/presion-arterial-media"
+            url="https://nutrifit-calculator.com/presion-arterial-media/"
             description="Calcula tu presión arterial media (MAP) para evaluación de perfusión de órganos y riesgo cardiovascular según guías AHA/ACC. ¡Totalmente gratis!"
           />
           <CalculatorNavigation currentCalculator="presion-arterial-media" />

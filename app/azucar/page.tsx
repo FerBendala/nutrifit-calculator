@@ -238,7 +238,7 @@ export default function AzucarPage() {
           </section>
           <SocialShare
             title="Calculadora de Límite de Azúcar Diaria - Recomendaciones OMS"
-            url="https://nutrifit-calculator.com/azucar"
+            url="https://nutrifit-calculator.com/azucar/"
             description="Calcula el límite máximo de azúcares libres según tus calorías. Recomendaciones OMS: menos del 10% y menos del 5%."
           />
           <CalculatorNavigation currentCalculator="azucar" />

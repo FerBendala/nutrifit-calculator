@@ -95,7 +95,7 @@
   force = true
 
 # ===================================
-# REDIRECT GLOBAL: Trailing Slash (con force=true)
+# REDIRECT GLOBAL: Trailing Slash (con force=false)
 # DEBE IR AL FINAL
 # ===================================
 
@@ -103,7 +103,7 @@
   from = "/:path"
   to = "/:path/"
   status = 301
-  force = true
+  force = false
 
 # ===================================
 # HEADERS: Assets (Cache largo)

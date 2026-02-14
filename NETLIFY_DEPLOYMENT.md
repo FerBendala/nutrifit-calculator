@@ -270,9 +270,23 @@ Si encuentras problemas, puedes:
 
 ## Notas Técnicas
 
-### Por qué force = true
+### Por qué force = false en el redirect global
 
-`force = true` asegura que el redirect siempre se aplique, incluso si Netlify encuentra un archivo. Esto elimina cualquier posibilidad de duplicidad.
+El redirect global `/:path → /:path/` usa `force = false` para evitar redirect loops:
+
+- Con `force = false`: Netlify solo redirige si NO encuentra un archivo estático
+- `/masa-muscular` → no existe archivo → 301 a `/masa-muscular/`
+- `/masa-muscular/` → existe `masa-muscular/index.html` → 200 sirve el archivo
+
+Si usáramos `force = true`, causaría un loop infinito porque también redigiría las URLs que ya tienen trailing slash.
+
+### Por qué force = true en redirects específicos
+
+Solo los redirects específicos como `/index.html → /` usan `force = true` porque necesitan aplicarse siempre, incluso si el archivo existe.
+
+### Por qué NO hay duplicidad con force = false
+
+Next.js con `trailingSlash: true` genera SOLO archivos en formato `/path/index.html`, nunca `/path.html`. Por lo tanto, no hay archivos alternativos que Netlify pueda servir sin el trailing slash.
 
 ### Por qué excepciones explícitas
 

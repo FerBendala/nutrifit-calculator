@@ -30,9 +30,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
 
   const legalRoutes = [
-    { path: '/privacidad', priority: 0.3, changeFrequency: 'yearly' as const },
-    { path: '/terminos', priority: 0.3, changeFrequency: 'yearly' as const },
-    { path: '/cookies', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/privacidad/', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/terminos/', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/cookies/', priority: 0.3, changeFrequency: 'yearly' as const },
   ].map(p => ({
     url: `${BASE_URL}${p.path}`,
     lastModified: BUILD_TIME,
@@ -50,7 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Página principal del blog
     const blogRoutes = [{
-      url: `${BASE_URL}/blog`,
+      url: `${BASE_URL}/blog/`,
       lastModified: BUILD_TIME,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
@@ -58,7 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Posts individuales
     const postRoutes = allPosts.map(post => ({
-      url: `${BASE_URL}/blog/${post.slug}`,
+      url: `${BASE_URL}/blog/${post.slug}/`,
       lastModified: new Date(post.date),
       changeFrequency: 'monthly' as const,
       priority: post.featured ? 0.8 : 0.7,
@@ -66,7 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Páginas de categorías
     const categoryRoutes = categories.map(category => ({
-      url: `${BASE_URL}/blog/categoria/${generateCategorySlug(category)}`,
+      url: `${BASE_URL}/blog/categoria/${generateCategorySlug(category)}/`,
       lastModified: BUILD_TIME,
       changeFrequency: 'weekly' as const,
       priority: 0.6,
@@ -74,7 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Páginas de tags
     const tagRoutes = tags.map(tag => ({
-      url: `${BASE_URL}/blog/tag/${generateTagSlug(tag)}`,
+      url: `${BASE_URL}/blog/tag/${generateTagSlug(tag)}/`,
       lastModified: BUILD_TIME,
       changeFrequency: 'weekly' as const,
       priority: 0.5,

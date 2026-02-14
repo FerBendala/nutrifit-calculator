@@ -148,7 +148,7 @@ export default function WHtRPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span><strong>Complementar con otras métricas:</strong> Usar junto con <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">IMC</a> y <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">composición corporal</a></span>
+                    <span><strong>Complementar con otras métricas:</strong> Usar junto con <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">IMC</a> y <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">composición corporal</a></span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -170,7 +170,7 @@ export default function WHtRPage() {
                     <h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">¿Es más preciso que el IMC?</h4>
                     <p className="text-sm text-purple-700 dark:text-purple-300 leading-relaxed">
                       Sí, múltiples estudios muestran que el WHtR es mejor predictor de riesgo cardiometabólico,
-                      especialmente para detectar <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">grasa abdominal peligrosa</a>.
+                      especialmente para detectar <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">grasa abdominal peligrosa</a>.
                     </p>
                   </article>
                   <article>
@@ -184,14 +184,14 @@ export default function WHtRPage() {
                     <h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">¿Sirve para todas las edades?</h4>
                     <p className="text-sm text-purple-700 dark:text-purple-300 leading-relaxed">
                       Sí, desde los 5 años hasta adultos mayores. Los rangos de interpretación son
-                      universales, a diferencia del <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">IMC que varía por edad</a>.
+                      universales, a diferencia del <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">IMC que varía por edad</a>.
                     </p>
                   </article>
                   <article>
                     <h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">¿Qué hacer si mi WHtR es alto?</h4>
                     <p className="text-sm text-purple-700 dark:text-purple-300 leading-relaxed">
                       Consulta un profesional de salud, enfócate en reducir grasa abdominal con
-                      <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">déficit calórico</a> y ejercicio cardiovascular.
+                      <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">déficit calórico</a> y ejercicio cardiovascular.
                     </p>
                   </article>
                 </div>
@@ -210,27 +210,27 @@ export default function WHtRPage() {
                 <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu IMC:</a></strong> Combina ambas métricas para evaluación completa</span>
+                    <span><strong><a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu IMC:</a></strong> Combina ambas métricas para evaluación completa</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/whr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu WHR:</a></strong> Ratio cintura-cadera para análisis complementario de distribución grasa</span>
+                    <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu WHR:</a></strong> Ratio cintura-cadera para análisis complementario de distribución grasa</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mide tu grasa corporal:</a></strong> Conoce el porcentaje total de grasa</span>
+                    <span><strong><a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mide tu grasa corporal:</a></strong> Conoce el porcentaje total de grasa</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa composición corporal:</a></strong> Análisis completo de masa magra vs grasa</span>
+                    <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa composición corporal:</a></strong> Análisis completo de masa magra vs grasa</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/peso-ideal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Encuentra tu peso ideal:</a></strong> Define objetivos realistas de peso</span>
+                    <span><strong><a href="/peso-ideal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Encuentra tu peso ideal:</a></strong> Define objetivos realistas de peso</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica tu déficit calórico:</a></strong> Si necesitas reducir grasa abdominal</span>
+                    <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica tu déficit calórico:</a></strong> Si necesitas reducir grasa abdominal</span>
                   </li>
                 </ul>
               </div>

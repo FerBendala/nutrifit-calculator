@@ -100,9 +100,9 @@ export default function EdadMetabolicaPage() {
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Esta calculadora utiliza la fórmula <strong>Mifflin-St Jeor</strong> para calcular tu BMR y lo compara
-                con el promedio esperado. Es complementaria a otras calculadoras metabólicas como <a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline">BMR</a>,
-                <a href="/rmr" className="text-blue-600 dark:text-blue-400 hover:underline"> RMR</a>, <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">TDEE</a> y
-                <a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline"> Masa Muscular</a>.
+                con el promedio esperado. Es complementaria a otras calculadoras metabólicas como <a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline">BMR</a>,
+                <a href="/rmr/" className="text-blue-600 dark:text-blue-400 hover:underline"> RMR</a>, <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">TDEE</a> y
+                <a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline"> Masa Muscular</a>.
               </p>
             </div>
           </section>
@@ -124,7 +124,7 @@ export default function EdadMetabolicaPage() {
                         <strong>Nota:</strong> La edad metabólica se calcula comparando tu BMR con el promedio esperado
                         para personas de tu edad. Si conoces tu porcentaje de grasa corporal, puedes proporcionarlo para
                         un cálculo más preciso usando la fórmula Katch-McArdle. Si no lo conoces, puedes usar nuestra
-                        <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium"> calculadora de grasa corporal</a>.
+                        <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium"> calculadora de grasa corporal</a>.
                       </p>
                     </div>
                   </div>
@@ -211,8 +211,8 @@ export default function EdadMetabolicaPage() {
                         />
                         <p className="text-xs text-muted-foreground mt-1">
                           Si no conoces tu porcentaje de grasa corporal, puedes usar nuestra{' '}
-                          <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de grasa corporal</a> o{' '}
-                          <a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de composición corporal</a>.
+                          <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de grasa corporal</a> o{' '}
+                          <a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de composición corporal</a>.
                         </p>
                       </div>
                     )}
@@ -547,8 +547,8 @@ export default function EdadMetabolicaPage() {
                     Para mejorar tu edad metabólica: (1) Aumenta masa muscular con entrenamiento de fuerza 3-4 veces por semana,
                     (2) Aumenta actividad física diaria, (3) Consume suficiente proteína (1.6-2.2g por kg de peso),
                     (4) Mejora calidad y cantidad de sueño (7-9 horas), (5) Evita dietas muy restrictivas. Consulta nuestra
-                    <a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de masa muscular</a> y
-                    <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de proteína</a> para más información.
+                    <a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de masa muscular</a> y
+                    <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de proteína</a> para más información.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
@@ -579,19 +579,19 @@ export default function EdadMetabolicaPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de BMR:</a></strong> Metabolismo basal necesario para calcular edad metabólica</span>
+                  <span><strong><a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de BMR:</a></strong> Metabolismo basal necesario para calcular edad metabólica</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/rmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de RMR:</a></strong> Tasa metabólica en reposo complementaria</span>
+                  <span><strong><a href="/rmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de RMR:</a></strong> Tasa metabólica en reposo complementaria</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Masa Muscular:</a></strong> Aumentar masa muscular mejora edad metabólica</span>
+                  <span><strong><a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Masa Muscular:</a></strong> Aumentar masa muscular mejora edad metabólica</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de TDEE:</a></strong> Gasto calórico total diario</span>
+                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de TDEE:</a></strong> Gasto calórico total diario</span>
                 </li>
               </ul>
             </section>

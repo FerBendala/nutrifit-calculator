@@ -756,19 +756,19 @@ export default function VO2MaxPage() {
                 <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/ritmo-cardiaco" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Zonas de entrenamiento:</a></strong> Calcula tus zonas cardíacas específicas</span>
+                    <span><strong><a href="/ritmo-cardiaco/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Zonas de entrenamiento:</a></strong> Calcula tus zonas cardíacas específicas</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Fuerza máxima:</a></strong> Combina cardio con entrenamiento de fuerza</span>
+                    <span><strong><a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Fuerza máxima:</a></strong> Combina cardio con entrenamiento de fuerza</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Masa muscular:</a></strong> La masa magra mejora la eficiencia cardiovascular</span>
+                    <span><strong><a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Masa muscular:</a></strong> La masa magra mejora la eficiencia cardiovascular</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Gasto calórico:</a></strong> Ajusta tu nutrición para entrenamientos intensos</span>
+                    <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Gasto calórico:</a></strong> Ajusta tu nutrición para entrenamientos intensos</span>
                   </li>
                 </ul>
               </div>

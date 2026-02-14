@@ -280,16 +280,16 @@ export default function FibraPage() {
             <h3 className="font-bold text-orange-900 mb-3 text-lg">Otras calculadoras de nutrición</h3>
             <ul className="text-sm text-orange-800 dark:text-orange-200 space-y-2">
               <li>
-                <strong><a href="/azucar" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según calorías (&lt;10% y &lt;5%)
+                <strong><a href="/azucar/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según calorías (&lt;10% y &lt;5%)
               </li>
               <li>
-                <strong><a href="/sodio" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Sodio/Sal (OMS):</a></strong> Límite de sodio y sal, incl. recomendación para HTA
+                <strong><a href="/sodio/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Sodio/Sal (OMS):</a></strong> Límite de sodio y sal, incl. recomendación para HTA
               </li>
               <li>
-                <strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Proteína diaria:</a></strong> Necesidades según objetivo y actividad
+                <strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Proteína diaria:</a></strong> Necesidades según objetivo y actividad
               </li>
               <li>
-                <strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">TDEE:</a></strong> Gasto calórico total diario
+                <strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">TDEE:</a></strong> Gasto calórico total diario
               </li>
             </ul>
           </section>

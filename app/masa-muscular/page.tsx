@@ -152,7 +152,7 @@ export default function MasaMuscularPage() {
                       />
                       <p className="text-sm text-muted-foreground mt-2">
                         💡 <strong>¿No conoces tu porcentaje de grasa?</strong> Usa nuestra
-                        <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden ml-1">
+                        <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden ml-1">
                           calculadora de grasa corporal
                         </a> con métodos científicos de pliegues cutáneos para obtenerlo de forma precisa.
                       </p>
@@ -190,7 +190,7 @@ export default function MasaMuscularPage() {
                     Método más preciso
                   </h3>
                   <p className="text-sm text-orange-800 dark:text-orange-200 mb-3">
-                    Usa nuestra <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">calculadora de grasa corporal</a> con métodos científicos de pliegues cutáneos (Jackson-Pollock, Durnin-Womersley).
+                    Usa nuestra <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">calculadora de grasa corporal</a> con métodos científicos de pliegues cutáneos (Jackson-Pollock, Durnin-Womersley).
                   </p>
                   <ul className="text-xs text-orange-700 dark:text-orange-300 space-y-1">
                     <li>• Precisión de ±3-5%</li>
@@ -204,7 +204,7 @@ export default function MasaMuscularPage() {
                     Método alternativo
                   </h3>
                   <p className="text-sm text-orange-800 dark:text-orange-200 mb-3">
-                    Usa nuestra <a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">calculadora de composición corporal</a> con el método Navy (circunferencias corporales).
+                    Usa nuestra <a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">calculadora de composición corporal</a> con el método Navy (circunferencias corporales).
                   </p>
                   <ul className="text-xs text-orange-700 dark:text-orange-300 space-y-1">
                     <li>• Precisión de ±3-4%</li>
@@ -328,7 +328,7 @@ export default function MasaMuscularPage() {
                   La masa muscular es la cantidad total de tejido muscular en tu cuerpo,
                   incluyendo músculos esqueléticos, cardíacos y lisos. Es un componente
                   crucial de la <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">composición corporal</a> y está directamente relacionada con la fuerza, el metabolismo y la salud general.
-                  Para calcularla con precisión, necesitas conocer tu <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">porcentaje de grasa corporal</a>.
+                  Para calcularla con precisión, necesitas conocer tu <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">porcentaje de grasa corporal</a>.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Nuestra calculadora utiliza la <a href="https://pubmed.ncbi.nlm.nih.gov/10919906/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">ecuación de Lee (2000)</a> para estimar la masa muscular esquelética, que es la más relevante para
@@ -479,31 +479,31 @@ export default function MasaMuscularPage() {
                 <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica entrenamientos de fuerza:</a></strong> Optimiza cargas para máximo desarrollo muscular</span>
+                    <span><strong><a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica entrenamientos de fuerza:</a></strong> Optimiza cargas para máximo desarrollo muscular</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/whr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa distribución de grasa:</a></strong> El WHR complementa el análisis de composición corporal</span>
+                    <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa distribución de grasa:</a></strong> El WHR complementa el análisis de composición corporal</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/vo2max" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> La masa muscular mejora la eficiencia del oxígeno</span>
+                    <span><strong><a href="/vo2max/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> La masa muscular mejora la eficiencia del oxígeno</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/sarcopenia" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa riesgo de sarcopenia:</a></strong> Monitorea la pérdida muscular relacionada con la edad</span>
+                    <span><strong><a href="/sarcopenia/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa riesgo de sarcopenia:</a></strong> Monitorea la pérdida muscular relacionada con la edad</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/ffmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FFMI avanzado:</a></strong> Evalúa desarrollo muscular independiente de grasa</span>
+                    <span><strong><a href="/ffmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FFMI avanzado:</a></strong> Evalúa desarrollo muscular independiente de grasa</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades basadas en masa magra</span>
+                    <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades basadas en masa magra</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> La masa muscular aumenta el gasto calórico en reposo</span>
+                    <span><strong><a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> La masa muscular aumenta el gasto calórico en reposo</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
@@ -511,7 +511,7 @@ export default function MasaMuscularPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu grasa corporal:</a></strong> Métodos científicos para evaluar composición</span>
+                    <span><strong><a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu grasa corporal:</a></strong> Métodos científicos para evaluar composición</span>
                   </li>
                 </ul>
               </div>

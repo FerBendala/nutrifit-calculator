@@ -375,7 +375,7 @@ export default function AguaPage() {
                   <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-1">
                     <li>• <strong>Agua pura:</strong> La mejor opción, sin calorías</li>
                     <li>• <strong>Infusiones:</strong> Té, café (moderado), tisanas</li>
-                    <li>• <strong>Leche:</strong> Aporta también <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline">proteína</a> y calcio</li>
+                    <li>• <strong>Leche:</strong> Aporta también <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline">proteína</a> y calcio</li>
                     <li>• <strong>Zumos naturales:</strong> Con moderación por azúcares</li>
                     <li>• <strong>Caldos:</strong> Aportan electrolitos adicionales</li>
                   </ul>
@@ -502,15 +502,15 @@ export default function AguaPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> La síntesis proteica requiere hidratación adecuada</span>
+                  <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> La síntesis proteica requiere hidratación adecuada</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu TDEE:</a></strong> Mayor gasto calórico requiere más hidratación</span>
+                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu TDEE:</a></strong> Mayor gasto calórico requiere más hidratación</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fibra" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu fibra diaria:</a></strong> Necesidades de fibra según IOM/FDA para dieta equilibrada</span>
+                  <span><strong><a href="/fibra/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu fibra diaria:</a></strong> Necesidades de fibra según IOM/FDA para dieta equilibrada</span>
                 </li>
               </ul>
             </section>

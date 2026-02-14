@@ -38,7 +38,7 @@ export function Header() {
     <div className="flex flex-col space-y-4 pt-6">
       {/* Enlace al Blog */}
       <Link
-        href="/blog"
+        href="/blog/"
         onClick={() => setIsOpen(false)}
         className="group flex items-start gap-3 rounded-xl p-4 mb-2 transition-all hover:bg-accent hover:shadow-sm border border-border/50 bg-muted/30"
       >
@@ -171,7 +171,7 @@ export function Header() {
 
                 <NavigationMenuItem>
                   <Link
-                    href="/blog"
+                    href="/blog/"
                     className="flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary px-3 py-2 rounded-md hover:bg-accent"
                   >
                     <BookOpen className="h-4 w-4" />

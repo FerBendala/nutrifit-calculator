@@ -612,8 +612,8 @@ export default function OneRMPage() {
                     <li>• <strong>Lunes:</strong> Fuerza 85-95% × 1-3 reps</li>
                     <li>• <strong>Miércoles:</strong> Hipertrofia 70-80% × 8-12 reps</li>
                     <li>• <strong>Viernes:</strong> Potencia 75-85% × 3-6 reps explosivas</li>
-                    <li>• Ajusta según <a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline">tu nivel muscular</a></li>
-                    <li>• Calcula <a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline">calorías basales</a> para recuperación</li>
+                    <li>• Ajusta según <a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline">tu nivel muscular</a></li>
+                    <li>• Calcula <a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline">calorías basales</a> para recuperación</li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
@@ -677,9 +677,9 @@ export default function OneRMPage() {
                 <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Qué nutrición necesito para maximizar mi fuerza?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
-                    <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline">Proteína adecuada</a> (1.8-2.2g/kg),
-                    carbohidratos para energía, y <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">calorías suficientes</a>
-                    basadas en tu <a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline">metabolismo basal</a>.
+                    <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline">Proteína adecuada</a> (1.8-2.2g/kg),
+                    carbohidratos para energía, y <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">calorías suficientes</a>
+                    basadas en tu <a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline">metabolismo basal</a>.
                   </p>
                 </article>
               </div>
@@ -694,23 +694,23 @@ export default function OneRMPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu masa muscular:</a></strong> Base fundamental para desarrollar fuerza máxima</span>
+                  <span><strong><a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu masa muscular:</a></strong> Base fundamental para desarrollar fuerza máxima</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/ffmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FFMI muscular:</a></strong> Evalúa desarrollo muscular independiente de grasa para atletas avanzados</span>
+                  <span><strong><a href="/ffmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FFMI muscular:</a></strong> Evalúa desarrollo muscular independiente de grasa para atletas avanzados</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu proteína:</a></strong> Nutrición específica para ganar fuerza y músculo</span>
+                  <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu proteína:</a></strong> Nutrición específica para ganar fuerza y músculo</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> Base para calcular necesidades energéticas totales</span>
+                  <span><strong><a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> Base para calcular necesidades energéticas totales</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu gasto calórico:</a></strong> Incluye el costo energético del entrenamiento intenso</span>
+                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu gasto calórico:</a></strong> Incluye el costo energético del entrenamiento intenso</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
@@ -718,7 +718,7 @@ export default function OneRMPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Monitorea tu progreso:</a></strong> Evalúa cambios en composición corporal</span>
+                  <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Monitorea tu progreso:</a></strong> Evalúa cambios en composición corporal</span>
                 </li>
               </ul>
             </section>

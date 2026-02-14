@@ -95,9 +95,9 @@ export default function GrasaVisceralPage() {
               <p className="text-muted-foreground leading-relaxed">
                 Esta calculadora utiliza dos fórmulas científicas validadas: <strong>Lee et al. (2008)</strong> y
                 <strong> Ryo et al. (2005)</strong> para estimar el área de grasa visceral. Es complementaria a otras
-                calculadoras de distribución de grasa como <a href="/ci" className="text-blue-600 dark:text-blue-400 hover:underline">CI</a>,
-                <a href="/bri" className="text-blue-600 dark:text-blue-400 hover:underline">BRI</a>, <a href="/absi" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> y
-                <a href="/whtr" className="text-blue-600 dark:text-blue-400 hover:underline">WHtR</a>.
+                calculadoras de distribución de grasa como <a href="/ci/" className="text-blue-600 dark:text-blue-400 hover:underline">CI</a>,
+                <a href="/bri/" className="text-blue-600 dark:text-blue-400 hover:underline">BRI</a>, <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> y
+                <a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline">WHtR</a>.
               </p>
             </div>
           </section>
@@ -569,7 +569,7 @@ export default function GrasaVisceralPage() {
                     Reducir la grasa visceral requiere: (1) Ejercicio cardiovascular regular (150+ min/semana),
                     (2) Entrenamiento de fuerza 2-3 veces por semana, (3) Déficit calórico moderado (300-500 kcal/día),
                     (4) Dieta rica en fibra y proteína, (5) Reducción de azúcares refinados y alcohol. Consulta nuestra
-                    <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de TDEE</a> para planificar tu déficit.
+                    <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de TDEE</a> para planificar tu déficit.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
@@ -601,19 +601,19 @@ export default function GrasaVisceralPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/ci" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de CI:</a></strong> Complementa el VAT con evaluación de distribución de grasa abdominal</span>
+                  <span><strong><a href="/ci/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de CI:</a></strong> Complementa el VAT con evaluación de distribución de grasa abdominal</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bri" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de BRI:</a></strong> Complementa el VAT con predicción de riesgo metabólico</span>
+                  <span><strong><a href="/bri/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de BRI:</a></strong> Complementa el VAT con predicción de riesgo metabólico</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whtr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
+                  <span><strong><a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Grasa Corporal:</a></strong> Porcentaje total de grasa corporal</span>
+                  <span><strong><a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Grasa Corporal:</a></strong> Porcentaje total de grasa corporal</span>
                 </li>
               </ul>
             </section>

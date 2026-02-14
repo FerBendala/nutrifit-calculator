@@ -94,8 +94,8 @@ export default function CIPage() {
                 de grasa, siendo especialmente útil para identificar riesgo cardiovascular y metabólico.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                El CI es complementario a otros índices de forma corporal como <a href="/absi" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a>,
-                <a href="/bri" className="text-blue-600 dark:text-blue-400 hover:underline">BRI</a>, <a href="/whtr" className="text-blue-600 dark:text-blue-400 hover:underline">WHtR</a> y <a href="/whr" className="text-blue-600 dark:text-blue-400 hover:underline">WHR</a>.
+                El CI es complementario a otros índices de forma corporal como <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a>,
+                <a href="/bri/" className="text-blue-600 dark:text-blue-400 hover:underline">BRI</a>, <a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline">WHtR</a> y <a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline">WHR</a>.
                 Es ampliamente utilizado en estudios epidemiológicos y proporciona una evaluación precisa
                 del riesgo de síndrome metabólico, diabetes tipo 2 y enfermedad cardiovascular.
               </p>
@@ -422,7 +422,7 @@ export default function CIPage() {
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                    <span><strong>Complementario:</strong> Funciona bien junto con <a href="/absi" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a>, <a href="/bri" className="text-blue-600 dark:text-blue-400 hover:underline">BRI</a> y otros índices</span>
+                    <span><strong>Complementario:</strong> Funciona bien junto con <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a>, <a href="/bri/" className="text-blue-600 dark:text-blue-400 hover:underline">BRI</a> y otros índices</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
@@ -523,8 +523,8 @@ export default function CIPage() {
                   <h4 className="font-semibold mb-2">¿Cuál es la diferencia entre CI y otros índices de forma corporal?</h4>
                   <p className="text-sm text-muted-foreground">
                     El CI evalúa específicamente la distribución de grasa abdominal comparando la cintura con la esperada
-                    para un cilindro. El <a href="/absi" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> predice mortalidad,
-                    el <a href="/bri" className="text-blue-600 dark:text-blue-400 hover:underline">BRI</a> predice riesgo metabólico, y el CI
+                    para un cilindro. El <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> predice mortalidad,
+                    el <a href="/bri/" className="text-blue-600 dark:text-blue-400 hover:underline">BRI</a> predice riesgo metabólico, y el CI
                     evalúa distribución de grasa. Todos son complementarios y pueden usarse juntos para una evaluación más completa.
                   </p>
                 </article>
@@ -534,7 +534,7 @@ export default function CIPage() {
                     Reducir la circunferencia de cintura es clave. Esto se logra mediante: (1) Ejercicio cardiovascular regular
                     (150+ min/semana), (2) Entrenamiento de fuerza 2-3 veces por semana, (3) Déficit calórico moderado
                     (300-500 kcal/día), (4) Dieta rica en fibra y proteína, (5) Reducción de azúcares refinados. Consulta nuestra
-                    <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de TDEE</a> para planificar tu déficit.
+                    <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de TDEE</a> para planificar tu déficit.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
@@ -542,7 +542,7 @@ export default function CIPage() {
                   <p className="text-sm text-muted-foreground">
                     <strong>No.</strong> El CI complementa al IMC. Mientras que el IMC evalúa peso corporal general,
                     el CI proporciona información sobre distribución de grasa abdominal. Ambos índices juntos ofrecen
-                    una evaluación más completa. Consulta también nuestra <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de IMC</a>.
+                    una evaluación más completa. Consulta también nuestra <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de IMC</a>.
                   </p>
                 </article>
               </div>
@@ -557,19 +557,19 @@ export default function CIPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/absi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de ABSI:</a></strong> Complementa el CI con predicción de mortalidad</span>
+                  <span><strong><a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de ABSI:</a></strong> Complementa el CI con predicción de mortalidad</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bri" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de BRI:</a></strong> Complementa el CI con predicción de riesgo metabólico</span>
+                  <span><strong><a href="/bri/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de BRI:</a></strong> Complementa el CI con predicción de riesgo metabólico</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whtr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
+                  <span><strong><a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHR:</a></strong> Ratio cintura-cadera para análisis de distribución de grasa</span>
+                  <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHR:</a></strong> Ratio cintura-cadera para análisis de distribución de grasa</span>
                 </li>
               </ul>
             </section>

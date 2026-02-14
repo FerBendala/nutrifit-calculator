@@ -400,7 +400,7 @@ export default function PesoIdealPage() {
                     </li>
                     <li className="flex items-start">
                       <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
-                      <span>Evalúa tu <a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">composición corporal</a></span>
+                      <span>Evalúa tu <a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">composición corporal</a></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
@@ -476,19 +476,19 @@ export default function PesoIdealPage() {
             <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
               <li className="flex items-start">
                 <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                <span><strong><a href="/peso-ajustado" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado Clínico:</a></strong> ABW para dosificación de medicamentos y necesidades nutricionales precisas</span>
+                <span><strong><a href="/peso-ajustado/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado Clínico:</a></strong> ABW para dosificación de medicamentos y necesidades nutricionales precisas</span>
               </li>
               <li className="flex items-start">
                 <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                <span><strong><a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu IMC:</a></strong> Índice de masa corporal para contexto de salud general</span>
+                <span><strong><a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu IMC:</a></strong> Índice de masa corporal para contexto de salud general</span>
               </li>
               <li className="flex items-start">
                 <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula proteína necesaria:</a></strong> Basado en tu peso ideal o ajustado</span>
+                <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula proteína necesaria:</a></strong> Basado en tu peso ideal o ajustado</span>
               </li>
               <li className="flex items-start">
                 <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                <span><strong><a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu BMR:</a></strong> Metabolismo basal para planificación calórica precisa</span>
+                <span><strong><a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu BMR:</a></strong> Metabolismo basal para planificación calórica precisa</span>
               </li>
             </ul>
           </section>

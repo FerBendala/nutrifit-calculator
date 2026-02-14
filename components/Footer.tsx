@@ -21,32 +21,32 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/imc" className="text-muted-foreground hover:text-foreground transition-golden">
+                <Link href="/imc/" className="text-muted-foreground hover:text-foreground transition-golden">
                   IMC
                 </Link>
               </li>
               <li>
-                <Link href="/tdee" className="text-muted-foreground hover:text-foreground transition-golden">
+                <Link href="/tdee/" className="text-muted-foreground hover:text-foreground transition-golden">
                   TDEE
                 </Link>
               </li>
               <li>
-                <Link href="/proteina" className="text-muted-foreground hover:text-foreground transition-golden">
+                <Link href="/proteina/" className="text-muted-foreground hover:text-foreground transition-golden">
                   Proteína diaria
                 </Link>
               </li>
               <li>
-                <Link href="/agua" className="text-muted-foreground hover:text-foreground transition-golden">
+                <Link href="/agua/" className="text-muted-foreground hover:text-foreground transition-golden">
                   Agua diaria
                 </Link>
               </li>
               <li>
-                <Link href="/composicion" className="text-muted-foreground hover:text-foreground transition-golden">
+                <Link href="/composicion/" className="text-muted-foreground hover:text-foreground transition-golden">
                   Composición Corporal
                 </Link>
               </li>
               <li>
-                <Link href="/ritmo-cardiaco" className="text-muted-foreground hover:text-foreground transition-golden">
+                <Link href="/ritmo-cardiaco/" className="text-muted-foreground hover:text-foreground transition-golden">
                   Ritmo Cardíaco
                 </Link>
               </li>
@@ -57,17 +57,17 @@ export function Footer() {
             <h4 className="font-semibold text-base mb-[0.618rem]">Legal</h4>
             <ul className="space-golden-xs text-sm">
               <li>
-                <Link href="/privacidad" className="text-muted-foreground hover:text-foreground transition-golden">
+                <Link href="/privacidad/" className="text-muted-foreground hover:text-foreground transition-golden">
                   Privacidad
                 </Link>
               </li>
               <li>
-                <Link href="/terminos" className="text-muted-foreground hover:text-foreground transition-golden">
+                <Link href="/terminos/" className="text-muted-foreground hover:text-foreground transition-golden">
                   Términos de uso
                 </Link>
               </li>
               <li>
-                <Link href="/cookies" className="text-muted-foreground hover:text-foreground transition-golden">
+                <Link href="/cookies/" className="text-muted-foreground hover:text-foreground transition-golden">
                   Política de cookies
                 </Link>
               </li>

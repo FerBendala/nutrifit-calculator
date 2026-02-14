@@ -147,7 +147,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             {/* Breadcrumbs y navegación */}
             <div className="flex items-center justify-between">
               <Link
-                href="/blog"
+                href="/blog/"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -190,7 +190,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   </p>
                   <div className="flex flex-wrap justify-center gap-3 mt-6">
                     <Link
-                      href="/blog"
+                      href="/blog/"
                       className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
                     >
                       Ver todos los artículos
@@ -223,19 +223,19 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                     🧮 Calculadora de Calorías
                   </a>
                   <a
-                    href="/proteina"
+                    href="/proteina/"
                     className="bg-secondary text-secondary-foreground px-4 py-3 rounded-lg hover:bg-secondary/90 transition-colors text-sm font-medium"
                   >
                     🥩 Proteína Diaria
                   </a>
                   <a
-                    href="/imc"
+                    href="/imc/"
                     className="bg-secondary text-secondary-foreground px-4 py-3 rounded-lg hover:bg-secondary/90 transition-colors text-sm font-medium"
                   >
                     📏 Calculadora IMC
                   </a>
                   <a
-                    href="/grasa-corporal"
+                    href="/grasa-corporal/"
                     className="bg-secondary text-secondary-foreground px-4 py-3 rounded-lg hover:bg-secondary/90 transition-colors text-sm font-medium"
                   >
                     📊 Grasa Corporal

@@ -383,7 +383,7 @@ export default function BSAPage() {
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong>Antibióticos:</strong> Ajuste de dosis en pacientes con IMC extremo según <a href="/peso-ajustado" className="text-blue-600 dark:text-blue-400 hover:underline">ABW y BSA</a></span>
+                    <span><strong>Antibióticos:</strong> Ajuste de dosis en pacientes con IMC extremo según <a href="/peso-ajustado/" className="text-blue-600 dark:text-blue-400 hover:underline">ABW y BSA</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem]">
                     <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
@@ -475,7 +475,7 @@ export default function BSAPage() {
                 <article>
                   <h4 className="font-semibold mb-2">Consideraciones especiales:</h4>
                   <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-1">
-                    <li>• <strong>Obesidad:</strong> Algunos protocolos usan <a href="/peso-ajustado" className="text-blue-600 dark:text-blue-400 hover:underline">peso ajustado (ABW)</a> o BSA corregido</li>
+                    <li>• <strong>Obesidad:</strong> Algunos protocolos usan <a href="/peso-ajustado/" className="text-blue-600 dark:text-blue-400 hover:underline">peso ajustado (ABW)</a> o BSA corregido</li>
                     <li>• <strong>Edad avanzada:</strong> Puede requerir reducción de dosis según comorbilidades</li>
                     <li>• <strong>Función renal/hepática:</strong> Ajustes adicionales necesarios</li>
                     <li>• <strong>Consistencia:</strong> Usar siempre la misma fórmula durante todo el tratamiento</li>
@@ -533,7 +533,7 @@ export default function BSAPage() {
                 <article className="p-4 bg-muted rounded-lg">
                   <h4 className="font-semibold mb-2">¿Cómo se relaciona el BSA con el peso ajustado (ABW)?</h4>
                   <p className="text-sm text-muted-foreground">
-                    Ambos son herramientas complementarias. El <a href="/peso-ajustado" className="text-blue-600 dark:text-blue-400 hover:underline">peso ajustado (ABW)</a> corrige
+                    Ambos son herramientas complementarias. El <a href="/peso-ajustado/" className="text-blue-600 dark:text-blue-400 hover:underline">peso ajustado (ABW)</a> corrige
                     el peso actual en obesidad para cálculos metabólicos. El BSA considera altura y peso para dosificación.
                     En algunos protocolos de quimioterapia para obesidad, se combinan ambos para máxima precisión.
                   </p>
@@ -550,23 +550,23 @@ export default function BSAPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/peso-ajustado" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Peso Ajustado Clínico (ABW):</a></strong> Complementa el BSA en pacientes con obesidad para dosificación precisa</span>
+                  <span><strong><a href="/peso-ajustado/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Peso Ajustado Clínico (ABW):</a></strong> Complementa el BSA en pacientes con obesidad para dosificación precisa</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/egfr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">eGFR (Filtrado Glomerular):</a></strong> Para ajuste de dosis según función renal (CKD-EPI, Cockcroft-Gault)</span>
+                  <span><strong><a href="/egfr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">eGFR (Filtrado Glomerular):</a></strong> Para ajuste de dosis según función renal (CKD-EPI, Cockcroft-Gault)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Necesidades de Proteína:</a></strong> El BSA se usa también para calcular requerimientos nutricionales hospitalarios</span>
+                  <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Necesidades de Proteína:</a></strong> El BSA se usa también para calcular requerimientos nutricionales hospitalarios</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora IMC:</a></strong> Útil para identificar pacientes que requieren ajustes en dosificación</span>
+                  <span><strong><a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora IMC:</a></strong> Útil para identificar pacientes que requieren ajustes en dosificación</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/peso-ideal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Peso Ideal:</a></strong> Referencia para evaluar si se requiere ABW o BSA corregido</span>
+                  <span><strong><a href="/peso-ideal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Peso Ideal:</a></strong> Referencia para evaluar si se requiere ABW o BSA corregido</span>
                 </li>
               </ul>
             </section>

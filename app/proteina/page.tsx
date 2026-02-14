@@ -534,7 +534,7 @@ export default function ProteinaPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/peso-ajustado" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado:</a></strong> ABW clínico para necesidades proteicas precisas en obesidad o bajo peso</span>
+                  <span><strong><a href="/peso-ajustado/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado:</a></strong> ABW clínico para necesidades proteicas precisas en obesidad o bajo peso</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
@@ -542,35 +542,35 @@ export default function ProteinaPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> Base para calcular necesidades energéticas precisas</span>
+                  <span><strong><a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> Base para calcular necesidades energéticas precisas</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/ffmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu desarrollo muscular:</a></strong> Usa FFMI para optimizar ingesta proteica según masa libre de grasa</span>
+                  <span><strong><a href="/ffmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu desarrollo muscular:</a></strong> Usa FFMI para optimizar ingesta proteica según masa libre de grasa</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu gasto calórico:</a></strong> Determina cuántas calorías necesitas según tu actividad</span>
+                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu gasto calórico:</a></strong> Determina cuántas calorías necesitas según tu actividad</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica entrenamientos de fuerza:</a></strong> Optimiza el entrenamiento para maximizar síntesis proteica</span>
+                  <span><strong><a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica entrenamientos de fuerza:</a></strong> Optimiza el entrenamiento para maximizar síntesis proteica</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/agua" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu hidratación:</a></strong> La hidratación afecta la síntesis proteica</span>
+                  <span><strong><a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu hidratación:</a></strong> La hidratación afecta la síntesis proteica</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fibra" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu fibra diaria:</a></strong> Necesidades de fibra según edad, sexo y calorías (IOM/FDA)</span>
+                  <span><strong><a href="/fibra/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu fibra diaria:</a></strong> Necesidades de fibra según edad, sexo y calorías (IOM/FDA)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/azucar" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según tus calorías</span>
+                  <span><strong><a href="/azucar/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según tus calorías</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/sodio" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Sodio/Sal (OMS):</a></strong> Límite de sodio y sal para salud cardiovascular</span>
+                  <span><strong><a href="/sodio/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Sodio/Sal (OMS):</a></strong> Límite de sodio y sal para salud cardiovascular</span>
                 </li>
               </ul>
             </section>

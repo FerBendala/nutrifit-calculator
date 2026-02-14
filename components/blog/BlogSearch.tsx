@@ -76,7 +76,7 @@ export function BlogSearch({ posts, categories, currentCategory }: BlogSearchPro
       <div className="space-y-4">
         <div className="flex flex-wrap justify-center gap-2">
           {/* Opción "Todas" */}
-          <Link href="/blog" onClick={() => handleCategoryClick('all')}>
+          <Link href="/blog/" onClick={() => handleCategoryClick('all')}>
             <Badge
               variant={!currentCategory ? "default" : "outline"}
               className={`cursor-pointer transition-colors ${!currentCategory
@@ -96,7 +96,7 @@ export function BlogSearch({ posts, categories, currentCategory }: BlogSearchPro
             return (
               <Link
                 key={category}
-                href={`/blog/categoria/${categorySlug}`}
+                href={`/blog/categoria/${categorySlug}/`}
                 onClick={() => handleCategoryClick(category)}
               >
                 <Badge

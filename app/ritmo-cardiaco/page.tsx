@@ -405,7 +405,7 @@ export default function RitmoCardiacoPage() {
                     <li>• <strong>Mínimo:</strong> 30 minutos para activar lipolisis</li>
                     <li>• <strong>Óptimo:</strong> 45-60 minutos para máxima quema</li>
                     <li>• <strong>Frecuencia:</strong> 3-5 veces por semana</li>
-                    <li>• Combina con <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline">dieta alta en proteína</a></li>
+                    <li>• Combina con <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline">dieta alta en proteína</a></li>
                   </ul>
                 </article>
               </div>
@@ -432,7 +432,7 @@ export default function RitmoCardiacoPage() {
                     <li>• Mide en reposo para establecer línea base</li>
                     <li>• Ajusta según cómo te sientes (RPE)</li>
                     <li>• Considera factores externos (calor, estrés)</li>
-                    <li>• Mantente <a href="/agua" className="text-blue-600 dark:text-blue-400 hover:underline">bien hidratado</a></li>
+                    <li>• Mantente <a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline">bien hidratado</a></li>
                   </ul>
                 </article>
               </div>
@@ -503,15 +503,15 @@ export default function RitmoCardiacoPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mide tu composición corporal:</a></strong> Evalúa los resultados de tu entrenamiento cardiovascular</span>
+                  <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mide tu composición corporal:</a></strong> Evalúa los resultados de tu entrenamiento cardiovascular</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/vo2max" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> Mide tu VO2 Max con tests científicos validados</span>
+                  <span><strong><a href="/vo2max/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> Mide tu VO2 Max con tests científicos validados</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/agua" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mantén hidratación óptima:</a></strong> Fundamental para el rendimiento cardiovascular</span>
+                  <span><strong><a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mantén hidratación óptima:</a></strong> Fundamental para el rendimiento cardiovascular</span>
                 </li>
               </ul>
             </section>

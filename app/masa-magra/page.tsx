@@ -95,9 +95,9 @@ export default function MasaMagraPage() {
                 Esta calculadora utiliza el método <strong>Standard</strong> (LBM = Peso - Masa Grasa) y tres variantes científicas:
                 <strong> Boer (1984)</strong> ajustada para atletas, <strong>James (1976)</strong> ajustada para población general,
                 y <strong>Hume (1966)</strong> fórmula independiente basada en género y altura. Es complementaria a otras
-                calculadoras de composición corporal como <a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline">Masa Muscular</a>,
-                <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline"> Grasa Corporal</a>, <a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline">Composición Corporal</a> y
-                <a href="/ffmi" className="text-blue-600 dark:text-blue-400 hover:underline"> FFMI</a>.
+                calculadoras de composición corporal como <a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline">Masa Muscular</a>,
+                <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline"> Grasa Corporal</a>, <a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline">Composición Corporal</a> y
+                <a href="/ffmi/" className="text-blue-600 dark:text-blue-400 hover:underline"> FFMI</a>.
               </p>
             </div>
           </section>
@@ -117,8 +117,8 @@ export default function MasaMagraPage() {
                       <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
                       <p className="text-sm text-muted-foreground">
                         <strong>Nota:</strong> Para calcular la masa magra necesitas conocer tu porcentaje de grasa corporal.
-                        Puedes usar nuestra <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">calculadora de grasa corporal</a> o
-                        <a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium"> calculadora de composición corporal</a> para obtenerlo.
+                        Puedes usar nuestra <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">calculadora de grasa corporal</a> o
+                        <a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium"> calculadora de composición corporal</a> para obtenerlo.
                       </p>
                     </div>
                   </div>
@@ -583,7 +583,7 @@ export default function MasaMagraPage() {
                     Para aumentar masa magra: (1) Entrenamiento de fuerza 3-4 veces por semana con progresión,
                     (2) Consumo adecuado de proteína (1.6-2.2g por kg de peso), (3) Ligero superávit calórico (200-300 kcal/día),
                     (4) Descanso adecuado (7-9 horas de sueño), (5) Hidratación suficiente. Consulta nuestra
-                    <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de proteína</a> para tus necesidades.
+                    <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de proteína</a> para tus necesidades.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
@@ -615,19 +615,19 @@ export default function MasaMagraPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Masa Muscular:</a></strong> Complementa el LBM con evaluación específica de músculo esquelético</span>
+                  <span><strong><a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Masa Muscular:</a></strong> Complementa el LBM con evaluación específica de músculo esquelético</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Grasa Corporal:</a></strong> Necesaria para calcular LBM</span>
+                  <span><strong><a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Grasa Corporal:</a></strong> Necesaria para calcular LBM</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Composición Corporal:</a></strong> Evaluación completa de grasa y masa magra</span>
+                  <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Composición Corporal:</a></strong> Evaluación completa de grasa y masa magra</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/ffmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de FFMI:</a></strong> Índice de masa libre de grasa independiente de altura</span>
+                  <span><strong><a href="/ffmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de FFMI:</a></strong> Índice de masa libre de grasa independiente de altura</span>
                 </li>
               </ul>
             </section>

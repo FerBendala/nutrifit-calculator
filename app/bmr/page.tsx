@@ -376,7 +376,7 @@ export default function BMRPage() {
                     <div className="mt-[1.618rem] text-sm text-green-800 dark:text-green-200">
                       <p className="leading-[1.618]">
                         <strong>💡 Consejo:</strong> Para cálculos más precisos de calorías diarias,
-                        usa nuestra <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora TDEE especializada</a>.
+                        usa nuestra <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora TDEE especializada</a>.
                         Luego planifica tus <a href="/" className="text-blue-600 dark:text-blue-400 hover:underline">macronutrientes completos</a>.
                       </p>
                     </div>
@@ -516,10 +516,10 @@ export default function BMRPage() {
                 <article className="card-golden bg-card/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300">🏃 Para atletas y fitness</h4>
                   <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
-                    <li>• Base para calcular <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">TDEE total</a></li>
+                    <li>• Base para calcular <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">TDEE total</a></li>
                     <li>• Planificar dietas de corte o volumen</li>
-                    <li>• Optimizar <a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline">composición corporal</a></li>
-                    <li>• Combinar con entrenamiento de <a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline">fuerza máxima</a></li>
+                    <li>• Optimizar <a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline">composición corporal</a></li>
+                    <li>• Combinar con entrenamiento de <a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline">fuerza máxima</a></li>
                   </ul>
                 </article>
               </div>
@@ -560,15 +560,15 @@ export default function BMRPage() {
                 <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Cuál es la diferencia entre BMR y TDEE?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
-                    El BMR es tu metabolismo en reposo absoluto. El <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">TDEE</a> incluye
+                    El BMR es tu metabolismo en reposo absoluto. El <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">TDEE</a> incluye
                     el BMR más las calorías quemadas por actividad física y digestión. El TDEE es lo que necesitas para mantener tu peso.
                   </p>
                 </article>
                 <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Puedo aumentar mi BMR naturalmente?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
-                    Sí, principalmente aumentando la <a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline">masa muscular</a>.
-                    El músculo quema más calorías en reposo que la grasa. El <a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline">entrenamiento de fuerza</a> es clave.
+                    Sí, principalmente aumentando la <a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline">masa muscular</a>.
+                    El músculo quema más calorías en reposo que la grasa. El <a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline">entrenamiento de fuerza</a> es clave.
                   </p>
                 </article>
                 <article className="card-golden bg-muted">
@@ -590,15 +590,15 @@ export default function BMRPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/peso-ajustado" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado:</a></strong> ABW para calorías y metabolismo más precisos en obesidad o bajo peso</span>
+                  <span><strong><a href="/peso-ajustado/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado:</a></strong> ABW para calorías y metabolismo más precisos en obesidad o bajo peso</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/rmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu RMR práctico:</a></strong> Tasa metabólica en reposo sin condiciones estrictas de laboratorio</span>
+                  <span><strong><a href="/rmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu RMR práctico:</a></strong> Tasa metabólica en reposo sin condiciones estrictas de laboratorio</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu TDEE completo:</a></strong> Añade actividad física a tu BMR para calorías diarias totales</span>
+                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu TDEE completo:</a></strong> Añade actividad física a tu BMR para calorías diarias totales</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
@@ -606,15 +606,15 @@ export default function BMRPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu composición corporal:</a></strong> Para usar la fórmula Katch-McArdle más precisa</span>
+                  <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu composición corporal:</a></strong> Para usar la fórmula Katch-McArdle más precisa</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Desarrolla masa muscular:</a></strong> Aumenta tu BMR con entrenamiento de fuerza</span>
+                  <span><strong><a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Desarrolla masa muscular:</a></strong> Aumenta tu BMR con entrenamiento de fuerza</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica entrenamientos de fuerza:</a></strong> Optimiza tu entrenamiento para maximizar el metabolismo</span>
+                  <span><strong><a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica entrenamientos de fuerza:</a></strong> Optimiza tu entrenamiento para maximizar el metabolismo</span>
                 </li>
               </ul>
             </section>

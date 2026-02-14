@@ -111,19 +111,19 @@ export default async function BlogPage() {
                   Calorías
                 </a>
                 <a
-                  href="/proteina"
+                  href="/proteina/"
                   className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                 >
                   Proteína
                 </a>
                 <a
-                  href="/imc"
+                  href="/imc/"
                   className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                 >
                   IMC
                 </a>
                 <a
-                  href="/grasa-corporal"
+                  href="/grasa-corporal/"
                   className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                 >
                   Grasa

@@ -416,7 +416,7 @@ export default function BAIPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/fmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/fmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Calcula tu FMI con peso:
                         </a>
                       </strong>{' '}
@@ -427,7 +427,7 @@ export default function BAIPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/whr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Evalúa tu WHR:
                         </a>
                       </strong>{' '}
@@ -438,7 +438,7 @@ export default function BAIPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Mide grasa por pliegues:
                         </a>
                       </strong>{' '}
@@ -449,7 +449,7 @@ export default function BAIPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Calcula tu IMC:
                         </a>
                       </strong>{' '}

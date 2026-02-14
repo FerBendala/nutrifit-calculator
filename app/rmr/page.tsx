@@ -594,7 +594,7 @@ export default function RMRPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Calcula tu BMR preciso:
                         </a>
                       </strong>{' '}
@@ -605,7 +605,7 @@ export default function RMRPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Calcula tu TDEE completo:
                         </a>
                       </strong>{' '}
@@ -616,7 +616,7 @@ export default function RMRPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Mide tu composición corporal:
                         </a>
                       </strong>{' '}
@@ -627,7 +627,7 @@ export default function RMRPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Ajusta tu proteína diaria:
                         </a>
                       </strong>{' '}

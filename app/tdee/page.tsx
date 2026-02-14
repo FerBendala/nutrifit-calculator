@@ -283,7 +283,7 @@ export default function TDEEPage() {
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-green-600 dark:text-green-400 mr-2">•</span>
-                    <span>Composición corporal (músculo vs grasa) - revisa tu <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">IMC</a> como referencia</span>
+                    <span>Composición corporal (músculo vs grasa) - revisa tu <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">IMC</a> como referencia</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
@@ -333,7 +333,7 @@ export default function TDEEPage() {
                   <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
                     <li>• TDEE + 200-400 kcal/día</li>
                     <li>• Ganancia de 0.25-0.5kg/semana</li>
-                    <li>• Optimiza tu <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">ingesta de proteína</a></li>
+                    <li>• Optimiza tu <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">ingesta de proteína</a></li>
                   </ul>
                 </article>
               </div>
@@ -385,7 +385,7 @@ export default function TDEEPage() {
                   <h4 className="font-semibold mb-[0.618rem]">¿Qué hago si no estoy viendo resultados con mi TDEE?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     Después de 2-3 semanas sin cambios, ajusta ±100-200 kcal según tu objetivo.
-                    También verifica tu <a href="/agua" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">hidratación</a> y evalúa si tu <a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">metabolismo basal</a> ha cambiado.
+                    También verifica tu <a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">hidratación</a> y evalúa si tu <a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">metabolismo basal</a> ha cambiado.
                   </p>
                 </article>
               </div>
@@ -400,11 +400,11 @@ export default function TDEEPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> El BMR es la base del TDEE, entiende tu gasto en reposo</span>
+                  <span><strong><a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> El BMR es la base del TDEE, entiende tu gasto en reposo</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/rmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu RMR práctico:</a></strong> Tasa metabólica en reposo más accesible para seguimiento diario</span>
+                  <span><strong><a href="/rmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu RMR práctico:</a></strong> Tasa metabólica en reposo más accesible para seguimiento diario</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
@@ -412,27 +412,27 @@ export default function TDEEPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/vo2max" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> El TDEE se relaciona directamente con el entrenamiento de resistencia</span>
+                  <span><strong><a href="/vo2max/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> El TDEE se relaciona directamente con el entrenamiento de resistencia</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica entrenamientos intensos:</a></strong> El entrenamiento de fuerza aumenta significativamente tu TDEE</span>
+                  <span><strong><a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica entrenamientos intensos:</a></strong> El entrenamiento de fuerza aumenta significativamente tu TDEE</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Verifica tu IMC:</a></strong> Conoce tu estado de peso actual para contextualizar tu TDEE</span>
+                  <span><strong><a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Verifica tu IMC:</a></strong> Conoce tu estado de peso actual para contextualizar tu TDEE</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades específicas de proteína según tu objetivo</span>
+                  <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades específicas de proteína según tu objetivo</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fibra" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu fibra diaria:</a></strong> Necesidades de fibra según calorías (IOM/FDA)</span>
+                  <span><strong><a href="/fibra/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu fibra diaria:</a></strong> Necesidades de fibra según calorías (IOM/FDA)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/azucar" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según tus calorías</span>
+                  <span><strong><a href="/azucar/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según tus calorías</span>
                 </li>
               </ul>
             </section>

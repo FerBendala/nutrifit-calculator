@@ -77,8 +77,8 @@ export default function HomePage() {
                     Factor de actividad y ejercicio
                   </h3>
                   <p className="text-muted-foreground leading-[1.618]">
-                    Multiplicamos tu <a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">BMR (metabolismo basal)</a> por un factor que refleja tu nivel de actividad física
-                    diaria para obtener tu <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">TDEE (Total Daily Energy Expenditure)</a>, que representa
+                    Multiplicamos tu <a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">BMR (metabolismo basal)</a> por un factor que refleja tu nivel de actividad física
+                    diaria para obtener tu <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">TDEE (Total Daily Energy Expenditure)</a>, que representa
                     las calorías totales que quemas al día. Puedes calcularlo por separado en nuestras calculadoras especializadas.
                   </p>
                 </article>
@@ -174,7 +174,7 @@ export default function HomePage() {
                     <span className="text-lg mr-2">🥩</span>
                     Proteínas (25-30%)
                   </h4>
-                  <p className="text-sm text-green-800 dark:text-green-200 leading-[1.618]">1.6-2.2g por kg de peso corporal según <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">estudios científicos</a>. Calcula tus necesidades específicas con nuestra <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">calculadora de proteína</a>. Prioriza carnes magras, pescado, huevos, lácteos y legumbres.</p>
+                  <p className="text-sm text-green-800 dark:text-green-200 leading-[1.618]">1.6-2.2g por kg de peso corporal según <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">estudios científicos</a>. Calcula tus necesidades específicas con nuestra <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">calculadora de proteína</a>. Prioriza carnes magras, pescado, huevos, lácteos y legumbres.</p>
                 </article>
                 <article className="card-golden bg-card/50">
                   <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300 flex items-center">
@@ -215,8 +215,8 @@ export default function HomePage() {
                     Si no ganas peso/músculo:
                   </h4>
                   <p className="leading-[1.618]">
-                    Aumenta 100-200 kcal/día. Añade carbohidratos alrededor del <a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline">entrenamiento de fuerza</a>
-                    y asegúrate de consumir suficiente <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline">proteína</a> (1.6-2.2g/kg).
+                    Aumenta 100-200 kcal/día. Añade carbohidratos alrededor del <a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline">entrenamiento de fuerza</a>
+                    y asegúrate de consumir suficiente <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline">proteína</a> (1.6-2.2g/kg).
                   </p>
                 </article>
                 <article className="card-golden bg-card/50">
@@ -258,7 +258,7 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
-                  <span>La precisión puede variar según la composición corporal individual - considera usar nuestra <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">calculadora de IMC</a> como referencia adicional</span>
+                  <span>La precisión puede variar según la composición corporal individual - considera usar nuestra <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">calculadora de IMC</a> como referencia adicional</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
@@ -270,7 +270,7 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
-                  <span>Mantén una <a href="/agua" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">hidratación adecuada</a> durante tu proceso de cambio corporal</span>
+                  <span>Mantén una <a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">hidratación adecuada</a> durante tu proceso de cambio corporal</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
@@ -348,7 +348,7 @@ export default function HomePage() {
                   <p className="text-sm text-blue-800 dark:text-blue-200 leading-[1.618] mb-[0.618rem]">
                     Calculadora profesional con fórmula Lee validada científicamente. Utilizada por médicos deportivos para evaluación de composición corporal.
                   </p>
-                  <a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline font-medium text-sm">Calculadora médica de masa muscular →</a>
+                  <a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium text-sm">Calculadora médica de masa muscular →</a>
                 </article>
                 <article className="card-golden bg-card/50">
                   <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
@@ -358,7 +358,7 @@ export default function HomePage() {
                   <p className="text-sm text-blue-800 dark:text-blue-200 leading-[1.618] mb-[0.618rem]">
                     Métodos Jackson-Pollock y Durnin-Womersley validados científicamente. Precisión de ±3-5% utilizada por profesionales de la salud.
                   </p>
-                  <a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium text-sm">Calculadora médica de grasa corporal →</a>
+                  <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium text-sm">Calculadora médica de grasa corporal →</a>
                 </article>
               </div>
             </section>
@@ -372,111 +372,111 @@ export default function HomePage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de BMR:</a></strong> Metabolismo basal con 3 fórmulas científicas validadas</span>
+                  <span><strong><a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de BMR:</a></strong> Metabolismo basal con 3 fórmulas científicas validadas</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/rmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de RMR:</a></strong> Tasa metabólica en reposo más práctica que BMR para uso diario</span>
+                  <span><strong><a href="/rmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de RMR:</a></strong> Tasa metabólica en reposo más práctica que BMR para uso diario</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/peso-ajustado" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Peso Ajustado:</a></strong> ABW clínico para dosificación de medicamentos y nutrición precisa</span>
+                  <span><strong><a href="/peso-ajustado/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Peso Ajustado:</a></strong> ABW clínico para dosificación de medicamentos y nutrición precisa</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bsa" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de BSA:</a></strong> Superficie corporal con 5 fórmulas científicas para quimioterapia y aplicaciones clínicas</span>
+                  <span><strong><a href="/bsa/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de BSA:</a></strong> Superficie corporal con 5 fórmulas científicas para quimioterapia y aplicaciones clínicas</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/absi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de ABSI:</a></strong> A Body Shape Index que predice mortalidad mejor que el IMC solo</span>
+                  <span><strong><a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de ABSI:</a></strong> A Body Shape Index que predice mortalidad mejor que el IMC solo</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bri" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de BRI:</a></strong> Body Roundness Index que predice riesgo metabólico y cardiovascular</span>
+                  <span><strong><a href="/bri/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de BRI:</a></strong> Body Roundness Index que predice riesgo metabólico y cardiovascular</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/ci" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de CI:</a></strong> Conicity Index que evalúa distribución de grasa abdominal y riesgo cardiovascular</span>
+                  <span><strong><a href="/ci/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de CI:</a></strong> Conicity Index que evalúa distribución de grasa abdominal y riesgo cardiovascular</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/grasa-visceral" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Grasa Visceral:</a></strong> VAT con 2 fórmulas científicas para estimar tejido adiposo visceral</span>
+                  <span><strong><a href="/grasa-visceral/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Grasa Visceral:</a></strong> VAT con 2 fórmulas científicas para estimar tejido adiposo visceral</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/masa-magra" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Masa Magra:</a></strong> LBM con 4 fórmulas científicas para evaluación de composición corporal</span>
+                  <span><strong><a href="/masa-magra/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Masa Magra:</a></strong> LBM con 4 fórmulas científicas para evaluación de composición corporal</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/edad-metabolica" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Edad Metabólica:</a></strong> Compara tu metabolismo con el promedio de tu edad cronológica</span>
+                  <span><strong><a href="/edad-metabolica/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Edad Metabólica:</a></strong> Compara tu metabolismo con el promedio de tu edad cronológica</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/presion-arterial-media" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Presión Arterial Media (MAP):</a></strong> Evaluación de perfusión de órganos y riesgo cardiovascular según guías AHA/ACC</span>
+                  <span><strong><a href="/presion-arterial-media/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Presión Arterial Media (MAP):</a></strong> Evaluación de perfusión de órganos y riesgo cardiovascular según guías AHA/ACC</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/recuperacion-cardiaca" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Recuperación Cardíaca (HRR):</a></strong> Evaluación de condición cardiovascular y función autonómica después del ejercicio</span>
+                  <span><strong><a href="/recuperacion-cardiaca/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Recuperación Cardíaca (HRR):</a></strong> Evaluación de condición cardiovascular y función autonómica después del ejercicio</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/densidad-osea" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Densidad Ósea (BMD):</a></strong> Evaluación de densidad mineral ósea y riesgo de osteoporosis según criterios WHO</span>
+                  <span><strong><a href="/densidad-osea/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Densidad Ósea (BMD):</a></strong> Evaluación de densidad mineral ósea y riesgo de osteoporosis según criterios WHO</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/egfr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de eGFR (Filtrado Glomerular):</a></strong> Estimación de función renal con CKD-EPI, MDRD y Cockcroft-Gault para estadificación de ERC</span>
+                  <span><strong><a href="/egfr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de eGFR (Filtrado Glomerular):</a></strong> Estimación de función renal con CKD-EPI, MDRD y Cockcroft-Gault para estadificación de ERC</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de TDEE:</a></strong> Fórmula Mifflin-St Jeor validada para gasto calórico preciso</span>
+                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de TDEE:</a></strong> Fórmula Mifflin-St Jeor validada para gasto calórico preciso</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/vo2max" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de VO2 Max:</a></strong> Capacidad cardiovascular con 4 métodos científicos</span>
+                  <span><strong><a href="/vo2max/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de VO2 Max:</a></strong> Capacidad cardiovascular con 4 métodos científicos</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/sarcopenia" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Sarcopenia:</a></strong> Evaluación de pérdida muscular relacionada con la edad</span>
+                  <span><strong><a href="/sarcopenia/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de Sarcopenia:</a></strong> Evaluación de pérdida muscular relacionada con la edad</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de WHR:</a></strong> Ratio cintura-cadera según estándares OMS para riesgo cardiovascular</span>
+                  <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de WHR:</a></strong> Ratio cintura-cadera según estándares OMS para riesgo cardiovascular</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/ffmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de FFMI:</a></strong> Índice de masa libre de grasa para evaluación muscular avanzada</span>
+                  <span><strong><a href="/ffmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de FFMI:</a></strong> Índice de masa libre de grasa para evaluación muscular avanzada</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de FMI:</a></strong> Índice de masa grasa según estándares Schutz para evaluación metabólica</span>
+                  <span><strong><a href="/fmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de FMI:</a></strong> Índice de masa grasa según estándares Schutz para evaluación metabólica</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bai" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de BAI:</a></strong> Estimación de grasa corporal sin báscula según fórmula Bergman</span>
+                  <span><strong><a href="/bai/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de BAI:</a></strong> Estimación de grasa corporal sin báscula según fórmula Bergman</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de IMC:</a></strong> Estándares oficiales de la OMS para evaluación de peso corporal</span>
+                  <span><strong><a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de IMC:</a></strong> Estándares oficiales de la OMS para evaluación de peso corporal</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de proteína:</a></strong> Necesidades basadas en evidencia científica para profesionales</span>
+                  <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de proteína:</a></strong> Necesidades basadas en evidencia científica para profesionales</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fibra" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Fibra Diaria:</a></strong> Necesidades de fibra según edad, sexo y calorías (IOM/FDA)</span>
+                  <span><strong><a href="/fibra/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Fibra Diaria:</a></strong> Necesidades de fibra según edad, sexo y calorías (IOM/FDA)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/azucar" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Límite de Azúcar:</a></strong> Azúcares libres según calorías (recomendaciones OMS &lt;10% y &lt;5%)</span>
+                  <span><strong><a href="/azucar/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Límite de Azúcar:</a></strong> Azúcares libres según calorías (recomendaciones OMS &lt;10% y &lt;5%)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/sodio" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Sodio/Sal (OMS):</a></strong> Límite de sodio y sal (&lt;2 g sodio / &lt;5 g sal), incl. recomendación para HTA</span>
+                  <span><strong><a href="/sodio/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Sodio/Sal (OMS):</a></strong> Límite de sodio y sal (&lt;2 g sodio / &lt;5 g sal), incl. recomendación para HTA</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de 1RM:</a></strong> Fuerza máxima con 5 fórmulas científicas para atletas</span>
+                  <span><strong><a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora médica de 1RM:</a></strong> Fuerza máxima con 5 fórmulas científicas para atletas</span>
                 </li>
               </ul>
             </section>

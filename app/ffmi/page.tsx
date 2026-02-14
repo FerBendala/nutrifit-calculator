@@ -687,23 +687,23 @@ export default function FFMIPage() {
                 <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/masa-muscular" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu masa muscular total:</a></strong> Obtén la cantidad absoluta de músculo</span>
+                    <span><strong><a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu masa muscular total:</a></strong> Obtén la cantidad absoluta de músculo</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/fmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu FMI complementario:</a></strong> Índice de masa grasa para análisis completo de composición</span>
+                    <span><strong><a href="/fmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu FMI complementario:</a></strong> Índice de masa grasa para análisis completo de composición</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu ingesta proteica:</a></strong> Calcula necesidades basadas en masa libre de grasa</span>
+                    <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu ingesta proteica:</a></strong> Calcula necesidades basadas en masa libre de grasa</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa composición corporal:</a></strong> Relación músculo-grasa para contexto completo</span>
+                    <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa composición corporal:</a></strong> Relación músculo-grasa para contexto completo</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/1rm" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mide tu fuerza máxima:</a></strong> Evalúa el rendimiento muscular funcional</span>
+                    <span><strong><a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mide tu fuerza máxima:</a></strong> Evalúa el rendimiento muscular funcional</span>
                   </li>
                 </ul>
               </div>

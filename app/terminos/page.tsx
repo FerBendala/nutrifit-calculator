@@ -37,7 +37,7 @@ export default function TerminosPage() {
             <div className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-[2.618rem]">
               <p className="text-sm text-blue-800 dark:text-blue-200 leading-[1.618] mb-0">
                 Al acceder y utilizar NutriFit Calculator, aceptas estar sujeto a estos términos
-                de uso y a nuestra <a href="/privacidad" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">política de privacidad</a>.
+                de uso y a nuestra <a href="/privacidad/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">política de privacidad</a>.
                 Si no estás de acuerdo con alguna parte de estos términos, no debes utilizar nuestros servicios.
               </p>
             </div>
@@ -286,7 +286,7 @@ export default function TerminosPage() {
                 </h3>
                 <p className="text-sm text-muted-foreground leading-[1.618]">
                   Tu privacidad es importante. Consulta nuestra
-                  <a href="/privacidad" className="text-primary hover:underline mx-1">
+                  <a href="/privacidad/" className="text-primary hover:underline mx-1">
                     Política de Privacidad
                   </a>
                   para entender cómo manejamos tu información.

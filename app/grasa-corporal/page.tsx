@@ -540,7 +540,7 @@ export default function GrasaCorporalPage() {
 
               <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
                 La grasa corporal es el porcentaje de tu peso total que corresponde a tejido adiposo.
-                A diferencia del <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">IMC</a>,
+                A diferencia del <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">IMC</a>,
                 la medición de grasa corporal distingue entre masa muscular y grasa, proporcionando
                 una evaluación más precisa de tu composición corporal.
               </p>
@@ -746,7 +746,7 @@ export default function GrasaCorporalPage() {
                     </li>
                     <li className="flex items-start">
                       <span className="text-green-600 dark:text-green-400 mr-2">•</span>
-                      <span>Consumo adecuado de <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">proteína</a> (2g/kg)</span>
+                      <span>Consumo adecuado de <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">proteína</a> (2g/kg)</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
@@ -824,7 +824,7 @@ export default function GrasaCorporalPage() {
                 <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Cuál es la diferencia entre IMC y grasa corporal?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
-                    El <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">IMC</a> solo considera peso y altura,
+                    El <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">IMC</a> solo considera peso y altura,
                     mientras que la grasa corporal distingue entre músculo y grasa. Un atleta puede tener IMC alto pero
                     grasa corporal baja, mientras que alguien con poco músculo puede tener IMC normal pero grasa corporal alta.
                   </p>
@@ -861,27 +861,27 @@ export default function GrasaCorporalPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa distribución de grasa:</a></strong> El WHR identifica grasa visceral peligrosa complementando el análisis de composición</span>
+                  <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa distribución de grasa:</a></strong> El WHR identifica grasa visceral peligrosa complementando el análisis de composición</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FMI avanzado:</a></strong> Índice preciso de masa grasa para evaluación metabólica completa</span>
+                  <span><strong><a href="/fmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FMI avanzado:</a></strong> Índice preciso de masa grasa para evaluación metabólica completa</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bai" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula BAI sin báscula:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
+                  <span><strong><a href="/bai/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula BAI sin báscula:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades basadas en masa magra</span>
+                  <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades basadas en masa magra</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu TDEE:</a></strong> Ajusta tu gasto calórico según tu composición</span>
+                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu TDEE:</a></strong> Ajusta tu gasto calórico según tu composición</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/composicion" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Método Navy:</a></strong> Compara con mediciones de circunferencias</span>
+                  <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Método Navy:</a></strong> Compara con mediciones de circunferencias</span>
                 </li>
               </ul>
             </section>

@@ -232,8 +232,8 @@ export default function IMCPage() {
                     <li>• Crea un déficit calórico moderado (300-500 kcal/día)</li>
                     <li>• Aumenta la actividad física gradualmente</li>
                     <li>• Prioriza alimentos nutritivos y saciantes</li>
-                    <li>• Mantén una <a href="/agua" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">hidratación adecuada</a></li>
-                    <li>• Consume suficiente <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">proteína</a> para preservar músculo</li>
+                    <li>• Mantén una <a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">hidratación adecuada</a></li>
+                    <li>• Consume suficiente <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">proteína</a> para preservar músculo</li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
@@ -377,7 +377,7 @@ export default function IMCPage() {
                   <h4 className="font-semibold mb-2">¿Qué hago si mi IMC está fuera del rango normal?</h4>
                   <p className="text-sm text-muted-foreground">
                     Primero, consulta con un profesional de la salud para una evaluación completa.
-                    Si necesitas cambios, hazlos gradualmente: usa nuestra <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora TDEE</a> para conocer tus necesidades calóricas y planifica cambios sostenibles.
+                    Si necesitas cambios, hazlos gradualmente: usa nuestra <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora TDEE</a> para conocer tus necesidades calóricas y planifica cambios sostenibles.
                   </p>
                 </article>
               </div>
@@ -393,7 +393,7 @@ export default function IMCPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/peso-ajustado" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado Clínico:</a></strong> ABW para dosificación y necesidades nutricionales según tu IMC</span>
+                  <span><strong><a href="/peso-ajustado/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado Clínico:</a></strong> ABW para dosificación y necesidades nutricionales según tu IMC</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
@@ -401,23 +401,23 @@ export default function IMCPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu distribución de grasa:</a></strong> El WHR complementa el IMC evaluando riesgo cardiovascular</span>
+                  <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu distribución de grasa:</a></strong> El WHR complementa el IMC evaluando riesgo cardiovascular</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FMI metabólico:</a></strong> Índice avanzado de masa grasa para evaluación precisa</span>
+                  <span><strong><a href="/fmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FMI metabólico:</a></strong> Índice avanzado de masa grasa para evaluación precisa</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bai" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula BAI sin peso:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
+                  <span><strong><a href="/bai/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula BAI sin peso:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu gasto calórico total:</a></strong> Conoce tu TDEE para planificar mejor tu alimentación</span>
+                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu gasto calórico total:</a></strong> Conoce tu TDEE para planificar mejor tu alimentación</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/agua" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu hidratación:</a></strong> Calcula tu necesidad de agua según tu peso actual</span>
+                  <span><strong><a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu hidratación:</a></strong> Calcula tu necesidad de agua según tu peso actual</span>
                 </li>
               </ul>
             </section>

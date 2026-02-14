@@ -26,7 +26,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'imc',
     title: 'Calculadora IMC',
-    href: '/imc',
+    href: '/imc/',
     description: 'Índice de masa corporal y categorías de peso saludable',
     icon: Scale,
     priority: 'high',
@@ -36,7 +36,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'tdee',
     title: 'Calculadora TDEE',
-    href: '/tdee',
+    href: '/tdee/',
     description: 'Gasto energético total diario según tu actividad física',
     icon: Activity,
     priority: 'high',
@@ -46,7 +46,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'proteina',
     title: 'Proteína Diaria',
-    href: '/proteina',
+    href: '/proteina/',
     description: 'Necesidades específicas de proteína según tu objetivo',
     icon: Zap,
     priority: 'medium',
@@ -56,7 +56,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'agua',
     title: 'Hidratación Diaria',
-    href: '/agua',
+    href: '/agua/',
     description: 'Cantidad de agua recomendada según tu peso y actividad',
     icon: Droplet,
     priority: 'medium',
@@ -66,7 +66,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'composicion',
     title: 'Composición Corporal',
-    href: '/composicion',
+    href: '/composicion/',
     description: 'Porcentaje de grasa corporal y masa magra según medidas',
     icon: Target,
     priority: 'high',
@@ -76,7 +76,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'ritmo-cardiaco',
     title: 'Ritmo Cardíaco',
-    href: '/ritmo-cardiaco',
+    href: '/ritmo-cardiaco/',
     description: 'Zonas de entrenamiento cardiovascular y quema de grasa',
     icon: Heart,
     priority: 'high',
@@ -86,7 +86,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'grasa-corporal',
     title: 'Grasa Corporal',
-    href: '/grasa-corporal',
+    href: '/grasa-corporal/',
     description: 'Porcentaje de grasa corporal por pliegues cutáneos',
     icon: Ruler,
     priority: 'high',
@@ -96,7 +96,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'peso-ideal',
     title: 'Peso Ideal',
-    href: '/peso-ideal',
+    href: '/peso-ideal/',
     description: 'Peso ideal con 5 fórmulas científicas reconocidas',
     icon: Scale,
     priority: 'high',
@@ -106,7 +106,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'masa-muscular',
     title: 'Masa Muscular',
-    href: '/masa-muscular',
+    href: '/masa-muscular/',
     description: 'Masa muscular e índice de masa muscular',
     icon: Dumbbell,
     priority: 'high',
@@ -116,7 +116,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'bmr',
     title: 'BMR (Metabolismo Basal)',
-    href: '/bmr',
+    href: '/bmr/',
     description: 'Metabolismo basal con 3 fórmulas científicas validadas',
     icon: Flame,
     priority: 'high',
@@ -126,7 +126,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: '1rm',
     title: '1RM (Una Repetición Máxima)',
-    href: '/1rm',
+    href: '/1rm/',
     description: 'Calculadora de fuerza máxima con 5 fórmulas científicas',
     icon: Trophy,
     priority: 'high',
@@ -136,7 +136,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'whtr',
     title: 'WHtR (Ratio Cintura-Altura)',
-    href: '/whtr',
+    href: '/whtr/',
     description: 'Evaluación de riesgo cardiometabólico por distribución de grasa abdominal',
     icon: Target,
     priority: 'high',
@@ -146,7 +146,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'vo2max',
     title: 'VO2 Max (Capacidad Cardiovascular)',
-    href: '/vo2max',
+    href: '/vo2max/',
     description: 'Evaluación de la capacidad cardiovascular con 4 métodos científicos',
     icon: Activity,
     priority: 'high',
@@ -156,7 +156,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'sarcopenia',
     title: 'Índice de Sarcopenia',
-    href: '/sarcopenia',
+    href: '/sarcopenia/',
     description: 'Evaluación médica de pérdida muscular relacionada con la edad',
     icon: Dumbbell,
     priority: 'high',
@@ -166,7 +166,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'whr',
     title: 'Ratio Cintura-Cadera (WHR)',
-    href: '/whr',
+    href: '/whr/',
     description: 'Evaluación médica de distribución de grasa y riesgo cardiovascular',
     icon: Ruler,
     priority: 'high',
@@ -176,7 +176,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'ffmi',
     title: 'FFMI (Índice Masa Libre de Grasa)',
-    href: '/ffmi',
+    href: '/ffmi/',
     description: 'Evaluación del desarrollo muscular independiente de la grasa corporal',
     icon: Dumbbell,
     priority: 'high',
@@ -186,7 +186,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'fmi',
     title: 'FMI (Índice Masa Grasa)',
-    href: '/fmi',
+    href: '/fmi/',
     description: 'Evaluación médica de la grasa corporal independiente de la altura',
     icon: Scale,
     priority: 'high',
@@ -196,7 +196,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'bai',
     title: 'BAI (Índice Adiposidad Corporal)',
-    href: '/bai',
+    href: '/bai/',
     description: 'Estimación de grasa corporal sin báscula usando solo cadera y altura',
     icon: Target,
     priority: 'high',
@@ -206,7 +206,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'rmr',
     title: 'RMR (Tasa Metabólica en Reposo)',
-    href: '/rmr',
+    href: '/rmr/',
     description: 'Gasto energético en reposo con 3 fórmulas científicas validadas',
     icon: Flame,
     priority: 'high',
@@ -216,7 +216,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'peso-ajustado',
     title: 'Peso Ajustado Clínico (ABW)',
-    href: '/peso-ajustado',
+    href: '/peso-ajustado/',
     description: 'Peso ajustado para cálculos clínicos, medicamentos y nutrición',
     icon: Scale,
     priority: 'high',
@@ -226,7 +226,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'bsa',
     title: 'BSA (Superficie Corporal)',
-    href: '/bsa',
+    href: '/bsa/',
     description: 'Superficie corporal con 5 fórmulas científicas para dosis médicas y aplicaciones clínicas',
     icon: Stethoscope,
     priority: 'high',
@@ -236,7 +236,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'absi',
     title: 'ABSI (A Body Shape Index)',
-    href: '/absi',
+    href: '/absi/',
     description: 'Índice de forma corporal que predice mortalidad mejor que el IMC solo',
     icon: AlertTriangle,
     priority: 'high',
@@ -246,7 +246,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'bri',
     title: 'BRI (Body Roundness Index)',
-    href: '/bri',
+    href: '/bri/',
     description: 'Índice de redondez corporal que predice riesgo metabólico y cardiovascular',
     icon: Circle,
     priority: 'high',
@@ -256,7 +256,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'ci',
     title: 'CI (Conicity Index)',
-    href: '/ci',
+    href: '/ci/',
     description: 'Índice de conicidad que evalúa distribución de grasa abdominal y riesgo cardiovascular',
     icon: Gauge,
     priority: 'high',
@@ -266,7 +266,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'grasa-visceral',
     title: 'Grasa Visceral (VAT)',
-    href: '/grasa-visceral',
+    href: '/grasa-visceral/',
     description: 'Estimación de grasa visceral con 2 fórmulas científicas para evaluación de riesgo metabólico',
     icon: Layers,
     priority: 'high',
@@ -276,7 +276,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'masa-magra',
     title: 'Masa Magra (LBM)',
-    href: '/masa-magra',
+    href: '/masa-magra/',
     description: 'Cálculo de masa magra con método Standard y 3 variantes científicas para evaluación de composición corporal',
     icon: ActivitySquare,
     priority: 'high',
@@ -286,7 +286,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'edad-metabolica',
     title: 'Edad Metabólica',
-    href: '/edad-metabolica',
+    href: '/edad-metabolica/',
     description: 'Compara tu metabolismo con el promedio de tu edad cronológica usando BMR',
     icon: Clock,
     priority: 'high',
@@ -296,7 +296,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'presion-arterial-media',
     title: 'Presión Arterial Media (MAP)',
-    href: '/presion-arterial-media',
+    href: '/presion-arterial-media/',
     description: 'Presión arterial media para evaluación de perfusión de órganos y riesgo cardiovascular',
     icon: HeartPulse,
     priority: 'high',
@@ -306,7 +306,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'recuperacion-cardiaca',
     title: 'Recuperación Cardíaca (HRR)',
-    href: '/recuperacion-cardiaca',
+    href: '/recuperacion-cardiaca/',
     description: 'Evaluación de recuperación cardíaca después del ejercicio para medir condición cardiovascular',
     icon: TrendingDown,
     priority: 'high',
@@ -316,7 +316,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'densidad-osea',
     title: 'Densidad Ósea (BMD)',
-    href: '/densidad-osea',
+    href: '/densidad-osea/',
     description: 'Evaluación de densidad mineral ósea y riesgo de osteoporosis según criterios WHO',
     icon: Bone,
     priority: 'high',
@@ -326,7 +326,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'egfr',
     title: 'Filtrado Glomerular (eGFR)',
-    href: '/egfr',
+    href: '/egfr/',
     description: 'Estimación de función renal con CKD-EPI, MDRD y Cockcroft-Gault para estadificación de ERC',
     icon: Gauge,
     priority: 'high',
@@ -336,7 +336,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'fibra',
     title: 'Fibra Diaria',
-    href: '/fibra',
+    href: '/fibra/',
     description: 'Necesidades de fibra dietética según edad, sexo y calorías (recomendaciones IOM/FDA)',
     icon: Leaf,
     priority: 'medium',
@@ -346,7 +346,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'azucar',
     title: 'Azúcar Diaria (Límite OMS)',
-    href: '/azucar',
+    href: '/azucar/',
     description: 'Límite máximo de azúcares libres según calorías (recomendaciones OMS <10% y <5%)',
     icon: Circle,
     priority: 'medium',
@@ -356,7 +356,7 @@ export const CALCULATORS: CalculatorConfig[] = [
   {
     key: 'sodio',
     title: 'Sodio / Sal (Límite OMS)',
-    href: '/sodio',
+    href: '/sodio/',
     description: 'Límite de sodio y sal según OMS (<2 g sodio / <5 g sal). Incluye recomendación estricta para HTA.',
     icon: AlertTriangle,
     priority: 'medium',

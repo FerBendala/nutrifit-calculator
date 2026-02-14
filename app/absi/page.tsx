@@ -548,7 +548,7 @@ export default function ABSIPage() {
                   <p className="text-sm text-muted-foreground">
                     <strong>No.</strong> El ABSI complementa al IMC. Mientras que el IMC es útil para evaluar peso corporal general,
                     el ABSI proporciona información adicional sobre distribución de grasa y riesgo de mortalidad. Ambos índices
-                    juntos ofrecen una evaluación más completa. Consulta también nuestra <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de IMC</a>.
+                    juntos ofrecen una evaluación más completa. Consulta también nuestra <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de IMC</a>.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
@@ -557,14 +557,14 @@ export default function ABSIPage() {
                     Reducir la circunferencia de cintura es clave. Esto se logra mediante: (1) Ejercicio cardiovascular regular
                     (150+ min/semana), (2) Entrenamiento de fuerza para preservar músculo, (3) Déficit calórico moderado
                     (300-500 kcal/día), (4) Dieta rica en fibra y proteína, (5) Reducción de grasa abdominal específicamente.
-                    Consulta nuestra <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de TDEE</a> para planificar tu déficit.
+                    Consulta nuestra <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de TDEE</a> para planificar tu déficit.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
                   <h4 className="font-semibold mb-2">¿Qué diferencia hay entre ABSI y WHtR?</h4>
                   <p className="text-sm text-muted-foreground">
                     Ambos incorporan circunferencia de cintura, pero el ABSI también considera el IMC, proporcionando una
-                    medida más compleja que predice mortalidad. El <a href="/whtr" className="text-blue-600 dark:text-blue-400 hover:underline">WHtR</a> es más simple (cintura/altura)
+                    medida más compleja que predice mortalidad. El <a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline">WHtR</a> es más simple (cintura/altura)
                     y evalúa riesgo cardiometabólico. El ABSI está específicamente diseñado para predecir mortalidad.
                     Ambos son útiles y complementarios.
                   </p>
@@ -581,19 +581,19 @@ export default function ABSIPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de IMC:</a></strong> Complementa el ABSI con evaluación de peso corporal general</span>
+                  <span><strong><a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de IMC:</a></strong> Complementa el ABSI con evaluación de peso corporal general</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whtr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
+                  <span><strong><a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHR:</a></strong> Ratio cintura-cadera para análisis de distribución de grasa</span>
+                  <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHR:</a></strong> Ratio cintura-cadera para análisis de distribución de grasa</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/grasa-corporal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Grasa Corporal:</a></strong> Porcentaje de grasa corporal para evaluación completa</span>
+                  <span><strong><a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Grasa Corporal:</a></strong> Porcentaje de grasa corporal para evaluación completa</span>
                 </li>
               </ul>
             </section>

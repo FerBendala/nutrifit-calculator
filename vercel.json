@@ -1,7 +1,9 @@
 {
+  "_comment": "NOTA: Este archivo NO se usa en Netlify. La configuración activa está en netlify.toml",
+  "_comment2": "Este archivo se mantiene por si el proyecto se migra a Vercel en el futuro",
   "buildCommand": "npm run build",
   "outputDirectory": "out",
-  "trailingSlash": false,
+  "trailingSlash": true,
   "cleanUrls": true,
   "headers": [
     {

@@ -128,7 +128,7 @@ export default async function TagPage({ params }: TagPageProps) {
                   Inicio
                 </Link>
                 <span>/</span>
-                <Link href="/blog" className="hover:text-primary transition-colors">
+                <Link href="/blog/" className="hover:text-primary transition-colors">
                   Blog
                 </Link>
                 <span>/</span>
@@ -137,7 +137,7 @@ export default async function TagPage({ params }: TagPageProps) {
 
               <div className="flex items-center gap-4">
                 <Link
-                  href="/blog"
+                  href="/blog/"
                   className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   <ArrowLeft className="w-4 h-4" />
@@ -190,7 +190,7 @@ export default async function TagPage({ params }: TagPageProps) {
                     </p>
                   </div>
                   <Link
-                    href="/blog"
+                    href="/blog/"
                     className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
                   >
                     <ArrowLeft className="w-4 h-4" />
@@ -216,19 +216,19 @@ export default async function TagPage({ params }: TagPageProps) {
                     🧮 Calorías
                   </Link>
                   <Link
-                    href="/proteina"
+                    href="/proteina/"
                     className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                   >
                     🥩 Proteína
                   </Link>
                   <Link
-                    href="/imc"
+                    href="/imc/"
                     className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                   >
                     📏 IMC
                   </Link>
                   <Link
-                    href="/grasa-corporal"
+                    href="/grasa-corporal/"
                     className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                   >
                     📊 Grasa

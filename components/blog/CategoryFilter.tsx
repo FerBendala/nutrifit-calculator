@@ -65,7 +65,7 @@ export function CategoryFilter({
       <div className="space-y-4">
         <div className="flex flex-wrap justify-center gap-2">
           {/* Opción "Todas" */}
-          <Link href="/blog">
+          <Link href="/blog/">
             <Badge
               variant={!currentCategory ? "default" : "outline"}
               className={`cursor-pointer transition-colors ${!currentCategory
@@ -85,7 +85,7 @@ export function CategoryFilter({
             return (
               <Link
                 key={category}
-                href={`/blog/categoria/${categorySlug}`}
+                href={`/blog/categoria/${categorySlug}/`}
               >
                 <Badge
                   variant={isActive ? "default" : "outline"}

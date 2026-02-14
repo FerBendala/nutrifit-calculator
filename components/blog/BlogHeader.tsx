@@ -56,13 +56,13 @@ export function BlogHeader({
                 Calorías
               </Link>
               <Link
-                href="/proteina"
+                href="/proteina/"
                 className="inline-flex items-center px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
               >
                 Proteína
               </Link>
               <Link
-                href="/imc"
+                href="/imc/"
                 className="inline-flex items-center px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
               >
                 IMC

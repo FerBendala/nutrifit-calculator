@@ -474,7 +474,7 @@ export default function ComposicionPage() {
                     <li>• Déficit calórico moderado (300-500 kcal/día)</li>
                     <li>• Entrenamiento de fuerza 3-4x/semana</li>
                     <li>• Cardio moderado 2-3x/semana</li>
-                    <li>• <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Proteína alta</a> (2.0-2.4g/kg)</li>
+                    <li>• <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Proteína alta</a> (2.0-2.4g/kg)</li>
                     <li>• Sueño de calidad (7-9 horas)</li>
                   </ul>
                 </article>
@@ -486,7 +486,7 @@ export default function ComposicionPage() {
                   <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
                     <li>• Ligero superávit calórico (200-400 kcal/día)</li>
                     <li>• Entrenamiento de fuerza progresivo</li>
-                    <li>• <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Proteína óptima</a> (1.6-2.2g/kg)</li>
+                    <li>• <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Proteína óptima</a> (1.6-2.2g/kg)</li>
                     <li>• Carbohidratos post-entrenamiento</li>
                     <li>• Descanso adecuado entre sesiones</li>
                   </ul>
@@ -614,7 +614,7 @@ export default function ComposicionPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-muted">
-                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué mi porcentaje de grasa es diferente a mi <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline">IMC</a>?</h4>
+                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué mi porcentaje de grasa es diferente a mi <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline">IMC</a>?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     El IMC solo considera peso y altura, no distingue entre músculo y grasa. Una persona
                     musculosa puede tener IMC alto pero bajo porcentaje de grasa. La composición corporal
@@ -637,23 +637,23 @@ export default function ComposicionPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/rmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu RMR con Katch-McArdle:</a></strong> Usa tu masa magra para metabolismo basal más preciso</span>
+                  <span><strong><a href="/rmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu RMR con Katch-McArdle:</a></strong> Usa tu masa magra para metabolismo basal más preciso</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/ffmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu FFMI muscular avanzado:</a></strong> Índice preciso de desarrollo muscular para atletas serios</span>
+                  <span><strong><a href="/ffmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu FFMI muscular avanzado:</a></strong> Índice preciso de desarrollo muscular para atletas serios</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fmi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FMI metabólico:</a></strong> Índice avanzado de masa grasa independiente de altura</span>
+                  <span><strong><a href="/fmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FMI metabólico:</a></strong> Índice avanzado de masa grasa independiente de altura</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Determina tu gasto calórico:</a></strong> La masa magra influye directamente en tu metabolismo basal</span>
+                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Determina tu gasto calórico:</a></strong> La masa magra influye directamente en tu metabolismo basal</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula según tu masa magra para preservar músculo durante pérdida de grasa</span>
+                  <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula según tu masa magra para preservar músculo durante pérdida de grasa</span>
                 </li>
               </ul>
             </section>

@@ -176,7 +176,7 @@ export default function PrivacidadPage() {
             <div className="card-golden bg-muted/30">
               <p className="text-sm text-muted-foreground">
                 <strong>🔧 Control de cookies:</strong> Puedes gestionar tus preferencias a través de nuestro
-                <a href="/cookies" className="text-primary hover:underline mx-1">banner de consentimiento</a>
+                <a href="/cookies/" className="text-primary hover:underline mx-1">banner de consentimiento</a>
                 o configurar tu navegador para rechazarlas.
               </p>
             </div>

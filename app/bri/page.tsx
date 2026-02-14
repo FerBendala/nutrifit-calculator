@@ -93,7 +93,7 @@ export default function BRIPage() {
                 información sobre la distribución de grasa abdominal y el riesgo de síndrome metabólico.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                El BRI es complementario al <a href="/absi" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> y otros
+                El BRI es complementario al <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> y otros
                 índices de forma corporal. Mientras que el ABSI predice mortalidad, el BRI se enfoca específicamente
                 en riesgo metabólico y cardiovascular, siendo especialmente útil para identificar individuos con riesgo
                 de síndrome metabólico, diabetes tipo 2 y enfermedad cardiovascular.
@@ -420,7 +420,7 @@ export default function BRIPage() {
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                    <span><strong>Complementario:</strong> Funciona bien junto con <a href="/absi" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> y otros índices</span>
+                    <span><strong>Complementario:</strong> Funciona bien junto con <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> y otros índices</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
@@ -519,7 +519,7 @@ export default function BRIPage() {
                 <article className="p-4 bg-muted rounded-lg">
                   <h4 className="font-semibold mb-2">¿Cuál es la diferencia entre BRI y ABSI?</h4>
                   <p className="text-sm text-muted-foreground">
-                    Ambos evalúan la forma corporal, pero tienen enfoques diferentes. El <a href="/absi" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> predice
+                    Ambos evalúan la forma corporal, pero tienen enfoques diferentes. El <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> predice
                     mortalidad por todas las causas y se enfoca en riesgo de muerte. El BRI predice específicamente riesgo
                     metabólico y cardiovascular, siendo más útil para identificar síndrome metabólico y diabetes. Ambos son
                     complementarios y pueden usarse juntos para una evaluación más completa.
@@ -531,7 +531,7 @@ export default function BRIPage() {
                     Reducir la circunferencia de cintura es clave. Esto se logra mediante: (1) Ejercicio cardiovascular regular
                     (150+ min/semana), (2) Entrenamiento de fuerza 2-3 veces por semana, (3) Déficit calórico moderado
                     (300-500 kcal/día), (4) Dieta rica en fibra y proteína, (5) Reducción de azúcares refinados y carbohidratos
-                    procesados. Consulta nuestra <a href="/tdee" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de TDEE</a> para planificar tu déficit.
+                    procesados. Consulta nuestra <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de TDEE</a> para planificar tu déficit.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
@@ -539,7 +539,7 @@ export default function BRIPage() {
                   <p className="text-sm text-muted-foreground">
                     <strong>No.</strong> El BRI complementa al IMC. Mientras que el IMC evalúa peso corporal general,
                     el BRI proporciona información sobre distribución de grasa y riesgo metabólico. Ambos índices juntos
-                    ofrecen una evaluación más completa. Consulta también nuestra <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de IMC</a>.
+                    ofrecen una evaluación más completa. Consulta también nuestra <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de IMC</a>.
                   </p>
                 </article>
               </div>
@@ -554,19 +554,19 @@ export default function BRIPage() {
               <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/absi" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de ABSI:</a></strong> Complementa el BRI con predicción de mortalidad</span>
+                  <span><strong><a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de ABSI:</a></strong> Complementa el BRI con predicción de mortalidad</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de IMC:</a></strong> Complementa el BRI con evaluación de peso corporal general</span>
+                  <span><strong><a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de IMC:</a></strong> Complementa el BRI con evaluación de peso corporal general</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whtr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
+                  <span><strong><a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHR:</a></strong> Ratio cintura-cadera para análisis de distribución de grasa</span>
+                  <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHR:</a></strong> Ratio cintura-cadera para análisis de distribución de grasa</span>
                 </li>
               </ul>
             </section>

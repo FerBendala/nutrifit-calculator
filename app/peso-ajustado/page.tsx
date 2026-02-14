@@ -432,7 +432,7 @@ export default function PesoAjustadoPage() {
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                    <span><strong>Enfermedad renal:</strong> Prescripción de proteínas según <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline">necesidades ajustadas</a></span>
+                    <span><strong>Enfermedad renal:</strong> Prescripción de proteínas según <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline">necesidades ajustadas</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
@@ -542,7 +542,7 @@ export default function PesoAjustadoPage() {
                     <li>• <strong>Usa ABW</strong> para medicamentos y nutrición</li>
                     <li>• Considera reducción gradual 5-10% en 6 meses</li>
                     <li>• Combina déficit calórico con ejercicio</li>
-                    <li>• Preserva masa muscular con <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline">proteína adecuada</a></li>
+                    <li>• Preserva masa muscular con <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline">proteína adecuada</a></li>
                   </ul>
                 </article>
                 <article>
@@ -601,7 +601,7 @@ export default function PesoAjustadoPage() {
                   <p className="text-sm text-muted-foreground">
                     <strong>No.</strong> El peso ajustado NO es un objetivo de peso saludable. Es una herramienta
                     clínica para calcular dosis de medicamentos y necesidades nutricionales con mayor precisión en
-                    personas con obesidad o bajo peso. Tu peso ideal se calcula con la <a href="/peso-ideal" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de peso ideal</a>.
+                    personas con obesidad o bajo peso. Tu peso ideal se calcula con la <a href="/peso-ideal/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de peso ideal</a>.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
@@ -677,7 +677,7 @@ export default function PesoAjustadoPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/peso-ideal" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/peso-ideal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Calcula tu peso ideal:
                         </a>
                       </strong>{' '}
@@ -688,7 +688,7 @@ export default function PesoAjustadoPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/proteina" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Calcula proteína necesaria:
                         </a>
                       </strong>{' '}
@@ -699,7 +699,7 @@ export default function PesoAjustadoPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/bmr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Calcula tu BMR:
                         </a>
                       </strong>{' '}
@@ -710,7 +710,7 @@ export default function PesoAjustadoPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/bsa" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/bsa/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Calcula tu BSA:
                         </a>
                       </strong>{' '}
@@ -721,7 +721,7 @@ export default function PesoAjustadoPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/imc" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           Evalúa tu IMC:
                         </a>
                       </strong>{' '}
@@ -732,7 +732,7 @@ export default function PesoAjustadoPage() {
                     <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/egfr" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/egfr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
                           eGFR (Filtrado Glomerular):
                         </a>
                       </strong>{' '}

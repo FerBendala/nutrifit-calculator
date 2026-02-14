@@ -103,6 +103,9 @@ export function generateCalculatorSchema(calculator: CalculatorConfig): SchemaMa
 }
 
 // Schema HowTo para guías de uso
+// NOTA: Este schema NO se usa actualmente porque los pasos son demasiado genéricos.
+// Solo usar HowTo si se agregan pasos detallados y específicos para cada calculadora.
+// Los pasos actuales son descripciones obvias que no aportan valor SEO adicional.
 export function generateHowToSchema(calculator: CalculatorConfig): SchemaMarkup {
   const steps = getCalculatorSteps(calculator.key);
 
@@ -298,17 +301,20 @@ export function generateCalculatorSchemaByKey(calculatorKey: string): SchemaMark
   const calculator = CALCULATORS.find(calc => calc.key === calculatorKey);
 
   if (!calculator) {
-    // Para la home, generar schemas básicos + FAQ de home
+    // Para la home, generar schemas completos (WebApplication + WebSite + FAQ)
     if (calculatorKey === 'home') {
       const schemas = [generateWebApplicationSchema(), generateWebsiteSchema()];
       const faqSchema = generateFAQSchema('home');
       if (faqSchema) schemas.push(faqSchema);
       return schemas;
     }
+    // Fallback: solo WebApplication + WebSite para páginas desconocidas
     console.warn(`Calculadora con key "${calculatorKey}" no encontrada`);
     return [generateWebApplicationSchema(), generateWebsiteSchema()];
   }
 
+  // Para calculadoras individuales, usar generateAllSchemas 
+  // (que ahora solo genera SoftwareApplication + FAQ)
   return generateAllSchemas(calculator);
 }
 
@@ -449,17 +455,23 @@ export function generateFAQSchema(calculatorKey: string): SchemaMarkup | null {
 
 // Función principal para generar todos los schemas
 export function generateAllSchemas(calculator?: CalculatorConfig): SchemaMarkup[] {
-  const schemas = [generateWebApplicationSchema(), generateWebsiteSchema()];
-
-  if (calculator) {
-    schemas.push(generateCalculatorSchema(calculator));
-    schemas.push(generateHowToSchema(calculator));
-    
-    // Agregar FAQ schema si existe para esta calculadora
-    const faqSchema = generateFAQSchema(calculator.key);
+  // Solo para la home: WebApplication + WebSite + FAQ
+  if (!calculator) {
+    const schemas = [generateWebApplicationSchema(), generateWebsiteSchema()];
+    const faqSchema = generateFAQSchema('home');
     if (faqSchema) {
       schemas.push(faqSchema);
     }
+    return schemas;
+  }
+
+  // Para calculadoras individuales: solo SoftwareApplication + FAQ
+  // Eliminamos WebApplication, WebSite y HowTo para evitar overkill
+  const schemas = [generateCalculatorSchema(calculator)];
+  
+  const faqSchema = generateFAQSchema(calculator.key);
+  if (faqSchema) {
+    schemas.push(faqSchema);
   }
 
   return schemas;

@@ -8,8 +8,11 @@ import { generateCategorySlug } from '@/lib/blog-utils';
 import type { PostPreview } from '@/lib/blog';
 import { Search, X } from 'lucide-react';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { PostCard } from './PostCard';
+import { ClientPagination } from './ClientPagination';
+
+const POSTS_PER_PAGE = 12;
 
 interface BlogSearchProps {
   posts: PostPreview[];
@@ -19,6 +22,8 @@ interface BlogSearchProps {
 
 export function BlogSearch({ posts, categories, currentCategory }: BlogSearchProps) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsGridRef = useRef<HTMLDivElement>(null);
 
   // Filtrar posts basándose en el término de búsqueda
   const filteredPosts = useMemo(() => {
@@ -37,6 +42,24 @@ export function BlogSearch({ posts, categories, currentCategory }: BlogSearchPro
       return titleMatch || descriptionMatch || categoryMatch || tagsMatch || excerptMatch;
     });
   }, [posts, searchTerm]);
+
+  // Calcular paginación
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const paginatedPosts = filteredPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+
+  // Resetear a página 1 cuando cambia el filtro/búsqueda
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, filteredPosts.length]);
+
+  // Scroll al inicio de la lista cuando cambia de página
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    if (postsGridRef.current) {
+      postsGridRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const clearSearch = () => {
     setSearchTerm('');
@@ -143,27 +166,48 @@ export function BlogSearch({ posts, categories, currentCategory }: BlogSearchPro
         </div>
       )}
 
-      {/* Grid de Posts Filtrados */}
-      {filteredPosts.length > 0 ? (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredPosts.map((post) => (
-            <PostCard
-              key={post.slug}
-              post={post}
-              featured={post.featured}
-            />
-          ))}
-        </div>
-      ) : searchTerm ? (
-        <div className="text-center py-12">
-          <p className="text-muted-foreground">
-            No se encontraron artículos que coincidan con tu búsqueda.
-          </p>
-          <p className="text-sm text-muted-foreground mt-2">
-            Intenta con otros términos o explora nuestras categorías.
+      {/* Contador de resultados cuando no hay búsqueda */}
+      {!searchTerm && filteredPosts.length > POSTS_PER_PAGE && (
+        <div className="text-center">
+          <p className="text-sm text-muted-foreground">
+            Mostrando {startIndex + 1}-{Math.min(startIndex + POSTS_PER_PAGE, filteredPosts.length)} de {filteredPosts.length} artículos
           </p>
         </div>
-      ) : null}
+      )}
+
+      {/* Grid de Posts Paginados */}
+      <div ref={postsGridRef}>
+        {paginatedPosts.length > 0 ? (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {paginatedPosts.map((post) => (
+              <PostCard
+                key={post.slug}
+                post={post}
+                featured={post.featured}
+              />
+            ))}
+          </div>
+        ) : searchTerm ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">
+              No se encontraron artículos que coincidan con tu búsqueda.
+            </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              Intenta con otros términos o explora nuestras categorías.
+            </p>
+          </div>
+        ) : null}
+      </div>
+
+      {/* Paginación */}
+      {totalPages > 1 && (
+        <ClientPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          className="pt-4"
+        />
+      )}
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   // Evitar hydration mismatch
   useEffect(() => {
@@ -23,21 +23,24 @@ export function ThemeToggle() {
     );
   }
 
+  // Usar el tema resuelto (efectivo) para la UI
+  const effectiveTheme = resolvedTheme ?? 'light';
+
   return (
     <Button
       variant="ghost"
       size="icon"
       className="h-9 w-9"
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+      onClick={() => setTheme(effectiveTheme === 'dark' ? 'light' : 'dark')}
+      aria-label={effectiveTheme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
     >
-      {theme === 'dark' ? (
+      {effectiveTheme === 'dark' ? (
         <Sun className="h-4 w-4 transition-transform" />
       ) : (
         <Moon className="h-4 w-4 transition-transform" />
       )}
       <span className="sr-only">
-        {theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+        {effectiveTheme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
       </span>
     </Button>
   );

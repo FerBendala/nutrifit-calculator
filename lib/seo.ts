@@ -245,6 +245,12 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
     description: 'Conoce el límite de sodio y sal según la OMS: menos de 2 g de sodio (5 g de sal) al día. Incluye recomendaciones especiales para hipertensión. Cuida tu salud cardiovascular controlando tu consumo.',
     keywords: ['calculadora sodio', 'límite sodio', 'cuánta sal consumir', 'sodio diario', 'sal día', 'OMS sodio', 'reducir sal', 'hipertensión'],
     path: '/sodio/'
+  },
+  alcohol: {
+    title: 'Calculadora de Alcohol - Unidades y Calorías',
+    description: 'Calcula unidades estándar de alcohol, calorías y compáralas con el límite de bajo riesgo (OMS). Unidad estándar = 10 g alcohol. Para un consumo responsable.',
+    keywords: ['calculadora alcohol', 'unidades alcohol', 'calorías alcohol', 'consumo bajo riesgo', 'OMS alcohol', 'unidad estándar', 'nutrición'],
+    path: '/alcohol/'
   }
 };
 

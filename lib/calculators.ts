@@ -362,6 +362,16 @@ export const CALCULATORS: CalculatorConfig[] = [
     priority: 'medium',
     category: 'nutrition',
     relatedCalculators: ['home', 'azucar', 'fibra', 'agua']
+  },
+  {
+    key: 'alcohol',
+    title: 'Alcohol (Unidades y Calorías)',
+    href: '/alcohol/',
+    description: 'Unidades estándar de alcohol, calorías y comparación con límite de bajo riesgo (OMS/guías)',
+    icon: Target,
+    priority: 'medium',
+    category: 'nutrition',
+    relatedCalculators: ['home', 'tdee', 'azucar', 'sodio']
   }
 ];
 

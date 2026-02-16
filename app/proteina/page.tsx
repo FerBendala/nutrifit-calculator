@@ -572,6 +572,10 @@ export default function ProteinaPage() {
                   <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
                   <span><strong><a href="/sodio/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Sodio/Sal (OMS):</a></strong> Límite de sodio y sal para salud cardiovascular</span>
                 </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                  <span><strong><a href="/alcohol/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Alcohol:</a></strong> Unidades estándar, calorías y límite de bajo riesgo</span>
+                </li>
               </ul>
             </section>
 

@@ -362,6 +362,67 @@ export function analyzeSodiumLimit(): SodiumResult {
   };
 }
 
+// ============ Alcohol (unidades estándar, calorías, guías bajo riesgo) ============
+
+export interface AlcoholResult {
+  unitsPerWeek: number;
+  alcoholGrams: number;
+  caloriesFromAlcohol: number;
+  limitPerWeek: number;
+  withinLimit: boolean;
+  interpretation: string;
+  tips: string[];
+}
+
+/** 1 unidad estándar (OMS/España) = 10 g alcohol. Calorías: 7 kcal/g alcohol. */
+const GRAMS_PER_STANDARD_DRINK = 10;
+const KCAL_PER_GRAM_ALCOHOL = 7;
+
+/** Límite de bajo riesgo (referencia): hombres ≤14 U/semana, mujeres ≤7 U/semana. */
+export function getLowRiskLimitPerWeek(sex: 'male' | 'female'): number {
+  return sex === 'male' ? 14 : 7;
+}
+
+/**
+ * Convierte unidades estándar a gramos de alcohol y calorías.
+ */
+export function alcoholUnitsToGramsAndCalories(unitsPerWeek: number): { alcoholGrams: number; calories: number } {
+  const alcoholGrams = unitsPerWeek * GRAMS_PER_STANDARD_DRINK;
+  const calories = alcoholGrams * KCAL_PER_GRAM_ALCOHOL;
+  return { alcoholGrams, calories };
+}
+
+/**
+ * Analiza consumo de alcohol: unidades/semana, calorías y comparación con límite de bajo riesgo.
+ */
+export function analyzeAlcoholConsumption(unitsPerWeek: number, sex: 'male' | 'female'): AlcoholResult {
+  const limitPerWeek = getLowRiskLimitPerWeek(sex);
+  const { alcoholGrams, calories: caloriesFromAlcohol } = alcoholUnitsToGramsAndCalories(unitsPerWeek);
+  const withinLimit = unitsPerWeek <= limitPerWeek;
+
+  const interpretation = withinLimit
+    ? `Consumes unas ${unitsPerWeek} unidades estándar de alcohol a la semana (${alcoholGrams} g de alcohol, ~${Math.round(caloriesFromAlcohol)} kcal). Estás dentro del límite de consumo de bajo riesgo (≤${limitPerWeek} U/semana para tu sexo). Recuerda: menos alcohol es siempre mejor para la salud.`
+    : `Consumes unas ${unitsPerWeek} unidades estándar a la semana (${alcoholGrams} g de alcohol, ~${Math.round(caloriesFromAlcohol)} kcal). Superas el límite de bajo riesgo (≤${limitPerWeek} U/semana para tu sexo). Reducir el consumo disminuye el riesgo para la salud.`;
+
+  const tips: string[] = [
+    '1 unidad = 1 caña/copa de vino/1 copa de destilado (10 g alcohol). Revisa el volumen y la graduación.',
+    'Alterna con agua y evita el consumo en ayunas.',
+    'No conduzcas ni realices actividades de riesgo bajo los efectos del alcohol.',
+    'Si quieres reducir: establece días sin alcohol y limita las cantidades los días que bebes.',
+    'El alcohol aporta calorías vacías (7 kcal/g) y puede afectar el peso y la calidad del sueño.'
+  ];
+
+  return {
+    unitsPerWeek,
+    alcoholGrams,
+    caloriesFromAlcohol: Math.round(caloriesFromAlcohol),
+    limitPerWeek,
+    withinLimit,
+    interpretation,
+    tips
+  };
+}
+
 /**
  * Calculate body fat percentage using Navy Method
  */

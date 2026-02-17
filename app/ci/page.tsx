@@ -516,30 +516,30 @@ export default function CIPage() {
               </div>
             </section>
 
-            <section className="space-y-4 mb-[2.618rem]">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre CI</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cuál es la diferencia entre CI y otros índices de forma corporal?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre CI</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuál es la diferencia entre CI y otros índices de forma corporal?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     El CI evalúa específicamente la distribución de grasa abdominal comparando la cintura con la esperada
                     para un cilindro. El <a href="/absi/" className="text-info hover:underline transition-colors">ABSI</a> predice mortalidad,
                     el <a href="/bri/" className="text-info hover:underline transition-colors">BRI</a> predice riesgo metabólico, y el CI
                     evalúa distribución de grasa. Todos son complementarios y pueden usarse juntos para una evaluación más completa.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cómo puedo mejorar mi CI?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo puedo mejorar mi CI?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Reducir la circunferencia de cintura es clave. Esto se logra mediante: (1) Ejercicio cardiovascular regular
                     (150+ min/semana), (2) Entrenamiento de fuerza 2-3 veces por semana, (3) Déficit calórico moderado
                     (300-500 kcal/día), (4) Dieta rica en fibra y proteína, (5) Reducción de azúcares refinados. Consulta nuestra
                     <a href="/tdee/" className="text-info hover:underline transition-colors"> calculadora de TDEE</a> para planificar tu déficit.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿El CI reemplaza al IMC?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿El CI reemplaza al IMC?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     <strong>No.</strong> El CI complementa al IMC. Mientras que el IMC evalúa peso corporal general,
                     el CI proporciona información sobre distribución de grasa abdominal. Ambos índices juntos ofrecen
                     una evaluación más completa. Consulta también nuestra <a href="/imc/" className="text-info hover:underline transition-colors">calculadora de IMC</a>.

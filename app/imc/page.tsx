@@ -77,7 +77,7 @@ export default function IMCPage() {
           </header>
 
           {lastSaved && !result && (
-            <div className="card-golden bg-muted/30 text-sm text-muted-foreground">
+            <div className="card-golden bg-muted/30 text-sm text-muted-foreground leading-[1.618]">
               Tu ultimo resultado: <strong className="text-foreground">IMC {lastSaved.result.bmi.toFixed(1)}</strong> ({lastSaved.result.category}) - {new Date(lastSaved.timestamp).toLocaleDateString('es-ES')}
             </div>
           )}
@@ -369,28 +369,28 @@ export default function IMCPage() {
               </ul>
             </section>
 
-            <section className="space-y-4">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre el IMC</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Es el IMC preciso para todas las personas?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre el IMC</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Es el IMC preciso para todas las personas?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     No, el IMC es una estimación general. No es preciso para atletas, personas muy musculosas,
                     embarazadas, adultos mayores o niños. Para una evaluación completa, considera también
                     el porcentaje de grasa corporal y consulta con un profesional.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Con qué frecuencia debo calcular mi IMC?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Con qué frecuencia debo calcular mi IMC?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Es suficiente calcularlo cada 1-3 meses si estás trabajando en cambios de peso.
                     Para monitoreo general de salud, una vez al año es adecuado. Úsalo junto con nuestra
                     <a href="/" className="text-info hover:underline transition-colors"> calculadora de calorías</a> para un enfoque integral.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Qué hago si mi IMC está fuera del rango normal?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué hago si mi IMC está fuera del rango normal?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Primero, consulta con un profesional de la salud para una evaluación completa.
                     Si necesitas cambios, hazlos gradualmente: usa nuestra <a href="/tdee/" className="text-info hover:underline transition-colors">calculadora TDEE</a> para conocer tus necesidades calóricas y planifica cambios sostenibles.
                   </p>

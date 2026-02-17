@@ -228,14 +228,22 @@ export default function AlcoholPage() {
               </article>
             </section>
 
-            <section className="prose prose-sm max-w-none">
-              <h3 className="text-xl font-semibold mb-4">Preguntas frecuentes</h3>
-              <h4 className="font-semibold text-base">¿Cómo cuento las unidades si mi bebida es distinta?</h4>
-              <p className="text-muted-foreground">Aproximación: (ml × graduación × 0,008) ≈ gramos de alcohol. Divide entre 10 para unidades. Ej.: 250 ml de vino 12° → 250×12×0,008 = 24 g → 2,4 unidades.</p>
-              <h4 className="font-semibold text-base mt-4">¿El alcohol engorda?</h4>
-              <p className="text-muted-foreground">Aporta calorías (7 kcal/g) y suele ir asociado a hábitos que favorecen el aumento de peso. Si quieres controlar el peso, conviene tener en cuenta las calorías del alcohol y reducirlo si es necesario.</p>
-              <h4 className="font-semibold text-base mt-4">¿Qué es el “atracón” de alcohol?</h4>
-              <p className="text-muted-foreground">Consumir muchas unidades en una sola ocasión (p. ej. ≥6 unidades en hombres, ≥4 en mujeres) aumenta el riesgo. Es mejor repartir poco y no superar los límites semanales de bajo riesgo.</p>
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo cuento las unidades si mi bebida es distinta?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">Aproximación: (ml × graduación × 0,008) ≈ gramos de alcohol. Divide entre 10 para unidades. Ej.: 250 ml de vino 12° → 250×12×0,008 = 24 g → 2,4 unidades.</p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿El alcohol engorda?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">Aporta calorías (7 kcal/g) y suele ir asociado a hábitos que favorecen el aumento de peso. Si quieres controlar el peso, conviene tener en cuenta las calorías del alcohol y reducirlo si es necesario.</p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué es el “atracón” de alcohol?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">Consumir muchas unidades en una sola ocasión (p. ej. ≥6 unidades en hombres, ≥4 en mujeres) aumenta el riesgo. Es mejor repartir poco y no superar los límites semanales de bajo riesgo.</p>
+                </article>
+              </div>
             </section>
           </article>
 

@@ -525,38 +525,36 @@ export default function PresionArterialMediaPage() {
               </div>
             </section>
 
-            <section className="bg-gradient-to-r bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
-              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl">
-                Preguntas Frecuentes (FAQ)
-              </h3>
-              <div className="space-golden-md">
-                <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-foreground/90">¿Por qué es importante la MAP?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas Frecuentes (FAQ)</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué es importante la MAP?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     La MAP es crucial porque representa la presión promedio que impulsa la sangre a través
                     del sistema circulatorio. Un MAP adecuado asegura que los órganos vitales reciban
                     suficiente flujo sanguíneo y oxígeno.
                   </p>
                 </article>
-                <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-foreground/90">¿Cuál es la diferencia entre MAP y presión arterial normal?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuál es la diferencia entre MAP y presión arterial normal?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     La presión arterial normal (SBP/DBP) muestra los valores máximos y mínimos durante
                     el ciclo cardíaco. La MAP calcula el promedio, que es más útil para evaluar la
                     perfusión de órganos y el riesgo cardiovascular a largo plazo.
                   </p>
                 </article>
-                <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-foreground/90">¿Qué significa un MAP bajo?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué significa un MAP bajo?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Un MAP &lt;70 mmHg indica hipotensión y puede comprometer la perfusión de órganos,
                     especialmente el cerebro y los riñones. Puede causar síntomas como mareos, fatiga,
                     confusión y, en casos severos, shock.
                   </p>
                 </article>
-                <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-foreground/90">¿Cómo puedo mejorar mi MAP?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo puedo mejorar mi MAP?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Para un MAP elevado: dieta baja en sodio (DASH), ejercicio regular, mantener peso
                     saludable, limitar alcohol, gestionar estrés y tomar medicación según prescripción médica.
                     Para un MAP bajo: consultar con médico para identificar la causa subyacente.

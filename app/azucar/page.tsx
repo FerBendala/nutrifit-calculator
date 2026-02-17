@@ -218,14 +218,22 @@ export default function AzucarPage() {
               </article>
             </section>
 
-            <section className="prose prose-sm max-w-none">
-              <h3 className="text-xl font-semibold mb-4">Preguntas frecuentes</h3>
-              <h4 className="font-semibold text-base">¿La fruta cuenta como azúcar libre?</h4>
-              <p className="text-muted-foreground">No. Los azúcares en fruta y verdura enteras, y en la leche sin azúcar, no se consideran azúcares libres. Sí cuentan los zumos, concentrados y el azúcar añadido.</p>
-              <h4 className="font-semibold text-base mt-4">¿Cómo saber cuánto azúcar llevo?</h4>
-              <p className="text-muted-foreground">Revisa el etiquetado: “Hidratos de carbono – de los cuales azúcares”. Suma el azúcar de lo que comes y bebes a lo largo del día y compáralo con tu límite en gramos.</p>
-              <h4 className="font-semibold text-base mt-4">¿Puedo usar edulcorantes?</h4>
-              <p className="text-muted-foreground">La OMS se refiere a azúcares libres; los edulcorantes sin calorías no entran en este límite. Usados con moderación pueden ayudar a reducir azúcar, pero la prioridad es reducir el dulzor global de la dieta.</p>
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿La fruta cuenta como azúcar libre?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">No. Los azúcares en fruta y verdura enteras, y en la leche sin azúcar, no se consideran azúcares libres. Sí cuentan los zumos, concentrados y el azúcar añadido.</p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo saber cuánto azúcar llevo?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">Revisa el etiquetado: “Hidratos de carbono – de los cuales azúcares”. Suma el azúcar de lo que comes y bebes a lo largo del día y compáralo con tu límite en gramos.</p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Puedo usar edulcorantes?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">La OMS se refiere a azúcares libres; los edulcorantes sin calorías no entran en este límite. Usados con moderación pueden ayudar a reducir azúcar, pero la prioridad es reducir el dulzor global de la dieta.</p>
+                </article>
+              </div>
             </section>
           </article>
 

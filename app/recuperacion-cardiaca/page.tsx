@@ -588,38 +588,36 @@ export default function RecuperacionCardiacaPage() {
               </div>
             </section>
 
-            <section className="bg-gradient-to-r bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
-              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl">
-                Preguntas Frecuentes (FAQ)
-              </h3>
-              <div className="space-golden-md">
-                <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-foreground/90">¿Por qué es importante la HRR?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas Frecuentes (FAQ)</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué es importante la HRR?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     La HRR es un indicador importante de la condición cardiovascular y la función autonómica.
                     Una recuperación rápida indica buena salud cardiovascular, mientras que una recuperación
                     lenta puede indicar problemas cardiovasculares o disfunción autonómica.
                   </p>
                 </article>
-                <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-foreground/90">¿Cómo puedo mejorar mi HRR?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo puedo mejorar mi HRR?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Puedes mejorar tu HRR con ejercicio cardiovascular regular, especialmente entrenamiento
                     de intervalos de alta intensidad (HIIT). También ayuda mantener un peso saludable,
                     gestionar el estrés, dormir bien y evitar el tabaco.
                   </p>
                 </article>
-                <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-foreground/90">¿Qué significa una HRR baja?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué significa una HRR baja?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Una HRR baja puede indicar condición cardiovascular subóptima, disfunción autonómica
                     o riesgo cardiovascular aumentado. Si tu HRR es consistentemente baja, se recomienda
                     consultar con un médico para evaluación cardiovascular.
                   </p>
                 </article>
-                <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-foreground/90">¿Cuándo debo medir la HRR?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuándo debo medir la HRR?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Mide la HRR después de ejercicio de intensidad moderada a alta, cuando hayas alcanzado
                     al menos el 80% de tu frecuencia cardíaca máxima estimada. Evita medirla después de
                     ejercicio muy ligero, ya que la recuperación será muy rápida y no será informativa.

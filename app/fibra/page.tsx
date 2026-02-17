@@ -263,14 +263,22 @@ export default function FibraPage() {
               </article>
             </section>
 
-            <section className="prose prose-sm max-w-none">
-              <h3 className="text-xl font-semibold mb-4">Preguntas frecuentes</h3>
-              <h4 className="font-semibold text-base">¿Puedo tomar más fibra de la recomendada?</h4>
-              <p className="text-muted-foreground">Un exceso brusco puede causar molestias digestivas. Aumenta la fibra de forma gradual y bebe suficiente agua.</p>
-              <h4 className="font-semibold text-base mt-4">¿La fibra tiene calorías?</h4>
-              <p className="text-muted-foreground">La fibra aporta menos energía que los carbohidratos digeribles (aprox. 2 kcal/g en lugar de 4). Muchas tablas de calorías ya lo tienen en cuenta.</p>
-              <h4 className="font-semibold text-base mt-4">¿Cuento la fibra en los carbohidratos?</h4>
-              <p className="text-muted-foreground">En etiquetado (UE) los “hidratos de carbono” suelen incluir la fibra. Para “carbohidratos netos” se resta la fibra. Esta calculadora se centra en la fibra total recomendada, no en los net carbs.</p>
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Puedo tomar más fibra de la recomendada?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">Un exceso brusco puede causar molestias digestivas. Aumenta la fibra de forma gradual y bebe suficiente agua.</p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿La fibra tiene calorías?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">La fibra aporta menos energía que los carbohidratos digeribles (aprox. 2 kcal/g en lugar de 4). Muchas tablas de calorías ya lo tienen en cuenta.</p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuento la fibra en los carbohidratos?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">En etiquetado (UE) los “hidratos de carbono” suelen incluir la fibra. Para “carbohidratos netos” se resta la fibra. Esta calculadora se centra en la fibra total recomendada, no en los net carbs.</p>
+                </article>
+              </div>
             </section>
           </article>
 

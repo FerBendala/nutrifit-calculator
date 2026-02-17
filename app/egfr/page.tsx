@@ -309,14 +309,22 @@ export default function EGFRPage() {
               </p>
             </section>
 
-            <section className="prose prose-sm max-w-none">
-              <h3 className="text-xl font-semibold mb-4">Preguntas frecuentes</h3>
-              <h4 className="font-semibold text-base">¿En qué unidades debe estar la creatinina?</h4>
-              <p className="text-muted-foreground">Esta calculadora usa creatinina en mg/dL (unidades habituales en España e Hispanoamérica). Si tu analítica está en µmol/L, divide el valor entre 88.4 para obtener mg/dL.</p>
-              <h4 className="font-semibold text-base mt-4">¿Por qué aparece el factor raza?</h4>
-              <p className="text-muted-foreground">Las ecuaciones CKD-EPI y MDRD 2009 incluyen un coeficiente para personas de origen afroamericano/raza negra porque en los estudios de validación se observaron diferencias en la relación creatinina-GFR. La ecuación CKD-EPI 2021, recomendada por NKF/ASN, ya no incluye raza.</p>
-              <h4 className="font-semibold text-base mt-4">¿Para qué sirve el Cockcroft-Gault?</h4>
-              <p className="text-muted-foreground">El clearance de creatinina (Cockcroft-Gault) se usa sobre todo para ajustar la dosis de medicamentos que se eliminan por el riñón. No está estandarizado a superficie corporal (1.73 m²) como el eGFR.</p>
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿En qué unidades debe estar la creatinina?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">Esta calculadora usa creatinina en mg/dL (unidades habituales en España e Hispanoamérica). Si tu analítica está en µmol/L, divide el valor entre 88.4 para obtener mg/dL.</p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué aparece el factor raza?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">Las ecuaciones CKD-EPI y MDRD 2009 incluyen un coeficiente para personas de origen afroamericano/raza negra porque en los estudios de validación se observaron diferencias en la relación creatinina-GFR. La ecuación CKD-EPI 2021, recomendada por NKF/ASN, ya no incluye raza.</p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Para qué sirve el Cockcroft-Gault?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">El clearance de creatinina (Cockcroft-Gault) se usa sobre todo para ajustar la dosis de medicamentos que se eliminan por el riñón. No está estandarizado a superficie corporal (1.73 m²) como el eGFR.</p>
+                </article>
+              </div>
             </section>
           </article>
 

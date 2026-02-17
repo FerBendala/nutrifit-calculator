@@ -177,14 +177,22 @@ export default function SodioPage() {
               </article>
             </section>
 
-            <section className="prose prose-sm max-w-none">
-              <h3 className="text-xl font-semibold mb-4">Preguntas frecuentes</h3>
-              <h4 className="font-semibold text-base">¿Sal y sodio es lo mismo?</h4>
-              <p className="text-muted-foreground">No. La sal (cloruro sódico) contiene aproximadamente un 40% de sodio. Por tanto, 5 g de sal equivalen a unos 2 g de sodio. En las etiquetas suele figurar el sodio en mg.</p>
-              <h4 className="font-semibold text-base mt-4">¿Qué es "alto en sodio" en el etiquetado?</h4>
-              <p className="text-muted-foreground">En la UE, un alimento es "alto en sal" si tiene más de 1,5 g de sal por 100 g (equivalente a 0,6 g de sodio por 100 g). Comparar por 100 g ayuda a elegir productos con menos sodio.</p>
-              <h4 className="font-semibold text-base mt-4">¿Necesito algo de sodio?</h4>
-              <p className="text-muted-foreground">Sí. El sodio es un electrolito necesario, pero en la dieta actual la mayoría de personas supera el límite recomendado. Reducir el exceso es el objetivo, no eliminar el sodio por completo.</p>
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Sal y sodio es lo mismo?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">No. La sal (cloruro sódico) contiene aproximadamente un 40% de sodio. Por tanto, 5 g de sal equivalen a unos 2 g de sodio. En las etiquetas suele figurar el sodio en mg.</p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué es &quot;alto en sodio&quot; en el etiquetado?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">En la UE, un alimento es &quot;alto en sal&quot; si tiene más de 1,5 g de sal por 100 g (equivalente a 0,6 g de sodio por 100 g). Comparar por 100 g ayuda a elegir productos con menos sodio.</p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Necesito algo de sodio?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">Sí. El sodio es un electrolito necesario, pero en la dieta actual la mayoría de personas supera el límite recomendado. Reducir el exceso es el objetivo, no eliminar el sodio por completo.</p>
+                </article>
+              </div>
             </section>
           </article>
 

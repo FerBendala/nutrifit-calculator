@@ -411,51 +411,36 @@ export default function PesoIdealPage() {
               </div>
             </section>
 
-            <section className="card-golden-lg bg-success-subtle border-l-4 border-success mb-[2.618rem]">
-              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
-                <span className="text-2xl mr-3">❓</span>
-                Preguntas Frecuentes sobre el Peso Ideal
-              </h3>
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas Frecuentes sobre el Peso Ideal</h3>
               <div className="space-golden-sm">
-                <article className="card-golden bg-card/50 mb-[1.618rem]">
-                  <h4 className="font-bold mb-[0.618rem] text-success flex items-center">
-                    <span className="text-lg mr-2">🤔</span>
-                    ¿Por qué hay diferentes fórmulas de peso ideal?
-                  </h4>
-                  <p className="text-sm text-foreground/90 leading-relaxed">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué hay diferentes fórmulas de peso ideal?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Cada fórmula fue desarrollada en diferentes épocas y contextos, con poblaciones
                     de estudio distintas. Algunas se enfocan en aplicaciones médicas, otras en
                     fitness, y cada una tiene sus propias ventajas y limitaciones.
                   </p>
                 </article>
-                <article className="card-golden bg-card/50 mb-[1.618rem]">
-                  <h4 className="font-bold mb-[0.618rem] text-success flex items-center">
-                    <span className="text-lg mr-2">🎯</span>
-                    ¿Cuál es la mejor fórmula para mí?
-                  </h4>
-                  <p className="text-sm text-foreground/90 leading-relaxed">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuál es la mejor fórmula para mí?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     No existe una fórmula &quot;mejor&quot; universalmente. El promedio de todas las fórmulas
                     suele proporcionar una estimación más equilibrada. Sin embargo, es importante
                     consultar con un profesional de la salud para una evaluación personalizada.
                   </p>
                 </article>
-                <article className="card-golden bg-card/50 mb-[1.618rem]">
-                  <h4 className="font-bold mb-[0.618rem] text-success flex items-center">
-                    <span className="text-lg mr-2">🏥</span>
-                    ¿Qué hago si mi peso actual está muy lejos del ideal?
-                  </h4>
-                  <p className="text-sm text-foreground/90 leading-relaxed">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué hago si mi peso actual está muy lejos del ideal?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Si hay una diferencia significativa, es recomendable consultar con un <a href="https://www.cdc.gov/healthyweight/assessing/index.html" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">médico</a>,
                     nutricionista o entrenador personal certificado. Ellos pueden ayudarte a
                     desarrollar un plan seguro y efectivo para alcanzar tus objetivos.
                   </p>
                 </article>
-                <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-success flex items-center">
-                    <span className="text-lg mr-2">⚖️</span>
-                    ¿El peso ideal es lo mismo que el peso saludable?
-                  </h4>
-                  <p className="text-sm text-foreground/90 leading-relaxed">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿El peso ideal es lo mismo que el peso saludable?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     No exactamente. El peso ideal es una estimación basada en fórmulas matemáticas,
                     mientras que el peso saludable considera factores individuales como composición
                     corporal, salud general, y objetivos personales.

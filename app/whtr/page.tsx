@@ -158,43 +158,37 @@ export default function WHtRPage() {
               </div>
             </section>
 
-            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
-              <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-foreground">
-                  Preguntas Frecuentes
-                </h3>
-              </header>
-              <div className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <article>
-                    <h4 className="font-semibold text-foreground mb-3">¿Es más preciso que el IMC?</h4>
-                    <p className="text-sm text-warning leading-relaxed">
-                      Sí, múltiples estudios muestran que el WHtR es mejor predictor de riesgo cardiometabólico,
-                      especialmente para detectar <a href="/grasa-corporal/" className="text-info hover:underline transition-colors font-medium">grasa abdominal peligrosa</a>.
-                    </p>
-                  </article>
-                  <article>
-                    <h4 className="font-semibold text-foreground mb-3">¿Cuándo debo medirme?</h4>
-                    <p className="text-sm text-warning leading-relaxed">
-                      Mejor en ayunas, por la mañana, después de ir al baño y antes de desayunar.
-                      La <a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">consistencia</a> es clave.
-                    </p>
-                  </article>
-                  <article>
-                    <h4 className="font-semibold text-foreground mb-3">¿Sirve para todas las edades?</h4>
-                    <p className="text-sm text-warning leading-relaxed">
-                      Sí, desde los 5 años hasta adultos mayores. Los rangos de interpretación son
-                      universales, a diferencia del <a href="/imc/" className="text-info hover:underline transition-colors font-medium">IMC que varía por edad</a>.
-                    </p>
-                  </article>
-                  <article>
-                    <h4 className="font-semibold text-foreground mb-3">¿Qué hacer si mi WHtR es alto?</h4>
-                    <p className="text-sm text-warning leading-relaxed">
-                      Consulta un profesional de salud, enfócate en reducir grasa abdominal con
-                      <a href="/tdee/" className="text-info hover:underline transition-colors font-medium">déficit calórico</a> y ejercicio cardiovascular.
-                    </p>
-                  </article>
-                </div>
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas Frecuentes</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Es más preciso que el IMC?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    Sí, múltiples estudios muestran que el WHtR es mejor predictor de riesgo cardiometabólico,
+                    especialmente para detectar <a href="/grasa-corporal/" className="text-info hover:underline transition-colors font-medium">grasa abdominal peligrosa</a>.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuándo debo medirme?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    Mejor en ayunas, por la mañana, después de ir al baño y antes de desayunar.
+                    La <a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">consistencia</a> es clave.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Sirve para todas las edades?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    Sí, desde los 5 años hasta adultos mayores. Los rangos de interpretación son
+                    universales, a diferencia del <a href="/imc/" className="text-info hover:underline transition-colors font-medium">IMC que varía por edad</a>.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué hacer si mi WHtR es alto?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    Consulta un profesional de salud, enfócate en reducir grasa abdominal con
+                    <a href="/tdee/" className="text-info hover:underline transition-colors font-medium">déficit calórico</a> y ejercicio cardiovascular.
+                  </p>
+                </article>
               </div>
             </section>
 

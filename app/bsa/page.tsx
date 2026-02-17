@@ -511,28 +511,28 @@ export default function BSAPage() {
               </div>
             </section>
 
-            <section className="space-y-4 mb-[2.618rem]">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre BSA</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Por qué usar BSA en lugar de peso corporal para dosificar medicamentos?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre BSA</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué usar BSA en lugar de peso corporal para dosificar medicamentos?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     El BSA normaliza las dosis considerando tanto altura como peso, resultando en dosificaciones más precisas.
                     Es especialmente importante en extremos de tamaño corporal y para fármacos con ventana terapéutica estrecha.
                     Estudios muestran que el BSA reduce la variabilidad interindividual en la farmacocinética.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Qué fórmula de BSA debo usar en mi práctica clínica?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué fórmula de BSA debo usar en mi práctica clínica?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     <strong>Du Bois es el estándar de oro</strong> y debe usarse en la mayoría de casos, especialmente en oncología.
                     Mosteller es ampliamente aceptada en pediatría por su simplicidad. Lo más importante es usar la misma
                     fórmula de forma consistente durante todo el tratamiento del paciente.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cómo se relaciona el BSA con el peso ajustado (ABW)?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo se relaciona el BSA con el peso ajustado (ABW)?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Ambos son herramientas complementarias. El <a href="/peso-ajustado/" className="text-info hover:underline transition-colors">peso ajustado (ABW)</a> corrige
                     el peso actual en obesidad para cálculos metabólicos. El BSA considera altura y peso para dosificación.
                     En algunos protocolos de quimioterapia para obesidad, se combinan ambos para máxima precisión.

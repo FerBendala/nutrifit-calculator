@@ -513,30 +513,30 @@ export default function BRIPage() {
               </div>
             </section>
 
-            <section className="space-y-4 mb-[2.618rem]">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre BRI</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cuál es la diferencia entre BRI y ABSI?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre BRI</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuál es la diferencia entre BRI y ABSI?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Ambos evalúan la forma corporal, pero tienen enfoques diferentes. El <a href="/absi/" className="text-info hover:underline transition-colors">ABSI</a> predice
                     mortalidad por todas las causas y se enfoca en riesgo de muerte. El BRI predice específicamente riesgo
                     metabólico y cardiovascular, siendo más útil para identificar síndrome metabólico y diabetes. Ambos son
                     complementarios y pueden usarse juntos para una evaluación más completa.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cómo puedo mejorar mi BRI?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo puedo mejorar mi BRI?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Reducir la circunferencia de cintura es clave. Esto se logra mediante: (1) Ejercicio cardiovascular regular
                     (150+ min/semana), (2) Entrenamiento de fuerza 2-3 veces por semana, (3) Déficit calórico moderado
                     (300-500 kcal/día), (4) Dieta rica en fibra y proteína, (5) Reducción de azúcares refinados y carbohidratos
                     procesados. Consulta nuestra <a href="/tdee/" className="text-info hover:underline transition-colors">calculadora de TDEE</a> para planificar tu déficit.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿El BRI reemplaza al IMC?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿El BRI reemplaza al IMC?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     <strong>No.</strong> El BRI complementa al IMC. Mientras que el IMC evalúa peso corporal general,
                     el BRI proporciona información sobre distribución de grasa y riesgo metabólico. Ambos índices juntos
                     ofrecen una evaluación más completa. Consulta también nuestra <a href="/imc/" className="text-info hover:underline transition-colors">calculadora de IMC</a>.

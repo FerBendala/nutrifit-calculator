@@ -540,29 +540,29 @@ export default function ABSIPage() {
               </div>
             </section>
 
-            <section className="space-y-4 mb-[2.618rem]">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre ABSI</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿El ABSI reemplaza al IMC?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre ABSI</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿El ABSI reemplaza al IMC?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     <strong>No.</strong> El ABSI complementa al IMC. Mientras que el IMC es útil para evaluar peso corporal general,
                     el ABSI proporciona información adicional sobre distribución de grasa y riesgo de mortalidad. Ambos índices
                     juntos ofrecen una evaluación más completa. Consulta también nuestra <a href="/imc/" className="text-info hover:underline transition-colors">calculadora de IMC</a>.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cómo puedo mejorar mi ABSI?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo puedo mejorar mi ABSI?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Reducir la circunferencia de cintura es clave. Esto se logra mediante: (1) Ejercicio cardiovascular regular
                     (150+ min/semana), (2) Entrenamiento de fuerza para preservar músculo, (3) Déficit calórico moderado
                     (300-500 kcal/día), (4) Dieta rica en fibra y proteína, (5) Reducción de grasa abdominal específicamente.
                     Consulta nuestra <a href="/tdee/" className="text-info hover:underline transition-colors">calculadora de TDEE</a> para planificar tu déficit.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Qué diferencia hay entre ABSI y WHtR?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué diferencia hay entre ABSI y WHtR?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Ambos incorporan circunferencia de cintura, pero el ABSI también considera el IMC, proporcionando una
                     medida más compleja que predice mortalidad. El <a href="/whtr/" className="text-info hover:underline transition-colors">WHtR</a> es más simple (cintura/altura)
                     y evalúa riesgo cardiometabólico. El ABSI está específicamente diseñado para predecir mortalidad.

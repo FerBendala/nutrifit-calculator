@@ -574,29 +574,29 @@ export default function MasaMagraPage() {
               </div>
             </section>
 
-            <section className="space-y-4 mb-[2.618rem]">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre masa magra</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cómo puedo aumentar mi masa magra?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre masa magra</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo puedo aumentar mi masa magra?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Para aumentar masa magra: (1) Entrenamiento de fuerza 3-4 veces por semana con progresión,
                     (2) Consumo adecuado de proteína (1.6-2.2g por kg de peso), (3) Ligero superávit calórico (200-300 kcal/día),
                     (4) Descanso adecuado (7-9 horas de sueño), (5) Hidratación suficiente. Consulta nuestra
                     <a href="/proteina/" className="text-info hover:underline transition-colors"> calculadora de proteína</a> para tus necesidades.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cuál es la diferencia entre masa magra y masa muscular?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuál es la diferencia entre masa magra y masa muscular?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     <strong>Masa magra (LBM)</strong> incluye músculos, huesos, órganos, agua y otros tejidos no grasos.
                     <strong> Masa muscular</strong> es solo el tejido muscular esquelético. La masa magra es más amplia e incluye
                     la masa muscular como componente principal. Ambas son importantes para la salud y función física.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Por qué es importante la masa magra para la salud?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué es importante la masa magra para la salud?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     La masa magra es crucial porque: (1) Aumenta la tasa metabólica en reposo (quema más calorías),
                     (2) Mejora la función física y movilidad, (3) Previene sarcopenia relacionada con la edad,
                     (4) Mejora la salud ósea, (5) Mejora el control glucémico y sensibilidad a la insulina,

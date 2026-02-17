@@ -593,28 +593,28 @@ export default function PesoAjustadoPage() {
               </div>
             </section>
 
-            <section className="space-y-4 mb-[2.618rem]">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre Peso Ajustado</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿El peso ajustado es mi peso ideal?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre Peso Ajustado</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿El peso ajustado es mi peso ideal?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     <strong>No.</strong> El peso ajustado NO es un objetivo de peso saludable. Es una herramienta
                     clínica para calcular dosis de medicamentos y necesidades nutricionales con mayor precisión en
                     personas con obesidad o bajo peso. Tu peso ideal se calcula con la <a href="/peso-ideal/" className="text-info hover:underline transition-colors">calculadora de peso ideal</a>.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Por qué el factor 0.4 en la fórmula?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Por qué el factor 0.4 en la fórmula?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     El factor 0.4 (40%) representa que el tejido adiposo tiene aproximadamente el 40% de la demanda
                     metabólica de la masa magra. Aunque la grasa tiene menor vascularización y metabolismo que el
                     músculo, sigue requiriendo nutrientes y afectando la farmacocinética de medicamentos.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cuándo debo recalcular mi ABW?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuándo debo recalcular mi ABW?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Recalcula tu peso ajustado cada vez que tu peso actual cambie ±5 kg, o al menos cada 3 meses
                     si estás en proceso de pérdida/ganancia de peso. En hospitalizaciones, se recalcula semanalmente
                     o tras cambios significativos en el estado nutricional o hidratación.

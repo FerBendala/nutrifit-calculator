@@ -560,29 +560,29 @@ export default function GrasaVisceralPage() {
               </div>
             </section>
 
-            <section className="space-y-4 mb-[2.618rem]">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre grasa visceral</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cómo puedo reducir mi grasa visceral?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre grasa visceral</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo puedo reducir mi grasa visceral?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Reducir la grasa visceral requiere: (1) Ejercicio cardiovascular regular (150+ min/semana),
                     (2) Entrenamiento de fuerza 2-3 veces por semana, (3) Déficit calórico moderado (300-500 kcal/día),
                     (4) Dieta rica en fibra y proteína, (5) Reducción de azúcares refinados y alcohol. Consulta nuestra
                     <a href="/tdee/" className="text-info hover:underline transition-colors"> calculadora de TDEE</a> para planificar tu déficit.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿La grasa visceral es más peligrosa que la grasa subcutánea?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿La grasa visceral es más peligrosa que la grasa subcutánea?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     <strong>Sí.</strong> La grasa visceral es metabólicamente activa y produce sustancias inflamatorias
                     que aumentan el riesgo de enfermedades. La grasa subcutánea es menos activa y menos asociada con
                     complicaciones metabólicas. Por eso es importante evaluar la distribución de grasa, no solo la cantidad total.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cómo se mide la grasa visceral con precisión?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo se mide la grasa visceral con precisión?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Las técnicas más precisas son: (1) <strong>CT scan</strong> o <strong>MRI</strong> - medición directa,
                     (2) <strong>DEXA</strong> - estimación de composición corporal, (3) <strong>Bioimpedancia avanzada</strong> - estimación indirecta.
                     Las fórmulas utilizadas en esta calculadora proporcionan una estimación útil basada en medidas antropométricas,

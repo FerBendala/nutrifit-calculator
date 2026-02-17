@@ -459,28 +459,28 @@ export default function AguaPage() {
               </div>
             </section>
 
-            <section className="space-y-4">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre hidratación</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Puedo beber demasiada agua?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre hidratación</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Puedo beber demasiada agua?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Sí, la hiponatremia (intoxicación por agua) puede ocurrir al beber cantidades excesivas
                     muy rápidamente. Los riñones pueden procesar máximo 0.8-1L por hora. Sigue las
                     recomendaciones de nuestra calculadora y bebe gradualmente.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿El café y té cuentan para la hidratación?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿El café y té cuentan para la hidratación?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Sí, aunque tengan efectos diuréticos leves, estudios muestran que contribuyen
                     positivamente a la hidratación. El efecto diurético se reduce con el consumo habitual.
                     Modera la cafeína a menos de 400mg/día.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cómo sé si estoy bien hidratado?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo sé si estoy bien hidratado?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     El mejor indicador es el color de la orina: amarillo claro indica buena hidratación.
                     También puedes pesarte antes y después del ejercicio: cada kg perdido equivale
                     aproximadamente a 1L de líquido que debes reponer.

@@ -495,28 +495,28 @@ export default function ProteinaPage() {
               </div>
             </section>
 
-            <section className="space-y-4">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre proteína</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Puedo consumir demasiada proteína?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre proteína</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Puedo consumir demasiada proteína?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Para personas sanas, consumir hasta 2.5g/kg de peso corporal es seguro.
                     Cantidades muy altas (&gt;3g/kg) pueden sobrecargar riñones en personas con problemas renales.
                     Usa nuestra calculadora para encontrar tu rango óptimo.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿La proteína vegetal es igual de efectiva?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿La proteína vegetal es igual de efectiva?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Las proteínas vegetales pueden ser igual de efectivas si se combinan correctamente
                     para obtener todos los aminoácidos esenciales. Combina legumbres con cereales,
                     o usa quinoa, que ya es una proteína completa.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Debo tomar proteína inmediatamente después del entreno?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Debo tomar proteína inmediatamente después del entreno?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     La &quot;ventana anabólica&quot; es más amplia de lo que se pensaba. Lo importante es
                     el total diario de proteína. Si entrenas en ayunas o hace muchas horas que no comes,
                     sí es beneficioso tomar proteína pronto después del ejercicio.

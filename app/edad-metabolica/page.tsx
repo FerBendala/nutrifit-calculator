@@ -538,12 +538,12 @@ export default function EdadMetabolicaPage() {
               </div>
             </section>
 
-            <section className="space-y-4 mb-[2.618rem]">
-              <h3 className="text-xl font-semibold mb-4">❓ Preguntas frecuentes sobre edad metabólica</h3>
-              <div className="space-y-3">
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Cómo puedo mejorar mi edad metabólica?</h4>
-                  <p className="text-sm text-muted-foreground">
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre edad metabólica</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo puedo mejorar mi edad metabólica?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Para mejorar tu edad metabólica: (1) Aumenta masa muscular con entrenamiento de fuerza 3-4 veces por semana,
                     (2) Aumenta actividad física diaria, (3) Consume suficiente proteína (1.6-2.2g por kg de peso),
                     (4) Mejora calidad y cantidad de sueño (7-9 horas), (5) Evita dietas muy restrictivas. Consulta nuestra
@@ -551,17 +551,17 @@ export default function EdadMetabolicaPage() {
                     <a href="/proteina/" className="text-info hover:underline transition-colors"> calculadora de proteína</a> para más información.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿Qué significa tener una edad metabólica más joven?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué significa tener una edad metabólica más joven?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     Una edad metabólica más joven que tu edad cronológica indica que tu metabolismo es más eficiente.
                     Esto típicamente significa que tienes buena masa muscular, actividad física regular y hábitos saludables.
                     Un metabolismo más joven puede ayudar a mantener un peso saludable y reducir el riesgo de enfermedades metabólicas.
                   </p>
                 </article>
-                <article className="p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">¿La edad metabólica puede cambiar?</h4>
-                  <p className="text-sm text-muted-foreground">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿La edad metabólica puede cambiar?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
                     <strong>Sí.</strong> La edad metabólica puede cambiar con el tiempo. Aumentar masa muscular, mejorar actividad física,
                     optimizar nutrición y sueño pueden hacer que tu edad metabólica sea más joven. Por el contrario, pérdida de masa muscular,
                     sedentarismo y malos hábitos pueden hacer que sea más vieja. Monitorea tu edad metabólica periódicamente para ver cambios.

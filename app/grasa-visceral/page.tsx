@@ -54,17 +54,17 @@ export default function GrasaVisceralPage() {
   const getRiskColor = (risk: string) => {
     switch (risk) {
       case 'Muy Bajo':
-        return 'text-green-700 dark:text-green-300 bg-green-50 dark:bg-green-950/30 border-green-400';
+        return 'text-foreground bg-success-subtle border-success';
       case 'Bajo':
-        return 'text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30 border-blue-400';
+        return 'text-foreground bg-info-subtle border-info';
       case 'Moderado':
-        return 'text-yellow-700 dark:text-yellow-300 bg-yellow-50 dark:bg-yellow-950/30 border-yellow-400';
+        return 'text-foreground bg-warning-subtle border-warning';
       case 'Alto':
-        return 'text-orange-700 dark:text-orange-300 bg-orange-50 dark:bg-orange-950/30 border-orange-400';
+        return 'text-foreground bg-warning-subtle border-warning';
       case 'Muy Alto':
-        return 'text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/30 border-red-400';
+        return 'text-foreground bg-destructive-subtle border-destructive';
       default:
-        return 'text-muted-foreground bg-muted border-gray-400';
+        return 'text-muted-foreground bg-muted border-border';
     }
   };
 
@@ -84,7 +84,7 @@ export default function GrasaVisceralPage() {
             </p>
           </header>
 
-          <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-8">
+          <section className="card-golden-lg bg-info-subtle border-l-4 border-info mb-8">
             <div className="p-6">
               <p className="text-muted-foreground leading-relaxed mb-4">
                 La <strong>grasa visceral (VAT - Visceral Adipose Tissue)</strong> es el tejido adiposo que rodea
@@ -95,9 +95,9 @@ export default function GrasaVisceralPage() {
               <p className="text-muted-foreground leading-relaxed">
                 Esta calculadora utiliza dos fórmulas científicas validadas: <strong>Lee et al. (2008)</strong> y
                 <strong> Ryo et al. (2005)</strong> para estimar el área de grasa visceral. Es complementaria a otras
-                calculadoras de distribución de grasa como <a href="/ci/" className="text-blue-600 dark:text-blue-400 hover:underline">CI</a>,
-                <a href="/bri/" className="text-blue-600 dark:text-blue-400 hover:underline">BRI</a>, <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> y
-                <a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline">WHtR</a>.
+                calculadoras de distribución de grasa como <a href="/ci/" className="text-info hover:underline transition-colors">CI</a>,
+                <a href="/bri/" className="text-info hover:underline transition-colors">BRI</a>, <a href="/absi/" className="text-info hover:underline transition-colors">ABSI</a> y
+                <a href="/whtr/" className="text-info hover:underline transition-colors">WHtR</a>.
               </p>
             </div>
           </section>
@@ -112,9 +112,9 @@ export default function GrasaVisceralPage() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-golden-md">
-                  <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
+                  <div className="bg-info-subtle rounded-lg p-4 mb-6">
                     <div className="flex items-start gap-3">
-                      <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                      <Info className="h-5 w-5 text-info mt-0.5 flex-shrink-0" />
                       <p className="text-sm text-muted-foreground">
                         <strong>Nota:</strong> La grasa visceral se estima usando medidas antropométricas. Para una
                         medición precisa, se recomienda usar técnicas de imagen (DEXA, CT scan, MRI), pero estas fórmulas
@@ -229,35 +229,35 @@ export default function GrasaVisceralPage() {
 
                   {/* Fórmulas utilizadas */}
                   <div className="grid gap-4 md:grid-cols-2">
-                    <Card className="bg-gradient-to-br from-purple-50 to-purple-100">
+                    <Card className="bg-accent">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold flex items-center text-purple-900">
+                        <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                           <Layers className="w-4 h-4 mr-2" />
                           Fórmula Lee et al. (2008)
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-lg font-bold text-purple-700 dark:text-purple-300 mb-1">
+                        <div className="text-lg font-bold text-warning mb-1">
                           {result.vatLee.toFixed(1)} cm²
                         </div>
-                        <p className="text-xs text-purple-600 dark:text-purple-400">
+                        <p className="text-xs text-warning">
                           Basada en IMC, edad y género
                         </p>
                       </CardContent>
                     </Card>
 
-                    <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
+                    <Card className="bg-info-subtle">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
+                        <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                           <Layers className="w-4 h-4 mr-2" />
                           Fórmula Ryo et al. (2005)
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-lg font-bold text-blue-700 dark:text-blue-300 mb-1">
+                        <div className="text-lg font-bold text-info mb-1">
                           {result.vatRyo.toFixed(1)} cm²
                         </div>
-                        <p className="text-xs text-blue-600 dark:text-blue-400">
+                        <p className="text-xs text-info">
                           Basada en circunferencia de cintura, IMC, edad y género
                         </p>
                       </CardContent>
@@ -266,35 +266,35 @@ export default function GrasaVisceralPage() {
 
                   {/* Información de Riesgo */}
                   <div className="grid gap-4 md:grid-cols-2">
-                    <Card className="bg-gradient-to-br from-purple-50 to-purple-100">
+                    <Card className="bg-accent">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold flex items-center text-purple-900">
+                        <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                           <TrendingUp className="w-4 h-4 mr-2" />
                           Riesgo Metabólico
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-lg font-bold text-purple-700 dark:text-purple-300 mb-1">
+                        <div className="text-lg font-bold text-warning mb-1">
                           {result.metabolicRisk}
                         </div>
-                        <p className="text-xs text-purple-600 dark:text-purple-400">
+                        <p className="text-xs text-warning">
                           Basado en cantidad de grasa visceral
                         </p>
                       </CardContent>
                     </Card>
 
-                    <Card className="bg-gradient-to-br from-red-50 to-red-100">
+                    <Card className="bg-destructive-subtle">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold flex items-center text-red-900">
+                        <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                           <Heart className="w-4 h-4 mr-2" />
                           Riesgo Cardiovascular
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-lg font-bold text-red-700 dark:text-red-300 mb-1">
+                        <div className="text-lg font-bold text-destructive mb-1">
                           {result.cardiovascularRisk}
                         </div>
-                        <p className="text-xs text-red-600 dark:text-red-400">
+                        <p className="text-xs text-destructive">
                           Evaluación de riesgo de enfermedad cardiovascular
                         </p>
                       </CardContent>
@@ -332,10 +332,10 @@ export default function GrasaVisceralPage() {
                               <div className="text-xs text-muted-foreground">{metric.status}</div>
                             </div>
                             <div className="text-right">
-                              <div className="font-bold text-lg text-blue-700 dark:text-blue-300">
+                              <div className="font-bold text-lg text-info">
                                 {metric.value.toFixed(metric.metric === 'Grasa Visceral (VAT)' ? 1 : metric.metric === 'WHtR' ? 2 : 1)}
                               </div>
-                              <div className="text-xs text-gray-500">
+                              <div className="text-xs text-muted-foreground">
                                 {metric.metric === 'Grasa Visceral (VAT)' ? 'cm²' : metric.metric === 'IMC' ? 'kg/m²' : metric.metric === 'WHtR' ? 'ratio' : 'cm'}
                               </div>
                             </div>
@@ -347,9 +347,9 @@ export default function GrasaVisceralPage() {
 
                   {/* Factores de Riesgo */}
                   {result.riskFactors.length > 0 && (
-                    <Card className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-400">
+                    <Card className="bg-destructive-subtle border-l-4 border-destructive">
                       <CardHeader>
-                        <CardTitle className="text-lg font-semibold flex items-center text-red-900">
+                        <CardTitle className="text-lg font-semibold flex items-center text-foreground">
                           <AlertTriangle className="w-5 h-5 mr-2" />
                           Factores de Riesgo
                         </CardTitle>
@@ -357,8 +357,8 @@ export default function GrasaVisceralPage() {
                       <CardContent>
                         <ul className="space-y-2">
                           {result.riskFactors.map((factor, index) => (
-                            <li key={index} className="flex items-start text-sm text-red-800 dark:text-red-200">
-                              <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                            <li key={index} className="flex items-start text-sm text-foreground/90">
+                              <span className="text-destructive mr-2">•</span>
                               <span>{factor}</span>
                             </li>
                           ))}
@@ -369,9 +369,9 @@ export default function GrasaVisceralPage() {
 
                   {/* Estrategias de Mejora */}
                   {result.improvementStrategies.length > 0 && (
-                    <Card className="bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400">
+                    <Card className="bg-success-subtle border-l-4 border-success">
                       <CardHeader>
-                        <CardTitle className="text-lg font-semibold flex items-center text-green-900">
+                        <CardTitle className="text-lg font-semibold flex items-center text-foreground">
                           <TrendingDown className="w-5 h-5 mr-2" />
                           Estrategias para Reducir Grasa Visceral
                         </CardTitle>
@@ -379,8 +379,8 @@ export default function GrasaVisceralPage() {
                       <CardContent>
                         <ul className="space-y-2">
                           {result.improvementStrategies.map((strategy, index) => (
-                            <li key={index} className="flex items-start text-sm text-green-800 dark:text-green-200">
-                              <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                            <li key={index} className="flex items-start text-sm text-foreground/90">
+                              <span className="text-success mr-2">•</span>
                               <span>{strategy}</span>
                             </li>
                           ))}
@@ -390,9 +390,9 @@ export default function GrasaVisceralPage() {
                   )}
 
                   {/* Recomendaciones */}
-                  <Card className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400">
+                  <Card className="bg-warning-subtle border-l-4 border-warning">
                     <CardHeader>
-                      <CardTitle className="text-lg font-semibold flex items-center text-yellow-900">
+                      <CardTitle className="text-lg font-semibold flex items-center text-foreground">
                         <Info className="w-5 h-5 mr-2" />
                         Recomendaciones
                       </CardTitle>
@@ -400,8 +400,8 @@ export default function GrasaVisceralPage() {
                     <CardContent>
                       <ul className="space-y-2">
                         {result.recommendations.map((rec, index) => (
-                          <li key={index} className="flex items-start text-sm text-yellow-800 dark:text-yellow-200">
-                            <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                          <li key={index} className="flex items-start text-sm text-foreground/90">
+                            <span className="text-warning mr-2">•</span>
                             <span>{rec}</span>
                           </li>
                         ))}
@@ -444,27 +444,27 @@ export default function GrasaVisceralPage() {
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs">
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                    <span className="text-info mr-2">•</span>
                     <span><strong>Grasa visceral:</strong> Rodea órganos internos, metabólicamente activa, más peligrosa</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                    <span className="text-success mr-2">•</span>
                     <span><strong>Grasa subcutánea:</strong> Debajo de la piel, menos activa metabólicamente, menos peligrosa</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Producción de citoquinas:</strong> La grasa visceral produce sustancias inflamatorias</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                    <span className="text-destructive mr-2">•</span>
                     <span><strong>Resistencia a insulina:</strong> Mayor asociación con resistencia a la insulina</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Riesgo cardiovascular:</strong> Mayor asociación con enfermedad cardiovascular</span>
                   </li>
                   <li className="flex items-start py-[0.382rem]">
-                    <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Hígado graso:</strong> Puede contribuir a esteatosis hepática</span>
                   </li>
                 </ul>
@@ -477,38 +477,38 @@ export default function GrasaVisceralPage() {
                 </h3>
                 <div className="space-golden-sm">
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-green-700 dark:text-green-300">VAT &lt; 100 cm² (Muy Bajo):</h4>
+                    <h4 className="font-semibold text-sm text-success">VAT &lt; 100 cm² (Muy Bajo):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Grasa visceral en rango óptimo, riesgo muy bajo</p>
                   </section>
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-blue-700 dark:text-blue-300">VAT 100-130 cm² (Bajo):</h4>
+                    <h4 className="font-semibold text-sm text-info">VAT 100-130 cm² (Bajo):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Grasa visceral en rango saludable, riesgo bajo</p>
                   </section>
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-yellow-700 dark:text-yellow-300">VAT 130-160 cm² (Moderado):</h4>
+                    <h4 className="font-semibold text-sm text-warning">VAT 130-160 cm² (Moderado):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Riesgo moderado, requiere monitoreo</p>
                   </section>
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-orange-700 dark:text-orange-300">VAT 160-200 cm² (Alto):</h4>
+                    <h4 className="font-semibold text-sm text-warning">VAT 160-200 cm² (Alto):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Riesgo elevado, requiere intervención</p>
                   </section>
                   <section className="py-[0.382rem]">
-                    <h4 className="font-semibold text-sm text-red-700 dark:text-red-300">VAT &gt; 200 cm² (Muy Alto):</h4>
+                    <h4 className="font-semibold text-sm text-destructive">VAT &gt; 200 cm² (Muy Alto):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Riesgo muy elevado, requiere atención médica</p>
                   </section>
                 </div>
               </article>
             </section>
 
-            <section className="bg-purple-50 dark:bg-purple-950/30 card-golden-lg border-l-4 border-purple-400 mb-[2.618rem]">
-              <h3 className="font-bold text-purple-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🧬</span>
                 Grasa Visceral y Enfermedades
               </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 <article>
                   <h4 className="font-semibold mb-2">Enfermedades asociadas:</h4>
-                  <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-1">
+                  <ul className="text-sm text-foreground space-y-1">
                     <li>• <strong>Síndrome metabólico:</strong> Mayor riesgo con VAT elevado</li>
                     <li>• <strong>Diabetes tipo 2:</strong> Resistencia a insulina asociada</li>
                     <li>• <strong>Enfermedad cardiovascular:</strong> Mayor riesgo de infarto y accidente cerebrovascular</li>
@@ -519,7 +519,7 @@ export default function GrasaVisceralPage() {
                 </article>
                 <article>
                   <h4 className="font-semibold mb-2">Mecanismos de acción:</h4>
-                  <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-1">
+                  <ul className="text-sm text-foreground space-y-1">
                     <li>• Producción de citoquinas inflamatorias (TNF-α, IL-6)</li>
                     <li>• Liberación de ácidos grasos libres al hígado</li>
                     <li>• Resistencia a la insulina y disfunción metabólica</li>
@@ -530,14 +530,14 @@ export default function GrasaVisceralPage() {
               </div>
             </section>
 
-            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📐</span>
                 Fórmulas Científicas Utilizadas
               </h3>
               <div className="space-y-4">
-                <div className="bg-card p-4 rounded-lg border-2 border-blue-200">
-                  <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Fórmula Lee et al. (2008):</h4>
+                <div className="bg-card p-4 rounded-lg border-2 border-info">
+                  <h4 className="font-semibold text-foreground mb-2">Fórmula Lee et al. (2008):</h4>
                   <div className="font-mono text-sm mb-2 bg-muted p-3 rounded">
                     <p>VAT = -266.4 + (0.67 × edad) + (0.68 × IMC) + (11.4 × género) - (0.08 × IMC × edad)</p>
                   </div>
@@ -546,8 +546,8 @@ export default function GrasaVisceralPage() {
                     el área de grasa visceral en cm². Validada en poblaciones asiáticas y occidentales.
                   </p>
                 </div>
-                <div className="bg-card p-4 rounded-lg border-2 border-blue-200">
-                  <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Fórmula Ryo et al. (2005):</h4>
+                <div className="bg-card p-4 rounded-lg border-2 border-info">
+                  <h4 className="font-semibold text-foreground mb-2">Fórmula Ryo et al. (2005):</h4>
                   <div className="font-mono text-sm mb-2 bg-muted p-3 rounded">
                     <p>VAT = 0.0001 × (WC² × IMC × edad × factor_género)</p>
                   </div>
@@ -569,7 +569,7 @@ export default function GrasaVisceralPage() {
                     Reducir la grasa visceral requiere: (1) Ejercicio cardiovascular regular (150+ min/semana),
                     (2) Entrenamiento de fuerza 2-3 veces por semana, (3) Déficit calórico moderado (300-500 kcal/día),
                     (4) Dieta rica en fibra y proteína, (5) Reducción de azúcares refinados y alcohol. Consulta nuestra
-                    <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de TDEE</a> para planificar tu déficit.
+                    <a href="/tdee/" className="text-info hover:underline transition-colors"> calculadora de TDEE</a> para planificar tu déficit.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
@@ -593,27 +593,27 @@ export default function GrasaVisceralPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
-              <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Calculadoras relacionadas para evaluación completa
               </h3>
-              <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/ci/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de CI:</a></strong> Complementa el VAT con evaluación de distribución de grasa abdominal</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/ci/" className="text-info hover:underline transition-colors font-medium transition-golden">Calculadora de CI:</a></strong> Complementa el VAT con evaluación de distribución de grasa abdominal</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bri/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de BRI:</a></strong> Complementa el VAT con predicción de riesgo metabólico</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/bri/" className="text-info hover:underline transition-colors font-medium transition-golden">Calculadora de BRI:</a></strong> Complementa el VAT con predicción de riesgo metabólico</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/whtr/" className="text-info hover:underline transition-colors font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de Grasa Corporal:</a></strong> Porcentaje total de grasa corporal</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/grasa-corporal/" className="text-info hover:underline transition-colors font-medium transition-golden">Calculadora de Grasa Corporal:</a></strong> Porcentaje total de grasa corporal</span>
                 </li>
               </ul>
             </section>

@@ -1,11 +1,11 @@
 ---
 title: 'Fuerza de Agarre y Salud Funcional: Entrenamiento Simple para Manos y Antebrazos'
 date: '2026-02-02'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía práctica para mejorar el agarre, la resistencia del antebrazo y la capacidad funcional con progresión realista.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags: ['agarre', 'antebrazo', 'fuerza', 'funcional', 'resistencia']
-image: 'https://cdn.pixabay.com/photo/2018/10/14/16/58/chin-ups-3746910_1280.jpg'
+image: '/images/blog/fuerza-agarre-salud-funcional.jpg'
 slug: 'fuerza-agarre-salud-funcional'
 readTime: 8
 featured: false

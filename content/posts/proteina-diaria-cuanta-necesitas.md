@@ -1,7 +1,7 @@
 ---
 title: 'Proteína Diaria: Cuánta Necesitas y Cómo Distribuirla'
 date: '2025-09-15'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Calcula tu ingesta ideal de proteína en 2025 según objetivo, edad y dieta, con guías por comida y estrategias respaldadas por la evidencia más reciente.'
 categories: ['Nutrición', 'Proteína', 'Composición corporal']
 tags:
@@ -12,7 +12,7 @@ tags:
     'dieta alta en proteína',
     'leucina',
   ]
-image: 'https://cdn.pixabay.com/photo/2021/12/12/20/00/eggs-6865966_1280.jpg'
+image: '/images/blog/proteina-diaria-cuanta-necesitas.jpg'
 slug: 'proteina-diaria-cuanta-necesitas'
 readTime: 9
 featured: true

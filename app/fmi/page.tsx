@@ -154,11 +154,11 @@ export default function FMIPage() {
 
   const getRiskColor = (riskLevel: string) => {
     switch (riskLevel) {
-      case 'Bajo': return 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 border-green-400';
-      case 'Moderado': return 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border-blue-400';
-      case 'Alto': return 'text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30 border-orange-400';
-      case 'Muy Alto': return 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border-red-400';
-      default: return 'text-muted-foreground bg-muted border-gray-400';
+      case 'Bajo': return 'text-foreground bg-success-subtle border-success';
+      case 'Moderado': return 'text-foreground bg-info-subtle border-info';
+      case 'Alto': return 'text-foreground bg-warning-subtle border-warning';
+      case 'Muy Alto': return 'text-foreground bg-destructive-subtle border-destructive';
+      default: return 'text-muted-foreground bg-muted border-border';
     }
   };
 
@@ -197,12 +197,12 @@ export default function FMIPage() {
 
                   <TabsContent value="fat-mass" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-info-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-info mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-1">Masa Grasa Conocida</h3>
-                            <p className="text-sm text-blue-700 dark:text-blue-300">
+                            <h3 className="font-semibold text-foreground/90 mb-1">Masa Grasa Conocida</h3>
+                            <p className="text-sm text-info">
                               Método directo para quienes conocen su masa grasa absoluta en kilogramos.
                             </p>
                           </div>
@@ -274,12 +274,12 @@ export default function FMIPage() {
 
                   <TabsContent value="composition" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-green-50 dark:bg-green-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-success-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-success mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-green-800 dark:text-green-200 mb-1">Composición Corporal Completa</h3>
-                            <p className="text-sm text-green-700 dark:text-green-300">
+                            <h3 className="font-semibold text-foreground/90 mb-1">Composición Corporal Completa</h3>
+                            <p className="text-sm text-success">
                               Método que calcula masa grasa a partir de peso total y porcentaje de grasa corporal.
                             </p>
                           </div>
@@ -351,12 +351,12 @@ export default function FMIPage() {
 
                   <TabsContent value="advanced" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-purple-50 dark:bg-purple-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-warning-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-warning mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-purple-800 dark:text-purple-200 mb-1">Análisis Avanzado con Edad</h3>
-                            <p className="text-sm text-purple-700 dark:text-purple-300">
+                            <h3 className="font-semibold text-foreground mb-1">Análisis Avanzado con Edad</h3>
+                            <p className="text-sm text-warning">
                               Método completo que incluye edad para evaluación metabólica más precisa.
                             </p>
                           </div>
@@ -453,11 +453,11 @@ export default function FMIPage() {
                 <div className="space-golden-lg">
                   {/* Main Results */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article className="text-center p-6 bg-blue-50 dark:bg-blue-950/30 rounded-lg border-l-4 border-blue-400">
-                      <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                    <article className="text-center p-6 bg-info-subtle rounded-lg border-l-4 border-info">
+                      <div className="text-3xl font-bold text-info mb-2">
                         {result.fmi?.toFixed(2)}
                       </div>
-                      <div className="text-sm font-medium text-blue-800 dark:text-blue-200">FMI</div>
+                      <div className="text-sm font-medium text-foreground/90">FMI</div>
                     </article>
 
                     <article className={`text-center p-6 rounded-lg border-l-4 ${getRiskColor(result.healthRisk)}`}>
@@ -481,7 +481,7 @@ export default function FMIPage() {
                       <article className="card-golden bg-card/50">
                         <header className="p-6 pb-0">
                           <h3 className="text-lg font-semibold text-foreground flex items-center">
-                            <Scale className="h-5 w-5 mr-2 text-blue-600 dark:text-blue-400" />
+                            <Scale className="h-5 w-5 mr-2 text-info" />
                             Composición Corporal
                           </h3>
                         </header>
@@ -525,7 +525,7 @@ export default function FMIPage() {
                     <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
                         <h3 className="text-lg font-semibold text-foreground flex items-center">
-                          <TrendingUp className="h-5 w-5 mr-2 text-green-600 dark:text-green-400" />
+                          <TrendingUp className="h-5 w-5 mr-2 text-success" />
                           Riesgo Metabólico
                         </h3>
                       </header>
@@ -539,7 +539,7 @@ export default function FMIPage() {
                     <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
                         <h3 className="text-lg font-semibold text-foreground flex items-center">
-                          <TrendingDown className="h-5 w-5 mr-2 text-red-600 dark:text-red-400" />
+                          <TrendingDown className="h-5 w-5 mr-2 text-destructive" />
                           Riesgo Cardiovascular
                         </h3>
                       </header>
@@ -556,7 +556,7 @@ export default function FMIPage() {
                     <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
                         <h3 className="text-lg font-semibold text-foreground flex items-center">
-                          <AlertTriangle className="h-5 w-5 mr-2 text-orange-600 dark:text-orange-400" />
+                          <AlertTriangle className="h-5 w-5 mr-2 text-warning" />
                           Condiciones Asociadas
                         </h3>
                       </header>
@@ -564,7 +564,7 @@ export default function FMIPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                           {result.associatedConditions.map((condition, index) => (
                             <div key={index} className="flex items-center gap-2">
-                              <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
+                              <span className="w-2 h-2 bg-warning rounded-full"></span>
                               <span className="text-sm text-muted-foreground">{condition}</span>
                             </div>
                           ))}
@@ -574,18 +574,18 @@ export default function FMIPage() {
                   )}
 
                   {/* Clinical Interpretation */}
-                  <article className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400">
+                  <article className="card-golden-lg bg-info-subtle border-l-4 border-info">
                     <header className="p-6 pb-0">
-                      <h3 className="text-xl font-semibold text-blue-800 dark:text-blue-200 flex items-center">
+                      <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                         <Info className="w-5 w-5 mr-2" />
                         Interpretación Clínica
                       </h3>
                     </header>
                     <div className="p-6">
-                      <p className="text-blue-800 dark:text-blue-200 leading-relaxed mb-4">
+                      <p className="text-foreground/90 leading-relaxed mb-4">
                         {result.clinicalInterpretation}
                       </p>
-                      <p className="text-sm text-blue-700 dark:text-blue-300 leading-relaxed">
+                      <p className="text-sm text-info leading-relaxed">
                         {result.comparison}
                       </p>
                     </div>
@@ -595,7 +595,7 @@ export default function FMIPage() {
                   <article className="card-golden bg-card/50">
                     <header className="p-6 pb-0">
                       <h3 className="text-lg font-semibold text-foreground flex items-center">
-                        <Users className="h-5 w-5 mr-2 text-purple-600 dark:text-purple-400" />
+                        <Users className="h-5 w-5 mr-2 text-warning" />
                         Recomendaciones Personalizadas
                       </h3>
                     </header>
@@ -603,7 +603,7 @@ export default function FMIPage() {
                       <ul className="space-y-2">
                         {result.recommendations.map((rec, index) => (
                           <li key={index} className="flex items-start gap-2">
-                            <span className="w-2 h-2 bg-purple-400 rounded-full mt-2 mr-1 flex-shrink-0"></span>
+                            <span className="w-2 h-2 bg-warning rounded-full mt-2 mr-1 flex-shrink-0"></span>
                             <span className="text-sm text-muted-foreground leading-[1.618]">{rec}</span>
                           </li>
                         ))}
@@ -622,12 +622,12 @@ export default function FMIPage() {
               </h2>
             </header>
 
-            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-8">
+            <section className="card-golden-lg bg-info-subtle border-l-4 border-info mb-8">
               <div className="p-6">
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   El <strong>FMI (Fat Mass Index)</strong> es una métrica avanzada que evalúa la cantidad de grasa corporal
-                  de manera independiente de la altura, desarrollada por <a href="https://pubmed.ncbi.nlm.nih.gov/11901099/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Schutz et al. (2002)</a>.
-                  Complementa perfectamente el IMC al enfocarse exclusivamente en la masa grasa. Investigación en <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3377163/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">poblaciones clínicas</a> demuestra su superioridad para evaluar riesgos metabólicos asociados con obesidad.
+                  de manera independiente de la altura, desarrollada por <a href="https://pubmed.ncbi.nlm.nih.gov/11901099/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Schutz et al. (2002)</a>.
+                  Complementa perfectamente el IMC al enfocarse exclusivamente en la masa grasa. Investigación en <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3377163/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">poblaciones clínicas</a> demuestra su superioridad para evaluar riesgos metabólicos asociados con obesidad.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Mientras que el IMC puede ser engañoso para personas musculosas, el FMI proporciona una evaluación
@@ -637,72 +637,72 @@ export default function FMIPage() {
             </section>
 
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <article className="card-golden-lg bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400">
+              <article className="card-golden-lg bg-success-subtle border-l-4 border-success">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 flex items-center">
+                  <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                     <Scale className="w-5 h-5 mr-2" />
                     Ventajas del FMI sobre el IMC
                   </h3>
                 </header>
                 <div className="p-6">
-                  <ul className="space-y-2 text-green-800 dark:text-green-200">
+                  <ul className="space-y-2 text-foreground/90">
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Independiente de altura:</strong> Más preciso para personas altas/bajas</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Específico de grasa:</strong> Evalúa solo tejido adiposo, no músculo</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Predice riesgo metabólico:</strong> Mejor indicador de síndrome metabólico</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Sensible a cambios:</strong> Detecta variaciones en composición grasa</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Estándar médico:</strong> Usado en investigación y práctica clínica - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3377163/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">ensayos clínicos controlados</a></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Estándar médico:</strong> Usado en investigación y práctica clínica - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3377163/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">ensayos clínicos controlados</a></span>
                     </li>
                   </ul>
                 </div>
               </article>
 
-              <article className="card-golden-lg bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400">
+              <article className="card-golden-lg bg-warning-subtle border-l-4 border-warning">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-yellow-800 dark:text-yellow-200 flex items-center">
+                  <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                     <AlertTriangle className="w-5 h-5 mr-2" />
                     Categorías de FMI por Género
                   </h3>
                 </header>
                 <div className="p-6">
                   <div className="space-y-4">
-                    <div className="p-3 bg-red-50 dark:bg-red-950/30 rounded-lg">
-                      <div className="font-semibold text-red-800 dark:text-red-200">Hombres - Muy alto (&gt;12)</div>
-                      <div className="text-sm text-red-700 dark:text-red-300">Riesgo muy alto de enfermedades metabólicas</div>
+                    <div className="p-3 bg-destructive-subtle rounded-lg">
+                      <div className="font-semibold text-foreground/90">Hombres - Muy alto (&gt;12)</div>
+                      <div className="text-sm text-foreground/90">Riesgo muy alto de enfermedades metabólicas</div>
                     </div>
-                    <div className="p-3 bg-orange-50 dark:bg-orange-950/30 rounded-lg">
-                      <div className="font-semibold text-orange-800 dark:text-orange-200">Hombres - Alto (9-12)</div>
-                      <div className="text-sm text-orange-700 dark:text-orange-300">Riesgo alto, intervención necesaria</div>
+                    <div className="p-3 bg-warning-subtle rounded-lg">
+                      <div className="font-semibold text-foreground/90">Hombres - Alto (9-12)</div>
+                      <div className="text-sm text-warning">Riesgo alto, intervención necesaria</div>
                     </div>
-                    <div className="p-3 bg-yellow-50 dark:bg-yellow-950/30 rounded-lg">
-                      <div className="font-semibold text-yellow-800 dark:text-yellow-200">Hombres - Moderado (6-9)</div>
-                      <div className="text-sm text-yellow-700 dark:text-yellow-300">Vigilancia recomendada</div>
+                    <div className="p-3 bg-warning-subtle rounded-lg">
+                      <div className="font-semibold text-foreground/90">Hombres - Moderado (6-9)</div>
+                      <div className="text-sm text-warning">Vigilancia recomendada</div>
                     </div>
-                    <div className="p-3 bg-green-50 dark:bg-green-950/30 rounded-lg">
-                      <div className="font-semibold text-green-800 dark:text-green-200">Mujeres - Muy alto (&gt;17)</div>
-                      <div className="text-sm text-green-700 dark:text-green-300">Riesgo muy alto, intervención urgente</div>
+                    <div className="p-3 bg-success-subtle rounded-lg">
+                      <div className="font-semibold text-foreground/90">Mujeres - Muy alto (&gt;17)</div>
+                      <div className="text-sm text-success">Riesgo muy alto, intervención urgente</div>
                     </div>
                   </div>
                 </div>
               </article>
             </section>
 
-            <section className="card-golden-lg bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-400 mt-8">
+            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-purple-800 dark:text-purple-200 flex items-center">
+                <h3 className="text-xl font-semibold text-foreground flex items-center">
                   <Users className="w-5 h-5 mr-2" />
                   Aplicaciones Clínicas del FMI
                 </h3>
@@ -710,17 +710,17 @@ export default function FMIPage() {
               <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <article>
-                    <h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">En la Medicina</h4>
-                    <ul className="space-y-2 text-sm text-purple-700 dark:text-purple-300">
-                      <li>• Evaluación de riesgo metabólico - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3377163/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">evidencia clínica</a></li>
+                    <h4 className="font-semibold text-foreground mb-3">En la Medicina</h4>
+                    <ul className="space-y-2 text-sm text-warning">
+                      <li>• Evaluación de riesgo metabólico - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3377163/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">evidencia clínica</a></li>
                       <li>• Seguimiento de programas de pérdida de peso</li>
                       <li>• Evaluación de obesidad central</li>
                       <li>• Monitoreo de cambios en composición corporal</li>
                     </ul>
                   </article>
                   <article>
-                    <h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">En el Deporte</h4>
-                    <ul className="space-y-2 text-sm text-purple-700 dark:text-purple-300">
+                    <h4 className="font-semibold text-foreground mb-3">En el Deporte</h4>
+                    <ul className="space-y-2 text-sm text-warning">
                       <li>• Optimización de composición corporal</li>
                       <li>• Seguimiento de pérdida de grasa en atletas</li>
                       <li>• Evaluación de protocolos nutricionales</li>
@@ -732,34 +732,34 @@ export default function FMIPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="card-golden-lg bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-400 mt-8">
+            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-orange-800 dark:text-orange-200 flex items-center">
+                <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                   <Info className="w-5 h-5 mr-2" />
                   Complementa tu evaluación de composición grasa
                 </h3>
               </header>
               <div className="p-6">
-                <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+                <ul className="text-sm text-foreground/90 space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu porcentaje de grasa:</a></strong> Obtén datos precisos para usar en FMI</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/grasa-corporal/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu porcentaje de grasa:</a></strong> Obtén datos precisos para usar en FMI</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/bai/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula BAI sin báscula:</a></strong> Estima grasa corporal usando solo cadera y altura según Bergman</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/bai/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula BAI sin báscula:</a></strong> Estima grasa corporal usando solo cadera y altura según Bergman</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/ffmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu desarrollo muscular:</a></strong> Usa FFMI para análisis complementario de masa libre de grasa</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/ffmi/" className="text-info hover:underline transition-colors font-medium transition-golden">Evalúa tu desarrollo muscular:</a></strong> Usa FFMI para análisis complementario de masa libre de grasa</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Análisis completo de composición:</a></strong> Relación músculo-grasa para evaluación integral</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/composicion/" className="text-info hover:underline transition-colors font-medium transition-golden">Análisis completo de composición:</a></strong> Relación músculo-grasa para evaluación integral</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu IMC tradicional:</a></strong> Combina métricas antropométricas para evaluación completa</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/imc/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu IMC tradicional:</a></strong> Combina métricas antropométricas para evaluación completa</span>
                   </li>
                 </ul>
               </div>

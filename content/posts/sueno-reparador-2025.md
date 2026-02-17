@@ -1,12 +1,12 @@
 ---
 title: 'Sueño Reparador: Plan de 4 Pilares para Rendimiento y Salud Metabólica'
 date: '2025-09-22'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Diseña una estrategia de sueño basada en evidencia 2024-2025 para optimizar recuperación, glucosa y rendimiento deportivo con rutinas, tecnología y métricas clave.'
 categories: ['Sueño', 'Recuperación', 'Rendimiento']
 tags:
   ['higiene del sueño', 'HRV', 'atletas', 'recuperación', 'salud metabólica']
-image: 'https://cdn.pixabay.com/photo/2017/04/03/10/42/woman-2197947_1280.jpg'
+image: '/images/blog/sueno-reparador-2025.jpg'
 slug: 'sueno-reparador-2025'
 readTime: 9
 featured: false

@@ -1,12 +1,12 @@
 ---
 title: 'IMC vs Grasa Corporal: El Indicador Correcto para tu Salud Metabólica'
 date: '2025-01-20'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Revisa en 2025 qué métrica describe mejor tu riesgo cardiometabólico: IMC, porcentaje de grasa, cintura/altura o masa magra, con la evidencia más reciente.'
 categories: ['Composición corporal', 'Salud metabólica', 'Evaluación física']
 tags:
   ['IMC', 'grasa corporal', 'waist-height ratio', 'sarcopenia', 'bioimpedancia']
-image: 'https://cdn.pixabay.com/photo/2018/02/27/21/55/woman-3186730_1280.jpg'
+image: '/images/blog/imc-vs-grasa-corporal-mejor-indicador.jpg'
 slug: 'imc-vs-grasa-corporal-mejor-indicador'
 readTime: 8
 featured: true

@@ -140,11 +140,11 @@ export default function FFMIPage() {
   };
 
   const getCategoryColor = (category: string) => {
-    if (category.includes('Excelente')) return 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 border-green-400';
-    if (category.includes('Muy bueno')) return 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border-blue-400';
-    if (category.includes('Bueno')) return 'text-purple-600 bg-purple-50 dark:bg-purple-950/30 border-purple-400';
-    if (category.includes('Promedio')) return 'text-yellow-600 dark:text-yellow-400 bg-yellow-50 dark:bg-yellow-950/30 border-yellow-400';
-    return 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border-red-400';
+    if (category.includes('Excelente')) return 'text-foreground bg-success-subtle border-success';
+    if (category.includes('Muy bueno')) return 'text-foreground bg-info-subtle border-info';
+    if (category.includes('Bueno')) return 'text-muted-foreground bg-warning-subtle border-warning';
+    if (category.includes('Promedio')) return 'text-foreground bg-warning-subtle border-warning';
+    return 'text-foreground bg-destructive-subtle border-destructive';
   };
 
   return (
@@ -182,12 +182,12 @@ export default function FFMIPage() {
 
                   <TabsContent value="lean-mass" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-info-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-info mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-1">Masa Libre de Grasa Conocida</h3>
-                            <p className="text-sm text-blue-700 dark:text-blue-300">
+                            <h3 className="font-semibold text-foreground/90 mb-1">Masa Libre de Grasa Conocida</h3>
+                            <p className="text-sm text-info">
                               Método directo para quienes conocen su masa libre de grasa (sin grasa corporal).
                             </p>
                           </div>
@@ -246,12 +246,12 @@ export default function FFMIPage() {
 
                   <TabsContent value="composition" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-green-50 dark:bg-green-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-success-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-success mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-green-800 dark:text-green-200 mb-1">Composición Corporal Completa</h3>
-                            <p className="text-sm text-green-700 dark:text-green-300">
+                            <h3 className="font-semibold text-foreground/90 mb-1">Composición Corporal Completa</h3>
+                            <p className="text-sm text-success">
                               Método que calcula masa libre de grasa a partir de peso total y porcentaje de grasa.
                             </p>
                           </div>
@@ -323,12 +323,12 @@ export default function FFMIPage() {
 
                   <TabsContent value="advanced" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-purple-50 dark:bg-purple-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-warning-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-warning mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-purple-800 dark:text-purple-200 mb-1">Análisis Avanzado con Edad</h3>
-                            <p className="text-sm text-purple-700 dark:text-purple-300">
+                            <h3 className="font-semibold text-foreground mb-1">Análisis Avanzado con Edad</h3>
+                            <p className="text-sm text-warning">
                               Método completo que incluye edad para estimar límites genéticos y potencial muscular.
                             </p>
                           </div>
@@ -412,18 +412,18 @@ export default function FFMIPage() {
                 <div className="space-golden-lg">
                   {/* Main Results */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article className="text-center p-6 bg-blue-50 dark:bg-blue-950/30 rounded-lg border-l-4 border-blue-400">
-                      <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                    <article className="text-center p-6 bg-info-subtle rounded-lg border-l-4 border-info">
+                      <div className="text-3xl font-bold text-info mb-2">
                         {result.ffmi?.toFixed(2)}
                       </div>
-                      <div className="text-sm font-medium text-blue-800 dark:text-blue-200">FFMI</div>
+                      <div className="text-sm font-medium text-foreground/90">FFMI</div>
                     </article>
 
-                    <article className="text-center p-6 bg-green-50 dark:bg-green-950/30 rounded-lg border-l-4 border-green-400">
-                      <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
+                    <article className="text-center p-6 bg-success-subtle rounded-lg border-l-4 border-success">
+                      <div className="text-3xl font-bold text-success mb-2">
                         {result.normalizedFFMI?.toFixed(2)}
                       </div>
-                      <div className="text-sm font-medium text-green-800 dark:text-green-200">FFMI Normalizado</div>
+                      <div className="text-sm font-medium text-foreground/90">FFMI Normalizado</div>
                     </article>
 
                     <article className={`text-center p-6 rounded-lg border-l-4 ${getCategoryColor(result.category)}`}>
@@ -439,12 +439,12 @@ export default function FFMIPage() {
                     <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
                         <h3 className="text-lg font-semibold text-foreground flex items-center">
-                          <Target className="h-5 w-5 mr-2 text-blue-600 dark:text-blue-400" />
+                          <Target className="h-5 w-5 mr-2 text-info" />
                           Límite Genético Estimado
                         </h3>
                       </header>
                       <div className="p-6">
-                        <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                        <div className="text-2xl font-bold text-info mb-2">
                           {result.geneticLimit.toFixed(1)}
                         </div>
                         <p className="text-sm text-muted-foreground leading-[1.618]">
@@ -469,9 +469,9 @@ export default function FFMIPage() {
                             <span className="text-sm text-muted-foreground">Límite:</span>
                             <span className="text-sm font-medium">{result.geneticLimit.toFixed(1)}</span>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                          <div className="w-full bg-muted rounded-full h-2 mt-2">
                             <div
-                              className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                              className="bg-info h-2 rounded-full transition-all duration-300"
                               style={{
                                 width: `${Math.min(100, (result.normalizedFFMI! / result.geneticLimit) * 100)}%`
                               }}
@@ -487,7 +487,7 @@ export default function FFMIPage() {
                     <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
                         <h3 className="text-lg font-semibold text-foreground flex items-center">
-                          <TrendingUp className="h-5 w-5 mr-2 text-green-600 dark:text-green-400" />
+                          <TrendingUp className="h-5 w-5 mr-2 text-success" />
                           Desarrollo Muscular
                         </h3>
                       </header>
@@ -504,7 +504,7 @@ export default function FFMIPage() {
                     <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
                         <h3 className="text-lg font-semibold text-foreground flex items-center">
-                          <Zap className="h-5 w-5 mr-2 text-orange-600 dark:text-orange-400" />
+                          <Zap className="h-5 w-5 mr-2 text-warning" />
                           Enfoque de Entrenamiento
                         </h3>
                       </header>
@@ -517,18 +517,18 @@ export default function FFMIPage() {
                   </div>
 
                   {/* Health Implications */}
-                  <article className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400">
+                  <article className="card-golden-lg bg-info-subtle border-l-4 border-info">
                     <header className="p-6 pb-0">
-                      <h3 className="text-xl font-semibold text-blue-800 dark:text-blue-200 flex items-center">
+                      <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                         <Info className="w-5 h-5 mr-2" />
                         Implicaciones para la Salud
                       </h3>
                     </header>
                     <div className="p-6">
-                      <p className="text-blue-800 dark:text-blue-200 leading-relaxed mb-4">
+                      <p className="text-foreground/90 leading-relaxed mb-4">
                         {result.healthImplications}
                       </p>
-                      <p className="text-sm text-blue-700 dark:text-blue-300 leading-relaxed">
+                      <p className="text-sm text-info leading-relaxed">
                         {result.comparison}
                       </p>
                     </div>
@@ -538,7 +538,7 @@ export default function FFMIPage() {
                   <article className="card-golden bg-card/50">
                     <header className="p-6 pb-0">
                       <h3 className="text-lg font-semibold text-foreground flex items-center">
-                        <Users className="h-5 w-5 mr-2 text-purple-600 dark:text-purple-400" />
+                        <Users className="h-5 w-5 mr-2 text-warning" />
                         Recomendaciones Personalizadas
                       </h3>
                     </header>
@@ -546,7 +546,7 @@ export default function FFMIPage() {
                       <ul className="space-y-2">
                         {result.recommendations.map((rec, index) => (
                           <li key={index} className="flex items-start gap-2">
-                            <span className="w-2 h-2 bg-purple-400 rounded-full mt-2 mr-1 flex-shrink-0"></span>
+                            <span className="w-2 h-2 bg-warning rounded-full mt-2 mr-1 flex-shrink-0"></span>
                             <span className="text-sm text-muted-foreground leading-[1.618]">{rec}</span>
                           </li>
                         ))}
@@ -565,12 +565,12 @@ export default function FFMIPage() {
               </h2>
             </header>
 
-            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-8">
+            <section className="card-golden-lg bg-info-subtle border-l-4 border-info mb-8">
               <div className="p-6">
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   El <strong>FFMI (Fat-Free Mass Index)</strong> es una métrica avanzada que evalúa el desarrollo muscular
-                  independiente de la grasa corporal. Desarrollado por <a href="https://pubmed.ncbi.nlm.nih.gov/8551617/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Katch & McArdle (1977)</a>,
-                  permite comparar el nivel de masa muscular entre personas de diferentes alturas y composiciones corporales. Estudios en <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2804956/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">atletas de élite</a> validan su precisión para evaluar potencial genético muscular.
+                  independiente de la grasa corporal. Desarrollado por <a href="https://pubmed.ncbi.nlm.nih.gov/8551617/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Katch & McArdle (1977)</a>,
+                  permite comparar el nivel de masa muscular entre personas de diferentes alturas y composiciones corporales. Estudios en <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2804956/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">atletas de élite</a> validan su precisión para evaluar potencial genético muscular.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   A diferencia del IMC, el FFMI es especialmente útil para atletas, fisicoculturistas y personas que buscan
@@ -580,72 +580,72 @@ export default function FFMIPage() {
             </section>
 
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <article className="card-golden-lg bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400">
+              <article className="card-golden-lg bg-success-subtle border-l-4 border-success">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 flex items-center">
+                  <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                     <Dumbbell className="w-5 h-5 mr-2" />
                     Ventajas del FFMI
                   </h3>
                 </header>
                 <div className="p-6">
-                  <ul className="space-y-2 text-green-800 dark:text-green-200">
+                  <ul className="space-y-2 text-foreground/90">
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Independiente de grasa:</strong> Evalúa solo el desarrollo muscular</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Comparable entre alturas:</strong> Normalizado para diferentes estaturas</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Estándar científico:</strong> Usado en investigación y deporte de élite - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">estudios en atletas profesionales</a></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Estándar científico:</strong> Usado en investigación y deporte de élite - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">estudios en atletas profesionales</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Objetivo y preciso:</strong> Basado en fórmulas matemáticas validadas</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Seguimiento de progreso:</strong> Ideal para monitorear hipertrofia</span>
                     </li>
                   </ul>
                 </div>
               </article>
 
-              <article className="card-golden-lg bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400">
+              <article className="card-golden-lg bg-warning-subtle border-l-4 border-warning">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-yellow-800 dark:text-yellow-200 flex items-center">
+                  <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                     <Target className="w-5 h-5 mr-2" />
                     Categorías de FFMI por Género
                   </h3>
                 </header>
                 <div className="p-6">
                   <div className="space-y-4">
-                    <div className="p-3 bg-red-50 dark:bg-red-950/30 rounded-lg">
-                      <div className="font-semibold text-red-800 dark:text-red-200">Hombres - Excelente (≥25)</div>
-                      <div className="text-sm text-red-700 dark:text-red-300">Atleta de élite, desarrollo excepcional</div>
+                    <div className="p-3 bg-destructive-subtle rounded-lg">
+                      <div className="font-semibold text-foreground/90">Hombres - Excelente (≥25)</div>
+                      <div className="text-sm text-foreground/90">Atleta de élite, desarrollo excepcional</div>
                     </div>
-                    <div className="p-3 bg-orange-50 dark:bg-orange-950/30 rounded-lg">
-                      <div className="font-semibold text-orange-800 dark:text-orange-200">Hombres - Muy bueno (22-25)</div>
-                      <div className="text-sm text-orange-700 dark:text-orange-300">Atleta avanzado, buen desarrollo</div>
+                    <div className="p-3 bg-warning-subtle rounded-lg">
+                      <div className="font-semibold text-foreground/90">Hombres - Muy bueno (22-25)</div>
+                      <div className="text-sm text-warning">Atleta avanzado, buen desarrollo</div>
                     </div>
-                    <div className="p-3 bg-yellow-50 dark:bg-yellow-950/30 rounded-lg">
-                      <div className="font-semibold text-yellow-800 dark:text-yellow-200">Hombres - Bueno (20-22)</div>
-                      <div className="text-sm text-yellow-700 dark:text-yellow-300">Atleta intermedio, desarrollo decente</div>
+                    <div className="p-3 bg-warning-subtle rounded-lg">
+                      <div className="font-semibold text-foreground/90">Hombres - Bueno (20-22)</div>
+                      <div className="text-sm text-warning">Atleta intermedio, desarrollo decente</div>
                     </div>
-                    <div className="p-3 bg-green-50 dark:bg-green-950/30 rounded-lg">
-                      <div className="font-semibold text-green-800 dark:text-green-200">Mujeres - Excelente (≥20)</div>
-                      <div className="text-sm text-green-700 dark:text-green-300">Atleta de élite femenina</div>
+                    <div className="p-3 bg-success-subtle rounded-lg">
+                      <div className="font-semibold text-foreground/90">Mujeres - Excelente (≥20)</div>
+                      <div className="text-sm text-success">Atleta de élite femenina</div>
                     </div>
                   </div>
                 </div>
               </article>
             </section>
 
-            <section className="card-golden-lg bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-400 mt-8">
+            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-purple-800 dark:text-purple-200 flex items-center">
+                <h3 className="text-xl font-semibold text-foreground flex items-center">
                   <Users className="w-5 h-5 mr-2" />
                   Aplicaciones del FFMI
                 </h3>
@@ -653,17 +653,17 @@ export default function FFMIPage() {
               <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <article>
-                    <h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">En el Deporte</h4>
-                    <ul className="space-y-2 text-sm text-purple-700">
-                      <li>• Evaluación de potencial atlético - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">estudios en atletas élite</a></li>
+                    <h4 className="font-semibold text-foreground mb-3">En el Deporte</h4>
+                    <ul className="space-y-2 text-sm text-foreground">
+                      <li>• Evaluación de potencial atlético - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">estudios en atletas élite</a></li>
                       <li>• Seguimiento de progresión en fisicoculturismo</li>
                       <li>• Comparación entre atletas de diferentes categorías</li>
                       <li>• Detección de límites genéticos alcanzados</li>
                     </ul>
                   </article>
                   <article>
-                    <h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">En la Salud</h4>
-                    <ul className="space-y-2 text-sm text-purple-700">
+                    <h4 className="font-semibold text-foreground mb-3">En la Salud</h4>
+                    <ul className="space-y-2 text-sm text-foreground">
                       <li>• Evaluación de sarcopenia y pérdida muscular</li>
                       <li>• Monitoreo de efectividad de programas de ejercicio</li>
                       <li>• Seguimiento de recuperación en lesiones</li>
@@ -675,34 +675,34 @@ export default function FFMIPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="card-golden-lg bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-400 mt-8">
+            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-orange-800 dark:text-orange-200 flex items-center">
+                <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                   <Info className="w-5 h-5 mr-2" />
                   Complementa tu evaluación muscular
                 </h3>
               </header>
               <div className="p-6">
-                <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+                <ul className="text-sm text-foreground/90 space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu masa muscular total:</a></strong> Obtén la cantidad absoluta de músculo</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/masa-muscular/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu masa muscular total:</a></strong> Obtén la cantidad absoluta de músculo</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/fmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu FMI complementario:</a></strong> Índice de masa grasa para análisis completo de composición</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/fmi/" className="text-info hover:underline transition-colors font-medium transition-golden">Evalúa tu FMI complementario:</a></strong> Índice de masa grasa para análisis completo de composición</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu ingesta proteica:</a></strong> Calcula necesidades basadas en masa libre de grasa</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/proteina/" className="text-info hover:underline transition-colors font-medium transition-golden">Optimiza tu ingesta proteica:</a></strong> Calcula necesidades basadas en masa libre de grasa</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa composición corporal:</a></strong> Relación músculo-grasa para contexto completo</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/composicion/" className="text-info hover:underline transition-colors font-medium transition-golden">Evalúa composición corporal:</a></strong> Relación músculo-grasa para contexto completo</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mide tu fuerza máxima:</a></strong> Evalúa el rendimiento muscular funcional</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/1rm/" className="text-info hover:underline transition-colors font-medium transition-golden">Mide tu fuerza máxima:</a></strong> Evalúa el rendimiento muscular funcional</span>
                   </li>
                 </ul>
               </div>

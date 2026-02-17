@@ -1,11 +1,11 @@
 ---
 title: 'Tobillo Estable: Propiocepción y Fuerza para Reducir Esguinces'
 date: '2026-02-02'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía práctica para entrenar el control del tobillo, mejorar la estabilidad y tolerar mejor cambios de dirección.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags: ['tobillo', 'esguinces', 'propiocepcion', 'estabilidad', 'fuerza']
-image: 'https://cdn.pixabay.com/photo/2022/02/13/17/59/soccer-7011712_1280.jpg'
+image: '/images/blog/tobillo-propiocepcion-prevencion.jpg'
 slug: 'tobillo-propiocepcion-prevencion'
 readTime: 8
 featured: false

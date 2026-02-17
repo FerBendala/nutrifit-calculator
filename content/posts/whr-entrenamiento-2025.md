@@ -1,7 +1,7 @@
 ---
 title: 'Índice Cintura-Cadera y Entrenamiento: Cómo Interpretarlo y Ajustar tu Plan'
 date: '2025-10-21'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Aprende a usar tu ratio cintura-cadera (WHR) para medir riesgo cardiometabólico y personalizar nutrición y entrenamiento.'
 categories: ['Salud Metabólica', 'Evaluación', 'Planificación']
 tags:
@@ -12,7 +12,7 @@ tags:
     'entrenamiento',
     'nutrición',
   ]
-image: 'https://cdn.pixabay.com/photo/2021/02/05/20/46/weight-loss-5985844_1280.jpg'
+image: '/images/blog/whr-entrenamiento-2025.jpg'
 slug: 'whr-entrenamiento-2025'
 readTime: 8
 featured: false

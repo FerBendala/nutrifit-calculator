@@ -111,11 +111,11 @@ export default function GrasaCorporalPage() {
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'Esencial': return 'text-red-600 dark:text-red-400';
-      case 'Atlético': return 'text-green-600 dark:text-green-400';
-      case 'Fitness': return 'text-blue-600 dark:text-blue-400';
-      case 'Aceptable': return 'text-yellow-600 dark:text-yellow-400';
-      case 'Obesidad': return 'text-red-600 dark:text-red-400';
+      case 'Esencial': return 'text-destructive';
+      case 'Atlético': return 'text-success';
+      case 'Fitness': return 'text-info';
+      case 'Aceptable': return 'text-warning';
+      case 'Obesidad': return 'text-destructive';
       default: return 'text-muted-foreground';
     }
   };
@@ -445,10 +445,10 @@ export default function GrasaCorporalPage() {
 
                   <div className="grid gap-[1.618rem] md:grid-cols-2 mt-[2.618rem]">
                     <article className="text-center card-golden bg-secondary/50">
-                      <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-[0.618rem]">
+                      <div className="text-4xl font-bold text-info mb-[0.618rem]">
                         {formatGrams(result.leanMass, 1)}
                       </div>
-                      <div className="text-lg font-semibold text-blue-700 dark:text-blue-300 mb-[0.382rem]">
+                      <div className="text-lg font-semibold text-info mb-[0.382rem]">
                         Masa Magra
                       </div>
                       <p className="text-sm text-muted-foreground">
@@ -469,34 +469,34 @@ export default function GrasaCorporalPage() {
                     </article>
                   </div>
 
-                  <section className="mt-[2.618rem] card-golden bg-gradient-to-r from-green-50 to-blue-50 border-l-4 border-green-400">
+                  <section className="mt-[2.618rem] card-golden bg-gradient-to-r bg-success-subtle border-l-4 border-success">
                     <h4 className="font-bold mb-[1.618rem] text-lg flex items-center">
                       <span className="text-2xl mr-3">📊</span>
                       Rangos de grasa corporal
                     </h4>
                     <div className="grid gap-[1.618rem] md:grid-cols-2">
                       <article>
-                        <h5 className="font-semibold mb-[0.618rem] text-blue-700 dark:text-blue-300">Hombres:</h5>
+                        <h5 className="font-semibold mb-[0.618rem] text-info">Hombres:</h5>
                         <div className="space-golden-xs text-sm">
                           <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                             <span className="font-medium">Esencial:</span>
-                            <span className="text-red-600 dark:text-red-400 font-bold">&lt; 6%</span>
+                            <span className="text-destructive font-bold">&lt; 6%</span>
                           </div>
                           <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                             <span className="font-medium">Atlético:</span>
-                            <span className="text-green-600 dark:text-green-400 font-bold">6-14%</span>
+                            <span className="text-success font-bold">6-14%</span>
                           </div>
                           <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                             <span className="font-medium">Fitness:</span>
-                            <span className="text-blue-600 dark:text-blue-400 font-bold">14-18%</span>
+                            <span className="text-info font-bold">14-18%</span>
                           </div>
                           <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                             <span className="font-medium">Aceptable:</span>
-                            <span className="text-yellow-600 dark:text-yellow-400 font-bold">18-25%</span>
+                            <span className="text-warning font-bold">18-25%</span>
                           </div>
                           <div className="flex justify-between py-[0.382rem]">
                             <span className="font-medium">Obesidad:</span>
-                            <span className="text-red-600 dark:text-red-400 font-bold">&gt; 25%</span>
+                            <span className="text-destructive font-bold">&gt; 25%</span>
                           </div>
                         </div>
                       </article>
@@ -505,23 +505,23 @@ export default function GrasaCorporalPage() {
                         <div className="space-golden-xs text-sm">
                           <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                             <span className="font-medium">Esencial:</span>
-                            <span className="text-red-600 dark:text-red-400 font-bold">&lt; 14%</span>
+                            <span className="text-destructive font-bold">&lt; 14%</span>
                           </div>
                           <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                             <span className="font-medium">Atlético:</span>
-                            <span className="text-green-600 dark:text-green-400 font-bold">14-21%</span>
+                            <span className="text-success font-bold">14-21%</span>
                           </div>
                           <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                             <span className="font-medium">Fitness:</span>
-                            <span className="text-blue-600 dark:text-blue-400 font-bold">21-25%</span>
+                            <span className="text-info font-bold">21-25%</span>
                           </div>
                           <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                             <span className="font-medium">Aceptable:</span>
-                            <span className="text-yellow-600 dark:text-yellow-400 font-bold">25-32%</span>
+                            <span className="text-warning font-bold">25-32%</span>
                           </div>
                           <div className="flex justify-between py-[0.382rem]">
                             <span className="font-medium">Obesidad:</span>
-                            <span className="text-red-600 dark:text-red-400 font-bold">&gt; 32%</span>
+                            <span className="text-destructive font-bold">&gt; 32%</span>
                           </div>
                         </div>
                       </article>
@@ -540,7 +540,7 @@ export default function GrasaCorporalPage() {
 
               <p className="text-muted-foreground mb-[2.618rem] text-lg leading-[1.618] text-center max-w-4xl mx-auto">
                 La grasa corporal es el porcentaje de tu peso total que corresponde a tejido adiposo.
-                A diferencia del <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">IMC</a>,
+                A diferencia del <a href="/imc/" className="text-info hover:underline transition-colors font-medium transition-golden">IMC</a>,
                 la medición de grasa corporal distingue entre masa muscular y grasa, proporcionando
                 una evaluación más precisa de tu composición corporal.
               </p>
@@ -554,19 +554,19 @@ export default function GrasaCorporalPage() {
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs">
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="font-bold text-blue-600 dark:text-blue-400 mr-2 min-w-[80px]">3 sitios:</span>
-                    <span>Jackson-Pollock - Tríceps, suprailiaco, muslo/pectoral - <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">estudio original</a></span>
+                    <span className="font-bold text-info mr-2 min-w-[80px]">3 sitios:</span>
+                    <span>Jackson-Pollock - Tríceps, suprailiaco, muslo/pectoral - <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">estudio original</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="font-bold text-green-600 dark:text-green-400 mr-2 min-w-[80px]">4 sitios:</span>
-                    <span>Durnin-Womersley - Tríceps, bíceps, subescapular, suprailiaco - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC524030/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">método validado</a></span>
+                    <span className="font-bold text-success mr-2 min-w-[80px]">4 sitios:</span>
+                    <span>Durnin-Womersley - Tríceps, bíceps, subescapular, suprailiaco - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC524030/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">método validado</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="font-bold text-purple-600 dark:text-purple-400 mr-2 min-w-[80px]">7 sitios:</span>
+                    <span className="font-bold text-warning mr-2 min-w-[80px]">7 sitios:</span>
                     <span>Jackson-Pollock - 7 puntos corporales para máxima precisión</span>
                   </li>
                   <li className="flex items-start py-[0.382rem]">
-                    <span className="font-bold text-orange-600 dark:text-orange-400 mr-2 min-w-[80px]">Precisión:</span>
+                    <span className="font-bold text-warning mr-2 min-w-[80px]">Precisión:</span>
                     <span>±3-5% con medición correcta de pliegues</span>
                   </li>
                 </ul>
@@ -579,75 +579,75 @@ export default function GrasaCorporalPage() {
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs">
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                    <span><strong>Grasa esencial:</strong> Necesaria para funciones vitales (3-5% hombres, 8-12% mujeres) - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2903966/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">función esencial</a></span>
+                    <span className="text-destructive mr-2">•</span>
+                    <span><strong>Grasa esencial:</strong> Necesaria para funciones vitales (3-5% hombres, 8-12% mujeres) - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2903966/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">función esencial</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
-                    <span><strong>Grasa de almacenamiento:</strong> Reserva energética en tejido subcutáneo - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3871410/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">metabolismo energético</a></span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong>Grasa de almacenamiento:</strong> Reserva energética en tejido subcutáneo - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3871410/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">metabolismo energético</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Grasa visceral:</strong> Alrededor de órganos (más peligrosa para la salud)</span>
                   </li>
                   <li className="flex items-start py-[0.382rem]">
-                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                    <span className="text-info mr-2">•</span>
                     <span><strong>Grasa intramuscular:</strong> Dentro del tejido muscular</span>
                   </li>
                 </ul>
               </article>
             </section>
 
-            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📏</span>
                 Cómo medir pliegues cutáneos correctamente
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <span className="text-lg mr-2">🛠️</span>
                     Herramientas necesarias:
                   </h4>
-                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                      <span className="text-info mr-2">•</span>
                       <span><strong>Calibrador de pliegues:</strong> Precisión de 0.1mm</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                      <span className="text-success mr-2">•</span>
                       <span><strong>Marcador corporal:</strong> Para localizar puntos exactos</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span><strong>Cinta métrica:</strong> Para verificar ubicaciones</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span><strong>Ayuda de otra persona:</strong> Para mediciones precisas</span>
                     </li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-success flex items-center">
                     <span className="text-lg mr-2">📍</span>
                     Ubicaciones de medición:
                   </h4>
-                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                      <span className="text-info mr-2">•</span>
                       <span><strong>Tríceps:</strong> Punto medio entre hombro y codo</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                      <span className="text-success mr-2">•</span>
                       <span><strong>Suprailiaco:</strong> Diagonal sobre cresta ilíaca</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span><strong>Muslo:</strong> Punto medio entre cadera y rodilla</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span><strong>Subescapular:</strong> Debajo del omóplato</span>
                     </li>
                   </ul>
@@ -655,64 +655,64 @@ export default function GrasaCorporalPage() {
               </div>
             </section>
 
-            <section className="bg-green-50 dark:bg-green-950/30 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
-              <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-success-subtle card-golden-lg border-l-4 border-success mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💪</span>
                 Importancia de la grasa corporal para la salud
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-success flex items-center">
                     <span className="text-lg mr-2">✅</span>
                     Beneficios de niveles óptimos:
                   </h4>
-                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-green-600 dark:text-green-400 mr-2">•</span>
-                      <span>Mejor sensibilidad a la insulina - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2913766/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">estudios sobre insulina</a></span>
+                      <span className="text-success mr-2">•</span>
+                      <span>Mejor sensibilidad a la insulina - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2913766/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">estudios sobre insulina</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                      <span>Reducción del riesgo cardiovascular - <a href="https://www.heart.org/en/health-topics/consumer-healthcare/what-is-cardiovascular-disease" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">AHA</a></span>
+                      <span className="text-info mr-2">•</span>
+                      <span>Reducción del riesgo cardiovascular - <a href="https://www.heart.org/en/health-topics/consumer-healthcare/what-is-cardiovascular-disease" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">AHA</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Mejor función hormonal</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Mayor movilidad y flexibilidad</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Mejor rendimiento deportivo</span>
                     </li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-red-700 dark:text-red-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-destructive flex items-center">
                     <span className="text-lg mr-2">⚠️</span>
                     Riesgos de niveles inadecuados:
                   </h4>
-                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                      <span className="text-destructive mr-2">•</span>
                       <span>Muy baja: Problemas hormonales, inmunitarios</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Muy alta: Diabetes, hipertensión, apnea</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Distribución abdominal: Mayor riesgo metabólico</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Inflamación crónica de bajo grado</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                      <span className="text-info mr-2">•</span>
                       <span>Problemas articulares y de movilidad</span>
                     </li>
                   </ul>
@@ -720,64 +720,64 @@ export default function GrasaCorporalPage() {
               </div>
             </section>
 
-            <section className="bg-yellow-50 dark:bg-yellow-950/30 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
-              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🎯</span>
                 Cómo mejorar tu composición corporal
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-red-700 dark:text-red-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-destructive flex items-center">
                     <span className="text-lg mr-2">📉</span>
                     Para reducir grasa corporal:
                   </h4>
-                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                      <span className="text-destructive mr-2">•</span>
                       <span>Déficit calórico moderado (300-500 kcal/día)</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Entrenamiento de fuerza para preservar músculo</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Cardio de intensidad moderada-alta</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 dark:text-green-400 mr-2">•</span>
-                      <span>Consumo adecuado de <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">proteína</a> (2g/kg)</span>
+                      <span className="text-success mr-2">•</span>
+                      <span>Consumo adecuado de <a href="/proteina/" className="text-info hover:underline transition-colors font-medium transition-golden">proteína</a> (2g/kg)</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                      <span className="text-info mr-2">•</span>
                       <span>Sueño de calidad (7-9 horas)</span>
                     </li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-success flex items-center">
                     <span className="text-lg mr-2">📈</span>
                     Para aumentar masa muscular:
                   </h4>
-                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                      <span className="text-success mr-2">•</span>
                       <span>Superávit calórico controlado (200-400 kcal/día)</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                      <span className="text-info mr-2">•</span>
                       <span>Entrenamiento de fuerza progresivo</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Proteína distribuida a lo largo del día</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Descanso adecuado entre entrenamientos</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Monitoreo regular de composición corporal</span>
                     </li>
                   </ul>
@@ -785,34 +785,34 @@ export default function GrasaCorporalPage() {
               </div>
             </section>
 
-            <section className="bg-yellow-50 dark:bg-yellow-950/30 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
-              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">⚠️</span>
                 Limitaciones y consideraciones importantes
               </h3>
-              <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Precisión del medidor:</strong> Requiere práctica y calibrador de calidad</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Hidratación:</strong> La deshidratación puede afectar las mediciones</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Variabilidad diaria:</strong> Medir siempre a la misma hora y condiciones</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Edad y sexo:</strong> Las fórmulas son específicas para cada grupo</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>No distingue grasa visceral:</strong> Solo mide grasa subcutánea</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Consistencia:</strong> Usar siempre el mismo método y medidor</span>
                 </li>
               </ul>
@@ -824,7 +824,7 @@ export default function GrasaCorporalPage() {
                 <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Cuál es la diferencia entre IMC y grasa corporal?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
-                    El <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">IMC</a> solo considera peso y altura,
+                    El <a href="/imc/" className="text-info hover:underline transition-colors font-medium">IMC</a> solo considera peso y altura,
                     mientras que la grasa corporal distingue entre músculo y grasa. Un atleta puede tener IMC alto pero
                     grasa corporal baja, mientras que alguien con poco músculo puede tener IMC normal pero grasa corporal alta.
                   </p>
@@ -849,39 +849,39 @@ export default function GrasaCorporalPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
-              <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Complementa tu análisis de composición corporal
               </h3>
-              <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tus calorías diarias:</a></strong> Ajusta tu alimentación según tu composición corporal</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tus calorías diarias:</a></strong> Ajusta tu alimentación según tu composición corporal</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa distribución de grasa:</a></strong> El WHR identifica grasa visceral peligrosa complementando el análisis de composición</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/whr/" className="text-info hover:underline transition-colors font-medium transition-golden">Evalúa distribución de grasa:</a></strong> El WHR identifica grasa visceral peligrosa complementando el análisis de composición</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FMI avanzado:</a></strong> Índice preciso de masa grasa para evaluación metabólica completa</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/fmi/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu FMI avanzado:</a></strong> Índice preciso de masa grasa para evaluación metabólica completa</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bai/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula BAI sin báscula:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/bai/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula BAI sin báscula:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades basadas en masa magra</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/proteina/" className="text-info hover:underline transition-colors font-medium transition-golden">Optimiza tu proteína:</a></strong> Calcula tus necesidades basadas en masa magra</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu TDEE:</a></strong> Ajusta tu gasto calórico según tu composición</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/tdee/" className="text-info hover:underline transition-colors font-medium transition-golden">Conoce tu TDEE:</a></strong> Ajusta tu gasto calórico según tu composición</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Método Navy:</a></strong> Compara con mediciones de circunferencias</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/composicion/" className="text-info hover:underline transition-colors font-medium transition-golden">Método Navy:</a></strong> Compara con mediciones de circunferencias</span>
                 </li>
               </ul>
             </section>

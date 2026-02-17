@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="border-t bg-background mt-[4.236rem]">
       <div className="container-golden py-[2.618rem]">
-        <div className="grid gap-[2.618rem] md:grid-cols-4">
+        <div className="grid gap-[2.618rem] md:grid-cols-5">
           <div className="space-golden-sm">
             <h3 className="font-bold text-lg mb-[0.618rem]">Calculadora Fitness</h3>
             <p className="text-sm text-muted-foreground leading-[1.618]">
@@ -48,6 +48,27 @@ export function Footer() {
               <li>
                 <Link href="/ritmo-cardiaco/" className="text-muted-foreground hover:text-foreground transition-golden">
                   Ritmo Cardíaco
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-golden-sm">
+            <h4 className="font-semibold text-base mb-[0.618rem]">Sobre NutriFit</h4>
+            <ul className="space-golden-xs text-sm">
+              <li>
+                <Link href="/sobre-nosotros/" className="text-muted-foreground hover:text-foreground transition-golden">
+                  Metodologia Cientifica
+                </Link>
+              </li>
+              <li>
+                <Link href="/equipo/" className="text-muted-foreground hover:text-foreground transition-golden">
+                  Nuestro Equipo
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/" className="text-muted-foreground hover:text-foreground transition-golden">
+                  Blog
                 </Link>
               </li>
             </ul>

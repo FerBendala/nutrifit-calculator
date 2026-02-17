@@ -1,4 +1,5 @@
 import { PostContent } from '@/components/blog/PostContent';
+import { ReadingProgress } from '@/components/blog/ReadingProgress';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
@@ -156,6 +157,7 @@ export default async function PostPage({ params }: PostPageProps) {
     <>
       <JsonLd data={jsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
+      <ReadingProgress />
 
       <div className="min-h-screen">
         {/* Contenido principal del post */}

@@ -1,11 +1,11 @@
 ---
 title: 'Guia de Macros 2026: Calcula Proteinas, Carbos y Grasas con Evidencia'
 date: '2026-01-12'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Metodo claro y basado en evidencia para calcular macros segun tu objetivo, entrenamiento y salud.'
 categories: ['Nutricion', 'Entrenamiento', 'Salud']
 tags: ['macros', 'proteinas', 'carbohidratos', 'grasas', 'tdee']
-image: 'https://cdn.pixabay.com/photo/2017/08/27/12/58/salad-2685961_1280.jpg'
+image: '/images/blog/guia-macros-2026.jpg'
 slug: 'guia-macros-2026'
 readTime: 9
 featured: true

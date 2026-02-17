@@ -82,6 +82,9 @@ export default function RootLayout({
         {/* Resource prioritization */}
         <meta name="theme-color" content="#ffffff" />
 
+        {/* PWA manifest */}
+        <link rel="manifest" href="/manifest.webmanifest" />
+
         {/* DNS prefetch para recursos externos */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />

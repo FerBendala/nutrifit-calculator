@@ -370,6 +370,86 @@ const CALCULATOR_FAQS: Record<string, Array<{ question: string; answer: string }
       question: '¿Qué zona de frecuencia cardíaca quema más grasa?',
       answer: 'La zona de quema de grasa está entre 60-70% de tu FCmax. Sin embargo, entrenar a mayor intensidad (70-85%) quema más calorías totales y puede ser más efectivo para perder peso.'
     }
+  ],
+  'peso-ideal': [
+    {
+      question: '¿Cuál es mi peso ideal según mi altura?',
+      answer: 'El peso ideal varía según la fórmula utilizada. Las más comunes son Robinson, Miller, Devine, Hamwi y Peterson. Cada una da un rango ligeramente diferente. Recomendamos ver el rango completo en vez de un número exacto.'
+    },
+    {
+      question: '¿Existe un único peso ideal para cada persona?',
+      answer: 'No. El peso ideal es un rango, no un número exacto. Depende de tu composición corporal, masa muscular, estructura ósea y otros factores individuales que las fórmulas no pueden capturar completamente.'
+    }
+  ],
+  'masa-muscular': [
+    {
+      question: '¿Cuánta masa muscular es normal?',
+      answer: 'En hombres, la masa muscular representa entre el 36-42% del peso corporal. En mujeres, entre el 29-35%. Estos valores varían según edad, nivel de actividad física y genética.'
+    },
+    {
+      question: '¿Cómo se calcula la masa muscular?',
+      answer: 'La fórmula de Lee et al. (2000) estima la masa muscular esquelética a partir de altura, peso, sexo y etnia. Es la más utilizada en investigación y se correlaciona bien con mediciones por DEXA.'
+    }
+  ],
+  composicion: [
+    {
+      question: '¿Qué método es más preciso para medir composición corporal?',
+      answer: 'El gold standard es DEXA (absorciometría dual de rayos X). El método Navy, usado en nuestra calculadora, tiene una precisión de ±3-4% y solo requiere una cinta métrica, haciéndolo accesible para uso doméstico.'
+    },
+    {
+      question: '¿Qué incluye la composición corporal?',
+      answer: 'La composición corporal se divide en masa grasa y masa libre de grasa (músculos, huesos, órganos, agua). Conocer esta distribución es más útil que solo el peso total para evaluar la salud.'
+    }
+  ],
+  whtr: [
+    {
+      question: '¿Qué es el WHtR y por qué es mejor que el IMC?',
+      answer: 'El WHtR (ratio cintura-altura) es un indicador de grasa abdominal. Múltiples estudios demuestran que predice mejor el riesgo de diabetes y enfermedades cardiovasculares que el IMC, porque considera la distribución de la grasa.'
+    },
+    {
+      question: '¿Cuál es un WHtR saludable?',
+      answer: 'Un WHtR menor a 0.5 se considera saludable para ambos sexos. Valores entre 0.5-0.6 indican riesgo aumentado, y por encima de 0.6 indican riesgo alto de enfermedades metabólicas.'
+    }
+  ],
+  vo2max: [
+    {
+      question: '¿Qué es el VO2 max y por qué importa?',
+      answer: 'El VO2 max es la cantidad máxima de oxígeno que tu cuerpo puede utilizar durante el ejercicio. Es el mejor indicador de fitness cardiovascular y se asocia con menor riesgo de mortalidad por cualquier causa.'
+    },
+    {
+      question: '¿Cómo puedo mejorar mi VO2 max?',
+      answer: 'El entrenamiento interválico de alta intensidad (HIIT) es el método más efectivo para mejorar el VO2 max. También el ejercicio continuo de intensidad moderada-alta (75-85% FCmax) 3-5 veces por semana.'
+    }
+  ],
+  '1rm': [
+    {
+      question: '¿Qué es el 1RM?',
+      answer: 'El 1RM (una repetición máxima) es el peso máximo que puedes levantar una sola vez con buena técnica en un ejercicio determinado. Es la referencia para programar intensidades de entrenamiento.'
+    },
+    {
+      question: '¿Es seguro probar mi 1RM directo?',
+      answer: 'Probar el 1RM directo tiene riesgo de lesión, especialmente para principiantes. Es más seguro estimarlo con submáximo: levanta un peso con el que hagas 3-10 repeticiones y usa una fórmula de estimación como Epley o Brzycki.'
+    }
+  ],
+  fibra: [
+    {
+      question: '¿Cuánta fibra necesito al día?',
+      answer: 'La recomendación general es 14g de fibra por cada 1000 kcal consumidas (IOM/FDA). Para adultos, esto equivale a 25-38g diarios dependiendo del sexo y las calorías totales.'
+    },
+    {
+      question: '¿Qué pasa si consumo poca fibra?',
+      answer: 'La ingesta insuficiente de fibra se asocia con estreñimiento, mayor riesgo de enfermedades cardiovasculares, diabetes tipo 2 y ciertos tipos de cáncer colorrectal.'
+    }
+  ],
+  ffmi: [
+    {
+      question: '¿Qué es el FFMI y para qué sirve?',
+      answer: 'El FFMI (Índice de Masa Libre de Grasa) mide tu desarrollo muscular independientemente de la grasa. Valores por encima de 25 en hombres son muy difíciles de alcanzar de forma natural, lo que lo hace útil para evaluar potencial genético.'
+    },
+    {
+      question: '¿Cuál es un buen FFMI?',
+      answer: 'Para hombres: 18-20 es promedio, 20-22 es bueno, 22-25 es excelente/atlético. Para mujeres: 15-17 es promedio, 17-19 es bueno, 19-21 es excelente. Valores por encima de 25 (hombres) o 22 (mujeres) son extremadamente raros naturalmente.'
+    }
   ]
 };
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
@@ -41,8 +40,6 @@ export default function AzucarPage() {
 
       <Container size="xl" className="py-[4.236rem]">
         <main className="max-w-5xl mx-auto space-golden-lg">
-          <Breadcrumbs items={[{ label: 'Azúcar Diaria (Límite OMS)' }]} className="mb-6" />
-
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora de Azúcar Diaria
@@ -62,7 +59,7 @@ export default function AzucarPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-amber-50 rounded-lg p-4 mb-6">
+                <div className="bg-warning-subtle rounded-lg p-4 mb-6">
                   <div className="flex items-start gap-3">
                     <Info className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-muted-foreground">
@@ -108,7 +105,7 @@ export default function AzucarPage() {
               </header>
               <div className="p-6 space-golden-md">
                 <div className="grid gap-4 md:grid-cols-2">
-                  <Card className="bg-gradient-to-br from-amber-50 to-amber-100">
+                  <Card className="bg-gradient-to-br bg-warning-subtle">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-sm font-semibold text-amber-900">Recomendación OMS (&lt;10%)</CardTitle>
                     </CardHeader>
@@ -119,22 +116,22 @@ export default function AzucarPage() {
                       <p className="text-xs text-amber-600 mt-1">Menos del 10% de la energía</p>
                     </CardContent>
                   </Card>
-                  <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-400">
+                  <Card className="bg-gradient-to-br bg-warning-subtle border-l-4 border-warning">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold text-orange-900">Beneficio adicional (&lt;5%)</CardTitle>
+                      <CardTitle className="text-sm font-semibold text-foreground">Beneficio adicional (&lt;5%)</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-orange-700 dark:text-orange-300">
+                      <div className="text-2xl font-bold text-warning">
                         Máximo {formatGrams(result.maxGrams5Percent)}/día
                       </div>
-                      <p className="text-xs text-orange-600 dark:text-orange-400 mt-1">Menos del 5% de la energía</p>
+                      <p className="text-xs text-warning mt-1">Menos del 5% de la energía</p>
                     </CardContent>
                   </Card>
                 </div>
 
-                <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
+                <Card className="bg-gradient-to-br bg-info-subtle border-l-4 border-info">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       Interpretación
                     </CardTitle>
@@ -144,7 +141,7 @@ export default function AzucarPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-amber-50 to-amber-100 border-l-4 border-amber-400">
+                <Card className="bg-gradient-to-br bg-warning-subtle border-l-4 border-amber-400">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-semibold flex items-center text-amber-900">
                       <Circle className="w-4 h-4 mr-2" />
@@ -163,7 +160,7 @@ export default function AzucarPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-400">
+                <Card className="bg-gradient-to-br bg-muted border-l-4 border-border">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
@@ -174,7 +171,7 @@ export default function AzucarPage() {
                     <ul className="space-y-2">
                       {result.freeSugarsDefinition.map((item, index) => (
                         <li key={index} className="flex items-start text-sm text-muted-foreground">
-                          <span className="text-gray-500 mr-2">•</span>
+                          <span className="text-muted-foreground mr-2">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -209,7 +206,7 @@ export default function AzucarPage() {
               </article>
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Info className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400" />
+                  <Info className="w-5 h-5 mr-3 text-info" />
                   Fuentes habituales
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs list-disc list-inside">

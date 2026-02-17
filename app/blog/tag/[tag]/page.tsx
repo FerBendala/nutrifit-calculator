@@ -111,9 +111,35 @@ export default async function TagPage({ params }: TagPageProps) {
     },
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Inicio',
+        item: SITE_CONFIG.url,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: `${SITE_CONFIG.url}/blog`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: tagName,
+        item: `${SITE_CONFIG.url}/blog/tag/${tagSlug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
 
       <Container size="xl" className="py-[4.236rem]">
         <main className="max-w-5xl mx-auto space-golden-lg">

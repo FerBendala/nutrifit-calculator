@@ -22,7 +22,7 @@ export function FeaturedPosts({
   return (
     <section className="space-y-6">
       {/* Post destacado compacto */}
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 shadow-lg">
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-yellow-50 to-orange-50 border border-warning shadow-lg">
         <div className="relative p-6">
           <div className="flex flex-col lg:flex-row lg:items-center gap-6">
             {/* Contenido compacto */}
@@ -36,7 +36,7 @@ export function FeaturedPosts({
                   </div>
                   <div className="flex items-center gap-1">
                     {[...Array(3)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-current text-yellow-500" />
+                      <Star key={i} className="w-3 h-3 fill-current text-warning" />
                     ))}
                   </div>
                 </div>
@@ -44,7 +44,7 @@ export function FeaturedPosts({
                   {featuredPost.categories.slice(0, 2).map((category) => (
                     <span
                       key={category}
-                      className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-md font-medium"
+                      className="px-2 py-1 bg-warning-subtle text-warning text-xs rounded-md font-medium"
                     >
                       {category}
                     </span>
@@ -53,18 +53,18 @@ export function FeaturedPosts({
               </div>
 
               {/* Título compacto */}
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 leading-tight line-clamp-2">
+              <h3 className="text-xl lg:text-2xl font-bold text-foreground leading-tight line-clamp-2">
                 {featuredPost.title}
               </h3>
 
               {/* Excerpt más corto */}
-              <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+              <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
                 {featuredPost.excerpt}
               </p>
 
               {/* Footer compacto */}
               <div className="flex items-center justify-between pt-2">
-                <div className="flex items-center gap-4 text-xs text-gray-500">
+                <div className="flex items-center gap-4 text-xs text-muted-foreground">
                   <span>{featuredPost.author}</span>
                   <span>•</span>
                   <span>{featuredPost.readTime} min</span>

@@ -1,7 +1,7 @@
 ---
 title: 'Bandas Elásticas: Fuerza y Salud en Casa o Gimnasio'
 date: '2026-01-12'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Cómo entrenar con bandas elásticas para mejorar fuerza, equilibrio y movilidad con una progresión sencilla y segura.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags:
@@ -12,7 +12,7 @@ tags:
     'movilidad',
     'entrenamiento en casa',
   ]
-image: 'https://cdn.pixabay.com/photo/2020/11/27/05/53/yoga-5780931_1280.jpg'
+image: '/images/blog/bandas-elasticas-fuerza-salud.jpg'
 slug: 'bandas-elasticas-fuerza-salud'
 readTime: 8
 featured: false

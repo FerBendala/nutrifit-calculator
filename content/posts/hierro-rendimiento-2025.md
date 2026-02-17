@@ -1,11 +1,11 @@
 ---
 title: 'Hierro, Rendimiento y Menstruación: Checklist para Deportistas'
 date: '2025-11-27'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Cómo prevenir y corregir la deficiencia de hierro en atletas, con protocolos prácticos y evidencia reciente.'
 categories: ['Salud', 'Nutrición', 'Rendimiento']
 tags: ['hierro', 'ferritina', 'anemia', 'menstruación', 'endurance']
-image: 'https://cdn.pixabay.com/photo/2023/08/01/17/55/ai-generated-8163480_1280.jpg'
+image: '/images/blog/hierro-rendimiento-2025.jpg'
 slug: 'hierro-rendimiento-2025'
 readTime: 8
 featured: false

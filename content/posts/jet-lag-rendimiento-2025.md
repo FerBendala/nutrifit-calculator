@@ -1,11 +1,11 @@
 ---
 title: 'Jet Lag y Rendimiento: Plan Exprés para Viajes Transmeridianos'
 date: '2025-12-2'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Cómo minimizar el jet lag en deportistas: luz, crononutrición, siestas, melatonina y carga optimizada según dirección del viaje.'
 categories: ['Salud', 'Rendimiento', 'Recuperación']
 tags: ['jet lag', 'sueño', 'crononutrición', 'viajes', 'luz']
-image: 'https://cdn.pixabay.com/photo/2019/06/04/21/53/airplane-4252410_1280.jpg'
+image: '/images/blog/jet-lag-rendimiento-2025.jpg'
 slug: 'jet-lag-rendimiento-2025'
 readTime: 8
 featured: false

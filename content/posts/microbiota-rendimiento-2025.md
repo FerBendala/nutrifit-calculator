@@ -1,11 +1,11 @@
 ---
 title: 'Microbiota Deportiva: Cómo Entrenarla para Rendimiento y Resiliencia'
 date: '2025-11-12'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Integra periodización de entrenamiento, nutrición y probióticos estratégicos para modular el eje intestino-inmunidad en atletas.'
 categories: ['Salud', 'Entrenamiento', 'Nutrición']
 tags: ['microbiota', 'probióticos', 'entrenamiento', 'inmunidad', 'rendimiento']
-image: 'https://cdn.pixabay.com/photo/2022/04/15/23/11/bacilli-7135349_1280.jpg'
+image: '/images/blog/microbiota-rendimiento-2025.jpg'
 slug: 'microbiota-rendimiento-2025'
 readTime: 9
 featured: false

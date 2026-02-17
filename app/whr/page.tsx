@@ -137,11 +137,11 @@ export default function WHRPage() {
 
   const getRiskColor = (riskLevel: string) => {
     switch (riskLevel) {
-      case 'Bajo': return 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 border-green-400';
-      case 'Moderado': return 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border-blue-400';
-      case 'Alto': return 'text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30 border-orange-400';
-      case 'Muy Alto': return 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border-red-400';
-      default: return 'text-muted-foreground bg-muted border-gray-400';
+      case 'Bajo': return 'text-foreground bg-success-subtle border-success';
+      case 'Moderado': return 'text-foreground bg-info-subtle border-info';
+      case 'Alto': return 'text-foreground bg-warning-subtle border-warning';
+      case 'Muy Alto': return 'text-foreground bg-destructive-subtle border-destructive';
+      default: return 'text-muted-foreground bg-muted border-border';
     }
   };
 
@@ -262,12 +262,12 @@ export default function WHRPage() {
 
                   <TabsContent value="basic" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-info-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-info mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-1">Análisis Básico OMS</h3>
-                            <p className="text-sm text-blue-700 dark:text-blue-300">
+                            <h3 className="font-semibold text-foreground/90 mb-1">Análisis Básico OMS</h3>
+                            <p className="text-sm text-info">
                               Método estándar de la OMS para evaluar riesgo cardiovascular por distribución de grasa.
                             </p>
                           </div>
@@ -325,12 +325,12 @@ export default function WHRPage() {
 
                   <TabsContent value="comprehensive" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-green-50 dark:bg-green-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-success-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-success mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-green-800 dark:text-green-200 mb-1">Análisis Integral WHR + WHtR</h3>
-                            <p className="text-sm text-green-700 dark:text-green-300">
+                            <h3 className="font-semibold text-foreground/90 mb-1">Análisis Integral WHR + WHtR</h3>
+                            <p className="text-sm text-success">
                               Análisis completo que incluye ratio cintura-cadera, ratio cintura-altura y clasificación morfológica.
                             </p>
                           </div>
@@ -413,19 +413,19 @@ export default function WHRPage() {
                 <div className="space-golden-lg">
                   {/* Main Results */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article className="text-center p-6 bg-blue-50 dark:bg-blue-950/30 rounded-lg border-l-4 border-blue-400">
-                      <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                    <article className="text-center p-6 bg-info-subtle rounded-lg border-l-4 border-info">
+                      <div className="text-3xl font-bold text-info mb-2">
                         {result.whr?.toFixed(3)}
                       </div>
-                      <div className="text-sm font-medium text-blue-800 dark:text-blue-200">WHR</div>
+                      <div className="text-sm font-medium text-foreground/90">WHR</div>
                     </article>
 
                     {result.whtr && (
-                      <article className="text-center p-6 bg-green-50 dark:bg-green-950/30 rounded-lg border-l-4 border-green-400">
-                        <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
+                      <article className="text-center p-6 bg-success-subtle rounded-lg border-l-4 border-success">
+                        <div className="text-3xl font-bold text-success mb-2">
                           {result.whtr.toFixed(3)}
                         </div>
-                        <div className="text-sm font-medium text-green-800 dark:text-green-200">WHtR</div>
+                        <div className="text-sm font-medium text-foreground/90">WHtR</div>
                       </article>
                     )}
 
@@ -443,7 +443,7 @@ export default function WHRPage() {
                       <article className="card-golden bg-card/50">
                         <header className="p-6 pb-0">
                           <h3 className="text-lg font-semibold text-foreground flex items-center">
-                            <Scale className="h-5 w-5 mr-2 text-blue-600 dark:text-blue-400" />
+                            <Scale className="h-5 w-5 mr-2 text-info" />
                             Clasificación Morfológica
                           </h3>
                         </header>
@@ -487,7 +487,7 @@ export default function WHRPage() {
                     <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
                         <h3 className="text-lg font-semibold text-foreground flex items-center">
-                          <Heart className="h-5 w-5 mr-2 text-red-600 dark:text-red-400" />
+                          <Heart className="h-5 w-5 mr-2 text-destructive" />
                           Riesgo Cardiovascular
                         </h3>
                       </header>
@@ -501,7 +501,7 @@ export default function WHRPage() {
                     <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
                         <h3 className="text-lg font-semibold text-foreground flex items-center">
-                          <TrendingUp className="h-5 w-5 mr-2 text-orange-600 dark:text-orange-400" />
+                          <TrendingUp className="h-5 w-5 mr-2 text-warning" />
                           Riesgo Metabólico
                         </h3>
                       </header>
@@ -514,18 +514,18 @@ export default function WHRPage() {
                   </div>
 
                   {/* Clinical Interpretation */}
-                  <article className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400">
+                  <article className="card-golden-lg bg-info-subtle border-l-4 border-info">
                     <header className="p-6 pb-0">
-                      <h3 className="text-xl font-semibold text-blue-800 dark:text-blue-200 flex items-center">
+                      <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                         <Info className="w-5 h-5 mr-2" />
                         Interpretación Clínica
                       </h3>
                     </header>
                     <div className="p-6">
-                      <p className="text-blue-800 dark:text-blue-200 leading-relaxed mb-4">
+                      <p className="text-foreground/90 leading-relaxed mb-4">
                         <strong>{result.clinicalInterpretation}</strong>
                       </p>
-                      <p className="text-sm text-blue-700 dark:text-blue-300 leading-relaxed">
+                      <p className="text-sm text-info leading-relaxed">
                         {result.comparison}
                       </p>
                     </div>
@@ -535,7 +535,7 @@ export default function WHRPage() {
                   <article className="card-golden bg-card/50">
                     <header className="p-6 pb-0">
                       <h3 className="text-lg font-semibold text-foreground flex items-center">
-                        <Zap className="h-5 w-5 mr-2 text-green-600 dark:text-green-400" />
+                        <Zap className="h-5 w-5 mr-2 text-success" />
                         Recomendaciones Personalizadas
                       </h3>
                     </header>
@@ -543,7 +543,7 @@ export default function WHRPage() {
                       <ul className="space-y-2">
                         {result.recommendations.map((rec, index) => (
                           <li key={index} className="flex items-start gap-2">
-                            <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-1 flex-shrink-0"></span>
+                            <span className="w-2 h-2 bg-success rounded-full mt-2 mr-1 flex-shrink-0"></span>
                             <span className="text-sm text-muted-foreground leading-[1.618]">{rec}</span>
                           </li>
                         ))}
@@ -562,55 +562,55 @@ export default function WHRPage() {
               </h2>
             </header>
 
-            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-8">
+            <section className="card-golden-lg bg-info-subtle border-l-4 border-info mb-8">
               <div className="p-6">
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   El <strong>Ratio Cintura-Cadera (WHR)</strong> es una medida antropométrica que evalúa la distribución de la grasa corporal
-                  comparando la circunferencia de la cintura con la de las caderas. Es un indicador clave de <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">riesgo cardiovascular</a> y síndrome metabólico según estándares de la OMS. Estudios epidemiológicos como el <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504067/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Framingham Heart Study</a> validan su precisión predictiva superior al IMC.
+                  comparando la circunferencia de la cintura con la de las caderas. Es un indicador clave de <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">riesgo cardiovascular</a> y síndrome metabólico según estándares de la OMS. Estudios epidemiológicos como el <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504067/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Framingham Heart Study</a> validan su precisión predictiva superior al IMC.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  A diferencia del IMC, el WHR identifica la <a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">grasa visceral peligrosa</a> que se acumula alrededor de los órganos internos, principal factor de riesgo para enfermedades cardíacas. Estudios como el <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504067/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Framingham Heart Study</a> demuestran su superioridad predictiva sobre el IMC tradicional.
+                  A diferencia del IMC, el WHR identifica la <a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">grasa visceral peligrosa</a> que se acumula alrededor de los órganos internos, principal factor de riesgo para enfermedades cardíacas. Estudios como el <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504067/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Framingham Heart Study</a> demuestran su superioridad predictiva sobre el IMC tradicional.
                 </p>
               </div>
             </section>
 
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <article className="card-golden-lg bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400">
+              <article className="card-golden-lg bg-success-subtle border-l-4 border-success">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 flex items-center">
+                  <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                     <Scale className="w-5 h-5 mr-2" />
                     Ventajas del WHR sobre el IMC
                   </h3>
                 </header>
                 <div className="p-6">
-                  <ul className="space-y-2 text-green-800 dark:text-green-200">
+                  <ul className="space-y-2 text-foreground/90">
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Detecta grasa visceral:</strong> Identifica la grasa más peligrosa para la salud</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Independiente de altura:</strong> Más preciso que IMC para personas altas/bajas</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span><strong>Predice riesgo cardiovascular:</strong> Mejor predictor que IMC según estudios OMS - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504067/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">evidencia Framingham</a></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span><strong>Predice riesgo cardiovascular:</strong> Mejor predictor que IMC según estudios OMS - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504067/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">evidencia Framingham</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Sensible a cambios:</strong> Detecta mejoras en distribución de grasa</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Estándar médico:</strong> Utilizado por cardiólogos y endocrinólogos</span>
                     </li>
                   </ul>
                 </div>
               </article>
 
-              <article className="card-golden-lg bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400">
+              <article className="card-golden-lg bg-warning-subtle border-l-4 border-warning">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-yellow-800 dark:text-yellow-200 flex items-center">
+                  <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                     <AlertTriangle className="w-5 h-5 mr-2" />
                     Clasificación de Formas Corporales
                   </h3>
@@ -618,30 +618,30 @@ export default function WHRPage() {
                 <div className="p-6">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <span className="text-blue-600 dark:text-blue-400 text-sm">🍐</span>
+                      <div className="w-8 h-8 bg-info-subtle rounded-full flex items-center justify-center">
+                        <span className="text-info text-sm">🍐</span>
                       </div>
                       <div>
-                        <div className="font-semibold text-blue-800 dark:text-blue-200">Tipo Ginoide (Pera)</div>
-                        <div className="text-sm text-blue-700 dark:text-blue-300">WHR bajo - Grasa en caderas y muslos</div>
+                        <div className="font-semibold text-foreground/90">Tipo Ginoide (Pera)</div>
+                        <div className="text-sm text-info">WHR bajo - Grasa en caderas y muslos</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                        <span className="text-orange-600 dark:text-orange-400 text-sm">⭕</span>
+                      <div className="w-8 h-8 bg-warning-subtle rounded-full flex items-center justify-center">
+                        <span className="text-warning text-sm">⭕</span>
                       </div>
                       <div>
-                        <div className="font-semibold text-orange-800 dark:text-orange-200">Tipo Intermedio</div>
-                        <div className="text-sm text-orange-700 dark:text-orange-300">WHR moderado - Distribución equilibrada</div>
+                        <div className="font-semibold text-foreground/90">Tipo Intermedio</div>
+                        <div className="text-sm text-warning">WHR moderado - Distribución equilibrada</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                        <span className="text-red-600 dark:text-red-400 text-sm">🍎</span>
+                      <div className="w-8 h-8 bg-destructive-subtle rounded-full flex items-center justify-center">
+                        <span className="text-destructive text-sm">🍎</span>
                       </div>
                       <div>
-                        <div className="font-semibold text-red-800 dark:text-red-200">Tipo Androide (Manzana)</div>
-                        <div className="text-sm text-red-700 dark:text-red-300">WHR alto - Grasa abdominal central</div>
+                        <div className="font-semibold text-foreground/90">Tipo Androide (Manzana)</div>
+                        <div className="text-sm text-foreground/90">WHR alto - Grasa abdominal central</div>
                       </div>
                     </div>
                   </div>
@@ -649,9 +649,9 @@ export default function WHRPage() {
               </article>
             </section>
 
-            <section className="card-golden-lg bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-400 mt-8">
+            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-purple-800 dark:text-purple-200 flex items-center">
+                <h3 className="text-xl font-semibold text-foreground flex items-center">
                   <Ruler className="w-5 h-5 mr-2" />
                   Cómo Medir Correctamente
                 </h3>
@@ -659,18 +659,18 @@ export default function WHRPage() {
               <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <article>
-                    <h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">Medición de Cintura</h4>
-                    <ul className="space-y-2 text-sm text-purple-700">
+                    <h4 className="font-semibold text-foreground mb-3">Medición de Cintura</h4>
+                    <ul className="space-y-2 text-sm text-foreground">
                       <li>• Punto más estrecho del torso (generalmente ombligo)</li>
                       <li>• En ayunas, después de exhalar normalmente</li>
                       <li>• Cinta métrica horizontal alrededor del cuerpo</li>
                       <li>• No comprimir la piel excesivamente</li>
-                      <li>• <a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Protocolo OMS oficial</a></li>
+                      <li>• <a href="https://www.who.int/publications/i/item/9789241501491" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">Protocolo OMS oficial</a></li>
                     </ul>
                   </article>
                   <article>
-                    <h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">Medición de Cadera</h4>
-                    <ul className="space-y-2 text-sm text-purple-700">
+                    <h4 className="font-semibold text-foreground mb-3">Medición de Cadera</h4>
+                    <ul className="space-y-2 text-sm text-foreground">
                       <li>• Punto más ancho de las caderas/glúteos</li>
                       <li>• Cinta métrica horizontal alrededor del cuerpo</li>
                       <li>• Incluir la parte más prominente de los glúteos</li>
@@ -682,34 +682,34 @@ export default function WHRPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="card-golden-lg bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-400 mt-8">
+            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-orange-800 dark:text-orange-200 flex items-center">
+                <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                   <Info className="w-5 h-5 mr-2" />
                   Complementa tu evaluación de WHR
                 </h3>
               </header>
               <div className="p-6">
-                <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+                <ul className="text-sm text-foreground/90 space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu WHtR:</a></strong> Ratio cintura-altura para riesgo cardiometabólico</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/whtr/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu WHtR:</a></strong> Ratio cintura-altura para riesgo cardiometabólico</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu IMC:</a></strong> Combina métricas antropométricas para evaluación completa</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/imc/" className="text-info hover:underline transition-colors font-medium transition-golden">Evalúa tu IMC:</a></strong> Combina métricas antropométricas para evaluación completa</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/bai/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula BAI sin peso:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/bai/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula BAI sin peso:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mide tu grasa corporal:</a></strong> Conoce el porcentaje total de grasa para contexto</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/grasa-corporal/" className="text-info hover:underline transition-colors font-medium transition-golden">Mide tu grasa corporal:</a></strong> Conoce el porcentaje total de grasa para contexto</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Análisis de composición:</a></strong> Evaluación completa de masa magra vs grasa</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/composicion/" className="text-info hover:underline transition-colors font-medium transition-golden">Análisis de composición:</a></strong> Evaluación completa de masa magra vs grasa</span>
                   </li>
                 </ul>
               </div>

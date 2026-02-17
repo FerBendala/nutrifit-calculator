@@ -1,7 +1,7 @@
 ---
 title: 'Periodización Nutricional 2025: Cómo Ajustar Macros y Calorías según tu Ciclo de Entrenamiento'
 date: '2025-10-13'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía avanzada para sincronizar déficit, mantenimiento y superávit con tus mesociclos, fuerza y salud hormonal en 2025.'
 categories: ['Nutrición', 'Rendimiento', 'Planificación']
 tags:
@@ -12,7 +12,7 @@ tags:
     'mantenimiento',
     'superávit',
   ]
-image: 'https://cdn.pixabay.com/photo/2023/07/20/11/00/pie-8139063_1280.jpg'
+image: '/images/blog/periodizacion-nutricional-2025.jpg'
 slug: 'periodizacion-nutricional-2025'
 readTime: 9
 featured: false

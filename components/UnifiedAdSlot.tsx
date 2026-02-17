@@ -29,14 +29,19 @@ export function AdSlot({
       adRef.current.id = elementId;
     }
 
-    // Procesar slot usando el sistema centralizado
-    const timer = setTimeout(() => {
+    const processSlot = () => {
       processAdSlot(elementId).catch((error) => {
         console.error('AdSlot: Error procesando slot:', error);
       });
-    }, 1000);
+    };
 
-    return () => clearTimeout(timer);
+    if ('requestIdleCallback' in window) {
+      const idleId = requestIdleCallback(processSlot, { timeout: 500 });
+      return () => cancelIdleCallback(idleId);
+    } else {
+      const timer = setTimeout(processSlot, 300);
+      return () => clearTimeout(timer);
+    }
   }, [adSenseId, adSlot]);
 
   // No renderizar si no hay ID de AdSense configurado

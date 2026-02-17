@@ -1,11 +1,11 @@
 ---
 title: 'Cuello Fuerte y Estable: Control Motor para Reducir Sobrecargas Cervicales'
 date: '2026-02-13'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía práctica para entrenar flexores profundos del cuello y mejorar la estabilidad cervical con progresión segura.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags: ['cuello', 'cervical', 'control-motor', 'estabilidad', 'fuerza']
-image: 'https://cdn.pixabay.com/photo/2024/07/01/17/11/woman-8865733_1280.png'
+image: '/images/blog/cuello-control-motor.png'
 slug: 'cuello-control-motor'
 readTime: 8
 featured: false

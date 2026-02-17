@@ -1,11 +1,11 @@
 ---
 title: 'Entrenamiento en Altura: Planifica tu Campamento, Nutrición y Monitoreo'
 date: '2025-10-13'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Cómo diseñar concentraciones en altura con fases de aclimatación, control de hierro, hidratación y seguimiento de métricas para maximizar el rendimiento a nivel del mar.'
 categories: ['Rendimiento', 'Planificación', 'Nutrición']
 tags: ['altitud', 'live high train low', 'hierro', 'HRV', 'aclimatación']
-image: 'https://cdn.pixabay.com/photo/2020/01/14/21/11/mountains-4766345_1280.jpg'
+image: '/images/blog/entrenamiento-altura-2025.jpg'
 slug: 'entrenamiento-altura-2025'
 readTime: 9
 featured: false

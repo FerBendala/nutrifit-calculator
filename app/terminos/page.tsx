@@ -34,10 +34,10 @@ export default function TerminosPage() {
               1. Aceptación de los términos
             </h2>
 
-            <div className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-[2.618rem]">
-              <p className="text-sm text-blue-800 dark:text-blue-200 leading-[1.618] mb-0">
+            <div className="card-golden-lg bg-info-subtle border-l-4 border-info mb-[2.618rem]">
+              <p className="text-sm text-foreground/90 leading-[1.618] mb-0">
                 Al acceder y utilizar NutriFit Calculator, aceptas estar sujeto a estos términos
-                de uso y a nuestra <a href="/privacidad/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">política de privacidad</a>.
+                de uso y a nuestra <a href="/privacidad/" className="text-info hover:underline transition-colors font-medium">política de privacidad</a>.
                 Si no estás de acuerdo con alguna parte de estos términos, no debes utilizar nuestros servicios.
               </p>
             </div>
@@ -50,7 +50,7 @@ export default function TerminosPage() {
               2. Descripción del servicio
             </h2>
 
-            <div className="card-golden bg-gradient-to-r from-green-50 to-blue-50 mb-[2.618rem]">
+            <div className="card-golden bg-gradient-to-r bg-success-subtle mb-[2.618rem]">
               <h3 className="font-bold mb-[1.618rem] text-lg flex items-center">
                 <span className="text-2xl mr-3">🎯</span>
                 NutriFit Calculator proporciona herramientas gratuitas para:
@@ -59,15 +59,15 @@ export default function TerminosPage() {
                 <article className="card-golden bg-card/50">
                   <ul className="text-sm space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                      <span className="text-info mr-2">•</span>
                       <span>Calorías y macronutrientes</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                      <span className="text-success mr-2">•</span>
                       <span>Índice de Masa Corporal (IMC)</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Gasto Energético Diario Total (TDEE)</span>
                     </li>
                   </ul>
@@ -75,15 +75,15 @@ export default function TerminosPage() {
                 <article className="card-golden bg-card/50">
                   <ul className="text-sm space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Necesidades de proteína</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-cyan-600 mr-2">•</span>
+                      <span className="text-info600 mr-2">•</span>
                       <span>Requerimientos de hidratación</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                      <span className="text-destructive mr-2">•</span>
                       <span>Composición corporal y grasa corporal</span>
                     </li>
                   </ul>
@@ -99,12 +99,12 @@ export default function TerminosPage() {
               3. Limitaciones y descargo de responsabilidad
             </h2>
 
-            <div className="bg-red-50 dark:bg-red-950/30 card-golden-lg border-l-4 border-red-500 mb-[2.618rem]">
-              <h3 className="font-semibold text-red-900 mb-[1rem] text-xl flex items-center">
+            <div className="bg-destructive-subtle card-golden-lg border-l-4 border-destructive mb-[2.618rem]">
+              <h3 className="font-semibold text-foreground mb-[1rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🚨</span>
                 AVISO MÉDICO CRÍTICO
               </h3>
-              <p className="text-sm text-red-800 dark:text-red-200 leading-[1.618] font-medium">
+              <p className="text-sm text-foreground/90 leading-[1.618] font-medium">
                 Los cálculos y recomendaciones proporcionados por nuestras herramientas son
                 únicamente informativos y <strong>NO constituyen consejo médico, diagnóstico o tratamiento</strong>.
                 Siempre consulta con profesionales de la salud antes de realizar cambios significativos
@@ -120,19 +120,19 @@ export default function TerminosPage() {
                 </h3>
                 <ul className="text-sm space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Estimaciones basadas en fórmulas generales</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Los resultados pueden no ser precisos para todos</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                    <span className="text-destructive mr-2">•</span>
                     <span>No reemplazan consulta con profesionales</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>No son apropiados para diagnóstico médico</span>
                   </li>
                 </ul>
@@ -148,15 +148,15 @@ export default function TerminosPage() {
                 </p>
                 <ul className="text-sm space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                    <span className="text-destructive mr-2">•</span>
                     <span>Decisiones basadas en nuestros cálculos</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Problemas de salud derivados del uso</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Pérdidas o daños por uso de servicios</span>
                   </li>
                 </ul>
@@ -172,51 +172,51 @@ export default function TerminosPage() {
             </h2>
 
             <div className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
-              <article className="card-golden space-golden-sm bg-green-50 dark:bg-green-950/30">
-                <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center text-green-700 dark:text-green-300">
+              <article className="card-golden space-golden-sm bg-success-subtle">
+                <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center text-success">
                   <span className="text-2xl mr-3">✅</span>
                   4.1 Usos permitidos
                 </h3>
-                <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
+                <ul className="text-sm text-foreground/90 space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                    <span className="text-success mr-2">•</span>
                     <span>Estimaciones informativas sobre nutrición y fitness</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                    <span className="text-info mr-2">•</span>
                     <span>Uso personal y no comercial</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Fines educativos</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Punto de partida para consulta profesional</span>
                   </li>
                 </ul>
               </article>
 
-              <article className="card-golden space-golden-sm bg-red-50 dark:bg-red-950/30">
-                <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center text-red-700 dark:text-red-300">
+              <article className="card-golden space-golden-sm bg-destructive-subtle">
+                <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center text-destructive">
                   <span className="text-2xl mr-3">❌</span>
                   4.2 Usos prohibidos
                 </h3>
-                <ul className="text-sm text-red-800 dark:text-red-200 space-golden-xs">
+                <ul className="text-sm text-foreground/90 space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                    <span className="text-destructive mr-2">•</span>
                     <span>Utilizar para diagnóstico médico</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Redistribuir o revender servicios</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Hackear o comprometer la seguridad</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Automatización para acceso masivo</span>
                   </li>
                 </ul>
@@ -231,32 +231,32 @@ export default function TerminosPage() {
               5. Recomendaciones de uso responsable
             </h2>
 
-            <div className="card-golden-lg bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400 mb-[2.618rem]">
-              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+            <div className="card-golden-lg bg-warning-subtle border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📋</span>
                 Mejores prácticas
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                      <span className="text-info mr-2">•</span>
                       <span>Consulta profesionales antes de cambios significativos</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                      <span className="text-success mr-2">•</span>
                       <span>Usa los resultados como punto de partida</span>
                     </li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span>Ajusta según tu respuesta individual</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                      <span className="text-destructive mr-2">•</span>
                       <span>Busca consejo médico si tienes condiciones preexistentes</span>
                     </li>
                   </ul>
@@ -318,12 +318,12 @@ export default function TerminosPage() {
           </section>
 
           {/* Sección para profesionales de la salud */}
-          <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-            <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-[1rem] text-lg flex items-center">
+          <section className="bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
+            <h3 className="font-semibold text-foreground mb-[1rem] text-lg flex items-center">
               <span className="text-2xl mr-3">👩‍⚕️</span>
               Resumen para profesionales de la salud
             </h3>
-            <p className="text-sm text-blue-800 dark:text-blue-200 leading-[1.618]">
+            <p className="text-sm text-foreground/90 leading-[1.618]">
               Si eres profesional de la salud, puedes utilizar nuestras herramientas
               como apoyo en consulta, pero siempre bajo tu criterio profesional y
               responsabilidad clínica. Las calculadoras pueden servir como punto de partida
@@ -332,22 +332,22 @@ export default function TerminosPage() {
           </section>
 
           {/* Sección de contacto */}
-          <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400">
-            <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+          <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning">
+            <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
               <span className="text-2xl mr-3">📞</span>
               10. Contacto y cambios en los términos
             </h3>
             <div className="grid gap-[1.618rem] md:grid-cols-2">
               <article className="card-golden bg-card/50">
-                <h4 className="font-bold mb-[0.618rem] text-orange-700 dark:text-orange-300">📧 Contacto</h4>
-                <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+                <h4 className="font-bold mb-[0.618rem] text-warning">📧 Contacto</h4>
+                <ul className="text-sm text-foreground/90 space-golden-xs">
                   <li>• Email: legal@nutrifit-calculator.com</li>
                   <li>• Formulario de contacto en nuestro sitio web</li>
                 </ul>
               </article>
               <article className="card-golden bg-card/50">
-                <h4 className="font-bold mb-[0.618rem] text-orange-700 dark:text-orange-300">🔄 Cambios</h4>
-                <p className="text-sm text-orange-800 dark:text-orange-200 leading-[1.618]">
+                <h4 className="font-bold mb-[0.618rem] text-warning">🔄 Cambios</h4>
+                <p className="text-sm text-foreground/90 leading-[1.618]">
                   Podemos actualizar estos términos ocasionalmente. Los cambios significativos
                   se comunicarán a través de nuestro sitio web.
                 </p>

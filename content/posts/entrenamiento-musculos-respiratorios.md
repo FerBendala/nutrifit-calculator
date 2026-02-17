@@ -1,11 +1,11 @@
 ---
 title: 'Entrenamiento de Músculos Respiratorios: Más Tolerancia al Esfuerzo sin Complicar tu Rutina'
 date: '2026-01-19'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía práctica para mejorar la fuerza inspiratoria y la comodidad al entrenar con un protocolo breve y progresivo.'
 categories: ['Salud', 'Entrenamiento', 'Rendimiento']
 tags: ['respiracion', 'musculos-respiratorios', 'rendimiento', 'fatiga', 'resistencia']
-image: 'https://cdn.pixabay.com/photo/2021/02/16/21/48/woman-6022486_1280.jpg'
+image: '/images/blog/entrenamiento-musculos-respiratorios.jpg'
 slug: 'entrenamiento-musculos-respiratorios'
 readTime: 8
 featured: false

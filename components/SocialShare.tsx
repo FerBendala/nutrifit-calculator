@@ -70,7 +70,7 @@ export function SocialShare({ title, url, description, calculatorName = 'general
         {isClient && 'share' in navigator && (
           <button
             onClick={handleNativeShare}
-            className="px-3 py-2 text-xs bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
+            className="px-3 py-2 text-xs bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors"
             aria-label="Compartir"
           >
             📱 Compartir
@@ -82,7 +82,7 @@ export function SocialShare({ title, url, description, calculatorName = 'general
           href={shareUrls.twitter}
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="px-3 py-2 text-xs bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+          className="px-3 py-2 text-xs bg-[#1DA1F2] dark:bg-[#1a8cd8] text-white rounded-md hover:bg-[#1a8cd8] dark:hover:bg-[#1573b5] transition-colors"
           aria-label="Compartir en Twitter"
           onClick={() => handleSocialClick('twitter')}
         >
@@ -94,7 +94,7 @@ export function SocialShare({ title, url, description, calculatorName = 'general
           href={shareUrls.facebook}
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="px-3 py-2 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+          className="px-3 py-2 text-xs bg-[#1877F2] dark:bg-[#1666d9] text-white rounded-md hover:bg-[#1666d9] dark:hover:bg-[#1455c0] transition-colors"
           aria-label="Compartir en Facebook"
           onClick={() => handleSocialClick('facebook')}
         >
@@ -106,7 +106,7 @@ export function SocialShare({ title, url, description, calculatorName = 'general
           href={shareUrls.whatsapp}
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="px-3 py-2 text-xs bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+          className="px-3 py-2 text-xs bg-[#25D366] dark:bg-[#20bd5a] text-white rounded-md hover:bg-[#20bd5a] dark:hover:bg-[#1ca74e] transition-colors"
           aria-label="Compartir en WhatsApp"
           onClick={() => handleSocialClick('whatsapp')}
         >
@@ -116,14 +116,14 @@ export function SocialShare({ title, url, description, calculatorName = 'general
         {/* Copy Link */}
         <button
           onClick={handleCopyLink}
-          className="px-3 py-2 text-xs bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
+          className="px-3 py-2 text-xs bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors"
           aria-label="Copiar enlace"
         >
           {copied ? '✅ Copiado' : '🔗 Copiar'}
         </button>
       </div>
 
-      <p className="text-xs text-gray-600">
+      <p className="text-xs text-muted-foreground">
         ¡Ayuda a otros a calcular sus macros de forma gratuita!
       </p>
     </div>

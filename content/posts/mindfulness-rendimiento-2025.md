@@ -1,11 +1,11 @@
 ---
 title: 'Mindfulness y Rendimiento: Protocolos Breves para Atletas y Creadores'
 date: '2025-10-13'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Integra mindfulness, respiración diafragmática y biofeedback para mejorar foco, HRV y recuperación con evidencia actualizada.'
 categories: ['Salud Mental', 'Rendimiento', 'Recuperación']
 tags: ['mindfulness', 'respiración', 'HRV', 'estrés', 'rendimiento cognitivo']
-image: 'https://cdn.pixabay.com/photo/2018/07/05/20/55/lip-3519155_1280.jpg'
+image: '/images/blog/mindfulness-rendimiento-2025.jpg'
 slug: 'mindfulness-rendimiento-2025'
 readTime: 8
 featured: false

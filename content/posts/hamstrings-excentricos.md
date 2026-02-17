@@ -1,11 +1,11 @@
 ---
 title: 'Isquios resistentes: excéntricos y movilidad para prevenir lesiones'
 date: '2025-12-10'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Cómo combinar excéntricos, velocidad y movilidad para proteger el tendón y mejorar la arrancada y el sprint en cualquier deportista.'
 categories: ['Entrenamiento', 'Prevención', 'Rendimiento']
 tags: ['isquiotibiales', 'excéntricos', 'sprint', 'lesiones', 'movilidad']
-image: 'https://cdn.pixabay.com/photo/2018/01/01/01/56/yoga-3053487_1280.jpg'
+image: '/images/blog/hamstrings-excentricos.jpg'
 slug: 'hamstrings-excentricos'
 readTime: 8
 featured: false

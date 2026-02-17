@@ -1,11 +1,11 @@
 ---
 title: 'Core y Espalda Baja: Entrenamiento Seguro para Salud y Rendimiento'
 date: '2026-01-12'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía práctica para fortalecer el core, reducir dolor lumbar y mejorar estabilidad con progresión inteligente.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags: ['core', 'lumbalgia', 'estabilidad', 'fuerza', 'movilidad']
-image: 'https://cdn.pixabay.com/photo/2020/06/02/00/08/back-5248830_1280.jpg'
+image: '/images/blog/core-espalda-salud.jpg'
 slug: 'core-espalda-salud'
 readTime: 8
 featured: false

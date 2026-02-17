@@ -1,6 +1,5 @@
 "use client";
 
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
@@ -49,8 +48,6 @@ export default function FibraPage() {
 
       <Container size="xl" className="py-[4.236rem]">
         <main className="max-w-5xl mx-auto space-golden-lg">
-          <Breadcrumbs items={[{ label: 'Fibra Diaria' }]} className="mb-6" />
-
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora de Fibra Diaria
@@ -65,14 +62,14 @@ export default function FibraPage() {
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <Leaf className="w-6 h-6 mr-3 text-green-600 dark:text-green-400" />
+                  <Leaf className="w-6 h-6 mr-3 text-success" />
                   Calculadora de Fibra
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-green-50 dark:bg-green-950/30 rounded-lg p-4 mb-6">
+                <div className="bg-success-subtle rounded-lg p-4 mb-6">
                   <div className="flex items-start gap-3">
-                    <Info className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                    <Info className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-muted-foreground">
                       <strong>Nota:</strong> La ingesta calórica es opcional. Si la introduces, obtendrás además la recomendación por calorías (14 g de fibra por cada 1000 kcal).
                     </p>
@@ -134,21 +131,21 @@ export default function FibraPage() {
             <section className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
               <header className="p-6 pb-0">
                 <h2 className="text-2xl font-semibold flex items-center justify-center">
-                  <Leaf className="w-6 h-6 mr-3 text-green-600 dark:text-green-400" />
+                  <Leaf className="w-6 h-6 mr-3 text-success" />
                   Tus Necesidades de Fibra
                 </h2>
               </header>
               <div className="p-6 space-golden-md">
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  <Card className="bg-gradient-to-br from-green-50 to-green-100">
+                  <Card className="bg-gradient-to-br bg-success-subtle">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold text-green-900">Por edad y sexo (IOM/FDA)</CardTitle>
+                      <CardTitle className="text-sm font-semibold text-foreground">Por edad y sexo (IOM/FDA)</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-green-700 dark:text-green-300">
+                      <div className="text-2xl font-bold text-success">
                         {formatGrams(result.byAgeSex)}
                       </div>
-                      <p className="text-xs text-green-600 dark:text-green-400 mt-1">Ingesta adecuada diaria</p>
+                      <p className="text-xs text-success mt-1">Ingesta adecuada diaria</p>
                     </CardContent>
                   </Card>
                   {result.byCalories !== undefined && (
@@ -177,9 +174,9 @@ export default function FibraPage() {
                   </Card>
                 </div>
 
-                <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
+                <Card className="bg-gradient-to-br bg-info-subtle border-l-4 border-info">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       Interpretación
                     </CardTitle>
@@ -189,9 +186,9 @@ export default function FibraPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-400">
+                <Card className="bg-gradient-to-br bg-success-subtle border-l-4 border-success">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-green-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Leaf className="w-4 h-4 mr-2" />
                       Consejos prácticos
                     </CardTitle>
@@ -200,7 +197,7 @@ export default function FibraPage() {
                     <ul className="space-y-2">
                       {result.tips.map((tip, index) => (
                         <li key={index} className="flex items-start text-sm text-muted-foreground">
-                          <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                          <span className="text-success mr-2">•</span>
                           <span>{tip}</span>
                         </li>
                       ))}
@@ -208,7 +205,7 @@ export default function FibraPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-amber-50 to-amber-100 border-l-4 border-amber-400">
+                <Card className="bg-gradient-to-br bg-warning-subtle border-l-4 border-amber-400">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-semibold flex items-center text-amber-900">
                       <Leaf className="w-4 h-4 mr-2" />
@@ -245,7 +242,7 @@ export default function FibraPage() {
             <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Leaf className="w-5 h-5 mr-3 text-green-600 dark:text-green-400" />
+                  <Leaf className="w-5 h-5 mr-3 text-success" />
                   Recomendaciones IOM/FDA
                 </h3>
                 <div className="space-golden-sm text-sm text-muted-foreground">
@@ -256,7 +253,7 @@ export default function FibraPage() {
               </article>
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Info className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400" />
+                  <Info className="w-5 h-5 mr-3 text-info" />
                   Tipos de fibra
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs list-disc list-inside">
@@ -277,23 +274,23 @@ export default function FibraPage() {
             </section>
           </article>
 
-          <section className="bg-orange-50 dark:bg-orange-950/30 card-golden border-l-4 border-orange-400 mb-6">
-            <h3 className="font-bold text-orange-900 mb-3 text-lg">Otras calculadoras de nutrición</h3>
-            <ul className="text-sm text-orange-800 dark:text-orange-200 space-y-2">
+          <section className="bg-warning-subtle card-golden border-l-4 border-warning mb-6">
+            <h3 className="font-bold text-foreground mb-3 text-lg">Otras calculadoras de nutrición</h3>
+            <ul className="text-sm text-foreground/90 space-y-2">
               <li>
-                <strong><a href="/azucar/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según calorías (&lt;10% y &lt;5%)
+                <strong><a href="/azucar/" className="text-info hover:underline transition-colors font-medium transition-golden">Límite de azúcar (OMS):</a></strong> Máximo de azúcares libres según calorías (&lt;10% y &lt;5%)
               </li>
               <li>
-                <strong><a href="/sodio/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Sodio/Sal (OMS):</a></strong> Límite de sodio y sal, incl. recomendación para HTA
+                <strong><a href="/sodio/" className="text-info hover:underline transition-colors font-medium transition-golden">Sodio/Sal (OMS):</a></strong> Límite de sodio y sal, incl. recomendación para HTA
               </li>
               <li>
-                <strong><a href="/alcohol/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Alcohol:</a></strong> Unidades estándar, calorías y límite de bajo riesgo
+                <strong><a href="/alcohol/" className="text-info hover:underline transition-colors font-medium transition-golden">Alcohol:</a></strong> Unidades estándar, calorías y límite de bajo riesgo
               </li>
               <li>
-                <strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Proteína diaria:</a></strong> Necesidades según objetivo y actividad
+                <strong><a href="/proteina/" className="text-info hover:underline transition-colors font-medium transition-golden">Proteína diaria:</a></strong> Necesidades según objetivo y actividad
               </li>
               <li>
-                <strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">TDEE:</a></strong> Gasto calórico total diario
+                <strong><a href="/tdee/" className="text-info hover:underline transition-colors font-medium transition-golden">TDEE:</a></strong> Gasto calórico total diario
               </li>
             </ul>
           </section>

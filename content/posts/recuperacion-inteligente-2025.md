@@ -1,12 +1,12 @@
 ---
 title: 'Recuperación Inteligente: Protocolos Basados en Ciencia para Potenciar tu Entrenamiento'
 date: '2025-09-29'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Integra frío, respiración, movilidad y monitorización con wearables para acelerar la recuperación y estabilizar tu sistema nervioso con la evidencia más reciente.'
 categories: ['Recuperación', 'Rendimiento', 'Salud Metabólica']
 tags:
   ['recuperación activa', 'crioterapia', 'respiración', 'HRV', 'foam rolling']
-image: 'https://cdn.pixabay.com/photo/2022/04/18/13/27/yoga-7140566_1280.jpg'
+image: '/images/blog/recuperacion-inteligente-2025.jpg'
 slug: 'recuperacion-inteligente-2025'
 readTime: 9
 featured: false

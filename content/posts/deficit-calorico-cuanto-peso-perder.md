@@ -1,7 +1,7 @@
 ---
 title: '¿Cuánto Peso Puedes Perder sin Comprometer tu Salud?'
 date: '2025-09-17'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Actualiza tu estrategia de pérdida de peso con la evidencia 2021-2025: aprende a calcular un déficit calórico seguro, mantener masa magra y evitar la adaptación metabólica.'
 categories:
   ['Pérdida de peso', 'Déficit calórico', 'Nutrición basada en evidencia']
@@ -13,7 +13,7 @@ tags:
     'ayuno intermitente',
     'salud metabólica',
   ]
-image: 'https://cdn.pixabay.com/photo/2021/02/05/20/46/weight-loss-5985835_1280.jpg'
+image: '/images/blog/deficit-calorico-cuanto-peso-perder.jpg'
 slug: 'deficit-calorico-cuanto-peso-perder'
 readTime: 9
 featured: true

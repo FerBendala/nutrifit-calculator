@@ -5,16 +5,18 @@ import { MetadataRoute } from 'next';
 const BASE_URL = SITE_CONFIG.url.replace(/\/$/, ''); // sin barra final
 const BUILD_TIME = new Date(); // congela la fecha en el build
 
+const HIGH_PRIORITY_CALCULATORS = new Set([
+  'imc', 'tdee', 'grasa-corporal', 'peso-ideal', 'masa-muscular',
+  'composicion', 'ritmo-cardiaco', 'proteina', 'bmr', 'agua',
+]);
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Ajusta aquí qué claves de PAGE_METADATA son indexables
   const indexables = Object.entries(PAGE_METADATA)
-    // .filter(([_, page]) => page.index !== false) // si tienes flag
     .map(([key, page]) => {
-      // prioridad por tipo de página
       const priority =
         key === 'home' ? 1
-          : key === 'imc' || key === 'tdee' || key === 'composicion' || key === 'ritmo-cardiaco' || key === 'grasa-corporal' || key === 'peso-ideal' || key === 'masa-muscular' ? 0.9
-            : 0.8;
+          : HIGH_PRIORITY_CALCULATORS.has(key) ? 0.9
+            : 0.85;
 
       const changeFrequency:
         | 'always' | 'hourly' | 'daily' | 'weekly'
@@ -28,6 +30,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority
       } as const;
     });
+
+  const institutionalRoutes = [
+    { path: '/sobre-nosotros/', priority: 0.6, changeFrequency: 'monthly' as const },
+    { path: '/equipo/', priority: 0.6, changeFrequency: 'monthly' as const },
+  ].map(p => ({
+    url: `${BASE_URL}${p.path}`,
+    lastModified: BUILD_TIME,
+    changeFrequency: p.changeFrequency,
+    priority: p.priority,
+  }));
 
   const legalRoutes = [
     { path: '/privacidad/', priority: 0.3, changeFrequency: 'yearly' as const },
@@ -80,10 +92,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     }));
 
-    return [...indexables, ...legalRoutes, ...blogRoutes, ...postRoutes, ...categoryRoutes, ...tagRoutes];
+    return [...indexables, ...institutionalRoutes, ...legalRoutes, ...blogRoutes, ...postRoutes, ...categoryRoutes, ...tagRoutes];
   } catch (error) {
     console.error('Error generating blog sitemap:', error);
-    // Fallback sin rutas del blog si hay error
-    return [...indexables, ...legalRoutes];
+    return [...indexables, ...institutionalRoutes, ...legalRoutes];
   }
 }

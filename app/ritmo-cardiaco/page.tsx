@@ -162,10 +162,10 @@ export default function RitmoCardiacoPage() {
                 </header>
                 <div className="p-6">
                   <div className="text-center space-golden-sm">
-                    <div className="text-6xl font-bold text-red-600 dark:text-red-400 mb-[0.618rem]">
+                    <div className="text-6xl font-bold text-destructive mb-[0.618rem]">
                       {result.maxHR}
                     </div>
-                    <div className="text-xl font-bold text-red-700 dark:text-red-300 mb-[0.382rem]">
+                    <div className="text-xl font-bold text-destructive mb-[0.382rem]">
                       pulsaciones por minuto (ppm)
                     </div>
                     <div className="text-lg text-muted-foreground">
@@ -179,7 +179,7 @@ export default function RitmoCardiacoPage() {
               </article>
 
               {/* Zona de Quema de Grasa */}
-              <article className="card-golden-lg shadow-golden-lg border-2 border-orange-400/20">
+              <article className="card-golden-lg shadow-golden-lg border-2 border-warning/20">
                 <header className="p-6 pb-0">
                   <h2 className="text-2xl font-semibold flex items-center justify-center">
                     <span className="text-3xl mr-3">🔥</span>
@@ -187,19 +187,19 @@ export default function RitmoCardiacoPage() {
                   </h2>
                 </header>
                 <div className="p-6">
-                  <div className="card-golden bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-400">
+                  <div className="card-golden bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-warning">
                     <div className="text-center space-golden-sm">
-                      <div className="text-4xl font-bold text-orange-600 dark:text-orange-400 mb-[0.618rem]">
+                      <div className="text-4xl font-bold text-warning mb-[0.618rem]">
                         {result.fatBurning.min} - {result.fatBurning.max} ppm
                       </div>
-                      <div className="text-lg font-semibold text-orange-700 dark:text-orange-300 mb-[0.382rem]">
+                      <div className="text-lg font-semibold text-warning mb-[0.382rem]">
                         Zona 2 - Base Aeróbica ({result.fatBurning.percentage} FC máx)
                       </div>
-                      <div className="text-sm text-orange-800 dark:text-orange-200">
+                      <div className="text-sm text-foreground/90">
                         <strong>Óptimo para quemar grasa:</strong> {result.fatBurning.optimal} ppm
                       </div>
                     </div>
-                    <div className="mt-[1.618rem] text-sm text-orange-800 dark:text-orange-200">
+                    <div className="mt-[1.618rem] text-sm text-foreground/90">
                       <p className="leading-[1.618]">
                         <strong>💡 Consejo:</strong> Mantén tu ritmo cardíaco en esta zona durante
                         30-60 minutos para maximizar la quema de grasa. Es ideal para ejercicio
@@ -241,12 +241,12 @@ export default function RitmoCardiacoPage() {
                           </div>
 
                           {/* Visual bar */}
-                          <div className="w-full bg-gray-200 rounded-full h-3 mb-[0.618rem]">
+                          <div className="w-full bg-muted rounded-full h-3 mb-[0.618rem]">
                             <div
                               className={`h-3 rounded-full transition-all duration-500 ease-out ${key === 'zone1' ? 'bg-muted0' :
-                                key === 'zone2' ? 'bg-blue-50 dark:bg-blue-950/300' :
-                                  key === 'zone3' ? 'bg-green-50 dark:bg-green-950/300' :
-                                    key === 'zone4' ? 'bg-yellow-50 dark:bg-yellow-950/300' : 'bg-red-50 dark:bg-red-950/300'
+                                key === 'zone2' ? 'bg-info-subtle0' :
+                                  key === 'zone3' ? 'bg-success-subtle0' :
+                                    key === 'zone4' ? 'bg-warning-subtle0' : 'bg-destructive-subtle0'
                                 }`}
                               style={{ width: `${percentageMax}%` }}
                             ></div>
@@ -287,11 +287,11 @@ export default function RitmoCardiacoPage() {
                 </p>
                 <ul className="text-sm space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                    <span className="text-info mr-2">•</span>
                     <span><strong>Tanaka:</strong> 208 - (0.7 × edad) - Más precisa</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-pink-600 mr-2">•</span>
+                    <span className="text-destructive mr-2">•</span>
                     <span><strong>Gulati:</strong> 206 - (0.88 × edad) - Para mujeres</span>
                   </li>
                   <li className="flex items-start">
@@ -308,27 +308,27 @@ export default function RitmoCardiacoPage() {
                 </h3>
                 <ul className="text-sm space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                    <span className="text-success mr-2">•</span>
                     <span>Optimización de cada sesión de entrenamiento</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                    <span className="text-info mr-2">•</span>
                     <span>Máxima eficiencia en la quema de grasa</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Mejora progresiva del rendimiento cardiovascular</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>Prevención del sobreentrenamiento</span>
                   </li>
                 </ul>
               </article>
             </section>
 
-            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
+            <section className="card-golden-lg bg-info-subtle border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🔥</span>
                 Guía detallada de zonas de entrenamiento
               </h3>
@@ -338,7 +338,7 @@ export default function RitmoCardiacoPage() {
                     <span className="text-lg mr-2">⚪</span>
                     Zona 1 - Recuperación (50-60%)
                   </h4>
-                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• Duración: 20-60 minutos</li>
                     <li>• Ideal para: Calentamiento y enfriamiento</li>
                     <li>• Sensación: Muy fácil, puedes conversar</li>
@@ -346,11 +346,11 @@ export default function RitmoCardiacoPage() {
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <span className="text-lg mr-2">🔵</span>
                     Zona 2 - Base Aeróbica (60-70%)
                   </h4>
-                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• Duración: 30-90 minutos</li>
                     <li>• Ideal para: <strong>Quemar grasa</strong></li>
                     <li>• Sensación: Cómodo, respiración controlada</li>
@@ -358,11 +358,11 @@ export default function RitmoCardiacoPage() {
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-success flex items-center">
                     <span className="text-lg mr-2">🟢</span>
                     Zona 3 - Aeróbica (70-80%)
                   </h4>
-                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• Duración: 20-60 minutos</li>
                     <li>• Ideal para: Resistencia cardiovascular</li>
                     <li>• Sensación: Moderado, respiración profunda</li>
@@ -370,11 +370,11 @@ export default function RitmoCardiacoPage() {
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-yellow-700 dark:text-yellow-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-warning flex items-center">
                     <span className="text-lg mr-2">🟡</span>
                     Zona 4 - Umbral (80-90%)
                   </h4>
-                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• Duración: 10-40 minutos</li>
                     <li>• Ideal para: Mejorar velocidad y potencia</li>
                     <li>• Sensación: Difícil, respiración agitada</li>
@@ -384,15 +384,15 @@ export default function RitmoCardiacoPage() {
               </div>
             </section>
 
-            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
-              <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🔥</span>
                 Maximizando la quema de grasa
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-orange-700 dark:text-orange-300">🎯 Zona óptima</h4>
-                  <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+                  <h4 className="font-bold mb-[0.618rem] text-warning">🎯 Zona óptima</h4>
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• <strong>60-70% FC máxima</strong> - Zona 2</li>
                     <li>• El cuerpo usa principalmente grasa como combustible</li>
                     <li>• Puedes mantener esta intensidad por tiempo prolongado</li>
@@ -400,26 +400,26 @@ export default function RitmoCardiacoPage() {
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-orange-700 dark:text-orange-300">⏱️ Duración recomendada</h4>
-                  <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+                  <h4 className="font-bold mb-[0.618rem] text-warning">⏱️ Duración recomendada</h4>
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• <strong>Mínimo:</strong> 30 minutos para activar lipolisis</li>
                     <li>• <strong>Óptimo:</strong> 45-60 minutos para máxima quema</li>
                     <li>• <strong>Frecuencia:</strong> 3-5 veces por semana</li>
-                    <li>• Combina con <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline">dieta alta en proteína</a></li>
+                    <li>• Combina con <a href="/proteina/" className="text-info hover:underline transition-colors">dieta alta en proteína</a></li>
                   </ul>
                 </article>
               </div>
             </section>
 
-            <section className="bg-green-50 dark:bg-green-950/30 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
-              <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-success-subtle card-golden-lg border-l-4 border-success mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📱</span>
                 Cómo monitorear tu ritmo cardíaco
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300">📊 Métodos de medición</h4>
-                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
+                  <h4 className="font-bold mb-[0.618rem] text-success">📊 Métodos de medición</h4>
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• <strong>Pulsómetro de pecho:</strong> Más preciso</li>
                     <li>• <strong>Smartwatch/fitness tracker:</strong> Conveniente</li>
                     <li>• <strong>Medición manual:</strong> Pulso en muñeca o cuello</li>
@@ -427,37 +427,37 @@ export default function RitmoCardiacoPage() {
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300">💡 Consejos prácticos</h4>
-                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
+                  <h4 className="font-bold mb-[0.618rem] text-success">💡 Consejos prácticos</h4>
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• Mide en reposo para establecer línea base</li>
                     <li>• Ajusta según cómo te sientes (RPE)</li>
                     <li>• Considera factores externos (calor, estrés)</li>
-                    <li>• Mantente <a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline">bien hidratado</a></li>
+                    <li>• Mantente <a href="/agua/" className="text-info hover:underline transition-colors">bien hidratado</a></li>
                   </ul>
                 </article>
               </div>
             </section>
 
-            <section className="bg-yellow-50 dark:bg-yellow-950/30 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
-              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">⚠️</span>
                 Consideraciones importantes
               </h3>
-              <ul className="text-sm text-yellow-800 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Los cálculos son estimaciones:</strong> La FC máxima real puede variar ±10-15 ppm</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Factores que afectan FC:</strong> Medicamentos, cafeína, estrés, temperatura</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Consulta médica:</strong> Si tienes problemas cardíacos o tomas medicación</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Escucha tu cuerpo:</strong> Las sensaciones son tan importantes como los números</span>
                 </li>
               </ul>
@@ -481,7 +481,7 @@ export default function RitmoCardiacoPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-muted">
-                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo se relaciona con mi <a href="/" className="text-blue-600 dark:text-blue-400 hover:underline">plan nutricional</a>?</h4>
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo se relaciona con mi <a href="/" className="text-info hover:underline transition-colors">plan nutricional</a>?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
                     El entrenamiento cardiovascular debe complementar tu plan nutricional. Si buscas
                     perder grasa, combina Zona 2 con un déficit calórico moderado calculado con nuestras herramientas.
@@ -491,27 +491,27 @@ export default function RitmoCardiacoPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
-              <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Optimiza tu plan de entrenamiento completo
               </h3>
-              <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tus calorías diarias:</a></strong> Ajusta tu nutrición según tu gasto calórico en cada zona</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tus calorías diarias:</a></strong> Ajusta tu nutrición según tu gasto calórico en cada zona</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mide tu composición corporal:</a></strong> Evalúa los resultados de tu entrenamiento cardiovascular</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/composicion/" className="text-info hover:underline transition-colors font-medium transition-golden">Mide tu composición corporal:</a></strong> Evalúa los resultados de tu entrenamiento cardiovascular</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/vo2max/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> Mide tu VO2 Max con tests científicos validados</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/vo2max/" className="text-info hover:underline transition-colors font-medium transition-golden">Evalúa tu capacidad cardiovascular:</a></strong> Mide tu VO2 Max con tests científicos validados</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Mantén hidratación óptima:</a></strong> Fundamental para el rendimiento cardiovascular</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/agua/" className="text-info hover:underline transition-colors font-medium transition-golden">Mantén hidratación óptima:</a></strong> Fundamental para el rendimiento cardiovascular</span>
                 </li>
               </ul>
             </section>

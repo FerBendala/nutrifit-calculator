@@ -1,11 +1,11 @@
 ---
 title: 'Lesiones óseas por estrés en 2025: Cómo anticiparlas antes de que te frenen'
 date: '2025-11-19'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Protocolos prácticos para vigilar la salud ósea de corredores y deportistas con datos de DEXA, TBS, carga y nutrición.'
 categories: ['Prevención', 'Salud Ósea', 'Entrenamiento']
 tags: ['bone stress injury', 'DEXA', 'TBS', 'corredores', 'prevención']
-image: 'https://cdn.pixabay.com/photo/2024/04/01/11/58/injury-8668706_1280.jpg'
+image: '/images/blog/bsi-prevencion-2025.jpg'
 slug: 'bsi-prevencion-2025'
 readTime: 8
 featured: false

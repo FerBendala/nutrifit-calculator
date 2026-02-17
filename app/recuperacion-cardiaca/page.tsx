@@ -79,15 +79,15 @@ export default function RecuperacionCardiacaPage() {
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <TrendingDown className="w-6 h-6 mr-3 text-red-600 dark:text-red-400" />
+                  <TrendingDown className="w-6 h-6 mr-3 text-destructive" />
                   Calculadora de Recuperación Cardíaca
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-golden-md">
-                  <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
+                  <div className="bg-info-subtle rounded-lg p-4 mb-6">
                     <div className="flex items-start gap-3">
-                      <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                      <Info className="h-5 w-5 text-info mt-0.5 flex-shrink-0" />
                       <p className="text-sm text-muted-foreground">
                         <strong>Nota:</strong> La recuperación cardíaca (HRR) mide cuánto baja tu frecuencia cardíaca
                         después de detener el ejercicio. Mide tu frecuencia cardíaca inmediatamente después del ejercicio
@@ -180,8 +180,8 @@ export default function RecuperacionCardiacaPage() {
 
                   {formData.peakHR && formData.hr1min && 
                    parseFloat(formData.peakHR) <= parseFloat(formData.hr1min) && (
-                    <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 rounded-lg p-3">
-                      <p className="text-sm text-red-700 dark:text-red-300">
+                    <div className="bg-destructive-subtle border border-destructive rounded-lg p-3">
+                      <p className="text-sm text-foreground/90">
                         <AlertTriangle className="w-4 h-4 inline mr-2" />
                         La frecuencia cardíaca pico debe ser mayor que la frecuencia cardíaca post-ejercicio.
                       </p>
@@ -190,8 +190,8 @@ export default function RecuperacionCardiacaPage() {
 
                   {formData.peakHR && formData.hr2min && 
                    parseFloat(formData.peakHR) <= parseFloat(formData.hr2min) && (
-                    <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 rounded-lg p-3">
-                      <p className="text-sm text-red-700 dark:text-red-300">
+                    <div className="bg-destructive-subtle border border-destructive rounded-lg p-3">
+                      <p className="text-sm text-foreground/90">
                         <AlertTriangle className="w-4 h-4 inline mr-2" />
                         La frecuencia cardíaca pico debe ser mayor que la frecuencia cardíaca post-ejercicio.
                       </p>
@@ -215,45 +215,45 @@ export default function RecuperacionCardiacaPage() {
             <section className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
               <header className="p-6 pb-0">
                 <h2 className="text-2xl font-semibold flex items-center justify-center">
-                  <TrendingDown className="w-6 h-6 mr-3 text-red-600 dark:text-red-400" />
+                  <TrendingDown className="w-6 h-6 mr-3 text-destructive" />
                   Resultados de Recuperación Cardíaca
                 </h2>
               </header>
               <div className="p-6 space-golden-md">
                 {/* HRR Principal */}
-                <Card className={`bg-gradient-to-br ${result.category1min === 'Excelente' || result.category2min === 'Excelente' ? 'from-green-50 to-green-100 border-green-400' :
-                  result.category1min === 'Buena' || result.category2min === 'Buena' ? 'from-blue-50 to-blue-100 border-blue-400' :
-                    result.category1min === 'Normal' || result.category2min === 'Normal' ? 'from-yellow-50 to-yellow-100 border-yellow-400' :
-                      result.category1min === 'Pobre' || result.category2min === 'Pobre' ? 'from-orange-50 to-orange-100 border-orange-400' :
-                        'from-red-50 to-red-100 border-red-400'
+                <Card className={`bg-gradient-to-br ${result.category1min === 'Excelente' || result.category2min === 'Excelente' ? 'bg-success-subtle border-success' :
+                  result.category1min === 'Buena' || result.category2min === 'Buena' ? 'bg-info-subtle border-info' :
+                    result.category1min === 'Normal' || result.category2min === 'Normal' ? 'bg-warning-subtle border-warning' :
+                      result.category1min === 'Pobre' || result.category2min === 'Pobre' ? 'bg-warning-subtle border-warning' :
+                        'from-red-50 to-red-100 border-destructive'
                   } border-l-4`}>
                   <CardHeader className="pb-2">
-                    <CardTitle className={`text-sm font-semibold flex items-center ${result.category1min === 'Excelente' || result.category2min === 'Excelente' ? 'text-green-900' :
-                      result.category1min === 'Buena' || result.category2min === 'Buena' ? 'text-blue-900 dark:text-blue-100' :
-                        result.category1min === 'Normal' || result.category2min === 'Normal' ? 'text-yellow-900' :
-                          result.category1min === 'Pobre' || result.category2min === 'Pobre' ? 'text-orange-900' :
-                            'text-red-900'
+                    <CardTitle className={`text-sm font-semibold flex items-center ${result.category1min === 'Excelente' || result.category2min === 'Excelente' ? 'text-foreground' :
+                      result.category1min === 'Buena' || result.category2min === 'Buena' ? 'text-foreground' :
+                        result.category1min === 'Normal' || result.category2min === 'Normal' ? 'text-foreground' :
+                          result.category1min === 'Pobre' || result.category2min === 'Pobre' ? 'text-foreground' :
+                            'text-foreground'
                       }`}>
                       <TrendingDown className="w-4 h-4 mr-2" />
                       Recuperación Cardíaca
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className={`text-4xl font-bold mb-2 ${result.category1min === 'Excelente' || result.category2min === 'Excelente' ? 'text-green-700 dark:text-green-300' :
-                      result.category1min === 'Buena' || result.category2min === 'Buena' ? 'text-blue-700 dark:text-blue-300' :
-                        result.category1min === 'Normal' || result.category2min === 'Normal' ? 'text-yellow-700 dark:text-yellow-300' :
-                          result.category1min === 'Pobre' || result.category2min === 'Pobre' ? 'text-orange-700 dark:text-orange-300' :
-                            'text-red-700 dark:text-red-300'
+                    <div className={`text-4xl font-bold mb-2 ${result.category1min === 'Excelente' || result.category2min === 'Excelente' ? 'text-success' :
+                      result.category1min === 'Buena' || result.category2min === 'Buena' ? 'text-info' :
+                        result.category1min === 'Normal' || result.category2min === 'Normal' ? 'text-warning' :
+                          result.category1min === 'Pobre' || result.category2min === 'Pobre' ? 'text-warning' :
+                            'text-destructive'
                       }`}>
                       {result.hrr1min !== undefined && `${result.hrr1min} bpm`}
                       {result.hrr1min !== undefined && result.hrr2min !== undefined && ' / '}
                       {result.hrr2min !== undefined && `${result.hrr2min} bpm`}
                     </div>
-                    <div className={`text-lg font-semibold mb-1 ${result.category1min === 'Excelente' || result.category2min === 'Excelente' ? 'text-green-800 dark:text-green-200' :
-                      result.category1min === 'Buena' || result.category2min === 'Buena' ? 'text-blue-800 dark:text-blue-200' :
-                        result.category1min === 'Normal' || result.category2min === 'Normal' ? 'text-yellow-800 dark:text-yellow-200' :
-                          result.category1min === 'Pobre' || result.category2min === 'Pobre' ? 'text-orange-800 dark:text-orange-200' :
-                            'text-red-800 dark:text-red-200'
+                    <div className={`text-lg font-semibold mb-1 ${result.category1min === 'Excelente' || result.category2min === 'Excelente' ? 'text-foreground/90' :
+                      result.category1min === 'Buena' || result.category2min === 'Buena' ? 'text-foreground/90' :
+                        result.category1min === 'Normal' || result.category2min === 'Normal' ? 'text-foreground/90' :
+                          result.category1min === 'Pobre' || result.category2min === 'Pobre' ? 'text-foreground/90' :
+                            'text-foreground/90'
                       }`}>
                       {result.status}
                     </div>
@@ -266,27 +266,27 @@ export default function RecuperacionCardiacaPage() {
                 {/* Detalles de HRR */}
                 <div className="grid gap-4 md:grid-cols-2">
                   {result.hrr1min !== undefined && (
-                    <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
+                    <Card className="bg-info-subtle">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
+                        <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                           <Clock className="w-4 h-4 mr-2" />
                           HRR a 1 Minuto
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-2xl font-bold text-blue-700 dark:text-blue-300 mb-1">
+                        <div className="text-2xl font-bold text-info mb-1">
                           {result.hrr1min} bpm
                         </div>
                         {result.hrr1minPercentage !== undefined && (
-                          <p className="text-xs text-blue-600 dark:text-blue-400 mb-2">
+                          <p className="text-xs text-info mb-2">
                             {result.hrr1minPercentage}% de recuperación
                           </p>
                         )}
-                        <div className={`text-sm font-semibold ${result.category1min === 'Excelente' ? 'text-green-700 dark:text-green-300' :
-                          result.category1min === 'Buena' ? 'text-blue-700 dark:text-blue-300' :
-                            result.category1min === 'Normal' ? 'text-yellow-700 dark:text-yellow-300' :
-                              result.category1min === 'Pobre' ? 'text-orange-700 dark:text-orange-300' :
-                                'text-red-700 dark:text-red-300'
+                        <div className={`text-sm font-semibold ${result.category1min === 'Excelente' ? 'text-success' :
+                          result.category1min === 'Buena' ? 'text-info' :
+                            result.category1min === 'Normal' ? 'text-warning' :
+                              result.category1min === 'Pobre' ? 'text-warning' :
+                                'text-destructive'
                           }`}>
                           {result.category1min}
                         </div>
@@ -295,27 +295,27 @@ export default function RecuperacionCardiacaPage() {
                   )}
 
                   {result.hrr2min !== undefined && (
-                    <Card className="bg-gradient-to-br from-purple-50 to-purple-100">
+                    <Card className="bg-accent">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold flex items-center text-purple-900">
+                        <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                           <Clock className="w-4 h-4 mr-2" />
                           HRR a 2 Minutos
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-2xl font-bold text-purple-700 dark:text-purple-300 mb-1">
+                        <div className="text-2xl font-bold text-warning mb-1">
                           {result.hrr2min} bpm
                         </div>
                         {result.hrr2minPercentage !== undefined && (
-                          <p className="text-xs text-purple-600 dark:text-purple-400 mb-2">
+                          <p className="text-xs text-warning mb-2">
                             {result.hrr2minPercentage}% de recuperación
                           </p>
                         )}
-                        <div className={`text-sm font-semibold ${result.category2min === 'Excelente' ? 'text-green-700 dark:text-green-300' :
-                          result.category2min === 'Buena' ? 'text-blue-700 dark:text-blue-300' :
-                            result.category2min === 'Normal' ? 'text-yellow-700 dark:text-yellow-300' :
-                              result.category2min === 'Pobre' ? 'text-orange-700 dark:text-orange-300' :
-                                'text-red-700 dark:text-red-300'
+                        <div className={`text-sm font-semibold ${result.category2min === 'Excelente' ? 'text-success' :
+                          result.category2min === 'Buena' ? 'text-info' :
+                            result.category2min === 'Normal' ? 'text-warning' :
+                              result.category2min === 'Pobre' ? 'text-warning' :
+                                'text-destructive'
                           }`}>
                           {result.category2min}
                         </div>
@@ -325,50 +325,50 @@ export default function RecuperacionCardiacaPage() {
                 </div>
 
                 {/* Frecuencia Cardíaca Pico */}
-                <Card className="bg-gradient-to-br from-red-50 to-red-100">
+                <Card className="bg-destructive-subtle">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-red-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Heart className="w-4 h-4 mr-2" />
                       Frecuencia Cardíaca Pico
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold text-red-700 dark:text-red-300 mb-1">
+                    <div className="text-2xl font-bold text-destructive mb-1">
                       {result.peakHR} bpm
                     </div>
-                    <p className="text-xs text-red-600 dark:text-red-400">
+                    <p className="text-xs text-destructive">
                       Frecuencia cardíaca máxima durante el ejercicio
                     </p>
                   </CardContent>
                 </Card>
 
                 {/* Condición Cardiovascular */}
-                <Card className={`bg-gradient-to-br ${result.cardiovascularFitness.risk === 'Bajo' ? 'from-green-50 to-green-100 border-green-400' :
-                  result.cardiovascularFitness.risk === 'Moderado' ? 'from-yellow-50 to-yellow-100 border-yellow-400' :
-                    'from-red-50 to-red-100 border-red-400'
+                <Card className={`bg-gradient-to-br ${result.cardiovascularFitness.risk === 'Bajo' ? 'bg-success-subtle border-success' :
+                  result.cardiovascularFitness.risk === 'Moderado' ? 'bg-warning-subtle border-warning' :
+                    'from-red-50 to-red-100 border-destructive'
                   } border-l-4`}>
                   <CardHeader className="pb-2">
-                    <CardTitle className={`text-sm font-semibold flex items-center ${result.cardiovascularFitness.risk === 'Bajo' ? 'text-green-900' :
-                      result.cardiovascularFitness.risk === 'Moderado' ? 'text-yellow-900' :
-                        'text-red-900'
+                    <CardTitle className={`text-sm font-semibold flex items-center ${result.cardiovascularFitness.risk === 'Bajo' ? 'text-foreground' :
+                      result.cardiovascularFitness.risk === 'Moderado' ? 'text-foreground' :
+                        'text-foreground'
                       }`}>
                       <CheckCircle className="w-4 h-4 mr-2" />
                       Condición Cardiovascular
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className={`text-lg font-bold mb-1 ${result.cardiovascularFitness.risk === 'Bajo' ? 'text-green-700 dark:text-green-300' :
-                      result.cardiovascularFitness.risk === 'Moderado' ? 'text-yellow-700 dark:text-yellow-300' :
-                        'text-red-700 dark:text-red-300'
+                    <div className={`text-lg font-bold mb-1 ${result.cardiovascularFitness.risk === 'Bajo' ? 'text-success' :
+                      result.cardiovascularFitness.risk === 'Moderado' ? 'text-warning' :
+                        'text-destructive'
                       }`}>
                       {result.cardiovascularFitness.level}
                     </div>
                     <p className="text-sm text-muted-foreground mb-2">
                       {result.cardiovascularFitness.description}
                     </p>
-                    <div className={`text-xs font-semibold inline-block px-2 py-1 rounded ${result.cardiovascularFitness.risk === 'Bajo' ? 'bg-green-200 text-green-800 dark:text-green-200' :
-                      result.cardiovascularFitness.risk === 'Moderado' ? 'bg-yellow-200 text-yellow-800 dark:text-yellow-200' :
-                        'bg-red-200 text-red-800 dark:text-red-200'
+                    <div className={`text-xs font-semibold inline-block px-2 py-1 rounded ${result.cardiovascularFitness.risk === 'Bajo' ? 'bg-success-subtle text-foreground/90' :
+                      result.cardiovascularFitness.risk === 'Moderado' ? 'bg-warning-subtle text-foreground/90' :
+                        'bg-destructive-subtle text-foreground/90'
                       }`}>
                       Riesgo: {result.cardiovascularFitness.risk}
                     </div>
@@ -376,9 +376,9 @@ export default function RecuperacionCardiacaPage() {
                 </Card>
 
                 {/* Recomendaciones */}
-                <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
+                <Card className="bg-gradient-to-br bg-info-subtle border-l-4 border-info">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       Recomendaciones
                     </CardTitle>
@@ -387,7 +387,7 @@ export default function RecuperacionCardiacaPage() {
                     <ul className="space-y-2">
                       {result.recommendations.map((rec, index) => (
                         <li key={index} className="flex items-start text-sm text-muted-foreground">
-                          <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                          <span className="text-info mr-2">•</span>
                           <span>{rec}</span>
                         </li>
                       ))}
@@ -396,9 +396,9 @@ export default function RecuperacionCardiacaPage() {
                 </Card>
 
                 {/* Estrategias de Mejora */}
-                <Card className="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-400">
+                <Card className="bg-gradient-to-br bg-success-subtle border-l-4 border-success">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-green-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Activity className="w-4 h-4 mr-2" />
                       Estrategias de Mejora
                     </CardTitle>
@@ -407,7 +407,7 @@ export default function RecuperacionCardiacaPage() {
                     <ul className="space-y-1">
                       {result.improvementStrategies.map((strategy, index) => (
                         <li key={index} className="flex items-start text-sm text-muted-foreground">
-                          <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                          <span className="text-success mr-2">•</span>
                           <span>{strategy}</span>
                         </li>
                       ))}
@@ -416,21 +416,21 @@ export default function RecuperacionCardiacaPage() {
                 </Card>
 
                 {/* Monitoreo */}
-                <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-l-4 border-purple-400">
+                <Card className="bg-accent border-l-4 border-warning">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-purple-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Clock className="w-4 h-4 mr-2" />
                       Frecuencia de Monitoreo
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-lg font-bold text-purple-700 dark:text-purple-300 mb-2">
+                    <div className="text-lg font-bold text-warning mb-2">
                       {result.monitoring.frequency}
                     </div>
                     <ul className="space-y-1">
                       {result.monitoring.actions.map((action, index) => (
                         <li key={index} className="flex items-start text-sm text-muted-foreground">
-                          <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                          <span className="text-warning mr-2">•</span>
                           <span>{action}</span>
                         </li>
                       ))}
@@ -440,9 +440,9 @@ export default function RecuperacionCardiacaPage() {
 
                 {/* Factores de Riesgo */}
                 {result.riskFactors.length > 0 && (
-                  <Card className="bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-400">
+                  <Card className="bg-destructive-subtle border-l-4 border-destructive">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold flex items-center text-red-900">
+                      <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                         <AlertTriangle className="w-4 h-4 mr-2" />
                         Factores de Riesgo Asociados
                       </CardTitle>
@@ -451,7 +451,7 @@ export default function RecuperacionCardiacaPage() {
                       <ul className="space-y-1">
                         {result.riskFactors.map((risk, index) => (
                           <li key={index} className="flex items-start text-sm text-muted-foreground">
-                            <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                            <span className="text-destructive mr-2">•</span>
                             <span>{risk}</span>
                           </li>
                         ))}
@@ -461,7 +461,7 @@ export default function RecuperacionCardiacaPage() {
                 )}
 
                 {/* Interpretación Clínica */}
-                <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-400">
+                <Card className="bg-gradient-to-br bg-muted border-l-4 border-border">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
@@ -497,7 +497,7 @@ export default function RecuperacionCardiacaPage() {
             <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <TrendingDown className="w-5 h-5 mr-3 text-red-600 dark:text-red-400" />
+                  <TrendingDown className="w-5 h-5 mr-3 text-destructive" />
                   Cómo Medir la HRR
                 </h3>
                 <ol className="text-sm text-muted-foreground space-y-2 list-decimal list-inside">
@@ -511,13 +511,13 @@ export default function RecuperacionCardiacaPage() {
 
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <CheckCircle className="w-5 h-5 mr-3 text-green-600 dark:text-green-400" />
+                  <CheckCircle className="w-5 h-5 mr-3 text-success" />
                   Valores Normales
                 </h3>
                 <div className="space-golden-sm">
-                  <div className="bg-green-50 dark:bg-green-950/30 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-1">HRR a 1 minuto:</p>
-                    <ul className="text-sm text-green-600 dark:text-green-400 space-y-1">
+                  <div className="bg-success-subtle p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-success mb-1">HRR a 1 minuto:</p>
+                    <ul className="text-sm text-success space-y-1">
                       <li>• Excelente: ≥18 bpm</li>
                       <li>• Buena: 15-17 bpm</li>
                       <li>• Normal: 12-14 bpm</li>
@@ -525,9 +525,9 @@ export default function RecuperacionCardiacaPage() {
                       <li>• Muy Pobre: &lt;8 bpm</li>
                     </ul>
                   </div>
-                  <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-1">HRR a 2 minutos:</p>
-                    <ul className="text-sm text-blue-600 dark:text-blue-400 space-y-1">
+                  <div className="bg-info-subtle p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-info mb-1">HRR a 2 minutos:</p>
+                    <ul className="text-sm text-info space-y-1">
                       <li>• Excelente: ≥30 bpm</li>
                       <li>• Buena: 25-29 bpm</li>
                       <li>• Normal: 22-24 bpm</li>
@@ -539,14 +539,14 @@ export default function RecuperacionCardiacaPage() {
               </article>
             </section>
 
-            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <Heart className="w-5 h-5 mr-3" />
                 Importancia Clínica de la HRR
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <CheckCircle className="w-4 h-4 mr-2" />
                     Indicador de Condición Cardiovascular
                   </h4>
@@ -556,7 +556,7 @@ export default function RecuperacionCardiacaPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <AlertTriangle className="w-4 h-4 mr-2" />
                     Predicción de Riesgo Cardiovascular
                   </h4>
@@ -566,7 +566,7 @@ export default function RecuperacionCardiacaPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <Activity className="w-4 h-4 mr-2" />
                     Monitoreo de Progreso
                   </h4>
@@ -576,7 +576,7 @@ export default function RecuperacionCardiacaPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <Info className="w-4 h-4 mr-2" />
                     Función Autonómica
                   </h4>
@@ -588,13 +588,13 @@ export default function RecuperacionCardiacaPage() {
               </div>
             </section>
 
-            <section className="bg-gradient-to-r from-blue-50 to-cyan-50 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl">
+            <section className="bg-gradient-to-r bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl">
                 Preguntas Frecuentes (FAQ)
               </h3>
               <div className="space-golden-md">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-blue-800 dark:text-blue-200">¿Por qué es importante la HRR?</h4>
+                  <h4 className="font-semibold mb-2 text-foreground/90">¿Por qué es importante la HRR?</h4>
                   <p className="text-sm text-muted-foreground">
                     La HRR es un indicador importante de la condición cardiovascular y la función autonómica.
                     Una recuperación rápida indica buena salud cardiovascular, mientras que una recuperación
@@ -602,7 +602,7 @@ export default function RecuperacionCardiacaPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-blue-800 dark:text-blue-200">¿Cómo puedo mejorar mi HRR?</h4>
+                  <h4 className="font-semibold mb-2 text-foreground/90">¿Cómo puedo mejorar mi HRR?</h4>
                   <p className="text-sm text-muted-foreground">
                     Puedes mejorar tu HRR con ejercicio cardiovascular regular, especialmente entrenamiento
                     de intervalos de alta intensidad (HIIT). También ayuda mantener un peso saludable,
@@ -610,7 +610,7 @@ export default function RecuperacionCardiacaPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-blue-800 dark:text-blue-200">¿Qué significa una HRR baja?</h4>
+                  <h4 className="font-semibold mb-2 text-foreground/90">¿Qué significa una HRR baja?</h4>
                   <p className="text-sm text-muted-foreground">
                     Una HRR baja puede indicar condición cardiovascular subóptima, disfunción autonómica
                     o riesgo cardiovascular aumentado. Si tu HRR es consistentemente baja, se recomienda
@@ -618,7 +618,7 @@ export default function RecuperacionCardiacaPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-semibold mb-2 text-blue-800 dark:text-blue-200">¿Cuándo debo medir la HRR?</h4>
+                  <h4 className="font-semibold mb-2 text-foreground/90">¿Cuándo debo medir la HRR?</h4>
                   <p className="text-sm text-muted-foreground">
                     Mide la HRR después de ejercicio de intensidad moderada a alta, cuando hayas alcanzado
                     al menos el 80% de tu frecuencia cardíaca máxima estimada. Evita medirla después de

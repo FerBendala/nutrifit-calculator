@@ -53,15 +53,15 @@ export function ResultCard({ tdee, targetCalories, macros, goal }: ResultCardPro
               Macronutrientes diarios
             </h4>
             <div className="space-y-2">
-              <div className="flex justify-between items-center p-2 bg-blue-50 rounded">
+              <div className="flex justify-between items-center p-2 bg-info-subtle rounded">
                 <span>💪 Proteínas:</span>
                 <span className="font-semibold">{formatGrams(macros.protein)}</span>
               </div>
-              <div className="flex justify-between items-center p-2 bg-yellow-50 rounded">
+              <div className="flex justify-between items-center p-2 bg-warning-subtle rounded">
                 <span>🥑 Grasas:</span>
                 <span className="font-semibold">{formatGrams(macros.fat)}</span>
               </div>
-              <div className="flex justify-between items-center p-2 bg-green-50 rounded">
+              <div className="flex justify-between items-center p-2 bg-success-subtle rounded">
                 <span>🌾 Carbohidratos:</span>
                 <span className="font-semibold">{formatGrams(macros.carbs)}</span>
               </div>

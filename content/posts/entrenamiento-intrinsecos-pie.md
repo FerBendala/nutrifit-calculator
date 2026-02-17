@@ -1,11 +1,11 @@
 ---
 title: 'Arco Plantar Activo: Entrenamiento de Músculos Intrínsecos del Pie para Estabilidad y Salud'
 date: '2026-01-19'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía práctica para fortalecer la musculatura interna del pie, mejorar la estabilidad y reducir molestias plantares con una progresión realista.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags: ['pie', 'arco-plantar', 'estabilidad', 'equilibrio', 'propiocepcion']
-image: 'https://cdn.pixabay.com/photo/2017/03/13/07/10/feet-2138928_1280.jpg'
+image: '/images/blog/entrenamiento-intrinsecos-pie.jpg'
 slug: 'entrenamiento-intrinsecos-pie'
 readTime: 8
 featured: false

@@ -252,10 +252,10 @@ export default function OneRMPage() {
                 </header>
                 <div className="p-6">
                   <div className="text-center space-golden-sm">
-                    <div className="text-6xl font-bold text-red-600 dark:text-red-400 mb-[0.618rem]">
+                    <div className="text-6xl font-bold text-destructive mb-[0.618rem]">
                       {result.results.average}
                     </div>
-                    <div className="text-xl font-bold text-red-700 dark:text-red-300 mb-[0.382rem]">
+                    <div className="text-xl font-bold text-destructive mb-[0.382rem]">
                       kg (Una repetición máxima)
                     </div>
                     <div className="text-lg text-muted-foreground">
@@ -280,30 +280,30 @@ export default function OneRMPage() {
                   <div className="space-golden-md">
                     <section className="card-golden">
                       <div className="flex justify-between items-center mb-[0.618rem]">
-                        <h3 className="font-bold text-lg text-blue-600 dark:text-blue-400">
+                        <h3 className="font-bold text-lg text-info">
                           Brzycki (Recomendada)
                         </h3>
                         <div className="text-right">
-                          <div className="font-bold text-xl text-blue-600 dark:text-blue-400">
+                          <div className="font-bold text-xl text-info">
                             {result.results.brzycki} kg
                           </div>
-                          <div className="text-sm text-green-600 dark:text-green-400 font-medium">
+                          <div className="text-sm text-success font-medium">
                             ✓ Más precisa
                           </div>
                         </div>
                       </div>
                       <p className="text-sm text-muted-foreground leading-[1.618]">
-                        La más utilizada y precisa. <a href="https://pubmed.ncbi.nlm.nih.gov/8468191/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Estudio original de Brzycki (1993)</a>: Peso × (36 / (37 - Reps))
+                        La más utilizada y precisa. <a href="https://pubmed.ncbi.nlm.nih.gov/8468191/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">Estudio original de Brzycki (1993)</a>: Peso × (36 / (37 - Reps))
                       </p>
                     </section>
 
                     <section className="card-golden">
                       <div className="flex justify-between items-center mb-[0.618rem]">
-                        <h3 className="font-bold text-lg text-orange-600 dark:text-orange-400">
+                        <h3 className="font-bold text-lg text-warning">
                           Epley
                         </h3>
                         <div className="text-right">
-                          <div className="font-bold text-xl text-orange-600 dark:text-orange-400">
+                          <div className="font-bold text-xl text-warning">
                             {result.results.epley} kg
                           </div>
                           <div className="text-sm text-muted-foreground">
@@ -312,17 +312,17 @@ export default function OneRMPage() {
                         </div>
                       </div>
                       <p className="text-sm text-muted-foreground leading-[1.618]">
-                        <a href="https://www.nsca.com/education/articles/nsca-coach/determining-1rm/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Fórmula simple y popular</a>. Peso × (1 + Reps / 30)
+                        <a href="https://www.nsca.com/education/articles/nsca-coach/determining-1rm/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">Fórmula simple y popular</a>. Peso × (1 + Reps / 30)
                       </p>
                     </section>
 
                     <section className="card-golden">
                       <div className="flex justify-between items-center mb-[0.618rem]">
-                        <h3 className="font-bold text-lg text-purple-600 dark:text-purple-400">
+                        <h3 className="font-bold text-lg text-warning">
                           Lander
                         </h3>
                         <div className="text-right">
-                          <div className="font-bold text-xl text-purple-600 dark:text-purple-400">
+                          <div className="font-bold text-xl text-warning">
                             {result.results.lander} kg
                           </div>
                           <div className="text-sm text-muted-foreground">
@@ -331,18 +331,18 @@ export default function OneRMPage() {
                         </div>
                       </div>
                       <p className="text-sm text-muted-foreground leading-[1.618]">
-                        <a href="https://www.nsca.com/education/articles/nsca-coach/strength-testing-predicting-a-1-rm-bench-press/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Desarrollada específicamente para powerlifting</a>. Muy precisa en rangos bajos de repeticiones.
+                        <a href="https://www.nsca.com/education/articles/nsca-coach/strength-testing-predicting-a-1-rm-bench-press/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">Desarrollada específicamente para powerlifting</a>. Muy precisa en rangos bajos de repeticiones.
                       </p>
                     </section>
 
                     <div className="grid gap-[1rem] md:grid-cols-2">
                       <section className="card-golden">
                         <div className="flex justify-between items-center mb-[0.618rem]">
-                          <h3 className="font-bold text-lg text-green-600 dark:text-green-400">
+                          <h3 className="font-bold text-lg text-success">
                             O'Conner
                           </h3>
                           <div className="text-right">
-                            <div className="font-bold text-xl text-green-600 dark:text-green-400">
+                            <div className="font-bold text-xl text-success">
                               {result.results.oconner} kg
                             </div>
                             <div className="text-sm text-muted-foreground">
@@ -357,11 +357,11 @@ export default function OneRMPage() {
 
                       <section className="card-golden">
                         <div className="flex justify-between items-center mb-[0.618rem]">
-                          <h3 className="font-bold text-lg text-pink-600">
+                          <h3 className="font-bold text-lg text-destructive">
                             Lombardi
                           </h3>
                           <div className="text-right">
-                            <div className="font-bold text-xl text-pink-600">
+                            <div className="font-bold text-xl text-destructive">
                               {result.results.lombardi} kg
                             </div>
                             <div className="text-sm text-muted-foreground">
@@ -379,7 +379,7 @@ export default function OneRMPage() {
               </article>
 
               {/* Zonas de Entrenamiento */}
-              <article className="card-golden-lg shadow-golden-lg border-2 border-green-400/20">
+              <article className="card-golden-lg shadow-golden-lg border-2 border-success/20">
                 <header className="p-6 pb-0">
                   <h2 className="text-2xl font-semibold flex items-center justify-center">
                     <span className="text-3xl mr-3">🎯</span>
@@ -388,13 +388,13 @@ export default function OneRMPage() {
                 </header>
                 <div className="p-6">
                   <div className="space-golden-md">
-                    <section className="card-golden bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-400">
+                    <section className="card-golden bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-destructive">
                       <div className="flex justify-between items-center mb-[0.618rem]">
-                        <h3 className="font-bold text-lg text-red-600 dark:text-red-400">
+                        <h3 className="font-bold text-lg text-destructive">
                           🏆 Fuerza Máxima ({result.trainingZones.strength.percentage})
                         </h3>
                         <div className="text-right">
-                          <div className="font-bold text-xl text-red-600 dark:text-red-400">
+                          <div className="font-bold text-xl text-destructive">
                             {result.trainingZones.strength.min} - {result.trainingZones.strength.max} kg
                           </div>
                           <div className="text-sm text-muted-foreground">
@@ -402,19 +402,19 @@ export default function OneRMPage() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm text-red-800 dark:text-red-200 leading-[1.618]">
+                      <p className="text-sm text-foreground/90 leading-[1.618]">
                         <strong>Objetivo:</strong> Desarrollar fuerza máxima y potencia neural.
                         Descansos largos (3-5 minutos). Técnica perfecta obligatoria.
                       </p>
                     </section>
 
-                    <section className="card-golden bg-gradient-to-r from-orange-50 to-yellow-50 border-l-4 border-orange-400">
+                    <section className="card-golden bg-gradient-to-r from-orange-50 to-yellow-50 border-l-4 border-warning">
                       <div className="flex justify-between items-center mb-[0.618rem]">
-                        <h3 className="font-bold text-lg text-orange-600 dark:text-orange-400">
+                        <h3 className="font-bold text-lg text-warning">
                           ⚡ Potencia ({result.trainingZones.power.percentage})
                         </h3>
                         <div className="text-right">
-                          <div className="font-bold text-xl text-orange-600 dark:text-orange-400">
+                          <div className="font-bold text-xl text-warning">
                             {result.trainingZones.power.min} - {result.trainingZones.power.max} kg
                           </div>
                           <div className="text-sm text-muted-foreground">
@@ -422,19 +422,19 @@ export default function OneRMPage() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm text-orange-800 dark:text-orange-200 leading-[1.618]">
+                      <p className="text-sm text-foreground/90 leading-[1.618]">
                         <strong>Objetivo:</strong> Desarrollar potencia y velocidad de ejecución.
                         Movimientos explosivos. Descansos 2-4 minutos.
                       </p>
                     </section>
 
-                    <section className="card-golden bg-gradient-to-r from-green-50 to-blue-50 border-l-4 border-green-400">
+                    <section className="card-golden bg-gradient-to-r bg-success-subtle border-l-4 border-success">
                       <div className="flex justify-between items-center mb-[0.618rem]">
-                        <h3 className="font-bold text-lg text-green-600 dark:text-green-400">
+                        <h3 className="font-bold text-lg text-success">
                           💪 Hipertrofia ({result.trainingZones.hypertrophy.percentage})
                         </h3>
                         <div className="text-right">
-                          <div className="font-bold text-xl text-green-600 dark:text-green-400">
+                          <div className="font-bold text-xl text-success">
                             {result.trainingZones.hypertrophy.min} - {result.trainingZones.hypertrophy.max} kg
                           </div>
                           <div className="text-sm text-muted-foreground">
@@ -442,19 +442,19 @@ export default function OneRMPage() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm text-green-800 dark:text-green-200 leading-[1.618]">
+                      <p className="text-sm text-foreground/90 leading-[1.618]">
                         <strong>Objetivo:</strong> Máximo crecimiento muscular.
                         Control excéntrico. Descansos 1-3 minutos. Volumen alto.
                       </p>
                     </section>
 
-                    <section className="card-golden bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-400">
+                    <section className="card-golden bg-gradient-to-r bg-info-subtle border-l-4 border-info">
                       <div className="flex justify-between items-center mb-[0.618rem]">
-                        <h3 className="font-bold text-lg text-blue-600 dark:text-blue-400">
+                        <h3 className="font-bold text-lg text-info">
                           🔄 Resistencia Muscular ({result.trainingZones.endurance.percentage})
                         </h3>
                         <div className="text-right">
-                          <div className="font-bold text-xl text-blue-600 dark:text-blue-400">
+                          <div className="font-bold text-xl text-info">
                             {result.trainingZones.endurance.min} - {result.trainingZones.endurance.max} kg
                           </div>
                           <div className="text-sm text-muted-foreground">
@@ -462,7 +462,7 @@ export default function OneRMPage() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm text-blue-800 dark:text-blue-200 leading-[1.618]">
+                      <p className="text-sm text-foreground/90 leading-[1.618]">
                         <strong>Objetivo:</strong> Resistencia muscular y capacidad metabólica.
                         Descansos cortos (30-90 segundos). Alto volumen.
                       </p>
@@ -488,11 +488,11 @@ export default function OneRMPage() {
                       {Object.entries(result.percentages).map(([reps, weight]) => (
                         <div key={reps} className="flex justify-between items-center py-[0.382rem] border-b border-border/10">
                           <span className="font-medium">{reps} repetición{reps !== '1' ? 'es' : ''}:</span>
-                          <span className="font-bold text-blue-600 dark:text-blue-400">{weight} kg</span>
+                          <span className="font-bold text-info">{weight} kg</span>
                         </div>
                       ))}
                     </div>
-                    <div className="mt-[1.618rem] text-sm text-blue-800 dark:text-blue-200">
+                    <div className="mt-[1.618rem] text-sm text-foreground/90">
                       <p className="leading-[1.618]">
                         <strong>💡 Consejo:</strong> Usa esta tabla para planificar tus entrenamientos.
                         Para 8 repeticiones, usa {result.percentages['8']} kg (~81% de tu 1RM).
@@ -527,15 +527,15 @@ export default function OneRMPage() {
                 </p>
                 <ul className="text-sm space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                    <span className="text-destructive mr-2">•</span>
                     <span><strong>Estándar oro:</strong> Medida más precisa de fuerza máxima</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                    <span className="text-info mr-2">•</span>
                     <span><strong>Base científica:</strong> Para periodización de entrenamiento</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                    <span className="text-success mr-2">•</span>
                     <span><strong>Seguridad:</strong> Calculado, no necesitas probarlo directamente</span>
                   </li>
                 </ul>
@@ -548,49 +548,49 @@ export default function OneRMPage() {
                 </h3>
                 <ul className="text-sm space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Periodización:</strong> Planificar ciclos de entrenamiento</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Progresión:</strong> Aumentar cargas sistemáticamente</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-pink-600 mr-2">•</span>
+                    <span className="text-destructive mr-2">•</span>
                     <span><strong>Competición:</strong> Estrategia para powerlifting</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                    <span className="text-info mr-2">•</span>
                     <span><strong>Evaluación:</strong> Medir progreso y adaptaciones</span>
                   </li>
                 </ul>
               </article>
             </section>
 
-            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
+            <section className="card-golden-lg bg-info-subtle border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🔬</span>
                 Precisión de las fórmulas científicas
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <span className="text-lg mr-2">🥇</span>
                     Más precisas (1-5 reps)
                   </h4>
-                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
-                    <li>• <strong>Brzycki:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/8468191/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">±2-3% error</a></li>
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
+                    <li>• <strong>Brzycki:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/8468191/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">±2-3% error</a></li>
                     <li>• <strong>Lander:</strong> ±2-4% error</li>
-                    <li>• <strong>Uso:</strong> <a href="https://www.powerlifting.sport/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Powerlifting</a>, fuerza máxima</li>
-                    <li>• <strong>Población:</strong> <a href="https://www.acsm.org/read-research/trending-topics-resource-pages/resistance-training" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Atletas experimentados</a></li>
+                    <li>• <strong>Uso:</strong> <a href="https://www.powerlifting.sport/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">Powerlifting</a>, fuerza máxima</li>
+                    <li>• <strong>Población:</strong> <a href="https://www.acsm.org/read-research/trending-topics-resource-pages/resistance-training" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">Atletas experimentados</a></li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-orange-700 dark:text-orange-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-warning flex items-center">
                     <span className="text-lg mr-2">🥈</span>
                     Buena precisión (5-15 reps)
                   </h4>
-                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• <strong>Epley:</strong> ±3-6% error</li>
                     <li>• <strong>O'Conner:</strong> ±4-7% error</li>
                     <li>• <strong>Uso:</strong> Fitness general, hipertrofia</li>
@@ -600,25 +600,25 @@ export default function OneRMPage() {
               </div>
             </section>
 
-            <section className="bg-green-50 dark:bg-green-950/30 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
-              <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-success-subtle card-golden-lg border-l-4 border-success mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Cómo usar tu 1RM en el entrenamiento
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300">🎯 Planificación semanal</h4>
-                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
+                  <h4 className="font-bold mb-[0.618rem] text-success">🎯 Planificación semanal</h4>
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• <strong>Lunes:</strong> Fuerza 85-95% × 1-3 reps</li>
                     <li>• <strong>Miércoles:</strong> Hipertrofia 70-80% × 8-12 reps</li>
                     <li>• <strong>Viernes:</strong> Potencia 75-85% × 3-6 reps explosivas</li>
-                    <li>• Ajusta según <a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline">tu nivel muscular</a></li>
-                    <li>• Calcula <a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline">calorías basales</a> para recuperación</li>
+                    <li>• Ajusta según <a href="/masa-muscular/" className="text-info hover:underline transition-colors">tu nivel muscular</a></li>
+                    <li>• Calcula <a href="/bmr/" className="text-info hover:underline transition-colors">calorías basales</a> para recuperación</li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300">📈 Progresión mensual</h4>
-                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
+                  <h4 className="font-bold mb-[0.618rem] text-success">📈 Progresión mensual</h4>
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• <strong>Semana 1-2:</strong> 80-85% del 1RM</li>
                     <li>• <strong>Semana 3-4:</strong> 85-90% del 1RM</li>
                     <li>• <strong>Semana 5:</strong> Deload 70-75%</li>
@@ -628,31 +628,31 @@ export default function OneRMPage() {
               </div>
             </section>
 
-            <section className="bg-yellow-50 dark:bg-yellow-950/30 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
-              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">⚠️</span>
                 Limitaciones y seguridad
               </h3>
-              <ul className="text-sm text-yellow-800 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
-                  <span><strong>Precisión limitada:</strong> <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Más de 15 repeticiones</a> pierde exactitud</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong>Precisión limitada:</strong> <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4841933/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">Más de 15 repeticiones</a> pierde exactitud</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
-                  <span><strong>Experiencia necesaria:</strong> Requiere <a href="https://www.nsca.com/education/articles/nsca-coach/strength-testing-predicting-a-1-rm-bench-press/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">técnica perfecta</a> en el ejercicio</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong>Experiencia necesaria:</strong> Requiere <a href="https://www.nsca.com/education/articles/nsca-coach/strength-testing-predicting-a-1-rm-bench-press/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">técnica perfecta</a> en el ejercicio</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Fatiga influye:</strong> Calcula en condiciones de buena recuperación</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>No probar directamente:</strong> Usa las estimaciones, es más seguro</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
-                  <span><strong>Supervisión:</strong> <a href="https://www.acsm.org/read-research/trending-topics-resource-pages/resistance-training" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Especialmente importante</a> para principiantes</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong>Supervisión:</strong> <a href="https://www.acsm.org/read-research/trending-topics-resource-pages/resistance-training" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">Especialmente importante</a> para principiantes</span>
                 </li>
               </ul>
             </section>
@@ -670,55 +670,55 @@ export default function OneRMPage() {
                 <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Es seguro entrenar al 90-100% del 1RM?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
-                    Solo para <a href="https://www.nsca.com/education/articles/nsca-coach/periodization-for-optimizing-strength-and-hypertrophy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">atletas muy experimentados</a> y con supervisión. Para la mayoría,
+                    Solo para <a href="https://www.nsca.com/education/articles/nsca-coach/periodization-for-optimizing-strength-and-hypertrophy/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">atletas muy experimentados</a> y con supervisión. Para la mayoría,
                     entrenar al 85-90% es más seguro y igual de efectivo.
                   </p>
                 </article>
                 <article className="card-golden bg-muted">
                   <h4 className="font-semibold mb-[0.618rem]">¿Qué nutrición necesito para maximizar mi fuerza?</h4>
                   <p className="text-sm text-muted-foreground leading-[1.618]">
-                    <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline">Proteína adecuada</a> (1.8-2.2g/kg),
-                    carbohidratos para energía, y <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">calorías suficientes</a>
-                    basadas en tu <a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline">metabolismo basal</a>.
+                    <a href="/proteina/" className="text-info hover:underline transition-colors">Proteína adecuada</a> (1.8-2.2g/kg),
+                    carbohidratos para energía, y <a href="/tdee/" className="text-info hover:underline transition-colors">calorías suficientes</a>
+                    basadas en tu <a href="/bmr/" className="text-info hover:underline transition-colors">metabolismo basal</a>.
                   </p>
                 </article>
               </div>
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
-              <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Optimiza tu entrenamiento de fuerza completo
               </h3>
-              <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu masa muscular:</a></strong> Base fundamental para desarrollar fuerza máxima</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/masa-muscular/" className="text-info hover:underline transition-colors font-medium transition-golden">Evalúa tu masa muscular:</a></strong> Base fundamental para desarrollar fuerza máxima</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/ffmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FFMI muscular:</a></strong> Evalúa desarrollo muscular independiente de grasa para atletas avanzados</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/ffmi/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu FFMI muscular:</a></strong> Evalúa desarrollo muscular independiente de grasa para atletas avanzados</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu proteína:</a></strong> Nutrición específica para ganar fuerza y músculo</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/proteina/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu proteína:</a></strong> Nutrición específica para ganar fuerza y músculo</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bmr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> Base para calcular necesidades energéticas totales</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/bmr/" className="text-info hover:underline transition-colors font-medium transition-golden">Conoce tu metabolismo basal:</a></strong> Base para calcular necesidades energéticas totales</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu gasto calórico:</a></strong> Incluye el costo energético del entrenamiento intenso</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/tdee/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu gasto calórico:</a></strong> Incluye el costo energético del entrenamiento intenso</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Planifica tus macros:</a></strong> Distribución óptima para rendimiento y recuperación</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/" className="text-info hover:underline transition-colors font-medium transition-golden">Planifica tus macros:</a></strong> Distribución óptima para rendimiento y recuperación</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/composicion/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Monitorea tu progreso:</a></strong> Evalúa cambios en composición corporal</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/composicion/" className="text-info hover:underline transition-colors font-medium transition-golden">Monitorea tu progreso:</a></strong> Evalúa cambios en composición corporal</span>
                 </li>
               </ul>
             </section>

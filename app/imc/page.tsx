@@ -9,25 +9,33 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { calculateBMI } from '@/lib/formulas';
 import { generateJsonLd } from '@/lib/seo';
-import { useState } from 'react';
+import { useLastResult } from '@/lib/useLastResult';
+import { useEffect, useState } from 'react';
 
 // Lazy load componentes no críticos
 const EmbedWidget = dynamic(() => import('@/components/EmbedWidget').then(mod => ({ default: mod.EmbedWidget })), {
-  loading: () => <div className="h-96 animate-pulse bg-gray-100 rounded-lg" />,
+  loading: () => <div className="min-h-[280px] animate-pulse bg-muted rounded-lg" />,
 });
 
 const RelatedCalculators = dynamic(() => import('@/components/RelatedCalculators').then(mod => ({ default: mod.RelatedCalculators })), {
-  loading: () => <div className="h-48 animate-pulse bg-gradient-to-r from-blue-50 to-green-50 rounded-lg" />,
+  loading: () => <div className="min-h-[200px] animate-pulse bg-muted rounded-lg" />,
 });
 
 const SocialShare = dynamic(() => import('@/components/SocialShare').then(mod => ({ default: mod.SocialShare })), {
-  loading: () => <div className="h-24 animate-pulse bg-gray-100 rounded-lg" />,
+  loading: () => <div className="min-h-[80px] animate-pulse bg-muted rounded-lg" />,
 });
 
 export default function IMCPage() {
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [result, setResult] = useState<{ bmi: number; category: string; } | null>(null);
+  const { save, load } = useLastResult<{ bmi: number; category: string }>('imc');
+  const [lastSaved, setLastSaved] = useState<{ result: { bmi: number; category: string }; timestamp: number } | null>(null);
+
+  useEffect(() => {
+    const previous = load();
+    if (previous) setLastSaved(previous);
+  }, [load]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,14 +44,15 @@ export default function IMCPage() {
 
     const bmiResult = calculateBMI(parseFloat(weight), parseInt(height));
     setResult(bmiResult);
+    save(bmiResult);
   };
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'Bajo peso': return 'text-blue-600 dark:text-blue-400';
-      case 'Peso normal': return 'text-green-600 dark:text-green-400';
-      case 'Sobrepeso': return 'text-yellow-600 dark:text-yellow-400';
-      case 'Obesidad': return 'text-red-600 dark:text-red-400';
+      case 'Bajo peso': return 'text-info';
+      case 'Peso normal': return 'text-success';
+      case 'Sobrepeso': return 'text-warning';
+      case 'Obesidad': return 'text-destructive';
       default: return 'text-muted-foreground';
     }
   };
@@ -66,6 +75,12 @@ export default function IMCPage() {
               bajo peso, sobrepeso u obesidad según los estándares de la OMS.
             </p>
           </header>
+
+          {lastSaved && !result && (
+            <div className="card-golden bg-muted/30 text-sm text-muted-foreground">
+              Tu ultimo resultado: <strong className="text-foreground">IMC {lastSaved.result.bmi.toFixed(1)}</strong> ({lastSaved.result.category}) - {new Date(lastSaved.timestamp).toLocaleDateString('es-ES')}
+            </div>
+          )}
 
           <section id="calculator" aria-label="Calculadora de IMC">
             <Card className="card-golden-lg shadow-golden-lg">
@@ -141,19 +156,19 @@ export default function IMCPage() {
                       <div className="space-golden-xs text-base">
                         <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                           <span className="font-medium">Bajo peso:</span>
-                          <span className="text-blue-600 dark:text-blue-400 font-bold">&lt; 18.5</span>
+                          <span className="text-info font-bold">&lt; 18.5</span>
                         </div>
                         <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                           <span className="font-medium">Peso normal:</span>
-                          <span className="text-green-600 dark:text-green-400 font-bold">18.5 - 24.9</span>
+                          <span className="text-success font-bold">18.5 - 24.9</span>
                         </div>
                         <div className="flex justify-between py-[0.382rem] border-b border-border/30">
                           <span className="font-medium">Sobrepeso:</span>
-                          <span className="text-yellow-600 dark:text-yellow-400 font-bold">25.0 - 29.9</span>
+                          <span className="text-warning font-bold">25.0 - 29.9</span>
                         </div>
                         <div className="flex justify-between py-[0.382rem]">
                           <span className="font-medium">Obesidad:</span>
-                          <span className="text-red-600 dark:text-red-400 font-bold">≥ 30.0</span>
+                          <span className="text-destructive font-bold">≥ 30.0</span>
                         </div>
                       </div>
                     </article>
@@ -173,7 +188,7 @@ export default function IMCPage() {
                 El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso con tu altura
                 para determinar si tu peso está dentro de un rango saludable. Se calcula dividiendo
                 tu peso en kilogramos entre tu altura en metros al cuadrado (kg/m²). Los rangos estándar
-                están establecidos por la <a href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Organización Mundial de la Salud (OMS)</a>.
+                están establecidos por la <a href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Organización Mundial de la Salud (OMS)</a>.
               </p>
             </header>
 
@@ -199,49 +214,49 @@ export default function IMCPage() {
                 <ul className="text-sm space-golden-xs">
                   <li className="flex justify-between">
                     <span>Bajo peso:</span>
-                    <span className="text-blue-600 dark:text-blue-400 font-medium">&lt; 18.5</span>
+                    <span className="text-info font-medium">&lt; 18.5</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Peso normal:</span>
-                    <span className="text-green-600 dark:text-green-400 font-medium">18.5 - 24.9</span>
+                    <span className="text-success font-medium">18.5 - 24.9</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Sobrepeso:</span>
-                    <span className="text-yellow-600 dark:text-yellow-400 font-medium">25.0 - 29.9</span>
+                    <span className="text-warning font-medium">25.0 - 29.9</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Obesidad:</span>
-                    <span className="text-red-600 dark:text-red-400 font-medium">≥ 30.0</span>
+                    <span className="text-destructive font-medium">≥ 30.0</span>
                   </li>
                 </ul>
               </article>
             </section>
 
-            <section className="card-golden-lg bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400 mb-[2.618rem]">
-              <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="card-golden-lg bg-success-subtle border-l-4 border-success mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💪</span>
                 ¿Cómo mejorar tu IMC de forma saludable?
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-red-700 dark:text-red-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-destructive flex items-center">
                     <span className="text-lg mr-2">📉</span>
                     Para reducir el IMC:
                   </h4>
-                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• Crea un déficit calórico moderado (300-500 kcal/día)</li>
                     <li>• Aumenta la actividad física gradualmente</li>
                     <li>• Prioriza alimentos nutritivos y saciantes</li>
-                    <li>• Mantén una <a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">hidratación adecuada</a></li>
-                    <li>• Consume suficiente <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">proteína</a> para preservar músculo</li>
+                    <li>• Mantén una <a href="/agua/" className="text-info hover:underline transition-colors font-medium transition-golden">hidratación adecuada</a></li>
+                    <li>• Consume suficiente <a href="/proteina/" className="text-info hover:underline transition-colors font-medium transition-golden">proteína</a> para preservar músculo</li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-success flex items-center">
                     <span className="text-lg mr-2">📈</span>
                     Para aumentar el IMC:
                   </h4>
-                  <ul className="text-sm text-green-800 dark:text-green-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li>• Crea un superávit calórico controlado</li>
                     <li>• Incluye entrenamiento de fuerza</li>
                     <li>• Come frecuentemente (5-6 comidas)</li>
@@ -252,104 +267,104 @@ export default function IMCPage() {
               </div>
             </section>
 
-            <section className="bg-yellow-50 dark:bg-yellow-950/30 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
-              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🏥</span>
                 Riesgos asociados según el IMC
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-red-700 dark:text-red-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-destructive flex items-center">
                     <span className="text-lg mr-2">⚠️</span>
                     IMC elevado (≥25):
                   </h4>
-                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                      <span><a href="https://www.cdc.gov/diabetes/basics/type2.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Diabetes tipo 2</a></span>
+                      <span className="text-destructive mr-2">•</span>
+                      <span><a href="https://www.cdc.gov/diabetes/basics/type2.html" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Diabetes tipo 2</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                      <span><a href="https://www.heart.org/en/health-topics/consumer-healthcare/what-is-cardiovascular-disease" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Enfermedades cardiovasculares</a></span>
+                      <span className="text-destructive mr-2">•</span>
+                      <span><a href="https://www.heart.org/en/health-topics/consumer-healthcare/what-is-cardiovascular-disease" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Enfermedades cardiovasculares</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                      <span><a href="https://www.mayoclinic.org/diseases-conditions/high-blood-pressure/symptoms-causes/syc-20373410" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Hipertensión arterial</a></span>
+                      <span className="text-destructive mr-2">•</span>
+                      <span><a href="https://www.mayoclinic.org/diseases-conditions/high-blood-pressure/symptoms-causes/syc-20373410" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Hipertensión arterial</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                      <span><a href="https://www.mayoclinic.org/diseases-conditions/sleep-apnea/symptoms-causes/syc-20377631" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Apnea del sueño</a></span>
+                      <span className="text-destructive mr-2">•</span>
+                      <span><a href="https://www.mayoclinic.org/diseases-conditions/sleep-apnea/symptoms-causes/syc-20377631" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Apnea del sueño</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                      <span><a href="https://www.arthritis.org/health-wellness/about-arthritis/understanding-arthritis/obesity-and-arthritis" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Problemas articulares</a></span>
+                      <span className="text-destructive mr-2">•</span>
+                      <span><a href="https://www.arthritis.org/health-wellness/about-arthritis/understanding-arthritis/obesity-and-arthritis" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Problemas articulares</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                      <span><a href="https://www.cancer.gov/about-cancer/causes-prevention/risk/obesity/obesity-fact-sheet" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Ciertos tipos de cáncer</a></span>
+                      <span className="text-destructive mr-2">•</span>
+                      <span><a href="https://www.cancer.gov/about-cancer/causes-prevention/risk/obesity/obesity-fact-sheet" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Ciertos tipos de cáncer</a></span>
                     </li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <span className="text-lg mr-2">⚠️</span>
                     IMC bajo (&lt;18.5):
                   </h4>
-                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                      <span><a href="https://www.who.int/news-room/fact-sheets/detail/malnutrition" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Desnutrición</a></span>
+                      <span className="text-info mr-2">•</span>
+                      <span><a href="https://www.who.int/news-room/fact-sheets/detail/malnutrition" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Desnutrición</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                      <span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2913766/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Sistema inmune debilitado</a></span>
+                      <span className="text-info mr-2">•</span>
+                      <span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2913766/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Sistema inmune debilitado</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                      <span><a href="https://www.bones.nih.gov/health-info/bone/osteoporosis/conditions-behaviors/bone-health-and-osteoporosis" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Osteoporosis</a></span>
+                      <span className="text-info mr-2">•</span>
+                      <span><a href="https://www.bones.nih.gov/health-info/bone/osteoporosis/conditions-behaviors/bone-health-and-osteoporosis" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Osteoporosis</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                      <span><a href="https://www.mayoclinic.org/diseases-conditions/anemia/symptoms-causes/syc-20351360" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Anemia</a></span>
+                      <span className="text-info mr-2">•</span>
+                      <span><a href="https://www.mayoclinic.org/diseases-conditions/anemia/symptoms-causes/syc-20351360" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Anemia</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                      <span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3253632/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Problemas de fertilidad</a></span>
+                      <span className="text-info mr-2">•</span>
+                      <span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3253632/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Problemas de fertilidad</a></span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                      <span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2903966/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Retraso en cicatrización</a></span>
+                      <span className="text-info mr-2">•</span>
+                      <span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2903966/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">Retraso en cicatrización</a></span>
                     </li>
                   </ul>
                 </article>
               </div>
             </section>
 
-            <section className="bg-yellow-50 dark:bg-yellow-950/30 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
-              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📊</span>
                 Limitaciones del cálculo de IMC
               </h3>
-              <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>No distingue entre masa muscular y grasa:</strong> Los atletas pueden tener IMC alto pero ser muy saludables</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>No considera la distribución de grasa:</strong> La grasa abdominal es más riesgosa que la de caderas/muslos</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Variaciones por edad:</strong> Los rangos pueden ser diferentes en adultos mayores</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                  <span className="text-warning mr-2">•</span>
                   <span><strong>Diferencias étnicas:</strong> Algunos grupos tienen riesgos diferentes con el mismo IMC</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
-                  <span><strong>Es una herramienta de screening:</strong> No reemplaza una evaluación médica completa. Para más información, consulta el <a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">NHLBI BMI Calculator</a></span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong>Es una herramienta de screening:</strong> No reemplaza una evaluación médica completa. Para más información, consulta el <a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">NHLBI BMI Calculator</a></span>
                 </li>
               </ul>
             </section>
@@ -370,14 +385,14 @@ export default function IMCPage() {
                   <p className="text-sm text-muted-foreground">
                     Es suficiente calcularlo cada 1-3 meses si estás trabajando en cambios de peso.
                     Para monitoreo general de salud, una vez al año es adecuado. Úsalo junto con nuestra
-                    <a href="/" className="text-blue-600 dark:text-blue-400 hover:underline"> calculadora de calorías</a> para un enfoque integral.
+                    <a href="/" className="text-info hover:underline transition-colors"> calculadora de calorías</a> para un enfoque integral.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
                   <h4 className="font-semibold mb-2">¿Qué hago si mi IMC está fuera del rango normal?</h4>
                   <p className="text-sm text-muted-foreground">
                     Primero, consulta con un profesional de la salud para una evaluación completa.
-                    Si necesitas cambios, hazlos gradualmente: usa nuestra <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora TDEE</a> para conocer tus necesidades calóricas y planifica cambios sostenibles.
+                    Si necesitas cambios, hazlos gradualmente: usa nuestra <a href="/tdee/" className="text-info hover:underline transition-colors">calculadora TDEE</a> para conocer tus necesidades calóricas y planifica cambios sostenibles.
                   </p>
                 </article>
               </div>
@@ -385,39 +400,39 @@ export default function IMCPage() {
 
 
             {/* Enlaces contextuales */}
-            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
-              <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Complementa tu evaluación de peso
               </h3>
-              <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/peso-ajustado/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu Peso Ajustado Clínico:</a></strong> ABW para dosificación y necesidades nutricionales según tu IMC</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/peso-ajustado/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu Peso Ajustado Clínico:</a></strong> ABW para dosificación y necesidades nutricionales según tu IMC</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tus calorías diarias:</a></strong> Determina cuántas calorías necesitas según tu IMC y objetivo</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tus calorías diarias:</a></strong> Determina cuántas calorías necesitas según tu IMC y objetivo</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu distribución de grasa:</a></strong> El WHR complementa el IMC evaluando riesgo cardiovascular</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/whr/" className="text-info hover:underline transition-colors font-medium transition-golden">Evalúa tu distribución de grasa:</a></strong> El WHR complementa el IMC evaluando riesgo cardiovascular</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu FMI metabólico:</a></strong> Índice avanzado de masa grasa para evaluación precisa</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/fmi/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu FMI metabólico:</a></strong> Índice avanzado de masa grasa para evaluación precisa</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/bai/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula BAI sin peso:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/bai/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula BAI sin peso:</a></strong> Estima grasa corporal con solo cadera y altura según Bergman</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Evalúa tu gasto calórico total:</a></strong> Conoce tu TDEE para planificar mejor tu alimentación</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/tdee/" className="text-info hover:underline transition-colors font-medium transition-golden">Evalúa tu gasto calórico total:</a></strong> Conoce tu TDEE para planificar mejor tu alimentación</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/agua/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu hidratación:</a></strong> Calcula tu necesidad de agua según tu peso actual</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/agua/" className="text-info hover:underline transition-colors font-medium transition-golden">Optimiza tu hidratación:</a></strong> Calcula tu necesidad de agua según tu peso actual</span>
                 </li>
               </ul>
             </section>

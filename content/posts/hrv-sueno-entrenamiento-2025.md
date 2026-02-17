@@ -1,11 +1,11 @@
 ---
 title: 'Sueño, HRV y Microrecuperaciones: Claves para el Rendimiento'
 date: '2025-11-11'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Cómo combinar sueño estratégico, monitoreo de variabilidad de frecuencia cardíaca y microdescansos para sostener la carga de entrenamiento.'
 categories: ['Salud', 'Entrenamiento', 'Recuperación']
 tags: ['hrv', 'sueño', 'recuperación', 'microbreaks', 'rendimiento deportivo']
-image: 'https://cdn.pixabay.com/photo/2017/08/01/12/50/people-2565169_1280.jpg'
+image: '/images/blog/hrv-sueno-entrenamiento-2025.jpg'
 slug: 'hrv-sueno-entrenamiento-2025'
 readTime: 8
 featured: false

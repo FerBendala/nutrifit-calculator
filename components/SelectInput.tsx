@@ -31,7 +31,7 @@ export function SelectInput({
     <div className="space-y-2">
       <Label htmlFor={id} className="text-sm font-medium">
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="text-destructive ml-1">*</span>}
       </Label>
       <Select value={String(value)} onValueChange={onChange}>
         <SelectTrigger id={id} aria-required={required}>

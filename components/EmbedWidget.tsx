@@ -114,11 +114,11 @@ export function EmbedWidget({ title, calculatorName }: EmbedWidgetProps = {}) {
           </Button>
         </div>
 
-        <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg">
-          <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">
+        <div className="bg-info-subtle p-4 rounded-lg">
+          <h4 className="font-semibold text-foreground mb-2">
             💡 Beneficios para tu sitio web:
           </h4>
-          <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+          <ul className="text-sm text-foreground/90 space-y-1">
             <li>• Aporta valor adicional a tus visitantes</li>
             <li>• Herramienta profesional sin coste de desarrollo</li>
             <li>• Mejora el tiempo de permanencia en tu sitio</li>

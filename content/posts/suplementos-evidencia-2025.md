@@ -1,7 +1,7 @@
 ---
 title: 'Suplementos con Evidencia: Lo Que Realmente Funciona para Rendimiento y Recuperación'
 date: '2025-09-13'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Actualiza tu stack de suplementos con los compuestos que tienen respaldo científico en 2024-2025: creatina, NAC, coenzima Q10 y cafeína + L-teanina.'
 categories: ['Suplementación', 'Rendimiento', 'Recuperación']
 tags:
@@ -12,7 +12,7 @@ tags:
     'coenzima Q10',
     'suplementos 2025',
   ]
-image: 'https://img.freepik.com/foto-gratis/closeup-foto-frutas-frescas-diferentes-medicamentos-cuchara-madera_181624-47231.jpg?t=st=1758277820~exp=1758281420~hmac=021f7b487c19f46ed3953fdd8aec17e2a0af7a4dfdfa947b2dc26358f61d8e78&w=1480'
+image: '/images/blog/suplementos-evidencia-2025.jpg'
 slug: 'suplementos-evidencia-2025'
 readTime: 8
 featured: false

@@ -58,12 +58,12 @@ export function WHtRCalculator() {
 
   const getRiskColor = (riskLevel: string) => {
     switch (riskLevel) {
-      case 'Muy bajo': return 'text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30 border-blue-400';
-      case 'Bajo': return 'text-green-700 dark:text-green-300 bg-green-50 dark:bg-green-950/30 border-green-400';
-      case 'Moderado': return 'text-yellow-700 dark:text-yellow-300 bg-yellow-50 dark:bg-yellow-950/30 border-yellow-400';
-      case 'Alto': return 'text-orange-700 dark:text-orange-300 bg-orange-50 dark:bg-orange-950/30 border-orange-400';
-      case 'Muy alto': return 'text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/30 border-red-400';
-      default: return 'text-muted-foreground bg-muted border-gray-400';
+      case 'Muy bajo': return 'text-foreground bg-info-subtle border-info';
+      case 'Bajo': return 'text-foreground bg-success-subtle border-success';
+      case 'Moderado': return 'text-foreground bg-warning-subtle border-warning';
+      case 'Alto': return 'text-foreground bg-warning-subtle border-warning';
+      case 'Muy alto': return 'text-foreground bg-destructive-subtle border-destructive';
+      default: return 'text-muted-foreground bg-muted border-border';
     }
   };
 
@@ -76,8 +76,8 @@ export function WHtRCalculator() {
       </CardHeader>
       <CardContent>
         {/* Instrucciones */}
-        <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6 border border-blue-200">
-          <p className="text-sm text-blue-800 dark:text-blue-200 text-center">
+        <div className="bg-info-subtle rounded-lg p-4 mb-6 border border-info">
+          <p className="text-sm text-foreground/90 text-center">
             💡 <strong>Instrucciones:</strong> Mide la cintura en el punto más estrecho del torso,
             generalmente a la altura del ombligo, en ayunas y después de exhalar normalmente.
           </p>
@@ -133,11 +133,11 @@ export function WHtRCalculator() {
               {/* Resultado principal */}
               <div className="text-center space-golden-lg">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                  <article className="text-center p-6 bg-blue-50 dark:bg-blue-950/30 rounded-lg border-l-4 border-blue-400">
-                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                  <article className="text-center p-6 bg-info-subtle rounded-lg border-l-4 border-info">
+                    <div className="text-3xl font-bold text-info mb-2">
                       {result.whtr}
                     </div>
-                    <div className="text-sm font-medium text-blue-800 dark:text-blue-200">WHtR</div>
+                    <div className="text-sm font-medium text-foreground/90">WHtR</div>
                   </article>
 
                   <article className={`text-center p-6 rounded-lg border-l-4 ${getRiskColor(result.riskLevel)}`}>
@@ -184,13 +184,13 @@ export function WHtRCalculator() {
                         <ul className="space-y-2">
                           {result.recommendations.map((rec, index) => (
                             <li key={index} className="flex items-start gap-2">
-                              <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-1 flex-shrink-0"></span>
+                              <span className="w-2 h-2 bg-info rounded-full mt-2 mr-1 flex-shrink-0"></span>
                               <span className="text-sm text-muted-foreground leading-[1.618]">{rec}</span>
                             </li>
                           ))}
                         </ul>
-                        <div className="bg-green-50 dark:bg-green-950/30 p-3 rounded-lg border border-green-200 mt-4">
-                          <p className="text-green-800 dark:text-green-200 text-sm leading-[1.618]">
+                        <div className="bg-success-subtle p-3 rounded-lg border border-success mt-4">
+                          <p className="text-foreground/90 text-sm leading-[1.618]">
                             <strong>🎯 Rango objetivo:</strong> {result.targetRange}
                           </p>
                         </div>

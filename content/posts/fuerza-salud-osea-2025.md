@@ -1,7 +1,7 @@
 ---
 title: 'Entrenamiento de Fuerza para Salud Ósea: Protocolos y Nutrición'
 date: '2025-10-27'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Actualiza tu plan de fuerza, impacto y nutrición para mejorar densidad mineral ósea y prevenir lesiones a cualquier edad.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags:
@@ -12,7 +12,7 @@ tags:
     'densidad mineral ósea',
     'prevención de lesiones',
   ]
-image: 'https://cdn.pixabay.com/photo/2017/04/27/08/28/sport-2264824_1280.jpg'
+image: '/images/blog/fuerza-salud-osea-2025.jpg'
 slug: 'fuerza-salud-osea-2025'
 readTime: 9
 featured: false

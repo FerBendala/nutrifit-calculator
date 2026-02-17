@@ -11,10 +11,25 @@ import { SocialShare } from '@/components/SocialShare';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AdSlot } from '@/components/UnifiedAdSlot';
 import { analyzeBAI } from '@/lib/formulas';
 import { AlertTriangle, Calculator, Info, Ruler, Scale, Target, Users } from 'lucide-react';
 import { useState } from 'react';
+
+const BAI_ADVANTAGES = [
+  'No requiere conocer el peso corporal',
+  'Útil cuando no hay acceso a báscula',
+  'Correlaciona bien con DEXA en ciertos grupos étnicos',
+  'Especialmente preciso en mujeres afrodescendientes',
+  'Simple de calcular con solo cinta métrica',
+];
+
+const BAI_LIMITATIONS = [
+  'Menor precisión en hombres que en mujeres',
+  'Puede sobreestimar grasa en atletas musculosos',
+  'Varía según grupo étnico y edad',
+  'No distingue entre grasa visceral y subcutánea',
+  'Menos validado que métodos tradicionales como IMC',
+];
 
 export default function BAIPage() {
   const [hipCircumference, setHipCircumference] = useState<string>('95');
@@ -56,16 +71,16 @@ export default function BAIPage() {
             </p>
           </header>
 
-          <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-8">
+          <section className="card-golden-lg bg-info-subtle border-l-4 border-info mb-8">
             <div className="p-6">
               <p className="text-muted-foreground leading-relaxed mb-4">
                 El <strong>BAI (Body Adiposity Index)</strong> es una métrica innovadora desarrollada por{' '}
-                <a href="https://pubmed.ncbi.nlm.nih.gov/21304477/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/21304477/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">
                   Bergman et al. (2011)
                 </a>{' '}
                 que estima el porcentaje de grasa corporal sin necesidad de conocer el peso. Utiliza únicamente la circunferencia
                 de la cadera y la altura. Investigaciones en{' '}
-                <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3275633/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3275633/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">
                   poblaciones diversas
                 </a>{' '}
                 demuestran su alta correlación con métodos de referencia como DEXA.
@@ -144,7 +159,7 @@ export default function BAIPage() {
             <section className="space-golden-lg border-t pt-8">
               <header className="mb-6">
                 <h2 className="text-2xl font-bold text-foreground flex items-center">
-                  <Target className="w-6 h-6 mr-2 text-orange-600 dark:text-orange-400" />
+                  <Target className="w-6 h-6 mr-2 text-warning" />
                   Tus Resultados de BAI
                 </h2>
               </header>
@@ -153,12 +168,12 @@ export default function BAIPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-lg">
-                      <Target className="w-5 h-5 mr-2 text-orange-600 dark:text-orange-400" />
+                      <Target className="w-5 h-5 mr-2 text-warning" />
                       BAI (Índice de Adiposidad)
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">
+                    <div className="text-3xl font-bold text-warning">
                       {result.bai.toFixed(1)}%
                     </div>
                   </CardContent>
@@ -166,27 +181,27 @@ export default function BAIPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-lg">
-                      <Scale className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
+                      <Scale className="w-5 h-5 mr-2 text-info" />
                       Grasa Corporal Estimada
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                    <div className="text-3xl font-bold text-info">
                       {result.estimatedBodyFat.toFixed(1)}%
                     </div>
                   </CardContent>
                 </Card>
               </div>
 
-              <Alert className={`mb-6 border-l-4 ${result.healthRisk === 'Bajo' ? 'bg-green-50 dark:bg-green-950/30 border-green-500' :
-                result.healthRisk === 'Moderado' ? 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-500' :
-                  result.healthRisk === 'Alto' ? 'bg-orange-50 dark:bg-orange-950/30 border-orange-500' :
-                    'bg-red-50 dark:bg-red-950/30 border-red-500'
+              <Alert className={`mb-6 border-l-4 ${result.healthRisk === 'Bajo' ? 'bg-success-subtle border-success' :
+                result.healthRisk === 'Moderado' ? 'bg-warning-subtle border-warning' :
+                  result.healthRisk === 'Alto' ? 'bg-warning-subtle border-warning' :
+                    'bg-destructive-subtle border-destructive'
                 }`}>
-                <AlertTriangle className={`h-5 w-5 ${result.healthRisk === 'Bajo' ? 'text-green-600 dark:text-green-400' :
-                  result.healthRisk === 'Moderado' ? 'text-yellow-600 dark:text-yellow-400' :
-                    result.healthRisk === 'Alto' ? 'text-orange-600 dark:text-orange-400' :
-                      'text-red-600 dark:text-red-400'
+                <AlertTriangle className={`h-5 w-5 ${result.healthRisk === 'Bajo' ? 'text-success' :
+                  result.healthRisk === 'Moderado' ? 'text-warning' :
+                    result.healthRisk === 'Alto' ? 'text-warning' :
+                      'text-destructive'
                   }`} />
                 <AlertDescription className="ml-2">
                   <strong>Categoría:</strong> {result.category} | <strong>Riesgo de salud:</strong> {result.healthRisk}
@@ -196,13 +211,13 @@ export default function BAIPage() {
               <Card className="mb-6">
                 <CardHeader>
                   <CardTitle className="flex items-center text-lg">
-                    <Info className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
+                    <Info className="w-5 h-5 mr-2 text-info" />
                     Interpretación Clínica
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed">{result.clinicalInterpretation}</p>
-                  <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
+                  <div className="mt-4 p-4 bg-info-subtle rounded-lg">
                     <p className="text-sm text-muted-foreground">
                       <strong>Implicaciones Metabólicas:</strong> {result.metabolicImplications}
                     </p>
@@ -213,7 +228,7 @@ export default function BAIPage() {
               <Card className="mb-6">
                 <CardHeader>
                   <CardTitle className="flex items-center text-lg">
-                    <Ruler className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" />
+                    <Ruler className="w-5 h-5 mr-2 text-warning" />
                     Recomendaciones Personalizadas
                   </CardTitle>
                 </CardHeader>
@@ -221,7 +236,7 @@ export default function BAIPage() {
                   <ul className="space-y-2">
                     {result.recommendations.map((rec, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-orange-600 dark:text-orange-400 mr-2 flex-shrink-0">•</span>
+                        <span className="text-warning mr-2 flex-shrink-0">•</span>
                         <span className="text-muted-foreground">{rec}</span>
                       </li>
                     ))}
@@ -233,7 +248,7 @@ export default function BAIPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-lg">
-                      <Users className="w-5 h-5 mr-2 text-green-600 dark:text-green-400" />
+                      <Users className="w-5 h-5 mr-2 text-success" />
                       Rangos de Referencia
                     </CardTitle>
                   </CardHeader>
@@ -248,15 +263,15 @@ export default function BAIPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-lg">
-                      <AlertTriangle className="w-5 h-5 mr-2 text-yellow-600 dark:text-yellow-400" />
+                      <AlertTriangle className="w-5 h-5 mr-2 text-warning" />
                       Riesgo de Salud
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className={`px-3 py-2 rounded-lg text-sm font-medium ${result.healthRisk === 'Bajo' ? 'bg-green-100 text-green-800 dark:text-green-200' :
-                      result.healthRisk === 'Moderado' ? 'bg-yellow-100 text-yellow-800 dark:text-yellow-200' :
-                        result.healthRisk === 'Alto' ? 'bg-orange-100 text-orange-800 dark:text-orange-200' :
-                          'bg-red-100 text-red-800 dark:text-red-200'
+                    <div className={`px-3 py-2 rounded-lg text-sm font-medium ${result.healthRisk === 'Bajo' ? 'bg-success-subtle text-foreground/90' :
+                      result.healthRisk === 'Moderado' ? 'bg-warning-subtle text-foreground/90' :
+                        result.healthRisk === 'Alto' ? 'bg-warning-subtle text-foreground/90' :
+                          'bg-destructive-subtle text-foreground/90'
                       }`}>
                       {result.healthRisk}
                     </div>
@@ -265,11 +280,6 @@ export default function BAIPage() {
               </div>
             </section>
           )}
-
-          {/* Espacio para anuncios */}
-          <div className="my-12 flex justify-center">
-            <AdSlot adSlot="3456789012" adFormat="horizontal" />
-          </div>
 
           {/* Información adicional */}
           <article className="prose prose-gray max-w-none space-golden-lg pt-[2.618rem]">
@@ -280,18 +290,18 @@ export default function BAIPage() {
             </header>
 
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <article className="card-golden-lg bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400">
+              <article className="card-golden-lg bg-success-subtle border-l-4 border-success">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 flex items-center">
+                  <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                     <Scale className="w-5 h-5 mr-2" />
                     Ventajas del BAI
                   </h3>
                 </header>
                 <div className="p-6">
-                  <ul className="space-y-2 text-green-800 dark:text-green-200">
-                    {result?.advantages.map((advantage, index) => (
+                  <ul className="space-y-2 text-foreground/90">
+                    {(result?.advantages ?? BAI_ADVANTAGES).map((advantage, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         <span>{advantage}</span>
                       </li>
                     ))}
@@ -299,18 +309,18 @@ export default function BAIPage() {
                 </div>
               </article>
 
-              <article className="card-golden-lg bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400">
+              <article className="card-golden-lg bg-warning-subtle border-l-4 border-warning">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-yellow-800 dark:text-yellow-200 flex items-center">
+                  <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                     <AlertTriangle className="w-5 h-5 mr-2" />
-                    Limitaciones del BAI
+                    Desventajas / Limitaciones del BAI
                   </h3>
                 </header>
                 <div className="p-6">
-                  <ul className="space-y-2 text-yellow-800 dark:text-yellow-200">
-                    {result?.limitations.map((limitation, index) => (
+                  <ul className="space-y-2 text-foreground/90">
+                    {(result?.limitations ?? BAI_LIMITATIONS).map((limitation, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="w-2 h-2 bg-warning rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         <span>{limitation}</span>
                       </li>
                     ))}
@@ -319,15 +329,15 @@ export default function BAIPage() {
               </article>
             </section>
 
-            <section className="card-golden-lg bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-400 mt-8">
+            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-purple-800 dark:text-purple-200 flex items-center">
+                <h3 className="text-xl font-semibold text-foreground flex items-center">
                   <Ruler className="w-5 h-5 mr-2" />
                   Cómo Medir la Circunferencia de Cadera Correctamente
                 </h3>
               </header>
               <div className="p-6">
-                <div className="space-y-4 text-purple-700 dark:text-purple-300">
+                <div className="space-y-4 text-warning">
                   <div className="flex items-start">
                     <span className="font-bold mr-2">1.</span>
                     <div>
@@ -356,10 +366,10 @@ export default function BAIPage() {
                       <p className="text-sm">Preferiblemente por la mañana, en ayunas, después de ir al baño</p>
                     </div>
                   </div>
-                  <div className="mt-4 p-3 bg-purple-100 rounded-lg">
+                  <div className="mt-4 p-3 bg-warning-subtle rounded-lg">
                     <p className="text-sm">
                       📏 <strong>Consejo profesional:</strong>{' '}
-                      <a href="https://www.cdc.gov/healthyweight/assessing/index.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                      <a href="https://www.cdc.gov/healthyweight/assessing/index.html" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">
                         Protocolo CDC
                       </a>{' '}
                       - Realiza 2-3 mediciones y usa el promedio para mayor precisión
@@ -369,19 +379,19 @@ export default function BAIPage() {
               </div>
             </section>
 
-            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mt-8">
+            <section className="card-golden-lg bg-info-subtle border-l-4 border-info mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-blue-800 dark:text-blue-200 flex items-center">
+                <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                   <Info className="w-5 h-5 mr-2" />
                   Fórmula Científica del BAI
                 </h3>
               </header>
               <div className="p-6">
-                <div className="bg-card p-6 rounded-lg mb-4 font-mono text-center border-2 border-blue-200">
+                <div className="bg-card p-6 rounded-lg mb-4 font-mono text-center border-2 border-info">
                   <div className="text-lg mb-2">BAI = (Circunferencia cadera en cm) / (Altura en m)<sup>1.5</sup> - 18</div>
                   <div className="text-sm text-muted-foreground mt-2">Bergman et al. (2011) - Obesity Journal</div>
                 </div>
-                <div className="space-y-3 text-sm text-blue-800 dark:text-blue-200">
+                <div className="space-y-3 text-sm text-foreground/90">
                   <p>
                     <strong>📊 Origen científico:</strong> Desarrollado en la Universidad de California (USC) analizando más de 1,700 individuos
                     con mediciones DEXA de referencia
@@ -392,7 +402,7 @@ export default function BAIPage() {
                   <p>
                     <strong>⚕️ Uso clínico:</strong> Especialmente útil en poblaciones sin acceso a básculas o equipamiento sofisticado.
                     Estudios en{' '}
-                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3275633/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3275633/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium">
                       validación multicéntrica
                     </a>{' '}
                     confirman su utilidad clínica
@@ -404,19 +414,19 @@ export default function BAIPage() {
               </div>
             </section>
 
-            <section className="card-golden-lg bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-400 mt-8">
+            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-orange-800 dark:text-orange-200">
+                <h3 className="text-xl font-semibold text-foreground/90">
                   Complementa tu análisis de composición corporal
                 </h3>
               </header>
               <div className="p-6">
-                <ul className="space-y-3 text-orange-800 dark:text-orange-200">
+                <ul className="space-y-3 text-foreground/90">
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/fmi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/fmi/" className="text-info hover:underline transition-colors font-medium transition-golden">
                           Calcula tu FMI con peso:
                         </a>
                       </strong>{' '}
@@ -424,10 +434,10 @@ export default function BAIPage() {
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/whr/" className="text-info hover:underline transition-colors font-medium transition-golden">
                           Evalúa tu WHR:
                         </a>
                       </strong>{' '}
@@ -435,10 +445,10 @@ export default function BAIPage() {
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/grasa-corporal/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/grasa-corporal/" className="text-info hover:underline transition-colors font-medium transition-golden">
                           Mide grasa por pliegues:
                         </a>
                       </strong>{' '}
@@ -446,10 +456,10 @@ export default function BAIPage() {
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span>
                       <strong>
-                        <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">
+                        <a href="/imc/" className="text-info hover:underline transition-colors font-medium transition-golden">
                           Calcula tu IMC:
                         </a>
                       </strong>{' '}

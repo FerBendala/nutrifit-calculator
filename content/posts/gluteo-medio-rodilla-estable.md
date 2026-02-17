@@ -1,11 +1,11 @@
 ---
 title: 'Glúteo Medio y Rodilla Estable: Entrenamiento para Control del Valgo y Movimiento Eficiente'
 date: '2026-02-13'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía práctica para fortalecer el glúteo medio, mejorar la alineación de la rodilla y sostener movimientos seguros.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags: ['gluteo-medio', 'rodilla', 'valgo', 'estabilidad', 'cadera']
-image: 'https://cdn.pixabay.com/photo/2025/11/30/08/57/fitness-9986090_1280.jpg'
+image: '/images/blog/gluteo-medio-rodilla-estable.jpg'
 slug: 'gluteo-medio-rodilla-estable'
 readTime: 8
 featured: false
@@ -86,8 +86,8 @@ Un glúteo medio fuerte ayuda a que la rodilla se mueva con precisión. Con ejer
 
 ## Referencias
 
-1. Nascimento LR, Teixeira-Salmela LF, Souza RB, Resende RA. Hip and Knee Strengthening Is More Effective Than Knee Strengthening Alone for Reducing Pain and Improving Activity in Individuals With Patellofemoral Pain: A Systematic Review With Meta-analysis. Journal of Orthopaedic & Sports Physical Therapy. (sin año). https://pubmed.ncbi.nlm.nih.gov/29034800/ citeturn0search0
-2. Rogan S, Haehni M, Luijckx E, Dealer J, Reuteler S, Taeymans J. Effects of Hip Abductor Muscles Exercises on Pain and Function in Patients With Patellofemoral Pain: A Systematic Review and Meta-Analysis. Journal of Strength and Conditioning Research. (sin año). https://pubmed.ncbi.nlm.nih.gov/30074970/ citeturn0search1
-3. Zhang Z, Zhang Z, Zheng B, Yang Y, Sun Y. Effects of lower limb strengthening training on lower limb biomechanical characteristics and knee pain in patients with patellofemoral pain: a systematic review and meta-analysis. European Journal of Medical Research. (sin año). https://doi.org/10.1186/s40001-025-02347-3 citeturn0search3
-4. Rathleff MS, Rathleff CR, Crossley KM, Barton CJ. Is hip strength a risk factor for patellofemoral pain? A systematic review and meta-analysis. British Journal of Sports Medicine. (sin año). https://doi.org/10.1136/bjsports-2013-093305 citeturn0search5
-5. Halabi MH, Alturkistani BA, Abuhadi RH, Garout AN, Almuqbil FB, Alshehri MS. The Efficacy of Hip and Knee Muscles Strengthening Versus Knee Muscle Strengthening Alone in Managing Patellofemoral Pain Syndrome: A Systematic Review and Meta-Analysis. Musculoskeletal Care. (sin año). https://pubmed.ncbi.nlm.nih.gov/39934098/ citeturn0search2
+1. Nascimento LR, Teixeira-Salmela LF, Souza RB, Resende RA. Hip and Knee Strengthening Is More Effective Than Knee Strengthening Alone for Reducing Pain and Improving Activity in Individuals With Patellofemoral Pain: A Systematic Review With Meta-analysis. Journal of Orthopaedic & Sports Physical Therapy. (sin año). https://pubmed.ncbi.nlm.nih.gov/29034800/
+2. Rogan S, Haehni M, Luijckx E, Dealer J, Reuteler S, Taeymans J. Effects of Hip Abductor Muscles Exercises on Pain and Function in Patients With Patellofemoral Pain: A Systematic Review and Meta-Analysis. Journal of Strength and Conditioning Research. (sin año). https://pubmed.ncbi.nlm.nih.gov/30074970/
+3. Zhang Z, Zhang Z, Zheng B, Yang Y, Sun Y. Effects of lower limb strengthening training on lower limb biomechanical characteristics and knee pain in patients with patellofemoral pain: a systematic review and meta-analysis. European Journal of Medical Research. (sin año). https://doi.org/10.1186/s40001-025-02347-3
+4. Rathleff MS, Rathleff CR, Crossley KM, Barton CJ. Is hip strength a risk factor for patellofemoral pain? A systematic review and meta-analysis. British Journal of Sports Medicine. (sin año). https://doi.org/10.1136/bjsports-2013-093305
+5. Halabi MH, Alturkistani BA, Abuhadi RH, Garout AN, Almuqbil FB, Alshehri MS. The Efficacy of Hip and Knee Muscles Strengthening Versus Knee Muscle Strengthening Alone in Managing Patellofemoral Pain Syndrome: A Systematic Review and Meta-Analysis. Musculoskeletal Care. (sin año). https://pubmed.ncbi.nlm.nih.gov/39934098/

@@ -1,0 +1,19 @@
+{
+  "name": "NutriFit Calculator - Calculadoras de Nutrición y Fitness",
+  "short_name": "NutriFit",
+  "description": "Calculadoras de nutrición y fitness con fórmulas científicas validadas. Calcula calorías, macros, grasa corporal, peso ideal y más.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "lang": "es",
+  "categories": ["health", "fitness", "medical"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

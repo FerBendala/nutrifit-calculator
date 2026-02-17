@@ -15,15 +15,15 @@ import { useState } from 'react';
 
 // Lazy load componentes no críticos
 const EmbedWidget = dynamic(() => import('@/components/EmbedWidget').then(mod => ({ default: mod.EmbedWidget })), {
-  loading: () => <div className="h-96 animate-pulse bg-gray-100 rounded-lg" />,
+  loading: () => <div className="h-96 animate-pulse bg-muted rounded-lg" />,
 });
 
 const RelatedCalculators = dynamic(() => import('@/components/RelatedCalculators').then(mod => ({ default: mod.RelatedCalculators })), {
-  loading: () => <div className="h-48 animate-pulse bg-gradient-to-r from-blue-50 to-green-50 rounded-lg" />,
+  loading: () => <div className="h-48 animate-pulse bg-gradient-to-r bg-muted rounded-lg" />,
 });
 
 const SocialShare = dynamic(() => import('@/components/SocialShare').then(mod => ({ default: mod.SocialShare })), {
-  loading: () => <div className="h-24 animate-pulse bg-gray-100 rounded-lg" />,
+  loading: () => <div className="h-24 animate-pulse bg-muted rounded-lg" />,
 });
 
 export default function AguaPage() {
@@ -136,10 +136,10 @@ export default function AguaPage() {
                 <div className="text-center space-golden-md">
                   <div className="grid gap-[1.618rem] md:grid-cols-2">
                     <article className="text-center card-golden bg-secondary/50">
-                      <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-[0.618rem]">
+                      <div className="text-4xl font-bold text-info mb-[0.618rem]">
                         {formatMilliliters(result.min)}
                       </div>
-                      <div className="text-lg font-semibold text-blue-700 dark:text-blue-300 mb-[0.382rem]">
+                      <div className="text-lg font-semibold text-info mb-[0.382rem]">
                         Mínimo diario
                       </div>
                       <p className="text-sm text-muted-foreground">
@@ -160,30 +160,30 @@ export default function AguaPage() {
                     </article>
                   </div>
 
-                  <section className="mt-[2.618rem] card-golden bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-400">
+                  <section className="mt-[2.618rem] card-golden bg-gradient-to-r bg-info-subtle border-l-4 border-info">
                     <h3 className="font-bold mb-[1.618rem] text-lg flex items-center">
                       <span className="text-2xl mr-3">💧</span>
                       Consejos de hidratación
                     </h3>
                     <ul className="text-sm text-muted-foreground space-golden-xs text-left">
                       <li className="flex items-start">
-                        <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                        <span className="text-info mr-2">•</span>
                         <span>Bebe agua de forma constante a lo largo del día</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                        <span className="text-destructive mr-2">•</span>
                         <span>Aumenta la ingesta durante ejercicio intenso o clima caluroso</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                        <span className="text-success mr-2">•</span>
                         <span>Incluye también líquidos de frutas, verduras y otras bebidas</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-yellow-600 mr-2">•</span>
+                        <span className="text-warning mr-2">•</span>
                         <span>El color de la orina es un buen indicador de hidratación</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                        <span className="text-warning mr-2">•</span>
                         <span>Ajusta según tu sed y condiciones individuales</span>
                       </li>
                     </ul>
@@ -214,27 +214,27 @@ export default function AguaPage() {
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs">
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                    <span><strong>Regulación térmica:</strong> Sudoración y vasodilatación para controlar temperatura - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2903966/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">estudios sobre termorregulación</a></span>
+                    <span className="text-info mr-2">•</span>
+                    <span><strong>Regulación térmica:</strong> Sudoración y vasodilatación para controlar temperatura - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2903966/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">estudios sobre termorregulación</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
-                    <span><strong>Transporte de nutrientes:</strong> El plasma sanguíneo es 90% agua - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC524030/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">función del plasma</a></span>
+                    <span className="text-success mr-2">•</span>
+                    <span><strong>Transporte de nutrientes:</strong> El plasma sanguíneo es 90% agua - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC524030/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">función del plasma</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-purple-600 mr-2">•</span>
-                    <span><strong>Eliminación de toxinas:</strong> Riñones filtran 180L de sangre al día - <a href="https://www.kidney.org/atoz/content/kidneys-work" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">función renal</a></span>
+                    <span className="text-muted-foreground mr-2">•</span>
+                    <span><strong>Eliminación de toxinas:</strong> Riñones filtran 180L de sangre al día - <a href="https://www.kidney.org/atoz/content/kidneys-work" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">función renal</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                    <span className="text-destructive mr-2">•</span>
                     <span><strong>Lubricación articular:</strong> El líquido sinovial protege las articulaciones</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Digestión:</strong> Saliva, jugos gástricos y bilis contienen agua</span>
                   </li>
                   <li className="flex items-start py-[0.382rem]">
-                    <span className="text-yellow-600 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Estructura celular:</strong> Mantiene la forma y función de las células</span>
                   </li>
                 </ul>
@@ -247,7 +247,7 @@ export default function AguaPage() {
                 </h3>
                 <div className="space-golden-sm">
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-yellow-700 dark:text-yellow-300">Leve (1-2% peso corporal):</h4>
+                    <h4 className="font-semibold text-sm text-warning">Leve (1-2% peso corporal):</h4>
                     <ul className="text-sm text-muted-foreground mt-1 space-y-1">
                       <li>• Sed, boca seca</li>
                       <li>• Reducción del rendimiento físico</li>
@@ -255,7 +255,7 @@ export default function AguaPage() {
                     </ul>
                   </section>
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-orange-700">Moderada (3-5% peso corporal):</h4>
+                    <h4 className="font-semibold text-sm text-warning">Moderada (3-5% peso corporal):</h4>
                     <ul className="text-sm text-muted-foreground mt-1 space-y-1">
                       <li>• Fatiga, mareos, dolor de cabeza</li>
                       <li>• Reducción cognitiva significativa</li>
@@ -263,7 +263,7 @@ export default function AguaPage() {
                     </ul>
                   </section>
                   <section className="py-[0.382rem]">
-                    <h4 className="font-semibold text-sm text-red-700 dark:text-red-300">Severa (&gt;5% peso corporal):</h4>
+                    <h4 className="font-semibold text-sm text-destructive">Severa (&gt;5% peso corporal):</h4>
                     <ul className="text-sm text-muted-foreground mt-1 space-y-1">
                       <li>• Náuseas, vómitos</li>
                       <li>• Confusión, irritabilidad</li>
@@ -274,89 +274,89 @@ export default function AguaPage() {
               </article>
             </section>
 
-            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🎯</span>
                 Recomendaciones de hidratación según actividad
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-3">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <span className="text-lg mr-2">😴</span>
                     Sedentario:
                   </h4>
-                  <p className="text-lg font-bold text-yellow-800 dark:text-yellow-200 mb-[0.382rem]">30-35ml/kg peso</p>
-                  <p className="text-xs text-blue-700 dark:text-blue-300">Según las <a href="https://www.efsa.europa.eu/en/efsajournal/pub/1459" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">recomendaciones EFSA</a></p>
+                  <p className="text-lg font-bold text-foreground/90 mb-[0.382rem]">30-35ml/kg peso</p>
+                  <p className="text-xs text-info">Según las <a href="https://www.efsa.europa.eu/en/efsajournal/pub/1459" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">recomendaciones EFSA</a></p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-green-700 dark:text-green-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-success flex items-center">
                     <span className="text-lg mr-2">🏃</span>
                     Ejercicio moderado:
                   </h4>
-                  <p className="text-lg font-bold text-blue-800 dark:text-blue-200 mb-[0.382rem]">+500-750ml/hora</p>
-                  <p className="text-xs text-blue-700 dark:text-blue-300">Durante y después del ejercicio</p>
+                  <p className="text-lg font-bold text-foreground/90 mb-[0.382rem]">+500-750ml/hora</p>
+                  <p className="text-xs text-info">Durante y después del ejercicio</p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-red-700 dark:text-red-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-destructive flex items-center">
                     <span className="text-lg mr-2">💪</span>
                     Ejercicio intenso:
                   </h4>
-                  <p className="text-lg font-bold text-blue-800 dark:text-blue-200 mb-[0.382rem]">+750-1000ml/hora</p>
-                  <p className="text-xs text-blue-700 dark:text-blue-300">Especialmente en clima caluroso</p>
+                  <p className="text-lg font-bold text-foreground/90 mb-[0.382rem]">+750-1000ml/hora</p>
+                  <p className="text-xs text-info">Especialmente en clima caluroso</p>
                 </article>
               </div>
             </section>
 
-            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🌡️</span>
                 Factores que aumentan las necesidades de agua
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-orange-700 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-warning flex items-center">
                     <span className="text-lg mr-2">🌍</span>
                     Ambientales:
                   </h4>
-                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                      <span className="text-destructive mr-2">•</span>
                       <span><strong>Calor extremo:</strong> Aumenta pérdida por sudor</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                      <span className="text-info mr-2">•</span>
                       <span><strong>Altitud elevada:</strong> &gt;2500m aumenta respiración</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-yellow-600 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span><strong>Aire seco:</strong> Calefacción/aire acondicionado</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                      <span className="text-warning mr-2">•</span>
                       <span><strong>Exposición solar:</strong> Incrementa temperatura corporal</span>
                     </li>
                   </ul>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-purple-700 dark:text-purple-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-warning flex items-center">
                     <span className="text-lg mr-2">🧬</span>
                     Fisiológicos:
                   </h4>
-                  <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-golden-xs">
+                  <ul className="text-sm text-foreground/90 space-golden-xs">
                     <li className="flex items-start">
-                      <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                      <span className="text-destructive mr-2">•</span>
                       <span><strong>Fiebre:</strong> +200ml por cada grado &gt;37°C</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-pink-600 mr-2">•</span>
+                      <span className="text-destructive mr-2">•</span>
                       <span><strong>Embarazo:</strong> +300ml/día en 2º y 3er trimestre</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-purple-600 mr-2">•</span>
+                      <span className="text-muted-foreground mr-2">•</span>
                       <span><strong>Lactancia:</strong> +600-700ml/día</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                      <span className="text-info mr-2">•</span>
                       <span><strong>Edad avanzada:</strong> Menor sensación de sed</span>
                     </li>
                   </ul>
@@ -364,25 +364,25 @@ export default function AguaPage() {
               </div>
             </section>
 
-            <section className="bg-green-50 dark:bg-green-950/30 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
-              <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-success-subtle card-golden-lg border-l-4 border-success mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🥤</span>
                 Fuentes de hidratación
               </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 <article>
                   <h4 className="font-semibold mb-2">Líquidos (80% del total):</h4>
-                  <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-1">
+                  <ul className="text-sm text-foreground space-y-1">
                     <li>• <strong>Agua pura:</strong> La mejor opción, sin calorías</li>
                     <li>• <strong>Infusiones:</strong> Té, café (moderado), tisanas</li>
-                    <li>• <strong>Leche:</strong> Aporta también <a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline">proteína</a> y calcio</li>
+                    <li>• <strong>Leche:</strong> Aporta también <a href="/proteina/" className="text-info hover:underline transition-colors">proteína</a> y calcio</li>
                     <li>• <strong>Zumos naturales:</strong> Con moderación por azúcares</li>
                     <li>• <strong>Caldos:</strong> Aportan electrolitos adicionales</li>
                   </ul>
                 </article>
                 <article>
                   <h4 className="font-semibold mb-2">Alimentos (20% del total):</h4>
-                  <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-1">
+                  <ul className="text-sm text-foreground space-y-1">
                     <li>• <strong>Frutas:</strong> Sandía (92%), naranja (87%), manzana (86%)</li>
                     <li>• <strong>Verduras:</strong> Pepino (95%), lechuga (95%), tomate (94%)</li>
                     <li>• <strong>Lácteos:</strong> Yogur (85%), leche (87%)</li>
@@ -392,19 +392,19 @@ export default function AguaPage() {
               </div>
             </section>
 
-            <section className="bg-green-50 dark:bg-green-950/30 card-golden-lg border-l-4 border-green-400 mb-[2.618rem]">
-              <h3 className="font-bold text-green-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-success-subtle card-golden-lg border-l-4 border-success mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🏃‍♂️</span>
                 Hidratación y rendimiento deportivo
               </h3>
               <div className="space-y-3">
-                <p className="text-sm text-yellow-800 dark:text-yellow-200">
-                  <strong>Una deshidratación del 2% ya reduce el rendimiento físico y cognitivo.</strong> Según <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3871410/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">estudios sobre deshidratación y rendimiento</a>.
+                <p className="text-sm text-foreground/90">
+                  <strong>Una deshidratación del 2% ya reduce el rendimiento físico y cognitivo.</strong> Según <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3871410/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">estudios sobre deshidratación y rendimiento</a>.
                 </p>
                 <div className="grid gap-4 md:grid-cols-3">
                   <article>
                     <h4 className="font-semibold mb-2">Antes del ejercicio:</h4>
-                    <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-y-1">
+                    <ul className="text-sm text-foreground/90 space-y-1">
                       <li>• 400-600ml, 2-3h antes</li>
                       <li>• 200-300ml, 10-15min antes</li>
                       <li>• Verifica color orina (amarillo claro)</li>
@@ -412,7 +412,7 @@ export default function AguaPage() {
                   </article>
                   <article>
                     <h4 className="font-semibold mb-2">Durante el ejercicio:</h4>
-                    <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-y-1">
+                    <ul className="text-sm text-foreground/90 space-y-1">
                       <li>• 150-250ml cada 15-20min</li>
                       <li>• Bebidas isotónicas si &gt;1h</li>
                       <li>• Temperatura fresca (15-22°C)</li>
@@ -420,7 +420,7 @@ export default function AguaPage() {
                   </article>
                   <article>
                     <h4 className="font-semibold mb-2">Después del ejercicio:</h4>
-                    <ul className="text-sm text-yellow-800 dark:text-yellow-200 space-y-1">
+                    <ul className="text-sm text-foreground/90 space-y-1">
                       <li>• 150% del peso perdido</li>
                       <li>• Incluir sodio si sudoración intensa</li>
                       <li>• Monitorear peso corporal</li>
@@ -430,15 +430,15 @@ export default function AguaPage() {
               </div>
             </section>
 
-            <section className="bg-yellow-50 dark:bg-yellow-950/30 card-golden-lg border-l-4 border-yellow-400 mb-[2.618rem]">
-              <h3 className="font-bold text-yellow-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">⚠️</span>
                 Cuándo consultar con un profesional
               </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 <article>
                   <h4 className="font-semibold mb-2">Síntomas de alarma:</h4>
-                  <ul className="text-sm text-red-800 dark:text-red-200 space-y-1">
+                  <ul className="text-sm text-foreground/90 space-y-1">
                     <li>• Mareos severos o desmayos</li>
                     <li>• Confusión o irritabilidad extrema</li>
                     <li>• Vómitos persistentes</li>
@@ -448,7 +448,7 @@ export default function AguaPage() {
                 </article>
                 <article>
                   <h4 className="font-semibold mb-2">Condiciones especiales:</h4>
-                  <ul className="text-sm text-red-800 dark:text-red-200 space-y-1">
+                  <ul className="text-sm text-foreground/90 space-y-1">
                     <li>• Problemas renales o cardíacos</li>
                     <li>• Diabetes no controlada</li>
                     <li>• Medicamentos diuréticos</li>
@@ -490,27 +490,27 @@ export default function AguaPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
-              <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Complementa tu hidratación con otras herramientas
               </h3>
-              <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tus calorías diarias:</a></strong> La hidratación afecta el metabolismo y la saciedad</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tus calorías diarias:</a></strong> La hidratación afecta el metabolismo y la saciedad</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/proteina/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Optimiza tu proteína:</a></strong> La síntesis proteica requiere hidratación adecuada</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/proteina/" className="text-info hover:underline transition-colors font-medium transition-golden">Optimiza tu proteína:</a></strong> La síntesis proteica requiere hidratación adecuada</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Conoce tu TDEE:</a></strong> Mayor gasto calórico requiere más hidratación</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/tdee/" className="text-info hover:underline transition-colors font-medium transition-golden">Conoce tu TDEE:</a></strong> Mayor gasto calórico requiere más hidratación</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/fibra/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calcula tu fibra diaria:</a></strong> Necesidades de fibra según IOM/FDA para dieta equilibrada</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/fibra/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu fibra diaria:</a></strong> Necesidades de fibra según IOM/FDA para dieta equilibrada</span>
                 </li>
               </ul>
             </section>

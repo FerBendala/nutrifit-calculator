@@ -50,7 +50,7 @@ export function NumberInput({
     <div className="space-y-2">
       <Label htmlFor={id} className="text-sm font-medium">
         {displayLabel}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="text-destructive ml-1">*</span>}
       </Label>
       <Input
         id={id}
@@ -63,12 +63,12 @@ export function NumberInput({
         step={step}
         placeholder={placeholder}
         required={required}
-        className={error ? 'border-red-500 focus:border-red-500' : ''}
+        className={error ? 'border-destructive focus:border-destructive' : ''}
         aria-describedby={error ? `${id}-error` : undefined}
         aria-invalid={!!error}
       />
       {error && (
-        <p id={`${id}-error`} className="text-sm text-red-500" role="alert">
+        <p id={`${id}-error`} className="text-sm text-destructive" role="alert">
           {error}
         </p>
       )}

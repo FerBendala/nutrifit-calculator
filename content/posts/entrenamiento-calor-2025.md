@@ -1,7 +1,7 @@
 ---
 title: 'Entrenamiento en Calor: Estrategias de Aclimatación, Hidratación y Rendimiento'
 date: '2025-10-06'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Domina la preparación para competir y entrenar en ambientes calurosos con protocolos de aclimatación, hidratación y recuperación avalados por la evidencia más reciente.'
 categories: ['Rendimiento', 'Recuperación', 'Salud Metabólica']
 tags:
@@ -12,7 +12,7 @@ tags:
     'electrolitos',
     'HRV',
   ]
-image: 'https://cdn.pixabay.com/photo/2020/08/02/02/48/surfer-5456599_1280.jpg'
+image: '/images/blog/entrenamiento-calor-2025.jpg'
 slug: 'entrenamiento-calor-2025'
 readTime: 10
 featured: false

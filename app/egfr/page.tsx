@@ -1,6 +1,5 @@
 "use client";
 
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
@@ -48,13 +47,13 @@ export default function EGFRPage() {
 
   const getStageColor = (stage: string) => {
     switch (stage) {
-      case '1': return 'from-green-50 to-green-100 border-green-400 text-green-900';
-      case '2': return 'from-lime-50 to-lime-100 border-lime-400 text-lime-900';
-      case '3a': return 'from-yellow-50 to-yellow-100 border-yellow-400 text-yellow-900';
-      case '3b': return 'from-orange-50 to-orange-100 border-orange-400 text-orange-900';
-      case '4': return 'from-red-50 to-red-100 border-red-400 text-red-900';
-      case '5': return 'from-red-100 to-red-200 border-red-600 text-red-900';
-      default: return 'from-gray-50 to-gray-100 border-gray-400 text-foreground';
+      case '1': return 'bg-success-subtle border-success text-foreground';
+      case '2': return 'bg-success-subtle border-success text-foreground';
+      case '3a': return 'bg-warning-subtle border-warning text-foreground';
+      case '3b': return 'bg-warning-subtle border-warning text-foreground';
+      case '4': return 'bg-destructive-subtle border-destructive text-foreground';
+      case '5': return 'bg-destructive-subtle border-destructive text-foreground';
+      default: return 'bg-muted border-border text-foreground';
     }
   };
 
@@ -64,8 +63,6 @@ export default function EGFRPage() {
 
       <Container size="xl" className="py-[4.236rem]">
         <main className="max-w-5xl mx-auto space-golden-lg">
-          <Breadcrumbs items={[{ label: 'eGFR (Filtrado Glomerular)' }]} className="mb-6" />
-
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora eGFR (Filtrado Glomerular)
@@ -85,9 +82,9 @@ export default function EGFRPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
+                <div className="bg-info-subtle rounded-lg p-4 mb-6">
                   <div className="flex items-start gap-3">
-                    <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                    <Info className="h-5 w-5 text-info mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-muted-foreground">
                       <strong>Nota:</strong> Introduce la creatinina sérica en mg/dL (valor de tu analítica).
                       El peso es opcional; si lo introduces se calculará también el clearance de Cockcroft-Gault para ajuste de dosis.
@@ -202,35 +199,35 @@ export default function EGFRPage() {
                       <p className="text-xs text-teal-600 mt-1">Ecuación recomendada en guías</p>
                     </CardContent>
                   </Card>
-                  <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
+                  <Card className="bg-info-subtle">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold text-blue-900 dark:text-blue-100">MDRD-4</CardTitle>
+                      <CardTitle className="text-sm font-semibold text-foreground">MDRD-4</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
+                      <div className="text-2xl font-bold text-info">
                         {result.mdrd} mL/min/1.73 m²
                       </div>
-                      <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">Referencia histórica</p>
+                      <p className="text-xs text-info mt-1">Referencia histórica</p>
                     </CardContent>
                   </Card>
                   {result.cockcroftGault !== undefined && (
-                    <Card className="bg-gradient-to-br from-purple-50 to-purple-100">
+                    <Card className="bg-accent">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold text-purple-900">Cockcroft-Gault</CardTitle>
+                        <CardTitle className="text-sm font-semibold text-foreground">Cockcroft-Gault</CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-2xl font-bold text-purple-700">
+                        <div className="text-2xl font-bold text-foreground">
                           {result.cockcroftGault} mL/min
                         </div>
-                        <p className="text-xs text-purple-600 dark:text-purple-400 mt-1">Clearance creatinina (ajuste dosis)</p>
+                        <p className="text-xs text-warning mt-1">Clearance creatinina (ajuste dosis)</p>
                       </CardContent>
                     </Card>
                   )}
                 </div>
 
-                <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
+                <Card className="bg-gradient-to-br bg-info-subtle border-l-4 border-info">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       Recomendaciones
                     </CardTitle>
@@ -239,7 +236,7 @@ export default function EGFRPage() {
                     <ul className="space-y-2">
                       {result.recommendations.map((rec, index) => (
                         <li key={index} className="flex items-start text-sm text-muted-foreground">
-                          <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                          <span className="text-info mr-2">•</span>
                           <span>{rec}</span>
                         </li>
                       ))}
@@ -247,7 +244,7 @@ export default function EGFRPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-400">
+                <Card className="bg-gradient-to-br bg-muted border-l-4 border-border">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
@@ -281,17 +278,17 @@ export default function EGFRPage() {
                   Estadios ERC (KDIGO)
                 </h3>
                 <div className="space-golden-sm text-sm">
-                  <div className="bg-green-50 dark:bg-green-950/30 p-3 rounded-lg"><strong>G1:</strong> ≥90 — Normal o alto</div>
-                  <div className="bg-lime-50 p-3 rounded-lg"><strong>G2:</strong> 60-89 — Leve</div>
-                  <div className="bg-yellow-50 dark:bg-yellow-950/30 p-3 rounded-lg"><strong>G3a:</strong> 45-59 — Leve-moderado</div>
-                  <div className="bg-orange-50 dark:bg-orange-950/30 p-3 rounded-lg"><strong>G3b:</strong> 30-44 — Moderado-severo</div>
-                  <div className="bg-red-50 dark:bg-red-950/30 p-3 rounded-lg"><strong>G4:</strong> 15-29 — Severo</div>
-                  <div className="bg-red-100 p-3 rounded-lg"><strong>G5:</strong> &lt;15 — Enfermedad renal terminal</div>
+                  <div className="bg-success-subtle p-3 rounded-lg"><strong>G1:</strong> ≥90 — Normal o alto</div>
+                  <div className="bg-success-subtle p-3 rounded-lg"><strong>G2:</strong> 60-89 — Leve</div>
+                  <div className="bg-warning-subtle p-3 rounded-lg"><strong>G3a:</strong> 45-59 — Leve-moderado</div>
+                  <div className="bg-warning-subtle p-3 rounded-lg"><strong>G3b:</strong> 30-44 — Moderado-severo</div>
+                  <div className="bg-destructive-subtle p-3 rounded-lg"><strong>G4:</strong> 15-29 — Severo</div>
+                  <div className="bg-destructive-subtle p-3 rounded-lg"><strong>G5:</strong> &lt;15 — Enfermedad renal terminal</div>
                 </div>
               </article>
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Info className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400" />
+                  <Info className="w-5 h-5 mr-3 text-info" />
                   Fórmulas utilizadas
                 </h3>
                 <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
@@ -302,8 +299,8 @@ export default function EGFRPage() {
               </article>
             </section>
 
-            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <Info className="w-5 h-5 mr-3" />
                 Limitaciones y uso clínico
               </h3>

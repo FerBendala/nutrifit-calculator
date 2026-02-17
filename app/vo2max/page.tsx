@@ -200,12 +200,12 @@ export default function VO2MaxPage() {
 
                   <TabsContent value="cooper" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-info-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-info mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-1">Test de Cooper (12 minutos)</h3>
-                            <p className="text-sm text-blue-700 dark:text-blue-300">
+                            <h3 className="font-semibold text-foreground/90 mb-1">Test de Cooper (12 minutos)</h3>
+                            <p className="text-sm text-info">
                               Corre o camina la mayor distancia posible en 12 minutos. Mide la distancia en metros.
                             </p>
                           </div>
@@ -253,12 +253,12 @@ export default function VO2MaxPage() {
 
                   <TabsContent value="rockport" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-green-50 dark:bg-green-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-success-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-success mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-green-800 dark:text-green-200 mb-1">Test de Rockport (caminata)</h3>
-                            <p className="text-sm text-green-700 dark:text-green-300">
+                            <h3 className="font-semibold text-foreground/90 mb-1">Test de Rockport (caminata)</h3>
+                            <p className="text-sm text-success">
                               Camina 1 milla (1609m) lo más rápido posible. Registra el tiempo y el ritmo cardíaco al finalizar.
                             </p>
                           </div>
@@ -342,12 +342,12 @@ export default function VO2MaxPage() {
 
                   <TabsContent value="astrand" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-purple-50 dark:bg-purple-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-warning-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-warning mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-purple-800 dark:text-purple-200 mb-1">Test de Astrand (bicicleta)</h3>
-                            <p className="text-sm text-purple-700 dark:text-purple-300">
+                            <h3 className="font-semibold text-foreground mb-1">Test de Astrand (bicicleta)</h3>
+                            <p className="text-sm text-warning">
                               Usa un cicloergómetro. Mantén un ritmo cardíaco estable durante 6 minutos.
                             </p>
                           </div>
@@ -407,12 +407,12 @@ export default function VO2MaxPage() {
 
                   <TabsContent value="step" className="space-golden-sm">
                     <form onSubmit={handleSubmit} className="space-golden-md">
-                      <div className="bg-orange-50 dark:bg-orange-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-warning-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-orange-600 dark:text-orange-400 mt-0.5" />
+                          <Info className="h-5 w-5 text-warning mt-0.5" />
                           <div>
-                            <h3 className="font-semibold text-orange-800 dark:text-orange-200 mb-1">Test de Harvard (step)</h3>
-                            <p className="text-sm text-orange-700 dark:text-orange-300">
+                            <h3 className="font-semibold text-foreground/90 mb-1">Test de Harvard (step)</h3>
+                            <p className="text-sm text-warning">
                               Sube y baja de un escalón de 30cm durante 5 minutos. Mide el pulso en los 3 primeros minutos de recuperación.
                             </p>
                           </div>
@@ -520,11 +520,11 @@ export default function VO2MaxPage() {
                 <div className="space-golden-lg">
                   {/* Main Results */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article className="text-center p-6 bg-blue-50 dark:bg-blue-950/30 rounded-lg border-l-4 border-blue-400">
-                      <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                    <article className="text-center p-6 bg-info-subtle rounded-lg border-l-4 border-info">
+                      <div className="text-3xl font-bold text-info mb-2">
                         {result.vo2max} ml/kg/min
                       </div>
-                      <div className="text-sm font-medium text-blue-800 dark:text-blue-200">VO2 Max</div>
+                      <div className="text-sm font-medium text-foreground/90">VO2 Max</div>
                     </article>
 
                     <article className={`text-center p-6 rounded-lg border-l-4 ${getCategoryColor(result.category)}`}>
@@ -547,30 +547,30 @@ export default function VO2MaxPage() {
                     <article className="card-golden bg-card/50">
                       <header className="p-6 pb-0">
                         <h3 className="text-lg font-semibold text-foreground flex items-center">
-                          <Zap className="h-5 w-5 mr-2 text-blue-600 dark:text-blue-400" />
+                          <Zap className="h-5 w-5 mr-2 text-info" />
                           Zonas de Entrenamiento
                         </h3>
                       </header>
                       <div className="p-6">
                         <div className="space-y-3">
                           <div className="flex justify-between items-center">
-                            <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Zona 1:</span>
+                            <span className="text-sm font-medium text-info">Zona 1:</span>
                             <span className="text-sm text-muted-foreground">{result.trainingZones.zone1}</span>
                           </div>
                           <div className="flex justify-between items-center">
-                            <span className="text-sm font-medium text-green-700 dark:text-green-300">Zona 2:</span>
+                            <span className="text-sm font-medium text-success">Zona 2:</span>
                             <span className="text-sm text-muted-foreground">{result.trainingZones.zone2}</span>
                           </div>
                           <div className="flex justify-between items-center">
-                            <span className="text-sm font-medium text-yellow-700 dark:text-yellow-300">Zona 3:</span>
+                            <span className="text-sm font-medium text-warning">Zona 3:</span>
                             <span className="text-sm text-muted-foreground">{result.trainingZones.zone3}</span>
                           </div>
                           <div className="flex justify-between items-center">
-                            <span className="text-sm font-medium text-orange-700 dark:text-orange-300">Zona 4:</span>
+                            <span className="text-sm font-medium text-warning">Zona 4:</span>
                             <span className="text-sm text-muted-foreground">{result.trainingZones.zone4}</span>
                           </div>
                           <div className="flex justify-between items-center">
-                            <span className="text-sm font-medium text-red-700 dark:text-red-300">Zona 5:</span>
+                            <span className="text-sm font-medium text-destructive">Zona 5:</span>
                             <span className="text-sm text-muted-foreground">{result.trainingZones.zone5}</span>
                           </div>
                         </div>
@@ -587,7 +587,7 @@ export default function VO2MaxPage() {
                         <div className="space-y-3">
                           {result.recommendations.map((rec, index) => (
                             <div key={index} className="flex items-start gap-2">
-                              <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-1 flex-shrink-0"></span>
+                              <span className="w-2 h-2 bg-info rounded-full mt-2 mr-1 flex-shrink-0"></span>
                               <span className="text-sm text-muted-foreground leading-[1.618]">{rec}</span>
                             </div>
                           ))}
@@ -597,18 +597,18 @@ export default function VO2MaxPage() {
                   </div>
 
                   {/* Health Status */}
-                  <article className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400">
+                  <article className="card-golden-lg bg-info-subtle border-l-4 border-info">
                     <header className="p-6 pb-0">
-                      <h3 className="text-xl font-semibold text-blue-800 dark:text-blue-200 flex items-center">
+                      <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                         <Heart className="w-5 h-5 mr-2" />
                         Estado de Salud Cardiovascular
                       </h3>
                     </header>
                     <div className="p-6">
-                      <p className="text-blue-800 dark:text-blue-200 leading-relaxed mb-4">
+                      <p className="text-foreground/90 leading-relaxed mb-4">
                         <strong>{result.healthStatus}</strong>
                       </p>
-                      <p className="text-sm text-blue-700 dark:text-blue-300 leading-relaxed">
+                      <p className="text-sm text-info leading-relaxed">
                         {result.comparison}
                       </p>
                     </div>
@@ -625,11 +625,11 @@ export default function VO2MaxPage() {
               </h2>
             </header>
 
-            <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-8">
+            <section className="card-golden-lg bg-info-subtle border-l-4 border-info mb-8">
               <div className="p-6">
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   El <strong>VO2 Max</strong> (consumo máximo de oxígeno) es la cantidad máxima de oxígeno que tu cuerpo puede utilizar durante el ejercicio intenso.
-                  Es el indicador más preciso de tu <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">capacidad cardiovascular</a> y resistencia aeróbica.
+                  Es el indicador más preciso de tu <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4837733/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">capacidad cardiovascular</a> y resistencia aeróbica.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Se expresa en mililitros de oxígeno por kilogramo de peso corporal por minuto (ml/kg/min).
@@ -639,66 +639,66 @@ export default function VO2MaxPage() {
             </section>
 
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <article className="card-golden-lg bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400">
+              <article className="card-golden-lg bg-success-subtle border-l-4 border-success">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 flex items-center">
+                  <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                     <Activity className="w-5 h-5 mr-2" />
                     Beneficios de un VO2 Max Alto
                   </h3>
                 </header>
                 <div className="p-6">
-                  <ul className="space-y-2 text-green-800 dark:text-green-200">
+                  <ul className="space-y-2 text-foreground/90">
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Mejor resistencia:</strong> Mayor capacidad para ejercicio prolongado</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Salud cardíaca:</strong> Menor riesgo de enfermedades cardiovasculares</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Recuperación rápida:</strong> El corazón se recupera más rápido del esfuerzo</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Longevidad:</strong> Asociado con mayor esperanza de vida</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-success rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Rendimiento deportivo:</strong> Mejora en deportes de resistencia</span>
                     </li>
                   </ul>
                 </div>
               </article>
 
-              <article className="card-golden-lg bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400">
+              <article className="card-golden-lg bg-warning-subtle border-l-4 border-warning">
                 <header className="p-6 pb-0">
-                  <h3 className="text-xl font-semibold text-yellow-800 dark:text-yellow-200 flex items-center">
+                  <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                     <TrendingUp className="w-5 h-5 mr-2" />
                     Cómo Mejorar tu VO2 Max
                   </h3>
                 </header>
                 <div className="p-6">
-                  <ul className="space-y-2 text-yellow-800 dark:text-yellow-200">
+                  <ul className="space-y-2 text-foreground/90">
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-warning rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Entrenamiento HIIT:</strong> Intervalos de alta intensidad mejoran el VO2 Max</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-warning rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Entrenamiento continuo:</strong> Carrera o ciclismo a ritmo moderado</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-warning rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Entrenamiento de tempo:</strong> Ritmo constante durante 20-30 minutos</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-warning rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Entrenamiento de fuerza:</strong> Mejora la economía de movimiento</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-warning rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       <span><strong>Descanso adecuado:</strong> El sueño es crucial para la adaptación</span>
                     </li>
                   </ul>
@@ -706,38 +706,38 @@ export default function VO2MaxPage() {
               </article>
             </section>
 
-            <section className="card-golden-lg bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-400 mt-8">
+            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-purple-800 dark:text-purple-200 flex items-center">
+                <h3 className="text-xl font-semibold text-foreground flex items-center">
                   <Info className="w-5 h-5 mr-2" />
                   Zonas de Entrenamiento
                 </h3>
               </header>
               <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                  <div className="text-center p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
-                    <div className="text-lg font-bold text-blue-600 dark:text-blue-400">Zona 1</div>
-                    <div className="text-xs text-blue-700 dark:text-blue-300">50-60% FCM</div>
+                  <div className="text-center p-3 bg-info-subtle rounded-lg">
+                    <div className="text-lg font-bold text-info">Zona 1</div>
+                    <div className="text-xs text-info">50-60% FCM</div>
                     <div className="text-xs text-muted-foreground">Recuperación</div>
                   </div>
-                  <div className="text-center p-3 bg-green-50 dark:bg-green-950/30 rounded-lg">
-                    <div className="text-lg font-bold text-green-600 dark:text-green-400">Zona 2</div>
-                    <div className="text-xs text-green-700 dark:text-green-300">60-70% FCM</div>
+                  <div className="text-center p-3 bg-success-subtle rounded-lg">
+                    <div className="text-lg font-bold text-success">Zona 2</div>
+                    <div className="text-xs text-success">60-70% FCM</div>
                     <div className="text-xs text-muted-foreground">Resistencia</div>
                   </div>
-                  <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-950/30 rounded-lg">
-                    <div className="text-lg font-bold text-yellow-600 dark:text-yellow-400">Zona 3</div>
-                    <div className="text-xs text-yellow-700 dark:text-yellow-300">70-80% FCM</div>
+                  <div className="text-center p-3 bg-warning-subtle rounded-lg">
+                    <div className="text-lg font-bold text-warning">Zona 3</div>
+                    <div className="text-xs text-warning">70-80% FCM</div>
                     <div className="text-xs text-muted-foreground">Tempo</div>
                   </div>
-                  <div className="text-center p-3 bg-orange-50 dark:bg-orange-950/30 rounded-lg">
-                    <div className="text-lg font-bold text-orange-600 dark:text-orange-400">Zona 4</div>
-                    <div className="text-xs text-orange-700 dark:text-orange-300">80-90% FCM</div>
+                  <div className="text-center p-3 bg-warning-subtle rounded-lg">
+                    <div className="text-lg font-bold text-warning">Zona 4</div>
+                    <div className="text-xs text-warning">80-90% FCM</div>
                     <div className="text-xs text-muted-foreground">Umbral</div>
                   </div>
-                  <div className="text-center p-3 bg-red-50 dark:bg-red-950/30 rounded-lg">
-                    <div className="text-lg font-bold text-red-600 dark:text-red-400">Zona 5</div>
-                    <div className="text-xs text-red-700 dark:text-red-300">90-100% FCM</div>
+                  <div className="text-center p-3 bg-destructive-subtle rounded-lg">
+                    <div className="text-lg font-bold text-destructive">Zona 5</div>
+                    <div className="text-xs text-destructive">90-100% FCM</div>
                     <div className="text-xs text-muted-foreground">VO2 Max</div>
                   </div>
                 </div>
@@ -745,30 +745,30 @@ export default function VO2MaxPage() {
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="card-golden-lg bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-400 mt-8">
+            <section className="card-golden-lg bg-warning-subtle border-l-4 border-warning mt-8">
               <header className="p-6 pb-0">
-                <h3 className="text-xl font-semibold text-orange-800 dark:text-orange-200 flex items-center">
+                <h3 className="text-xl font-semibold text-foreground/90 flex items-center">
                   <Info className="w-5 h-5 mr-2" />
                   Complementa tu evaluación cardiovascular
                 </h3>
               </header>
               <div className="p-6">
-                <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+                <ul className="text-sm text-foreground/90 space-golden-xs">
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/ritmo-cardiaco/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Zonas de entrenamiento:</a></strong> Calcula tus zonas cardíacas específicas</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/ritmo-cardiaco/" className="text-info hover:underline transition-colors font-medium transition-golden">Zonas de entrenamiento:</a></strong> Calcula tus zonas cardíacas específicas</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/1rm/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Fuerza máxima:</a></strong> Combina cardio con entrenamiento de fuerza</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/1rm/" className="text-info hover:underline transition-colors font-medium transition-golden">Fuerza máxima:</a></strong> Combina cardio con entrenamiento de fuerza</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/masa-muscular/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Masa muscular:</a></strong> La masa magra mejora la eficiencia cardiovascular</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/masa-muscular/" className="text-info hover:underline transition-colors font-medium transition-golden">Masa muscular:</a></strong> La masa magra mejora la eficiencia cardiovascular</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                    <span><strong><a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Gasto calórico:</a></strong> Ajusta tu nutrición para entrenamientos intensos</span>
+                    <span className="text-warning mr-2">•</span>
+                    <span><strong><a href="/tdee/" className="text-info hover:underline transition-colors font-medium transition-golden">Gasto calórico:</a></strong> Ajusta tu nutrición para entrenamientos intensos</span>
                   </li>
                 </ul>
               </div>
@@ -799,11 +799,11 @@ export default function VO2MaxPage() {
 
   function getCategoryColor(category: string) {
     switch (category) {
-      case 'Excelente': return 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 border-green-400';
-      case 'Bueno': return 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border-blue-400';
-      case 'Promedio': return 'text-yellow-600 dark:text-yellow-400 bg-yellow-50 dark:bg-yellow-950/30 border-yellow-400';
-      case 'Bajo': return 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 border-red-400';
-      default: return 'text-muted-foreground bg-muted border-gray-400';
+      case 'Excelente': return 'text-foreground bg-success-subtle border-success';
+      case 'Bueno': return 'text-foreground bg-info-subtle border-info';
+      case 'Promedio': return 'text-foreground bg-warning-subtle border-warning';
+      case 'Bajo': return 'text-foreground bg-destructive-subtle border-destructive';
+      default: return 'text-muted-foreground bg-muted border-border';
     }
   }
 }

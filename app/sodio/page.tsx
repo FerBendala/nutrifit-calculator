@@ -1,6 +1,5 @@
 "use client";
 
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
@@ -27,8 +26,6 @@ export default function SodioPage() {
 
       <Container size="xl" className="py-[4.236rem]">
         <main className="max-w-5xl mx-auto space-golden-lg">
-          <Breadcrumbs items={[{ label: 'Sodio / Sal (Límite OMS)' }]} className="mb-6" />
-
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora de Sodio y Sal
@@ -48,10 +45,10 @@ export default function SodioPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-amber-50 rounded-lg p-4 mb-6">
+                <div className="bg-warning-subtle rounded-lg p-4 mb-6">
                   <div className="flex items-start gap-3">
                     <Info className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-foreground/90">
                       <strong>Nota:</strong> La OMS recomienda para todos los adultos limitar el sodio a menos de 2 g al día (equivalente a menos de 5 g de sal). Para personas con hipertensión suele recomendarse un límite más estricto (1,5 g sodio / ~3,75 g sal).
                     </p>
                   </div>
@@ -80,7 +77,7 @@ export default function SodioPage() {
               </header>
               <div className="p-6 space-golden-md">
                 <div className="grid gap-4 md:grid-cols-2">
-                  <Card className="bg-gradient-to-br from-amber-50 to-amber-100">
+                  <Card className="bg-gradient-to-br bg-warning-subtle">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-sm font-semibold text-amber-900">Recomendación OMS (población general)</CardTitle>
                     </CardHeader>
@@ -94,35 +91,35 @@ export default function SodioPage() {
                       <p className="text-xs text-amber-600 mt-2">Para adultos sanos</p>
                     </CardContent>
                   </Card>
-                  <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-400">
+                  <Card className="bg-gradient-to-br bg-warning-subtle border-l-4 border-warning">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold text-orange-900">Recomendación estricta (ej. hipertensión)</CardTitle>
+                      <CardTitle className="text-sm font-semibold text-foreground">Recomendación estricta (ej. hipertensión)</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-orange-700">
+                      <div className="text-2xl font-bold text-warning">
                         &lt; {result.strictSodiumMg} mg sodio / día
                       </div>
-                      <div className="text-lg font-semibold text-orange-600 mt-1">
+                      <div className="text-lg font-semibold text-warning mt-1">
                         &lt; {result.strictSaltGrams} g de sal / día
                       </div>
-                      <p className="text-xs text-orange-600 mt-2">Cuando el médico lo indique</p>
+                      <p className="text-xs text-warning mt-2">Cuando el médico lo indique</p>
                     </CardContent>
                   </Card>
                 </div>
 
-                <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
+                <Card className="bg-gradient-to-br bg-info-subtle border-l-4 border-info">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       Interpretación
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-700">{result.interpretation}</p>
+                    <p className="text-sm text-foreground/90">{result.interpretation}</p>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-amber-50 to-amber-100 border-l-4 border-amber-400">
+                <Card className="bg-gradient-to-br bg-warning-subtle border-l-4 border-amber-400">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-semibold flex items-center text-amber-900">
                       <AlertTriangle className="w-4 h-4 mr-2" />
@@ -132,7 +129,7 @@ export default function SodioPage() {
                   <CardContent>
                     <ul className="space-y-2">
                       {result.tips.map((tip, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
+                        <li key={index} className="flex items-start text-sm text-foreground/90">
                           <span className="text-amber-600 mr-2">•</span>
                           <span>{tip}</span>
                         </li>
@@ -168,7 +165,7 @@ export default function SodioPage() {
               </article>
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Info className="w-5 h-5 mr-3 text-blue-600" />
+                  <Info className="w-5 h-5 mr-3 text-info" />
                   Dónde suele haber más sodio
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs list-disc list-inside">

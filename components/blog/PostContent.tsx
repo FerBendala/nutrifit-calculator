@@ -1,4 +1,6 @@
+import { CalculatorCTA } from '@/components/CalculatorCTA';
 import { SocialShare } from '@/components/SocialShare';
+import { TableOfContents } from '@/components/TableOfContents';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import type { Post } from '@/lib/blog';
@@ -52,7 +54,7 @@ export function PostContent({ post }: PostContentProps) {
                       key={category}
                       href={`/blog/categoria/${generateCategorySlug(category)}`}
                     >
-                      <Badge className="bg-white/90 text-gray-900 hover:bg-white transition-colors backdrop-blur-sm">
+                      <Badge className="bg-white/90 text-foreground hover:bg-white transition-colors backdrop-blur-sm">
                         <FolderOpen className="w-3 h-3 mr-1" />
                         {category}
                       </Badge>
@@ -170,9 +172,13 @@ export function PostContent({ post }: PostContentProps) {
 
         {/* Contenido del artículo */}
         <div className="py-12">
+          <TableOfContents />
           <div className="blog-content prose prose-xl max-w-none prose-headings:scroll-mt-20">
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </div>
+
+          {/* CTA a calculadora relevante */}
+          <CalculatorCTA categories={post.categories} tags={post.tags} />
         </div>
 
         {/* Footer del artículo */}

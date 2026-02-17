@@ -1,11 +1,11 @@
 ---
 title: 'Entrenar en Perimenopausia: Sueño, Fuerza y Carga Hormética'
 date: '2025-12-10'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía práctica para mujeres 40-55: cómo ajustar entrenamiento, sueño y nutrición durante la transición perimenopáusica con evidencia reciente.'
 categories: ['Salud', 'Entrenamiento', 'Mujer']
 tags: ['perimenopausia', 'sueño', 'fuerza', 'nutrición', 'bienestar']
-image: 'https://cdn.pixabay.com/photo/2025/05/23/10/41/gym-9617468_1280.jpg'
+image: '/images/blog/entrenar-perimenopausia-2025.jpg'
 slug: 'entrenar-perimenopausia-2025'
 readTime: 9
 featured: false

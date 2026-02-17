@@ -94,21 +94,21 @@ export default function DensidadOseaPage() {
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'Normal': return 'from-green-50 to-green-100 border-green-400 text-green-900';
-      case 'Osteopenia': return 'from-yellow-50 to-yellow-100 border-yellow-400 text-yellow-900';
-      case 'Osteoporosis': return 'from-orange-50 to-orange-100 border-orange-400 text-orange-900';
-      case 'Severe Osteoporosis': return 'from-red-50 to-red-100 border-red-400 text-red-900';
-      default: return 'from-gray-50 to-gray-100 border-gray-400 text-foreground';
+      case 'Normal': return 'bg-success-subtle border-success text-foreground';
+      case 'Osteopenia': return 'bg-warning-subtle border-warning text-foreground';
+      case 'Osteoporosis': return 'bg-warning-subtle border-warning text-foreground';
+      case 'Severe Osteoporosis': return 'bg-destructive-subtle border-destructive text-foreground';
+      default: return 'bg-muted border-border text-foreground';
     }
   };
 
   const getRiskColor = (level: string) => {
     switch (level) {
-      case 'Bajo': return 'bg-green-200 text-green-800 dark:text-green-200';
-      case 'Moderado': return 'bg-yellow-200 text-yellow-800 dark:text-yellow-200';
-      case 'Alto': return 'bg-orange-200 text-orange-800 dark:text-orange-200';
-      case 'Muy Alto': return 'bg-red-200 text-red-800 dark:text-red-200';
-      default: return 'bg-gray-200 text-gray-800';
+      case 'Bajo': return 'bg-success-subtle text-foreground/90';
+      case 'Moderado': return 'bg-warning-subtle text-foreground/90';
+      case 'Alto': return 'bg-warning-subtle text-foreground/90';
+      case 'Muy Alto': return 'bg-destructive-subtle text-foreground/90';
+      default: return 'bg-muted text-foreground';
     }
   };
 
@@ -133,7 +133,7 @@ export default function DensidadOseaPage() {
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <Bone className="w-6 h-6 mr-3 text-orange-600 dark:text-orange-400" />
+                  <Bone className="w-6 h-6 mr-3 text-warning" />
                   Calculadora de Densidad Ósea
                 </CardTitle>
               </CardHeader>
@@ -146,9 +146,9 @@ export default function DensidadOseaPage() {
 
                   <form onSubmit={handleSubmit} className="space-golden-md">
                     <TabsContent value="bmd" className="space-golden-md">
-                      <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-info-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                          <Info className="h-5 w-5 text-info mt-0.5 flex-shrink-0" />
                           <p className="text-sm text-muted-foreground">
                             <strong>Nota:</strong> Ingresa tu BMD (g/cm²) o T-Score de tu DXA scan. 
                             Si tienes ambos, ingresa ambos para mayor precisión. El T-Score es el 
@@ -233,9 +233,9 @@ export default function DensidadOseaPage() {
                     </TabsContent>
 
                     <TabsContent value="estimate" className="space-golden-md">
-                      <div className="bg-yellow-50 dark:bg-yellow-950/30 rounded-lg p-4 mb-6">
+                      <div className="bg-warning-subtle rounded-lg p-4 mb-6">
                         <div className="flex items-start gap-3">
-                          <AlertTriangle className="h-5 w-5 text-yellow-600 dark:text-yellow-400 mt-0.5 flex-shrink-0" />
+                          <AlertTriangle className="h-5 w-5 text-warning mt-0.5 flex-shrink-0" />
                           <p className="text-sm text-muted-foreground">
                             <strong>Nota:</strong> Esta es una estimación aproximada basada en edad, 
                             género, peso y altura. Para un diagnóstico preciso, se requiere un DXA scan. 
@@ -316,7 +316,7 @@ export default function DensidadOseaPage() {
             <section className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
               <header className="p-6 pb-0">
                 <h2 className="text-2xl font-semibold flex items-center justify-center">
-                  <Bone className="w-6 h-6 mr-3 text-orange-600 dark:text-orange-400" />
+                  <Bone className="w-6 h-6 mr-3 text-warning" />
                   Resultados de Densidad Ósea
                 </h2>
               </header>
@@ -345,17 +345,17 @@ export default function DensidadOseaPage() {
                 {/* Valores de BMD */}
                 <div className="grid gap-4 md:grid-cols-3">
                   {result.bmd !== undefined && (
-                    <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
+                    <Card className="bg-info-subtle">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold text-blue-900 dark:text-blue-100">
+                        <CardTitle className="text-sm font-semibold text-foreground">
                           BMD
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
+                        <div className="text-2xl font-bold text-info">
                           {result.bmd} g/cm²
                         </div>
-                        <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
+                        <p className="text-xs text-info mt-1">
                           Densidad Mineral Ósea
                         </p>
                       </CardContent>
@@ -363,17 +363,17 @@ export default function DensidadOseaPage() {
                   )}
 
                   {result.tScore !== undefined && (
-                    <Card className="bg-gradient-to-br from-purple-50 to-purple-100">
+                    <Card className="bg-accent">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold text-purple-900">
+                        <CardTitle className="text-sm font-semibold text-foreground">
                           T-Score
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-2xl font-bold text-purple-700">
+                        <div className="text-2xl font-bold text-foreground">
                           {result.tScore}
                         </div>
-                        <p className="text-xs text-purple-600 mt-1">
+                        <p className="text-xs text-muted-foreground mt-1">
                           Comparado con adulto joven
                         </p>
                       </CardContent>
@@ -381,17 +381,17 @@ export default function DensidadOseaPage() {
                   )}
 
                   {result.zScore !== undefined && (
-                    <Card className="bg-gradient-to-br from-green-50 to-green-100">
+                    <Card className="bg-gradient-to-br bg-success-subtle">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold text-green-900">
+                        <CardTitle className="text-sm font-semibold text-foreground">
                           Z-Score
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-2xl font-bold text-green-700 dark:text-green-300">
+                        <div className="text-2xl font-bold text-success">
                           {result.zScore}
                         </div>
-                        <p className="text-xs text-green-600 dark:text-green-400 mt-1">
+                        <p className="text-xs text-success mt-1">
                           Comparado con edad similar
                         </p>
                       </CardContent>
@@ -400,26 +400,26 @@ export default function DensidadOseaPage() {
                 </div>
 
                 {/* Riesgo de Fractura */}
-                <Card className={`bg-gradient-to-br ${result.fractureRisk.level === 'Bajo' ? 'from-green-50 to-green-100 border-green-400' :
-                  result.fractureRisk.level === 'Moderado' ? 'from-yellow-50 to-yellow-100 border-yellow-400' :
-                    result.fractureRisk.level === 'Alto' ? 'from-orange-50 to-orange-100 border-orange-400' :
-                      'from-red-50 to-red-100 border-red-400'
+                <Card className={`bg-gradient-to-br ${result.fractureRisk.level === 'Bajo' ? 'bg-success-subtle border-success' :
+                  result.fractureRisk.level === 'Moderado' ? 'bg-warning-subtle border-warning' :
+                    result.fractureRisk.level === 'Alto' ? 'bg-warning-subtle border-warning' :
+                      'from-red-50 to-red-100 border-destructive'
                   } border-l-4`}>
                   <CardHeader className="pb-2">
-                    <CardTitle className={`text-sm font-semibold flex items-center ${result.fractureRisk.level === 'Bajo' ? 'text-green-900' :
-                      result.fractureRisk.level === 'Moderado' ? 'text-yellow-900' :
-                        result.fractureRisk.level === 'Alto' ? 'text-orange-900' :
-                          'text-red-900'
+                    <CardTitle className={`text-sm font-semibold flex items-center ${result.fractureRisk.level === 'Bajo' ? 'text-foreground' :
+                      result.fractureRisk.level === 'Moderado' ? 'text-foreground' :
+                        result.fractureRisk.level === 'Alto' ? 'text-foreground' :
+                          'text-foreground'
                       }`}>
                       <Shield className="w-4 h-4 mr-2" />
                       Riesgo de Fractura
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className={`text-lg font-bold mb-1 ${result.fractureRisk.level === 'Bajo' ? 'text-green-700 dark:text-green-300' :
-                      result.fractureRisk.level === 'Moderado' ? 'text-yellow-700 dark:text-yellow-300' :
-                        result.fractureRisk.level === 'Alto' ? 'text-orange-700 dark:text-orange-300' :
-                          'text-red-700 dark:text-red-300'
+                    <div className={`text-lg font-bold mb-1 ${result.fractureRisk.level === 'Bajo' ? 'text-success' :
+                      result.fractureRisk.level === 'Moderado' ? 'text-warning' :
+                        result.fractureRisk.level === 'Alto' ? 'text-warning' :
+                          'text-destructive'
                       }`}>
                       {result.fractureRisk.level}
                     </div>
@@ -433,9 +433,9 @@ export default function DensidadOseaPage() {
                 </Card>
 
                 {/* Recomendaciones */}
-                <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
+                <Card className="bg-gradient-to-br bg-info-subtle border-l-4 border-info">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900 dark:text-blue-100">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       Recomendaciones
                     </CardTitle>
@@ -444,7 +444,7 @@ export default function DensidadOseaPage() {
                     <ul className="space-y-2">
                       {result.recommendations.map((rec, index) => (
                         <li key={index} className="flex items-start text-sm text-muted-foreground">
-                          <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                          <span className="text-info mr-2">•</span>
                           <span>{rec}</span>
                         </li>
                       ))}
@@ -453,9 +453,9 @@ export default function DensidadOseaPage() {
                 </Card>
 
                 {/* Estrategias de Prevención */}
-                <Card className="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-400">
+                <Card className="bg-gradient-to-br bg-success-subtle border-l-4 border-success">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-green-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <CheckCircle className="w-4 h-4 mr-2" />
                       Estrategias de Prevención
                     </CardTitle>
@@ -464,7 +464,7 @@ export default function DensidadOseaPage() {
                     <ul className="space-y-1">
                       {result.preventionStrategies.map((strategy, index) => (
                         <li key={index} className="flex items-start text-sm text-muted-foreground">
-                          <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                          <span className="text-success mr-2">•</span>
                           <span>{strategy}</span>
                         </li>
                       ))}
@@ -473,21 +473,21 @@ export default function DensidadOseaPage() {
                 </Card>
 
                 {/* Monitoreo */}
-                <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-l-4 border-purple-400">
+                <Card className="bg-accent border-l-4 border-warning">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-purple-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       Frecuencia de Monitoreo
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-lg font-bold text-purple-700 mb-2">
+                    <div className="text-lg font-bold text-foreground mb-2">
                       {result.monitoring.frequency}
                     </div>
                     <ul className="space-y-1">
                       {result.monitoring.actions.map((action, index) => (
                         <li key={index} className="flex items-start text-sm text-muted-foreground">
-                          <span className="text-purple-600 mr-2">•</span>
+                          <span className="text-muted-foreground mr-2">•</span>
                           <span>{action}</span>
                         </li>
                       ))}
@@ -497,9 +497,9 @@ export default function DensidadOseaPage() {
 
                 {/* Factores de Riesgo */}
                 {result.riskFactors.length > 0 && (
-                  <Card className="bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-400">
+                  <Card className="bg-destructive-subtle border-l-4 border-destructive">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold flex items-center text-red-900">
+                      <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                         <AlertTriangle className="w-4 h-4 mr-2" />
                         Factores de Riesgo
                       </CardTitle>
@@ -508,7 +508,7 @@ export default function DensidadOseaPage() {
                       <ul className="space-y-1">
                         {result.riskFactors.map((risk, index) => (
                           <li key={index} className="flex items-start text-sm text-muted-foreground">
-                            <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                            <span className="text-destructive mr-2">•</span>
                             <span>{risk}</span>
                           </li>
                         ))}
@@ -518,7 +518,7 @@ export default function DensidadOseaPage() {
                 )}
 
                 {/* Interpretación Clínica */}
-                <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-400">
+                <Card className="bg-gradient-to-br bg-muted border-l-4 border-border">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
@@ -555,32 +555,32 @@ export default function DensidadOseaPage() {
             <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Bone className="w-5 h-5 mr-3 text-orange-600 dark:text-orange-400" />
+                  <Bone className="w-5 h-5 mr-3 text-warning" />
                   Criterios WHO
                 </h3>
                 <div className="space-golden-sm">
-                  <div className="bg-green-50 dark:bg-green-950/30 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-1">Normal:</p>
-                    <p className="text-sm text-green-600 dark:text-green-400">T-Score ≥ -1.0</p>
+                  <div className="bg-success-subtle p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-success mb-1">Normal:</p>
+                    <p className="text-sm text-success">T-Score ≥ -1.0</p>
                   </div>
-                  <div className="bg-yellow-50 dark:bg-yellow-950/30 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-yellow-700 dark:text-yellow-300 mb-1">Osteopenia:</p>
-                    <p className="text-sm text-yellow-600 dark:text-yellow-400">T-Score entre -1.0 y -2.5</p>
+                  <div className="bg-warning-subtle p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-warning mb-1">Osteopenia:</p>
+                    <p className="text-sm text-warning">T-Score entre -1.0 y -2.5</p>
                   </div>
-                  <div className="bg-orange-50 dark:bg-orange-950/30 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-orange-700 dark:text-orange-300 mb-1">Osteoporosis:</p>
-                    <p className="text-sm text-orange-600 dark:text-orange-400">T-Score ≤ -2.5</p>
+                  <div className="bg-warning-subtle p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-warning mb-1">Osteoporosis:</p>
+                    <p className="text-sm text-warning">T-Score ≤ -2.5</p>
                   </div>
-                  <div className="bg-red-50 dark:bg-red-950/30 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-red-700 dark:text-red-300 mb-1">Osteoporosis Severa:</p>
-                    <p className="text-sm text-red-600 dark:text-red-400">T-Score ≤ -2.5 + fractura</p>
+                  <div className="bg-destructive-subtle p-4 rounded-lg">
+                    <p className="text-sm font-semibold text-foreground mb-1">Osteoporosis Severa:</p>
+                    <p className="text-sm text-foreground/90">T-Score ≤ -2.5 + fractura</p>
                   </div>
                 </div>
               </article>
 
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Info className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400" />
+                  <Info className="w-5 h-5 mr-3 text-info" />
                   Importancia Clínica
                 </h3>
                 <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
@@ -593,14 +593,14 @@ export default function DensidadOseaPage() {
               </article>
             </section>
 
-            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <Shield className="w-5 h-5 mr-3" />
                 Prevención de Osteoporosis
               </h3>
               <div className="grid gap-[1.618rem] md:grid-cols-2">
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <CheckCircle className="w-4 h-4 mr-2" />
                     Nutrición
                   </h4>
@@ -610,7 +610,7 @@ export default function DensidadOseaPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <TrendingDown className="w-4 h-4 mr-2" />
                     Ejercicio
                   </h4>
@@ -621,7 +621,7 @@ export default function DensidadOseaPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <AlertTriangle className="w-4 h-4 mr-2" />
                     Factores de Riesgo
                   </h4>
@@ -631,7 +631,7 @@ export default function DensidadOseaPage() {
                   </p>
                 </article>
                 <article className="card-golden bg-card/50">
-                  <h4 className="font-bold mb-[0.618rem] text-blue-700 dark:text-blue-300 flex items-center">
+                  <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
                     <Info className="w-4 h-4 mr-2" />
                     Detección Temprana
                   </h4>

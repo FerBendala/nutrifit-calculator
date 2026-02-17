@@ -1,11 +1,11 @@
 ---
 title: 'Hidratación Inteligente: Evita Hiponatremia en Entrenos y Competencias'
 date: '2025-12-3'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Estrategias prácticas de fluidos, sodio y monitoreo para prevenir hiponatremia en deportistas de resistencia y entornos calurosos.'
 categories: ['Salud', 'Rendimiento', 'Prevención']
 tags: ['hidratación', 'hiponatremia', 'sodio', 'endurance', 'termorregulación']
-image: 'https://cdn.pixabay.com/photo/2018/03/19/15/04/faucet-3240211_1280.jpg'
+image: '/images/blog/hiponatremia-hidratacion-2025.jpg'
 slug: 'hiponatremia-hidratacion-2025'
 readTime: 8
 featured: false

@@ -1,11 +1,11 @@
 ---
 title: 'Aductores Fuertes, Pelvis Estable: Entrenamiento Práctico para la Salud de la Ingle'
 date: '2026-01-30'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía funcional para mejorar la fuerza de aductores, el control pélvico y la tolerancia a cambios de dirección con progresión segura.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags: ['aductores', 'ingle', 'estabilidad', 'fuerza', 'cadera']
-image: 'https://cdn.pixabay.com/photo/2016/11/22/22/24/adult-1850925_1280.jpg'
+image: '/images/blog/aductores-ingle-estabilidad.jpg'
 slug: 'aductores-ingle-estabilidad'
 readTime: 8
 featured: false

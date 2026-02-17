@@ -44,6 +44,25 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
 
+    /* Estados y categorías */
+    --info: 210 100% 50%;
+    --info-foreground: 0 0% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 9%;
+
+    /* Fondos de estado (más suaves) */
+    --info-subtle: 210 100% 95%;
+    --success-subtle: 142 71% 95%;
+    --warning-subtle: 38 92% 95%;
+    --destructive-subtle: 0 84% 95%;
+
+    /* Colores para macros (proteínas, grasas, carbos) */
+    --macro-protein: 210 100% 50%;
+    --macro-fat: 43 96% 56%;
+    --macro-carbs: 142 71% 45%;
+
     /* Proporción áurea para espaciados */
     --golden-ratio: 1.618;
     --space-xs: 0.382rem;
@@ -87,6 +106,25 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    /* Estados en dark mode */
+    --info: 210 100% 60%;
+    --info-foreground: 0 0% 9%;
+    --success: 142 71% 55%;
+    --success-foreground: 0 0% 9%;
+    --warning: 38 92% 60%;
+    --warning-foreground: 0 0% 9%;
+
+    /* Fondos sutiles en dark mode */
+    --info-subtle: 210 100% 15%;
+    --success-subtle: 142 71% 15%;
+    --warning-subtle: 38 92% 15%;
+    --destructive-subtle: 0 62% 20%;
+
+    /* Macros en dark mode */
+    --macro-protein: 210 100% 60%;
+    --macro-fat: 43 96% 66%;
+    --macro-carbs: 142 71% 55%;
   }
 }
 

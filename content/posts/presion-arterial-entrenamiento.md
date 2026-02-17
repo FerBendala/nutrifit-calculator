@@ -1,7 +1,7 @@
 ---
 title: 'Entrenamiento y Presión Arterial: Guía Práctica'
 date: '2025-12-15'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Cómo combinar cardio, fuerza e isométricos para reducir la presión arterial y mejorar tu salud cardiovascular.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags:
@@ -12,7 +12,7 @@ tags:
     'isométricos',
     'salud cardiovascular',
   ]
-image: 'https://cdn.pixabay.com/photo/2016/11/14/03/06/woman-1822459_1280.jpg'
+image: '/images/blog/presion-arterial-entrenamiento.jpg'
 slug: 'presion-arterial-entrenamiento'
 readTime: 8
 featured: false

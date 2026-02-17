@@ -1,6 +1,5 @@
 "use client";
 
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
@@ -45,8 +44,6 @@ export default function AlcoholPage() {
 
       <Container size="xl" className="py-[4.236rem]">
         <main className="max-w-5xl mx-auto space-golden-lg">
-          <Breadcrumbs items={[{ label: 'Alcohol (Unidades y Calorías)' }]} className="mb-6" />
-
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
               Calculadora de Alcohol
@@ -60,16 +57,16 @@ export default function AlcoholPage() {
             <Card className="card-golden-lg shadow-golden-lg">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold flex items-center justify-center">
-                  <Target className="w-6 h-6 mr-3 text-slate-600" />
+                  <Target className="w-6 h-6 mr-3 text-muted-foreground" />
                   Unidades y Límite de Bajo Riesgo
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-slate-50 rounded-lg p-4 mb-6">
+                <div className="bg-muted rounded-lg p-4 mb-6 border border-border">
                   <div className="flex items-start gap-3">
-                    <Info className="h-5 w-5 text-slate-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-muted-foreground">
-                      <strong>Unidad estándar:</strong> 1 unidad = 10 g de alcohol (ej. 1 caña, 1 copa de vino, 1 copa de destilado). Introduce cuántas unidades consumes por semana de media.
+                    <Info className="h-5 w-5 text-muted-foreground dark:text-muted-foreground mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-foreground dark:text-foreground/90">
+                      <strong className="text-foreground dark:text-foreground">Unidad estándar:</strong> 1 unidad = 10 g de alcohol (ej. 1 caña, 1 copa de vino, 1 copa de destilado). Introduce cuántas unidades consumes por semana de media.
                     </p>
                   </div>
                 </div>
@@ -117,31 +114,31 @@ export default function AlcoholPage() {
             <section className="card-golden-lg shadow-golden-lg border-2 border-primary/20">
               <header className="p-6 pb-0">
                 <h2 className="text-2xl font-semibold flex items-center justify-center">
-                  <Target className="w-6 h-6 mr-3 text-slate-600" />
+                  <Target className="w-6 h-6 mr-3 text-muted-foreground" />
                   Resultados
                 </h2>
               </header>
               <div className="p-6 space-golden-md">
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                  <Card className="bg-gradient-to-br from-slate-50 to-slate-100">
+                  <Card className="bg-gradient-to-br bg-muted">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold text-slate-900">Unidades/semana</CardTitle>
+                      <CardTitle className="text-sm font-semibold text-foreground">Unidades/semana</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-slate-700">{result.unitsPerWeek}</div>
-                      <p className="text-xs text-slate-600 mt-1">Unidades estándar</p>
+                      <div className="text-2xl font-bold text-foreground">{result.unitsPerWeek}</div>
+                      <p className="text-xs text-muted-foreground mt-1">Unidades estándar</p>
                     </CardContent>
                   </Card>
-                  <Card className="bg-gradient-to-br from-slate-50 to-slate-100">
+                  <Card className="bg-gradient-to-br bg-muted">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold text-slate-900">Alcohol</CardTitle>
+                      <CardTitle className="text-sm font-semibold text-foreground">Alcohol</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-slate-700">{formatGrams(result.alcoholGrams)}</div>
-                      <p className="text-xs text-slate-600 mt-1">Por semana</p>
+                      <div className="text-2xl font-bold text-foreground">{formatGrams(result.alcoholGrams)}</div>
+                      <p className="text-xs text-muted-foreground mt-1">Por semana</p>
                     </CardContent>
                   </Card>
-                  <Card className="bg-gradient-to-br from-amber-50 to-amber-100">
+                  <Card className="bg-gradient-to-br bg-warning-subtle">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-sm font-semibold text-amber-900">Calorías</CardTitle>
                     </CardHeader>
@@ -150,36 +147,36 @@ export default function AlcoholPage() {
                       <p className="text-xs text-amber-600 mt-1">Por semana (solo alcohol)</p>
                     </CardContent>
                   </Card>
-                  <Card className={`bg-gradient-to-br border-l-4 ${result.withinLimit ? 'from-green-50 to-green-100 border-green-400' : 'from-orange-50 to-orange-100 border-orange-400'}`}>
+                  <Card className={`bg-gradient-to-br border-l-4 ${result.withinLimit ? 'bg-success-subtle border-success' : 'bg-warning-subtle border-warning'}`}>
                     <CardHeader className="pb-2">
-                      <CardTitle className={`text-sm font-semibold ${result.withinLimit ? 'text-green-900' : 'text-orange-900'}`}>Límite bajo riesgo</CardTitle>
+                      <CardTitle className={`text-sm font-semibold ${result.withinLimit ? 'text-foreground' : 'text-foreground'}`}>Límite bajo riesgo</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className={`text-2xl font-bold ${result.withinLimit ? 'text-green-700' : 'text-orange-700'}`}>
+                      <div className={`text-2xl font-bold ${result.withinLimit ? 'text-success' : 'text-warning'}`}>
                         ≤{result.limitPerWeek} U/semana
                       </div>
-                      <p className={`text-xs mt-1 ${result.withinLimit ? 'text-green-600' : 'text-orange-600'}`}>
+                      <p className={`text-xs mt-1 ${result.withinLimit ? 'text-success' : 'text-warning'}`}>
                         {result.withinLimit ? 'Dentro del límite' : 'Por encima del límite'}
                       </p>
                     </CardContent>
                   </Card>
                 </div>
 
-                <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-400">
+                <Card className="bg-gradient-to-br bg-info-subtle border-l-4 border-info">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-blue-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Info className="w-4 h-4 mr-2" />
                       Interpretación
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-700">{result.interpretation}</p>
+                    <p className="text-sm text-foreground/90">{result.interpretation}</p>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-slate-50 to-slate-100 border-l-4 border-slate-400">
+                <Card className="bg-gradient-to-br bg-muted border-l-4 border-border">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-semibold flex items-center text-slate-900">
+                    <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                       <Target className="w-4 h-4 mr-2" />
                       Consejos
                     </CardTitle>
@@ -187,8 +184,8 @@ export default function AlcoholPage() {
                   <CardContent>
                     <ul className="space-y-2">
                       {result.tips.map((tip, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-700">
-                          <span className="text-slate-600 mr-2">•</span>
+                        <li key={index} className="flex items-start text-sm text-foreground/90">
+                          <span className="text-muted-foreground mr-2">•</span>
                           <span>{tip}</span>
                         </li>
                       ))}
@@ -212,7 +209,7 @@ export default function AlcoholPage() {
             <section className="grid gap-[1.618rem] md:grid-cols-2 mb-[2.618rem]">
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Target className="w-5 h-5 mr-3 text-slate-600" />
+                  <Target className="w-5 h-5 mr-3 text-muted-foreground" />
                   Límite de bajo riesgo
                 </h3>
                 <div className="space-golden-sm text-sm text-muted-foreground">
@@ -222,7 +219,7 @@ export default function AlcoholPage() {
               </article>
               <article className="card-golden space-golden-sm">
                 <h3 className="text-xl font-semibold mb-[0.618rem] flex items-center">
-                  <Info className="w-5 h-5 mr-3 text-blue-600" />
+                  <Info className="w-5 h-5 mr-3 text-info" />
                   Calorías del alcohol
                 </h3>
                 <p className="text-sm text-muted-foreground">

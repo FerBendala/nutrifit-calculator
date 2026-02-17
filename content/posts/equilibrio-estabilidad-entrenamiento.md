@@ -1,7 +1,7 @@
 ---
 title: 'Equilibrio y Estabilidad: Entrenamiento Esencial para Salud y Rendimiento'
 date: '2025-12-15'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Cómo diseñar sesiones de equilibrio, control motor y fuerza para prevenir lesiones y mejorar el rendimiento en cualquier deportista.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags:
@@ -12,7 +12,7 @@ tags:
     'prevención de lesiones',
     'rendimiento',
   ]
-image: 'https://cdn.pixabay.com/photo/2016/11/20/09/05/yoga-1842292_1280.jpg'
+image: '/images/blog/equilibrio-estabilidad-entrenamiento.jpg'
 slug: 'equilibrio-estabilidad-entrenamiento'
 readTime: 8
 featured: false

@@ -54,17 +54,17 @@ export default function BRIPage() {
   const getRiskColor = (risk: string) => {
     switch (risk) {
       case 'Muy Bajo':
-        return 'text-green-700 dark:text-green-300 bg-green-50 dark:bg-green-950/30 border-green-400';
+        return 'text-foreground bg-success-subtle border-success';
       case 'Bajo':
-        return 'text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30 border-blue-400';
+        return 'text-foreground bg-info-subtle border-info';
       case 'Moderado':
-        return 'text-yellow-700 dark:text-yellow-300 bg-yellow-50 dark:bg-yellow-950/30 border-yellow-400';
+        return 'text-foreground bg-warning-subtle border-warning';
       case 'Alto':
-        return 'text-orange-700 dark:text-orange-300 bg-orange-50 dark:bg-orange-950/30 border-orange-400';
+        return 'text-foreground bg-warning-subtle border-warning';
       case 'Muy Alto':
-        return 'text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/30 border-red-400';
+        return 'text-foreground bg-destructive-subtle border-destructive';
       default:
-        return 'text-muted-foreground bg-muted border-gray-400';
+        return 'text-muted-foreground bg-muted border-border';
     }
   };
 
@@ -84,7 +84,7 @@ export default function BRIPage() {
             </p>
           </header>
 
-          <section className="card-golden-lg bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-400 mb-8">
+          <section className="card-golden-lg bg-info-subtle border-l-4 border-info mb-8">
             <div className="p-6">
               <p className="text-muted-foreground leading-relaxed mb-4">
                 El <strong>BRI (Body Roundness Index)</strong> es un índice desarrollado por Thomas et al. en 2013
@@ -93,7 +93,7 @@ export default function BRIPage() {
                 información sobre la distribución de grasa abdominal y el riesgo de síndrome metabólico.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                El BRI es complementario al <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> y otros
+                El BRI es complementario al <a href="/absi/" className="text-info hover:underline transition-colors">ABSI</a> y otros
                 índices de forma corporal. Mientras que el ABSI predice mortalidad, el BRI se enfoca específicamente
                 en riesgo metabólico y cardiovascular, siendo especialmente útil para identificar individuos con riesgo
                 de síndrome metabólico, diabetes tipo 2 y enfermedad cardiovascular.
@@ -111,9 +111,9 @@ export default function BRIPage() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-golden-md">
-                  <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4 mb-6">
+                  <div className="bg-info-subtle rounded-lg p-4 mb-6">
                     <div className="flex items-start gap-3">
-                      <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                      <Info className="h-5 w-5 text-info mt-0.5 flex-shrink-0" />
                       <p className="text-sm text-muted-foreground">
                         <strong>Nota:</strong> El BRI requiere circunferencia de cintura medida a nivel del ombligo.
                         Mide en centímetros, con el abdomen relajado, después de exhalar normalmente.
@@ -227,35 +227,35 @@ export default function BRIPage() {
 
                   {/* Información de Riesgo */}
                   <div className="grid gap-4 md:grid-cols-2">
-                    <Card className="bg-gradient-to-br from-purple-50 to-purple-100">
+                    <Card className="bg-accent">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold flex items-center text-purple-900">
+                        <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                           <TrendingUp className="w-4 h-4 mr-2" />
                           Riesgo Metabólico
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-lg font-bold text-purple-700 dark:text-purple-300 mb-1">
+                        <div className="text-lg font-bold text-warning mb-1">
                           {result.metabolicRisk}
                         </div>
-                        <p className="text-xs text-purple-600 dark:text-purple-400">
+                        <p className="text-xs text-warning">
                           Basado en forma corporal y distribución de grasa
                         </p>
                       </CardContent>
                     </Card>
 
-                    <Card className="bg-gradient-to-br from-red-50 to-red-100">
+                    <Card className="bg-destructive-subtle">
                       <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-semibold flex items-center text-red-900">
+                        <CardTitle className="text-sm font-semibold flex items-center text-foreground">
                           <Heart className="w-4 h-4 mr-2" />
                           Riesgo Cardiovascular
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="text-lg font-bold text-red-700 dark:text-red-300 mb-1">
+                        <div className="text-lg font-bold text-destructive mb-1">
                           {result.cardiovascularRisk}
                         </div>
-                        <p className="text-xs text-red-600 dark:text-red-400">
+                        <p className="text-xs text-destructive">
                           Evaluación de riesgo de enfermedad cardiovascular
                         </p>
                       </CardContent>
@@ -293,11 +293,11 @@ export default function BRIPage() {
                               <div className="text-xs text-muted-foreground">{metric.status}</div>
                             </div>
                             <div className="text-right">
-                              <div className="font-bold text-lg text-blue-700 dark:text-blue-300">
+                              <div className="font-bold text-lg text-info">
                                 {metric.value.toFixed(metric.metric === 'BRI' ? 2 : metric.metric === 'WHtR' ? 2 : 1)}
                               </div>
                               {metric.metric !== 'BRI' && (
-                                <div className="text-xs text-gray-500">
+                                <div className="text-xs text-muted-foreground">
                                   {metric.metric === 'IMC' ? 'kg/m²' : metric.metric === 'WHtR' ? 'ratio' : 'cm'}
                                 </div>
                               )}
@@ -310,9 +310,9 @@ export default function BRIPage() {
 
                   {/* Factores de Riesgo */}
                   {result.riskFactors.length > 0 && (
-                    <Card className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-400">
+                    <Card className="bg-destructive-subtle border-l-4 border-destructive">
                       <CardHeader>
-                        <CardTitle className="text-lg font-semibold flex items-center text-red-900">
+                        <CardTitle className="text-lg font-semibold flex items-center text-foreground">
                           <AlertTriangle className="w-5 h-5 mr-2" />
                           Factores de Riesgo
                         </CardTitle>
@@ -320,8 +320,8 @@ export default function BRIPage() {
                       <CardContent>
                         <ul className="space-y-2">
                           {result.riskFactors.map((factor, index) => (
-                            <li key={index} className="flex items-start text-sm text-red-800 dark:text-red-200">
-                              <span className="text-red-600 dark:text-red-400 mr-2">•</span>
+                            <li key={index} className="flex items-start text-sm text-foreground/90">
+                              <span className="text-destructive mr-2">•</span>
                               <span>{factor}</span>
                             </li>
                           ))}
@@ -332,9 +332,9 @@ export default function BRIPage() {
 
                   {/* Estrategias de Mejora */}
                   {result.improvementStrategies.length > 0 && (
-                    <Card className="bg-green-50 dark:bg-green-950/30 border-l-4 border-green-400">
+                    <Card className="bg-success-subtle border-l-4 border-success">
                       <CardHeader>
-                        <CardTitle className="text-lg font-semibold flex items-center text-green-900">
+                        <CardTitle className="text-lg font-semibold flex items-center text-foreground">
                           <TrendingDown className="w-5 h-5 mr-2" />
                           Estrategias para Mejorar tu BRI
                         </CardTitle>
@@ -342,8 +342,8 @@ export default function BRIPage() {
                       <CardContent>
                         <ul className="space-y-2">
                           {result.improvementStrategies.map((strategy, index) => (
-                            <li key={index} className="flex items-start text-sm text-green-800 dark:text-green-200">
-                              <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                            <li key={index} className="flex items-start text-sm text-foreground/90">
+                              <span className="text-success mr-2">•</span>
                               <span>{strategy}</span>
                             </li>
                           ))}
@@ -353,9 +353,9 @@ export default function BRIPage() {
                   )}
 
                   {/* Recomendaciones */}
-                  <Card className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400">
+                  <Card className="bg-warning-subtle border-l-4 border-warning">
                     <CardHeader>
-                      <CardTitle className="text-lg font-semibold flex items-center text-yellow-900">
+                      <CardTitle className="text-lg font-semibold flex items-center text-foreground">
                         <Info className="w-5 h-5 mr-2" />
                         Recomendaciones
                       </CardTitle>
@@ -363,8 +363,8 @@ export default function BRIPage() {
                     <CardContent>
                       <ul className="space-y-2">
                         {result.recommendations.map((rec, index) => (
-                          <li key={index} className="flex items-start text-sm text-yellow-800 dark:text-yellow-200">
-                            <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                          <li key={index} className="flex items-start text-sm text-foreground/90">
+                            <span className="text-warning mr-2">•</span>
                             <span>{rec}</span>
                           </li>
                         ))}
@@ -407,27 +407,27 @@ export default function BRIPage() {
                 </h3>
                 <ul className="text-sm text-muted-foreground space-golden-xs">
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                    <span><strong>Riesgo metabólico:</strong> Predice síndrome metabólico según <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3696911/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">estudios de Thomas et al.</a></span>
+                    <span className="text-info mr-2">•</span>
+                    <span><strong>Riesgo metabólico:</strong> Predice síndrome metabólico según <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3696911/" target="_blank" rel="noopener noreferrer" className="text-info hover:underline transition-colors font-medium transition-golden">estudios de Thomas et al.</a></span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-green-600 dark:text-green-400 mr-2">•</span>
+                    <span className="text-success mr-2">•</span>
                     <span><strong>Riesgo cardiovascular:</strong> Asociado con enfermedad cardiovascular y diabetes</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-purple-600 dark:text-purple-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Forma corporal:</strong> Evalúa la "redondez" del cuerpo basándose en geometría</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-red-600 dark:text-red-400 mr-2">•</span>
-                    <span><strong>Complementario:</strong> Funciona bien junto con <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> y otros índices</span>
+                    <span className="text-destructive mr-2">•</span>
+                    <span><strong>Complementario:</strong> Funciona bien junto con <a href="/absi/" className="text-info hover:underline transition-colors">ABSI</a> y otros índices</span>
                   </li>
                   <li className="flex items-start py-[0.382rem] border-b border-border/30">
-                    <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Validación científica:</strong> Validado en múltiples poblaciones y estudios</span>
                   </li>
                   <li className="flex items-start py-[0.382rem]">
-                    <span className="text-yellow-600 dark:text-yellow-400 mr-2">•</span>
+                    <span className="text-warning mr-2">•</span>
                     <span><strong>Fácil de calcular:</strong> Solo requiere cintura y altura</span>
                   </li>
                 </ul>
@@ -440,38 +440,38 @@ export default function BRIPage() {
                 </h3>
                 <div className="space-golden-sm">
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-green-700 dark:text-green-300">BRI &lt; 3 (Muy Bajo):</h4>
+                    <h4 className="font-semibold text-sm text-success">BRI &lt; 3 (Muy Bajo):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Riesgo metabólico y cardiovascular muy bajo</p>
                   </section>
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-blue-700 dark:text-blue-300">BRI 3-5 (Bajo):</h4>
+                    <h4 className="font-semibold text-sm text-info">BRI 3-5 (Bajo):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Riesgo bajo, forma corporal saludable</p>
                   </section>
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-yellow-700 dark:text-yellow-300">BRI 5-8 (Moderado):</h4>
+                    <h4 className="font-semibold text-sm text-warning">BRI 5-8 (Moderado):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Riesgo moderado, requiere monitoreo</p>
                   </section>
                   <section className="py-[0.382rem] border-b border-border/30">
-                    <h4 className="font-semibold text-sm text-orange-700 dark:text-orange-300">BRI 8-12 (Alto):</h4>
+                    <h4 className="font-semibold text-sm text-warning">BRI 8-12 (Alto):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Riesgo elevado, requiere intervención</p>
                   </section>
                   <section className="py-[0.382rem]">
-                    <h4 className="font-semibold text-sm text-red-700 dark:text-red-300">BRI &gt; 12 (Muy Alto):</h4>
+                    <h4 className="font-semibold text-sm text-destructive">BRI &gt; 12 (Muy Alto):</h4>
                     <p className="text-xs text-muted-foreground mt-1">Riesgo muy elevado, requiere atención médica</p>
                   </section>
                 </div>
               </article>
             </section>
 
-            <section className="bg-purple-50 dark:bg-purple-950/30 card-golden-lg border-l-4 border-purple-400 mb-[2.618rem]">
-              <h3 className="font-bold text-purple-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">🧬</span>
                 BRI y Síndrome Metabólico
               </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 <article>
                   <h4 className="font-semibold mb-2">Componentes del síndrome metabólico:</h4>
-                  <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-1">
+                  <ul className="text-sm text-foreground space-y-1">
                     <li>• <strong>Obesidad abdominal:</strong> BRI evalúa esto directamente</li>
                     <li>• <strong>Hipertensión:</strong> Mayor riesgo con BRI elevado</li>
                     <li>• <strong>Glucosa elevada:</strong> Resistencia a insulina asociada</li>
@@ -481,7 +481,7 @@ export default function BRIPage() {
                 </article>
                 <article>
                   <h4 className="font-semibold mb-2">BRI como predictor:</h4>
-                  <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-1">
+                  <ul className="text-sm text-foreground space-y-1">
                     <li>• BRI &gt; 8 predice síndrome metabólico con alta sensibilidad</li>
                     <li>• Complementa evaluación de presión arterial y glucosa</li>
                     <li>• Útil para screening poblacional de riesgo metabólico</li>
@@ -491,13 +491,13 @@ export default function BRIPage() {
               </div>
             </section>
 
-            <section className="bg-blue-50 dark:bg-blue-950/30 card-golden-lg border-l-4 border-blue-400 mb-[2.618rem]">
-              <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-info-subtle card-golden-lg border-l-4 border-info mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">📐</span>
                 Fórmula Científica del BRI
               </h3>
-              <div className="bg-card p-4 rounded-lg border-2 border-blue-200">
-                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Fórmula BRI (Thomas et al., 2013):</h4>
+              <div className="bg-card p-4 rounded-lg border-2 border-info">
+                <h4 className="font-semibold text-foreground mb-2">Fórmula BRI (Thomas et al., 2013):</h4>
                 <div className="font-mono text-sm mb-2 bg-muted p-3 rounded">
                   <p>BRI = 364.2 - 365.5 × √(1 - (WC/(2π))² / (0.5 × height)²)</p>
                 </div>
@@ -519,7 +519,7 @@ export default function BRIPage() {
                 <article className="p-4 bg-muted rounded-lg">
                   <h4 className="font-semibold mb-2">¿Cuál es la diferencia entre BRI y ABSI?</h4>
                   <p className="text-sm text-muted-foreground">
-                    Ambos evalúan la forma corporal, pero tienen enfoques diferentes. El <a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline">ABSI</a> predice
+                    Ambos evalúan la forma corporal, pero tienen enfoques diferentes. El <a href="/absi/" className="text-info hover:underline transition-colors">ABSI</a> predice
                     mortalidad por todas las causas y se enfoca en riesgo de muerte. El BRI predice específicamente riesgo
                     metabólico y cardiovascular, siendo más útil para identificar síndrome metabólico y diabetes. Ambos son
                     complementarios y pueden usarse juntos para una evaluación más completa.
@@ -531,7 +531,7 @@ export default function BRIPage() {
                     Reducir la circunferencia de cintura es clave. Esto se logra mediante: (1) Ejercicio cardiovascular regular
                     (150+ min/semana), (2) Entrenamiento de fuerza 2-3 veces por semana, (3) Déficit calórico moderado
                     (300-500 kcal/día), (4) Dieta rica en fibra y proteína, (5) Reducción de azúcares refinados y carbohidratos
-                    procesados. Consulta nuestra <a href="/tdee/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de TDEE</a> para planificar tu déficit.
+                    procesados. Consulta nuestra <a href="/tdee/" className="text-info hover:underline transition-colors">calculadora de TDEE</a> para planificar tu déficit.
                   </p>
                 </article>
                 <article className="p-4 bg-muted rounded-lg">
@@ -539,34 +539,34 @@ export default function BRIPage() {
                   <p className="text-sm text-muted-foreground">
                     <strong>No.</strong> El BRI complementa al IMC. Mientras que el IMC evalúa peso corporal general,
                     el BRI proporciona información sobre distribución de grasa y riesgo metabólico. Ambos índices juntos
-                    ofrecen una evaluación más completa. Consulta también nuestra <a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline">calculadora de IMC</a>.
+                    ofrecen una evaluación más completa. Consulta también nuestra <a href="/imc/" className="text-info hover:underline transition-colors">calculadora de IMC</a>.
                   </p>
                 </article>
               </div>
             </section>
 
             {/* Enlaces contextuales */}
-            <section className="bg-orange-50 dark:bg-orange-950/30 card-golden-lg border-l-4 border-orange-400 mb-[2.618rem]">
-              <h3 className="font-bold text-orange-900 mb-[1.618rem] text-xl flex items-center">
+            <section className="bg-warning-subtle card-golden-lg border-l-4 border-warning mb-[2.618rem]">
+              <h3 className="font-bold text-foreground mb-[1.618rem] text-xl flex items-center">
                 <span className="text-2xl mr-3">💡</span>
                 Calculadoras relacionadas para evaluación completa
               </h3>
-              <ul className="text-sm text-orange-800 dark:text-orange-200 space-golden-xs">
+              <ul className="text-sm text-foreground/90 space-golden-xs">
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/absi/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de ABSI:</a></strong> Complementa el BRI con predicción de mortalidad</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/absi/" className="text-info hover:underline transition-colors font-medium transition-golden">Calculadora de ABSI:</a></strong> Complementa el BRI con predicción de mortalidad</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/imc/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de IMC:</a></strong> Complementa el BRI con evaluación de peso corporal general</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/imc/" className="text-info hover:underline transition-colors font-medium transition-golden">Calculadora de IMC:</a></strong> Complementa el BRI con evaluación de peso corporal general</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whtr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/whtr/" className="text-info hover:underline transition-colors font-medium transition-golden">Calculadora de WHtR:</a></strong> Ratio cintura-altura para evaluación de riesgo cardiometabólico</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-600 dark:text-orange-400 mr-2">•</span>
-                  <span><strong><a href="/whr/" className="text-blue-600 dark:text-blue-400 hover:underline font-medium transition-golden">Calculadora de WHR:</a></strong> Ratio cintura-cadera para análisis de distribución de grasa</span>
+                  <span className="text-warning mr-2">•</span>
+                  <span><strong><a href="/whr/" className="text-info hover:underline transition-colors font-medium transition-golden">Calculadora de WHR:</a></strong> Ratio cintura-cadera para análisis de distribución de grasa</span>
                 </li>
               </ul>
             </section>

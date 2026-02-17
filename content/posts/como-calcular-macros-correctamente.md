@@ -1,11 +1,11 @@
 ---
 title: 'Cómo Calcular Macros Correctamente: Guía Completa 2025'
 date: '2025-09-18'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Actualiza tus macros con la evidencia científica más reciente para mejorar la composición corporal, el rendimiento y la salud metabólica.'
 categories: ['Nutrición', 'Macronutrientes', 'Planificación alimentaria']
 tags: ['macros', 'proteína', 'carbohidratos', 'grasas', 'salud metabólica']
-image: 'https://cdn.pixabay.com/photo/2016/07/14/15/01/calculator-1516869_1280.jpg'
+image: '/images/blog/como-calcular-macros-correctamente.jpg'
 slug: 'como-calcular-macros-correctamente'
 readTime: 10
 featured: true

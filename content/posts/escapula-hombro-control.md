@@ -1,11 +1,11 @@
 ---
 title: 'Escápula y Hombro Estables: Entrenamiento Específico para Movimientos de Empuje y Tracción'
 date: '2026-01-30'
-author: 'Dr. Nutrifit'
+author: 'Equipo NutriFit'
 description: 'Guía práctica para mejorar el control escapular y la fuerza del manguito rotador con progresión simple y segura.'
 categories: ['Salud', 'Entrenamiento', 'Prevención']
 tags: ['hombro', 'escapula', 'manguito-rotador', 'estabilidad', 'movilidad']
-image: 'https://cdn.pixabay.com/photo/2017/08/07/23/25/woman-2609115_1280.jpg'
+image: '/images/blog/escapula-hombro-control.jpg'
 slug: 'escapula-hombro-control'
 readTime: 8
 featured: false

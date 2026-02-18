@@ -10,7 +10,6 @@ import { SelectInput } from '@/components/SelectInput';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { calculateBMR } from '@/lib/formulas';
-import { generateJsonLd } from '@/lib/seo';
 import { useLastResult } from '@/lib/useLastResult';
 import { useEffect, useState } from 'react';
 
@@ -131,7 +130,6 @@ export default function BMRPage() {
   };
 
   const isFormValid = formData.age && formData.height && formData.weight;
-  const jsonLd = generateJsonLd('bmr');
 
   return (
     <>

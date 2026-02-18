@@ -44,7 +44,7 @@ export default function AzucarPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Azúcar Diaria
+              Calculadora de Azúcar Diaria: Tu Límite Según la OMS
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calcula tu límite máximo de azúcar al día según las recomendaciones de la OMS.

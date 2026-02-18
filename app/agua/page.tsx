@@ -11,7 +11,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { formatMilliliters } from '@/lib/format';
 import { calculateWaterNeeds } from '@/lib/formulas';
-import { generateJsonLd } from '@/lib/seo';
 import { useState } from 'react';
 
 // Lazy load componentes no críticos
@@ -55,7 +54,6 @@ export default function AguaPage() {
   };
 
   const isFormValid = formData.weight;
-  const jsonLd = generateJsonLd('agua');
 
   const getGlassesCount = (ml: number) => Math.round(ml / 250); // Assuming 250ml per glass
 
@@ -68,7 +66,7 @@ export default function AguaPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Agua Diaria
+              Calculadora de Agua Diaria: Litros que Debes Beber
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calcula cuánta agua debes beber al día según tu peso, actividad física y condiciones ambientales.

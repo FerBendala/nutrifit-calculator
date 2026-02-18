@@ -52,7 +52,7 @@ export default function FibraPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Fibra Diaria
+              Calculadora de Fibra Diaria: Cuántos Gramos Necesitas
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calcula cuánta fibra dietética necesitas al día según tu edad, sexo y calorías.

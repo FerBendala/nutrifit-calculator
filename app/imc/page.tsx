@@ -9,7 +9,6 @@ import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { calculateBMI } from '@/lib/formulas';
-import { generateJsonLd } from '@/lib/seo';
 import { useLastResult } from '@/lib/useLastResult';
 import { useEffect, useState } from 'react';
 
@@ -59,7 +58,6 @@ export default function IMCPage() {
   };
 
   const isFormValid = height && weight;
-  const jsonLd = generateJsonLd('imc');
 
   return (
     <>
@@ -70,7 +68,7 @@ export default function IMCPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de IMC
+              Calculadora de IMC: Tu Índice de Masa Corporal
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calcula tu IMC (Índice de Masa Corporal) al instante. Descubre si tu peso es normal,

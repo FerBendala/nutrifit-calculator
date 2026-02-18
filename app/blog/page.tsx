@@ -4,14 +4,14 @@ import { FeaturedPosts } from '@/components/blog/FeaturedPosts';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
 import { getAllCategories, getFeaturedPosts, getAllPosts } from '@/lib/blog';
-import { SITE_CONFIG } from '@/lib/seo';
+import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog de Nutrición y Fitness | Calculadora Fitness',
+  title: 'Blog de Nutrición y Fitness | NutriFit Calculator',
   description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica. Guías prácticas para complementar nuestras calculadoras médicas.',
   openGraph: {
-    title: 'Blog de Nutrición y Fitness | Calculadora Fitness',
+    title: 'Blog de Nutrición y Fitness | NutriFit Calculator',
     description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
     type: 'website',
     url: `${SITE_CONFIG.url}/blog/`,
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog de Nutrición y Fitness | Calculadora Fitness',
+    title: 'Blog de Nutrición y Fitness | NutriFit Calculator',
     description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
     images: [`${SITE_CONFIG.url}/images/blog-og.jpg`],
   },
   alternates: {
-    canonical: `${SITE_CONFIG.url}/blog/`,
+    canonical: getCanonicalUrl('/blog'),
   },
 };
 

@@ -163,7 +163,7 @@ export default function SarcopeniaPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Sarcopenia
+              Calculadora de Sarcopenia: Evalúa Tu Pérdida Muscular
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
               Calculadora médica del Índice de Sarcopenia con fórmulas Baumgartner, ASMM y SMMI según estándares EWGSOP2.
@@ -736,6 +736,31 @@ export default function SarcopeniaPage() {
                     <span><strong><a href="/vo2max/" className="text-info hover:underline transition-colors font-medium transition-golden">Mide tu capacidad cardiovascular:</a></strong> El ejercicio aeróbico ayuda a prevenir la sarcopenia</span>
                   </li>
                 </ul>
+              </div>
+            </section>
+
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre sarcopenia</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué es la sarcopenia?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    La sarcopenia es la pérdida progresiva de masa muscular, fuerza y función física asociada al envejecimiento.
+                    Según los criterios EWGSOP2, se diagnostica combinando baja fuerza de agarre, baja masa muscular y bajo rendimiento físico.
+                    Puedes evaluar tu masa muscular actual con nuestra <a href="/masa-muscular/" className="text-info hover:underline transition-colors">calculadora de masa muscular</a>.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿A qué edad comienza la sarcopenia?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    La pérdida muscular comienza a los 30 años (1-2% anual) y se acelera después de los 60.
+                    El sedentarismo, la dieta pobre en proteínas y enfermedades crónicas aceleran el proceso.
+                    El ejercicio de fuerza es la intervención más efectiva. Asegura una
+                    <a href="/proteina/" className="text-info hover:underline transition-colors"> ingesta adecuada de proteína</a> y
+                    monitoriza tu <a href="/densidad-osea/" className="text-info hover:underline transition-colors">densidad ósea</a>,
+                    ya que ambas pérdidas suelen ir de la mano.
+                  </p>
+                </article>
               </div>
             </section>
           </article>

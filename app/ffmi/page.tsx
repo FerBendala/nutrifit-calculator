@@ -709,6 +709,31 @@ export default function FFMIPage() {
                 </ul>
               </div>
             </section>
+
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre FFMI</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué es el FFMI y para qué sirve?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    El FFMI (Índice de Masa Libre de Grasa) mide tu desarrollo muscular independientemente de la grasa.
+                    Valores por encima de 25 en hombres son muy difíciles de alcanzar de forma natural, lo que lo hace útil para evaluar potencial genético.
+                    Complementa este análisis con tu <a href="/masa-muscular/" className="text-info hover:underline transition-colors">masa muscular total</a> para
+                    una visión completa de tu desarrollo.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuál es un buen FFMI?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    Para hombres: 18-20 es promedio, 20-22 es bueno, 22-25 es excelente/atlético.
+                    Para mujeres: 15-17 es promedio, 17-19 es bueno, 19-21 es excelente.
+                    Valores por encima de 25 (hombres) o 22 (mujeres) son extremadamente raros naturalmente.
+                    Evalúa también tu <a href="/fmi/" className="text-info hover:underline transition-colors">índice de masa grasa (FMI)</a> para
+                    un análisis completo de composición corporal.
+                  </p>
+                </article>
+              </div>
+            </section>
           </article>
 
           {/* Calculadoras relacionadas */}

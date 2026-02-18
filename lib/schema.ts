@@ -682,9 +682,17 @@ const CATEGORY_LABELS: Record<string, string> = {
   'health': 'Salud',
 };
 
+const CATEGORY_URLS: Record<string, string> = {
+  'nutrition': '/calculadoras/nutricion/',
+  'body-composition': '/calculadoras/composicion-corporal/',
+  'fitness': '/calculadoras/fitness/',
+  'health': '/calculadoras/salud/',
+};
+
 export function generateBreadcrumbSchema(calculator: CalculatorConfig): SchemaMarkup {
   const canonicalUrl = getCanonicalUrl(calculator.href);
   const categoryLabel = CATEGORY_LABELS[calculator.category] || calculator.category;
+  const categoryUrl = CATEGORY_URLS[calculator.category];
 
   return {
     '@context': 'https://schema.org',
@@ -700,6 +708,7 @@ export function generateBreadcrumbSchema(calculator: CalculatorConfig): SchemaMa
         '@type': 'ListItem',
         position: 2,
         name: categoryLabel,
+        item: getCanonicalUrl(categoryUrl),
       },
       {
         '@type': 'ListItem',

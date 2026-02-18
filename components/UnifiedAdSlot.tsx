@@ -50,7 +50,10 @@ export function AdSlot({
   }
 
   return (
-    <div style={{ minHeight: style?.height || '90px' }}>
+    <div
+      style={{ minHeight: style?.height || '90px', overflow: 'hidden' }}
+      className="ad-container"
+    >
       <ins
         ref={adRef}
         className={`adsbygoogle ${className}`}

@@ -716,6 +716,30 @@ export default function WHRPage() {
                 </ul>
               </div>
             </section>
+
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre WHR</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué es el WHR y qué mide?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    El WHR (Waist-to-Hip Ratio) es la relación entre la circunferencia de tu cintura y tu cadera.
+                    Según la OMS, valores superiores a 0.90 en hombres y 0.85 en mujeres indican obesidad abdominal y mayor riesgo cardiovascular.
+                    Complementa este análisis con el <a href="/whtr/" className="text-info hover:underline transition-colors">ratio cintura-altura (WHtR)</a> para
+                    una evaluación más completa de tu distribución de grasa.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Es mejor el WHR que el IMC para evaluar riesgo?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    Sí, el WHR detecta mejor el riesgo cardiovascular que el IMC porque mide la distribución de grasa.
+                    Una persona con <a href="/imc/" className="text-info hover:underline transition-colors">IMC</a> normal puede tener WHR alto (grasa abdominal) y viceversa.
+                    Para un análisis integral, combina WHR con <a href="/grasa-corporal/" className="text-info hover:underline transition-colors">porcentaje de grasa corporal</a> y
+                    <a href="/composicion/" className="text-info hover:underline transition-colors"> composición corporal</a>.
+                  </p>
+                </article>
+              </div>
+            </section>
           </article>
 
           {/* Calculadoras relacionadas */}

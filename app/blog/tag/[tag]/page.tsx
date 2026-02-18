@@ -4,7 +4,7 @@ import { PostCard } from '@/components/blog/PostCard';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
 import { generateTagSlug, getAllCategories, getAllTags, getPostsByTag } from '@/lib/blog';
-import { SITE_CONFIG } from '@/lib/seo';
+import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
 import { ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
 
   if (!tagName) {
     return {
-      title: 'Tag no encontrado | Blog Calculadora Fitness',
+      title: 'Tag no encontrado | Blog NutriFit Calculator',
       description: 'El tag que buscas no fue encontrado.',
     };
   }
@@ -36,15 +36,15 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   const posts = await getPostsByTag(tagName);
 
   return {
-    title: `Artículos con tag "${tagName}" | Blog Calculadora Fitness`,
+    title: `Artículos con tag "${tagName}" | Blog NutriFit Calculator`,
     description: `Descubre todos nuestros artículos etiquetados con "${tagName}". Información profesional y basada en evidencia científica.`,
     openGraph: {
-      title: `Artículos con tag "${tagName}" | Blog Calculadora Fitness`,
+      title: `Artículos con tag "${tagName}" | Blog NutriFit Calculator`,
       description: `Descubre todos nuestros artículos etiquetados con "${tagName}". Información profesional y basada en evidencia científica.`,
       type: 'website',
     },
     alternates: {
-      canonical: `${SITE_CONFIG.url}/blog/tag/${tagSlug}/`,
+      canonical: getCanonicalUrl(`/blog/tag/${tagSlug}`),
     },
   };
 }
@@ -79,7 +79,7 @@ export default async function TagPage({ params }: TagPageProps) {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: `Artículos con tag "${tagName}"`,
-    description: `Artículos etiquetados con "${tagName}" del blog de Calculadora Fitness`,
+    description: `Artículos etiquetados con "${tagName}" del blog de NutriFit Calculator`,
     url: `${SITE_CONFIG.url}/blog/tag/${tagSlug}/`,
     mainEntity: {
       '@type': 'ItemList',
@@ -97,7 +97,7 @@ export default async function TagPage({ params }: TagPageProps) {
           },
           publisher: {
             '@type': 'Organization',
-            name: 'Calculadora Fitness',
+            name: 'NutriFit Calculator',
             logo: {
               '@type': 'ImageObject',
               url: `${SITE_CONFIG.url}/icon.svg`,

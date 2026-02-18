@@ -11,7 +11,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { formatGrams } from '@/lib/format';
 import { calculateProteinNeeds } from '@/lib/formulas';
-import { generateJsonLd } from '@/lib/seo';
 import { useState } from 'react';
 
 // Lazy load componentes no críticos
@@ -58,7 +57,6 @@ export default function ProteinaPage() {
   };
 
   const isFormValid = formData.weight;
-  const jsonLd = generateJsonLd('proteina');
 
   return (
     <>

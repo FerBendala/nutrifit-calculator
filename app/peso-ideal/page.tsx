@@ -12,7 +12,6 @@ import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { calculateIdealWeight, type IdealWeightResult } from '@/lib/formulas';
-import { generateJsonLd } from '@/lib/seo';
 import { AlertCircle, CheckCircle, Info, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 
@@ -81,7 +80,6 @@ export default function PesoIdealPage() {
     }
   };
 
-  const jsonLd = generateJsonLd('peso-ideal');
 
   return (
     <>
@@ -92,7 +90,7 @@ export default function PesoIdealPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Peso Ideal
+              Calculadora de Peso Ideal Según Tu Altura
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calcula tu peso ideal según tu altura con 5 fórmulas científicas diferentes.

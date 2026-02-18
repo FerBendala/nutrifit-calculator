@@ -73,7 +73,7 @@ export default function MasaMuscularPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Masa Muscular
+              Calculadora de Masa Muscular: Kilos de Músculo
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
               Calcula tu masa muscular total e índice de masa muscular con la fórmula de Lee validada científicamente.
@@ -516,6 +516,31 @@ export default function MasaMuscularPage() {
                     <span><strong><a href="/grasa-corporal/" className="text-info hover:underline transition-colors font-medium transition-golden">Calcula tu grasa corporal:</a></strong> Métodos científicos para evaluar composición</span>
                   </li>
                 </ul>
+              </div>
+            </section>
+
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre masa muscular</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuánta masa muscular es normal?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    En hombres, la masa muscular representa entre el 36-42% del peso corporal. En mujeres, entre el 29-35%.
+                    Estos valores varían según edad, nivel de actividad física y genética.
+                    Para una evaluación más detallada de tu desarrollo muscular, consulta nuestra
+                    <a href="/ffmi/" className="text-info hover:underline transition-colors">calculadora FFMI</a>.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo se calcula la masa muscular?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    La fórmula de Lee et al. (2000) estima la masa muscular esquelética a partir de altura, peso, sexo y etnia.
+                    Es la más utilizada en investigación y se correlaciona bien con mediciones por DEXA.
+                    Para maximizar tu masa muscular, asegura una
+                    <a href="/proteina/" className="text-info hover:underline transition-colors"> ingesta óptima de proteína</a> y
+                    planifica tu <a href="/tdee/" className="text-info hover:underline transition-colors">gasto calórico</a> correctamente.
+                  </p>
+                </article>
               </div>
             </section>
           </article>

@@ -11,7 +11,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { formatGrams, formatPercentage } from '@/lib/format';
 import { calculateBodyComposition, calculateBodyFatNavy, calculateWaistHipRatio } from '@/lib/formulas';
-import { generateJsonLd } from '@/lib/seo';
 import { useState } from 'react';
 
 // Lazy load componentes no críticos
@@ -124,7 +123,6 @@ export default function ComposicionPage() {
     }
   };
 
-  const jsonLd = generateJsonLd('composicion');
 
   return (
     <>

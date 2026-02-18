@@ -4,7 +4,7 @@ import { RelatedPosts } from '@/components/blog/RelatedPosts';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
 import { getAllPostSlugs, getPostBySlug, getRelatedPosts } from '@/lib/blog';
-import { SITE_CONFIG } from '@/lib/seo';
+import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     const post = await getPostBySlug(params.slug);
 
     return {
-      title: `${post.title} | Blog Calculadora Fitness`,
+      title: `${post.title} | Blog NutriFit Calculator`,
       description: post.description,
       authors: [{ name: post.author }],
       openGraph: {
@@ -50,12 +50,12 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       },
       keywords: [...post.tags, ...post.categories, 'nutrición', 'fitness', 'salud'].join(', '),
       alternates: {
-        canonical: `${SITE_CONFIG.url}/blog/${post.slug}/`,
+        canonical: getCanonicalUrl(`/blog/${post.slug}`),
       },
     };
   } catch (error) {
     return {
-      title: 'Post no encontrado | Blog Calculadora Fitness',
+      title: 'Post no encontrado | Blog NutriFit Calculator',
       description: 'El post que buscas no fue encontrado.',
     };
   }
@@ -122,7 +122,7 @@ export default async function PostPage({ params }: PostPageProps) {
     mentions: [
       {
         '@type': 'Organization',
-        name: 'Calculadora Fitness',
+        name: 'NutriFit Calculator',
         url: SITE_CONFIG.url,
       },
     ],

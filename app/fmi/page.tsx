@@ -766,6 +766,31 @@ export default function FMIPage() {
                 </ul>
               </div>
             </section>
+
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre FMI</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué es el FMI y en qué se diferencia del IMC?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    El FMI (Fat Mass Index) mide solo la masa grasa relativa a tu altura, a diferencia del
+                    <a href="/imc/" className="text-info hover:underline transition-colors"> IMC</a> que mezcla grasa y músculo.
+                    Esto lo hace más preciso para evaluar exceso de grasa corporal, especialmente en personas musculosas.
+                    Combínalo con tu <a href="/grasa-corporal/" className="text-info hover:underline transition-colors">porcentaje de grasa corporal</a> para
+                    mayor contexto.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cuáles son los rangos normales de FMI?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    Para hombres: 3-6 kg/m² es normal. Para mujeres: 5-9 kg/m² es normal.
+                    Valores superiores indican exceso de grasa corporal.
+                    El FMI complementa al <a href="/ffmi/" className="text-info hover:underline transition-colors">FFMI</a> para
+                    un análisis completo de composición corporal: uno mide la grasa y el otro el músculo.
+                  </p>
+                </article>
+              </div>
+            </section>
           </article>
 
           {/* Calculadoras relacionadas */}

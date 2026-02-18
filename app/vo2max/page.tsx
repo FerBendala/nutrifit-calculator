@@ -173,7 +173,7 @@ export default function VO2MaxPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora VO2 Max
+              Calculadora VO2 Max: Tu Capacidad Cardiovascular
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-lg">
               Calcula tu VO2 Max con 4 métodos científicos (Test de Cooper, Rockport, Astrand, Step Test).
@@ -774,6 +774,30 @@ export default function VO2MaxPage() {
                     <span><strong><a href="/tdee/" className="text-info hover:underline transition-colors font-medium transition-golden">Gasto calórico:</a></strong> Ajusta tu nutrición para entrenamientos intensos</span>
                   </li>
                 </ul>
+              </div>
+            </section>
+
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre VO2 Max</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué es el VO2 max y por qué importa?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    El VO2 max es la cantidad máxima de oxígeno que tu cuerpo puede utilizar durante el ejercicio.
+                    Es el mejor indicador de fitness cardiovascular y se asocia con menor riesgo de mortalidad por cualquier causa.
+                    Puedes complementar esta evaluación con nuestra <a href="/ritmo-cardiaco/" className="text-info hover:underline transition-colors">calculadora de frecuencia cardíaca</a> para
+                    conocer tus zonas de entrenamiento óptimas.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo puedo mejorar mi VO2 max?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    El entrenamiento interválico de alta intensidad (HIIT) es el método más efectivo para mejorar el VO2 max.
+                    También el ejercicio continuo de intensidad moderada-alta (75-85% FCmax) 3-5 veces por semana.
+                    Combinar cardio con <a href="/1rm/" className="text-info hover:underline transition-colors">entrenamiento de fuerza</a> y
+                    una <a href="/proteina/" className="text-info hover:underline transition-colors">ingesta adecuada de proteína</a> optimiza los resultados.
+                  </p>
+                </article>
               </div>
             </section>
           </article>

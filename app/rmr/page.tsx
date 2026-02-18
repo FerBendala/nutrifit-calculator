@@ -639,6 +639,29 @@ export default function RMRPage() {
                 </ul>
               </div>
             </section>
+
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre RMR</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿En qué se diferencia el RMR del BMR?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    El RMR (Resting Metabolic Rate) incluye el gasto de actividades ligeras como estar sentado,
+                    mientras que el <a href="/bmr/" className="text-info hover:underline transition-colors">BMR</a> (Basal Metabolic Rate)
+                    mide el gasto en reposo absoluto. El RMR es típicamente 10-20% mayor que el BMR y más práctico para planificar dietas.
+                    Usa tu RMR como base para calcular tu <a href="/tdee/" className="text-info hover:underline transition-colors">gasto calórico total (TDEE)</a>.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué fórmula debo usar para calcular mi RMR?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    La fórmula Mifflin-St Jeor es la más precisa para la mayoría de personas.
+                    Si conoces tu porcentaje de <a href="/grasa-corporal/" className="text-info hover:underline transition-colors">grasa corporal</a>,
+                    la fórmula Katch-McArdle puede ser más precisa al basarse en tu masa magra real.
+                  </p>
+                </article>
+              </div>
+            </section>
           </article>
 
           {/* Calculadoras relacionadas */}

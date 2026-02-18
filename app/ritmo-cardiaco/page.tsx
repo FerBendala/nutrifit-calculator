@@ -12,7 +12,6 @@ import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { calculateFatBurningZone, calculateHeartRateZones, calculateMaxHeartRate } from '@/lib/formulas';
-import { generateJsonLd } from '@/lib/seo';
 import { useState } from 'react';
 
 interface HeartRateResult {
@@ -72,7 +71,6 @@ export default function RitmoCardiacoPage() {
   };
 
   const isFormValid = formData.age;
-  const jsonLd = generateJsonLd('ritmo-cardiaco');
 
   return (
     <>
@@ -83,7 +81,7 @@ export default function RitmoCardiacoPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora de Frecuencia Cardíaca
+              Calculadora de Frecuencia Cardíaca y Zonas de Entrenamiento
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calcula tu frecuencia cardíaca máxima y zonas de entrenamiento personalizadas.

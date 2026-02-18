@@ -645,6 +645,31 @@ export default function DensidadOseaPage() {
                 </article>
               </div>
             </section>
+
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre densidad ósea</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué es el T-Score de densidad ósea?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    El T-Score compara tu densidad ósea con la de un adulto joven sano.
+                    Según la OMS: mayor a -1 es normal, entre -1 y -2.5 es osteopenia (pérdida moderada), y menor a -2.5 es osteoporosis.
+                    La pérdida ósea suele ir acompañada de pérdida muscular; evalúa tu riesgo con nuestra
+                    <a href="/sarcopenia/" className="text-info hover:underline transition-colors">calculadora de sarcopenia</a>.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Quién debe hacerse una densitometría ósea?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    Se recomienda para mujeres mayores de 65 años, hombres mayores de 70, y personas con factores de riesgo
+                    como menopausia precoz, uso prolongado de corticoides, fracturas previas o antecedentes familiares de osteoporosis.
+                    El ejercicio de fuerza y una buena nutrición son clave; revisa tu
+                    <a href="/edad-metabolica/" className="text-info hover:underline transition-colors"> edad metabólica</a> para
+                    evaluar tu estado general de salud.
+                  </p>
+                </article>
+              </div>
+            </section>
           </article>
 
           <RelatedCalculators currentPage="/densidad-osea" />

@@ -48,7 +48,7 @@ export function EmbedWidget({ title, calculatorName }: EmbedWidgetProps = {}) {
           pageTitle = 'Calculadora de Ritmo Cardíaco';
           break;
         default:
-          pageTitle = 'Calculadora Fitness - NutriFit';
+          pageTitle = 'NutriFit Calculator';
       }
     }
 

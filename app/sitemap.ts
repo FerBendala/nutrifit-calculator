@@ -31,6 +31,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       } as const;
     });
 
+  const calculatorCategoryRoutes = [
+    { path: '/calculadoras/nutricion/', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/calculadoras/composicion-corporal/', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/calculadoras/fitness/', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/calculadoras/salud/', priority: 0.8, changeFrequency: 'monthly' as const },
+  ].map(p => ({
+    url: `${BASE_URL}${p.path}`,
+    lastModified: BUILD_TIME,
+    changeFrequency: p.changeFrequency,
+    priority: p.priority,
+  }));
+
   const institutionalRoutes = [
     { path: '/sobre-nosotros/', priority: 0.6, changeFrequency: 'monthly' as const },
     { path: '/equipo/', priority: 0.6, changeFrequency: 'monthly' as const },
@@ -92,9 +104,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     }));
 
-    return [...indexables, ...institutionalRoutes, ...legalRoutes, ...blogRoutes, ...postRoutes, ...categoryRoutes, ...tagRoutes];
+    return [...indexables, ...calculatorCategoryRoutes, ...institutionalRoutes, ...legalRoutes, ...blogRoutes, ...postRoutes, ...categoryRoutes, ...tagRoutes];
   } catch (error) {
     console.error('Error generating blog sitemap:', error);
-    return [...indexables, ...institutionalRoutes, ...legalRoutes];
+    return [...indexables, ...calculatorCategoryRoutes, ...institutionalRoutes, ...legalRoutes];
   }
 }

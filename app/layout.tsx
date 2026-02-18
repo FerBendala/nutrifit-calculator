@@ -18,14 +18,16 @@ const inter = Inter({
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID; // ej: GTM-XXXXX
 
+const SITE_TITLE = 'NutriFit Calculator - Calculadoras de Nutrición y Fitness';
+
 export const metadata: Metadata = {
-  title: SITE_CONFIG.name,
+  title: SITE_TITLE,
   description: SITE_CONFIG.description,
   metadataBase: new URL(SITE_CONFIG.url),
   robots: 'index, follow',
-  authors: [{ name: 'Calculadora Fitness' }],
-  creator: 'Calculadora Fitness',
-  publisher: 'Calculadora Fitness',
+  authors: [{ name: 'NutriFit Calculator' }],
+  creator: 'NutriFit Calculator',
+  publisher: 'NutriFit Calculator',
   viewport: 'width=device-width, initial-scale=1',
   icons: {
     icon: [
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
     locale: 'es_ES',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: SITE_CONFIG.name,
+    title: SITE_TITLE,
     description: SITE_CONFIG.description,
     images: [
       {
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: SITE_CONFIG.name,
+    title: SITE_TITLE,
     description: SITE_CONFIG.description,
     images: [SITE_CONFIG.ogImage],
   },

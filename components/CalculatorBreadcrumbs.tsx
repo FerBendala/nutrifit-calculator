@@ -10,6 +10,13 @@ const CATEGORY_LABELS: Record<string, string> = {
   'health': 'Salud',
 };
 
+const CATEGORY_URLS: Record<string, string> = {
+  'nutrition': '/calculadoras/nutricion/',
+  'body-composition': '/calculadoras/composicion-corporal/',
+  'fitness': '/calculadoras/fitness/',
+  'health': '/calculadoras/salud/',
+};
+
 interface CalculatorBreadcrumbsProps {
   calculatorKey: string;
   className?: string;
@@ -25,7 +32,7 @@ export function CalculatorBreadcrumbs({ calculatorKey, className }: CalculatorBr
     <Breadcrumbs
       className={className}
       items={[
-        { label: categoryLabel },
+        { label: categoryLabel, href: CATEGORY_URLS[calculator.category] },
         { label: calculator.title },
       ]}
     />

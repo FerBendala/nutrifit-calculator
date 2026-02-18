@@ -11,7 +11,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { formatCalories } from '@/lib/format';
 import { ACTIVITY_LEVELS, calculateBMR, calculateTDEE, UserData } from '@/lib/formulas';
-import { generateJsonLd } from '@/lib/seo';
 import { useLastResult } from '@/lib/useLastResult';
 import { useEffect, useState } from 'react';
 
@@ -73,7 +72,6 @@ export default function TDEEPage() {
   };
 
   const isFormValid = formData.age && formData.height && formData.weight && formData.activityLevel;
-  const jsonLd = generateJsonLd('tdee');
 
   return (
     <>
@@ -84,7 +82,7 @@ export default function TDEEPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora TDEE
+              Calculadora TDEE: Tu Gasto Calórico Diario
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calcula tu gasto calórico diario (TDEE) según tu edad, peso y actividad física.

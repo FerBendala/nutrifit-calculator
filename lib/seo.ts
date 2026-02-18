@@ -8,7 +8,7 @@ export interface PageMetadata {
 }
 
 export const SITE_CONFIG = {
-  name: 'NutriFit Calculator - Calculadoras de Nutrición y Fitness',
+  name: 'NutriFit Calculator',
   description: 'Calculadoras de nutrición y fitness con fórmulas científicas validadas. Calcula calorías, macros, grasa corporal, peso ideal y más. Resultados precisos y gratuitos.',
   url: 'https://nutrifit-calculator.com',
   ogImage: '/images/og-default.png',

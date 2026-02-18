@@ -11,7 +11,6 @@ import { SelectInput } from '@/components/SelectInput';
 import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { generateJsonLd } from '@/lib/seo';
 import { useState } from 'react';
 
 interface OneRMResult {
@@ -145,7 +144,6 @@ export default function OneRMPage() {
   };
 
   const isFormValid = formData.weight && formData.reps && parseInt(formData.reps) >= 1 && parseInt(formData.reps) <= 20;
-  const jsonLd = generateJsonLd('1rm');
 
   return (
     <>
@@ -156,7 +154,7 @@ export default function OneRMPage() {
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora 1RM
+              Calculadora 1RM: Tu Repetición Máxima
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calcula tu 1RM (una repetición máxima) con 5 fórmulas científicas validadas.

@@ -471,6 +471,30 @@ export default function BAIPage() {
                 </ul>
               </div>
             </section>
+
+            <section className="space-golden-md mt-[2.618rem]">
+              <h3 className="text-xl font-semibold mb-[1.618rem] text-center">❓ Preguntas frecuentes sobre BAI</h3>
+              <div className="space-golden-sm">
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Cómo estima el BAI la grasa corporal sin báscula?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    El BAI (Body Adiposity Index) usa solo la circunferencia de cadera y la altura para estimar
+                    el porcentaje de grasa corporal. Fue desarrollado por Bergman et al. (2011) como alternativa al IMC que no requiere peso.
+                    Si dispones de báscula, puedes obtener mayor precisión con nuestra
+                    <a href="/grasa-corporal/" className="text-info hover:underline transition-colors">calculadora de grasa corporal</a> por pliegues cutáneos.
+                  </p>
+                </article>
+                <article className="card-golden bg-muted">
+                  <h4 className="font-semibold mb-[0.618rem]">¿Qué tan preciso es el BAI?</h4>
+                  <p className="text-sm text-muted-foreground leading-[1.618]">
+                    El BAI tiene una precisión moderada (±3-5%) y funciona mejor en mujeres que en hombres.
+                    Es útil cuando no se dispone de báscula, pero los métodos de pliegues cutáneos o bioimpedancia son más precisos.
+                    Para un análisis más completo, combina con el <a href="/fmi/" className="text-info hover:underline transition-colors">índice de masa grasa (FMI)</a> y
+                    el <a href="/imc/" className="text-info hover:underline transition-colors">IMC</a>.
+                  </p>
+                </article>
+              </div>
+            </section>
           </article>
 
           {/* Calculadoras relacionadas */}

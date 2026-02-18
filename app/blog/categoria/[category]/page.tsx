@@ -4,7 +4,7 @@ import { PostCard } from '@/components/blog/PostCard';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
 import { generateCategorySlug, getAllCategories, getPostsByCategory } from '@/lib/blog';
-import { SITE_CONFIG } from '@/lib/seo';
+import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
 import { ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   if (!categoryName) {
     return {
-      title: 'Categoría no encontrada | Blog Calculadora Fitness',
+      title: 'Categoría no encontrada | Blog NutriFit Calculator',
       description: 'La categoría que buscas no fue encontrada.',
     };
   }
@@ -36,21 +36,21 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const posts = await getPostsByCategory(categoryName);
 
   return {
-    title: `Artículos de ${categoryName} | Blog Calculadora Fitness`,
+    title: `Artículos de ${categoryName} | Blog NutriFit Calculator`,
     description: `Descubre todos nuestros artículos sobre ${categoryName}. Información profesional y basada en evidencia científica.`,
     openGraph: {
-      title: `Artículos de ${categoryName} | Blog Calculadora Fitness`,
+      title: `Artículos de ${categoryName} | Blog NutriFit Calculator`,
       description: `Descubre todos nuestros artículos sobre ${categoryName}. Información profesional y basada en evidencia científica.`,
       type: 'website',
       url: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}/`,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `Artículos de ${categoryName} | Blog Calculadora Fitness`,
+      title: `Artículos de ${categoryName} | Blog NutriFit Calculator`,
       description: `Descubre todos nuestros artículos sobre ${categoryName}. Información profesional y basada en evidencia científica.`,
     },
     alternates: {
-      canonical: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}/`,
+      canonical: getCanonicalUrl(`/blog/categoria/${categorySlug}`),
     },
   };
 }
@@ -84,7 +84,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: `Artículos de ${categoryName}`,
-    description: `Artículos sobre ${categoryName} del blog de Calculadora Fitness`,
+    description: `Artículos sobre ${categoryName} del blog de NutriFit Calculator`,
     url: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}/`,
     mainEntity: {
       '@type': 'ItemList',

@@ -30,14 +30,17 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     return {
       title: 'Categoría no encontrada | Blog NutriFit Calculator',
       description: 'La categoría que buscas no fue encontrada.',
+      robots: 'noindex, nofollow',
     };
   }
 
   const posts = await getPostsByCategory(categoryName);
+  const MIN_POSTS_FOR_INDEX = 3;
 
   return {
     title: `Artículos de ${categoryName} | Blog NutriFit Calculator`,
     description: `Descubre todos nuestros artículos sobre ${categoryName}. Información profesional y basada en evidencia científica.`,
+    ...(posts.length < MIN_POSTS_FOR_INDEX && { robots: 'noindex, follow' }),
     openGraph: {
       title: `Artículos de ${categoryName} | Blog NutriFit Calculator`,
       description: `Descubre todos nuestros artículos sobre ${categoryName}. Información profesional y basada en evidencia científica.`,

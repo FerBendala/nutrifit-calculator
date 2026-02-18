@@ -400,4 +400,16 @@
       0 0.618px 1.618px rgba(0, 0, 0, 0.1),
       0 2.618px 6.854px rgba(0, 0, 0, 0.15);
   }
+
+  /* CLS prevention for Google Auto Ads injected containers */
+  .ad-container,
+  .adsbygoogle {
+    min-height: 90px;
+    overflow: hidden;
+    contain: layout style;
+  }
+
+  ins.adsbygoogle[data-ad-status="unfilled"] {
+    display: none !important;
+  }
 }

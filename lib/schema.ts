@@ -1,4 +1,5 @@
 import { CalculatorConfig, CALCULATORS } from './calculators';
+import { LOCALE_CONFIG } from './i18n';
 import { getCanonicalUrl } from './seo';
 
 export interface SchemaMarkup {
@@ -7,14 +8,30 @@ export interface SchemaMarkup {
   [key: string]: any;
 }
 
+export const ORGANIZATION_REF = { '@id': 'https://nutrifit-calculator.com/#organization' };
+
+function getOrganizationSchema(): SchemaMarkup {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://nutrifit-calculator.com/#organization',
+    name: 'NutriFit Calculator',
+    url: 'https://nutrifit-calculator.com/',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://nutrifit-calculator.com/icon.svg',
+    },
+  };
+}
+
 // Schema para la aplicación web principal
 export function generateWebApplicationSchema(): SchemaMarkup {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     '@id': 'https://nutrifit-calculator.com/#webapp',
-    name: 'NutriFit Calculator - Calculadoras Fit GRATIS',
-    description: 'Calculadoras fit gratuitas de calorías, macros, IMC y más. Herramientas profesionales para tu nutrición y fitness.',
+    name: 'NutriFit Calculator - Calculadoras de Nutrición y Fitness',
+    description: 'Calculadoras gratuitas de calorías, macros, IMC y más. Herramientas profesionales para tu nutrición y fitness.',
     url: 'https://nutrifit-calculator.com/',
     applicationCategory: 'HealthApplication',
     operatingSystem: 'Web Browser',
@@ -40,21 +57,13 @@ export function generateWebApplicationSchema(): SchemaMarkup {
       'Calculadora de hidratación',
     ],
     screenshot: 'https://nutrifit-calculator.com/images/og-default.png',
-    author: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com/'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com/'
-    },
+    author: ORGANIZATION_REF,
+    publisher: ORGANIZATION_REF,
     audience: {
       '@type': 'Audience',
       audienceType: 'Entusiastas del fitness, nutricionistas, atletas, personas interesadas en su salud'
     },
-    inLanguage: 'es-ES'
+    inLanguage: LOCALE_CONFIG.schemaLanguage
   };
 }
 
@@ -64,7 +73,7 @@ export function generateCalculatorSchema(calculator: CalculatorConfig): SchemaMa
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
+    '@type': 'WebApplication',
     '@id': `${canonicalUrl}#app`,
     name: `${calculator.title} - NutriFit Calculator`,
     description: calculator.description,
@@ -78,12 +87,8 @@ export function generateCalculatorSchema(calculator: CalculatorConfig): SchemaMa
       price: '0',
       priceCurrency: 'EUR'
     },
-    publisher: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com/'
-    },
-    inLanguage: 'es-ES'
+    publisher: ORGANIZATION_REF,
+    inLanguage: LOCALE_CONFIG.schemaLanguage
   };
 }
 
@@ -135,16 +140,8 @@ export function generateHowToSchema(calculator: CalculatorConfig): SchemaMarkup 
       text: step.text,
       image: step.image
     })),
-    author: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com/'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com/'
-    }
+    author: ORGANIZATION_REF,
+    publisher: ORGANIZATION_REF,
   };
 }
 
@@ -248,14 +245,10 @@ export function generateWebsiteSchema(): SchemaMarkup {
     '@type': 'WebSite',
     '@id': 'https://nutrifit-calculator.com/#website',
     name: 'NutriFit Calculator',
-    description: 'Calculadoras fit gratuitas de calorías, macros, IMC y más. Herramientas profesionales para tu nutrición y fitness.',
+    description: 'Calculadoras gratuitas de calorías, macros, IMC y más. Herramientas profesionales para tu nutrición y fitness.',
     url: 'https://nutrifit-calculator.com/',
-    inLanguage: 'es-ES',
-    publisher: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: 'https://nutrifit-calculator.com/'
-    }
+    inLanguage: LOCALE_CONFIG.schemaLanguage,
+    publisher: ORGANIZATION_REF,
   };
 }
 
@@ -264,20 +257,15 @@ export function generateCalculatorSchemaByKey(calculatorKey: string): SchemaMark
   const calculator = CALCULATORS.find(calc => calc.key === calculatorKey);
 
   if (!calculator) {
-    // Para la home, generar schemas completos (WebApplication + WebSite + FAQ)
     if (calculatorKey === 'home') {
-      const schemas = [generateWebApplicationSchema(), generateWebsiteSchema()];
+      const schemas: SchemaMarkup[] = [getOrganizationSchema(), generateWebApplicationSchema(), generateWebsiteSchema()];
       const faqSchema = generateFAQSchema('home');
       if (faqSchema) schemas.push(faqSchema);
       return schemas;
     }
-    // Fallback: solo WebApplication + WebSite para páginas desconocidas
-    console.warn(`Calculadora con key "${calculatorKey}" no encontrada`);
-    return [generateWebApplicationSchema(), generateWebsiteSchema()];
+    return [getOrganizationSchema(), generateWebApplicationSchema(), generateWebsiteSchema()];
   }
 
-  // Para calculadoras individuales, usar generateAllSchemas 
-  // (que ahora solo genera SoftwareApplication + FAQ)
   return generateAllSchemas(calculator);
 }
 
@@ -747,9 +735,8 @@ export function generateBreadcrumbSchema(calculator: CalculatorConfig): SchemaMa
 
 // Función principal para generar todos los schemas
 export function generateAllSchemas(calculator?: CalculatorConfig): SchemaMarkup[] {
-  // Solo para la home: WebApplication + WebSite + FAQ
   if (!calculator) {
-    const schemas = [generateWebApplicationSchema(), generateWebsiteSchema()];
+    const schemas: SchemaMarkup[] = [getOrganizationSchema(), generateWebApplicationSchema(), generateWebsiteSchema()];
     const faqSchema = generateFAQSchema('home');
     if (faqSchema) {
       schemas.push(faqSchema);
@@ -757,8 +744,8 @@ export function generateAllSchemas(calculator?: CalculatorConfig): SchemaMarkup[
     return schemas;
   }
 
-  // Para calculadoras individuales: SoftwareApplication + BreadcrumbList + FAQ
-  const schemas = [
+  const schemas: SchemaMarkup[] = [
+    getOrganizationSchema(),
     generateCalculatorSchema(calculator),
     generateBreadcrumbSchema(calculator),
   ];

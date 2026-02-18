@@ -23,26 +23,11 @@ const loadGTM = () => {
 };
 
 const loadAdSense = (isMobile: boolean) => {
-  console.warn('ConsentBanner: Iniciando AdSense con gestión centralizada');
-
-  // Delay adicional para mobile - asegurar que el consent mode se procese
   const delay = isMobile ? 1500 : 1000;
 
   setTimeout(() => {
-    initializeAutoAds().then(() => {
-      console.warn('ConsentBanner: Anuncios automáticos inicializados');
-
-      // Verificar estado después de un momento
-      setTimeout(() => {
-        const ads = document.querySelectorAll('.adsbygoogle');
-        console.warn('ConsentBanner: Anuncios encontrados:', ads.length);
-        ads.forEach((ad, index) => {
-          const status = ad.getAttribute('data-adsbygoogle-status');
-          console.warn(`ConsentBanner: Anuncio ${index + 1} estado:`, status);
-        });
-      }, 2000);
-    }).catch((error) => {
-      console.error('ConsentBanner: Error inicializando AdSense:', error);
+    initializeAutoAds().catch(() => {
+      // AdSense may be blocked — fail silently
     });
   }, delay);
 };

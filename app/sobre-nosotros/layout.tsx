@@ -1,3 +1,4 @@
+import { getCanonicalUrl } from '@/lib/seo';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://nutrifit-calculator.com/sobre-nosotros/',
+    canonical: getCanonicalUrl('/sobre-nosotros'),
   },
 };
 

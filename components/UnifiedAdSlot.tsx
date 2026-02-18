@@ -30,9 +30,7 @@ export function AdSlot({
     }
 
     const processSlot = () => {
-      processAdSlot(elementId).catch((error) => {
-        console.error('AdSlot: Error procesando slot:', error);
-      });
+      processAdSlot(elementId).catch(() => {});
     };
 
     if ('requestIdleCallback' in window) {

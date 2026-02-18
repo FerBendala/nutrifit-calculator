@@ -445,17 +445,19 @@ export function getAllCalculatorsSorted(): CalculatorConfig[] {
   });
 }
 
-// Función para generar navegación automáticamente (para ContextualLinks)
+// Navegación prev/next dentro de la misma categoría temática
 export function generateNavigation(currentCalculator: string) {
-  const currentIndex = CALCULATORS.findIndex(calc => calc.key === currentCalculator);
+  const current = CALCULATORS.find(calc => calc.key === currentCalculator);
+  if (!current) return null;
 
-  if (currentIndex === -1) return null;
+  const sameCategory = CALCULATORS.filter(calc => calc.category === current.category);
+  const currentIndex = sameCategory.findIndex(calc => calc.key === currentCalculator);
 
-  const prevIndex = currentIndex === 0 ? CALCULATORS.length - 1 : currentIndex - 1;
-  const nextIndex = currentIndex === CALCULATORS.length - 1 ? 0 : currentIndex + 1;
+  const prevIndex = currentIndex === 0 ? sameCategory.length - 1 : currentIndex - 1;
+  const nextIndex = currentIndex === sameCategory.length - 1 ? 0 : currentIndex + 1;
 
   return {
-    prev: CALCULATORS[prevIndex],
-    next: CALCULATORS[nextIndex]
+    prev: sameCategory[prevIndex],
+    next: sameCategory[nextIndex],
   };
 }

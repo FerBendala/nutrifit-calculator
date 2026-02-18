@@ -4,6 +4,7 @@ import { PostCard } from '@/components/blog/PostCard';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
 import { generateTagSlug, getAllCategories, getAllTags, getPostsByTag } from '@/lib/blog';
+import { ORGANIZATION_REF } from '@/lib/schema';
 import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
 import { ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -30,14 +31,17 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
     return {
       title: 'Tag no encontrado | Blog NutriFit Calculator',
       description: 'El tag que buscas no fue encontrado.',
+      robots: 'noindex, nofollow',
     };
   }
 
   const posts = await getPostsByTag(tagName);
+  const MIN_POSTS_FOR_INDEX = 3;
 
   return {
     title: `Artículos con tag "${tagName}" | Blog NutriFit Calculator`,
     description: `Descubre todos nuestros artículos etiquetados con "${tagName}". Información profesional y basada en evidencia científica.`,
+    ...(posts.length < MIN_POSTS_FOR_INDEX && { robots: 'noindex, follow' }),
     openGraph: {
       title: `Artículos con tag "${tagName}" | Blog NutriFit Calculator`,
       description: `Descubre todos nuestros artículos etiquetados con "${tagName}". Información profesional y basada en evidencia científica.`,
@@ -103,14 +107,7 @@ export default async function TagPage({ params }: TagPageProps) {
             '@type': 'Person',
             name: post.author,
           },
-          publisher: {
-            '@type': 'Organization',
-            name: 'NutriFit Calculator',
-            logo: {
-              '@type': 'ImageObject',
-              url: `${SITE_CONFIG.url}/icon.svg`,
-            },
-          },
+          publisher: ORGANIZATION_REF,
           datePublished: post.date,
           url: `${SITE_CONFIG.url}/blog/${post.slug}/`,
           image: post.image ? `${SITE_CONFIG.url}${post.image}` : `${SITE_CONFIG.url}/images/blog-default.jpg`,

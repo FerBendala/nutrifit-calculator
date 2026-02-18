@@ -1,8 +1,12 @@
 import { Container } from '@/components/Container';
+import { getCanonicalUrl } from '@/lib/seo';
 
 export const metadata = {
   title: 'Términos de Uso - NutriFit Calculator',
   description: 'Términos y condiciones de uso de las calculadoras de fitness y nutrición.',
+  alternates: {
+    canonical: getCanonicalUrl('/terminos'),
+  },
 };
 
 export default function TerminosPage() {

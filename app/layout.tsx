@@ -3,6 +3,7 @@ import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Toaster } from '@/components/ui/toaster';
+import { LOCALE_CONFIG } from '@/lib/i18n';
 import { SITE_CONFIG } from '@/lib/seo';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -20,7 +21,11 @@ const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID; // ej: GTM-XXXXX
 
 const SITE_TITLE = 'NutriFit Calculator - Calculadoras de Nutrición y Fitness';
 
-// TODO: When upgrading to Next.js 14+, extract viewport to: export const viewport: Viewport = { width: 'device-width', initialScale: 1 };
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_CONFIG.description,
@@ -29,7 +34,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'NutriFit Calculator' }],
   creator: 'NutriFit Calculator',
   publisher: 'NutriFit Calculator',
-  viewport: 'width=device-width, initial-scale=1',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -44,7 +48,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'es_ES',
+    locale: LOCALE_CONFIG.ogLocale,
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
     title: SITE_TITLE,
@@ -72,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang={LOCALE_CONFIG.htmlLang} suppressHydrationWarning>
       <head>
         {/* Resource hints optimizados para Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

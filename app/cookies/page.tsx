@@ -1,8 +1,12 @@
 import { Container } from '@/components/Container';
+import { getCanonicalUrl } from '@/lib/seo';
 
 export const metadata = {
   title: 'Política de Cookies - NutriFit Calculator',
   description: 'Información detallada sobre el uso de cookies en NutriFit Calculator.',
+  alternates: {
+    canonical: getCanonicalUrl('/cookies'),
+  },
 };
 
 export default function CookiesPage() {

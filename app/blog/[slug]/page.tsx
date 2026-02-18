@@ -1,9 +1,11 @@
+import { BlogCalculatorCTA } from '@/components/blog/BlogCalculatorCTA';
 import { PostContent } from '@/components/blog/PostContent';
 import { ReadingProgress } from '@/components/blog/ReadingProgress';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
 import { getAllPostSlugs, getPostBySlug, getRelatedPosts } from '@/lib/blog';
+import { ORGANIZATION_REF } from '@/lib/schema';
 import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -57,6 +59,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     return {
       title: 'Post no encontrado | Blog NutriFit Calculator',
       description: 'El post que buscas no fue encontrado.',
+      robots: 'noindex, nofollow',
     };
   }
 }
@@ -95,17 +98,9 @@ export default async function PostPage({ params }: PostPageProps) {
       '@type': 'Person',
       name: post.author,
     },
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_CONFIG.name,
-      url: SITE_CONFIG.url,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/icon.svg`,
-      },
-    },
+    publisher: ORGANIZATION_REF,
     datePublished: post.date,
-    dateModified: post.date,
+    ...(post.lastModified && { dateModified: post.lastModified }),
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${SITE_CONFIG.url}/blog/${post.slug}/`,
@@ -163,7 +158,12 @@ export default async function PostPage({ params }: PostPageProps) {
         {/* Contenido principal del post */}
         <PostContent post={post} />
 
-        {/* Posts relacionados */}
+        <Container size="xl">
+          <div className="max-w-3xl mx-auto">
+            <BlogCalculatorCTA tags={post.tags} categories={post.categories} />
+          </div>
+        </Container>
+
         {relatedPosts.length > 0 && (
           <section className="bg-muted/30 py-16">
             <Container size="xl">

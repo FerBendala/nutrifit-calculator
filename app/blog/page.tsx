@@ -4,6 +4,7 @@ import { FeaturedPosts } from '@/components/blog/FeaturedPosts';
 import { Container } from '@/components/Container';
 import { JsonLd } from '@/components/JsonLd';
 import { getAllCategories, getFeaturedPosts, getAllPosts } from '@/lib/blog';
+import { ORGANIZATION_REF } from '@/lib/schema';
 import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -55,11 +56,7 @@ export default async function BlogPage() {
     name: 'Blog de Nutrición y Fitness',
     description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
     url: `${SITE_CONFIG.url}/blog/`,
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_CONFIG.name,
-      url: SITE_CONFIG.url,
-    },
+    publisher: ORGANIZATION_REF,
     ...(allPostsForSchema.length > 0 && {
       mainEntity: allPostsForSchema.map(post => ({
         '@type': 'BlogPosting',

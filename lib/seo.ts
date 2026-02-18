@@ -265,7 +265,6 @@ export function generateMetadata(page: keyof typeof PAGE_METADATA): Metadata {
   return {
     title: pageData.title,
     description: pageData.description,
-    keywords: pageData.keywords,
     authors: [{ name: 'NutriFit Calculator' }],
     creator: 'NutriFit Calculator',
     publisher: 'NutriFit Calculator',
@@ -293,7 +292,7 @@ export function generateMetadata(page: keyof typeof PAGE_METADATA): Metadata {
       images: [ogImageUrl],
     },
     alternates: {
-      canonical: `${SITE_CONFIG.url}${pageData.path}`
+      canonical: getCanonicalUrl(pageData.path)
     }
   };
 }

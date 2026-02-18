@@ -1,8 +1,12 @@
 import { Container } from '@/components/Container';
+import { getCanonicalUrl } from '@/lib/seo';
 
 export const metadata = {
   title: 'Política de Privacidad - NutriFit Calculator',
   description: 'Información sobre cómo recopilamos, usamos y protegemos tus datos personales en NutriFit Calculator.',
+  alternates: {
+    canonical: getCanonicalUrl('/privacidad'),
+  },
 };
 
 export default function PrivacidadPage() {

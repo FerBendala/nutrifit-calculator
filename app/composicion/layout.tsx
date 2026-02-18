@@ -1,7 +1,13 @@
+import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata('composicion');
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <SchemaMarkup calculatorKey="composicion" />
+      {children}
+    </>
+  );
 }

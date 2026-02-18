@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
           post.image.startsWith('http') ? post.image : `${SITE_CONFIG.url}${post.image}`
         ] : [],
       },
-      keywords: [...post.tags, ...post.categories, 'nutrición', 'fitness', 'salud'].join(', '),
+      keywords: [...post.tags, ...post.categories, 'nutrición', 'fitness', 'salud'],
       alternates: {
         canonical: getCanonicalUrl(`/blog/${post.slug}`),
       },

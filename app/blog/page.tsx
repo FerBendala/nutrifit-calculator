@@ -6,6 +6,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { getAllCategories, getFeaturedPosts, getAllPosts } from '@/lib/blog';
 import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Blog de Nutrición y Fitness | NutriFit Calculator',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/blog/`,
     images: [
       {
-        url: `${SITE_CONFIG.url}/images/blog-og.jpg`,
+        url: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
         width: 1200,
         height: 630,
         alt: 'Blog de Nutrición y Fitness',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog de Nutrición y Fitness | NutriFit Calculator',
     description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
-    images: [`${SITE_CONFIG.url}/images/blog-og.jpg`],
+    images: [`${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`],
   },
   alternates: {
     canonical: getCanonicalUrl('/blog'),
@@ -104,30 +105,30 @@ export default async function BlogPage() {
               </p>
 
               <div className="flex flex-wrap justify-center gap-2">
-                <a
+                <Link
                   href="/"
                   className="bg-primary text-primary-foreground px-3 py-2 rounded-md hover:bg-primary/90 transition-colors text-xs font-medium"
                 >
                   Calorías
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/proteina/"
                   className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                 >
                   Proteína
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/imc/"
                   className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                 >
                   IMC
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/grasa-corporal/"
                   className="bg-secondary text-secondary-foreground px-3 py-2 rounded-md hover:bg-secondary/90 transition-colors text-xs font-medium"
                 >
                   Grasa
-                </a>
+                </Link>
               </div>
             </section>
           </div>

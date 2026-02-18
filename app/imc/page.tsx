@@ -5,7 +5,6 @@ import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { NumberInput } from '@/components/NumberInput';
 import { CalculatorBreadcrumbs } from '@/components/CalculatorBreadcrumbs';
-import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { calculateBMI } from '@/lib/formulas';
@@ -61,7 +60,6 @@ export default function IMCPage() {
 
   return (
     <>
-      <SchemaMarkup calculatorKey="imc" />
       <CalculatorBreadcrumbs calculatorKey="imc" className="container-golden mb-4 pt-4" />
 
       <Container size="xl" className="py-[4.236rem]">

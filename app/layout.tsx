@@ -20,6 +20,7 @@ const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID; // ej: GTM-XXXXX
 
 const SITE_TITLE = 'NutriFit Calculator - Calculadoras de Nutrición y Fitness';
 
+// TODO: When upgrading to Next.js 14+, extract viewport to: export const viewport: Viewport = { width: 'device-width', initialScale: 1 };
 export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_CONFIG.description,

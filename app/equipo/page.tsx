@@ -1,62 +1,59 @@
 import { Container } from '@/components/Container';
+import { JsonLd } from '@/components/JsonLd';
 import Link from 'next/link';
 
 const TEAM_MEMBERS = [
   {
-    name: 'Equipo de Nutricion',
-    role: 'Revision de contenido nutricional',
+    name: 'Equipo de Nutrición',
+    role: 'Revisión de contenido nutricional',
     description:
-      'Responsable de verificar que las formulas nutricionales, rangos de macronutrientes y recomendaciones dieteticas se ajusten a las guias actuales de la OMS, IOM y sociedades cientificas de referencia.',
-    expertise: ['Nutricion clinica', 'Dietetica deportiva', 'Composicion corporal', 'Recomendaciones OMS/IOM'],
+      'Responsable de verificar que las fórmulas nutricionales, rangos de macronutrientes y recomendaciones dietéticas se ajusten a las guías actuales de la OMS, IOM y sociedades científicas de referencia.',
+    expertise: ['Nutrición clínica', 'Dietética deportiva', 'Composición corporal', 'Recomendaciones OMS/IOM'],
   },
   {
     name: 'Equipo de Ciencias del Ejercicio',
-    role: 'Revision de calculadoras de fitness',
+    role: 'Revisión de calculadoras de fitness',
     description:
-      'Verifica las formulas de ejercicio (VO2 max, 1RM, zonas cardiacas, sarcopenia) y se asegura de que los rangos y clasificaciones se correspondan con la literatura cientifica publicada.',
-    expertise: ['Fisiologia del ejercicio', 'Fuerza y acondicionamiento', 'Rehabilitacion', 'Evaluacion funcional'],
+      'Verifica las fórmulas de ejercicio (VO2 max, 1RM, zonas cardíacas, sarcopenia) y se asegura de que los rangos y clasificaciones se correspondan con la literatura científica publicada.',
+    expertise: ['Fisiología del ejercicio', 'Fuerza y acondicionamiento', 'Rehabilitación', 'Evaluación funcional'],
   },
   {
-    name: 'Equipo de Revision Medica',
-    role: 'Supervision de calculadoras clinicas',
+    name: 'Equipo de Revisión Médica',
+    role: 'Supervisión de calculadoras clínicas',
     description:
-      'Supervisa las calculadoras con implicaciones clinicas (eGFR, densidad osea, presion arterial media, BSA) para asegurar que los criterios diagnosticos sigan las guias medicas vigentes (AHA, WHO, KDIGO).',
-    expertise: ['Medicina interna', 'Cardiologia', 'Nefrologia', 'Estandares WHO/AHA'],
+      'Supervisa las calculadoras con implicaciones clínicas (eGFR, densidad ósea, presión arterial media, BSA) para asegurar que los criterios diagnósticos sigan las guías médicas vigentes (AHA, WHO, KDIGO).',
+    expertise: ['Medicina interna', 'Cardiología', 'Nefrología', 'Estándares WHO/AHA'],
   },
   {
     name: 'Equipo de Desarrollo',
-    role: 'Implementacion tecnica y precision',
+    role: 'Implementación técnica y precisión',
     description:
-      'Implementa las formulas con precision matematica, verifica los resultados contra los estudios originales y optimiza la experiencia de usuario para que las herramientas sean accesibles y rapidas.',
-    expertise: ['Desarrollo web', 'Precision numerica', 'Accesibilidad', 'Rendimiento'],
+      'Implementa las fórmulas con precisión matemática, verifica los resultados contra los estudios originales y optimiza la experiencia de usuario para que las herramientas sean accesibles y rápidas.',
+    expertise: ['Desarrollo web', 'Precisión numérica', 'Accesibilidad', 'Rendimiento'],
   },
 ];
 
-export default function EquipoPage() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'NutriFit Calculator',
-    url: 'https://nutrifit-calculator.com',
-    description: 'Calculadoras de nutricion y fitness con formulas cientificas validadas.',
-    foundingDate: '2024',
-    sameAs: [],
-    knowsAbout: [
-      'Nutricion',
-      'Fitness',
-      'Composicion corporal',
-      'Metabolismo basal',
-      'Evaluacion cardiovascular',
-      'Salud publica',
-    ],
-  };
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'NutriFit Calculator',
+  url: 'https://nutrifit-calculator.com/',
+  description: 'Calculadoras de nutrición y fitness con fórmulas científicas validadas.',
+  foundingDate: '2024',
+  knowsAbout: [
+    'Nutrición',
+    'Fitness',
+    'Composición corporal',
+    'Metabolismo basal',
+    'Evaluación cardiovascular',
+    'Salud pública',
+  ],
+};
 
+export default function EquipoPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={organizationJsonLd} />
       <Container size="xl" className="py-[4.236rem]">
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-md">
@@ -64,7 +61,7 @@ export default function EquipoPage() {
               Nuestro Equipo
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-              Profesionales comprometidos con la precision cientifica y la accesibilidad de la informacion de salud.
+              Profesionales comprometidos con la precisión científica y la accesibilidad de la información de salud.
             </p>
           </header>
 
@@ -72,12 +69,12 @@ export default function EquipoPage() {
             <h2 className="text-2xl font-semibold mb-[1.618rem]">Enfoque Multidisciplinar</h2>
             <p className="text-muted-foreground leading-[1.618]">
               NutriFit Calculator es desarrollado por un equipo multidisciplinar que combina conocimiento
-              en ciencias de la salud, nutricion, ejercicio y tecnologia. Cada calculadora y articulo
-              pasa por un proceso de revision que involucra a especialistas de cada area relevante.
+              en ciencias de la salud, nutrición, ejercicio y tecnología. Cada calculadora y artículo
+              pasa por un proceso de revisión que involucra a especialistas de cada área relevante.
             </p>
             <p className="text-muted-foreground leading-[1.618] mt-4">
-              Todo el contenido se basa en literatura cientifica publicada en revistas con revision por pares.
-              Las fuentes se citan con DOI verificable en cada pagina y articulo del{' '}
+              Todo el contenido se basa en literatura científica publicada en revistas con revisión por pares.
+              Las fuentes se citan con DOI verificable en cada página y artículo del{' '}
               <Link href="/blog/" className="text-info hover:underline font-medium">blog</Link>.
             </p>
           </section>
@@ -118,24 +115,24 @@ export default function EquipoPage() {
             <div className="grid gap-4 md:grid-cols-3">
               <div className="text-center">
                 <div className="text-3xl font-bold text-warning mb-2">30+</div>
-                <p className="text-sm text-muted-foreground">Calculadoras cientificas</p>
+                <p className="text-sm text-muted-foreground">Calculadoras científicas</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-warning mb-2">37+</div>
-                <p className="text-sm text-muted-foreground">Articulos con citas DOI</p>
+                <p className="text-sm text-muted-foreground">Artículos con citas DOI</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-warning mb-2">100+</div>
-                <p className="text-sm text-muted-foreground">Referencias cientificas</p>
+                <p className="text-sm text-muted-foreground">Referencias científicas</p>
               </div>
             </div>
           </section>
 
           <section className="text-center space-golden-sm">
-            <h2 className="text-2xl font-semibold mb-[1.618rem]">Conoce Mas</h2>
+            <h2 className="text-2xl font-semibold mb-[1.618rem]">Conoce Más</h2>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/sobre-nosotros/" className="text-info hover:underline font-medium">Metodologia Cientifica</Link>
-              <Link href="/" className="text-info hover:underline font-medium">Calculadora de Calorias</Link>
+              <Link href="/sobre-nosotros/" className="text-info hover:underline font-medium">Metodología Científica</Link>
+              <Link href="/" className="text-info hover:underline font-medium">Calculadora de Calorías</Link>
               <Link href="/blog/" className="text-info hover:underline font-medium">Blog</Link>
               <Link href="/imc/" className="text-info hover:underline font-medium">Calculadora IMC</Link>
             </div>

@@ -6,7 +6,6 @@ import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
 import { CalculatorBreadcrumbs } from '@/components/CalculatorBreadcrumbs';
-import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
 import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
@@ -137,7 +136,6 @@ export default function GrasaCorporalPage() {
 
   return (
     <>
-      <SchemaMarkup calculatorKey="grasa-corporal" />
       <CalculatorBreadcrumbs calculatorKey="grasa-corporal" className="container-golden mb-4 pt-4" />
 
       <Container size="xl" className="py-[4.236rem]">

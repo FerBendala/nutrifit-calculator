@@ -5,7 +5,6 @@ import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { NumberInput } from '@/components/NumberInput';
 import { CalculatorBreadcrumbs } from '@/components/CalculatorBreadcrumbs';
-import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -133,7 +132,6 @@ export default function BMRPage() {
 
   return (
     <>
-      <SchemaMarkup calculatorKey="bmr" />
       <CalculatorBreadcrumbs calculatorKey="bmr" className="container-golden mb-4 pt-4" />
 
       <Container size="xl" className="py-[4.236rem]">

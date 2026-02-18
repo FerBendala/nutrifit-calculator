@@ -18,16 +18,41 @@ export function generateWebApplicationSchema(): SchemaMarkup {
     url: 'https://nutrifit-calculator.com/',
     applicationCategory: 'HealthApplication',
     operatingSystem: 'Web Browser',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
     isAccessibleForFree: true,
+    softwareVersion: '1.0',
+    datePublished: '2024-08-01',
+    dateModified: new Date().toISOString().split('T')[0],
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'EUR'
     },
+    featureList: [
+      'Calculadora de calorías y macros',
+      'Calculadora de IMC',
+      'Calculadora de TDEE',
+      'Calculadora de proteína diaria',
+      'Calculadora de grasa corporal',
+      'Calculadora de peso ideal',
+      'Calculadora de masa muscular',
+      'Calculadora de ritmo cardíaco',
+      'Calculadora de hidratación',
+    ],
+    screenshot: 'https://nutrifit-calculator.com/images/og-default.png',
+    author: {
+      '@type': 'Organization',
+      name: 'NutriFit Calculator',
+      url: 'https://nutrifit-calculator.com/'
+    },
     publisher: {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
       url: 'https://nutrifit-calculator.com/'
+    },
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'Entusiastas del fitness, nutricionistas, atletas, personas interesadas en su salud'
     },
     inLanguage: 'es-ES'
   };

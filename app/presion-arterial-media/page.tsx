@@ -6,7 +6,6 @@ import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
 import { CalculatorBreadcrumbs } from '@/components/CalculatorBreadcrumbs';
-import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SocialShare } from '@/components/SocialShare';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -47,7 +46,6 @@ export default function PresionArterialMediaPage() {
 
   return (
     <>
-      <SchemaMarkup calculatorKey="presion-arterial-media" />
       <CalculatorBreadcrumbs calculatorKey="presion-arterial-media" className="container-golden mb-4 pt-4" />
 
       <Container size="xl" className="py-[4.236rem]">

@@ -1,3 +1,4 @@
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Container } from '@/components/Container';
 import { getCalculatorsByCategory } from '@/lib/calculators';
 import Link from 'next/link';
@@ -6,9 +7,11 @@ export default function NutricionCategoryPage() {
   const calculators = getCalculatorsByCategory('nutrition');
 
   return (
-    <Container size="xl" className="py-[4.236rem]">
-      <main className="max-w-5xl mx-auto space-golden-lg">
-        <header className="text-center space-golden-md">
+    <>
+      <Breadcrumbs items={[{ label: 'Nutrición' }]} className="container-golden mb-4 pt-4" />
+      <Container size="xl" className="py-[4.236rem]">
+        <main className="max-w-5xl mx-auto space-golden-lg">
+          <header className="text-center space-golden-md">
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
             Calculadoras de Nutrición
           </h1>
@@ -74,5 +77,6 @@ export default function NutricionCategoryPage() {
         </section>
       </main>
     </Container>
+    </>
   );
 }

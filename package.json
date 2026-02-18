@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/optimize-css.js",
+    "prebuild": "node scripts/generate-og-image.js && node scripts/generate-og-images.js",
+    "build": "npm run prebuild && next build && node scripts/optimize-css.js",
     "build:only": "next build",
     "build:analyze": "ANALYZE=true next build",
     "optimize-css": "node scripts/optimize-css.js",

@@ -20,7 +20,7 @@ export const SITE_CONFIG = {
  * @returns URL completa con trailing slash (ej: 'https://nutrifit-calculator.com/tdee/')
  */
 export function getCanonicalUrl(path: string): string {
-  const baseUrl = 'https://nutrifit-calculator.com';
+  const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
   
   // Normalizar path: eliminar trailing slash si existe
   const normalizedPath = path.endsWith('/') && path !== '/' 
@@ -254,8 +254,13 @@ export const PAGE_METADATA: Record<string, PageMetadata> = {
   }
 };
 
+function getOgImageUrl(page: string): string {
+  return `${SITE_CONFIG.url}/images/og/og-${page}.png`;
+}
+
 export function generateMetadata(page: keyof typeof PAGE_METADATA): Metadata {
   const pageData = PAGE_METADATA[page];
+  const ogImageUrl = getOgImageUrl(page);
 
   return {
     title: pageData.title,
@@ -272,7 +277,7 @@ export function generateMetadata(page: keyof typeof PAGE_METADATA): Metadata {
       siteName: SITE_CONFIG.name,
       images: [
         {
-          url: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: pageData.title,
@@ -285,62 +290,10 @@ export function generateMetadata(page: keyof typeof PAGE_METADATA): Metadata {
       card: 'summary_large_image',
       title: pageData.title,
       description: pageData.description,
-      images: [`${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`],
+      images: [ogImageUrl],
     },
     alternates: {
       canonical: `${SITE_CONFIG.url}${pageData.path}`
-    }
-  };
-}
-
-export function generateJsonLd(page: keyof typeof PAGE_METADATA) {
-  const pageData = PAGE_METADATA[page];
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: SITE_CONFIG.name,
-    applicationCategory: 'HealthApplication',
-    description: pageData.description,
-    url: `${SITE_CONFIG.url}${pageData.path}`,
-    operatingSystem: 'Web Browser',
-    isAccessibleForFree: true,
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    author: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: SITE_CONFIG.url
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'NutriFit Calculator',
-      url: SITE_CONFIG.url
-    },
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock'
-    },
-    featureList: [
-      'Calculadora de calorías y macros',
-      'Calculadora de IMC',
-      'Calculadora de TDEE',
-      'Calculadora de proteína diaria',
-      'Calculadora de grasa corporal',
-      'Calculadora de peso ideal',
-      'Calculadora de masa muscular',
-      'Calculadora de ritmo cardíaco',
-      'Calculadora de hidratación'
-    ],
-    screenshot: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
-    softwareVersion: '1.0',
-    datePublished: '2024-08-01',
-    dateModified: new Date().toISOString().split('T')[0],
-    inLanguage: 'es-ES',
-    audience: {
-      '@type': 'Audience',
-      audienceType: 'Fitness enthusiasts, nutritionists, athletes, health-conscious individuals'
     }
   };
 }

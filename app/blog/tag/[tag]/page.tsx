@@ -42,6 +42,14 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
       title: `Artículos con tag "${tagName}" | Blog NutriFit Calculator`,
       description: `Descubre todos nuestros artículos etiquetados con "${tagName}". Información profesional y basada en evidencia científica.`,
       type: 'website',
+      url: `${SITE_CONFIG.url}/blog/tag/${tagSlug}/`,
+      images: [{ url: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`, width: 1200, height: 630, alt: `Artículos: ${tagName}` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `Artículos con tag "${tagName}" | Blog NutriFit Calculator`,
+      description: `Descubre todos nuestros artículos etiquetados con "${tagName}".`,
+      images: [`${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`],
     },
     alternates: {
       canonical: getCanonicalUrl(`/blog/tag/${tagSlug}`),

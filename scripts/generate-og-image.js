@@ -1,0 +1,56 @@
+/**
+ * Genera la imagen OG por defecto para el sitio.
+ * Ejecutar: node scripts/generate-og-image.js
+ *
+ * Crea un PNG 1200x630 con el branding del sitio.
+ * Requiere: ningún dep extra (usa SVG → buffer approach via sharp si disponible,
+ * o genera un SVG estático como fallback).
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+const WIDTH = 1200;
+const HEIGHT = 630;
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#bg)"/>
+  <rect x="0" y="0" width="${WIDTH}" height="6" fill="url(#accent)"/>
+  <text x="600" y="260" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="700" fill="#f8fafc">NutriFit Calculator</text>
+  <text x="600" y="330" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#94a3b8">Calculadoras de Nutrición y Fitness</text>
+  <text x="600" y="390" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#64748b">Fórmulas científicas validadas · Resultados precisos · 100% Gratuitas</text>
+  <rect x="460" y="440" width="280" height="50" rx="25" fill="url(#accent)"/>
+  <text x="600" y="472" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#ffffff">nutrifit-calculator.com</text>
+</svg>`;
+
+const outDir = path.join(__dirname, '..', 'public', 'images');
+if (!fs.existsSync(outDir)) {
+  fs.mkdirSync(outDir, { recursive: true });
+}
+
+async function generate() {
+  try {
+    const sharp = require('sharp');
+    const buffer = Buffer.from(svg);
+    await sharp(buffer)
+      .png()
+      .toFile(path.join(outDir, 'og-default.png'));
+    console.log('OG image generated: public/images/og-default.png (PNG via sharp)');
+  } catch {
+    fs.writeFileSync(path.join(outDir, 'og-default.svg'), svg);
+    console.log('OG image generated: public/images/og-default.svg (SVG fallback - convert to PNG manually or install sharp)');
+    console.log('To generate PNG: npm install sharp && node scripts/generate-og-image.js');
+  }
+}
+
+generate();

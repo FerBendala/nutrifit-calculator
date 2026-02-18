@@ -76,7 +76,7 @@ export function generateHowToSchema(calculator: CalculatorConfig): SchemaMarkup 
     '@id': `${canonicalUrl}#howto`,
     name: `Cómo usar la ${calculator.title}`,
     description: `Guía paso a paso para usar la ${calculator.title} de forma efectiva`,
-    image: `https://nutrifit-calculator.com/api/og?title=${encodeURIComponent(calculator.title)}`,
+    image: `https://nutrifit-calculator.com/images/og-default.png`,
     totalTime: 'PT2M',
     estimatedCost: {
       '@type': 'MonetaryAmount',
@@ -230,14 +230,6 @@ export function generateWebsiteSchema(): SchemaMarkup {
       '@type': 'Organization',
       name: 'NutriFit Calculator',
       url: 'https://nutrifit-calculator.com/'
-    },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: 'https://nutrifit-calculator.com/?q={search_term_string}'
-      },
-      'query-input': 'required name=search_term_string'
     }
   };
 }
@@ -450,6 +442,206 @@ const CALCULATOR_FAQS: Record<string, Array<{ question: string; answer: string }
       question: '¿Cuál es un buen FFMI?',
       answer: 'Para hombres: 18-20 es promedio, 20-22 es bueno, 22-25 es excelente/atlético. Para mujeres: 15-17 es promedio, 17-19 es bueno, 19-21 es excelente. Valores por encima de 25 (hombres) o 22 (mujeres) son extremadamente raros naturalmente.'
     }
+  ],
+  fmi: [
+    {
+      question: '¿Qué es el FMI y en qué se diferencia del IMC?',
+      answer: 'El FMI (Fat Mass Index) mide solo la masa grasa relativa a tu altura, a diferencia del IMC que mezcla grasa y músculo. Esto lo hace más preciso para evaluar exceso de grasa corporal, especialmente en personas musculosas.'
+    },
+    {
+      question: '¿Cuáles son los rangos normales de FMI?',
+      answer: 'Para hombres: 3-6 kg/m² es normal. Para mujeres: 5-9 kg/m² es normal. Valores superiores indican exceso de grasa corporal. El FMI complementa al FFMI para un análisis completo de composición corporal.'
+    }
+  ],
+  whr: [
+    {
+      question: '¿Qué es el WHR y qué mide?',
+      answer: 'El WHR (Waist-to-Hip Ratio) es la relación entre la circunferencia de tu cintura y tu cadera. Según la OMS, valores superiores a 0.90 en hombres y 0.85 en mujeres indican obesidad abdominal y mayor riesgo cardiovascular.'
+    },
+    {
+      question: '¿Es mejor el WHR que el IMC para evaluar riesgo?',
+      answer: 'Sí, el WHR detecta mejor el riesgo cardiovascular que el IMC porque mide la distribución de grasa. Una persona con IMC normal puede tener WHR alto (grasa abdominal) y viceversa.'
+    }
+  ],
+  bai: [
+    {
+      question: '¿Cómo estima el BAI la grasa corporal sin báscula?',
+      answer: 'El BAI (Body Adiposity Index) usa solo la circunferencia de cadera y la altura para estimar el porcentaje de grasa corporal. Fue desarrollado por Bergman et al. (2011) como alternativa al IMC que no requiere peso.'
+    },
+    {
+      question: '¿Qué tan preciso es el BAI?',
+      answer: 'El BAI tiene una precisión moderada (±3-5%) y funciona mejor en mujeres que en hombres. Es útil cuando no se dispone de báscula, pero los métodos de pliegues cutáneos o bioimpedancia son más precisos.'
+    }
+  ],
+  rmr: [
+    {
+      question: '¿En qué se diferencia el RMR del BMR?',
+      answer: 'El RMR (Resting Metabolic Rate) incluye el gasto de actividades ligeras como estar sentado, mientras que el BMR (Basal Metabolic Rate) mide el gasto en reposo absoluto. El RMR es típicamente 10-20% mayor que el BMR y más práctico para planificar dietas.'
+    },
+    {
+      question: '¿Qué fórmula debo usar para calcular mi RMR?',
+      answer: 'La fórmula Mifflin-St Jeor es la más precisa para la mayoría de personas. Si conoces tu porcentaje de grasa corporal, la fórmula Katch-McArdle puede ser más precisa.'
+    }
+  ],
+  'masa-magra': [
+    {
+      question: '¿Qué es la masa magra (LBM)?',
+      answer: 'La masa magra (Lean Body Mass) es todo tu peso corporal excepto la grasa: incluye músculos, huesos, órganos, agua y tejido conectivo. Es un indicador más útil que el peso total para evaluar tu condición física.'
+    },
+    {
+      question: '¿Cómo se calcula la masa magra?',
+      answer: 'Se puede estimar restando la masa grasa del peso total. Existen fórmulas como Boer, James y Hume que la calculan directamente a partir de peso, altura y sexo, sin necesidad de medir grasa corporal.'
+    }
+  ],
+  'grasa-visceral': [
+    {
+      question: '¿Qué es la grasa visceral y por qué es peligrosa?',
+      answer: 'La grasa visceral (VAT) rodea los órganos internos del abdomen. A diferencia de la grasa subcutánea, la visceral produce hormonas inflamatorias que aumentan el riesgo de diabetes tipo 2, enfermedades cardiovasculares e hígado graso.'
+    },
+    {
+      question: '¿Cómo reducir la grasa visceral?',
+      answer: 'El ejercicio aeróbico es el método más efectivo, seguido del entrenamiento de fuerza. Una dieta con déficit calórico moderado y baja en azúcares refinados también reduce selectivamente la grasa visceral.'
+    }
+  ],
+  ci: [
+    {
+      question: '¿Qué es el Índice de Conicidad (CI)?',
+      answer: 'El CI (Conicity Index) evalúa la distribución de grasa comparando tu cintura con la circunferencia de un cilindro del mismo peso y altura. Fue propuesto por Valdez (1991) y valores cercanos a 1.0 son ideales; por encima de 1.25 indica alta acumulación abdominal.'
+    },
+    {
+      question: '¿Para qué sirve el CI en la práctica clínica?',
+      answer: 'El CI es un predictor independiente de riesgo cardiovascular y metabólico. Es especialmente útil en estudios epidemiológicos y complementa al IMC y WHR para evaluar obesidad central.'
+    }
+  ],
+  bri: [
+    {
+      question: '¿Qué mide el BRI (Body Roundness Index)?',
+      answer: 'El BRI estima la forma corporal como una elipse, usando cintura y altura. Valores cercanos a 1 indican cuerpo cilíndrico (bajo riesgo), mientras valores altos indican forma más redondeada con mayor grasa abdominal y riesgo metabólico.'
+    },
+    {
+      question: '¿Cuáles son los rangos de BRI?',
+      answer: 'Un BRI de 1-3 es generalmente saludable. Entre 3-5 indica riesgo moderado. Superior a 5 indica alto riesgo de síndrome metabólico y enfermedades cardiovasculares.'
+    }
+  ],
+  absi: [
+    {
+      question: '¿Qué es el ABSI y cómo predice la mortalidad?',
+      answer: 'El ABSI (A Body Shape Index) fue desarrollado por Krakauer & Krakauer (2012). Incorpora la circunferencia de cintura junto con el IMC y la altura para predecir riesgo de mortalidad. Un ABSI alto indica desproporción en la grasa abdominal.'
+    },
+    {
+      question: '¿Es el ABSI mejor que el IMC?',
+      answer: 'Sí, para predecir mortalidad el ABSI es superior al IMC porque captura la distribución de grasa. El IMC no distingue entre personas con la misma masa pero diferente distribución grasa.'
+    }
+  ],
+  bsa: [
+    {
+      question: '¿Qué es la BSA y para qué se usa en medicina?',
+      answer: 'La BSA (Body Surface Area) es el área total de la superficie corporal. Se usa principalmente para dosificar quimioterapia, calcular el índice cardíaco, estimar necesidades de fluidos en quemados y ajustar dosis de medicamentos.'
+    },
+    {
+      question: '¿Qué fórmula de BSA es más precisa?',
+      answer: 'La fórmula de Du Bois (1916) es la más utilizada históricamente. La de Mosteller es más simple y casi igual de precisa. Para pediatría, la fórmula de Haycock es preferida.'
+    }
+  ],
+  'peso-ajustado': [
+    {
+      question: '¿Cuándo se usa el peso ajustado (ABW)?',
+      answer: 'El ABW se usa cuando el peso real es significativamente mayor que el ideal, especialmente en pacientes con obesidad. Se aplica para calcular dosis de medicamentos, necesidades calóricas y proteicas de forma más precisa que usando el peso real.'
+    },
+    {
+      question: '¿Cómo se calcula el peso ajustado?',
+      answer: 'La fórmula más común es: ABW = Peso ideal + 0.25 × (Peso real - Peso ideal). El factor 0.25 refleja que el tejido adiposo tiene menor actividad metabólica que el tejido magro.'
+    }
+  ],
+  'edad-metabolica': [
+    {
+      question: '¿Qué es la edad metabólica?',
+      answer: 'La edad metabólica compara tu metabolismo basal (BMR) con el promedio de diferentes edades. Si tu BMR corresponde al promedio de alguien de 30 años pero tienes 40, tu edad metabólica es 30, lo que indica un metabolismo más joven.'
+    },
+    {
+      question: '¿Cómo puedo mejorar mi edad metabólica?',
+      answer: 'El entrenamiento de fuerza es el factor más importante, ya que aumenta la masa muscular que eleva el metabolismo. También ayudan el ejercicio cardiovascular regular, una dieta rica en proteínas y un buen descanso.'
+    }
+  ],
+  'presion-arterial-media': [
+    {
+      question: '¿Qué es la presión arterial media (MAP)?',
+      answer: 'La MAP es la presión promedio en las arterias durante un ciclo cardíaco completo. Se calcula como: MAP = PAD + 1/3 × (PAS - PAD). Valores entre 70-100 mmHg son normales. Es crucial para evaluar la perfusión de órganos.'
+    },
+    {
+      question: '¿Por qué es importante la MAP en la clínica?',
+      answer: 'Una MAP inferior a 60 mmHg puede causar isquemia en órganos vitales. En cuidados intensivos, se monitoriza para asegurar perfusión adecuada del cerebro, riñones y corazón.'
+    }
+  ],
+  'recuperacion-cardiaca': [
+    {
+      question: '¿Qué es la recuperación cardíaca (HRR)?',
+      answer: 'La HRR mide cuántas pulsaciones bajan en el primer minuto después de dejar de hacer ejercicio. Una caída de 12+ latidos/min al minuto 1 es normal. Menos de 12 puede indicar disfunción autonómica o bajo fitness cardiovascular.'
+    },
+    {
+      question: '¿Cómo mejorar mi recuperación cardíaca?',
+      answer: 'El ejercicio aeróbico regular (3-5 veces/semana) mejora la recuperación cardíaca al fortalecer el sistema nervioso parasimpático. En semanas, puedes ver mejoras significativas en tu HRR.'
+    }
+  ],
+  'densidad-osea': [
+    {
+      question: '¿Qué es el T-Score de densidad ósea?',
+      answer: 'El T-Score compara tu densidad ósea con la de un adulto joven sano. Según la OMS: mayor a -1 es normal, entre -1 y -2.5 es osteopenia (pérdida moderada), y menor a -2.5 es osteoporosis.'
+    },
+    {
+      question: '¿Quién debe hacerse una densitometría ósea?',
+      answer: 'Se recomienda para mujeres mayores de 65 años, hombres mayores de 70, y personas con factores de riesgo como menopausia precoz, uso prolongado de corticoides, fracturas previas o antecedentes familiares de osteoporosis.'
+    }
+  ],
+  egfr: [
+    {
+      question: '¿Qué es el eGFR y qué indica?',
+      answer: 'El eGFR (estimated Glomerular Filtration Rate) estima cuánta sangre filtran los riñones por minuto. Un eGFR mayor a 90 es normal. Entre 60-89 puede ser normal en ancianos. Menor a 60 indica enfermedad renal crónica.'
+    },
+    {
+      question: '¿Qué fórmula de eGFR es más precisa?',
+      answer: 'La CKD-EPI (2021) es la más recomendada actualmente. MDRD es útil cuando el eGFR es menor a 60. Cockcroft-Gault estima el aclaramiento de creatinina y se usa para ajustar dosis de medicamentos.'
+    }
+  ],
+  sarcopenia: [
+    {
+      question: '¿Qué es la sarcopenia?',
+      answer: 'La sarcopenia es la pérdida progresiva de masa muscular, fuerza y función física asociada al envejecimiento. Según los criterios EWGSOP2, se diagnostica combinando baja fuerza de agarre, baja masa muscular y bajo rendimiento físico.'
+    },
+    {
+      question: '¿A qué edad comienza la sarcopenia?',
+      answer: 'La pérdida muscular comienza a los 30 años (1-2% anual) y se acelera después de los 60. El sedentarismo, la dieta pobre en proteínas y enfermedades crónicas aceleran el proceso. El ejercicio de fuerza es la intervención más efectiva.'
+    }
+  ],
+  azucar: [
+    {
+      question: '¿Cuánto azúcar puedo consumir al día?',
+      answer: 'La OMS recomienda que los azúcares libres sean menos del 10% de las calorías diarias, e idealmente menos del 5%. Para una dieta de 2000 kcal, esto equivale a máximo 50g (ideal 25g) de azúcar al día.'
+    },
+    {
+      question: '¿Qué son los azúcares libres?',
+      answer: 'Son los azúcares añadidos a alimentos y bebidas por fabricantes o consumidores, más los presentes naturalmente en miel, jarabes y zumos de frutas. No incluyen los azúcares naturales de frutas enteras ni la lactosa de la leche.'
+    }
+  ],
+  sodio: [
+    {
+      question: '¿Cuánto sodio debo consumir al día?',
+      answer: 'La OMS recomienda menos de 2g de sodio al día (equivalente a 5g de sal). Si tienes hipertensión, se recomienda menos de 1.5g de sodio (3.75g de sal). La mayoría de personas consumen el doble de lo recomendado.'
+    },
+    {
+      question: '¿Cómo reducir el consumo de sodio?',
+      answer: 'El 75% del sodio viene de alimentos procesados y comidas fuera de casa. Cocinar en casa, leer etiquetas, usar especias en lugar de sal y elegir productos bajos en sodio son las estrategias más efectivas.'
+    }
+  ],
+  alcohol: [
+    {
+      question: '¿Qué es una unidad estándar de alcohol?',
+      answer: 'Una unidad estándar contiene 10g de alcohol puro. Equivale aproximadamente a: 250ml de cerveza (5%), 100ml de vino (12%) o 30ml de destilados (40%). La OMS recomienda no superar 2 unidades diarias.'
+    },
+    {
+      question: '¿Cuántas calorías tiene el alcohol?',
+      answer: 'El alcohol aporta 7 kcal/g, casi el doble que los carbohidratos. Una cerveza tiene ~150 kcal, una copa de vino ~120 kcal y un chupito ~100 kcal. Estas son calorías vacías sin valor nutricional.'
+    }
   ]
 };
 
@@ -483,6 +675,42 @@ export function generateFAQSchema(calculatorKey: string): SchemaMarkup | null {
   };
 }
 
+const CATEGORY_LABELS: Record<string, string> = {
+  'nutrition': 'Nutrición',
+  'body-composition': 'Composición Corporal',
+  'fitness': 'Fitness',
+  'health': 'Salud',
+};
+
+export function generateBreadcrumbSchema(calculator: CalculatorConfig): SchemaMarkup {
+  const canonicalUrl = getCanonicalUrl(calculator.href);
+  const categoryLabel = CATEGORY_LABELS[calculator.category] || calculator.category;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Inicio',
+        item: 'https://nutrifit-calculator.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: categoryLabel,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: calculator.title,
+        item: canonicalUrl,
+      },
+    ],
+  };
+}
+
 // Función principal para generar todos los schemas
 export function generateAllSchemas(calculator?: CalculatorConfig): SchemaMarkup[] {
   // Solo para la home: WebApplication + WebSite + FAQ
@@ -495,9 +723,11 @@ export function generateAllSchemas(calculator?: CalculatorConfig): SchemaMarkup[
     return schemas;
   }
 
-  // Para calculadoras individuales: solo SoftwareApplication + FAQ
-  // Eliminamos WebApplication, WebSite y HowTo para evitar overkill
-  const schemas = [generateCalculatorSchema(calculator)];
+  // Para calculadoras individuales: SoftwareApplication + BreadcrumbList + FAQ
+  const schemas = [
+    generateCalculatorSchema(calculator),
+    generateBreadcrumbSchema(calculator),
+  ];
   
   const faqSchema = generateFAQSchema(calculator.key);
   if (faqSchema) {

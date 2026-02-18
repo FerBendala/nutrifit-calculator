@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
         type: 'article',
         publishedTime: post.date,
         authors: [post.author],
-        url: `${SITE_CONFIG.url}/blog/${post.slug}`,
+        url: `${SITE_CONFIG.url}/blog/${post.slug}/`,
         images: post.image ? [
           {
             url: post.image.startsWith('http') ? post.image : `${SITE_CONFIG.url}${post.image}`,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       },
       keywords: [...post.tags, ...post.categories, 'nutrición', 'fitness', 'salud'].join(', '),
       alternates: {
-        canonical: `${SITE_CONFIG.url}/blog/${post.slug}`,
+        canonical: `${SITE_CONFIG.url}/blog/${post.slug}/`,
       },
     };
   } catch (error) {
@@ -108,9 +108,9 @@ export default async function PostPage({ params }: PostPageProps) {
     dateModified: post.date,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE_CONFIG.url}/blog/${post.slug}`,
+      '@id': `${SITE_CONFIG.url}/blog/${post.slug}/`,
     },
-    url: `${SITE_CONFIG.url}/blog/${post.slug}`,
+    url: `${SITE_CONFIG.url}/blog/${post.slug}/`,
     keywords: post.tags.join(', '),
     articleSection: post.categories.join(', '),
     wordCount: post.content.replace(/<[^>]*>/g, '').split(/\s+/).length,
@@ -142,13 +142,13 @@ export default async function PostPage({ params }: PostPageProps) {
         '@type': 'ListItem',
         position: 2,
         name: 'Blog',
-        item: `${SITE_CONFIG.url}/blog`,
+        item: `${SITE_CONFIG.url}/blog/`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: post.title,
-        item: `${SITE_CONFIG.url}/blog/${post.slug}`,
+        item: `${SITE_CONFIG.url}/blog/${post.slug}/`,
       },
     ],
   };

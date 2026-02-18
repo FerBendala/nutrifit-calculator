@@ -5,6 +5,7 @@ import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { NumberInput } from '@/components/NumberInput';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { CalculatorBreadcrumbs } from '@/components/CalculatorBreadcrumbs';
 import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SelectInput } from '@/components/SelectInput';
 import { SocialShare } from '@/components/SocialShare';
@@ -74,6 +75,7 @@ export default function RMRPage() {
   return (
     <>
       <SchemaMarkup calculatorKey="rmr" />
+      <CalculatorBreadcrumbs calculatorKey="rmr" className="container-golden mb-4 pt-4" />
 
       <Container size="xl" className="py-[4.236rem]">
 

@@ -98,10 +98,11 @@ export default function RootLayout({
           />
         )}
 
-        {/* Consent Mode por defecto (denied) */}
+        {/* Consent Mode por defecto (denied) - inline para ejecutarse antes de GTM */}
         {GTM_ID && (
-          <Script id="gtm-consent" strategy="beforeInteractive">
-            {`
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('consent', 'default', {
@@ -112,13 +113,14 @@ export default function RootLayout({
                 functionality_storage: 'granted',
                 security_storage: 'granted'
               });
-            `}
-          </Script>
+            `,
+            }}
+          />
         )}
 
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager - afterInteractive para no bloquear LCP/FCP */}
         {GTM_ID && (
-          <Script id="gtm-head" strategy="beforeInteractive">
+          <Script id="gtm-head" strategy="afterInteractive">
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -150,7 +152,7 @@ export default function RootLayout({
 
           <div className="relative flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
+            <div className="flex-1">{children}</div>
             <Footer />
           </div>
 

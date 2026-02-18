@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       title: `Artículos de ${categoryName} | Blog Calculadora Fitness`,
       description: `Descubre todos nuestros artículos sobre ${categoryName}. Información profesional y basada en evidencia científica.`,
       type: 'website',
-      url: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}`,
+      url: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}/`,
     },
     twitter: {
       card: 'summary_large_image',
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       description: `Descubre todos nuestros artículos sobre ${categoryName}. Información profesional y basada en evidencia científica.`,
     },
     alternates: {
-      canonical: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}`,
+      canonical: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}/`,
     },
   };
 }
@@ -85,7 +85,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     '@type': 'CollectionPage',
     name: `Artículos de ${categoryName}`,
     description: `Artículos sobre ${categoryName} del blog de Calculadora Fitness`,
-    url: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}`,
+    url: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}/`,
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: posts.length,
@@ -101,7 +101,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             name: post.author,
           },
           datePublished: post.date,
-          url: `${SITE_CONFIG.url}/blog/${post.slug}`,
+          url: `${SITE_CONFIG.url}/blog/${post.slug}/`,
         },
       })),
     },
@@ -118,13 +118,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           '@type': 'ListItem',
           position: 2,
           name: 'Blog',
-          item: `${SITE_CONFIG.url}/blog`,
+          item: `${SITE_CONFIG.url}/blog/`,
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: categoryName,
-          item: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}`,
+          item: `${SITE_CONFIG.url}/blog/categoria/${categorySlug}/`,
         },
       ],
     },

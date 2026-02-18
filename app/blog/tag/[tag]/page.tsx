@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
       type: 'website',
     },
     alternates: {
-      canonical: `${SITE_CONFIG.url}/blog/tag/${tagSlug}`,
+      canonical: `${SITE_CONFIG.url}/blog/tag/${tagSlug}/`,
     },
   };
 }
@@ -80,7 +80,7 @@ export default async function TagPage({ params }: TagPageProps) {
     '@type': 'CollectionPage',
     name: `Artículos con tag "${tagName}"`,
     description: `Artículos etiquetados con "${tagName}" del blog de Calculadora Fitness`,
-    url: `${SITE_CONFIG.url}/blog/tag/${tagSlug}`,
+    url: `${SITE_CONFIG.url}/blog/tag/${tagSlug}/`,
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: posts.length,
@@ -104,7 +104,7 @@ export default async function TagPage({ params }: TagPageProps) {
             },
           },
           datePublished: post.date,
-          url: `${SITE_CONFIG.url}/blog/${post.slug}`,
+          url: `${SITE_CONFIG.url}/blog/${post.slug}/`,
           image: post.image ? `${SITE_CONFIG.url}${post.image}` : `${SITE_CONFIG.url}/images/blog-default.jpg`,
         },
       })),
@@ -125,13 +125,13 @@ export default async function TagPage({ params }: TagPageProps) {
         '@type': 'ListItem',
         position: 2,
         name: 'Blog',
-        item: `${SITE_CONFIG.url}/blog`,
+        item: `${SITE_CONFIG.url}/blog/`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: tagName,
-        item: `${SITE_CONFIG.url}/blog/tag/${tagSlug}`,
+        item: `${SITE_CONFIG.url}/blog/tag/${tagSlug}/`,
       },
     ],
   };

@@ -329,7 +329,7 @@ export default function HomePage() {
                   <p className="text-sm text-foreground/90 leading-[1.618] mb-[0.618rem]">
                     Calculadora profesional para nutricionistas y médicos deportivos. Surplus calórico controlado basado en evidencia científica para ganancia muscular saludable.
                   </p>
-                  <a href="/" className="text-info hover:underline font-medium text-sm transition-colors">Calculadora médica de calorías →</a>
+                  <a href="#calculator" className="text-info hover:underline font-medium text-sm transition-colors">Calculadora médica de calorías →</a>
                 </article>
                 <article className="card-golden bg-card/50">
                   <h4 className="font-bold mb-[0.618rem] text-info flex items-center">
@@ -339,7 +339,7 @@ export default function HomePage() {
                   <p className="text-sm text-foreground/90 leading-[1.618] mb-[0.618rem]">
                     Distribución profesional de macronutrientes basada en estándares médicos. Utilizada por nutricionistas para planes alimentarios precisos.
                   </p>
-                  <a href="/" className="text-info hover:underline font-medium text-sm transition-colors">Calculadora médica de macros →</a>
+                  <a href="#calculator" className="text-info hover:underline font-medium text-sm transition-colors">Calculadora médica de macros →</a>
                 </article>
                 <article className="card-golden bg-card/50">
                   <h4 className="font-bold mb-[0.618rem] text-info flex items-center">

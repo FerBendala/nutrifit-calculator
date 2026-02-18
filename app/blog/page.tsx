@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'Blog de Nutrición y Fitness | Calculadora Fitness',
     description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
     type: 'website',
-    url: `${SITE_CONFIG.url}/blog`,
+    url: `${SITE_CONFIG.url}/blog/`,
     images: [
       {
         url: `${SITE_CONFIG.url}/images/blog-og.jpg`,
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     images: [`${SITE_CONFIG.url}/images/blog-og.jpg`],
   },
   alternates: {
-    canonical: `${SITE_CONFIG.url}/blog`,
+    canonical: `${SITE_CONFIG.url}/blog/`,
   },
 };
 
@@ -53,7 +53,7 @@ export default async function BlogPage() {
     '@type': 'Blog',
     name: 'Blog de Nutrición y Fitness',
     description: 'Artículos profesionales sobre nutrición, fitness y salud basados en evidencia científica.',
-    url: `${SITE_CONFIG.url}/blog`,
+    url: `${SITE_CONFIG.url}/blog/`,
     publisher: {
       '@type': 'Organization',
       name: SITE_CONFIG.name,
@@ -69,7 +69,7 @@ export default async function BlogPage() {
           name: post.author,
         },
         datePublished: post.date,
-        url: `${SITE_CONFIG.url}/blog/${post.slug}`,
+        url: `${SITE_CONFIG.url}/blog/${post.slug}/`,
         keywords: post.tags.join(', '),
       })),
     }),

@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   name: 'NutriFit Calculator - Calculadoras de Nutrición y Fitness',
   description: 'Calculadoras de nutrición y fitness con fórmulas científicas validadas. Calcula calorías, macros, grasa corporal, peso ideal y más. Resultados precisos y gratuitos.',
   url: 'https://nutrifit-calculator.com',
-  ogImage: '/api/og',
+  ogImage: '/images/og-default.png',
 };
 
 /**
@@ -272,7 +272,7 @@ export function generateMetadata(page: keyof typeof PAGE_METADATA): Metadata {
       siteName: SITE_CONFIG.name,
       images: [
         {
-          url: `${SITE_CONFIG.url}/api/og?title=${encodeURIComponent(pageData.title)}`,
+          url: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
           width: 1200,
           height: 630,
           alt: pageData.title,
@@ -285,7 +285,7 @@ export function generateMetadata(page: keyof typeof PAGE_METADATA): Metadata {
       card: 'summary_large_image',
       title: pageData.title,
       description: pageData.description,
-      images: [`${SITE_CONFIG.url}/api/og?title=${encodeURIComponent(pageData.title)}`],
+      images: [`${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`],
     },
     alternates: {
       canonical: `${SITE_CONFIG.url}${pageData.path}`
@@ -333,7 +333,7 @@ export function generateJsonLd(page: keyof typeof PAGE_METADATA) {
       'Calculadora de ritmo cardíaco',
       'Calculadora de hidratación'
     ],
-    screenshot: `${SITE_CONFIG.url}/api/og?title=${encodeURIComponent(pageData.title)}`,
+    screenshot: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
     softwareVersion: '1.0',
     datePublished: '2024-08-01',
     dateModified: new Date().toISOString().split('T')[0],

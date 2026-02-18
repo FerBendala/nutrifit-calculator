@@ -2,6 +2,7 @@ import { Container } from '@/components/Container';
 import { CalculatorNavigation } from '@/components/ContextualLinks';
 import { EmbedWidget } from '@/components/EmbedWidget';
 import { RelatedCalculators } from '@/components/RelatedCalculators';
+import { CalculatorBreadcrumbs } from '@/components/CalculatorBreadcrumbs';
 import { SchemaMarkup } from '@/components/SchemaMarkup';
 import { SocialShare } from '@/components/SocialShare';
 import { generateMetadata } from '@/lib/seo';
@@ -13,7 +14,8 @@ export default function WHtRPage() {
 
   return (
     <>
-      <SchemaMarkup />
+      <SchemaMarkup calculatorKey="whtr" />
+      <CalculatorBreadcrumbs calculatorKey="whtr" className="container-golden mb-4 pt-4" />
       <Container size="xl" className="py-[4.236rem]">
         <main className="max-w-5xl mx-auto space-golden-lg">
           <header className="text-center space-golden-lg pt-[2.618rem]">

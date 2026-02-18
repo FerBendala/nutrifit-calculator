@@ -1,9 +1,24 @@
 import { Container } from '@/components/Container';
-import { getCanonicalUrl } from '@/lib/seo';
+import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Términos de Uso - NutriFit Calculator',
   description: 'Términos y condiciones de uso de las calculadoras de fitness y nutrición.',
+  robots: 'index, follow',
+  openGraph: {
+    title: 'Términos de Uso - NutriFit Calculator',
+    description: 'Términos y condiciones de uso de las calculadoras de fitness y nutrición.',
+    type: 'website',
+    url: getCanonicalUrl('/terminos'),
+    siteName: SITE_CONFIG.name,
+    images: [{ url: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`, width: 1200, height: 630, alt: 'NutriFit Calculator' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Términos de Uso - NutriFit Calculator',
+    description: 'Términos y condiciones de uso de las calculadoras de fitness y nutrición.',
+  },
   alternates: {
     canonical: getCanonicalUrl('/terminos'),
   },

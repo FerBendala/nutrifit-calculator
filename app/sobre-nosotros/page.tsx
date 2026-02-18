@@ -10,7 +10,7 @@ export default function SobreNosotrosPage() {
             Sobre NutriFit Calculator
           </h1>
           <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
-            Calculadoras de salud y nutricion basadas en evidencia cientifica, accesibles para todos.
+            Calculadoras de salud y nutrición basadas en evidencia cientifica, accesibles para todos.
           </p>
         </header>
 

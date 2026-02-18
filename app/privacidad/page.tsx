@@ -1,9 +1,24 @@
 import { Container } from '@/components/Container';
-import { getCanonicalUrl } from '@/lib/seo';
+import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Política de Privacidad - NutriFit Calculator',
   description: 'Información sobre cómo recopilamos, usamos y protegemos tus datos personales en NutriFit Calculator.',
+  robots: 'index, follow',
+  openGraph: {
+    title: 'Política de Privacidad - NutriFit Calculator',
+    description: 'Información sobre cómo recopilamos, usamos y protegemos tus datos personales en NutriFit Calculator.',
+    type: 'website',
+    url: getCanonicalUrl('/privacidad'),
+    siteName: SITE_CONFIG.name,
+    images: [{ url: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`, width: 1200, height: 630, alt: 'NutriFit Calculator' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Política de Privacidad - NutriFit Calculator',
+    description: 'Información sobre cómo recopilamos, usamos y protegemos tus datos personales en NutriFit Calculator.',
+  },
   alternates: {
     canonical: getCanonicalUrl('/privacidad'),
   },

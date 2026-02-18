@@ -39,7 +39,7 @@ export default function HomePage() {
           {/* Hero Section */}
           <header className="text-center space-golden-md">
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-[1.618rem]">
-              Calculadora Profesional de Calorías y Macros
+              Calculadora de Calorías y Macros Gratis - Resultados en Segundos
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-[1.618] font-light">
               Calculadora médica profesional con fórmula Mifflin-St Jeor validada científicamente.

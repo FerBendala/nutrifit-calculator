@@ -1,9 +1,24 @@
 import { Container } from '@/components/Container';
-import { getCanonicalUrl } from '@/lib/seo';
+import { getCanonicalUrl, SITE_CONFIG } from '@/lib/seo';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Política de Cookies - NutriFit Calculator',
   description: 'Información detallada sobre el uso de cookies en NutriFit Calculator.',
+  robots: 'index, follow',
+  openGraph: {
+    title: 'Política de Cookies - NutriFit Calculator',
+    description: 'Información detallada sobre el uso de cookies en NutriFit Calculator.',
+    type: 'website',
+    url: getCanonicalUrl('/cookies'),
+    siteName: SITE_CONFIG.name,
+    images: [{ url: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`, width: 1200, height: 630, alt: 'NutriFit Calculator' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Política de Cookies - NutriFit Calculator',
+    description: 'Información detallada sobre el uso de cookies en NutriFit Calculator.',
+  },
   alternates: {
     canonical: getCanonicalUrl('/cookies'),
   },

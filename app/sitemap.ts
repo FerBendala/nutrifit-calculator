@@ -10,6 +10,8 @@ const HIGH_PRIORITY_CALCULATORS = new Set([
 ]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const lastModified = new Date();
+
   const indexables = Object.entries(PAGE_METADATA)
     .map(([key, page]) => {
       const priority =
@@ -24,6 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       return {
         url: `${BASE_URL}${page.path}`,
+        lastModified,
         changeFrequency,
         priority
       } as const;
@@ -36,6 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/calculadoras/salud/', priority: 0.8, changeFrequency: 'monthly' as const },
   ].map(p => ({
     url: `${BASE_URL}${p.path}`,
+    lastModified,
     changeFrequency: p.changeFrequency,
     priority: p.priority,
   }));
@@ -45,6 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/equipo/', priority: 0.6, changeFrequency: 'monthly' as const },
   ].map(p => ({
     url: `${BASE_URL}${p.path}`,
+    lastModified,
     changeFrequency: p.changeFrequency,
     priority: p.priority,
   }));
@@ -55,6 +60,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/cookies/', priority: 0.3, changeFrequency: 'yearly' as const },
   ].map(p => ({
     url: `${BASE_URL}${p.path}`,
+    lastModified,
     changeFrequency: p.changeFrequency,
     priority: p.priority,
   }));
@@ -68,6 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const blogRoutes = [{
       url: `${BASE_URL}/blog/`,
+      lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     }];
@@ -81,12 +88,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const categoryRoutes = categories.map(category => ({
       url: `${BASE_URL}/blog/categoria/${generateCategorySlug(category)}/`,
+      lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.6,
     }));
 
     const tagRoutes = tags.map(tag => ({
       url: `${BASE_URL}/blog/tag/${generateTagSlug(tag)}/`,
+      lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.5,
     }));

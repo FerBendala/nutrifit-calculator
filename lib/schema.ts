@@ -634,6 +634,10 @@ const CALCULATOR_FAQS: Record<string, Array<{ question: string; answer: string }
     {
       question: '¿Qué son los azúcares libres?',
       answer: 'Son los azúcares añadidos a alimentos y bebidas por fabricantes o consumidores, más los presentes naturalmente en miel, jarabes y zumos de frutas. No incluyen los azúcares naturales de frutas enteras ni la lactosa de la leche.'
+    },
+    {
+      question: '¿Dónde se esconde el azúcar en los alimentos?',
+      answer: 'Además de alimentos obvios como bebidas azucaradas y dulces, el azúcar está en salsas, pan de molde, cereales de desayuno, yogures aromatizados y productos light. Revisar la etiqueta nutricional es crucial.'
     }
   ],
   sodio: [
@@ -644,6 +648,10 @@ const CALCULATOR_FAQS: Record<string, Array<{ question: string; answer: string }
     {
       question: '¿Cómo reducir el consumo de sodio?',
       answer: 'El 75% del sodio viene de alimentos procesados y comidas fuera de casa. Cocinar en casa, leer etiquetas, usar especias en lugar de sal y elegir productos bajos en sodio son las estrategias más efectivas.'
+    },
+    {
+      question: '¿Sal y sodio es lo mismo?',
+      answer: 'No. La sal (cloruro sódico) contiene aproximadamente un 40% de sodio. Por tanto, 5g de sal equivalen a unos 2g de sodio. En las etiquetas suele figurar el sodio en mg.'
     }
   ],
   alcohol: [
@@ -654,6 +662,10 @@ const CALCULATOR_FAQS: Record<string, Array<{ question: string; answer: string }
     {
       question: '¿Cuántas calorías tiene el alcohol?',
       answer: 'El alcohol aporta 7 kcal/g, casi el doble que los carbohidratos. Una cerveza tiene ~150 kcal, una copa de vino ~120 kcal y un chupito ~100 kcal. Estas son calorías vacías sin valor nutricional.'
+    },
+    {
+      question: '¿Qué se considera consumo de bajo riesgo?',
+      answer: 'La OMS y guías sanitarias recomiendan no superar 2 unidades estándar al día para hombres y 1-2 para mujeres, con al menos 2 días sin alcohol a la semana. No existe un consumo totalmente seguro.'
     }
   ]
 };

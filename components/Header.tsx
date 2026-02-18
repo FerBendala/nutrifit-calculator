@@ -23,12 +23,12 @@ import { Apple, BarChart3, BookOpen, Dumbbell, HeartPulse, Menu } from 'lucide-r
 import Link from 'next/link';
 import { useState } from 'react';
 
-// Configuración de categorías con sus nombres en español
+// Configuración de categorías con sus nombres en español y URLs
 const CATEGORIES = [
-  { key: 'nutrition', name: 'Nutrición', icon: Apple },
-  { key: 'body-composition', name: 'Composición Corporal', icon: BarChart3 },
-  { key: 'fitness', name: 'Fitness', icon: Dumbbell },
-  { key: 'health', name: 'Salud', icon: HeartPulse },
+  { key: 'nutrition', name: 'Nutrición', icon: Apple, href: '/calculadoras/nutricion/' },
+  { key: 'body-composition', name: 'Composición Corporal', icon: BarChart3, href: '/calculadoras/composicion-corporal/' },
+  { key: 'fitness', name: 'Fitness', icon: Dumbbell, href: '/calculadoras/fitness/' },
+  { key: 'health', name: 'Salud', icon: HeartPulse, href: '/calculadoras/salud/' },
 ] as const;
 
 export function Header() {
@@ -63,14 +63,18 @@ export function Header() {
         const CategoryIcon = category.icon;
         return (
           <div key={category.key} className="space-y-3">
-            <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-muted/50 border-b border-border/50">
+            <Link
+              href={category.href}
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-muted/50 border-b border-border/50 hover:bg-muted transition-colors"
+            >
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10">
                 <CategoryIcon className="h-4 w-4 text-primary" />
               </div>
               <span className="text-sm font-semibold text-foreground uppercase tracking-wider">
                 {category.name}
               </span>
-            </div>
+            </Link>
             <div className="space-y-1.5 px-2">
               {categoryCalculators.map((calculator) => {
                 const Icon = calculator.icon;
@@ -135,12 +139,15 @@ export function Header() {
                         const CategoryIcon = category.icon;
                         return (
                           <div key={category.key} className="space-y-2.5">
-                            <div className="flex items-center gap-2 px-2 py-1.5 rounded-md bg-muted/50">
+                            <Link
+                              href={category.href}
+                              className="flex items-center gap-2 px-2 py-1.5 rounded-md bg-muted/50 hover:bg-muted/70 transition-colors"
+                            >
                               <CategoryIcon className="h-4 w-4 text-primary" />
                               <span className="text-xs font-semibold text-foreground uppercase tracking-wider">
                                 {category.name}
                               </span>
-                            </div>
+                            </Link>
                             <ul className="space-y-0.5">
                               {categoryCalculators.map((calculator) => (
                                 <li key={calculator.href}>

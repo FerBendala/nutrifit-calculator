@@ -36,7 +36,7 @@ export function PostContent({ post }: PostContentProps) {
             <div className="container mx-auto px-4 pb-12 max-w-5xl">
               <div className="space-y-4 text-white">
                 {/* Breadcrumbs */}
-                <nav className="flex items-center text-sm text-white/80">
+                <nav className="flex items-center text-sm text-white/80 mix-blend-difference">
                   <Link href="/" className="hover:text-white transition-colors flex items-center gap-2">
                     <ArrowLeft className="w-4 h-4" />
                     Inicio
@@ -54,7 +54,7 @@ export function PostContent({ post }: PostContentProps) {
                       key={category}
                       href={`/blog/categoria/${generateCategorySlug(category)}`}
                     >
-                      <Badge className="bg-white/90 text-foreground hover:bg-white transition-colors backdrop-blur-sm">
+                      <Badge className="bg-white/90 text-foreground hover:bg-white transition-colors backdrop-blur-sm text-black">
                         <FolderOpen className="w-3 h-3 mr-1" />
                         {category}
                       </Badge>
